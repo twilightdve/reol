@@ -1,0 +1,13 @@
+node_modules/
+.cache/
+public/~partytown
+public/icons
+public/*.*
+public/page-data
+public/static/data/archive/channels/*.json
+public/static/data/archive/videos/*.json
+public/static/data/master/*.json
+src/gatsby-types.d.ts
+credentials.json
+.env
+src/__generated__
