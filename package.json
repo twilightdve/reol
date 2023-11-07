@@ -12,7 +12,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "start-build": "http-server public/"
+    "start-build": "http-server public/",
+    "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "dependencies": {
     "@fontsource/cormorant": "5.0.8",
