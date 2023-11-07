@@ -1,0 +1,33 @@
+// 表示時アニメーション開始時の状態
+.enter {
+  color: "#ea6000";
+  background-color: black;
+  opacity: 1;
+}
+
+// 表示時アニメーション中の状態
+.enterActive {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+// 表示時アニメーション終了時の状態
+.enterDone {
+  opacity: 0;
+}
+
+// 非表示アニメーション開始時の状態
+.exit {
+  opacity: 0;
+}
+
+// 非表示アニメーション中の状態
+.exitActive {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+// 非表示アニメーション終了時の状態
+.exitDone {
+  opacity: 1;
+}
