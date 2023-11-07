@@ -39,7 +39,7 @@ jobs:
       - name: change directory
         run: |
           pwd
-          cd subdir
+          cd fansite
           pwd
       - name: Detect package manager
         id: detect-package-manager
