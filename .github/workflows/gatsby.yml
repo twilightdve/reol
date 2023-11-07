@@ -28,6 +28,7 @@ concurrency:
 defaults:
   run:
     shell: bash
+    working-directory: fansite
 
 jobs:
   # Build job
@@ -39,9 +40,6 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          pwd
-          cd fansite
-          pwd
           echo "manager=yarn" >> $GITHUB_OUTPUT
           echo "command=install" >> $GITHUB_OUTPUT
           exit 0
