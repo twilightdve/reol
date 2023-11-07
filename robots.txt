@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://reol.twilightea.com/sitemap.xml
+Host: https://reol.twilightea.com
