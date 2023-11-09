@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit",
     "start-build": "http-server public/",
     "predeploy": "gatsby clean && gatsby build && echo 'reol.twilightea.com' > ./public/CNAME",
-    "deploy": "gh-pages -d public -b gh-pages"
+    "deploy": "gh-pages -d public"
   },
   "dependencies": {
     "@fontsource/cormorant": "5.0.8",
