@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Timeline } from "react-twitter-widgets";
 import { FaXTwitter } from "react-icons/fa6";
-
 import UtilityService from "../../services/UtilityService";
 
 type Props = {

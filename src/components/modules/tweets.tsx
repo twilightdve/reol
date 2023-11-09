@@ -3,6 +3,7 @@ import { Tweet } from "react-twitter-widgets";
 import { Button, Spinner, Tabs, TabsRef } from "flowbite-react";
 
 import { GoLinkExternal } from "react-icons/go";
+import UtilityService from "../../services/UtilityService";
 
 type Props = {
   parentId: string;
