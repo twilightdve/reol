@@ -7,6 +7,7 @@
     "format": "fullAL",
     "siteUrl": "https://reol.jp/discography/detail/38/",
     "xfdUrl": "https://youtu.be/i6_IijehxIk",
+    "featureSiteUrl": "https://reol.jp/feature/al_blackbox",
     "posts": [
       {
         "discographyId": 29,
@@ -470,6 +471,7 @@
     "format": "SG",
     "siteUrl": "https://reol.jp/discography/detail/34/",
     "xfdUrl": "https://youtu.be/x1Hhyc9s0Qo",
+    "featureSiteUrl": "https://reol.jp/feature/kissaki",
     "posts": [
       {
         "discographyId": 28,
@@ -893,6 +895,7 @@
     "format": "SG",
     "siteUrl": "https://reol.jp/discography/detail/26/",
     "xfdUrl": "https://youtu.be/oxHIBypfYPE",
+    "featureSiteUrl": "https://www.sonymusic.co.jp/Music/Info/Reol/COLOREDDISC/",
     "posts": [
       {
         "discographyId": 25,
