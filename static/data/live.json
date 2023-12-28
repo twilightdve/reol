@@ -1,6 +1,80 @@
 [
   {
-    "liveId": 45,
+    "liveId": 47,
+    "type": "oneman",
+    "title": "Reol Oneman Live「No title」",
+    "name": "Reol",
+    "date": "2024-08-17",
+    "siteUrl": "https://reol.jp/feature/no_title",
+    "posts": [],
+    "items": [
+      {
+        "liveId": 47,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2024-08-17",
+        "place": "日本武道館",
+        "placeSite": "https://www.nipponbudokan.or.jp/",
+        "address": "〒102-8321 東京都千代田区北の丸公園2番3号",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.345893300968!2d139.7507088!3d35.6931049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c6b81cbf4d5%3A0x1b07be5a5a19fb50!2z44CSMTAyLTAwOTEg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65YyX44Gu5Li45YWs5ZyS77yS4oiS77yT!5e0!3m2!1sja!2sjp!4v1703788576226!5m2!1sja!2sjpp",
+        "setList": [
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1739250879679844702",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2024/8/17  親愛なる君へ <a href=\"https://t.co/1PqK2wLK7y\">pic.twitter.com/1PqK2wLK7y</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739250879679844702?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1739251092326859251",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2024年8月17日(土)<br>Reol Oneman Live「No title」<br>日本武道館<br><br>Reol初の武道館公演、開催致します<a href=\"https://twitter.com/hashtag/Reol%E6%AD%A6%E9%81%93%E9%A4%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol武道館</a> <a href=\"https://t.co/hJwjBagOm5\">pic.twitter.com/hJwjBagOm5</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739251092326859251?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1739255994948194397",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">武道館公演を記念して「No title-」アナログ盤の発売が決定しました！<br>完全限定生産・カラーヴァイナル仕様です<br><br>本日よりLegit会員を対象に、チケットぴあにてアナログ盤付きチケットの最速先行申込みを受付中🎫<a href=\"https://t.co/dcVSBkTMfD\">https://t.co/dcVSBkTMfD</a><br>※一般発売の有無については後日発表となります<a href=\"https://twitter.com/hashtag/Reol%E6%AD%A6%E9%81%93%E9%A4%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol武道館</a> <a href=\"https://t.co/i3NDcp6bhx\">pic.twitter.com/i3NDcp6bhx</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1739255994948194397?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "1739266704960893340",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">そして、リリースから十周年を記念してNo title-レコードも作ります💿<br>今回限りの完全限定生産ですので絶対ゲットしてください <a href=\"https://twitter.com/hashtag/%E3%81%82%E3%81%AB%E3%82%87%E3%81%99%E3%81%BA%E3%81%AB%E3%82%87%E3%81%99%E3%82%83%E3%82%83?src=hash&amp;ref_src=twsrc%5Etfw\">#あにょすぺにょすゃゃ</a> <a href=\"https://t.co/SprrbdL7IE\">https://t.co/SprrbdL7IE</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739266704960893340?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 47,
+            "liveItemNo": 1,
+            "liveItemPostNo": 5,
+            "liveItemPostId": "1739254728029356368",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol初の日本武道館ワンマン決定、デビューアルバムの10年越しリリースパーティ<a href=\"https://t.co/rRALWsmSCP\">https://t.co/rRALWsmSCP</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a></p>&mdash; 音楽ナタリー (@natalie_mu) <a href=\"https://twitter.com/natalie_mu/status/1739254728029356368?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "liveId": 47,
+        "liveReportNo": 1,
+        "liveReportName": "Reol初の日本武道館ワンマン決定、デビューアルバムの10年越しリリースパーティ",
+        "liveReportUrl": "https://natalie.mu/music/news/554788"
+      }
+    ]
+  },
+  {
+    "liveId": 46,
     "type": "event",
     "title": "ANIPLEX 20th Anniversary Event -THANX-",
     "name": "Reol",
@@ -9,7 +83,7 @@
     "posts": [],
     "items": [
       {
-        "liveId": 45,
+        "liveId": 46,
         "liveItemNo": 1,
         "liveItemName": "",
         "date": "2024-01-07",
@@ -17,16 +91,54 @@
         "placeSite": "https://www.zepp.co.jp/hall/divercity/",
         "address": "〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1208284605586!2d139.77201597578517!3d35.62474767260555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2zWmVwcCDjg4DjgqTjg5Djg7zjgrfjg4bjgqPmnbHkuqw!5e0!3m2!1sja!2sjp!4v1697990250505!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 46,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": [
           {
-            "liveId": 45,
+            "liveId": 46,
             "liveItemNo": 1,
             "liveItemPostNo": 1,
             "liveItemPostId": "1700753195503652968",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹LIVE情報🔹<br><br>『ANIPLEX 20th Anniversary Event -THANX-』に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定しました！<br> <br>🗓2024.1.7(日)<br>📍東京ガーデンシアター<br>🎫2023.10.10日(火)よりチケット発売予定<br>🔗<a href=\"https://t.co/VaXhUD5saR\">https://t.co/VaXhUD5saR</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1700753195503652968?ref_src=twsrc%5Etfw\">September 10, 2023</a></blockquote>"
           }
         ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "liveId": 45,
+    "type": "event",
+    "title": "COUNTDOWN JAPAN 23/24",
+    "name": "Reol",
+    "date": "2023-12-29",
+    "siteUrl": null,
+    "posts": [],
+    "items": [
+      {
+        "liveId": 45,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2023-12-29",
+        "place": "幕張メッセ",
+        "placeSite": "https://www.m-messe.co.jp/",
+        "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+        "setList": [
+          {
+            "liveId": 45,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
+        "posts": []
       }
     ],
     "reports": []
@@ -68,6 +180,24 @@
         "livePostNo": 5,
         "livePostId": "1719656135144374467",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ブラックボックスは鍵もめちゃ可愛です<br>絶対ゲトしてね🔑✨✨ Design by <a href=\"https://twitter.com/punch6789?ref_src=twsrc%5Etfw\">@punch6789</a> <a href=\"https://t.co/SdjVinY3ma\">https://t.co/SdjVinY3ma</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1719656135144374467?ref_src=twsrc%5Etfw\">November 1, 2023</a></blockquote>"
+      },
+      {
+        "liveId": 44,
+        "livePostNo": 6,
+        "livePostId": "1730567437911986633",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">UNBOX ASIA TOUR!!!<br>LET&#39;S GOOOOO🥹🥹🥹❤️‍🔥 <a href=\"https://t.co/EcWr6XbF2Y\">https://t.co/EcWr6XbF2Y</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1730567437911986633?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+      },
+      {
+        "liveId": 44,
+        "livePostNo": 7,
+        "livePostId": "1732359440333193613",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> ポーン<br>UNBOX pureへご搭乗の皆様へ機内アナウンスです🛬<br><br>・ver pureはネタバレ上等を謳わせていただいております、終演直後の熱量のままでご感想のポスト大歓迎！<br>・ご声援もちろん解禁😈<br>・機内撮影は原則NG、終演後photo OKの幕時、許可時は撮影OK👌</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1732359440333193613?ref_src=twsrc%5Etfw\">December 6, 2023</a></blockquote>"
+      },
+      {
+        "liveId": 44,
+        "livePostNo": 8,
+        "livePostId": "1732360090530041896",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">pure開場時BGM(for OITA)<br>「音楽への初期衝動を思い出す曲」縛りでチームスタッフと選曲した🎧<br><br>プレイリスト変わってく予定😈 <a href=\"https://t.co/zhGkDmdSsc\">pic.twitter.com/zhGkDmdSsc</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1732360090530041896?ref_src=twsrc%5Etfw\">December 6, 2023</a></blockquote>"
       }
     ],
     "items": [
@@ -80,8 +210,72 @@
         "placeSite": "http://www.festivalhall.jp/",
         "address": "〒530-0005 大阪府大阪市北区中之島２丁目３−１８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.4594894085476!2d135.4969513!3d34.6935888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6f1bf451d73%3A0x79284ec9f5029055!2z44OV44Kn44K544OG44Kj44OQ44Or44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823280304!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1725765922483564979",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">UNBOX TOUR遂に開幕致します<br>本日はネタバレ厳禁black公演初日<br>at 大阪フェスティバルホール<br><br>どうぞ、よろしおす🐦‍⬛🗃️<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/2vFFqAQZV8\">pic.twitter.com/2vFFqAQZV8</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1725765922483564979?ref_src=twsrc%5Etfw\">November 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1725840957869031462",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> 初日大阪開梱🗃️<br><br>絶頂の初日を迎えることができました！大阪はうちらを焚き付けるのがお上手、最高だったよ　歓声にのってどこまでも飛べそうです　秘密の夜行black公演、お次は12月1日福岡行き🛫<br><br>see you next time!! <a href=\"https://t.co/5tn3PvJsvX\">pic.twitter.com/5tn3PvJsvX</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1725840957869031462?ref_src=twsrc%5Etfw\">November 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1725841980092297635",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Airline OSAKA Festival Hall行き<br>ご搭乗ありがとうございました🪶<br><br>Bass / Ryosuke Nikamoto<br>Drums / Shunske Uehara<br><br>Choreography &amp; Dance /<br>Ayane Nakagawa, Shimpei Nemoto<br>Dance / Tatsuro, Haruka Tanada<br><br>All produced by Reol <a href=\"https://t.co/IKGlOpGkny\">pic.twitter.com/IKGlOpGkny</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1725841980092297635?ref_src=twsrc%5Etfw\">November 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "1725927517910188265",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ツアー初日無事終演🙏<br>引き続き何卒🥁<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/mQMbODoRzF\">https://t.co/mQMbODoRzF</a></p>&mdash; 上原俊亮 (@shunsukedrums) <a href=\"https://twitter.com/shunsukedrums/status/1725927517910188265?ref_src=twsrc%5Etfw\">November 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 5,
+            "liveItemPostId": "1725917521247953145",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今回ダンサーとして参加させていただいています🛫<br>初日大阪無事終了いたしました🫶🏼<br>次は福岡、頑張ります🗃️<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/fnsLbR0S4g\">https://t.co/fnsLbR0S4g</a></p>&mdash; tatsuro (@tatsurobob) <a href=\"https://twitter.com/tatsurobob/status/1725917521247953145?ref_src=twsrc%5Etfw\">November 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 6,
+            "liveItemPostId": "1726187936318943306",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol UNBOXツアー black初日明けました👏✨✨大阪ありがとうございました！！<br>振付&amp;ダンサーとして搭乗させていただいております✈️<br>これからどんな旅になるか楽しみすぎます！<br>頑張ります🫡声出していきましょうーーっ<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/kBpoBWPlg9\">https://t.co/kBpoBWPlg9</a></p>&mdash; 根本 紳平(ぺー) (@shimp_mn) <a href=\"https://twitter.com/shimp_mn/status/1726187936318943306?ref_src=twsrc%5Etfw\">November 19, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 7,
+            "liveItemPostId": "1726451478670500095",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> ポーン<br>初日終わりましたので機内アナウンスです🛬<br><br>・ver blackは2/18横浜行きまでネタバレ厳禁を謳わせていただいております、皆様のご協力に感謝致します✨✨<br>・ご声援大歓迎！！！<br>・機内撮影は原則NGとなっておりますが、終演後はphoto OKの幕をご用意しました記念にどうぞ！</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1726451478670500095?ref_src=twsrc%5Etfw\">November 20, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 1,
+            "liveItemPostNo": 8,
+            "liveItemPostId": "1726798028013793717",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman LIVE 2023/24<br>UNBOX black 始まりました🗃️🗃️🗃️<br><br>待ちに待った声出し解禁‼️<br>大きな歓声...凄かったな。<br>素敵な夜でした🌛<br><br>まだまだ味わい足りない。<br>もっともっと。<br><br>次は、福岡。<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/9PT6EL1Lyw\">https://t.co/9PT6EL1Lyw</a></p>&mdash; 中川絢音(水中めがね∞) (@aoooooooooo6) <a href=\"https://twitter.com/aoooooooooo6/status/1726798028013793717?ref_src=twsrc%5Etfw\">November 21, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -92,8 +286,65 @@
         "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
         "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823293414!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1730455800634851341",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a><br><br>UNBOX TOUR for FUKUOKA<br>本日はネタバレ厳禁version blackです<br>at ゼップフクオカ<br><br>いざ開梱🕳️🕳️🕳️🔨⛏️🐦‍⬛ <a href=\"https://t.co/tKbYIQzhD6\">pic.twitter.com/tKbYIQzhD6</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1730455800634851341?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1730556314416460242",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> 002便福岡開梱🗃️<br><br>UNBOX black二夜目は福岡　みんなの感情が、声が、想いが呼応して最高の夜行になりました　今夜のMVPは紛れもなくあなたたち！最高をくれてありがとう❤️‍🔥<br>秘密の夜行black公演は暫くお預け、明日はver pure12月2日大分初日🛫<br><br>love you all!! <a href=\"https://t.co/sSFC0LGh7x\">pic.twitter.com/sSFC0LGh7x</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1730556314416460242?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1730570413154177264",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2023/24<br>UNBOX black 福岡公演<br>at Zepp Fukuoka<br><br>無事に終わりましたーーー👏<br>福岡公演って、何かと特別な事が起こってくれます。<br>今日も特別でした🌃✨<br><br>特別にしてくれた全ての出来事と、皆様に感謝です。<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/cGVsfERvKx\">https://t.co/cGVsfERvKx</a></p>&mdash; 中川絢音(水中めがね∞) (@aoooooooooo6) <a href=\"https://twitter.com/aoooooooooo6/status/1730570413154177264?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "1730571090211348788",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">UNBOX black<br>福岡公演も無事終了しました!<br>今日もめちゃくちゃ楽しかった〜😌<br>ありがとうございました🫶🏼✈️<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/ojpfUJdHq0\">https://t.co/ojpfUJdHq0</a></p>&mdash; tatsuro (@tatsurobob) <a href=\"https://twitter.com/tatsurobob/status/1730571090211348788?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 5,
+            "liveItemPostId": "1730585417899204640",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">二日目無事終演🥁<br>引き続き🙏<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/2BGS7Mdqfn\">https://t.co/2BGS7Mdqfn</a></p>&mdash; 上原俊亮 (@shunsukedrums) <a href=\"https://twitter.com/shunsukedrums/status/1730585417899204640?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 6,
+            "liveItemPostId": "1730570585028399466",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol  UNBOX black @ ZEPP FUKUOKA<br>参加させていただきました！<br>激情アラートぶり、本日のみの参加ですが全身全霊全力で演奏させていただきました🔥皆さまと共に過ごせた夜、最高に楽しかったです。ありがとうございました！<a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> <a href=\"https://t.co/Fo4NLK53Uj\">pic.twitter.com/Fo4NLK53Uj</a></p>&mdash; 芳井 雅人 (@masato0729bass) <a href=\"https://twitter.com/masato0729bass/status/1730570585028399466?ref_src=twsrc%5Etfw\">December 1, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 2,
+            "liveItemPostNo": 7,
+            "liveItemPostId": "1733080704752455996",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">UNBOX福岡大分旅日記🖋️ <a href=\"https://t.co/LKiUj8xWKc\">https://t.co/LKiUj8xWKc</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1733080704752455996?ref_src=twsrc%5Etfw\">December 8, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -104,8 +355,158 @@
         "placeSite": "https://www.oita-tops.com/bittshall",
         "address": "〒870-0003 大分県大分市生石５丁目３−７８３",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3336.720982884769!2d131.5875461!3d33.247612399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3546a1ce953a5a95%3A0x44bf21450334a8de!2z44OI44OD44OX44K544OT44OD44OE44Ob44O844Or77yI77y077yO77yv77yO77yw77yO77yz77yi772J772U772U772T77yo77yh77ys77ys77yJ!5e0!3m2!1sja!2sjp!4v1697823306177!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "Final Call"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "DetaramE KiddinG"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "さよならのすゝめ、今日のつづき"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "ちるちる"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "アシンメトリー"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ギミアブレスタッナウ"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1729065809014841569",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a><br><br>UNBOXピュアのリハーサルはじめました<br>既にたのしい待ってろ大分~~🛫<br>れをる史上初めての大分です、12月2日です、たのしみです🔰🔰 <a href=\"https://t.co/5vL7Lhlu7z\">pic.twitter.com/5vL7Lhlu7z</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1729065809014841569?ref_src=twsrc%5Etfw\">November 27, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1730787875200090341",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a><br><br>UNBOX TOUR ver pure！<br>遂に幕開け、初日大分公演🌊<br>blackと違いネタバレ上等となりますので終演後は御感想飛び交うとおもいますがあしからず、なかよく<br><br>白箱開梱よろしおす🐁🔮 <a href=\"https://t.co/0aMatCY8YX\">pic.twitter.com/0aMatCY8YX</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1730787875200090341?ref_src=twsrc%5Etfw\">December 2, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1730894252912292185",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 遂に幕開け初日大分🛫<br><br>最高〜すぎる初日をいただいてしまいどうしようという思いです！今日集まってくれたあなた一人一人と、タイマン勝負で命をぶつけあって、あの瞬間完全にうちらが一番煌めいて光ってた　ここからのpureもどうぞよろしく　大分開梱！ネクスト静岡！<br><br>see you again💖 <a href=\"https://t.co/AQ1hD9j8AT\">pic.twitter.com/AQ1hD9j8AT</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1730894252912292185?ref_src=twsrc%5Etfw\">December 2, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 3,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "1731197165010370821",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">pure <a href=\"https://t.co/UqDOwqfXmk\">pic.twitter.com/UqDOwqfXmk</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1731197165010370821?ref_src=twsrc%5Etfw\">December 3, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -116,8 +517,144 @@
         "placeSite": "https://live-roxy.com/",
         "address": "〒420-0851 静岡県静岡市葵区黒金町２８−１−２",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.448413382188!2d138.3860067!3d34.9704312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a49f6d3386ae3%3A0x4f4e2e7eb8811e69!2sLIVE%20ROXY%20SHIZUOKA!5e0!3m2!1sja!2sjp!4v1697823321907!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "Final Call"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "DetaramE KiddinG"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "さよならのすゝめ、今日のつづき"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "ちるちる"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ギミアブレスタッナウ"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1733430679336354282",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 祝開梱お初・静岡！<br><br>満員御礼、圧巻の愛情表現をどうもありがとう　天井突き抜けるかと思うほどの盛り上がりしかと受け止めました！無垢むきだしでいっしょに音楽できたかけがえのない夜　また来ます、vep pureお次は明日神戸にて開梱です<br><br>thank you for flying🛫✨ <a href=\"https://t.co/ILbPoV6dZP\">pic.twitter.com/ILbPoV6dZP</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1733430679336354282?ref_src=twsrc%5Etfw\">December 9, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 4,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1733430462390186143",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2023/24<br>UNBOX pure 静岡公演<br><br>at LIVE ROXY SHIZUOKA<br><br>pure弍夜目、絶頂なライヴをありがとうございました！皆様の綺羅なお顔が焼きついて離れません✨<br><br>pureエクスプレスは西へ🚄明日12月10日・兵庫に上陸！<a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> <a href=\"https://t.co/NNkRy7Vm3A\">pic.twitter.com/NNkRy7Vm3A</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1733430462390186143?ref_src=twsrc%5Etfw\">December 9, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -128,8 +665,144 @@
         "placeSite": "http://harbor-studio.net/",
         "address": "〒650-0042 兵庫県神戸市中央区波止場６−３",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8146321695017!2d135.1850968!3d34.6846276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f0228655555%3A0xfc96682fa0f83aeb!2z56We5oi4SGFyYm9yIFN0dWRpbw!5e0!3m2!1sja!2sjp!4v1697823338775!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "Final Call"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "DetaramE KiddinG"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "さよならのすゝめ、今日のつづき"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "ちるちる"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ギミアブレスタッナウ"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1733794739143799167",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 初開梱・神戸！<br><br>本日も満員御礼、我々は飛びました　いろんな日常を超越して今日に辿り着いて一緒に歌ってくれておおきに　こんな日のために生きているよね　ご搭乗ありがとうございました！毎度！<br><br>next flight MATSUYAMA🛫🍡 <a href=\"https://t.co/qKxiw9Oqn5\">pic.twitter.com/qKxiw9Oqn5</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1733794739143799167?ref_src=twsrc%5Etfw\">December 10, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 5,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1734136867308851400",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">【ライブレポート】Reol『Reol Oneman Live 2023/24 UNBOX pure』神戸公演のライブレポートが到着<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/THEFIRSTTIMES?src=hash&amp;ref_src=twsrc%5Etfw\">#THEFIRSTTIMES</a> <a href=\"https://twitter.com/RRReol?ref_src=twsrc%5Etfw\">@RRReol</a><br><br>▼写真・記事の詳細はこちら<a href=\"https://t.co/J00dCEZS51\">https://t.co/J00dCEZS51</a></p>&mdash; THE FIRST TIMES_NEWS (@The_FirstTimesN) <a href=\"https://twitter.com/The_FirstTimesN/status/1734136867308851400?ref_src=twsrc%5Etfw\">December 11, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -140,8 +813,144 @@
         "placeSite": "http://red.double-ustudio.com/",
         "address": "〒790-0012 愛媛県松山市湊町４丁目１０−８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.071514890211!2d132.7649873!3d33.836266300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354fe58cbd8a4289%3A0x5208eab83998c79d!2sW%20studio%20RED!5e0!3m2!1sja!2sjp!4v1697823350698!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "Final Call"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "DetaramE KiddinG"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "さよならのすゝめ、今日のつづき"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "ちるちる"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "失楽園"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "RE:"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1735869748204941676",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 四国へランディング🛬<br>年内のUNBOX ver pureは本日愛媛・松山、明日香川・高松にて締めくくり成！<br>綺羅めく開梱よろしおす〜 <a href=\"https://t.co/u3MAjGtMlf\">pic.twitter.com/u3MAjGtMlf</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1735869748204941676?ref_src=twsrc%5Etfw\">December 16, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 6,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1735967023161917644",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 初上陸・愛媛松山！<br><br>遂に上陸愛媛開梱！ひとりひとりの君がずっと繋いでくれてた縁のおかげで来れたよ　大歓迎大感謝　抱えきれない愛は伝わっただろうか　こちらははちゃめちゃ伝わりましたオーバー　明日は香川高松へ飛行🛫<br><br>to be continued. <a href=\"https://t.co/WmqPkokAEb\">pic.twitter.com/WmqPkokAEb</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1735967023161917644?ref_src=twsrc%5Etfw\">December 16, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -152,8 +961,137 @@
         "placeSite": "https://www.dime-dime.com/",
         "address": "〒760-0051 香川県高松市南新町１−４ ５階",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3294.354809280077!2d134.046771!3d34.341447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9983de121d%3A0x806b84bf4ee8098a!2z6auY5p2-IERpTUU!5e0!3m2!1sja!2sjp!4v1697823366846!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "Final Call"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "DetaramE KiddinG"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "さよならのすゝめ、今日のつづき"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "ちるちる"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "オオエドランヴ"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "Q?"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 7,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1736330643829899426",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E7%99%BD%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol白箱</a> 23pure納め・香川高松<br><br>ステージから見える君たちの人生が光って、巡り逢えた表情に泣けた夜でした　最高だったずっと続いて欲しかった　でもまた会えるよね　次に会うときのわたしもっと無敵にしておきますね、うちら絶対大丈夫なんで<br><br>thank you 2023, love you pure.<br>次回、名古屋black🛫 <a href=\"https://t.co/HLsD7AHb7U\">pic.twitter.com/HLsD7AHb7U</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1736330643829899426?ref_src=twsrc%5Etfw\">December 17, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -164,8 +1102,30 @@
         "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
         "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 8,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 8,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1738868736978026596",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> UNBOX black003名古屋<br>満員御礼、最高潮な大歓迎をどうもありがと！今夜は今までよりもっと近くなれた夜でした　秘密の夜行black公演、明日は年内ラスト東京・人見記念講堂です<br><br>現地組でない皆様も二十時からの中継配信に必ず必ず！お集まりください、ではまた明日の夜に🌕<br><br>coming soon. <a href=\"https://t.co/TJ0SUh8lxx\">pic.twitter.com/TJ0SUh8lxx</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1738868736978026596?ref_src=twsrc%5Etfw\">December 24, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 8,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1738881547602960510",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">な 其の四(メリクリイヴ) <a href=\"https://t.co/qeNj5r56S3\">pic.twitter.com/qeNj5r56S3</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1738881547602960510?ref_src=twsrc%5Etfw\">December 24, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -176,8 +1136,44 @@
         "placeSite": "https://hall.swu.ac.jp/",
         "address": "〒154-8533 東京都世田谷区太子堂１丁目７−５７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.318044122612!2d139.67622409999998!3d35.644535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f4a40eeaaecd%3A0x8d49cb295c3a8853!2z5pit5ZKM5aWz5a2Q5aSn5a2mIOS6uuimi-iomOW_teism-Wggg!5e0!3m2!1sja!2sjp!4v1697823399919!5m2!1sja!2sjp",
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 9,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 44,
+            "liveItemNo": 9,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1736705974940115222",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2023/12/25 20:00放送開始<br>「無題」<br><br>ニコニコ生放送<a href=\"https://t.co/u9yZZelgCi\">https://t.co/u9yZZelgCi</a><br><br>YouTube Live<a href=\"https://t.co/fgD954FHuz\">https://t.co/fgD954FHuz</a> <a href=\"https://t.co/cCDy8CQqnd\">pic.twitter.com/cCDy8CQqnd</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1736705974940115222?ref_src=twsrc%5Etfw\">December 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 9,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1736703046418354525",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol が ニコニコ生放送 を予約しました<br><br>無題 / ニコ生配信 2023/12/25 20:00開始 <a href=\"https://t.co/u9yZZelgCi\">https://t.co/u9yZZelgCi</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1736703046418354525?ref_src=twsrc%5Etfw\">December 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 9,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1736705974940115222",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2023/12/25 20:00放送開始<br>「無題」<br><br>ニコニコ生放送<a href=\"https://t.co/u9yZZelgCi\">https://t.co/u9yZZelgCi</a><br><br>YouTube Live<a href=\"https://t.co/fgD954FHuz\">https://t.co/fgD954FHuz</a> <a href=\"https://t.co/cCDy8CQqnd\">pic.twitter.com/cCDy8CQqnd</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1736705974940115222?ref_src=twsrc%5Etfw\">December 18, 2023</a></blockquote>"
+          },
+          {
+            "liveId": 44,
+            "liveItemNo": 9,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "1739260652827619516",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol%E9%BB%92%E7%AE%B1?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol黒箱</a> 004便東京開梱🎁<br>UNBOX black東京公演、特別な今日に立ち会ってくれた君たち、中継から参加してくれた君もありがと！<br><br>年内ラストフライトUNBOX<br>2024年は1/13金沢、1/14新潟のツーデイズver pureよりはじめます！十周年イヤーのReolもどうぞよろしくお願いします　メリークリスマス🎄🪅🪅 <a href=\"https://t.co/H0TWKdx9yH\">pic.twitter.com/H0TWKdx9yH</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739260652827619516?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
+          }
+        ]
       },
       {
         "liveId": 44,
@@ -188,7 +1184,14 @@
         "placeSite": "http://www.eighthall.com/",
         "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7871214834263!2d136.6519152!3d36.559245499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8347ef64ab997%3A0x7bc2f62dc5e09edc!2sEIGHT%20HALL!5e0!3m2!1sja!2sjp!4v1697823416473!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 10,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -200,7 +1203,14 @@
         "placeSite": "http://www.fmniigata.com/user/lots/",
         "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.79699306701!2d139.04876339999998!3d37.91180749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2fTE9UUw!5e0!3m2!1sja!2sjp!4v1697823439558!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 11,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -212,7 +1222,14 @@
         "placeSite": "https://www.club-quattro.com/",
         "address": "〒730-0035 広島県広島市中区本通１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823453873!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 12,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -224,7 +1241,14 @@
         "placeSite": "http://banquetunion.com/kingdom/",
         "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.9036910313584!2d133.9234456!3d34.657135100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407b5ea8fffe9%3A0xd7a17f9294b8e153!2sCRAZY%20MAMA%20KINGDOM!5e0!3m2!1sja!2sjp!4v1697823468992!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 13,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -236,7 +1260,14 @@
         "placeSite": "https://www.sendaigigs.com/",
         "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.571661125976!2d140.9490026!3d38.243045699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f89883a268ad3af%3A0xe9b96b6c6cf26058!2z5LuZ5Y-w44Ku44Kw44K577yIU0VOREFJIEdJR1PvvIk!5e0!3m2!1sja!2sjp!4v1697823480651!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 14,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
         "posts": []
       },
       {
@@ -248,7 +1279,14 @@
         "placeSite": "http://clubchange.com/",
         "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.657283201103!2d141.14704899999998!3d39.702408999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f85762ff02bb3f9%3A0x8d743805d73f9e7f!2sCLUB%20CHANGE%20WAVE(Live%20Music%20Venue)!5e0!3m2!1sja!2sjp!4v1697823495558!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 15,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -260,7 +1298,14 @@
         "placeSite": "http://www.pl24.jp/",
         "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697823509700!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 16,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "-"
+          }
+        ],
         "posts": []
       },
       {
@@ -272,11 +1317,25 @@
         "placeSite": "http://www.kanagawa-kenminhall.com/",
         "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823528024!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 17,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveId": 44,
+        "liveReportNo": 1,
+        "liveReportName": "【ライブレポート】Reol『Reol Oneman Live 2023/24 UNBOX pure』神戸公演のレポートが到着 – THE FIRST TIMES",
+        "liveReportUrl": "https://www.thefirsttimes.jp/report/0000361056/"
+      }
+    ]
   },
   {
     "liveId": 43,
