@@ -1277,12 +1277,12 @@
       {
         "liveId": 44,
         "liveItemNo": 10,
-        "liveItemName": "石川 #pure",
-        "date": "2024-01-13",
-        "place": "金沢 エイトホール",
-        "placeSite": "http://www.eighthall.com/",
-        "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7871214834263!2d136.6519152!3d36.559245499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8347ef64ab997%3A0x7bc2f62dc5e09edc!2sEIGHT%20HALL!5e0!3m2!1sja!2sjp!4v1697823416473!5m2!1sja!2sjp",
+        "liveItemName": "広島 #pure",
+        "date": "2024-01-27",
+        "place": "広島クラブクアトロ",
+        "placeSite": "https://www.club-quattro.com/",
+        "address": "〒730-0035 広島県広島市中区本通１０−１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823453873!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
@@ -1296,12 +1296,12 @@
       {
         "liveId": 44,
         "liveItemNo": 11,
-        "liveItemName": "新潟 #pure",
-        "date": "2024-01-14",
-        "place": "新潟 LOTS",
-        "placeSite": "http://www.fmniigata.com/user/lots/",
-        "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.79699306701!2d139.04876339999998!3d37.91180749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2fTE9UUw!5e0!3m2!1sja!2sjp!4v1697823439558!5m2!1sja!2sjp",
+        "liveItemName": "岡山 #pure",
+        "date": "2024-01-28",
+        "place": "岡山 CRAZYMAMA KINGDOM",
+        "placeSite": "http://banquetunion.com/kingdom/",
+        "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.9036910313584!2d133.9234456!3d34.657135100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407b5ea8fffe9%3A0xd7a17f9294b8e153!2sCRAZY%20MAMA%20KINGDOM!5e0!3m2!1sja!2sjp!4v1697823468992!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
@@ -1315,18 +1315,18 @@
       {
         "liveId": 44,
         "liveItemNo": 12,
-        "liveItemName": "広島 #pure",
-        "date": "2024-01-27",
-        "place": "広島クラブクアトロ",
-        "placeSite": "https://www.club-quattro.com/",
-        "address": "〒730-0035 広島県広島市中区本通１０−１",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823453873!5m2!1sja!2sjp",
+        "liveItemName": "宮城 #black",
+        "date": "2024-02-03",
+        "place": "仙台 GIGS",
+        "placeSite": "https://www.sendaigigs.com/",
+        "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.571661125976!2d140.9490026!3d38.243045699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f89883a268ad3af%3A0xe9b96b6c6cf26058!2z5LuZ5Y-w44Ku44Kw44K577yIU0VOREFJIEdJR1PvvIk!5e0!3m2!1sja!2sjp!4v1697823480651!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
             "liveItemNo": 12,
             "liveItemSongNo": 1,
-            "liveItemSongName": "-"
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
           }
         ],
         "posts": []
@@ -1334,12 +1334,12 @@
       {
         "liveId": 44,
         "liveItemNo": 13,
-        "liveItemName": "岡山 #pure",
-        "date": "2024-01-28",
-        "place": "岡山 CRAZYMAMA KINGDOM",
-        "placeSite": "http://banquetunion.com/kingdom/",
-        "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.9036910313584!2d133.9234456!3d34.657135100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407b5ea8fffe9%3A0xd7a17f9294b8e153!2sCRAZY%20MAMA%20KINGDOM!5e0!3m2!1sja!2sjp!4v1697823468992!5m2!1sja!2sjp",
+        "liveItemName": "岩手 #pure",
+        "date": "2024-02-04",
+        "place": "盛岡 club change WAVE",
+        "placeSite": "http://clubchange.com/",
+        "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.657283201103!2d141.14704899999998!3d39.702408999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f85762ff02bb3f9%3A0x8d743805d73f9e7f!2sCLUB%20CHANGE%20WAVE(Live%20Music%20Venue)!5e0!3m2!1sja!2sjp!4v1697823495558!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
@@ -1353,35 +1353,16 @@
       {
         "liveId": 44,
         "liveItemNo": 14,
-        "liveItemName": "宮城 #black",
-        "date": "2024-02-03",
-        "place": "仙台 GIGS",
-        "placeSite": "https://www.sendaigigs.com/",
-        "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.571661125976!2d140.9490026!3d38.243045699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f89883a268ad3af%3A0xe9b96b6c6cf26058!2z5LuZ5Y-w44Ku44Kw44K577yIU0VOREFJIEdJR1PvvIk!5e0!3m2!1sja!2sjp!4v1697823480651!5m2!1sja!2sjp",
+        "liveItemName": "北海道 #pure",
+        "date": "2024-02-10",
+        "place": "札幌ペニーレーン24",
+        "placeSite": "http://www.pl24.jp/",
+        "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697823509700!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
             "liveItemNo": 14,
-            "liveItemSongNo": 1,
-            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
-          }
-        ],
-        "posts": []
-      },
-      {
-        "liveId": 44,
-        "liveItemNo": 15,
-        "liveItemName": "岩手 #pure",
-        "date": "2024-02-04",
-        "place": "盛岡 club change WAVE",
-        "placeSite": "http://clubchange.com/",
-        "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.657283201103!2d141.14704899999998!3d39.702408999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f85762ff02bb3f9%3A0x8d743805d73f9e7f!2sCLUB%20CHANGE%20WAVE(Live%20Music%20Venue)!5e0!3m2!1sja!2sjp!4v1697823495558!5m2!1sja!2sjp",
-        "setList": [
-          {
-            "liveId": 44,
-            "liveItemNo": 15,
             "liveItemSongNo": 1,
             "liveItemSongName": "-"
           }
@@ -1390,13 +1371,32 @@
       },
       {
         "liveId": 44,
+        "liveItemNo": 15,
+        "liveItemName": "神奈川 #black",
+        "date": "2024-02-18",
+        "place": "神奈川県民ホール",
+        "placeSite": "http://www.kanagawa-kenminhall.com/",
+        "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823528024!5m2!1sja!2sjp",
+        "setList": [
+          {
+            "liveId": 44,
+            "liveItemNo": 15,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+          }
+        ],
+        "posts": []
+      },
+      {
+        "liveId": 44,
         "liveItemNo": 16,
-        "liveItemName": "北海道 #pure",
-        "date": "2024-02-10",
-        "place": "札幌ペニーレーン24",
-        "placeSite": "http://www.pl24.jp/",
-        "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697823509700!5m2!1sja!2sjp",
+        "liveItemName": "新潟 #pure",
+        "date": "2024-03-19",
+        "place": "新潟 LOTS",
+        "placeSite": "http://www.fmniigata.com/user/lots/",
+        "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.79699306701!2d139.04876339999998!3d37.91180749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2fTE9UUw!5e0!3m2!1sja!2sjp!4v1697823439558!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
@@ -1410,18 +1410,18 @@
       {
         "liveId": 44,
         "liveItemNo": 17,
-        "liveItemName": "神奈川 #black",
-        "date": "2024-02-18",
-        "place": "神奈川県民ホール",
-        "placeSite": "http://www.kanagawa-kenminhall.com/",
-        "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823528024!5m2!1sja!2sjp",
+        "liveItemName": "石川 #pure",
+        "date": "2024-03-20",
+        "place": "金沢 エイトホール",
+        "placeSite": "http://www.eighthall.com/",
+        "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7871214834263!2d136.6519152!3d36.559245499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8347ef64ab997%3A0x7bc2f62dc5e09edc!2sEIGHT%20HALL!5e0!3m2!1sja!2sjp!4v1697823416473!5m2!1sja!2sjp",
         "setList": [
           {
             "liveId": 44,
             "liveItemNo": 17,
             "liveItemSongNo": 1,
-            "liveItemSongName": "ネタバレ厳禁のためUNBOX終了まで掲載不可"
+            "liveItemSongName": "-"
           }
         ],
         "posts": []
