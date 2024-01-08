@@ -8,19 +8,18 @@ import {
   FaCompactDisc,
 } from "react-icons/fa6";
 import { BsSpeakerFill } from "react-icons/bs";
-import NewsCard from "./news-card";
 import Discography from "./discography/discography";
-import XTimeline from "../modules/xtimeline";
 import Live from "./live/live";
 import { LiveInfo } from "../../types/live";
-import { News } from "../../types/news";
 import MainVideo from "./mainVideo";
 import { Tabs } from "flowbite-react";
 import Opening from "./opening";
 import UtilityService from "../../services/UtilityService";
+import RecommendList from "./recommend-list";
+import { Recommend } from "../../types/recommend";
 
 type Props = {
-  news: News[];
+  recommend: Recommend[];
   discographies: DiscographyWithSongs[];
   liveInfos: LiveInfo[];
 };
@@ -73,15 +72,15 @@ export default class IndexContents extends Component<Props> {
             </p>
           </div>
           <h2
-            id="NEWS"
+            id="RECOMMEND"
             className="flex items-center font-bold text-xl pt-8 px-2 text-shadow"
           >
             <FaRegNewspaper className="text-sm mr-2" />
             <span className="underline underline-offset-4 decoration-dashed decoration-1">
-              NEWS
+              RECOMMEND
             </span>
           </h2>
-          <NewsCard data={this.props.news} />
+          <RecommendList data={this.props.recommend} />
           <h2
             id="DISCOGRAPHY_LIVE"
             className="flex items-center font-bold text-xl pt-8 px-2 text-shadow"
@@ -128,10 +127,6 @@ export default class IndexContents extends Component<Props> {
                 <Live data={this.props.liveInfos} key="live" />
               </Tabs.Item>
             </Tabs.Group>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-between items-start">
-            <XTimeline id="RRReol" title="Reol れをる" />
-            <XTimeline id="RRReol_official" title="Reol Official" />
           </div>
         </div>
       </>

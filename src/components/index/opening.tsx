@@ -12,6 +12,7 @@ type Props = {
 };
 
 type State = {
+  isSkip: boolean;
   introEnd: boolean;
   unbox: boolean;
   onend: boolean;
@@ -20,7 +21,7 @@ type State = {
 class Opening extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { introEnd: false, unbox: false, onend: false };
+    this.state = { isSkip: false, introEnd: false, unbox: false, onend: false };
   }
 
   componentDidMount() {
@@ -52,7 +53,7 @@ class Opening extends Component<Props, State> {
     const boxBaseClass = `w-full h-full col-[1/1] row-[1/1] border-2 border-[#ea6000] flex items-center justify-center transform-gpu bg-black text-[#ea6000] will-change-auto transform-gpu${
       this.state.unbox ? " animate-unbox" : ""
     }`;
-    if (!this.state.onend) {
+    if (!this.state.onend && !this.state.isSkip) {
       return (
         <>
           <div
@@ -211,6 +212,19 @@ class Opening extends Component<Props, State> {
               </button>
             </span>
           </div>
+          {!this.state.introEnd && (
+            <span
+              className="fixed bottom-3 right-4 z-[90] text-lg text-blue-500 pointer-events-auto"
+              onClick={(event) => {
+                document
+                  .getElementsByTagName("body")[0]
+                  .classList.toggle("overflow-hidden");
+                this.setState({ ...this.state, isSkip: true });
+              }}
+            >
+              SKIP&nbsp;&gt;&gt;
+            </span>
+          )}
         </>
       );
     } else {

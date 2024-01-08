@@ -17,6 +17,7 @@ import {
   LiveItemPost,
   LivePost,
 } from "../types/live";
+import { Recommend } from "../types/recommend";
 
 export type Index = {
   id: string;
@@ -238,5 +239,13 @@ export class SheetService {
         liveReportUrl: row[5],
       }))
       .filter((v) => v.liveReportNo);
+  }
+
+  async getRecommends(): Promise<Recommend[]> {
+    const values = await this.getValues(`recommend!A2:B`);
+    return values.map((row) => ({
+      no: +row[0],
+      id: row[1],
+    }));
   }
 }

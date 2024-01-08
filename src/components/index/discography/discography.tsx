@@ -19,6 +19,10 @@ type Props = {
 
 type State = {
   expand: boolean[];
+  currentList: DiscographyWithSongs[];
+  currentNames: string[];
+  currentYears: string[];
+  currentFormats: string[];
 };
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
@@ -68,38 +72,205 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   item: timelineItemTheme,
 };
 
+const tags = {
+  name: ["Reol", "REOL", "れをる", "あにょすぺにょすゃゃ"],
+  year: [
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012",
+  ],
+  type: [
+    "SG",
+    "配信SG",
+    "EP",
+    "miniAL",
+    "fullAL",
+    "DVD/BD",
+    "MV",
+    "歌ってみた",
+  ],
+};
+
 class Discography extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
       expand: this.props.data.map((v, i) => false),
+      currentList: this.props.data,
+      currentNames: [],
+      currentYears: [],
+      currentFormats: [],
     };
   }
 
   componentDidMount() {}
 
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
+  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {
+    let list = this.state.currentList;
+    // if (this.state.currentNames.length > 0) {
+    //   list = list.filter((item) =>
+    //     this.state.currentNames.includes(item?.name ?? "")
+    //   );
+    // }
+    // if (this.state.currentYears.length > 0) {
+    //   list = list.filter((item) =>
+    //     this.state.currentYears.includes(item?.releaseDate ?? "")
+    //   );
+    // }
+    if (this.state.currentFormats.length > 0) {
+      list = list.filter((item) =>
+        this.state.currentFormats.includes(item?.format ?? "")
+      );
+    }
+    // this.setState({ ...this.state, currentList: list });
+  }
+
+  toggleTag(currentList: string[], target: string) {
+    let list = currentList;
+    if (list.includes(target)) {
+      list = currentList.filter((item) => item !== target);
+    } else {
+      list.push(target);
+    }
+    return list;
+  }
+
+  filterNextList(
+    nextNames?: string[],
+    nextYears?: string[],
+    nextFormats?: string[]
+  ) {
+    let list = this.props.data;
+    if (nextNames && nextNames.length > 0) {
+      list = list.filter((item) => nextNames?.includes(item?.name ?? ""));
+    }
+    if (nextYears && nextYears.length > 0) {
+      list = list.filter((item) =>
+        nextYears?.includes(item?.releaseDate?.split("-")[0] ?? "")
+      );
+    }
+    if (nextFormats && nextFormats.length > 0) {
+      list = list.filter((item) => nextFormats?.includes(item?.format ?? ""));
+    }
+
+    return list;
+  }
 
   render() {
+    const list = this.state.currentList;
     return (
-      <div className="w-full pt-4 px-2 sm:px-10">
-        <p className="flex text-xs whitespace-nowrap items-center">
+      <div className="w-full pt-2 px-2 sm:px-10">
+        <div className="flex flex-wrap gap-1 text-xs font-bold">
+          {tags.name.map((tag) => {
+            return (
+              <span
+                key={`discography-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentNames.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextNames = this.toggleTag(
+                    this.state.currentNames,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentNames: nextNames,
+                    currentList: this.filterNextList(nextNames),
+                  });
+                }}
+              >
+                #{tag}
+              </span>
+            );
+          })}
+          <br />
+          {tags.year.map((tag) => {
+            return (
+              <span
+                key={`discography-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentYears.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextYears = this.toggleTag(
+                    this.state.currentYears,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentYears: nextYears,
+                    currentList: this.filterNextList(
+                      this.state.currentNames,
+                      nextYears
+                    ),
+                  });
+                }}
+              >
+                #{tag}
+              </span>
+            );
+          })}
+          <br />
+          {tags.type.map((tag) => {
+            return (
+              <span
+                key={`discography-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentFormats.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextFormats = this.toggleTag(
+                    this.state.currentFormats,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentFormats: nextFormats,
+                    currentList: this.filterNextList(
+                      this.state.currentNames,
+                      this.state.currentYears,
+                      nextFormats
+                    ),
+                  });
+                }}
+              >
+                #{tag}
+              </span>
+            );
+          })}
+        </div>
+        <p className="flex text-xs whitespace-nowrap items-center pt-3">
           <FaCirclePlay />
           &nbsp;をタップすると画面上部のプレイヤーで動画を再生します
         </p>
-        <div className="pt-5">
-          <Timeline theme={timelineRootTheme}>
-            {this.props.data.map((item, i) => {
-              return (
-                <TimelineItem
-                  item={item}
-                  key={`disco-timeline-${item.discographyId}`}
-                />
-              );
-            })}
-          </Timeline>
-        </div>
+        <p className="text-xs text-right pt-2">{list.length}件</p>
+        <Timeline theme={timelineRootTheme}>
+          {list.map((item, i) => {
+            return (
+              <TimelineItem
+                item={item}
+                key={`disco-timeline-${item.discographyId}`}
+              />
+            );
+          })}
+        </Timeline>
       </div>
     );
   }

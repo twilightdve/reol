@@ -142,27 +142,29 @@ class TimelineItem extends Component<Props, State> {
                   </li>
                 )}
               </ul>
-              <span className="w-4/12 text-sm text-gray-600">
-                {this.state.isExpand ? (
-                  <div className="flex justify-end items-center">
-                    <GoChevronUp className="mr-1" />
-                    閉じる
-                  </div>
-                ) : (
-                  <div
-                    className={`flex justify-end items-center${
-                      item.songs.length > 0 ? "" : " hidden"
-                    }`}
-                  >
-                    <GoListUnordered className="mr-1" />
-                    開く
-                  </div>
-                )}
-              </span>
+              {item.songs.length > 0 && (
+                <span className="w-4/12 text-sm text-gray-600">
+                  {this.state.isExpand ? (
+                    <div className="flex justify-end items-center">
+                      <GoChevronUp className="mr-1" />
+                      閉じる
+                    </div>
+                  ) : (
+                    <div
+                      className={`flex justify-end items-center${
+                        item.songs.length > 0 ? "" : " hidden"
+                      }`}
+                    >
+                      <GoListUnordered className="mr-1" />
+                      開く
+                    </div>
+                  )}
+                </span>
+              )}
             </div>
           </Timeline.Title>
           <Timeline.Body>
-            {this.state.isExpand && (
+            {this.state.isExpand && item.songs.length > 0 && (
               <div className="flex flex-wrap bg-white mt-2 px-5 pt-2 pb-5 rounded-lg border border-theme text-base">
                 <div
                   className={`${item.posts.length > 0 ? "sm:w-1/2" : "w-full"}`}

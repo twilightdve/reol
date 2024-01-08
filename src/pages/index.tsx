@@ -6,6 +6,7 @@ import { News } from "../types/news";
 import IndexContents from "../components/index/index-contents";
 import { LiveInfo } from "../types/live";
 import ogImage from "../images/ogimage.png";
+import { Recommend } from "../types/recommend";
 
 type siteMetadata = {
   title: string;
@@ -22,11 +23,10 @@ export const query = graphql`
         siteUrl
       }
     }
-    news {
-      news {
-        date
-        title
-        content
+    recommend {
+      recommend {
+        no
+        id
       }
     }
     discography {
@@ -109,12 +109,12 @@ export const query = graphql`
 const IndexPage: FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const discographies: DiscographyWithSongs[] =
     data.discography.discographyWithSongs;
-  const news: News[] = data.news.news;
+  const recommend: Recommend[] = data.recommend.recommend;
   const liveInfos: LiveInfo[] = data.live.liveInfos;
   return (
     <IndexContents
       discographies={discographies}
-      news={news}
+      recommend={recommend}
       liveInfos={liveInfos}
     />
   );

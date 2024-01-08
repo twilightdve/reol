@@ -10,7 +10,12 @@ type Props = {
   data: LiveInfo[];
 };
 
-type State = {};
+type State = {
+  currentList: LiveInfo[];
+  currentNames: string[];
+  currentYears: string[];
+  currentTypes: string[];
+};
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
@@ -59,22 +64,169 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   item: timelineItemTheme,
 };
 
+const tags = {
+  name: ["Reol", "REOL", "れをる"],
+  year: [
+    "2024",
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+  ],
+  type: ["event", "oneman"],
+};
+
 export default class Live extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      currentList: this.props.data,
+      currentNames: [],
+      currentYears: [],
+      currentTypes: [],
+    };
   }
 
   componentDidMount() {}
 
   componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
 
+  toggleTag(currentList: string[], target: string) {
+    let list = currentList;
+    if (list.includes(target)) {
+      list = currentList.filter((item) => item !== target);
+    } else {
+      list.push(target);
+    }
+    return list;
+  }
+
+  filterNextList(
+    nextNames?: string[],
+    nextYears?: string[],
+    nextTypes?: string[]
+  ) {
+    let list = this.props.data;
+    if (nextNames && nextNames.length > 0) {
+      list = list.filter((item) => nextNames?.includes(item?.name ?? ""));
+    }
+    if (nextYears && nextYears.length > 0) {
+      list = list.filter(
+        (item) =>
+          (
+            item?.date
+              .match(/[0-9]{4}/g)
+              ?.filter((year) => nextYears?.includes(year)) ?? []
+          ).length > 0
+      );
+    }
+    if (nextTypes && nextTypes.length > 0) {
+      list = list.filter((item) => nextTypes?.includes(item?.type ?? ""));
+    }
+
+    return list;
+  }
+
   render() {
+    const list = this.state.currentList;
     return (
-      <div className="w-full pt-4 px-2 sm:px-10">
+      <div className="w-full pt-2 px-2 sm:px-10">
+        <div className="flex flex-wrap gap-1 text-xs font-bold pb-4">
+          {tags.name.map((tag) => {
+            return (
+              <span
+                key={`live-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentNames.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextNames = this.toggleTag(
+                    this.state.currentNames,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentNames: nextNames,
+                    currentList: this.filterNextList(nextNames),
+                  });
+                }}
+              >
+                #{tag}
+              </span>
+            );
+          })}
+          <br />
+          {tags.year.map((tag) => {
+            return (
+              <span
+                key={`live-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentYears.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextYears = this.toggleTag(
+                    this.state.currentYears,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentYears: nextYears,
+                    currentList: this.filterNextList(
+                      this.state.currentNames,
+                      nextYears
+                    ),
+                  });
+                }}
+              >
+                #{tag}
+              </span>
+            );
+          })}
+          <br />
+          {tags.type.map((tag) => {
+            return (
+              <span
+                key={`live-tag-${tag}`}
+                className={`px-2 py-1 tracking-wide rounded-md ${
+                  this.state.currentTypes.includes(tag)
+                    ? "bg-letter"
+                    : "bg-theme"
+                } text-white`}
+                onClick={(event) => {
+                  const nextTypes = this.toggleTag(
+                    this.state.currentTypes,
+                    tag
+                  );
+                  this.setState({
+                    ...this.state,
+                    currentTypes: nextTypes,
+                    currentList: this.filterNextList(
+                      this.state.currentNames,
+                      this.state.currentYears,
+                      nextTypes
+                    ),
+                  });
+                }}
+              >
+                #{tag === "event" ? "イベント出演" : "ワンマンライブ"}
+              </span>
+            );
+          })}
+        </div>
+        <p className="text-xs text-right">{list.length}件</p>
         <Timeline theme={timelineRootTheme}>
-          {this.props.data.map((live, i) => {
+          {list.map((live, i) => {
             return (
               <TimelineItem key={`timeline-item-${live.liveId}`} live={live} />
             );

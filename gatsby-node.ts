@@ -11,6 +11,7 @@ import {
   LiveItemPost,
   LivePost,
 } from "./src/types/live";
+import { Recommend } from "./src/types/recommend";
 
 const createVideoNodes = async (
   sheet: SheetService,
@@ -164,6 +165,28 @@ const createLiveNodes = async (
   );
 };
 
+const createRecommendNodes = async (
+  sheet: SheetService,
+  { actions, createNodeId, createContentDigest }: SourceNodesArgs
+) => {
+  const { createNode } = actions;
+  const recommend: Recommend[] = await sheet.getRecommends();
+  createNode({
+    id: createNodeId("Recommend"),
+    recommend,
+    internal: {
+      type: "Recommend",
+      content: JSON.stringify(recommend),
+      contentDigest: createContentDigest(recommend),
+    },
+  });
+  await fs.mkdir("./public/static/data/", { recursive: true });
+  await fs.writeFile(
+    `./public/static/data/recommend.json`,
+    JSON.stringify(recommend, null, 2)
+  );
+};
+
 export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
   try {
     const sheet = new SheetService();
@@ -171,5 +194,6 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
     await createDiscographyNodes(sheet, args);
     await createNewsNodes(sheet, args);
     await createLiveNodes(sheet, args);
+    await createRecommendNodes(sheet, args);
   } catch (error) {}
 };
