@@ -526,7 +526,7 @@
         "placeId": 0,
         "placeItemId": 1,
         "name": "ひろしま丸かじり 中ちゃん",
-        "memo": "",
+        "memo": "ハーメルンの大号令 広島公演 MCでReolが紹介",
         "needsCost": "",
         "needsPermission": "",
         "placeUrl": "https://nakachanhiroshima.wixsite.com/home",
@@ -541,7 +541,7 @@
         "placeId": 0,
         "placeItemId": 2,
         "name": "かどや 道後駅前店",
-        "memo": "",
+        "memo": "UNBOX pure 愛媛公演 打上会場\n<a href=\"https://reol.jp/movie/detail/232/\" target=\"_blank\">https://reol.jp/movie/detail/232/</a>",
         "needsCost": "",
         "needsPermission": "",
         "placeUrl": "https://www.kadoya-taimeshi.com/kadoyamanage/shoplist/kadoyadogoekimae/",
@@ -721,7 +721,7 @@
         "placeId": 0,
         "placeItemId": 14,
         "name": "THE GARAGE (Little TAO)",
-        "memo": "",
+        "memo": "切っ先 映像盤 れをるTVって言われました",
         "needsCost": "",
         "needsPermission": "",
         "placeUrl": "https://www.instagram.com/littletao_littletao?igsh=MXZjdDU2NHo5NmljOQ==",
@@ -731,6 +731,36 @@
         "lat": 35.6419376,
         "lng": 139.7009731,
         "zoom": 17
+      },
+      {
+        "placeId": 0,
+        "placeItemId": 15,
+        "name": "河辺温泉 梅の湯",
+        "memo": "コロナ禍中れをるが初めて整ったサウナ\n<a href=\"https://www.youtube.com/live/AXi27hMhuxQ\" target=\"_blank\">https://www.youtube.com/live/AXi27hMhuxQ</a>",
+        "needsCost": "",
+        "needsPermission": "",
+        "placeUrl": "http://www.kabeonsen-umenoyu.com/",
+        "address": "〒198-0036 東京都青梅市河辺町１０丁目８−１ 5・6階 河辺タウンビルＢ",
+        "mapsUrl": "https://www.google.com/maps/place/%E6%B2%B3%E8%BE%BA%E6%B8%A9%E6%B3%89+%E6%A2%85%E3%81%AE%E6%B9%AF/@35.785388,139.285073,17z/data=!3m1!4b1!4m6!3m5!1s0x601926aabc274c71:0xc5ecb162c490e70b!8m2!3d35.785388!4d139.285073!16s%2Fg%2F1tdp0hwv?entry=ttu",
+        "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.5923810234945!2d139.28507299999998!3d35.785388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601926aabc274c71%3A0xc5ecb162c490e70b!2z5rKz6L665rip5rOJIOaiheOBrua5rw!5e0!3m2!1sja!2sjp!4v1707846410084!5m2!1sja!2sjp",
+        "lat": 35.785388,
+        "lng": 139.285073,
+        "zoom": 17
+      },
+      {
+        "placeId": 0,
+        "placeItemId": 16,
+        "name": "蔵屋 小町店",
+        "memo": "UNBOX pure 広島公演 打上会場\n<a href=\"https://reol.jp/movie/detail/242/\" target=\"_blank\">https://reol.jp/movie/detail/242/</a>",
+        "needsCost": "",
+        "needsPermission": "",
+        "placeUrl": "https://hitosara.com/0004030320/?utm_source=mp_yext&utm_medium=shoplink&utm_campaign=0004030320&cid=part_yext_gm_hp:0004030320",
+        "address": "〒730-0041 広島県広島市中区小町５−２３ ００２４ビル 1F",
+        "mapsUrl": "https://www.google.com/maps/place/%E8%94%B5%E5%B1%8B+%E5%B0%8F%E7%94%BA%E5%BA%97/@34.3883607,132.4468363,15z/data=!4m7!3m6!1s0x355aa213cffd1573:0x16b9bb65fdb1216e!8m2!3d34.3883607!4d132.457136!15sCg3luoPls7Yg6JS15bGLWg8iDeW6g-WztiDolLXlsYuSARZva29ub21peWFraV9yZXN0YXVyYW504AEA!16s%2Fg%2F11b7hqvvhz?entry=tts",
+        "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13170.043176740288!2d132.4468363!3d34.3883607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa213cffd1573%3A0x16b9bb65fdb1216e!2z6JS15bGLIOWwj-eUuuW6lw!5e0!3m2!1sja!2sjp!4v1707846890251!5m2!1sja!2sjp",
+        "lat": 34.3883607,
+        "lng": 132.4468363,
+        "zoom": 15
       }
     ]
   }
