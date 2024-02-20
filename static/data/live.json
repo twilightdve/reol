@@ -3018,6 +3018,12 @@
         "liveReportNo": 2,
         "liveReportName": "Reol、完全ネタバレ厳禁のツアー「UNBOX」ファイナルをパッケージ化",
         "liveReportUrl": "https://natalie.mu/music/news/561580"
+      },
+      {
+        "liveId": 44,
+        "liveReportNo": 3,
+        "liveReportName": "Reolが開梱したサプライズと刺激に満ちた“UNBOX”千秋楽、角刈り女子エリナも登場",
+        "liveReportUrl": "https://natalie.mu/music/news/561737"
       }
     ]
   },
@@ -4123,7 +4129,158 @@
         "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
         "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697822993110!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 1,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4178,7 +4335,158 @@
         "placeSite": "https://www.tokyo-dome.co.jp/tdc-hall/",
         "address": "〒112-0004 東京都文京区後楽１丁目３−６１ 東京ドームミーツポート1F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9147424123707!2d139.7542363!3d35.703715599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d3597a9f885%3A0x1f7f744127cbc2fd!2sTOKYO%20DOME%20CITY%20HALL!5e0!3m2!1sja!2sjp!4v1697823007193!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 2,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4219,7 +4527,158 @@
         "placeSite": "http://sendai-pit.team-smile.org/",
         "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697823022418!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 3,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4246,7 +4705,158 @@
         "placeSite": "https://www.zepp.co.jp/hall/yokohama/",
         "address": "〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.80221015877!2d139.6258804!3d35.4596908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185db755d1cfcb%3A0xb3d0979a6d6c0535!2sKT%20Zepp%20Yokohama!5e0!3m2!1sja!2sjp!4v1697823035405!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 4,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4273,7 +4883,158 @@
         "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
         "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823048594!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 5,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4300,7 +5061,158 @@
         "placeSite": "https://www.club-quattro.com/",
         "address": "〒730-0035 広島県広島市中区本通１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823062813!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 6,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4327,7 +5239,158 @@
         "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
         "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 7,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
@@ -4354,7 +5417,158 @@
         "placeSite": "http://festhalle.jp/",
         "address": "〒760-0054 香川県高松市常磐町１丁目３−２",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.484229540866!2d134.05235729999998!3d34.3381523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9958891783%3A0x141915e3d562fb8e!2z44OV44Kn44K544OI44OP44Os!5e0!3m2!1sja!2sjp!4v1697823103594!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "secret trip"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "HYPE MODE"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "水底游歩道"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "un, deux, trois"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "nil～極彩色"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "interlude for Neo Nostalgia"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ROXY"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "赤裸裸(NAKED)"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "-orderly-"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ハーメルン"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "秋映"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "ニュータイプトーキョー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 34,
+            "liveItemNo": 8,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し(Agitate)"
+          }
+        ],
         "posts": [
           {
             "liveId": 34,
