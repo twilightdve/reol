@@ -24,7 +24,7 @@ export default class Layout extends Component<Props> {
     return (
       <>
         <TopHeader title={this.props.title} />
-        <main className="relative bg-gray-100 mx-auto inset-auto w-screen pb-10 sm:pb-20">
+        <main className="relative bg-gray-100 mx-auto inset-auto w-screen">
           {this.props.children}
         </main>
         <footer className="relative bg-theme text-white pt-5 h-40">

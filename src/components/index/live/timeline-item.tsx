@@ -129,9 +129,7 @@ class TimelineItem extends Component<Props, State> {
             }}
           >
             <div className="pt-2">
-              <span className={`w-full sm:text-lg text-base`}>
-                {live.title}
-              </span>
+              <span className={`w-full sm:text-lg text-sm`}>{live.title}</span>
             </div>
             <div className="flex justify-between items-center">
               <ul className="flex justify-start list-none py-2 text-xs sm:text-sm text-gray-500 font-thin tracking-widest">
@@ -162,10 +160,10 @@ class TimelineItem extends Component<Props, State> {
               <div className="sm:px-5 sm:py-0">
                 {live.reports.length > 0 && (
                   <div className="text-black">
-                    <h4 className="text-base tracking-widest pt-3 pb-2">
+                    <h4 className="text-sm tracking-widest pt-3 pb-2">
                       &lt;LIVE REPORT&gt;
                     </h4>
-                    <ul className="list-disc pl-5 text-sm">
+                    <ul className="list-disc pl-5 text-xs">
                       {live.reports.map((report) => {
                         return (
                           <li
@@ -203,7 +201,7 @@ class TimelineItem extends Component<Props, State> {
                     ) : (
                       <div className="relative sm:flex sm:flex-1 sm:justify-start sm:gap-5 sm:flex-row w-full h-full">
                         <div
-                          className={`flex flex-wrap content-start gap-5 justify-center overflow-y-hidden mt-2 py-2 ${
+                          className={`flex flex-wrap content-start gap-3 justify-center overflow-y-hidden mt-2 py-2 ${
                             live.posts.length > 0 ? "sm:w-1/2" : "w-full"
                           }`}
                         >

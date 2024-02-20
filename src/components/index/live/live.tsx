@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlowbiteTimelineTheme, Timeline } from "flowbite-react";
+import { Button, FlowbiteTimelineTheme, Timeline } from "flowbite-react";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";

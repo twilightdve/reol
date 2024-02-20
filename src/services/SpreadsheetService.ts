@@ -18,6 +18,7 @@ import {
   LivePost,
 } from "../types/live";
 import { Recommend } from "../types/recommend";
+import { Place, PlaceItem } from "../types/places";
 
 export type Index = {
   id: string;
@@ -246,6 +247,36 @@ export class SheetService {
     return values.map((row) => ({
       no: +row[0],
       id: row[1],
+    }));
+  }
+
+  async getPlaces(): Promise<Place[]> {
+    const values = await this.getValues(`place_index!A2:E`);
+    return values.map((row) => ({
+      placeId: +row[0],
+      type: row[1],
+      title: row[2],
+      url: row[3],
+      zoom: +row[4],
+    }));
+  }
+
+  async getPlaceItems(): Promise<PlaceItem[]> {
+    const values = await this.getValues(`places!A2:P`);
+    return values.map((row) => ({
+      placeId: +row[1],
+      placeItemId: +row[4],
+      name: row[5],
+      memo: row[6],
+      needsCost: row[7],
+      needsPermission: row[8],
+      placeUrl: row[9],
+      address: row[10],
+      mapsUrl: row[11],
+      mapsEmbedUrl: row[12],
+      lat: +row[13],
+      lng: +row[14],
+      zoom: +row[15],
     }));
   }
 }

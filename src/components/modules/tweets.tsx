@@ -23,7 +23,7 @@ type State = {
 const showNum = 5;
 
 export default class Tweets extends Component<Props, State> {
-  ref: RefObject<TabsRef> = createRef<TabsRef>();
+  tweetRef: RefObject<TabsRef> = createRef<TabsRef>();
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -44,7 +44,7 @@ export default class Tweets extends Component<Props, State> {
         aria-label="tabs"
         style="fullWidth"
         className="sm:bg-white"
-        ref={this.ref}
+        ref={this.tweetRef}
         onActiveTabChange={(tab) => {
           this.setState({
             ...this.state,
@@ -75,7 +75,7 @@ export default class Tweets extends Component<Props, State> {
               return (
                 <article
                   key={`simple-post-${this.props.parentId}-${post.id}`}
-                  className="relative border border-gray-300 rounded-lg p-5 text-black mb-3 bg-white"
+                  className="relative border border-gray-300 rounded-lg p-5 text-black mb-3 bg-white text-xs"
                 >
                   <a
                     href={`https://x.com/RRReol/status/${post.id}`}

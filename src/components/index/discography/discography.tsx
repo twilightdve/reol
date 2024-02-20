@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlowbiteTimelineTheme, Timeline } from "flowbite-react";
+import { Button, FlowbiteTimelineTheme, Timeline } from "flowbite-react";
 import { DiscographyWithSongs } from "../../../types/discography";
 import { FaCirclePlay } from "react-icons/fa6";
 import { RootState } from "../../../redux/store";
@@ -115,25 +115,7 @@ class Discography extends Component<Props, State> {
 
   componentDidMount() {}
 
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {
-    let list = this.state.currentList;
-    // if (this.state.currentNames.length > 0) {
-    //   list = list.filter((item) =>
-    //     this.state.currentNames.includes(item?.name ?? "")
-    //   );
-    // }
-    // if (this.state.currentYears.length > 0) {
-    //   list = list.filter((item) =>
-    //     this.state.currentYears.includes(item?.releaseDate ?? "")
-    //   );
-    // }
-    if (this.state.currentFormats.length > 0) {
-      list = list.filter((item) =>
-        this.state.currentFormats.includes(item?.format ?? "")
-      );
-    }
-    // this.setState({ ...this.state, currentList: list });
-  }
+  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
 
   toggleTag(currentList: string[], target: string) {
     let list = currentList;

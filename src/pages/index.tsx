@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import type { IndexPageQuery } from "../gatsby-types";
 import { DiscographyWithSongs } from "../types/discography";
-import { News } from "../types/news";
-import IndexContents from "../components/index/index-contents";
+import IndexContents from "../components/index/contents";
 import { LiveInfo } from "../types/live";
 import ogImage from "../images/ogimage.png";
 import { Recommend } from "../types/recommend";
+import { Place } from "../types/places";
 
 type siteMetadata = {
   title: string;
@@ -103,6 +103,30 @@ export const query = graphql`
         }
       }
     }
+    place {
+      places {
+        placeId
+        type
+        title
+        url
+        zoom
+        items {
+          placeId
+          placeItemId
+          name
+          memo
+          needsCost
+          needsPermission
+          placeUrl
+          address
+          mapsUrl
+          mapsEmbedUrl
+          lat
+          lng
+          zoom
+        }
+      }
+    }
   }
 `;
 
@@ -111,11 +135,13 @@ const IndexPage: FC<PageProps<IndexPageQuery>> = ({ data }) => {
     data.discography.discographyWithSongs;
   const recommend: Recommend[] = data.recommend.recommend;
   const liveInfos: LiveInfo[] = data.live.liveInfos;
+  const places: Place[] = data.place.places;
   return (
     <IndexContents
       discographies={discographies}
       recommend={recommend}
       liveInfos={liveInfos}
+      places={places}
     />
   );
 };

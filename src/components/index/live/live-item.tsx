@@ -91,7 +91,7 @@ export default class LiveItem extends Component<Props, State> {
             )}
             {liveItem.googleMapsUrl && (
               <div
-                className={`relative max-w-full max-h-112 ${
+                className={`relative max-w-full ${
                   liveItem.setList.length > 0 ? "sm:max-h-128" : "sm:max-h-192"
                 }`}
               >
@@ -103,11 +103,11 @@ export default class LiveItem extends Component<Props, State> {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
-                <div className="text-center w-full text-sm font-normal text-gray-800 pt-2">
+                <div className="text-left w-full text-xs font-normal text-gray-800 pt-2 pl-2">
                   {liveItem.address && <span>{liveItem.address}</span>}
                   {liveItem.placeSite && (
                     <a
-                      className="flex justify-center items-center leading-loose"
+                      className="flex justify-left items-center leading-loose"
                       href={liveItem.placeSite}
                       target="_blank"
                     >
@@ -119,7 +119,7 @@ export default class LiveItem extends Component<Props, State> {
               </div>
             )}
           </>
-          <div className="relative w-full sm:h-full">
+          <div className="relative w-full sm:h-full px-2">
             <div key={`setlist-${liveItem.liveId}-${liveItem.liveItemNo}`}>
               <h5
                 className={`underline underline-offset-4 decoration-dashed decoration-1 pt-3 pb-2 text-base tracking-widest text-gray-800`}
@@ -127,10 +127,10 @@ export default class LiveItem extends Component<Props, State> {
                 SET LIST
               </h5>
               {liveItem.setList.length > 0 ? (
-                <ol className={`list-decimal pl-5 max-h-full`}>
+                <ol className={`list-decimal max-h-full`}>
                   {liveItem.setList.map((song, i, setList) => (
                     <li
-                      className={`leading-relaxed text-sm`}
+                      className={`leading-relaxed text-sm ml-10`}
                       key={`setlist-${song.liveId}-${song.liveItemNo}-${song.liveItemSongNo}`}
                     >
                       <span
@@ -151,7 +151,7 @@ export default class LiveItem extends Component<Props, State> {
         </div>
         {liveItem.posts.length > 0 && (
           <div className="relative w-full sm:h-full sm:max-h-208 sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden">
-            <h4 className="text-base pt-1 pb-2 text-black">関連ポスト</h4>
+            <h4 className="text-base pt-1 pb-2 pl-2 text-black">関連ポスト</h4>
             <div className="pb-3">
               <Tweets
                 parentId={`${live.liveId}-${liveItem.liveItemNo}`}
@@ -190,16 +190,16 @@ export default class LiveItem extends Component<Props, State> {
                 this.state.dialogRef.current.showModal();
             }}
           >
-            {liveItem.googleMapsUrl && (
+            {/* {liveItem.googleMapsUrl && (
               <iframe
                 src={liveItem.googleMapsUrl}
-                className="aspect-square w-full pointer-events-none"
+                className="aspect-video w-full pointer-events-none"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            )}
+            )} */}
             <div className="relative w-full max-h-40 p-3">
-              <h4 className="text-base font-bold tracking-widest text-black">
+              <h4 className="text-sm font-bold tracking-widest text-black">
                 <div className="flex justify-between items-center">
                   <span className="flex justify-start items-center">
                     <Badge
@@ -233,7 +233,7 @@ export default class LiveItem extends Component<Props, State> {
           <dialog
             key={`dialog-${liveItem.liveId}-${this.props.liveItem.liveItemNo}`}
             ref={this.state.dialogRef}
-            className="w-screen max-w-full sm:w-5/6 h-5/6 sm:max-h-208 bg-white sm:backdrop-opacity-20 sm:backdrop-blur-xl rounded-lg border-theme mt-52 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
+            className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-white sm:backdrop-opacity-20 sm:backdrop-blur-xl rounded-lg border-theme mt-52 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
             onClick={(event) => {
               UtilityService.gtag({
                 category: "click",

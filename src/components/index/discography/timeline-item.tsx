@@ -125,7 +125,7 @@ class TimelineItem extends Component<Props, State> {
               }}
             >
               <FaCirclePlay className="mr-2 w-4" />
-              <span className={`sm:text-xl text-base`}>{item.title}</span>
+              <span className={`sm:text-xl text-sm`}>{item.title}</span>
             </div>
             <div className="flex justify-between items-center">
               <ul className="flex justify-start list-none py-2 ml-6 text-xs sm:text-sm text-black font-thin tracking-widest">
@@ -165,7 +165,7 @@ class TimelineItem extends Component<Props, State> {
           </Timeline.Title>
           <Timeline.Body>
             {this.state.isExpand && item.songs.length > 0 && (
-              <div className="flex flex-wrap bg-white mt-2 px-5 pt-2 pb-5 rounded-lg border border-theme text-base">
+              <div className="flex flex-wrap bg-white mt-2 px-5 pt-2 pb-5 rounded-lg border border-theme text-xs">
                 <div
                   className={`${item.posts.length > 0 ? "sm:w-1/2" : "w-full"}`}
                 >
@@ -177,14 +177,14 @@ class TimelineItem extends Component<Props, State> {
                           className="ml-2 pl-2 sm:py-1"
                           key={`songs-${item.discographyId}-${i}`}
                         >
-                          <span className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-sm sm:text-base">
+                          <span className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-xs sm:text-base">
                             {song.songName}
                           </span>
                           {(song.downloadUrl ||
                             song.musicVideoUrl ||
                             song.lyricVideoUrl ||
                             song.liveVideoUrl) && (
-                            <ul className="list-none text-sm">
+                            <ul className="list-none text-xs">
                               {song.downloadUrl && (
                                 <li className="my-2 ml-4 list-disc">
                                   <a

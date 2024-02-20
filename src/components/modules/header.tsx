@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { GoLinkExternal } from "react-icons/go";
 import UtilityService from "../../services/UtilityService";
+import { Link } from "gatsby";
+import { TbMapPinHeart } from "react-icons/tb";
 
 type Props = {
   title: string;
@@ -20,15 +21,15 @@ export default class TopHeader extends Component<Props> {
       <header className="z-40 h-16">
         <nav className="bg-theme border-gray-200">
           <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/" className="block">
+            <Link to="/" className="block">
               <span className="self-center text-3xl font-icon font-medium whitespace-nowrap text-letter text-shadow">
                 !Legit
               </span>
               <span className="pl-3 font-bold text-xs tracking-widest">
                 Reol Unofficial Fansite
               </span>
-            </a>
-            <div
+            </Link>
+            {/* <div
               className="hidden w-full md:block md:w-auto"
               id="navbar-default"
             >
@@ -51,7 +52,7 @@ export default class TopHeader extends Component<Props> {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </nav>
       </header>
