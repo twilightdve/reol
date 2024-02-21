@@ -1,5 +1,25 @@
 [
   {
+    "discographyId": 31,
+    "title": "No title+(アナログ盤)",
+    "releaseDate": "2024-08-17",
+    "name": "Reol",
+    "format": "fullAL",
+    "posts": [],
+    "songs": []
+  },
+  {
+    "discographyId": 30,
+    "title": "No title-(アナログ盤)",
+    "releaseDate": "2024-08-17",
+    "name": "Reol",
+    "format": "fullAL",
+    "siteUrl": "",
+    "xfdUrl": "https://youtu.be/zIXChyxR2co",
+    "posts": [],
+    "songs": []
+  },
+  {
     "discographyId": 29,
     "title": "BLACK BOX",
     "releaseDate": "2023-10-18",
