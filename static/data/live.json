@@ -11731,7 +11731,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveId": 3,
+        "liveReportNo": 1,
+        "liveReportName": "【イベントレポート】＜ウタカツ！スーパーライブ2015＞、「千本桜」で大団円",
+        "liveReportUrl": "https://www.barks.jp/news/?id=1000113873"
+      }
+    ]
   },
   {
     "liveId": 2,
@@ -11779,7 +11786,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveId": 1,
+        "liveReportNo": 1,
+        "liveReportName": "Live event results",
+        "liveReportUrl": "https://www.keicorporation.com/amphead/index.html"
+      }
+    ]
   },
   {
     "liveId": 0,
@@ -11822,7 +11836,7 @@
             "liveId": 0,
             "liveItemNo": 1,
             "liveItemSongNo": 4,
-            "liveItemSongName": "ギガンティック.そらる"
+            "liveItemSongName": "ギガンティックO.T.N（そらる）"
           },
           {
             "liveId": 0,
@@ -11882,6 +11896,13 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveId": 0,
+        "liveReportNo": 1,
+        "liveReportName": "ぎがばなな　ざ　べすと発売記念イベントに行きました。",
+        "liveReportUrl": "https://ameblo.jp/purinkamix/entry-11620398229.html#%E3%83%8D%E3%83%88%E3%82%B2%E5%BB%83%E4%BA%BA%E3%82%B7%E3%83%A5%E3%83%97%E3%83%AC%E3%83%92%E3%82%B3%E3%83%BC%E3%83%AB"
+      }
+    ]
   }
 ]
