@@ -1,12 +1,168 @@
 [
   {
+    "discographyId": 32,
+    "title": "感情御中 -WANT U LUV IT",
+    "releaseDate": "2024-03-20",
+    "name": "Reol",
+    "format": "配信SG",
+    "siteUrl": "https://reol.jp/discography/detail/39/",
+    "posts": [],
+    "songs": [
+      {
+        "songId": 153,
+        "discographyId": 32,
+        "discographyTitle": "感情御中 -WANT U LUV IT",
+        "songNo": 1,
+        "songName": "感情御中 -WANT U LUV IT",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      }
+    ]
+  },
+  {
     "discographyId": 31,
     "title": "No title+(アナログ盤)",
     "releaseDate": "2024-08-17",
     "name": "Reol",
     "format": "fullAL",
     "posts": [],
-    "songs": []
+    "songs": [
+      {
+        "songId": 142,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 1,
+        "songName": "-Opening-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 143,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 2,
+        "songName": "ヒビカセ",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 144,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 3,
+        "songName": "オオエドランヴ (feat. nqrse)",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 145,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 4,
+        "songName": "drop pop candy (feat. ギガ)",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 146,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 5,
+        "songName": "-Interlude-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 147,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 6,
+        "songName": "No title",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 148,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 7,
+        "songName": "Echo",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 149,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 8,
+        "songName": "-BWW SCREAM-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 150,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 9,
+        "songName": "アシンメトリー",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 151,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 10,
+        "songName": "ギガンティックO.T.N -Big Death Edition-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 152,
+        "discographyId": 31,
+        "discographyTitle": "No title+(アナログ盤)",
+        "songNo": 11,
+        "songName": "-Ending-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      }
+    ]
   },
   {
     "discographyId": 30,
@@ -17,7 +173,140 @@
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/zIXChyxR2co",
     "posts": [],
-    "songs": []
+    "songs": [
+      {
+        "songId": 131,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 1,
+        "songName": "-Opening-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 132,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 2,
+        "songName": "ヒビカセ",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 133,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 3,
+        "songName": "オオエドランヴ (feat. nqrse)",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 134,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 4,
+        "songName": "drop pop candy (feat. ギガ)",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 135,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 5,
+        "songName": "-Interlude-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 136,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 6,
+        "songName": "No title",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 137,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 7,
+        "songName": "Echo",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 138,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 8,
+        "songName": "-BWW SCREAM-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 139,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 9,
+        "songName": "アシンメトリー",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 140,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 10,
+        "songName": "ギガンティックO.T.N -Big Death Edition-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      },
+      {
+        "songId": 141,
+        "discographyId": 30,
+        "discographyTitle": "No title-(アナログ盤)",
+        "songNo": 11,
+        "songName": "-Ending-",
+        "tieupDescription": null,
+        "downloadUrl": null,
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null
+      }
+    ]
   },
   {
     "discographyId": 29,
@@ -449,7 +738,7 @@
         "discographyId": 29,
         "discographyTitle": "BLACK BOX",
         "songNo": 11,
-        "songName": "煽げや尊し",
+        "songName": "煽げや尊し(Agitate)",
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/sDhU6nWWja8",
@@ -461,7 +750,7 @@
         "discographyId": 29,
         "discographyTitle": "BLACK BOX",
         "songNo": 12,
-        "songName": "赤裸裸",
+        "songName": "赤裸裸(NAKED)",
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/wmXczyb-3P0",

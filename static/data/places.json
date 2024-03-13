@@ -278,12 +278,12 @@
         "needsCost": "",
         "needsPermission": "",
         "placeUrl": "",
-        "address": "〒158-0095 東京都世田谷区瀬田３２",
-        "mapsUrl": "https://www.google.com/maps/place/%E7%80%AC%E7%94%B0%E3%82%A2%E3%83%BC%E3%83%88%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB/@35.6176817,139.6257915,17z/data=!3m1!4b1!4m6!3m5!1s0x6018f574972aed3b:0xd09e5d6c16c027ed!8m2!3d35.6176817!4d139.6283664!16s%2Fg%2F11gyyxc9yx?entry=ttu",
-        "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.40740681095!2d139.62579147675353!3d35.617681672607965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f574972aed3b%3A0xd09e5d6c16c027ed!2z54Cs55Sw44Ki44O844OI44OI44Oz44ON44Or!5e0!3m2!1sja!2sjp!4v1705423252402!5m2!1sja!2sjp",
-        "lat": 35.6176817,
-        "lng": 139.6257915,
-        "zoom": 17
+        "address": "〒120-0006 東京都足立区谷中４丁目",
+        "mapsUrl": "https://www.google.com/maps/place/%E3%80%92120-0006+%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B6%B3%E7%AB%8B%E5%8C%BA%E8%B0%B7%E4%B8%AD%EF%BC%94%E4%B8%81%E7%9B%AE/@35.7820665,139.8269417,16z/data=!3m1!4b1!4m6!3m5!1s0x60188fde63eb7fbb:0xc4e3618e86183c04!8m2!3d35.7819502!4d139.8323344!16s%2Fg%2F1pxy9yd0f?entry=ttu",
+        "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6473.455250910246!2d139.82694169834377!3d35.78206649021967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188fde63eb7fbb%3A0xc4e3618e86183c04!2z44CSMTIwLTAwMDYg5p2x5Lqs6YO96Laz56uL5Yy66LC35Lit77yU5LiB55uu!5e0!3m2!1sja!2sjp!4v1709314152632!5m2!1sja!2sjp",
+        "lat": 35.7820665,
+        "lng": 139.8269417,
+        "zoom": 16
       },
       {
         "placeId": 8,
