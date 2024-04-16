@@ -6,6 +6,7 @@
     "name": "Reol",
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/39/",
+    "reports": [],
     "posts": [],
     "songs": [
       {
@@ -14,11 +15,30 @@
         "discographyTitle": "感情御中 -WANT U LUV IT",
         "songNo": 1,
         "songName": "感情御中 -WANT U LUV IT",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "https://reol.lnk.to/WANTULUVIT",
+        "musicVideoUrl": "https://youtu.be/l7DyQ1GDatA",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO",
+        "feature": {
+          "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO",
+          "songName": "感情御中 - WANT U LUV IT",
+          "popularity": "55",
+          "danceability": 0.649,
+          "energy": 0.924,
+          "key": 10,
+          "loudness": -3.515,
+          "mode": 0,
+          "speechiness": 0.092,
+          "acousticness": 0.00134,
+          "instrumentalness": 0.0000185,
+          "liveness": 0.3,
+          "valence": 0.86,
+          "tempo": 145.074,
+          "durationMs": 175231,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -28,6 +48,7 @@
     "releaseDate": "2024-08-17",
     "name": "Reol",
     "format": "fullAL",
+    "reports": [],
     "posts": [],
     "songs": [
       {
@@ -36,11 +57,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 1,
         "songName": "-Opening-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+        "feature": {
+          "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+          "songName": "-Opening-",
+          "popularity": "31",
+          "danceability": 0.626,
+          "energy": 0.79,
+          "key": 1,
+          "loudness": -1.934,
+          "mode": 1,
+          "speechiness": 0.152,
+          "acousticness": 0.00606,
+          "instrumentalness": 0.00000208,
+          "liveness": 0.059,
+          "valence": 0.875,
+          "tempo": 134.007,
+          "durationMs": 107231,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 143,
@@ -48,11 +88,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 2,
         "songName": "ヒビカセ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+        "feature": {
+          "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+          "songName": "ヒビカセ",
+          "popularity": "53",
+          "danceability": 0.711,
+          "energy": 0.764,
+          "key": 6,
+          "loudness": -2.308,
+          "mode": 0,
+          "speechiness": 0.203,
+          "acousticness": 0.00206,
+          "instrumentalness": 0.000667,
+          "liveness": 0.0538,
+          "valence": 0.835,
+          "tempo": 139.988,
+          "durationMs": 250552,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 144,
@@ -60,11 +119,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 3,
         "songName": "オオエドランヴ (feat. nqrse)",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+        "feature": {
+          "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+          "songName": "オオエドランヴ (feat. nqrse)",
+          "popularity": "45",
+          "danceability": 0.586,
+          "energy": 0.995,
+          "key": 8,
+          "loudness": -2.394,
+          "mode": 1,
+          "speechiness": 0.119,
+          "acousticness": 0.0832,
+          "instrumentalness": 0,
+          "liveness": 0.259,
+          "valence": 0.633,
+          "tempo": 134.039,
+          "durationMs": 181176,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 145,
@@ -72,11 +150,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 4,
         "songName": "drop pop candy (feat. ギガ)",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+        "feature": {
+          "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+          "songName": "drop pop candy (feat. ギガ)",
+          "popularity": "55",
+          "danceability": 0.698,
+          "energy": 0.942,
+          "key": 6,
+          "loudness": -1.936,
+          "mode": 0,
+          "speechiness": 0.0537,
+          "acousticness": 0.0194,
+          "instrumentalness": 0.000181,
+          "liveness": 0.0114,
+          "valence": 0.967,
+          "tempo": 129.962,
+          "durationMs": 224963,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 146,
@@ -84,11 +181,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 5,
         "songName": "-Interlude-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+        "feature": {
+          "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+          "songName": "-Interlude-",
+          "popularity": "2",
+          "danceability": 0.551,
+          "energy": 0.79,
+          "key": 4,
+          "loudness": -7.622,
+          "mode": 1,
+          "speechiness": 0.055,
+          "acousticness": 0.103,
+          "instrumentalness": 0.349,
+          "liveness": 0.202,
+          "valence": 0.963,
+          "tempo": 99.993,
+          "durationMs": 29533,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 147,
@@ -96,11 +212,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 6,
         "songName": "No title",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+        "feature": {
+          "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+          "songName": "No title",
+          "popularity": "55",
+          "danceability": 0.502,
+          "energy": 0.874,
+          "key": 1,
+          "loudness": -5.981,
+          "mode": 0,
+          "speechiness": 0.0677,
+          "acousticness": 0.0933,
+          "instrumentalness": 0.000173,
+          "liveness": 0.0638,
+          "valence": 0.884,
+          "tempo": 199.751,
+          "durationMs": 243903,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 148,
@@ -108,11 +243,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 7,
         "songName": "Echo",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+        "feature": {
+          "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+          "songName": "Echo",
+          "popularity": "31",
+          "danceability": 0.722,
+          "energy": 0.549,
+          "key": 9,
+          "loudness": -5.597,
+          "mode": 1,
+          "speechiness": 0.0427,
+          "acousticness": 0.296,
+          "instrumentalness": 0.000156,
+          "liveness": 0.0898,
+          "valence": 0.547,
+          "tempo": 132.015,
+          "durationMs": 212974,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 149,
@@ -120,11 +274,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 8,
         "songName": "-BWW SCREAM-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+        "feature": {
+          "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+          "songName": "-BWW SCREAM-",
+          "popularity": "26",
+          "danceability": 0.533,
+          "energy": 0.992,
+          "key": 10,
+          "loudness": -3.19,
+          "mode": 0,
+          "speechiness": 0.0783,
+          "acousticness": 0.0114,
+          "instrumentalness": 0.546,
+          "liveness": 0.314,
+          "valence": 0.947,
+          "tempo": 89.991,
+          "durationMs": 81947,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 150,
@@ -132,11 +305,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 9,
         "songName": "アシンメトリー",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+        "feature": {
+          "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+          "songName": "アシンメトリー",
+          "popularity": "42",
+          "danceability": 0.511,
+          "energy": 0.906,
+          "key": 6,
+          "loudness": -2.009,
+          "mode": 0,
+          "speechiness": 0.0883,
+          "acousticness": 0.00168,
+          "instrumentalness": 0.0035,
+          "liveness": 0.0891,
+          "valence": 0.469,
+          "tempo": 184.012,
+          "durationMs": 255814,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 151,
@@ -144,11 +336,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 10,
         "songName": "ギガンティックO.T.N -Big Death Edition-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+        "feature": {
+          "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+          "songName": "ギガンティックO.T.N -Big Death Edition-",
+          "popularity": "40",
+          "danceability": 0.396,
+          "energy": 0.944,
+          "key": 1,
+          "loudness": -1.565,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.00454,
+          "instrumentalness": 0.00184,
+          "liveness": 0.109,
+          "valence": 0.405,
+          "tempo": 94.911,
+          "durationMs": 207678,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 152,
@@ -156,11 +367,30 @@
         "discographyTitle": "No title+(アナログ盤)",
         "songNo": 11,
         "songName": "-Ending-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+        "feature": {
+          "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+          "songName": "-Ending-",
+          "popularity": "23",
+          "danceability": 0.683,
+          "energy": 0.52,
+          "key": 9,
+          "loudness": -17.765,
+          "mode": 1,
+          "speechiness": 0.233,
+          "acousticness": 0.862,
+          "instrumentalness": 0.116,
+          "liveness": 0.357,
+          "valence": 0.945,
+          "tempo": 96.933,
+          "durationMs": 50768,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -172,6 +402,7 @@
     "format": "fullAL",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/zIXChyxR2co",
+    "reports": [],
     "posts": [],
     "songs": [
       {
@@ -180,11 +411,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 1,
         "songName": "-Opening-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+        "feature": {
+          "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+          "songName": "-Opening-",
+          "popularity": "31",
+          "danceability": 0.626,
+          "energy": 0.79,
+          "key": 1,
+          "loudness": -1.934,
+          "mode": 1,
+          "speechiness": 0.152,
+          "acousticness": 0.00606,
+          "instrumentalness": 0.00000208,
+          "liveness": 0.059,
+          "valence": 0.875,
+          "tempo": 134.007,
+          "durationMs": 107231,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 132,
@@ -192,11 +442,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 2,
         "songName": "ヒビカセ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+        "feature": {
+          "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+          "songName": "ヒビカセ",
+          "popularity": "53",
+          "danceability": 0.711,
+          "energy": 0.764,
+          "key": 6,
+          "loudness": -2.308,
+          "mode": 0,
+          "speechiness": 0.203,
+          "acousticness": 0.00206,
+          "instrumentalness": 0.000667,
+          "liveness": 0.0538,
+          "valence": 0.835,
+          "tempo": 139.988,
+          "durationMs": 250552,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 133,
@@ -204,11 +473,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 3,
         "songName": "オオエドランヴ (feat. nqrse)",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+        "feature": {
+          "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+          "songName": "オオエドランヴ (feat. nqrse)",
+          "popularity": "45",
+          "danceability": 0.586,
+          "energy": 0.995,
+          "key": 8,
+          "loudness": -2.394,
+          "mode": 1,
+          "speechiness": 0.119,
+          "acousticness": 0.0832,
+          "instrumentalness": 0,
+          "liveness": 0.259,
+          "valence": 0.633,
+          "tempo": 134.039,
+          "durationMs": 181176,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 134,
@@ -216,11 +504,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 4,
         "songName": "drop pop candy (feat. ギガ)",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+        "feature": {
+          "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+          "songName": "drop pop candy (feat. ギガ)",
+          "popularity": "55",
+          "danceability": 0.698,
+          "energy": 0.942,
+          "key": 6,
+          "loudness": -1.936,
+          "mode": 0,
+          "speechiness": 0.0537,
+          "acousticness": 0.0194,
+          "instrumentalness": 0.000181,
+          "liveness": 0.0114,
+          "valence": 0.967,
+          "tempo": 129.962,
+          "durationMs": 224963,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 135,
@@ -228,11 +535,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 5,
         "songName": "-Interlude-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+        "feature": {
+          "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+          "songName": "-Interlude-",
+          "popularity": "2",
+          "danceability": 0.551,
+          "energy": 0.79,
+          "key": 4,
+          "loudness": -7.622,
+          "mode": 1,
+          "speechiness": 0.055,
+          "acousticness": 0.103,
+          "instrumentalness": 0.349,
+          "liveness": 0.202,
+          "valence": 0.963,
+          "tempo": 99.993,
+          "durationMs": 29533,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 136,
@@ -240,11 +566,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 6,
         "songName": "No title",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+        "feature": {
+          "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+          "songName": "No title",
+          "popularity": "55",
+          "danceability": 0.502,
+          "energy": 0.874,
+          "key": 1,
+          "loudness": -5.981,
+          "mode": 0,
+          "speechiness": 0.0677,
+          "acousticness": 0.0933,
+          "instrumentalness": 0.000173,
+          "liveness": 0.0638,
+          "valence": 0.884,
+          "tempo": 199.751,
+          "durationMs": 243903,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 137,
@@ -252,11 +597,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 7,
         "songName": "Echo",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+        "feature": {
+          "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+          "songName": "Echo",
+          "popularity": "31",
+          "danceability": 0.722,
+          "energy": 0.549,
+          "key": 9,
+          "loudness": -5.597,
+          "mode": 1,
+          "speechiness": 0.0427,
+          "acousticness": 0.296,
+          "instrumentalness": 0.000156,
+          "liveness": 0.0898,
+          "valence": 0.547,
+          "tempo": 132.015,
+          "durationMs": 212974,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 138,
@@ -264,11 +628,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 8,
         "songName": "-BWW SCREAM-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+        "feature": {
+          "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+          "songName": "-BWW SCREAM-",
+          "popularity": "26",
+          "danceability": 0.533,
+          "energy": 0.992,
+          "key": 10,
+          "loudness": -3.19,
+          "mode": 0,
+          "speechiness": 0.0783,
+          "acousticness": 0.0114,
+          "instrumentalness": 0.546,
+          "liveness": 0.314,
+          "valence": 0.947,
+          "tempo": 89.991,
+          "durationMs": 81947,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 139,
@@ -276,11 +659,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 9,
         "songName": "アシンメトリー",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+        "feature": {
+          "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+          "songName": "アシンメトリー",
+          "popularity": "42",
+          "danceability": 0.511,
+          "energy": 0.906,
+          "key": 6,
+          "loudness": -2.009,
+          "mode": 0,
+          "speechiness": 0.0883,
+          "acousticness": 0.00168,
+          "instrumentalness": 0.0035,
+          "liveness": 0.0891,
+          "valence": 0.469,
+          "tempo": 184.012,
+          "durationMs": 255814,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 140,
@@ -288,11 +690,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 10,
         "songName": "ギガンティックO.T.N -Big Death Edition-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+        "feature": {
+          "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+          "songName": "ギガンティックO.T.N -Big Death Edition-",
+          "popularity": "40",
+          "danceability": 0.396,
+          "energy": 0.944,
+          "key": 1,
+          "loudness": -1.565,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.00454,
+          "instrumentalness": 0.00184,
+          "liveness": 0.109,
+          "valence": 0.405,
+          "tempo": 94.911,
+          "durationMs": 207678,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 141,
@@ -300,11 +721,30 @@
         "discographyTitle": "No title-(アナログ盤)",
         "songNo": 11,
         "songName": "-Ending-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+        "feature": {
+          "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+          "songName": "-Ending-",
+          "popularity": "23",
+          "danceability": 0.683,
+          "energy": 0.52,
+          "key": 9,
+          "loudness": -17.765,
+          "mode": 1,
+          "speechiness": 0.233,
+          "acousticness": 0.862,
+          "instrumentalness": 0.116,
+          "liveness": 0.357,
+          "valence": 0.945,
+          "tempo": 96.933,
+          "durationMs": 50768,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -316,6 +756,20 @@
     "format": "fullAL",
     "siteUrl": "https://reol.jp/discography/detail/38/",
     "xfdUrl": "https://youtu.be/i6_IijehxIk",
+    "reports": [
+      {
+        "discographyId": 29,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol×Giga「DDD」放談",
+        "discographyReportUrl": "https://reol.jp/feature/bb_special"
+      },
+      {
+        "discographyId": 29,
+        "discographyRepoNo": 2,
+        "discographyReportName": "Reol×小田さくら（モーニング娘。'23）が“歌い手”として語り合う",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol08"
+      }
+    ],
     "posts": [
       {
         "discographyId": 29,
@@ -619,11 +1073,30 @@
         "discographyTitle": "BLACK BOX",
         "songNo": 1,
         "songName": "Final Call",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "16LtCuhBDYWI0oCOMW8jg9",
+        "feature": {
+          "spotifyTrackId": "16LtCuhBDYWI0oCOMW8jg9",
+          "songName": "Final Call",
+          "popularity": "36",
+          "danceability": 0.791,
+          "energy": 0.873,
+          "key": 6,
+          "loudness": -4.845,
+          "mode": 0,
+          "speechiness": 0.248,
+          "acousticness": 0.0865,
+          "instrumentalness": 0,
+          "liveness": 0.275,
+          "valence": 0.42,
+          "tempo": 123.011,
+          "durationMs": 199547,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 119,
@@ -631,11 +1104,30 @@
         "discographyTitle": "BLACK BOX",
         "songNo": 2,
         "songName": "TAKE OFF",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1owuehstJOr079w8WoEKXw",
+        "feature": {
+          "spotifyTrackId": "1owuehstJOr079w8WoEKXw",
+          "songName": "TAKE OFF",
+          "popularity": "37",
+          "danceability": 0.735,
+          "energy": 0.88,
+          "key": 9,
+          "loudness": -4.494,
+          "mode": 0,
+          "speechiness": 0.117,
+          "acousticness": 0.0217,
+          "instrumentalness": 0.00000132,
+          "liveness": 0.344,
+          "valence": 0.567,
+          "tempo": 140.022,
+          "durationMs": 235960,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 120,
@@ -647,7 +1139,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/8pNkuATx-oo",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/j3W111TMSps"
+        "liveVideoUrl": "https://youtu.be/j3W111TMSps",
+        "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+        "feature": {
+          "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+          "songName": "SCORPION",
+          "popularity": "34",
+          "danceability": 0.702,
+          "energy": 0.904,
+          "key": 11,
+          "loudness": -2.307,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.0125,
+          "instrumentalness": 0,
+          "liveness": 0.264,
+          "valence": 0.425,
+          "tempo": 126.071,
+          "durationMs": 176880,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 121,
@@ -658,8 +1169,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/-6MwZGrias0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+        "feature": {
+          "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+          "songName": "綺羅綺羅(Glitter)",
+          "popularity": "37",
+          "danceability": 0.754,
+          "energy": 0.921,
+          "key": 1,
+          "loudness": -3.271,
+          "mode": 1,
+          "speechiness": 0.214,
+          "acousticness": 0.0145,
+          "instrumentalness": 0,
+          "liveness": 0.308,
+          "valence": 0.673,
+          "tempo": 129.003,
+          "durationMs": 193292,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 122,
@@ -667,11 +1197,30 @@
         "discographyTitle": "BLACK BOX",
         "songNo": 5,
         "songName": "-Neo Nostalgia-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0rRiinixC23Bn9hPKOrbTN",
+        "feature": {
+          "spotifyTrackId": "0rRiinixC23Bn9hPKOrbTN",
+          "songName": "-Neo Nostalgia-",
+          "popularity": "29",
+          "danceability": 0.531,
+          "energy": 0.742,
+          "key": 9,
+          "loudness": -8.143,
+          "mode": 0,
+          "speechiness": 0.05,
+          "acousticness": 0.0293,
+          "instrumentalness": 0.717,
+          "liveness": 0.23,
+          "valence": 0.42,
+          "tempo": 160.013,
+          "durationMs": 153080,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 123,
@@ -682,8 +1231,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://www.youtube.com/watch?v=sZ2zCzRcQHg",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO",
+        "feature": {
+          "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO",
+          "songName": "secret trip",
+          "popularity": "29",
+          "danceability": 0.667,
+          "energy": 0.914,
+          "key": 0,
+          "loudness": -4.91,
+          "mode": 1,
+          "speechiness": 0.109,
+          "acousticness": 0.103,
+          "instrumentalness": 0.0000748,
+          "liveness": 0.0845,
+          "valence": 0.673,
+          "tempo": 150.079,
+          "durationMs": 211813,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 124,
@@ -691,11 +1259,30 @@
         "discographyTitle": "BLACK BOX",
         "songNo": 7,
         "songName": "さよならのすゝめ、今日のつづき",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0MgMBO8GREfoOkr9mPFJRP",
+        "feature": {
+          "spotifyTrackId": "0MgMBO8GREfoOkr9mPFJRP",
+          "songName": "さよならのすゝめ、今日のつづき",
+          "popularity": "34",
+          "danceability": 0.592,
+          "energy": 0.769,
+          "key": 8,
+          "loudness": -5.576,
+          "mode": 1,
+          "speechiness": 0.0414,
+          "acousticness": 0.0436,
+          "instrumentalness": 0.0000652,
+          "liveness": 0.191,
+          "valence": 0.293,
+          "tempo": 163.99,
+          "durationMs": 266427,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 125,
@@ -706,8 +1293,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://www.youtube.com/watch?v=FpwYVKN4w2U",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+        "feature": {
+          "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+          "songName": "切っ先(Edge)",
+          "popularity": "25",
+          "danceability": 0.651,
+          "energy": 0.917,
+          "key": 4,
+          "loudness": -3.328,
+          "mode": 0,
+          "speechiness": 0.0406,
+          "acousticness": 0.00227,
+          "instrumentalness": 0,
+          "liveness": 0.271,
+          "valence": 0.379,
+          "tempo": 120.013,
+          "durationMs": 210067,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 126,
@@ -715,11 +1321,30 @@
         "discographyTitle": "BLACK BOX",
         "songNo": 9,
         "songName": "-#000000-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6oDOYu3pYuP8DhkGqaOK7n",
+        "feature": {
+          "spotifyTrackId": "6oDOYu3pYuP8DhkGqaOK7n",
+          "songName": "-#000000-",
+          "popularity": "28",
+          "danceability": 0.623,
+          "energy": 0.849,
+          "key": 1,
+          "loudness": -4.012,
+          "mode": 1,
+          "speechiness": 0.0455,
+          "acousticness": 0.0111,
+          "instrumentalness": 0.32,
+          "liveness": 0.425,
+          "valence": 0.542,
+          "tempo": 172.008,
+          "durationMs": 135827,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 127,
@@ -730,8 +1355,27 @@
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/DDD",
         "musicVideoUrl": "https://youtu.be/tgu6qr5G_g8?si=736yIUq-raY-joo0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7rVwTKcjSm0IfZ0Jz8k7A9",
+        "feature": {
+          "spotifyTrackId": "7rVwTKcjSm0IfZ0Jz8k7A9",
+          "songName": "DDD",
+          "popularity": "35",
+          "danceability": 0.714,
+          "energy": 0.963,
+          "key": 11,
+          "loudness": -2.077,
+          "mode": 0,
+          "speechiness": 0.0941,
+          "acousticness": 0.0616,
+          "instrumentalness": 0.000475,
+          "liveness": 0.343,
+          "valence": 0.879,
+          "tempo": 99.987,
+          "durationMs": 174627,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 128,
@@ -742,8 +1386,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/sDhU6nWWja8",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm",
+        "feature": {
+          "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm",
+          "songName": "煽げや尊し(Agitate)",
+          "popularity": "39",
+          "danceability": 0.703,
+          "energy": 0.926,
+          "key": 6,
+          "loudness": -1.803,
+          "mode": 1,
+          "speechiness": 0.187,
+          "acousticness": 0.00749,
+          "instrumentalness": 0.00000489,
+          "liveness": 0.361,
+          "valence": 0.55,
+          "tempo": 131.082,
+          "durationMs": 217107,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 129,
@@ -754,8 +1417,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/wmXczyb-3P0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM",
+        "feature": {
+          "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM",
+          "songName": "赤裸裸(NAKED)",
+          "popularity": "34",
+          "danceability": 0.576,
+          "energy": 0.944,
+          "key": 7,
+          "loudness": -2.045,
+          "mode": 1,
+          "speechiness": 0.219,
+          "acousticness": 0.00456,
+          "instrumentalness": 0.000282,
+          "liveness": 0.377,
+          "valence": 0.697,
+          "tempo": 139.9,
+          "durationMs": 160131,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 130,
@@ -766,8 +1448,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/uiZkYwiHRHI",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "611w2dL7Vk4c54JvtH0qo6",
+        "feature": {
+          "spotifyTrackId": "611w2dL7Vk4c54JvtH0qo6",
+          "songName": "第六感 - From THE FIRST TAKE",
+          "popularity": "31",
+          "danceability": 0.723,
+          "energy": 0.934,
+          "key": 7,
+          "loudness": -1.995,
+          "mode": 1,
+          "speechiness": 0.0811,
+          "acousticness": 0.167,
+          "instrumentalness": 0,
+          "liveness": 0.3,
+          "valence": 0.843,
+          "tempo": 133.948,
+          "durationMs": 194200,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -779,6 +1480,14 @@
     "format": "SG",
     "siteUrl": "https://reol.jp/discography/detail/34/",
     "xfdUrl": "https://youtu.be/x1Hhyc9s0Qo",
+    "reports": [
+      {
+        "discographyId": 28,
+        "discographyRepoNo": 1,
+        "discographyReportName": "アニメ『るろうに剣心 －明治剣客浪漫譚－』Reolインタビュー",
+        "discographyReportUrl": "https://www.animatetimes.com/news/details.php?id=1695363115"
+      }
+    ],
     "posts": [
       {
         "discographyId": 28,
@@ -905,8 +1614,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/FpwYVKN4w2U",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+        "feature": {
+          "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+          "songName": "切っ先(Edge)",
+          "popularity": "25",
+          "danceability": 0.651,
+          "energy": 0.917,
+          "key": 4,
+          "loudness": -3.328,
+          "mode": 0,
+          "speechiness": 0.0406,
+          "acousticness": 0.00227,
+          "instrumentalness": 0,
+          "liveness": 0.271,
+          "valence": 0.379,
+          "tempo": 120.013,
+          "durationMs": 210067,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 113,
@@ -917,8 +1645,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/-6MwZGrias0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+        "feature": {
+          "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+          "songName": "綺羅綺羅(Glitter)",
+          "popularity": "37",
+          "danceability": 0.754,
+          "energy": 0.921,
+          "key": 1,
+          "loudness": -3.271,
+          "mode": 1,
+          "speechiness": 0.214,
+          "acousticness": 0.0145,
+          "instrumentalness": 0,
+          "liveness": 0.308,
+          "valence": 0.673,
+          "tempo": 129.003,
+          "durationMs": 193292,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 114,
@@ -926,11 +1673,30 @@
         "discographyTitle": "切っ先(Edge)",
         "songNo": 3,
         "songName": "煽げや尊し(FAKE TYPE. Remix)",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3ScmMzh4kEqbrrJcHBKoJz",
+        "feature": {
+          "spotifyTrackId": "3ScmMzh4kEqbrrJcHBKoJz",
+          "songName": "煽げや尊し(FAKE TYPE. Remix)",
+          "popularity": "32",
+          "danceability": 0.675,
+          "energy": 0.966,
+          "key": 6,
+          "loudness": -0.742,
+          "mode": 1,
+          "speechiness": 0.156,
+          "acousticness": 0.0771,
+          "instrumentalness": 0,
+          "liveness": 0.0599,
+          "valence": 0.736,
+          "tempo": 130.963,
+          "durationMs": 215960,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 115,
@@ -942,7 +1708,9 @@
         "downloadUrl": null,
         "musicVideoUrl": null,
         "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "liveVideoUrl": null,
+        "spotifyTrackId": null,
+        "feature": null
       },
       {
         "songId": 116,
@@ -954,7 +1722,9 @@
         "downloadUrl": null,
         "musicVideoUrl": null,
         "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "liveVideoUrl": null,
+        "spotifyTrackId": null,
+        "feature": null
       },
       {
         "songId": 117,
@@ -966,7 +1736,9 @@
         "downloadUrl": null,
         "musicVideoUrl": null,
         "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "liveVideoUrl": null,
+        "spotifyTrackId": null,
+        "feature": null
       }
     ]
   },
@@ -978,6 +1750,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/35/",
     "xfdUrl": "https://youtu.be/FpwYVKN4w2U",
+    "reports": [
+      {
+        "discographyId": 27,
+        "discographyRepoNo": 1,
+        "discographyReportName": "アニメ『るろうに剣心 －明治剣客浪漫譚－』Reolインタビュー",
+        "discographyReportUrl": "https://www.animatetimes.com/news/details.php?id=1695363115"
+      }
+    ],
     "posts": [
       {
         "discographyId": 27,
@@ -1099,7 +1879,26 @@
         "downloadUrl": "https://reol.lnk.to/Kissaki",
         "musicVideoUrl": "https://youtu.be/FpwYVKN4w2U",
         "lyricVideoUrl": "https://youtu.be/QrodT8hfhm4",
-        "liveVideoUrl": null
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+        "feature": {
+          "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+          "songName": "切っ先(Edge)",
+          "popularity": "25",
+          "danceability": 0.651,
+          "energy": 0.917,
+          "key": 4,
+          "loudness": -3.328,
+          "mode": 0,
+          "speechiness": 0.0406,
+          "acousticness": 0.00227,
+          "instrumentalness": 0,
+          "liveness": 0.271,
+          "valence": 0.379,
+          "tempo": 120.013,
+          "durationMs": 210067,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1111,6 +1910,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/30/",
     "xfdUrl": "https://youtu.be/-6MwZGrias0",
+    "reports": [
+      {
+        "discographyId": 26,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reolが新曲「綺羅綺羅」でケンモチヒデフミとタッグ、3つのコンセプト写真も公開",
+        "discographyReportUrl": "https://natalie.mu/music/news/525572"
+      }
+    ],
     "posts": [
       {
         "discographyId": 26,
@@ -1189,8 +1996,27 @@
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/Glitter",
         "musicVideoUrl": "https://youtu.be/-6MwZGrias0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+        "feature": {
+          "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+          "songName": "綺羅綺羅(Glitter)",
+          "popularity": "37",
+          "danceability": 0.754,
+          "energy": 0.921,
+          "key": 1,
+          "loudness": -3.271,
+          "mode": 1,
+          "speechiness": 0.214,
+          "acousticness": 0.0145,
+          "instrumentalness": 0,
+          "liveness": 0.308,
+          "valence": 0.673,
+          "tempo": 129.003,
+          "durationMs": 193292,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1202,6 +2028,20 @@
     "format": "SG",
     "siteUrl": "https://reol.jp/discography/detail/26/",
     "xfdUrl": "https://youtu.be/oxHIBypfYPE",
+    "reports": [
+      {
+        "discographyId": 25,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol「COLORED DISC」インタビュー｜追求し続けた「Reolとは何か？」の答え",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol07"
+      },
+      {
+        "discographyId": 25,
+        "discographyRepoNo": 2,
+        "discographyReportName": "【Reol】待望の初シングル「COLORED DISC」をリリース。込められた“新たな自分らしさ”とツアーへの思い",
+        "discographyReportUrl": "https://smartmag.jp/archives/18574/#google_vignette"
+      }
+    ],
     "posts": [
       {
         "discographyId": 25,
@@ -1377,7 +2217,26 @@
         "downloadUrl": "https://reol.lnk.to/_COLOREDDISC",
         "musicVideoUrl": "https://youtu.be/8pNkuATx-oo",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/j3W111TMSps"
+        "liveVideoUrl": "https://youtu.be/j3W111TMSps",
+        "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+        "feature": {
+          "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+          "songName": "SCORPION",
+          "popularity": "34",
+          "danceability": 0.702,
+          "energy": 0.904,
+          "key": 11,
+          "loudness": -2.307,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.0125,
+          "instrumentalness": 0,
+          "liveness": 0.264,
+          "valence": 0.425,
+          "tempo": 126.071,
+          "durationMs": 176880,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 108,
@@ -1388,8 +2247,27 @@
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/_COLOREDDISC",
         "musicVideoUrl": "https://www.youtube.com/watch?v=sZ2zCzRcQHg",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO",
+        "feature": {
+          "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO",
+          "songName": "secret trip",
+          "popularity": "29",
+          "danceability": 0.667,
+          "energy": 0.914,
+          "key": 0,
+          "loudness": -4.91,
+          "mode": 1,
+          "speechiness": 0.109,
+          "acousticness": 0.103,
+          "instrumentalness": 0.0000748,
+          "liveness": 0.0845,
+          "valence": 0.673,
+          "tempo": 150.079,
+          "durationMs": 211813,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 109,
@@ -1399,9 +2277,28 @@
         "songName": "感情が群れを成すパレイド",
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/_COLOREDDISC",
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4G4kVFSOHVKegIXMbWUboK",
+        "feature": {
+          "spotifyTrackId": "4G4kVFSOHVKegIXMbWUboK",
+          "songName": "感情が群れを成すパレイド",
+          "popularity": "21",
+          "danceability": 0.694,
+          "energy": 0.727,
+          "key": 5,
+          "loudness": -8.484,
+          "mode": 0,
+          "speechiness": 0.135,
+          "acousticness": 0.0282,
+          "instrumentalness": 0.126,
+          "liveness": 0.356,
+          "valence": 0.399,
+          "tempo": 104.994,
+          "durationMs": 159573,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1413,6 +2310,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/27/",
     "xfdUrl": "https://youtu.be/8pNkuATx-oo",
+    "reports": [],
     "posts": [
       {
         "discographyId": 24,
@@ -1462,7 +2360,26 @@
         "downloadUrl": "https://reol.lnk.to/_COLOREDDISC",
         "musicVideoUrl": "https://youtu.be/8pNkuATx-oo",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/j3W111TMSps"
+        "liveVideoUrl": "https://youtu.be/j3W111TMSps",
+        "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+        "feature": {
+          "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+          "songName": "SCORPION",
+          "popularity": "34",
+          "danceability": 0.702,
+          "energy": 0.904,
+          "key": 11,
+          "loudness": -2.307,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.0125,
+          "instrumentalness": 0,
+          "liveness": 0.264,
+          "valence": 0.425,
+          "tempo": 126.071,
+          "durationMs": 176880,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1474,6 +2391,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/24/",
     "xfdUrl": "https://youtu.be/q8nkBWnS_u8",
+    "reports": [
+      {
+        "discographyId": 23,
+        "discographyRepoNo": 1,
+        "discographyReportName": "＜インタビュー＞Reol×ぬゆり「 No title - Seaside Remix」の邂逅は必然だった？　原点の再解釈、その背景にある想いとは",
+        "discographyReportUrl": "https://www.billboard-japan.com/special/detail/3629"
+      }
+    ],
     "posts": [
       {
         "discographyId": 23,
@@ -1540,8 +2465,27 @@
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/SeasideRemix",
         "musicVideoUrl": "https://youtu.be/RfpavxJOCok",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3EVQv88JzEKwUf4gSyAtZm",
+        "feature": {
+          "spotifyTrackId": "3EVQv88JzEKwUf4gSyAtZm",
+          "songName": "No title - Seaside Remix",
+          "popularity": "39",
+          "danceability": 0.687,
+          "energy": 0.932,
+          "key": 1,
+          "loudness": -3.88,
+          "mode": 0,
+          "speechiness": 0.0513,
+          "acousticness": 0.249,
+          "instrumentalness": 0,
+          "liveness": 0.684,
+          "valence": 0.891,
+          "tempo": 100.022,
+          "durationMs": 252067,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1553,6 +2497,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/23/",
     "xfdUrl": "https://youtu.be/_LiLEoP3m-M",
+    "reports": [],
     "posts": [
       {
         "discographyId": 22,
@@ -1644,7 +2589,26 @@
         "downloadUrl": "https://reol.lnk.to/Agitate",
         "musicVideoUrl": "https://youtu.be/sDhU6nWWja8",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/P_fsLKbdWtA"
+        "liveVideoUrl": "https://youtu.be/P_fsLKbdWtA",
+        "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm",
+        "feature": {
+          "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm",
+          "songName": "煽げや尊し(Agitate)",
+          "popularity": "39",
+          "danceability": 0.703,
+          "energy": 0.926,
+          "key": 6,
+          "loudness": -1.803,
+          "mode": 1,
+          "speechiness": 0.187,
+          "acousticness": 0.00749,
+          "instrumentalness": 0.00000489,
+          "liveness": 0.361,
+          "valence": 0.55,
+          "tempo": 131.082,
+          "durationMs": 217107,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1656,6 +2620,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/22/",
     "xfdUrl": "https://youtu.be/Ht83Jepq6as",
+    "reports": [
+      {
+        "discographyId": 21,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reolの変化。“誰かのために作る”音楽、“ルーツ”にインスパイアされた音楽。新たなフェーズに立つ今を聞く",
+        "discographyReportUrl": "https://www.thefirsttimes.jp/interview/0000171728/"
+      }
+    ],
     "posts": [
       {
         "discographyId": 21,
@@ -1807,7 +2779,26 @@
         "downloadUrl": "https://reol.lnk.to/Sekirara",
         "musicVideoUrl": "https://youtu.be/wmXczyb-3P0",
         "lyricVideoUrl": "https://youtu.be/5qY9eSlEHsA",
-        "liveVideoUrl": "https://youtu.be/_cThWJoL7Qo"
+        "liveVideoUrl": "https://youtu.be/_cThWJoL7Qo",
+        "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM",
+        "feature": {
+          "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM",
+          "songName": "赤裸裸(NAKED)",
+          "popularity": "34",
+          "danceability": 0.576,
+          "energy": 0.944,
+          "key": 7,
+          "loudness": -2.045,
+          "mode": 1,
+          "speechiness": 0.219,
+          "acousticness": 0.00456,
+          "instrumentalness": 0.000282,
+          "liveness": 0.377,
+          "valence": 0.697,
+          "tempo": 139.9,
+          "durationMs": 160131,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -1819,6 +2810,44 @@
     "format": "miniAL",
     "siteUrl": "https://reol.jp/discography/detail/20/",
     "xfdUrl": "https://youtu.be/xIM3Kh6_q2A",
+    "reports": [
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reolが人と交わる“交差点”を探し求めた「第六感」インタビュー",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol06"
+      },
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 2,
+        "discographyReportName": "＜インタビュー＞Reol 数字に惑わされず、自分にしか作れないものを――最新作『第六感』を語る",
+        "discographyReportUrl": "https://www.billboard-japan.com/special/detail/3418"
+      },
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 3,
+        "discographyReportName": "Reol『第六感』インタビュー――リミッターを外して手に入れた自由",
+        "discographyReportUrl": "https://e.usen.com/interview/interview-original/reol.html"
+      },
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 4,
+        "discographyReportName": "確固たるReolを築けた自信から挑戦できた、聴き手をより強く意識した『第六感』",
+        "discographyReportUrl": "https://www.thefirsttimes.jp/interview/0000057719/"
+      },
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 5,
+        "discographyReportName": "【インタビュー】Reol、『第六感』を切り拓いた「いちばん大きな交差点に出るということ」",
+        "discographyReportUrl": "https://www.barks.jp/news/?id=1000212350"
+      },
+      {
+        "discographyId": 20,
+        "discographyRepoNo": 6,
+        "discographyReportName": "Reol、柔軟な変化で生まれた“人と交わっていく音楽”　「先人たちがしてくれたことを自分がやっていくフェーズ」",
+        "discographyReportUrl": "https://realsound.jp/2021/12/post-924574.html"
+      }
+    ],
     "posts": [
       {
         "discographyId": 20,
@@ -2036,7 +3065,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/Ue6VQTcKPQo",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/UbeG_GmPZlY"
+        "liveVideoUrl": "https://youtu.be/UbeG_GmPZlY",
+        "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW",
+        "feature": {
+          "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW",
+          "songName": "第六感",
+          "popularity": "32",
+          "danceability": 0.676,
+          "energy": 0.943,
+          "key": 7,
+          "loudness": -3.373,
+          "mode": 1,
+          "speechiness": 0.0736,
+          "acousticness": 0.00855,
+          "instrumentalness": 0.0000773,
+          "liveness": 0.395,
+          "valence": 0.785,
+          "tempo": 133.993,
+          "durationMs": 191933,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 97,
@@ -2047,8 +3095,27 @@
         "tieupDescription": "フジテレビ系TVアニメ「デジモンアドベンチャー:」エンディング主題歌",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/oBTxxpYre3g",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o",
+        "feature": {
+          "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o",
+          "songName": "Q?",
+          "popularity": "29",
+          "danceability": 0.569,
+          "energy": 0.949,
+          "key": 10,
+          "loudness": -3.999,
+          "mode": 0,
+          "speechiness": 0.106,
+          "acousticness": 0.00274,
+          "instrumentalness": 0.00000105,
+          "liveness": 0.163,
+          "valence": 0.809,
+          "tempo": 180.001,
+          "durationMs": 194040,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 98,
@@ -2057,10 +3124,29 @@
         "songNo": 3,
         "songName": "Ms.CONTROL",
         "tieupDescription": "アニメ「MUTEKING THE Dancing HERO」挿入歌",
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "09oabCfaOPGGXpyoAHxrXK",
+        "feature": {
+          "spotifyTrackId": "09oabCfaOPGGXpyoAHxrXK",
+          "songName": "Ms.CONTROL",
+          "popularity": "23",
+          "danceability": 0.483,
+          "energy": 0.972,
+          "key": 9,
+          "loudness": -4.182,
+          "mode": 0,
+          "speechiness": 0.159,
+          "acousticness": 0.0145,
+          "instrumentalness": 0.00019,
+          "liveness": 0.295,
+          "valence": 0.61,
+          "tempo": 150.026,
+          "durationMs": 190360,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 99,
@@ -2069,10 +3155,29 @@
         "songNo": 4,
         "songName": "白夜(White Midnight)",
         "tieupDescription": "スマホアプリゲーム「白夜(White Midnight)極光」テーマソング",
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv",
+        "feature": {
+          "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv",
+          "songName": "白夜(White Midnight)",
+          "popularity": "23",
+          "danceability": 0.51,
+          "energy": 0.833,
+          "key": 8,
+          "loudness": -4.627,
+          "mode": 0,
+          "speechiness": 0.0686,
+          "acousticness": 0.00397,
+          "instrumentalness": 0.00000217,
+          "liveness": 0.146,
+          "valence": 0.366,
+          "tempo": 189.842,
+          "durationMs": 251190,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 100,
@@ -2084,7 +3189,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "https://youtu.be/h5QRiLsQiZ8",
-        "liveVideoUrl": null
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3AkvJc5aJt3FauOliKi9Z9",
+        "feature": {
+          "spotifyTrackId": "3AkvJc5aJt3FauOliKi9Z9",
+          "songName": "ミュータント",
+          "popularity": "22",
+          "danceability": 0.662,
+          "energy": 0.834,
+          "key": 5,
+          "loudness": -3.76,
+          "mode": 0,
+          "speechiness": 0.0509,
+          "acousticness": 0.162,
+          "instrumentalness": 0,
+          "liveness": 0.514,
+          "valence": 0.615,
+          "tempo": 159.993,
+          "durationMs": 248147,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 101,
@@ -2092,11 +3216,30 @@
         "discographyTitle": "第六感",
         "songNo": 6,
         "songName": "Nd60",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2PxrSoQiYfGf1VgvN30UDd",
+        "feature": {
+          "spotifyTrackId": "2PxrSoQiYfGf1VgvN30UDd",
+          "songName": "Nd60",
+          "popularity": "22",
+          "danceability": 0.801,
+          "energy": 0.889,
+          "key": 7,
+          "loudness": -2.335,
+          "mode": 1,
+          "speechiness": 0.0613,
+          "acousticness": 0.0611,
+          "instrumentalness": 0.000163,
+          "liveness": 0.182,
+          "valence": 0.752,
+          "tempo": 128.024,
+          "durationMs": 241107,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 102,
@@ -2107,8 +3250,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/O4oixjzvrZk",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns",
+        "feature": {
+          "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns",
+          "songName": "Boy",
+          "popularity": "24",
+          "danceability": 0.76,
+          "energy": 0.826,
+          "key": 0,
+          "loudness": -3.75,
+          "mode": 0,
+          "speechiness": 0.0508,
+          "acousticness": 0.0132,
+          "instrumentalness": 0.00000654,
+          "liveness": 0.144,
+          "valence": 0.279,
+          "tempo": 105.968,
+          "durationMs": 251827,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -2120,6 +3282,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/28/",
     "xfdUrl": "https://youtu.be/O4oixjzvrZk",
+    "reports": [],
     "posts": [
       {
         "discographyId": 19,
@@ -2192,8 +3355,27 @@
         "tieupDescription": "",
         "downloadUrl": "https://jvcmusic.lnk.to/THE_SIXTH_SENSE",
         "musicVideoUrl": "https://youtu.be/O4oixjzvrZk",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns",
+        "feature": {
+          "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns",
+          "songName": "Boy",
+          "popularity": "24",
+          "danceability": 0.76,
+          "energy": 0.826,
+          "key": 0,
+          "loudness": -3.75,
+          "mode": 0,
+          "speechiness": 0.0508,
+          "acousticness": 0.0132,
+          "instrumentalness": 0.00000654,
+          "liveness": 0.144,
+          "valence": 0.279,
+          "tempo": 105.968,
+          "durationMs": 251827,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -2205,6 +3387,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/18/",
     "xfdUrl": "https://youtu.be/JLxtALi71Cg",
+    "reports": [],
     "posts": [
       {
         "discographyId": 18,
@@ -2290,7 +3473,26 @@
         "downloadUrl": "https://jvcmusic.lnk.to/reol_whitemidnight",
         "musicVideoUrl": "https://youtu.be/YVIvnYFsfXM",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/m-9KqsnDOLA"
+        "liveVideoUrl": "https://youtu.be/m-9KqsnDOLA",
+        "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv",
+        "feature": {
+          "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv",
+          "songName": "白夜(White Midnight)",
+          "popularity": "23",
+          "danceability": 0.51,
+          "energy": 0.833,
+          "key": 8,
+          "loudness": -4.627,
+          "mode": 0,
+          "speechiness": 0.0686,
+          "acousticness": 0.00397,
+          "instrumentalness": 0.00000217,
+          "liveness": 0.146,
+          "valence": 0.366,
+          "tempo": 189.842,
+          "durationMs": 251190,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -2302,6 +3504,7 @@
     "format": "DVD/BD",
     "siteUrl": "https://reol.jp/discography/detail/17/",
     "xfdUrl": "https://youtu.be/gYDdc43aJ7o",
+    "reports": [],
     "posts": [
       {
         "discographyId": 17,
@@ -2410,6 +3613,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/16/",
     "xfdUrl": "https://youtu.be/LPHo_7kPv9Q",
+    "reports": [
+      {
+        "discographyId": 16,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol x HA-XC90Tスペシャル・インタビュー",
+        "discographyReportUrl": "https://www.victor.jp/headphones/column/drawyoursounds/vol-31/"
+      }
+    ],
     "posts": [
       {
         "discographyId": 16,
@@ -2464,8 +3675,27 @@
         "tieupDescription": "フジテレビ系TVアニメ「デジモンアドベンチャー:」エンディング主題歌",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/oBTxxpYre3g",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o",
+        "feature": {
+          "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o",
+          "songName": "Q?",
+          "popularity": "29",
+          "danceability": 0.569,
+          "energy": 0.949,
+          "key": 10,
+          "loudness": -3.999,
+          "mode": 0,
+          "speechiness": 0.106,
+          "acousticness": 0.00274,
+          "instrumentalness": 0.00000105,
+          "liveness": 0.163,
+          "valence": 0.809,
+          "tempo": 180.001,
+          "durationMs": 194040,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -2477,6 +3707,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/15/",
     "xfdUrl": "https://youtu.be/xmveCjFDS7k",
+    "reports": [],
     "posts": [
       {
         "discographyId": 15,
@@ -2711,8 +3942,27 @@
         "tieupDescription": "「BOAT RACE 2020」イメージソング",
         "downloadUrl": "https://jvcmusic.lnk.to/reol_thesixthsense",
         "musicVideoUrl": "https://youtu.be/Ue6VQTcKPQo",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW",
+        "feature": {
+          "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW",
+          "songName": "第六感",
+          "popularity": "32",
+          "danceability": 0.676,
+          "energy": 0.943,
+          "key": 7,
+          "loudness": -3.373,
+          "mode": 1,
+          "speechiness": 0.0736,
+          "acousticness": 0.00855,
+          "instrumentalness": 0.0000773,
+          "liveness": 0.395,
+          "valence": 0.785,
+          "tempo": 133.993,
+          "durationMs": 191933,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -2724,6 +3974,20 @@
     "format": "fullAL",
     "siteUrl": "https://reol.jp/discography/detail/13/",
     "xfdUrl": "https://youtu.be/uY5xJZEOLAc",
+    "reports": [
+      {
+        "discographyId": 14,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol「金字塔」特集 Reol×Giga×ケンモチヒデフミ×Masayoshi Iimori座談会",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol05"
+      },
+      {
+        "discographyId": 14,
+        "discographyRepoNo": 2,
+        "discographyReportName": "Reolが振り返る、『金字塔』に到るまで　自らの文明＝音楽を広げた先に見えたもの",
+        "discographyReportUrl": "https://realsound.jp/2020/01/post-489912.html"
+      }
+    ],
     "posts": [
       {
         "discographyId": 14,
@@ -3061,7 +4325,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/5yLuuZXDNbU"
+        "liveVideoUrl": "https://youtu.be/5yLuuZXDNbU",
+        "spotifyTrackId": "02HNBwIheiZAuzC8p1QBPn",
+        "feature": {
+          "spotifyTrackId": "02HNBwIheiZAuzC8p1QBPn",
+          "songName": "金字塔",
+          "popularity": "35",
+          "danceability": 0.743,
+          "energy": 0.812,
+          "key": 6,
+          "loudness": -3.528,
+          "mode": 1,
+          "speechiness": 0.0445,
+          "acousticness": 0.0244,
+          "instrumentalness": 0.0000579,
+          "liveness": 0.0892,
+          "valence": 0.641,
+          "tempo": 127.992,
+          "durationMs": 207733,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 82,
@@ -3073,7 +4356,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/JhqtYOnNrTs",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/15q8GTO69FQ"
+        "liveVideoUrl": "https://youtu.be/15q8GTO69FQ",
+        "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9",
+        "feature": {
+          "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9",
+          "songName": "HYPE MODE",
+          "popularity": "30",
+          "danceability": 0.62,
+          "energy": 0.959,
+          "key": 7,
+          "loudness": -2.648,
+          "mode": 1,
+          "speechiness": 0.201,
+          "acousticness": 0.0239,
+          "instrumentalness": 0.0000792,
+          "liveness": 0.294,
+          "valence": 0.701,
+          "tempo": 104.91,
+          "durationMs": 211119,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 83,
@@ -3085,7 +4387,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/3mUXwYx1CQs",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/K4pUnClQJNA"
+        "liveVideoUrl": "https://youtu.be/K4pUnClQJNA",
+        "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr",
+        "feature": {
+          "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr",
+          "songName": "ゆーれいずみー",
+          "popularity": "37",
+          "danceability": 0.647,
+          "energy": 0.975,
+          "key": 11,
+          "loudness": -3.267,
+          "mode": 0,
+          "speechiness": 0.297,
+          "acousticness": 0.0176,
+          "instrumentalness": 0.0000406,
+          "liveness": 0.795,
+          "valence": 0.693,
+          "tempo": 127.984,
+          "durationMs": 231747,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 84,
@@ -3093,11 +4414,30 @@
         "discographyTitle": "金字塔",
         "songNo": 4,
         "songName": "-ムーブのための試奏曲 Nr.4-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5f67BMdyuOf0VNYFFnuwRs",
+        "feature": {
+          "spotifyTrackId": "5f67BMdyuOf0VNYFFnuwRs",
+          "songName": "-ムーブのための試奏曲 Nr.4-",
+          "popularity": "23",
+          "danceability": 0.347,
+          "energy": 0.833,
+          "key": 7,
+          "loudness": -4.788,
+          "mode": 1,
+          "speechiness": 0.0486,
+          "acousticness": 0.00246,
+          "instrumentalness": 0.0509,
+          "liveness": 0.182,
+          "valence": 0.478,
+          "tempo": 127.034,
+          "durationMs": 83267,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 85,
@@ -3109,7 +4449,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/UFLxRQ-S374"
+        "liveVideoUrl": "https://youtu.be/UFLxRQ-S374",
+        "spotifyTrackId": "76zCFsWIre89p4HQrRerbf",
+        "feature": {
+          "spotifyTrackId": "76zCFsWIre89p4HQrRerbf",
+          "songName": "ハーメルン",
+          "popularity": "28",
+          "danceability": 0.597,
+          "energy": 0.862,
+          "key": 6,
+          "loudness": -4.024,
+          "mode": 0,
+          "speechiness": 0.0445,
+          "acousticness": 0.14,
+          "instrumentalness": 0.0022,
+          "liveness": 0.459,
+          "valence": 0.253,
+          "tempo": 170,
+          "durationMs": 199342,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 86,
@@ -3121,7 +4480,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/PT0ShEWN3fE"
+        "liveVideoUrl": "https://youtu.be/PT0ShEWN3fE",
+        "spotifyTrackId": "2NXqn7SaFWJmIpjwu9Ae6c",
+        "feature": {
+          "spotifyTrackId": "2NXqn7SaFWJmIpjwu9Ae6c",
+          "songName": "un, deux, trois",
+          "popularity": "30",
+          "danceability": 0.749,
+          "energy": 0.87,
+          "key": 9,
+          "loudness": -2.271,
+          "mode": 1,
+          "speechiness": 0.0595,
+          "acousticness": 0.0167,
+          "instrumentalness": 0.000297,
+          "liveness": 0.0559,
+          "valence": 0.469,
+          "tempo": 95.999,
+          "durationMs": 225562,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 87,
@@ -3129,11 +4507,30 @@
         "discographyTitle": "金字塔",
         "songNo": 7,
         "songName": "insider",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0GY0AgfcwuKDUHaZgRv4QM",
+        "feature": {
+          "spotifyTrackId": "0GY0AgfcwuKDUHaZgRv4QM",
+          "songName": "insider",
+          "popularity": "28",
+          "danceability": 0.497,
+          "energy": 0.957,
+          "key": 1,
+          "loudness": -2.838,
+          "mode": 1,
+          "speechiness": 0.307,
+          "acousticness": 0.0387,
+          "instrumentalness": 0.0000293,
+          "liveness": 0.917,
+          "valence": 0.409,
+          "tempo": 100.118,
+          "durationMs": 221896,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 88,
@@ -3141,11 +4538,30 @@
         "discographyTitle": "金字塔",
         "songNo": 8,
         "songName": "ダリ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7f4PaZuWlLM4ZsPTZIPLe1",
+        "feature": {
+          "spotifyTrackId": "7f4PaZuWlLM4ZsPTZIPLe1",
+          "songName": "ダリ",
+          "popularity": "33",
+          "danceability": 0.644,
+          "energy": 0.972,
+          "key": 6,
+          "loudness": -2.934,
+          "mode": 0,
+          "speechiness": 0.0525,
+          "acousticness": 0.000783,
+          "instrumentalness": 0.0437,
+          "liveness": 0.354,
+          "valence": 0.928,
+          "tempo": 150.032,
+          "durationMs": 191213,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 89,
@@ -3153,11 +4569,30 @@
         "discographyTitle": "金字塔",
         "songNo": 9,
         "songName": "-ルネの小品 Nr.9-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "65leI2ZvSJRWtGozl5g1tf",
+        "feature": {
+          "spotifyTrackId": "65leI2ZvSJRWtGozl5g1tf",
+          "songName": "-ルネの小品 Nr.9-",
+          "popularity": "22",
+          "danceability": 0.492,
+          "energy": 0.716,
+          "key": 10,
+          "loudness": -4.552,
+          "mode": 0,
+          "speechiness": 0.0468,
+          "acousticness": 0.00765,
+          "instrumentalness": 0,
+          "liveness": 0.205,
+          "valence": 0.393,
+          "tempo": 169.977,
+          "durationMs": 37498,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 90,
@@ -3169,7 +4604,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/pIZehDIH4W4"
+        "liveVideoUrl": "https://youtu.be/pIZehDIH4W4",
+        "spotifyTrackId": "60RClClRsm1QQCXVuaRMN5",
+        "feature": {
+          "spotifyTrackId": "60RClClRsm1QQCXVuaRMN5",
+          "songName": "GRIMOIRE",
+          "popularity": "35",
+          "danceability": 0.558,
+          "energy": 0.869,
+          "key": 0,
+          "loudness": -3.567,
+          "mode": 0,
+          "speechiness": 0.121,
+          "acousticness": 0.00719,
+          "instrumentalness": 0.0161,
+          "liveness": 0.444,
+          "valence": 0.513,
+          "tempo": 199.886,
+          "durationMs": 221022,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 91,
@@ -3181,7 +4635,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/Mx2TMt8xLxk",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/55z-WoHtwm4"
+        "liveVideoUrl": "https://youtu.be/55z-WoHtwm4",
+        "spotifyTrackId": "27MVvs7ErNpl81dkwwNS5i",
+        "feature": {
+          "spotifyTrackId": "27MVvs7ErNpl81dkwwNS5i",
+          "songName": "1LDK",
+          "popularity": "35",
+          "danceability": 0.672,
+          "energy": 0.914,
+          "key": 2,
+          "loudness": -3.982,
+          "mode": 0,
+          "speechiness": 0.0295,
+          "acousticness": 0.000565,
+          "instrumentalness": 0.000654,
+          "liveness": 0.0957,
+          "valence": 0.421,
+          "tempo": 112.018,
+          "durationMs": 234533,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -3193,6 +4666,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/12/",
     "xfdUrl": "https://youtu.be/xz_7u96uai0",
+    "reports": [],
     "posts": [
       {
         "discographyId": 13,
@@ -3266,7 +4740,26 @@
         "downloadUrl": "https://jvcmusic.lnk.to/reol_hypemode",
         "musicVideoUrl": "https://youtu.be/JhqtYOnNrTs",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/15q8GTO69FQ"
+        "liveVideoUrl": "https://youtu.be/15q8GTO69FQ",
+        "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9",
+        "feature": {
+          "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9",
+          "songName": "HYPE MODE",
+          "popularity": "30",
+          "danceability": 0.62,
+          "energy": 0.959,
+          "key": 7,
+          "loudness": -2.648,
+          "mode": 1,
+          "speechiness": 0.201,
+          "acousticness": 0.0239,
+          "instrumentalness": 0.0000792,
+          "liveness": 0.294,
+          "valence": 0.701,
+          "tempo": 104.91,
+          "durationMs": 211119,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -3278,6 +4771,14 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/11/",
     "xfdUrl": "https://youtu.be/EWj1F_gLB1Y",
+    "reports": [
+      {
+        "discographyId": 12,
+        "discographyRepoNo": 1,
+        "discographyReportName": "「いつか消えてしまう感情」を歌う、Reolの曲作りに迫る",
+        "discographyReportUrl": "https://meetia.net/interview/reol_interview/"
+      }
+    ],
     "posts": [
       {
         "discographyId": 12,
@@ -3339,7 +4840,26 @@
         "downloadUrl": "https://jvcmusic.lnk.to/reol_phantome",
         "musicVideoUrl": "https://youtu.be/3mUXwYx1CQs",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/K4pUnClQJNA"
+        "liveVideoUrl": "https://youtu.be/K4pUnClQJNA",
+        "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr",
+        "feature": {
+          "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr",
+          "songName": "ゆーれいずみー",
+          "popularity": "37",
+          "danceability": 0.647,
+          "energy": 0.975,
+          "key": 11,
+          "loudness": -3.267,
+          "mode": 0,
+          "speechiness": 0.297,
+          "acousticness": 0.0176,
+          "instrumentalness": 0.0000406,
+          "liveness": 0.795,
+          "valence": 0.693,
+          "tempo": 127.984,
+          "durationMs": 231747,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -3351,6 +4871,7 @@
     "format": "fullAL",
     "siteUrl": "https://reol.jp/discography/detail/10/",
     "xfdUrl": "https://youtu.be/TMw0zYdcK9I",
+    "reports": [],
     "posts": [
       {
         "discographyId": 11,
@@ -3366,11 +4887,30 @@
         "discographyTitle": "事実上(アナログ盤)",
         "songNo": 1,
         "songName": "幽居のワルツ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI",
+        "feature": {
+          "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI",
+          "songName": "幽居のワルツ",
+          "popularity": "28",
+          "danceability": 0.592,
+          "energy": 0.908,
+          "key": 4,
+          "loudness": -2.906,
+          "mode": 0,
+          "speechiness": 0.0437,
+          "acousticness": 0.182,
+          "instrumentalness": 0.00000183,
+          "liveness": 0.318,
+          "valence": 0.469,
+          "tempo": 180.003,
+          "durationMs": 233200,
+          "timeSignature": 3
+        }
       },
       {
         "songId": 70,
@@ -3382,7 +4922,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/EFTV3IIjeNw",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs"
+        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs",
+        "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+        "feature": {
+          "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+          "songName": "サイサキ",
+          "popularity": "42",
+          "danceability": 0.687,
+          "energy": 0.956,
+          "key": 1,
+          "loudness": -2.81,
+          "mode": 1,
+          "speechiness": 0.057,
+          "acousticness": 0.00216,
+          "instrumentalness": 0.0000136,
+          "liveness": 0.335,
+          "valence": 0.855,
+          "tempo": 104.978,
+          "durationMs": 217680,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 71,
@@ -3394,7 +4953,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/EQF19szKfQg",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/Q5mnjmiRLrk"
+        "liveVideoUrl": "https://youtu.be/Q5mnjmiRLrk",
+        "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9",
+        "feature": {
+          "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9",
+          "songName": "激白",
+          "popularity": "38",
+          "danceability": 0.671,
+          "energy": 0.943,
+          "key": 5,
+          "loudness": -2.455,
+          "mode": 0,
+          "speechiness": 0.0497,
+          "acousticness": 0.00345,
+          "instrumentalness": 0.00000146,
+          "liveness": 0.392,
+          "valence": 0.82,
+          "tempo": 107.967,
+          "durationMs": 206680,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 72,
@@ -3406,7 +4984,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/mYRIuZDupME"
+        "liveVideoUrl": "https://youtu.be/mYRIuZDupME",
+        "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc",
+        "feature": {
+          "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc",
+          "songName": "十中八九",
+          "popularity": "36",
+          "danceability": 0.733,
+          "energy": 0.935,
+          "key": 5,
+          "loudness": -2.096,
+          "mode": 0,
+          "speechiness": 0.0735,
+          "acousticness": 0.0101,
+          "instrumentalness": 0.00839,
+          "liveness": 0.208,
+          "valence": 0.86,
+          "tempo": 128.04,
+          "durationMs": 225600,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 73,
@@ -3418,7 +5015,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/KK2Bno_GXmk",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/KK2Bno_GXmk"
+        "liveVideoUrl": "https://youtu.be/KK2Bno_GXmk",
+        "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf",
+        "feature": {
+          "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf",
+          "songName": "煩悩遊戯",
+          "popularity": "35",
+          "danceability": 0.684,
+          "energy": 0.916,
+          "key": 10,
+          "loudness": -1.135,
+          "mode": 0,
+          "speechiness": 0.0644,
+          "acousticness": 0.041,
+          "instrumentalness": 0.00000459,
+          "liveness": 0.341,
+          "valence": 0.538,
+          "tempo": 100.027,
+          "durationMs": 192480,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 74,
@@ -3426,11 +5042,30 @@
         "discographyTitle": "事実上(アナログ盤)",
         "songNo": 6,
         "songName": "-MANDARA FACT-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC",
+        "feature": {
+          "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC",
+          "songName": "-MANDARA FACT-",
+          "popularity": "24",
+          "danceability": 0.606,
+          "energy": 0.945,
+          "key": 2,
+          "loudness": -3.05,
+          "mode": 1,
+          "speechiness": 0.0771,
+          "acousticness": 0.00117,
+          "instrumentalness": 0.457,
+          "liveness": 0.0603,
+          "valence": 0.654,
+          "tempo": 102.978,
+          "durationMs": 112173,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 75,
@@ -3438,11 +5073,30 @@
         "discographyTitle": "事実上(アナログ盤)",
         "songNo": 7,
         "songName": "真空オールドローズ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4",
+        "feature": {
+          "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4",
+          "songName": "真空オールドローズ",
+          "popularity": "32",
+          "danceability": 0.651,
+          "energy": 0.968,
+          "key": 9,
+          "loudness": -1.593,
+          "mode": 0,
+          "speechiness": 0.0566,
+          "acousticness": 0.00449,
+          "instrumentalness": 0.00000167,
+          "liveness": 0.127,
+          "valence": 0.856,
+          "tempo": 101.978,
+          "durationMs": 248973,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 76,
@@ -3450,11 +5104,30 @@
         "discographyTitle": "事実上(アナログ盤)",
         "songNo": 8,
         "songName": "ミラージュ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5SPFU6mys52n07fem3EXBA",
+        "feature": {
+          "spotifyTrackId": "5SPFU6mys52n07fem3EXBA",
+          "songName": "ミラージュ",
+          "popularity": "34",
+          "danceability": 0.703,
+          "energy": 0.928,
+          "key": 9,
+          "loudness": -2.437,
+          "mode": 1,
+          "speechiness": 0.0507,
+          "acousticness": 0.03,
+          "instrumentalness": 0.00000405,
+          "liveness": 0.174,
+          "valence": 0.485,
+          "tempo": 140.102,
+          "durationMs": 222480,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 77,
@@ -3463,10 +5136,29 @@
         "songNo": 9,
         "songName": "SAIREN",
         "tieupDescription": "NHK Eテレ『メジャーセカンド』エンディングテーマ",
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+        "feature": {
+          "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+          "songName": "SAIREN",
+          "popularity": "30",
+          "danceability": 0.599,
+          "energy": 0.97,
+          "key": 2,
+          "loudness": -1.843,
+          "mode": 1,
+          "speechiness": 0.0947,
+          "acousticness": 0.00117,
+          "instrumentalness": 0,
+          "liveness": 0.316,
+          "valence": 0.357,
+          "tempo": 104.966,
+          "durationMs": 231893,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 78,
@@ -3474,11 +5166,30 @@
         "discographyTitle": "事実上(アナログ盤)",
         "songNo": 10,
         "songName": "秋映",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7bGOND7852tOD0RInMTO0u",
+        "feature": {
+          "spotifyTrackId": "7bGOND7852tOD0RInMTO0u",
+          "songName": "秋映",
+          "popularity": "25",
+          "danceability": 0.571,
+          "energy": 0.646,
+          "key": 7,
+          "loudness": -3.54,
+          "mode": 1,
+          "speechiness": 0.0414,
+          "acousticness": 0.413,
+          "instrumentalness": 0.00000531,
+          "liveness": 0.0899,
+          "valence": 0.488,
+          "tempo": 125.064,
+          "durationMs": 182120,
+          "timeSignature": 3
+        }
       }
     ]
   },
@@ -3490,6 +5201,14 @@
     "format": "EP",
     "siteUrl": "https://reol.jp/discography/detail/8/",
     "xfdUrl": "https://youtu.be/GOWVeAvVawQ",
+    "reports": [
+      {
+        "discographyId": 10,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol「文明EP」インタビュー――いままでのReolを上書きするために",
+        "discographyReportUrl": "https://e.usen.com/archive/sub-archive/24359.html"
+      }
+    ],
     "posts": [
       {
         "discographyId": 10,
@@ -3701,7 +5420,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/aCT5mClB3yM",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/Prr_OU8NEJ4"
+        "liveVideoUrl": "https://youtu.be/Prr_OU8NEJ4",
+        "spotifyTrackId": "4j8iEmJZidEu5hwM7lBtVM",
+        "feature": {
+          "spotifyTrackId": "4j8iEmJZidEu5hwM7lBtVM",
+          "songName": "ウテナ",
+          "popularity": "29",
+          "danceability": 0.615,
+          "energy": 0.954,
+          "key": 11,
+          "loudness": -2.169,
+          "mode": 0,
+          "speechiness": 0.0674,
+          "acousticness": 0.0171,
+          "instrumentalness": 0.000469,
+          "liveness": 0.209,
+          "valence": 0.822,
+          "tempo": 160.009,
+          "durationMs": 198733,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 66,
@@ -3713,7 +5451,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/AeHuVMBPLQ0"
+        "liveVideoUrl": "https://youtu.be/AeHuVMBPLQ0",
+        "spotifyTrackId": "4gtvQM3JWzRNYwGF1iYkmb",
+        "feature": {
+          "spotifyTrackId": "4gtvQM3JWzRNYwGF1iYkmb",
+          "songName": "たい",
+          "popularity": "33",
+          "danceability": 0.721,
+          "energy": 0.965,
+          "key": 11,
+          "loudness": -2.2,
+          "mode": 1,
+          "speechiness": 0.0849,
+          "acousticness": 0.0192,
+          "instrumentalness": 0.0156,
+          "liveness": 0.316,
+          "valence": 0.683,
+          "tempo": 128.016,
+          "durationMs": 224667,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 67,
@@ -3724,8 +5481,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://www.youtube.com/watch?v=7xuvTwRhk7o",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "15eeDH2c5RDLvSKY9qjldS",
+        "feature": {
+          "spotifyTrackId": "15eeDH2c5RDLvSKY9qjldS",
+          "songName": "シンカロン",
+          "popularity": "29",
+          "danceability": 0.546,
+          "energy": 0.943,
+          "key": 5,
+          "loudness": -1.855,
+          "mode": 0,
+          "speechiness": 0.144,
+          "acousticness": 0.0144,
+          "instrumentalness": 0.0000103,
+          "liveness": 0.153,
+          "valence": 0.614,
+          "tempo": 179.981,
+          "durationMs": 222267,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 68,
@@ -3736,8 +5512,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/7xuvTwRhk7o",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3yXwighahVa3l4v71wZ0LT",
+        "feature": {
+          "spotifyTrackId": "3yXwighahVa3l4v71wZ0LT",
+          "songName": "失楽園",
+          "popularity": "33",
+          "danceability": 0.715,
+          "energy": 0.97,
+          "key": 0,
+          "loudness": -2.27,
+          "mode": 0,
+          "speechiness": 0.0467,
+          "acousticness": 0.0211,
+          "instrumentalness": 0.0000195,
+          "liveness": 0.335,
+          "valence": 0.802,
+          "tempo": 108.005,
+          "durationMs": 254733,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -3749,6 +5544,38 @@
     "format": "fullAL",
     "siteUrl": "https://reol.jp/discography/detail/7/",
     "xfdUrl": "https://youtu.be/TMw0zYdcK9I",
+    "reports": [
+      {
+        "discographyId": 9,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol×ケンモチヒデフミ（水曜日のカンパネラ）対談",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol04"
+      },
+      {
+        "discographyId": 9,
+        "discographyRepoNo": 2,
+        "discographyReportName": "「音楽は総合芸術」 シンガーソングライターReolの音楽に対するこだわりとそのルーツとは",
+        "discographyReportUrl": "https://www.ch-files.net/reol-interview/"
+      },
+      {
+        "discographyId": 9,
+        "discographyRepoNo": 3,
+        "discographyReportName": "Reol×majiko ネットカルチャー出身歌姫が思うメジャーで戦う意味",
+        "discographyReportUrl": "https://www.cinra.net/article/interview-201811-reolmajiko"
+      },
+      {
+        "discographyId": 9,
+        "discographyRepoNo": 4,
+        "discographyReportName": "Reol 『事実上』 〈私は、サブカルチャーではないんじゃないかな〉メインストリームを意識して間口を広げるためのアルバム",
+        "discographyReportUrl": "https://mikiki.tokyo.jp/articles/-/19466"
+      },
+      {
+        "discographyId": 9,
+        "discographyRepoNo": 5,
+        "discographyReportName": "TeddyLoid×Reol×Giga 日本人としてのオリジナリティーの必要性",
+        "discographyReportUrl": "https://www.cinra.net/article/interview-201811-teddyloid"
+      }
+    ],
     "posts": [
       {
         "discographyId": 9,
@@ -4016,11 +5843,30 @@
         "discographyTitle": "事実上",
         "songNo": 1,
         "songName": "幽居のワルツ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI",
+        "feature": {
+          "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI",
+          "songName": "幽居のワルツ",
+          "popularity": "28",
+          "danceability": 0.592,
+          "energy": 0.908,
+          "key": 4,
+          "loudness": -2.906,
+          "mode": 0,
+          "speechiness": 0.0437,
+          "acousticness": 0.182,
+          "instrumentalness": 0.00000183,
+          "liveness": 0.318,
+          "valence": 0.469,
+          "tempo": 180.003,
+          "durationMs": 233200,
+          "timeSignature": 3
+        }
       },
       {
         "songId": 54,
@@ -4032,7 +5878,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/EFTV3IIjeNw",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs"
+        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs",
+        "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+        "feature": {
+          "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+          "songName": "サイサキ",
+          "popularity": "42",
+          "danceability": 0.687,
+          "energy": 0.956,
+          "key": 1,
+          "loudness": -2.81,
+          "mode": 1,
+          "speechiness": 0.057,
+          "acousticness": 0.00216,
+          "instrumentalness": 0.0000136,
+          "liveness": 0.335,
+          "valence": 0.855,
+          "tempo": 104.978,
+          "durationMs": 217680,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 55,
@@ -4044,7 +5909,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/EQF19szKfQg",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/Q5mnjmiRLrk"
+        "liveVideoUrl": "https://youtu.be/Q5mnjmiRLrk",
+        "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9",
+        "feature": {
+          "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9",
+          "songName": "激白",
+          "popularity": "38",
+          "danceability": 0.671,
+          "energy": 0.943,
+          "key": 5,
+          "loudness": -2.455,
+          "mode": 0,
+          "speechiness": 0.0497,
+          "acousticness": 0.00345,
+          "instrumentalness": 0.00000146,
+          "liveness": 0.392,
+          "valence": 0.82,
+          "tempo": 107.967,
+          "durationMs": 206680,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 56,
@@ -4056,7 +5940,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/mYRIuZDupME"
+        "liveVideoUrl": "https://youtu.be/mYRIuZDupME",
+        "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc",
+        "feature": {
+          "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc",
+          "songName": "十中八九",
+          "popularity": "36",
+          "danceability": 0.733,
+          "energy": 0.935,
+          "key": 5,
+          "loudness": -2.096,
+          "mode": 0,
+          "speechiness": 0.0735,
+          "acousticness": 0.0101,
+          "instrumentalness": 0.00839,
+          "liveness": 0.208,
+          "valence": 0.86,
+          "tempo": 128.04,
+          "durationMs": 225600,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 57,
@@ -4068,7 +5971,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/KK2Bno_GXmk"
+        "liveVideoUrl": "https://youtu.be/KK2Bno_GXmk",
+        "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf",
+        "feature": {
+          "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf",
+          "songName": "煩悩遊戯",
+          "popularity": "35",
+          "danceability": 0.684,
+          "energy": 0.916,
+          "key": 10,
+          "loudness": -1.135,
+          "mode": 0,
+          "speechiness": 0.0644,
+          "acousticness": 0.041,
+          "instrumentalness": 0.00000459,
+          "liveness": 0.341,
+          "valence": 0.538,
+          "tempo": 100.027,
+          "durationMs": 192480,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 58,
@@ -4076,11 +5998,30 @@
         "discographyTitle": "事実上",
         "songNo": 6,
         "songName": "-MANDARA FACT-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC",
+        "feature": {
+          "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC",
+          "songName": "-MANDARA FACT-",
+          "popularity": "24",
+          "danceability": 0.606,
+          "energy": 0.945,
+          "key": 2,
+          "loudness": -3.05,
+          "mode": 1,
+          "speechiness": 0.0771,
+          "acousticness": 0.00117,
+          "instrumentalness": 0.457,
+          "liveness": 0.0603,
+          "valence": 0.654,
+          "tempo": 102.978,
+          "durationMs": 112173,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 59,
@@ -4088,11 +6029,30 @@
         "discographyTitle": "事実上",
         "songNo": 7,
         "songName": "真空オールドローズ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4",
+        "feature": {
+          "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4",
+          "songName": "真空オールドローズ",
+          "popularity": "32",
+          "danceability": 0.651,
+          "energy": 0.968,
+          "key": 9,
+          "loudness": -1.593,
+          "mode": 0,
+          "speechiness": 0.0566,
+          "acousticness": 0.00449,
+          "instrumentalness": 0.00000167,
+          "liveness": 0.127,
+          "valence": 0.856,
+          "tempo": 101.978,
+          "durationMs": 248973,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 60,
@@ -4100,11 +6060,30 @@
         "discographyTitle": "事実上",
         "songNo": 8,
         "songName": "ミラージュ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5SPFU6mys52n07fem3EXBA",
+        "feature": {
+          "spotifyTrackId": "5SPFU6mys52n07fem3EXBA",
+          "songName": "ミラージュ",
+          "popularity": "34",
+          "danceability": 0.703,
+          "energy": 0.928,
+          "key": 9,
+          "loudness": -2.437,
+          "mode": 1,
+          "speechiness": 0.0507,
+          "acousticness": 0.03,
+          "instrumentalness": 0.00000405,
+          "liveness": 0.174,
+          "valence": 0.485,
+          "tempo": 140.102,
+          "durationMs": 222480,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 61,
@@ -4113,10 +6092,29 @@
         "songNo": 9,
         "songName": "SAIREN",
         "tieupDescription": "NHK Eテレ『メジャーセカンド』エンディングテーマ",
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+        "feature": {
+          "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+          "songName": "SAIREN",
+          "popularity": "30",
+          "danceability": 0.599,
+          "energy": 0.97,
+          "key": 2,
+          "loudness": -1.843,
+          "mode": 1,
+          "speechiness": 0.0947,
+          "acousticness": 0.00117,
+          "instrumentalness": 0,
+          "liveness": 0.316,
+          "valence": 0.357,
+          "tempo": 104.966,
+          "durationMs": 231893,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 62,
@@ -4124,11 +6122,30 @@
         "discographyTitle": "事実上",
         "songNo": 10,
         "songName": "秋映",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7bGOND7852tOD0RInMTO0u",
+        "feature": {
+          "spotifyTrackId": "7bGOND7852tOD0RInMTO0u",
+          "songName": "秋映",
+          "popularity": "25",
+          "danceability": 0.571,
+          "energy": 0.646,
+          "key": 7,
+          "loudness": -3.54,
+          "mode": 1,
+          "speechiness": 0.0414,
+          "acousticness": 0.413,
+          "instrumentalness": 0.00000531,
+          "liveness": 0.0899,
+          "valence": 0.488,
+          "tempo": 125.064,
+          "durationMs": 182120,
+          "timeSignature": 3
+        }
       },
       {
         "songId": 63,
@@ -4140,7 +6157,9 @@
         "downloadUrl": null,
         "musicVideoUrl": null,
         "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "liveVideoUrl": null,
+        "spotifyTrackId": null,
+        "feature": null
       },
       {
         "songId": 64,
@@ -4152,7 +6171,9 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/sI9p6CP14PM"
+        "liveVideoUrl": "https://youtu.be/sI9p6CP14PM",
+        "spotifyTrackId": null,
+        "feature": null
       }
     ]
   },
@@ -4164,6 +6185,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/5/",
     "xfdUrl": "https://youtu.be/PW6QxMCqpc0",
+    "reports": [],
     "posts": [
       {
         "discographyId": 8,
@@ -4230,8 +6252,27 @@
         "tieupDescription": "NHK Eテレ『メジャーセカンド』エンディングテーマ",
         "downloadUrl": "https://jvcmusic.lnk.to/SAIREN",
         "musicVideoUrl": "https://youtu.be/PW6QxMCqpc0",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+        "feature": {
+          "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+          "songName": "SAIREN",
+          "popularity": "30",
+          "danceability": 0.599,
+          "energy": 0.97,
+          "key": 2,
+          "loudness": -1.843,
+          "mode": 1,
+          "speechiness": 0.0947,
+          "acousticness": 0.00117,
+          "instrumentalness": 0,
+          "liveness": 0.316,
+          "valence": 0.357,
+          "tempo": 104.966,
+          "durationMs": 231893,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -4243,6 +6284,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/4/",
     "xfdUrl": "https://youtu.be/94Dt0qVPAAM",
+    "reports": [],
     "posts": [
       {
         "discographyId": 7,
@@ -4340,7 +6382,26 @@
         "downloadUrl": "https://jvcmusic.lnk.to/reol_saisaki",
         "musicVideoUrl": "https://youtu.be/EFTV3IIjeNw",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs"
+        "liveVideoUrl": "https://youtu.be/pW73i4rJ3Cs",
+        "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+        "feature": {
+          "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+          "songName": "サイサキ",
+          "popularity": "42",
+          "danceability": 0.687,
+          "energy": 0.956,
+          "key": 1,
+          "loudness": -2.81,
+          "mode": 1,
+          "speechiness": 0.057,
+          "acousticness": 0.00216,
+          "instrumentalness": 0.0000136,
+          "liveness": 0.335,
+          "valence": 0.855,
+          "tempo": 104.978,
+          "durationMs": 217680,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -4352,6 +6413,26 @@
     "format": "miniAL",
     "siteUrl": "https://reol.jp/discography/detail/2/",
     "xfdUrl": "https://youtu.be/18AQGiLKVs4",
+    "reports": [
+      {
+        "discographyId": 6,
+        "discographyRepoNo": 1,
+        "discographyReportName": "Reol「虚構集」インタビュー",
+        "discographyReportUrl": "https://natalie.mu/music/pp/reol03"
+      },
+      {
+        "discographyId": 6,
+        "discographyRepoNo": 2,
+        "discographyReportName": "Reol ミニアルバム 『虚構集』 オフィシャルインタビュー",
+        "discographyReportUrl": "http://www.jvcmusic.co.jp/reol/interview/"
+      },
+      {
+        "discographyId": 6,
+        "discographyRepoNo": 3,
+        "discographyReportName": "Reolが壊したい虚構や虚像とは何なのか。6月に開催されるワンマンライブ「刮目相待」を控える彼女に、作品やライブへの思いを聞いた。",
+        "discographyReportUrl": "https://www.diskgarage.com/digaonline/interview/83185"
+      }
+    ],
     "posts": [
       {
         "discographyId": 6,
@@ -4562,8 +6643,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/ZwJs5Zc9oFk",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4bCY4od5T0HCBVISAmkoFO",
+        "feature": {
+          "spotifyTrackId": "4bCY4od5T0HCBVISAmkoFO",
+          "songName": "エンド",
+          "popularity": "25",
+          "danceability": 0.319,
+          "energy": 0.954,
+          "key": 6,
+          "loudness": -2.186,
+          "mode": 0,
+          "speechiness": 0.218,
+          "acousticness": 0.0416,
+          "instrumentalness": 0,
+          "liveness": 0.208,
+          "valence": 0.499,
+          "tempo": 191.978,
+          "durationMs": 297667,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 47,
@@ -4575,7 +6675,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/qSyHAAvbBYs"
+        "liveVideoUrl": "https://youtu.be/qSyHAAvbBYs",
+        "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c",
+        "feature": {
+          "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c",
+          "songName": "平面鏡",
+          "popularity": "36",
+          "danceability": 0.682,
+          "energy": 0.9,
+          "key": 10,
+          "loudness": -3.059,
+          "mode": 0,
+          "speechiness": 0.0432,
+          "acousticness": 0.000807,
+          "instrumentalness": 0.00359,
+          "liveness": 0.354,
+          "valence": 0.432,
+          "tempo": 100.008,
+          "durationMs": 194442,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 48,
@@ -4583,11 +6702,30 @@
         "discographyTitle": "虚構集",
         "songNo": 3,
         "songName": "ミッシング",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5G9evYGjsdgjpjUEeOkmy5",
+        "feature": {
+          "spotifyTrackId": "5G9evYGjsdgjpjUEeOkmy5",
+          "songName": "ミッシング",
+          "popularity": "23",
+          "danceability": 0.394,
+          "energy": 0.959,
+          "key": 1,
+          "loudness": -1.971,
+          "mode": 1,
+          "speechiness": 0.0932,
+          "acousticness": 0.0000252,
+          "instrumentalness": 0.00222,
+          "liveness": 0.347,
+          "valence": 0.451,
+          "tempo": 159.982,
+          "durationMs": 287293,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 49,
@@ -4595,11 +6733,30 @@
         "discographyTitle": "虚構集",
         "songNo": 4,
         "songName": "カルト",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1n2sJdib6jFWmbDfTyYmTL",
+        "feature": {
+          "spotifyTrackId": "1n2sJdib6jFWmbDfTyYmTL",
+          "songName": "カルト",
+          "popularity": "25",
+          "danceability": 0.456,
+          "energy": 0.927,
+          "key": 11,
+          "loudness": -5.104,
+          "mode": 0,
+          "speechiness": 0.0867,
+          "acousticness": 0.0599,
+          "instrumentalness": 0.0032,
+          "liveness": 0.101,
+          "valence": 0.605,
+          "tempo": 175.937,
+          "durationMs": 271200,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 50,
@@ -4607,11 +6764,30 @@
         "discographyTitle": "虚構集",
         "songNo": 5,
         "songName": "あ可よろし",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3jt4Zj8aKP7xwWwUJql6c1",
+        "feature": {
+          "spotifyTrackId": "3jt4Zj8aKP7xwWwUJql6c1",
+          "songName": "あ可よろし",
+          "popularity": "22",
+          "danceability": 0.518,
+          "energy": 0.987,
+          "key": 2,
+          "loudness": -2.114,
+          "mode": 0,
+          "speechiness": 0.12,
+          "acousticness": 0.00246,
+          "instrumentalness": 0.000104,
+          "liveness": 0.233,
+          "valence": 0.321,
+          "tempo": 134.949,
+          "durationMs": 303640,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -4623,6 +6799,7 @@
     "format": "配信SG",
     "siteUrl": "https://reol.jp/discography/detail/1/",
     "xfdUrl": "https://youtu.be/qSyHAAvbBYs",
+    "reports": [],
     "posts": [
       {
         "discographyId": 5,
@@ -4666,7 +6843,26 @@
         "downloadUrl": "https://jvcmusic.lnk.to/reol_heimenkyo",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/qSyHAAvbBYs"
+        "liveVideoUrl": "https://youtu.be/qSyHAAvbBYs",
+        "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c",
+        "feature": {
+          "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c",
+          "songName": "平面鏡",
+          "popularity": "36",
+          "danceability": 0.682,
+          "energy": 0.9,
+          "key": 10,
+          "loudness": -3.059,
+          "mode": 0,
+          "speechiness": 0.0432,
+          "acousticness": 0.000807,
+          "instrumentalness": 0.00359,
+          "liveness": 0.354,
+          "valence": 0.432,
+          "tempo": 100.008,
+          "durationMs": 194442,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -4678,6 +6874,7 @@
     "format": "配信SG",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/discography/endless/",
     "xfdUrl": "https://youtu.be/lyQO13ameAs",
+    "reports": [],
     "posts": [
       {
         "discographyId": 4,
@@ -4768,8 +6965,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/lyQO13ameAs",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1M5oAZm8pkNtArxy9zUxsQ",
+        "feature": {
+          "spotifyTrackId": "1M5oAZm8pkNtArxy9zUxsQ",
+          "songName": "ニュータイプトーキョー",
+          "popularity": "32",
+          "danceability": 0.514,
+          "energy": 0.954,
+          "key": 11,
+          "loudness": -3.033,
+          "mode": 0,
+          "speechiness": 0.194,
+          "acousticness": 0.00137,
+          "instrumentalness": 0,
+          "liveness": 0.249,
+          "valence": 0.871,
+          "tempo": 209.875,
+          "durationMs": 210014,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 42,
@@ -4777,11 +6993,30 @@
         "discographyTitle": "エンドレスEP",
         "songNo": 2,
         "songName": "B12",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4I7Ifw9MXGipCFQntyn7td",
+        "feature": {
+          "spotifyTrackId": "4I7Ifw9MXGipCFQntyn7td",
+          "songName": "B12",
+          "popularity": "32",
+          "danceability": 0.441,
+          "energy": 0.967,
+          "key": 1,
+          "loudness": -1.986,
+          "mode": 1,
+          "speechiness": 0.31,
+          "acousticness": 0.00177,
+          "instrumentalness": 0,
+          "liveness": 0.425,
+          "valence": 0.697,
+          "tempo": 209.941,
+          "durationMs": 240649,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 43,
@@ -4789,11 +7024,30 @@
         "discographyTitle": "エンドレスEP",
         "songNo": 3,
         "songName": "エンドレスライン",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0LNzbdozYW70uarbuAzyOg",
+        "feature": {
+          "spotifyTrackId": "0LNzbdozYW70uarbuAzyOg",
+          "songName": "エンドレスライン",
+          "popularity": "38",
+          "danceability": 0.735,
+          "energy": 0.858,
+          "key": 6,
+          "loudness": -2.454,
+          "mode": 0,
+          "speechiness": 0.0941,
+          "acousticness": 0.028,
+          "instrumentalness": 0.000101,
+          "liveness": 0.0903,
+          "valence": 0.685,
+          "tempo": 95,
+          "durationMs": 221048,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 44,
@@ -4801,11 +7055,30 @@
         "discographyTitle": "エンドレスEP",
         "songNo": 4,
         "songName": "LUVORATORRRRRY!",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1AMzUKhF0vCFHZTx8H7OS4",
+        "feature": {
+          "spotifyTrackId": "1AMzUKhF0vCFHZTx8H7OS4",
+          "songName": "LUVORATORRRRRY!",
+          "popularity": "51",
+          "danceability": 0.679,
+          "energy": 0.951,
+          "key": 6,
+          "loudness": -3.066,
+          "mode": 0,
+          "speechiness": 0.147,
+          "acousticness": 0.0169,
+          "instrumentalness": 0.0882,
+          "liveness": 0.0176,
+          "valence": 0.945,
+          "tempo": 128.008,
+          "durationMs": 204187,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -4817,6 +7090,20 @@
     "format": "fullAL",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/discography/sigma-n/",
     "xfdUrl": "https://youtu.be/Qmcda2wh-GA",
+    "reports": [
+      {
+        "discographyId": 3,
+        "discographyRepoNo": 1,
+        "discographyReportName": "REOL、全神経を揺さぶる1stアルバム『Σ（シグマ）』インタビュー",
+        "discographyReportUrl": "https://music.fanplus.co.jp/special/2016100844143a234"
+      },
+      {
+        "discographyId": 3,
+        "discographyRepoNo": 2,
+        "discographyReportName": "ネット・シーンとCDリスナーを繋げたい―ニコ動発の3人組REOL、とことんエッジーなダンス・ポップ揃う初作『Σ』を語る",
+        "discographyReportUrl": "https://mikiki.tokyo.jp/articles/-/12560?page=2"
+      }
+    ],
     "posts": [
       {
         "discographyId": 3,
@@ -5126,11 +7413,30 @@
         "discographyTitle": "Σ",
         "songNo": 1,
         "songName": "VIP KID",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3gu7cBBiDQ8GzT2gDsE215",
+        "feature": {
+          "spotifyTrackId": "3gu7cBBiDQ8GzT2gDsE215",
+          "songName": "VIP KID",
+          "popularity": "35",
+          "danceability": 0.635,
+          "energy": 0.929,
+          "key": 5,
+          "loudness": -2.61,
+          "mode": 0,
+          "speechiness": 0.0624,
+          "acousticness": 0.000475,
+          "instrumentalness": 0.00427,
+          "liveness": 0.262,
+          "valence": 0.504,
+          "tempo": 127.995,
+          "durationMs": 232427,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 29,
@@ -5141,8 +7447,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/n5CwXuyNfoc",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "05GgDzto0aWkNJ5NJcdNxl",
+        "feature": {
+          "spotifyTrackId": "05GgDzto0aWkNJ5NJcdNxl",
+          "songName": "ギミアブレスタッナウ",
+          "popularity": "39",
+          "danceability": 0.674,
+          "energy": 0.94,
+          "key": 10,
+          "loudness": -2.393,
+          "mode": 1,
+          "speechiness": 0.122,
+          "acousticness": 0.0295,
+          "instrumentalness": 0.0000305,
+          "liveness": 0.274,
+          "valence": 0.852,
+          "tempo": 127.991,
+          "durationMs": 221987,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 30,
@@ -5153,8 +7478,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/8IK6eLTNV1k",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3KLHSYHSmny4sJo2finqy9",
+        "feature": {
+          "spotifyTrackId": "3KLHSYHSmny4sJo2finqy9",
+          "songName": "宵々古今",
+          "popularity": "52",
+          "danceability": 0.46,
+          "energy": 0.977,
+          "key": 1,
+          "loudness": -2.184,
+          "mode": 1,
+          "speechiness": 0.293,
+          "acousticness": 0.000423,
+          "instrumentalness": 0,
+          "liveness": 0.358,
+          "valence": 0.547,
+          "tempo": 150.06,
+          "durationMs": 257733,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 31,
@@ -5162,11 +7506,30 @@
         "discographyTitle": "Σ",
         "songNo": 4,
         "songName": "コノヨLoading...",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5ZBs9dRavxKAS23WT1MwkQ",
+        "feature": {
+          "spotifyTrackId": "5ZBs9dRavxKAS23WT1MwkQ",
+          "songName": "コノヨLoading...",
+          "popularity": "49",
+          "danceability": 0.754,
+          "energy": 0.988,
+          "key": 11,
+          "loudness": -2.678,
+          "mode": 0,
+          "speechiness": 0.176,
+          "acousticness": 0.179,
+          "instrumentalness": 0,
+          "liveness": 0.282,
+          "valence": 0.906,
+          "tempo": 128.021,
+          "durationMs": 205787,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 32,
@@ -5177,8 +7540,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/m85HJODlIYI",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1NVwPClQWzPNFSl10DEGlT",
+        "feature": {
+          "spotifyTrackId": "1NVwPClQWzPNFSl10DEGlT",
+          "songName": "RE:",
+          "popularity": "37",
+          "danceability": 0.68,
+          "energy": 0.929,
+          "key": 1,
+          "loudness": -2.913,
+          "mode": 1,
+          "speechiness": 0.0662,
+          "acousticness": 0.000722,
+          "instrumentalness": 0.0000824,
+          "liveness": 0.111,
+          "valence": 0.747,
+          "tempo": 140.01,
+          "durationMs": 203240,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 33,
@@ -5186,11 +7568,30 @@
         "discographyTitle": "Σ",
         "songNo": 6,
         "songName": "Lunatic",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "29e4olePA461RCLrLNh9h4",
+        "feature": {
+          "spotifyTrackId": "29e4olePA461RCLrLNh9h4",
+          "songName": "Lunatic",
+          "popularity": "32",
+          "danceability": 0.769,
+          "energy": 0.723,
+          "key": 1,
+          "loudness": -3.382,
+          "mode": 1,
+          "speechiness": 0.0404,
+          "acousticness": 0.000781,
+          "instrumentalness": 0.0154,
+          "liveness": 0.134,
+          "valence": 0.913,
+          "tempo": 105.024,
+          "durationMs": 197787,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 34,
@@ -5198,11 +7599,30 @@
         "discographyTitle": "Σ",
         "songNo": 7,
         "songName": "神様になった日",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7apgxRbih9txqqDGrqXiRn",
+        "feature": {
+          "spotifyTrackId": "7apgxRbih9txqqDGrqXiRn",
+          "songName": "神様になった日",
+          "popularity": "33",
+          "danceability": 0.715,
+          "energy": 0.948,
+          "key": 11,
+          "loudness": -2.817,
+          "mode": 0,
+          "speechiness": 0.0595,
+          "acousticness": 0.0258,
+          "instrumentalness": 0.000184,
+          "liveness": 0.0544,
+          "valence": 0.858,
+          "tempo": 96.988,
+          "durationMs": 245080,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 35,
@@ -5213,8 +7633,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/VVaNq9uSJgY",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4homtlmmqdnMSv6uLJR2kI",
+        "feature": {
+          "spotifyTrackId": "4homtlmmqdnMSv6uLJR2kI",
+          "songName": "ちるちる",
+          "popularity": "42",
+          "danceability": 0.846,
+          "energy": 0.871,
+          "key": 7,
+          "loudness": -3.674,
+          "mode": 1,
+          "speechiness": 0.0851,
+          "acousticness": 0.0218,
+          "instrumentalness": 0.00163,
+          "liveness": 0.12,
+          "valence": 0.961,
+          "tempo": 127.975,
+          "durationMs": 197053,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 36,
@@ -5222,11 +7661,30 @@
         "discographyTitle": "Σ",
         "songNo": 9,
         "songName": "-FINAL SIGMA-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3MwUMfuXTpEb1lwu18fLN0",
+        "feature": {
+          "spotifyTrackId": "3MwUMfuXTpEb1lwu18fLN0",
+          "songName": "-FINAL SIGMA-",
+          "popularity": "30",
+          "danceability": 0.676,
+          "energy": 0.852,
+          "key": 1,
+          "loudness": -3.672,
+          "mode": 1,
+          "speechiness": 0.324,
+          "acousticness": 0.000159,
+          "instrumentalness": 0.00684,
+          "liveness": 0.0792,
+          "valence": 0.769,
+          "tempo": 128.008,
+          "durationMs": 117707,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 37,
@@ -5234,11 +7692,30 @@
         "discographyTitle": "Σ",
         "songNo": 10,
         "songName": "DetaramE KiddinG",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3jZAk59A3WahOfhYC4w07c",
+        "feature": {
+          "spotifyTrackId": "3jZAk59A3WahOfhYC4w07c",
+          "songName": "DetaramE KiddinG",
+          "popularity": "35",
+          "danceability": 0.706,
+          "energy": 0.839,
+          "key": 5,
+          "loudness": -3.033,
+          "mode": 0,
+          "speechiness": 0.0444,
+          "acousticness": 0.000859,
+          "instrumentalness": 0.0000973,
+          "liveness": 0.126,
+          "valence": 0.962,
+          "tempo": 146.045,
+          "durationMs": 197213,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 38,
@@ -5246,11 +7723,30 @@
         "discographyTitle": "Σ",
         "songNo": 11,
         "songName": "サマーホラーパーティ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "76li5HpPEGVY9nCwz4pusX",
+        "feature": {
+          "spotifyTrackId": "76li5HpPEGVY9nCwz4pusX",
+          "songName": "サマーホラーパーティ",
+          "popularity": "32",
+          "danceability": 0.589,
+          "energy": 0.834,
+          "key": 6,
+          "loudness": -2.851,
+          "mode": 1,
+          "speechiness": 0.0281,
+          "acousticness": 0.000111,
+          "instrumentalness": 0.00000881,
+          "liveness": 0.374,
+          "valence": 0.496,
+          "tempo": 94.993,
+          "durationMs": 254573,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 39,
@@ -5258,11 +7754,30 @@
         "discographyTitle": "Σ",
         "songNo": 12,
         "songName": "404 not found",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2BY5fNHmpjV797ByjLX4I7",
+        "feature": {
+          "spotifyTrackId": "2BY5fNHmpjV797ByjLX4I7",
+          "songName": "404 not found",
+          "popularity": "33",
+          "danceability": 0.628,
+          "energy": 0.967,
+          "key": 9,
+          "loudness": -2.62,
+          "mode": 0,
+          "speechiness": 0.0908,
+          "acousticness": 0.00777,
+          "instrumentalness": 0.0000509,
+          "liveness": 0.338,
+          "valence": 0.744,
+          "tempo": 140.045,
+          "durationMs": 244907,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 40,
@@ -5270,11 +7785,30 @@
         "discographyTitle": "Σ",
         "songNo": 13,
         "songName": "VIORA",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5eGKu7tJ56GQgBvDb8EZFv",
+        "feature": {
+          "spotifyTrackId": "5eGKu7tJ56GQgBvDb8EZFv",
+          "songName": "VIORA",
+          "popularity": "32",
+          "danceability": 0.607,
+          "energy": 0.76,
+          "key": 5,
+          "loudness": -3.759,
+          "mode": 0,
+          "speechiness": 0.0482,
+          "acousticness": 0.00836,
+          "instrumentalness": 0.0000847,
+          "liveness": 0.139,
+          "valence": 0.637,
+          "tempo": 75.024,
+          "durationMs": 222840,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -5286,6 +7820,7 @@
     "format": "fullAL",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/discography/gokusaisyoku-n/",
     "xfdUrl": "https://youtu.be/AwfhX1REZ50",
+    "reports": [],
     "posts": [],
     "songs": [
       {
@@ -5294,11 +7829,30 @@
         "discographyTitle": "極彩色",
         "songNo": 1,
         "songName": "-nil-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3GQ2gAf01f7GTmsODylJWw",
+        "feature": {
+          "spotifyTrackId": "3GQ2gAf01f7GTmsODylJWw",
+          "songName": "-nil-",
+          "popularity": "21",
+          "danceability": 0.71,
+          "energy": 0.501,
+          "key": 10,
+          "loudness": -14.591,
+          "mode": 0,
+          "speechiness": 0.035,
+          "acousticness": 0.171,
+          "instrumentalness": 0.786,
+          "liveness": 0.113,
+          "valence": 0.693,
+          "tempo": 136.987,
+          "durationMs": 36868,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 13,
@@ -5309,8 +7863,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/5vebKoO__8A",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1ppgOVjBFREq0apmtBBIqM",
+        "feature": {
+          "spotifyTrackId": "1ppgOVjBFREq0apmtBBIqM",
+          "songName": "極彩色",
+          "popularity": "34",
+          "danceability": 0.566,
+          "energy": 0.979,
+          "key": 1,
+          "loudness": -2.873,
+          "mode": 1,
+          "speechiness": 0.246,
+          "acousticness": 0.013,
+          "instrumentalness": 0.00076,
+          "liveness": 0.304,
+          "valence": 0.525,
+          "tempo": 137.006,
+          "durationMs": 250532,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 14,
@@ -5318,11 +7891,30 @@
         "discographyTitle": "極彩色",
         "songNo": 3,
         "songName": "生命線",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4YDnmsQW2lnZL4Cju7EPMT",
+        "feature": {
+          "spotifyTrackId": "4YDnmsQW2lnZL4Cju7EPMT",
+          "songName": "生命線",
+          "popularity": "27",
+          "danceability": 0.364,
+          "energy": 0.986,
+          "key": 7,
+          "loudness": -2.435,
+          "mode": 0,
+          "speechiness": 0.34,
+          "acousticness": 0.00212,
+          "instrumentalness": 0,
+          "liveness": 0.0872,
+          "valence": 0.26,
+          "tempo": 162.119,
+          "durationMs": 202267,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 15,
@@ -5330,11 +7922,30 @@
         "discographyTitle": "極彩色",
         "songNo": 4,
         "songName": "水底游歩道",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2Y8MpEW37sCOqJjSUTaSCu",
+        "feature": {
+          "spotifyTrackId": "2Y8MpEW37sCOqJjSUTaSCu",
+          "songName": "水底游歩道",
+          "popularity": "25",
+          "danceability": 0.465,
+          "energy": 0.942,
+          "key": 9,
+          "loudness": -4.648,
+          "mode": 0,
+          "speechiness": 0.33,
+          "acousticness": 0.0273,
+          "instrumentalness": 0,
+          "liveness": 0.628,
+          "valence": 0.345,
+          "tempo": 175.028,
+          "durationMs": 304000,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 16,
@@ -5342,11 +7953,30 @@
         "discographyTitle": "極彩色",
         "songNo": 5,
         "songName": "ハルシアン",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5NwsH1cb8Pn0sNgzMEY9GV",
+        "feature": {
+          "spotifyTrackId": "5NwsH1cb8Pn0sNgzMEY9GV",
+          "songName": "ハルシアン",
+          "popularity": "24",
+          "danceability": 0.683,
+          "energy": 0.976,
+          "key": 9,
+          "loudness": -3.094,
+          "mode": 1,
+          "speechiness": 0.12,
+          "acousticness": 0.0144,
+          "instrumentalness": 0,
+          "liveness": 0.0297,
+          "valence": 0.963,
+          "tempo": 147.996,
+          "durationMs": 178600,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 17,
@@ -5357,8 +7987,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/WwX5E63wGF4",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0aPmJfAIIoPJW7FyLGWgtW",
+        "feature": {
+          "spotifyTrackId": "0aPmJfAIIoPJW7FyLGWgtW",
+          "songName": "ロジックエージェント",
+          "popularity": "36",
+          "danceability": 0.31,
+          "energy": 0.985,
+          "key": 5,
+          "loudness": -1.709,
+          "mode": 1,
+          "speechiness": 0.23,
+          "acousticness": 0.133,
+          "instrumentalness": 0.00000479,
+          "liveness": 0.101,
+          "valence": 0.185,
+          "tempo": 190.28,
+          "durationMs": 215067,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 18,
@@ -5366,11 +8015,30 @@
         "discographyTitle": "極彩色",
         "songNo": 7,
         "songName": "-orderly-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6Onx9jbhBqzG6noNtyrTD4",
+        "feature": {
+          "spotifyTrackId": "6Onx9jbhBqzG6noNtyrTD4",
+          "songName": "-orderly-",
+          "popularity": "21",
+          "danceability": 0.681,
+          "energy": 0.858,
+          "key": 0,
+          "loudness": -5.979,
+          "mode": 0,
+          "speechiness": 0.0416,
+          "acousticness": 0.018,
+          "instrumentalness": 0.658,
+          "liveness": 0.0662,
+          "valence": 0.966,
+          "tempo": 127.983,
+          "durationMs": 117600,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 19,
@@ -5378,11 +8046,30 @@
         "discographyTitle": "極彩色",
         "songNo": 8,
         "songName": "mede:mede",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6euB4nKEbVotA7xZLcMSAg",
+        "feature": {
+          "spotifyTrackId": "6euB4nKEbVotA7xZLcMSAg",
+          "songName": "mede:mede",
+          "popularity": "33",
+          "danceability": 0.756,
+          "energy": 0.826,
+          "key": 6,
+          "loudness": -5.312,
+          "mode": 1,
+          "speechiness": 0.0449,
+          "acousticness": 0.239,
+          "instrumentalness": 0,
+          "liveness": 0.356,
+          "valence": 0.912,
+          "tempo": 114.891,
+          "durationMs": 215133,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 20,
@@ -5390,11 +8077,30 @@
         "discographyTitle": "極彩色",
         "songNo": 9,
         "songName": "Syrup",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3fqUAfyGlVGFxTprWorbvu",
+        "feature": {
+          "spotifyTrackId": "3fqUAfyGlVGFxTprWorbvu",
+          "songName": "Syrup",
+          "popularity": "24",
+          "danceability": 0.625,
+          "energy": 0.683,
+          "key": 2,
+          "loudness": -8.248,
+          "mode": 0,
+          "speechiness": 0.0378,
+          "acousticness": 0.791,
+          "instrumentalness": 0.0000428,
+          "liveness": 0.0683,
+          "valence": 0.293,
+          "tempo": 104.023,
+          "durationMs": 249333,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 21,
@@ -5402,11 +8108,30 @@
         "discographyTitle": "極彩色",
         "songNo": 10,
         "songName": "ラ・タタン",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4wWsvdoRehEVJ8Kt8m2b7Q",
+        "feature": {
+          "spotifyTrackId": "4wWsvdoRehEVJ8Kt8m2b7Q",
+          "songName": "ラ・タタン",
+          "popularity": "25",
+          "danceability": 0.661,
+          "energy": 0.669,
+          "key": 5,
+          "loudness": -3.618,
+          "mode": 0,
+          "speechiness": 0.0518,
+          "acousticness": 0.083,
+          "instrumentalness": 0,
+          "liveness": 0.0355,
+          "valence": 0.972,
+          "tempo": 185.938,
+          "durationMs": 214467,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 22,
@@ -5414,11 +8139,30 @@
         "discographyTitle": "極彩色",
         "songNo": 11,
         "songName": "ミッドナイトストロウラ",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7xyxcFjyp3pDlXx6HxctPo",
+        "feature": {
+          "spotifyTrackId": "7xyxcFjyp3pDlXx6HxctPo",
+          "songName": "ミッドナイトストロウラ",
+          "popularity": "28",
+          "danceability": 0.315,
+          "energy": 0.978,
+          "key": 6,
+          "loudness": -3.108,
+          "mode": 0,
+          "speechiness": 0.326,
+          "acousticness": 0.00392,
+          "instrumentalness": 0.0019,
+          "liveness": 0.0406,
+          "valence": 0.767,
+          "tempo": 180.266,
+          "durationMs": 207267,
+          "timeSignature": 5
+        }
       },
       {
         "songId": 23,
@@ -5426,11 +8170,30 @@
         "discographyTitle": "極彩色",
         "songNo": 12,
         "songName": "Behind The Night",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7njTy0RJcAI37nkahgADXZ",
+        "feature": {
+          "spotifyTrackId": "7njTy0RJcAI37nkahgADXZ",
+          "songName": "Behind The Night",
+          "popularity": "23",
+          "danceability": 0.524,
+          "energy": 0.95,
+          "key": 7,
+          "loudness": -3.23,
+          "mode": 0,
+          "speechiness": 0.145,
+          "acousticness": 0.0503,
+          "instrumentalness": 0,
+          "liveness": 0.388,
+          "valence": 0.453,
+          "tempo": 144.125,
+          "durationMs": 289400,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 24,
@@ -5438,11 +8201,30 @@
         "discographyTitle": "極彩色",
         "songNo": 13,
         "songName": "ROXY",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "7k5IQbg0uWIgkZrtOfYQRq",
+        "feature": {
+          "spotifyTrackId": "7k5IQbg0uWIgkZrtOfYQRq",
+          "songName": "ROXY",
+          "popularity": "28",
+          "danceability": 0.738,
+          "energy": 0.839,
+          "key": 1,
+          "loudness": -3.552,
+          "mode": 1,
+          "speechiness": 0.118,
+          "acousticness": 0.0495,
+          "instrumentalness": 0,
+          "liveness": 0.0302,
+          "valence": 0.894,
+          "tempo": 105.088,
+          "durationMs": 205533,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 25,
@@ -5450,11 +8232,30 @@
         "discographyTitle": "極彩色",
         "songNo": 14,
         "songName": "約束の蒼",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4l1oMylHERx6Ez54g49Tdz",
+        "feature": {
+          "spotifyTrackId": "4l1oMylHERx6Ez54g49Tdz",
+          "songName": "約束の蒼",
+          "popularity": "25",
+          "danceability": 0.255,
+          "energy": 0.95,
+          "key": 5,
+          "loudness": -2.286,
+          "mode": 0,
+          "speechiness": 0.312,
+          "acousticness": 0.00165,
+          "instrumentalness": 0.000207,
+          "liveness": 0.0988,
+          "valence": 0.451,
+          "tempo": 77.811,
+          "durationMs": 238267,
+          "timeSignature": 5
+        }
       },
       {
         "songId": 26,
@@ -5462,11 +8263,30 @@
         "discographyTitle": "極彩色",
         "songNo": 15,
         "songName": "MONSTER",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6zoNHckACUOGj2bERXgmnw",
+        "feature": {
+          "spotifyTrackId": "6zoNHckACUOGj2bERXgmnw",
+          "songName": "MONSTER",
+          "popularity": "50",
+          "danceability": 0.488,
+          "energy": 0.968,
+          "key": 6,
+          "loudness": -1.55,
+          "mode": 0,
+          "speechiness": 0.25,
+          "acousticness": 0.0295,
+          "instrumentalness": 0,
+          "liveness": 0.215,
+          "valence": 0.359,
+          "tempo": 163.988,
+          "durationMs": 201933,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 27,
@@ -5474,11 +8294,30 @@
         "discographyTitle": "極彩色",
         "songNo": 16,
         "songName": "染",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "4YEP26yNgvVHVT44QmttLL",
+        "feature": {
+          "spotifyTrackId": "4YEP26yNgvVHVT44QmttLL",
+          "songName": "染",
+          "popularity": "27",
+          "danceability": 0.491,
+          "energy": 0.713,
+          "key": 11,
+          "loudness": -4.325,
+          "mode": 0,
+          "speechiness": 0.044,
+          "acousticness": 0.253,
+          "instrumentalness": 0,
+          "liveness": 0.18,
+          "valence": 0.404,
+          "tempo": 159.938,
+          "durationMs": 284000,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -5490,6 +8329,7 @@
     "format": "fullAL",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/discography/notitle/",
     "xfdUrl": "https://youtu.be/-RGctbcrfk8",
+    "reports": [],
     "posts": [
       {
         "discographyId": 1,
@@ -5571,11 +8411,30 @@
         "discographyTitle": "No title-",
         "songNo": 1,
         "songName": "-Opening-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+        "feature": {
+          "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+          "songName": "-Opening-",
+          "popularity": "31",
+          "danceability": 0.626,
+          "energy": 0.79,
+          "key": 1,
+          "loudness": -1.934,
+          "mode": 1,
+          "speechiness": 0.152,
+          "acousticness": 0.00606,
+          "instrumentalness": 0.00000208,
+          "liveness": 0.059,
+          "valence": 0.875,
+          "tempo": 134.007,
+          "durationMs": 107231,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 2,
@@ -5586,8 +8445,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/UC_qla6FQwM",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+        "feature": {
+          "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+          "songName": "ヒビカセ",
+          "popularity": "53",
+          "danceability": 0.711,
+          "energy": 0.764,
+          "key": 6,
+          "loudness": -2.308,
+          "mode": 0,
+          "speechiness": 0.203,
+          "acousticness": 0.00206,
+          "instrumentalness": 0.000667,
+          "liveness": 0.0538,
+          "valence": 0.835,
+          "tempo": 139.988,
+          "durationMs": 250552,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 3,
@@ -5599,7 +8477,26 @@
         "downloadUrl": "",
         "musicVideoUrl": "",
         "lyricVideoUrl": "",
-        "liveVideoUrl": "https://youtu.be/0o6Fu4Ho8mU"
+        "liveVideoUrl": "https://youtu.be/0o6Fu4Ho8mU",
+        "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+        "feature": {
+          "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+          "songName": "オオエドランヴ (feat. nqrse)",
+          "popularity": "45",
+          "danceability": 0.586,
+          "energy": 0.995,
+          "key": 8,
+          "loudness": -2.394,
+          "mode": 1,
+          "speechiness": 0.119,
+          "acousticness": 0.0832,
+          "instrumentalness": 0,
+          "liveness": 0.259,
+          "valence": 0.633,
+          "tempo": 134.039,
+          "durationMs": 181176,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 4,
@@ -5610,8 +8507,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/9eyyhtOrKPI",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+        "feature": {
+          "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+          "songName": "drop pop candy (feat. ギガ)",
+          "popularity": "55",
+          "danceability": 0.698,
+          "energy": 0.942,
+          "key": 6,
+          "loudness": -1.936,
+          "mode": 0,
+          "speechiness": 0.0537,
+          "acousticness": 0.0194,
+          "instrumentalness": 0.000181,
+          "liveness": 0.0114,
+          "valence": 0.967,
+          "tempo": 129.962,
+          "durationMs": 224963,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 5,
@@ -5619,11 +8535,30 @@
         "discographyTitle": "No title-",
         "songNo": 5,
         "songName": "-Interlude-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+        "feature": {
+          "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+          "songName": "-Interlude-",
+          "popularity": "2",
+          "danceability": 0.551,
+          "energy": 0.79,
+          "key": 4,
+          "loudness": -7.622,
+          "mode": 1,
+          "speechiness": 0.055,
+          "acousticness": 0.103,
+          "instrumentalness": 0.349,
+          "liveness": 0.202,
+          "valence": 0.963,
+          "tempo": 99.993,
+          "durationMs": 29533,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 6,
@@ -5634,8 +8569,27 @@
         "tieupDescription": "",
         "downloadUrl": "",
         "musicVideoUrl": "https://youtu.be/LfephiFN76E",
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+        "feature": {
+          "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+          "songName": "No title",
+          "popularity": "55",
+          "danceability": 0.502,
+          "energy": 0.874,
+          "key": 1,
+          "loudness": -5.981,
+          "mode": 0,
+          "speechiness": 0.0677,
+          "acousticness": 0.0933,
+          "instrumentalness": 0.000173,
+          "liveness": 0.0638,
+          "valence": 0.884,
+          "tempo": 199.751,
+          "durationMs": 243903,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 7,
@@ -5643,11 +8597,30 @@
         "discographyTitle": "No title-",
         "songNo": 7,
         "songName": "Echo",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+        "feature": {
+          "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+          "songName": "Echo",
+          "popularity": "31",
+          "danceability": 0.722,
+          "energy": 0.549,
+          "key": 9,
+          "loudness": -5.597,
+          "mode": 1,
+          "speechiness": 0.0427,
+          "acousticness": 0.296,
+          "instrumentalness": 0.000156,
+          "liveness": 0.0898,
+          "valence": 0.547,
+          "tempo": 132.015,
+          "durationMs": 212974,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 8,
@@ -5655,11 +8628,30 @@
         "discographyTitle": "No title-",
         "songNo": 8,
         "songName": "-BWW SCREAM-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+        "feature": {
+          "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+          "songName": "-BWW SCREAM-",
+          "popularity": "26",
+          "danceability": 0.533,
+          "energy": 0.992,
+          "key": 10,
+          "loudness": -3.19,
+          "mode": 0,
+          "speechiness": 0.0783,
+          "acousticness": 0.0114,
+          "instrumentalness": 0.546,
+          "liveness": 0.314,
+          "valence": 0.947,
+          "tempo": 89.991,
+          "durationMs": 81947,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 9,
@@ -5667,11 +8659,30 @@
         "discographyTitle": "No title-",
         "songNo": 9,
         "songName": "アシンメトリー",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+        "feature": {
+          "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+          "songName": "アシンメトリー",
+          "popularity": "42",
+          "danceability": 0.511,
+          "energy": 0.906,
+          "key": 6,
+          "loudness": -2.009,
+          "mode": 0,
+          "speechiness": 0.0883,
+          "acousticness": 0.00168,
+          "instrumentalness": 0.0035,
+          "liveness": 0.0891,
+          "valence": 0.469,
+          "tempo": 184.012,
+          "durationMs": 255814,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 10,
@@ -5679,11 +8690,30 @@
         "discographyTitle": "No title-",
         "songNo": 10,
         "songName": "ギガンティックO.T.N -Big Death Edition-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+        "feature": {
+          "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+          "songName": "ギガンティックO.T.N -Big Death Edition-",
+          "popularity": "40",
+          "danceability": 0.396,
+          "energy": 0.944,
+          "key": 1,
+          "loudness": -1.565,
+          "mode": 0,
+          "speechiness": 0.152,
+          "acousticness": 0.00454,
+          "instrumentalness": 0.00184,
+          "liveness": 0.109,
+          "valence": 0.405,
+          "tempo": 94.911,
+          "durationMs": 207678,
+          "timeSignature": 4
+        }
       },
       {
         "songId": 11,
@@ -5691,11 +8721,30 @@
         "discographyTitle": "No title-",
         "songNo": 11,
         "songName": "-Ending-",
-        "tieupDescription": null,
-        "downloadUrl": null,
-        "musicVideoUrl": null,
-        "lyricVideoUrl": null,
-        "liveVideoUrl": null
+        "tieupDescription": "",
+        "downloadUrl": "",
+        "musicVideoUrl": "",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+        "feature": {
+          "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+          "songName": "-Ending-",
+          "popularity": "23",
+          "danceability": 0.683,
+          "energy": 0.52,
+          "key": 9,
+          "loudness": -17.765,
+          "mode": 1,
+          "speechiness": 0.233,
+          "acousticness": 0.862,
+          "instrumentalness": 0.116,
+          "liveness": 0.357,
+          "valence": 0.945,
+          "tempo": 96.933,
+          "durationMs": 50768,
+          "timeSignature": 4
+        }
       }
     ]
   },
@@ -5707,6 +8756,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/LSxMaomjUPw",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5718,6 +8768,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/qQxnStmGcTM",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5729,6 +8780,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/UZxgZA9D_a4",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5740,6 +8792,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/36SxEHQeDi8",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5751,6 +8804,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/-vZeGRBeE3U",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5762,6 +8816,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/kMlWIFca6B4",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5773,6 +8828,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/5vebKoO__8A",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5784,6 +8840,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/7XhUAO8JUQk",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5795,6 +8852,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/WwX5E63wGF4",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5806,6 +8864,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/lYo4jUqGqAQ",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5817,6 +8876,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/B776HM2cZWM",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5828,6 +8888,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/DtSSkyyCdiE",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5837,6 +8898,7 @@
     "releaseDate": "2014-11-11",
     "name": "れをる",
     "format": "歌ってみた",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5848,6 +8910,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/LfephiFN76E",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5859,6 +8922,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/ckXMvrFlmKY",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5870,6 +8934,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/UC_qla6FQwM",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5881,6 +8946,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/ScKuza3I1_Q",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5892,6 +8958,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/9eyyhtOrKPI",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5903,6 +8970,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/OqeRY0uYc18",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5914,6 +8982,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/nCMFMvSmp_I",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5925,6 +8994,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/6HGLeUqoUf8",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5936,6 +9006,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/p-o_bMkzOW0",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5947,6 +9018,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/sg6FzveEYr8",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5958,6 +9030,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/N96FtqmeFNk",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5969,6 +9042,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/K3G00S1vaw8",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5980,6 +9054,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/6177L73_DNY",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -5991,6 +9066,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/JES55S-l5RM",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6000,6 +9076,7 @@
     "releaseDate": "2013-12-15",
     "name": "れをる",
     "format": "歌ってみた",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6011,6 +9088,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/o5go3Es8gA8",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6022,6 +9100,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/14ZCG4cmeyo",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6033,6 +9112,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/PDLyBGZZH7g",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6044,6 +9124,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/vWqml00cjvw",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6055,6 +9136,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/z2xd9_MZtvQ",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6066,6 +9148,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/GfsYZ_FRJLA",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6077,6 +9160,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/ZOaerF49taY",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6088,6 +9172,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/Txohsn6bHns",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6099,6 +9184,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/T2vH1LVu_7M",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6110,6 +9196,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/DtqEHCa8Wio",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6121,6 +9208,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/FEmz8b2w24M",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6132,6 +9220,7 @@
     "format": "MV",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/2auo4lkBvZ4",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6143,6 +9232,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/aENRHKKWQwc",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6154,6 +9244,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/P_-LAnuu9z0",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6165,6 +9256,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/5gjJ7Y9xGhk",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6176,6 +9268,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/FH6gvjOS8eY",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6187,6 +9280,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/xuX-9JuqQnQ",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6198,6 +9292,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/4pXwG5koLsc",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6209,6 +9304,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/40sYUYQiwpA",
+    "reports": [],
     "posts": [],
     "songs": []
   },
@@ -6220,6 +9316,7 @@
     "format": "歌ってみた",
     "siteUrl": "",
     "xfdUrl": "https://youtu.be/IkyPpjhWJaQ",
+    "reports": [],
     "posts": [],
     "songs": []
   }

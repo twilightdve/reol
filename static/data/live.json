@@ -1,15 +1,20 @@
 [
   {
-    "liveId": 50,
+    "liveId": 52,
     "type": "oneman",
     "title": "Reol Oneman Live「No title」",
     "name": "Reol",
     "date": "2024-08-17",
     "siteUrl": "https://reol.jp/feature/no_title",
-    "posts": [],
+    "posts": [
+      {
+        "liveId": 52,
+        "livePostNo": 1
+      }
+    ],
     "items": [
       {
-        "liveId": 50,
+        "liveId": 52,
         "liveItemNo": 1,
         "liveItemName": "",
         "date": "2024-08-17",
@@ -20,35 +25,35 @@
         "setList": [],
         "posts": [
           {
-            "liveId": 50,
+            "liveId": 52,
             "liveItemNo": 1,
             "liveItemPostNo": 1,
             "liveItemPostId": "1739250879679844702",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2024/8/17  親愛なる君へ <a href=\"https://t.co/1PqK2wLK7y\">pic.twitter.com/1PqK2wLK7y</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739250879679844702?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
           },
           {
-            "liveId": 50,
+            "liveId": 52,
             "liveItemNo": 1,
             "liveItemPostNo": 2,
             "liveItemPostId": "1739251092326859251",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2024年8月17日(土)<br>Reol Oneman Live「No title」<br>日本武道館<br><br>Reol初の武道館公演、開催致します<a href=\"https://twitter.com/hashtag/Reol%E6%AD%A6%E9%81%93%E9%A4%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol武道館</a> <a href=\"https://t.co/hJwjBagOm5\">pic.twitter.com/hJwjBagOm5</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739251092326859251?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
           },
           {
-            "liveId": 50,
+            "liveId": 52,
             "liveItemNo": 1,
             "liveItemPostNo": 3,
             "liveItemPostId": "1739255994948194397",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">武道館公演を記念して「No title-」アナログ盤の発売が決定しました！<br>完全限定生産・カラーヴァイナル仕様です<br><br>本日よりLegit会員を対象に、チケットぴあにてアナログ盤付きチケットの最速先行申込みを受付中🎫<a href=\"https://t.co/dcVSBkTMfD\">https://t.co/dcVSBkTMfD</a><br>※一般発売の有無については後日発表となります<a href=\"https://twitter.com/hashtag/Reol%E6%AD%A6%E9%81%93%E9%A4%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol武道館</a> <a href=\"https://t.co/i3NDcp6bhx\">pic.twitter.com/i3NDcp6bhx</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1739255994948194397?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
           },
           {
-            "liveId": 50,
+            "liveId": 52,
             "liveItemNo": 1,
             "liveItemPostNo": 4,
             "liveItemPostId": "1739266704960893340",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">そして、リリースから十周年を記念してNo title-レコードも作ります💿<br>今回限りの完全限定生産ですので絶対ゲットしてください <a href=\"https://twitter.com/hashtag/%E3%81%82%E3%81%AB%E3%82%87%E3%81%99%E3%81%BA%E3%81%AB%E3%82%87%E3%81%99%E3%82%83%E3%82%83?src=hash&amp;ref_src=twsrc%5Etfw\">#あにょすぺにょすゃゃ</a> <a href=\"https://t.co/SprrbdL7IE\">https://t.co/SprrbdL7IE</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1739266704960893340?ref_src=twsrc%5Etfw\">December 25, 2023</a></blockquote>"
           },
           {
-            "liveId": 50,
+            "liveId": 52,
             "liveItemNo": 1,
             "liveItemPostNo": 5,
             "liveItemPostId": "1739254728029356368",
@@ -59,12 +64,74 @@
     ],
     "reports": [
       {
-        "liveId": 50,
+        "liveId": 52,
         "liveReportNo": 1,
         "liveReportName": "Reol初の日本武道館ワンマン決定、デビューアルバムの10年越しリリースパーティ",
         "liveReportUrl": "https://natalie.mu/music/news/554788"
       }
     ]
+  },
+  {
+    "liveId": 51,
+    "type": "event",
+    "title": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+    "name": "Reol",
+    "date": "2024-06-22",
+    "siteUrl": "https://frederic-official.com/feature/homepartytour_umimoyasu2024",
+    "posts": [
+      {
+        "liveId": 51,
+        "livePostNo": 1,
+        "livePostId": "1777985157561229748",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔸NEWS🔸<a href=\"https://twitter.com/hashtag/%E3%83%95%E3%83%AC%E3%83%87%E3%83%AA%E3%83%83%E3%82%AF?src=hash&amp;ref_src=twsrc%5Etfw\">#フレデリック</a>「UMIMOYASU 2024 -WAVE-」<a href=\"https://t.co/y5TQzOLJR3\">https://t.co/y5TQzOLJR3</a><br>6/22(土)福岡・スカラエスパシオ公演に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定!!<br><br>只今よりReol Official Fan Club “Legit”先行受付を開始しました。<br>FC会員の方は下記のリンクよりチケット抽選にお申し込みいただけます🕊️… <a href=\"https://t.co/I3QzOKquQ5\">pic.twitter.com/I3QzOKquQ5</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1777985157561229748?ref_src=twsrc%5Etfw\">April 10, 2024</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 51,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2024-06-22",
+        "place": "福岡　スカラエスパシオ",
+        "placeSite": "https://espacio.ne.jp/",
+        "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26589.880035401657!2d130.401964!3d33.586229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919abe78fded%3A0x18f611fe71aa9768!2z56aP5bKh44OI44Oo44K_44Ob44O844Or44K544Kr44Op44Ko44K544OR44K344Kq!5e0!3m2!1sja!2sjp!4v1712829092881!5m2!1sja!2sjp",
+        "setList": [],
+        "posts": []
+      }
+    ],
+    "reports": []
+  },
+  {
+    "liveId": 50,
+    "type": "event",
+    "title": "超音楽祭 in ニコニコ超会議2024",
+    "name": "Reol",
+    "date": "2024-04-27",
+    "siteUrl": "https://www.choongakusai.jp/",
+    "posts": [
+      {
+        "liveId": 50,
+        "livePostNo": 1,
+        "livePostId": "1777623124181213381",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔸NEWS🔸<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> が <a href=\"https://twitter.com/hashtag/%E3%83%8B%E3%82%B3%E3%83%8B%E3%82%B3%E8%B6%85%E4%BC%9A%E8%AD%B02024?src=hash&amp;ref_src=twsrc%5Etfw\">#ニコニコ超会議2024</a> 超音楽祭 に出演することが決定しました。<br><br>日時 4/27(土)17:00〜<br>場所 幕張メッセHALL9-11<br><br>チケットのご購入・料金等の詳細はリンクからご確認ください<br>🔗 <a href=\"https://t.co/B5Y4SdL85B\">https://t.co/B5Y4SdL85B</a> <a href=\"https://t.co/zdzNb1dpm8\">https://t.co/zdzNb1dpm8</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1777623124181213381?ref_src=twsrc%5Etfw\">April 9, 2024</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 50,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2024-04-27",
+        "place": "幕張メッセ ホール 9・10・11",
+        "placeSite": "https://www.m-messe.co.jp/",
+        "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+        "setList": [],
+        "posts": []
+      }
+    ],
+    "reports": []
   },
   {
     "liveId": 49,
@@ -121,12 +188,137 @@
         "placeSite": "http://www.bigcat-live.com/",
         "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3360052.538545521!2d130.8845977!3d34.6723442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e710519fc2c9%3A0x290d8038f398edb3!2z5b-D5paO5qmLQklHQ0FU!5e0!3m2!1sja!2sjp!4v1697821903430!5m2!1sja!2sjp",
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "VIORA"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "ダリ"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "Nd60"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "Winners"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "TAKE OFF"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "Lunatic"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "激白"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "mede:mede"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "ミュータント"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "白夜"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "ゆーれいずみー"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "たい"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "感情御中"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-nil-"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "極彩色"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "質問コーナー"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "抽選会"
+          }
+        ],
         "posts": [
           {
             "liveId": 49,
             "liveItemNo": 1,
-            "liveItemPostNo": 1
+            "liveItemPostNo": 1,
+            "liveItemPostId": "1776829372961579440",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Secret Live &quot;極秘LEGIT&quot;<br>in 大阪BIG CAT<br><br>日頃より多大なる愛を向けてくださるLegitの皆様と、普段のライヴとは少し違った趣向を凝らしてのひと時でした<br>記念すべき第一回 <a href=\"https://twitter.com/hashtag/%E6%A5%B5%E7%A7%98LEGIT?src=hash&amp;ref_src=twsrc%5Etfw\">#極秘LEGIT</a> いかがでしたか？<br><br>4月17日はReol初ワンマンライヴ会場、東京O-EASTにて！バンドセットでお待ちしております🕊️ <a href=\"https://t.co/sqbNiqBhPZ\">pic.twitter.com/sqbNiqBhPZ</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1776829372961579440?ref_src=twsrc%5Etfw\">April 7, 2024</a></blockquote>"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "1776571833686307247",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ファンクラブライヴ<a href=\"https://twitter.com/hashtag/%E6%A5%B5%E7%A7%98LEGIT?src=hash&amp;ref_src=twsrc%5Etfw\">#極秘LEGIT</a> vol.1 OSAKA BIG CAT<br><br>初めてのワンマンライヴを果たしたこの場所へ、みんなとともに戻って来れたことが何より嬉しい　ダンスセットリストは今夜だけ！Legitたちネタバレ盛大にどぞー<br><br>お次は４１７東京　いつもありがと💚 <a href=\"https://t.co/hAfYX5m419\">pic.twitter.com/hAfYX5m419</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1776571833686307247?ref_src=twsrc%5Etfw\">April 6, 2024</a></blockquote>"
+          },
+          {
+            "liveId": 49,
+            "liveItemNo": 1,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "1776591919725891869",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">開梱ロスしてたけど極秘を拾いました🆕<br>ライヴ後のご飯がいちばん美味、東の宴がもっと楽しみになりました　家帰って練習します　大阪また、来る、！</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1776591919725891869?ref_src=twsrc%5Etfw\">April 6, 2024</a></blockquote>"
           }
         ]
       },
