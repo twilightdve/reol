@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfansite_reol=self.webpackChunkfansite_reol||[]).push([[218],{2513:function(e,n,t){t.r(n),t.d(n,{Head:function(){return u}});var l=t(7294);n.default=()=>l.createElement("main",null,l.createElement("h1",null,"404 not found"));const u=()=>l.createElement("title",null,"404 Not found")}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-3b8ab1b99c97f6c2b7a8.js.map
