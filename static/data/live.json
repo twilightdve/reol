@@ -106,7 +106,7 @@
         "placeSite": "https://espacio.ne.jp/",
         "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26589.880035401657!2d130.401964!3d33.586229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919abe78fded%3A0x18f611fe71aa9768!2z56aP5bKh44OI44Oo44K_44Ob44O844Or44K544Kr44Op44Ko44K544OR44K344Kq!5e0!3m2!1sja!2sjp!4v1712829092881!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 51,
@@ -154,7 +154,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 50,
@@ -638,7 +638,7 @@
         "placeSite": "https://www.musinsagarage.com/",
         "address": "３２ Jandari-ro, Mapo-gu, Seoul, 韓国",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.149403358787!2d126.9172053758731!3d37.551543672042435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99e21f281c77%3A0x37b8cb2577692919!2sMusinsa%20Garage!5e0!3m2!1sja!2sjp!4v1704741343244!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       }
@@ -664,7 +664,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/divercity/",
         "address": "〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1208284605586!2d139.77201597578517!3d35.62474767260555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2zWmVwcCDjg4DjgqTjg5Djg7zjgrfjg4bjgqPmnbHkuqw!5e0!3m2!1sja!2sjp!4v1697990250505!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 47,
@@ -705,7 +705,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 46,
@@ -3871,7 +3871,7 @@
         "placeSite": "https://www.n-terrsa.jp/",
         "address": "〒950-1141 新潟県新潟市中央区鐘木１８５−１８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.2697687094806!2d139.0470246!3d37.87737339999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c8c3cefc630f%3A0x589907b1378b5556!2z5paw5r2f44OG44Or44K1!5e0!3m2!1sja!2sjp!4v1697823250383!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 43,
@@ -3987,7 +3987,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 42,
@@ -4235,7 +4235,7 @@
         "placeSite": "https://shisetsu.mizuno.jp/m-7402",
         "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6563.014545459134!2d135.3919646!3d34.6671446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1697823219585!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 40,
@@ -4338,7 +4338,7 @@
         "placeSite": "https://hitachikaihin.jp/",
         "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.1376837254797!2d140.59648679999998!3d36.405864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60218b1d845e4441%3A0x767e1dea03e6f0e1!2z5Zu95Za244Gy44Gf44Gh5rW35rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697823206211!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 39,
@@ -4435,7 +4435,7 @@
         "placeSite": "http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/",
         "address": "〒590-0908 大阪府堺市堺区匠町６−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.079102674517!2d135.4280183!3d34.6021612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000c29404ddd759%3A0x94059bb8d9120e67!2z5rW344Go44Gu44G144KM44GC44GE5bqD5aC0!5e0!3m2!1sja!2sjp!4v1697823163334!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 38,
@@ -4547,7 +4547,7 @@
         "placeSite": "",
         "address": "〒164-8512 東京都中野区中野４丁目１−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3239.7505778649!2d139.6601168!3d35.707755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f290dc9d39cf%3A0xde9cfca35472a9ed!2z5Lit6YeO44K144Oz44OX44Op44K2!5e0!3m2!1sja!2sjp!4v1697823149440!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 37,
@@ -4696,7 +4696,7 @@
         "placeSite": "",
         "address": "〒989-1503 宮城県柴田郡川崎町川内藤折",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6271.317943941707!2d140.6559058!3d38.194595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a317c6299b841%3A0x43b8ce9c8ecdd241!2z44G_44Gh44Gu44GP5YWs5ZySIOWMl-WcsOWMug!5e0!3m2!1sja!2sjp!4v1697823135168!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 36,
@@ -4856,7 +4856,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
         "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697822993110!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5063,7 +5063,7 @@
         "placeSite": "https://www.tokyo-dome.co.jp/tdc-hall/",
         "address": "〒112-0004 東京都文京区後楽１丁目３−６１ 東京ドームミーツポート1F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9147424123707!2d139.7542363!3d35.703715599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d3597a9f885%3A0x1f7f744127cbc2fd!2sTOKYO%20DOME%20CITY%20HALL!5e0!3m2!1sja!2sjp!4v1697823007193!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5256,7 +5256,7 @@
         "placeSite": "http://sendai-pit.team-smile.org/",
         "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697823022418!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5435,7 +5435,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/yokohama/",
         "address": "〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.80221015877!2d139.6258804!3d35.4596908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185db755d1cfcb%3A0xb3d0979a6d6c0535!2sKT%20Zepp%20Yokohama!5e0!3m2!1sja!2sjp!4v1697823035405!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5614,7 +5614,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
         "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823048594!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5793,7 +5793,7 @@
         "placeSite": "https://www.club-quattro.com/",
         "address": "〒730-0035 広島県広島市中区本通１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823062813!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -5972,7 +5972,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
         "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -6151,7 +6151,7 @@
         "placeSite": "http://festhalle.jp/",
         "address": "〒760-0054 香川県高松市常磐町１丁目３−２",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.484229540866!2d134.05235729999998!3d34.3381523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9958891783%3A0x141915e3d562fb8e!2z44OV44Kn44K544OI44OP44Os!5e0!3m2!1sja!2sjp!4v1697823103594!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -6330,7 +6330,7 @@
         "placeSite": "https://www.mpac.jp/",
         "address": "〒390-0815 長野県松本市深志３丁目１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.3921863040314!2d137.9746548!3d36.229965899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d0eecc37f8c55%3A0xbbbda22d53976b3d!2z44G-44Gk44KC44Go5biC5rCR6Iq46KGT6aSo!5e0!3m2!1sja!2sjp!4v1697823117305!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 35,
@@ -6604,7 +6604,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 34,
@@ -6699,7 +6699,7 @@
         "placeSite": "https://www.yokohama-arena.co.jp/",
         "address": "〒222-0033 神奈川県横浜市港北区新横浜３丁目１０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.676682207367!2d139.6201797!3d35.5122721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185eda022dd1bd%3A0x2ed62e22af68ca17!2z5qiq5rWc44Ki44Oq44O844OK!5e0!3m2!1sja!2sjp!4v1697822963046!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 33,
@@ -6831,7 +6831,7 @@
         "placeSite": "https://www.osakacastlepark.jp/ongakudo/",
         "address": "〒540-0002 大阪府大阪市中央区大阪城３−１１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8908562086635!2d135.530568!3d34.68270400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0c965623ca1%3A0x54d2f6bfb0e225d1!2z5aSn6Ziq5Z-O6Z-z5qW95aCC!5e0!3m2!1sja!2sjp!4v1697822939062!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 32,
@@ -6948,7 +6948,7 @@
         "placeSite": "http://sogasportspark.com/",
         "address": "〒260-0835 千葉県千葉市中央区川崎町１−２０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1710707466696!2d140.1229314!3d35.5741692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60229b0b9c50b1c9%3A0xdcf05836c92a2aad!2z5Y2D6JGJ5biC6JiH5oiR44K544Od44O844OE5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697822923640!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 31,
@@ -7094,7 +7094,7 @@
         "placeSite": "https://shisetsu.mizuno.jp/m-7402",
         "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6563.014545459134!2d135.3919646!3d34.6671446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1697822911482!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -7128,7 +7128,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
         "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697822814429!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 29,
@@ -7304,7 +7304,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
         "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697822836486!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 29,
@@ -7452,7 +7452,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
         "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697822854298!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -7480,7 +7480,7 @@
         "placeSite": "http://sendai-pit.team-smile.org/",
         "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697822868936!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -7529,7 +7529,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/haneda/",
         "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822884453!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -7592,7 +7592,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/haneda/",
         "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822898654!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 29,
@@ -7858,7 +7858,7 @@
         "placeSite": "https://pia-arena-mm.jp/",
         "address": "〒220-0012 神奈川県横浜市西区みなとみらい３丁目２−２",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.956198720636!2d139.6287176!3d35.455878799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185d5437c93077%3A0x30bb3126eca8ccd0!2z44G044GC44Ki44Oq44O844OKTU0!5e0!3m2!1sja!2sjp!4v1697822796868!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 28,
@@ -7970,7 +7970,7 @@
         "placeSite": "https://linecubeshibuya.com/",
         "address": "〒150-0042 東京都渋谷区宇田川町１−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822734146!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 27,
@@ -8137,7 +8137,7 @@
         "placeSite": "https://www.fenice-sacay.jp/",
         "address": "〒590-0061 大阪府堺市堺区翁橋町２丁１−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.2649436633023!2d135.4795384!3d34.5721621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000dc849f1541d1%3A0xb259d6e252c0f095!2z44OV44Kn44OL44O844OB44Kn5aC677yI5aC65biC5rCR6Iq46KGT5paH5YyW44Ob44O844Or77yJ!5e0!3m2!1sja!2sjp!4v1697822781337!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 27,
@@ -8649,7 +8649,7 @@
         "placeSite": "https://www.club-quattro.com/",
         "address": "〒730-0035 広島県広島市中区本通１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697822605303!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8677,7 +8677,7 @@
         "placeSite": "http://www.live-drum.com/",
         "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4781575038783!2d130.39398!3d33.59289599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191891bfc5a3b%3A0x9963fe6cbbac97fd!2z44OJ44Op44Og44Ot44K044K5!5e0!3m2!1sja!2sjp!4v1697822627140!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8698,7 +8698,7 @@
         "placeSite": "http://www.rensa.jp/",
         "address": "〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.6247579841056!2d140.8701878!3d38.265008099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28255100405b%3A0x1929b92b35599bac!2zUmVuc2HvvIjjg6zjg7PjgrXvvIk!5e0!3m2!1sja!2sjp!4v1697822640676!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8719,7 +8719,7 @@
         "placeSite": "http://www.pl24.jp/",
         "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697822656968!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8761,7 +8761,7 @@
         "placeSite": "http://diamond.sflag.co.jp/",
         "address": "〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.4905691723843!2d136.9204545!3d35.1693237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370c2ec5eec45%3A0x2d3b9ed7ab878e2f!2z44OA44Kk44Ki44Oi44Oz44OJ44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822671940!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8782,7 +8782,7 @@
         "placeSite": "http://www.namba-hatch.com/",
         "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822688800!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8803,7 +8803,7 @@
         "placeSite": "https://linecubeshibuya.com/",
         "address": "〒150-0042 東京都渋谷区宇田川町１−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822703361!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -8824,7 +8824,7 @@
         "placeSite": "http://www.kanagawa-kenminhall.com/",
         "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822719004!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -9037,7 +9037,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822592475!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 20,
@@ -9142,7 +9142,7 @@
         "placeSite": "https://www.m-messe.co.jp/",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822577765!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -9190,7 +9190,7 @@
         "placeSite": "https://veats.jp/",
         "address": "〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6598340504634!2d139.6973995!3d35.6607517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6548f4b94f%3A0x3645d2e5afa9c2f6!2z44OT44O844OE44O744K344OW44Ok!5e0!3m2!1sja!2sjp!4v1697822556701!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -9261,7 +9261,7 @@
         "placeSite": "https://www.kanden-kaijyou.jp/event_hole/imp/",
         "address": "〒540-6301 大阪府大阪市中央区城見１丁目３−７",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.528402383035!2d135.5296916!3d34.691850099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0d108cd8595%3A0x856dd6f3cfce52db!2z5p2-5LiL77yp77yt77yw44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822512150!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -9303,7 +9303,7 @@
         "placeSite": "https://ruido.org/nagoya_reny/",
         "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.623807986571!2d136.9082345!3d35.166001699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370d1f12c4e23%3A0xa9007845de5a6a41!2sNAGOYA%20ReNY%20limited!5e0!3m2!1sja!2sjp!4v1697822525871!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 17,
@@ -9463,7 +9463,7 @@
         "placeSite": "http://www.studio-coast.com/",
         "address": "〒136-0082 東京都江東区新木場２丁目２−１０",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1621.206384132544!2d139.8230647!3d35.6422007!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188825be03617f%3A0xa63b794809b4339a!2z44K544K_44K444Kq44Kz44O844K544OI!5e0!3m2!1sja!2sjp!4v1697822540166!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 17,
@@ -9670,7 +9670,7 @@
         "placeSite": "",
         "address": "〒811-3307 福岡県福津市渡６４１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53042.92195504263!2d130.456049!3d33.8076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354226123b226e87%3A0x4b98b30ed274d95b!2z44CSODExLTMzMDcg56aP5bKh55yM56aP5rSl5biC5rih77yW77yU77yR!5e0!3m2!1sja!2sjp!4v1697822493200!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -9704,7 +9704,7 @@
         "placeSite": "https://hitachikaihin.jp/",
         "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.1376837254797!2d140.59648679999998!3d36.405864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60218b1d845e4441%3A0x767e1dea03e6f0e1!2z5Zu95Za244Gy44Gf44Gh5rW35rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697822479534!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 15,
@@ -9887,7 +9887,7 @@
         "placeSite": "http://stream-hall.jp/",
         "address": "〒150-0002 東京都渋谷区渋谷３丁目２１−３",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.789445259059!2d139.7025291!3d35.657558900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5997e18dc9%3A0x4e339e5573667786!2z5riL6LC344K544OI44Oq44O844OgIOODm-ODvOODqw!5e0!3m2!1sja!2sjp!4v1697822429591!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 14,
@@ -10025,7 +10025,7 @@
         "placeSite": "http://www.banana-hall.com/",
         "address": "〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0893599643073!2d135.504592!3d34.702926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6eac54e727f%3A0x9e4f8f4047af9f24!2z44OQ44OK44OK44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822448453!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10046,7 +10046,7 @@
         "placeSite": "https://www.ell.co.jp/",
         "address": "〒460-0011 愛知県名古屋市中区大須２丁目１０−３５",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.8295164851293!2d136.8987258!3d35.1608723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377320e4c59bd%3A0xd496d7b256aaa133!2zRWxsLlNpemUsIO-8kuS4geebri3vvJHvvJAt77yT77yVIOWkp-mgiCDkuK3ljLog5ZCN5Y-k5bGL5biCIOaEm-efpeecjCA0NjAtMDAxMQ!5e0!3m2!1sja!2sjp!4v1697822462166!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10220,7 +10220,7 @@
         "placeSite": "http://www.namba-hatch.com/",
         "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822281502!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10255,7 +10255,7 @@
         "placeSite": "http://www.pl24.jp/",
         "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697822332260!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10290,7 +10290,7 @@
         "placeSite": "http://www.live-drum.com/",
         "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4781575038783!2d130.39398!3d33.59289599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191891bfc5a3b%3A0x9963fe6cbbac97fd!2z44OJ44Op44Og44Ot44K044K5!5e0!3m2!1sja!2sjp!4v1697822346544!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10318,7 +10318,7 @@
         "placeSite": "https://ruido.org/nagoya_reny/",
         "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.623807986571!2d136.9082345!3d35.166001699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370d1f12c4e23%3A0xa9007845de5a6a41!2sNAGOYA%20ReNY%20limited!5e0!3m2!1sja!2sjp!4v1697822360869!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -10346,7 +10346,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
         "address": "〒135-0064 東京都江東区青海１丁目３−１１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.072620073445!2d139.7823209!3d35.6259362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889faff99249d%3A0x10223bd1a6ac0bf6!2sZepp%20Tokyo!5e0!3m2!1sja!2sjp!4v1697822377798!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 13,
@@ -10752,7 +10752,7 @@
         "placeSite": "http://www.ex-theater.com/",
         "address": "〒106-0031 東京都港区西麻布１丁目２−９",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.639060734356!2d139.7272975!3d35.661263399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b77564f5899%3A0xb47d261864b68591!2sEX%20THEATER%20ROPPONGI!5e0!3m2!1sja!2sjp!4v1697822261609!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 12,
@@ -10900,7 +10900,7 @@
         "placeSite": "http://www.namba-hatch.com/",
         "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822281502!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 12,
@@ -11074,7 +11074,7 @@
         "placeSite": "https://www.m-messe.co.jp/organizers/guide/exhibitionhall/guide_exibition9-11",
         "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目２−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3242.1875933163037!2d140.0320526!3d35.6477495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022811ee835c63d%3A0x2b3c032a9fff5515!2z5bmV5by144Oh44OD44K7IOWbvemam-WxleekuuWgtCA5LTEx44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822211581!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 11,
@@ -11247,7 +11247,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/namba/",
         "address": "〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8945605003178!2d135.49870847574272!3d34.657365672935114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1699166570248!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -11282,7 +11282,7 @@
         "placeSite": "",
         "address": "〒135-0061 東京都江東区豊洲６丁目１−２３",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.112244144704!2d139.7883756!3d35.6496061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188999e8701f8f%3A0x617c01d55ad9dd8e!2z6LGK5rSyUElU!5e0!3m2!1sja!2sjp!4v1699166690325!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -11337,7 +11337,7 @@
         "placeSite": "http://www.cube-garden.com/",
         "address": "〒060-0032 北海道札幌市中央区北２条東３丁目２−５ ｃｕｂｅ ｇａｒｄｅｎ",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.8767583440194!2d141.36014799999998!3d43.06505949999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2976d3b464b3%3A0x51a7c5ed2104e794!2scube%20garden!5e0!3m2!1sja!2sjp!4v1697822189156!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       }
@@ -11538,7 +11538,7 @@
         "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
         "address": "〒135-0064 東京都江東区青海１丁目３−１１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.072620073445!2d139.7823209!3d35.6259362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889faff99249d%3A0x10223bd1a6ac0bf6!2sZepp%20Tokyo!5e0!3m2!1sja!2sjp!4v1697822091704!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 8,
@@ -11688,7 +11688,7 @@
         "placeSite": "http://www.namba-hatch.com/",
         "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822112764!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 8,
@@ -11950,7 +11950,7 @@
         "placeSite": "",
         "address": "〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.967315879723!2d141.3382863!3d42.9368159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f752b67056b9dcf%3A0x57549a3c3ff4451f!2z44CSMDA1LTA4NjQg5YyX5rW36YGT5pyt5bmM5biC5Y2X5Yy66Iq46KGT44Gu5qOu77yS5LiB55uu77yZ77yR77yQ4oiS77yRIOmHjuWkluOCueODhuODvOOCuA!5e0!3m2!1sja!2sjp!4v1697822069385!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -12005,7 +12005,7 @@
         "placeSite": "http://www.tbs.co.jp/blitz/",
         "address": "〒107-0052 東京都港区赤坂５丁目３−２",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.180894073147!2d139.73533570000004!3d35.6725476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8092ddc2dd%3A0x34fef75324da816b!2zVEJT6LWk5Z2CQkxJVFrjgrnjgr_jgrjjgqo!5e0!3m2!1sja!2sjp!4v1697822045176!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": [
           {
@@ -12081,7 +12081,7 @@
         "placeSite": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
         "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74225086221!2d139.6956111!3d35.6587215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa1779185b%3A0x790982143d7b6367!2sSpotify%20O-EAST!5e0!3m2!1sja!2sjp!4v1697821870147!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       },
@@ -12094,7 +12094,7 @@
         "placeSite": "http://www.bigcat-live.com/",
         "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3360052.538545521!2d130.8845977!3d34.6723442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e710519fc2c9%3A0x290d8038f398edb3!2z5b-D5paO5qmLQklHQ0FU!5e0!3m2!1sja!2sjp!4v1697821903430!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       },
@@ -12140,7 +12140,7 @@
         "placeSite": "https://www.sonic-city.or.jp/",
         "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7039744763006!2d139.61713467579776!3d35.90526517251586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018c14334b5b89f%3A0x1f5fecd47f68d7f1!2z44K944OL44OD44Kv44K344OG44Kj!5e0!3m2!1sja!2sjp!4v1708601350280!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 4,
@@ -12250,7 +12250,7 @@
         "placeSite": "https://www.sonic-city.or.jp/",
         "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7039744763006!2d139.61713467579776!3d35.90526517251586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018c14334b5b89f%3A0x1f5fecd47f68d7f1!2z44K944OL44OD44Kv44K344OG44Kj!5e0!3m2!1sja!2sjp!4v1708601350280!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 4,
@@ -12386,7 +12386,7 @@
         "placeSite": "http://www.jpnsport.go.jp/yoyogi/",
         "address": "〒150-0041 東京都渋谷区神南２丁目１−１",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3798779783533!2d139.7001458!3d35.667647200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cafea3fe4c5%3A0x6e74f313e8ed1b7b!2z5Zu956uL5Luj44CF5pyo56u25oqA5aC0IOesrOS4gOS9k-iCsumkqA!5e0!3m2!1sja!2sjp!4v1697821794211!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 3,
@@ -12690,7 +12690,7 @@
         "placeSite": "http://ruido.org/reny/index.html",
         "address": "〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.362441149594!2d139.6925046!3d35.6926976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd562de946d%3A0xd1c51ff1568a2d3b!2z5paw5a6_UmVOWe-8iOODrOODi-ODvO-8iQ!5e0!3m2!1sja!2sjp!4v1697821780880!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       }
@@ -12716,7 +12716,7 @@
         "placeSite": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB",
         "address": "〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12965.20932854474!2d139.70655!3d35.669557!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca37d3e980b%3A0x8aa3e641b892411a!2z44Ki44K544OI44Ot44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697821131639!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [],
         "posts": []
       }
@@ -12749,7 +12749,7 @@
         "placeSite": "http://nissho-hall.jp/accesmap.html",
         "address": "〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4459473537463!2d139.75777907578694!3d35.66601997259222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b91e9a4fa79%3A0xb2e8ca280138b3bf!2z44OL44OD44K344On44O844Ob44O844OrICjml6fjg6Tjgq_jg6vjg4jjg5vjg7zjg6sp!5e0!3m2!1sja!2sjp!4v1708596592473!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 0,
