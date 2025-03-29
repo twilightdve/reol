@@ -215,10 +215,10 @@
         "liveItemNo": 1,
         "liveItemName": "横浜",
         "date": "2025-04-05",
-        "place": null,
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
+        "place": "KT Zepp Yokohama",
+        "placeSite": "https://www.zepp.co.jp/hall/yokohama/",
+        "address": "〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.80221126326!2d139.6233054757779!3d35.45969077265953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185db755d1cfcb%3A0xb3d0979a6d6c0535!2sKT%20Zepp%20Yokohama!5e0!3m2!1sja!2sjp!4v1743281264211!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "setList": [
           {
@@ -476,9 +476,9 @@
         "liveItemName": "大阪",
         "date": "2025-01-19",
         "place": "Zepp Osaka Bayside",
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
+        "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
+        "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "setList": [
           {
@@ -655,10 +655,10 @@
         "liveItemName": "愛知",
         "date": "2025-01-24",
         "place": "Zepp Nagoya",
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
-        "spotifyPlaylistId": null,
+        "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+        "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
+        "spotifyPlaylistId": "0arMxAp9HpWts7YOQZfdNs",
         "setList": [
           {
             "liveId": 60,
@@ -822,9 +822,9 @@
         "liveItemName": "東京",
         "date": "2025-02-02",
         "place": "Zepp DiverCity Tokyo",
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
+        "placeSite": "https://www.zepp.co.jp/hall/divercity/",
+        "address": "〒135-0064 東京都江東区青海１丁目１−１０",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1206516008656!2d139.77201061196095!3d35.6247520329593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2sZepp%20DiverCity%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1743281363934!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "setList": [
           {
@@ -1007,7 +1007,14 @@
         "address": null,
         "googleMapsUrl": null,
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 60,
+            "liveItemNo": 4,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "(未開催)"
+          }
+        ],
         "posts": []
       },
       {
@@ -1020,7 +1027,14 @@
         "address": null,
         "googleMapsUrl": null,
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 60,
+            "liveItemNo": 5,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "(未開催)"
+          }
+        ],
         "posts": []
       },
       {
@@ -1033,7 +1047,14 @@
         "address": null,
         "googleMapsUrl": null,
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 60,
+            "liveItemNo": 6,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "(未開催)"
+          }
+        ],
         "posts": []
       }
     ],
@@ -1058,26 +1079,38 @@
       {
         "liveId": 59,
         "livePostNo": 1,
-        "livePostId": "1850155775525814464",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024<br>Reol × Cö shu Nie <a href=\"https://twitter.com/co_shu_nie?ref_src=twsrc%5Etfw\">@co_shu_nie</a> <br><br>泥臭く熱く今生きてる！って実感できた空間でした　ともにステージに立ってくれたコシュニエに感謝します　互いの音楽のおかげで今日ができた　ともに過ごしてくれた皆様ありがとう<br><br>愛すべき大阪、また一月にお逢いしましょう <a href=\"https://t.co/uKBNdKsXp6\">pic.twitter.com/uKBNdKsXp6</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1850155775525814464?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
+        "livePostId": "1818875624548950068",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">韓国で開催される音楽フェス「WONDERLIVET 2024」に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定しました！<br>한국에서 열리는 페스티벌 이벤트 &#39;WONDERLIVET 2024&#39;에 <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> 의 출연이 결정되었습니다!<br><br>WONDERLIVET 2024<br>2024.11.8 FRI - 11.10 SUN<br>KINTEX HALL 7·8·9B<br>（217−60  Kintex-ro, Ilsanseo-gu, Goyang-si,… <a href=\"https://t.co/qw74blTUEH\">pic.twitter.com/qw74blTUEH</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1818875624548950068?ref_src=twsrc%5Etfw\">August 1, 2024</a></blockquote>"
       },
       {
         "liveId": 59,
         "livePostNo": 2,
-        "livePostId": "1850159783711502706",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024  -1st Anniversary-<br><br>at. Yogibo META VALLEY<br><br>Cö shu Nieとの初対バン！Reolとも関わりの深いお二人の刺激的な音世界にまみれながら、燃えに燃えた夜になりました。また狂おしく遊びましょう <a href=\"https://t.co/EcRsbYhS9N\">pic.twitter.com/EcRsbYhS9N</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1850159783711502706?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
+        "livePostId": "1829383803460284730",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹NEWS🔹<br><br>韓国で開催される音楽フェス「WONDERLIVET 2024」<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> は11/10(日)の出演に決定しました📢<br><br>👾「WONDERLIVET 2024」<br>🗓️2024.11.8 FRI - 11.10 SUN<br>📍KINTEX HALL 7·8·9B<br>（217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国）<br><br>公演の詳細はイベントアカウント(<a href=\"https://twitter.com/WONDERLIVET?ref_src=twsrc%5Etfw\">@WONDERLIVET</a>… <a href=\"https://t.co/U4VwyLvvYf\">pic.twitter.com/U4VwyLvvYf</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1829383803460284730?ref_src=twsrc%5Etfw\">August 30, 2024</a></blockquote>"
       },
       {
         "liveId": 59,
         "livePostNo": 3,
-        "livePostId": "1850161883330011226",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024<br>ありがとうございました⭐︎<br><br>大阪に帰れてうれしかった<br>またお会いしましょう🖤 <a href=\"https://t.co/sWynDwUSIv\">pic.twitter.com/sWynDwUSIv</a></p>&mdash; 𝙼𝚒𝚔𝚞 𝙽𝚊𝚔𝚊𝚖𝚞𝚛𝚊 ꙳ 🇨ö ˢʰᵘ 🇳 ⁱᵉ ꙳ ໒꒱ (@co_shu_mikun) <a href=\"https://twitter.com/co_shu_mikun/status/1850161883330011226?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
+        "livePostId": "1855575826491916342",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">THANK YOU <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a><br> <br>初・韓国フェスでした！初めて誕生日をソウルで過ごしました　色んなご縁が繋がって絆を育めた夜でした　フロアで最高の時間をともに過ごしてくれたみんなにも感謝します！コマウォヨ、トマンナヨ <a href=\"https://t.co/sYMWdmM9xe\">pic.twitter.com/sYMWdmM9xe</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1855575826491916342?ref_src=twsrc%5Etfw\">November 10, 2024</a></blockquote>"
       },
       {
         "liveId": 59,
         "livePostNo": 4,
-        "livePostId": "1850142409805517018",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">大阪Yogibo META VALLEYの1周年記念！<br>Reol対バン！ご来場ありがとうございました(๑`ө´๑)💯<br>みんなで1日楽しめてほんとに幸せ。<br>一緒にイベントできるの楽しかったなぁ、呼んでもらえて光栄でした🍔<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/coshulive?src=hash&amp;ref_src=twsrc%5Etfw\">#coshulive</a> <a href=\"https://t.co/Rzw8dg5CTl\">pic.twitter.com/Rzw8dg5CTl</a></p>&mdash; Shunsuke Matsumoto ꙳ 🇨ö ˢʰᵘ 🇳 ⁱᵉ ꙳ (@coshuns5) <a href=\"https://twitter.com/coshuns5/status/1850142409805517018?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
+        "livePostId": "1855548547363664299",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">WONDERLIVET 2024<br><br>at. KINTEX HALL<br><br>UNBOX TOUR以来、こんなに早く帰ってこられるとは🇰🇷<br>ハイボルテージで皆さまと駆け抜けた熱いステージになりました。素晴らしいフェスの第一回に参加できたことに感謝！<br>BIG UP, WONDERLIVET👾<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EC%9B%90%EB%8D%94%EB%A6%AC%EB%B2%B32024?src=hash&amp;ref_src=twsrc%5Etfw\">#원더리벳2024</a>  <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> <a href=\"https://t.co/CthK7q8DXv\">pic.twitter.com/CthK7q8DXv</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1855548547363664299?ref_src=twsrc%5Etfw\">November 10, 2024</a></blockquote>"
+      },
+      {
+        "liveId": 59,
+        "livePostNo": 5,
+        "livePostId": "1863554496833712133",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EB%A0%88%EC%98%A4%EB%A3%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#레오루</a> <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> SETLIST<br>1 極彩色(Gokusaishiki)<br>2 感情御中(감정어중)<br>3 切っ先(칼끝)<br>4 SCORPION<br>5 十中八九(십중팔구)<br>6 煽げや尊し(Aogeya Toutoshi)<br>7 白夜(백야)<br>8 ディア(디어)<br>9 第六感(제육감)<br>10 No title<br><br>WONDERLIVET 2024 · 원더리벳 2024<br>2024.11.8 FRI - 11.10 SUN… <a href=\"https://t.co/0NrZPlKDVs\">pic.twitter.com/0NrZPlKDVs</a></p>&mdash; WONDERLIVET (@WONDERLIVET) <a href=\"https://twitter.com/WONDERLIVET/status/1863554496833712133?ref_src=twsrc%5Etfw\">December 2, 2024</a></blockquote>"
+      },
+      {
+        "liveId": 59,
+        "livePostNo": 6,
+        "livePostId": "1863554659132268708",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ko\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EB%A0%88%EC%98%A4%EB%A3%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#레오루</a> <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> <br><br>WONDERLIVET 2024 · 원더리벳 2024<br>2024.11.8 FRI - 11.10 SUN<br>📸사진은 순차적으로 공개됩니다. <a href=\"https://t.co/ysDxZkpDG9\">pic.twitter.com/ysDxZkpDG9</a></p>&mdash; WONDERLIVET (@WONDERLIVET) <a href=\"https://twitter.com/WONDERLIVET/status/1863554659132268708?ref_src=twsrc%5Etfw\">December 2, 2024</a></blockquote>"
       }
     ],
     "items": [
@@ -1170,38 +1203,26 @@
       {
         "liveId": 58,
         "livePostNo": 1,
-        "livePostId": "1818875624548950068",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">韓国で開催される音楽フェス「WONDERLIVET 2024」に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定しました！<br>한국에서 열리는 페스티벌 이벤트 &#39;WONDERLIVET 2024&#39;에 <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> 의 출연이 결정되었습니다!<br><br>WONDERLIVET 2024<br>2024.11.8 FRI - 11.10 SUN<br>KINTEX HALL 7·8·9B<br>（217−60  Kintex-ro, Ilsanseo-gu, Goyang-si,… <a href=\"https://t.co/qw74blTUEH\">pic.twitter.com/qw74blTUEH</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1818875624548950068?ref_src=twsrc%5Etfw\">August 1, 2024</a></blockquote>"
+        "livePostId": "1843535170223394843",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹出演情報🔹<br><br>2024年11月1日、2日に中国・杭州にて開催される「XIHU MUSIC FESTIVAL」に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定しました！<br><br>日時：11月1日（金）,2日（土）  <br>会場：中国・杭州太子湾公園<br>※Reolは11月2日の出演<br><br>イベント公式weibo：<a href=\"https://t.co/6CSk08uJAS\">https://t.co/6CSk08uJAS</a><br><br>---<br><br>🔹演出信息🔹… <a href=\"https://t.co/H3a2okWfiQ\">pic.twitter.com/H3a2okWfiQ</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1843535170223394843?ref_src=twsrc%5Etfw\">October 8, 2024</a></blockquote>"
       },
       {
         "liveId": 58,
         "livePostNo": 2,
-        "livePostId": "1829383803460284730",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹NEWS🔹<br><br>韓国で開催される音楽フェス「WONDERLIVET 2024」<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> は11/10(日)の出演に決定しました📢<br><br>👾「WONDERLIVET 2024」<br>🗓️2024.11.8 FRI - 11.10 SUN<br>📍KINTEX HALL 7·8·9B<br>（217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国）<br><br>公演の詳細はイベントアカウント(<a href=\"https://twitter.com/WONDERLIVET?ref_src=twsrc%5Etfw\">@WONDERLIVET</a>… <a href=\"https://t.co/U4VwyLvvYf\">pic.twitter.com/U4VwyLvvYf</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1829383803460284730?ref_src=twsrc%5Etfw\">August 30, 2024</a></blockquote>"
+        "livePostId": "1852532788106608737",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹Today🔹<br><br>本日は中国・杭州にて 「XIHU MUSIC FESTIVAL」に出演！<br><br>Reol goods販売も行います！<br>この機会に是非お買い求めください✨<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> will perform on 19:40 -<br>风车舞台(Windmill Stage)<br><br>イベント公式weibo：<a href=\"https://t.co/6CSk08uJAS\">https://t.co/6CSk08uJAS</a><br><br>---<br><br>今天我们将在中国杭州“西湖音乐节”演出！… <a href=\"https://t.co/W6BsDE5d37\">pic.twitter.com/W6BsDE5d37</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1852532788106608737?ref_src=twsrc%5Etfw\">November 2, 2024</a></blockquote>"
       },
       {
         "liveId": 58,
         "livePostNo": 3,
-        "livePostId": "1855575826491916342",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">THANK YOU <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a><br> <br>初・韓国フェスでした！初めて誕生日をソウルで過ごしました　色んなご縁が繋がって絆を育めた夜でした　フロアで最高の時間をともに過ごしてくれたみんなにも感謝します！コマウォヨ、トマンナヨ <a href=\"https://t.co/sYMWdmM9xe\">pic.twitter.com/sYMWdmM9xe</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1855575826491916342?ref_src=twsrc%5Etfw\">November 10, 2024</a></blockquote>"
+        "livePostId": "1852723256870187367",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">XIHU MUSIC FESTIVAL<br>at.杭州太子湾公园<br>2024年11月2日<br><br>夜空のもと、最高のパッションを皆様と共有できました！<br>海を超えて音楽が出来る喜びを噛み締めながら、更なる進化を誓います！<a href=\"https://twitter.com/hashtag/%E9%9B%B7%E5%AE%9D?src=hash&amp;ref_src=twsrc%5Etfw\">#雷宝</a> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/2024%E8%A5%BF%E6%B9%96%E9%9F%B3%E4%B9%90%E8%8A%82?src=hash&amp;ref_src=twsrc%5Etfw\">#2024西湖音乐节</a> <a href=\"https://twitter.com/hashtag/2024XIHUMUSICFESTIVAL?src=hash&amp;ref_src=twsrc%5Etfw\">#2024XIHUMUSICFESTIVAL</a> <a href=\"https://t.co/IZuvn1lZEM\">pic.twitter.com/IZuvn1lZEM</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1852723256870187367?ref_src=twsrc%5Etfw\">November 2, 2024</a></blockquote>"
       },
       {
         "liveId": 58,
         "livePostNo": 4,
-        "livePostId": "1855548547363664299",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">WONDERLIVET 2024<br><br>at. KINTEX HALL<br><br>UNBOX TOUR以来、こんなに早く帰ってこられるとは🇰🇷<br>ハイボルテージで皆さまと駆け抜けた熱いステージになりました。素晴らしいフェスの第一回に参加できたことに感謝！<br>BIG UP, WONDERLIVET👾<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EC%9B%90%EB%8D%94%EB%A6%AC%EB%B2%B32024?src=hash&amp;ref_src=twsrc%5Etfw\">#원더리벳2024</a>  <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> <a href=\"https://t.co/CthK7q8DXv\">pic.twitter.com/CthK7q8DXv</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1855548547363664299?ref_src=twsrc%5Etfw\">November 10, 2024</a></blockquote>"
-      },
-      {
-        "liveId": 58,
-        "livePostNo": 5,
-        "livePostId": "1863554496833712133",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EB%A0%88%EC%98%A4%EB%A3%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#레오루</a> <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> SETLIST<br>1 極彩色(Gokusaishiki)<br>2 感情御中(감정어중)<br>3 切っ先(칼끝)<br>4 SCORPION<br>5 十中八九(십중팔구)<br>6 煽げや尊し(Aogeya Toutoshi)<br>7 白夜(백야)<br>8 ディア(디어)<br>9 第六感(제육감)<br>10 No title<br><br>WONDERLIVET 2024 · 원더리벳 2024<br>2024.11.8 FRI - 11.10 SUN… <a href=\"https://t.co/0NrZPlKDVs\">pic.twitter.com/0NrZPlKDVs</a></p>&mdash; WONDERLIVET (@WONDERLIVET) <a href=\"https://twitter.com/WONDERLIVET/status/1863554496833712133?ref_src=twsrc%5Etfw\">December 2, 2024</a></blockquote>"
-      },
-      {
-        "liveId": 58,
-        "livePostNo": 6,
-        "livePostId": "1863554659132268708",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ko\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%EB%A0%88%EC%98%A4%EB%A3%A8?src=hash&amp;ref_src=twsrc%5Etfw\">#레오루</a> <a href=\"https://twitter.com/hashtag/WONDERLIVET2024?src=hash&amp;ref_src=twsrc%5Etfw\">#WONDERLIVET2024</a> <br><br>WONDERLIVET 2024 · 원더리벳 2024<br>2024.11.8 FRI - 11.10 SUN<br>📸사진은 순차적으로 공개됩니다. <a href=\"https://t.co/ysDxZkpDG9\">pic.twitter.com/ysDxZkpDG9</a></p>&mdash; WONDERLIVET (@WONDERLIVET) <a href=\"https://twitter.com/WONDERLIVET/status/1863554659132268708?ref_src=twsrc%5Etfw\">December 2, 2024</a></blockquote>"
+        "livePostId": "1853038928741449779",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/2024XIHUMUSICFESTIVAL?src=hash&amp;ref_src=twsrc%5Etfw\">#2024XIHUMUSICFESTIVAL</a> 🌿🦢🤍<a href=\"https://t.co/SHorWkP5Tk\">https://t.co/SHorWkP5Tk</a> <a href=\"https://t.co/7ni35gQkx3\">pic.twitter.com/7ni35gQkx3</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1853038928741449779?ref_src=twsrc%5Etfw\">November 3, 2024</a></blockquote>"
       }
     ],
     "items": [
@@ -1306,26 +1327,26 @@
       {
         "liveId": 57,
         "livePostNo": 1,
-        "livePostId": "1843535170223394843",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹出演情報🔹<br><br>2024年11月1日、2日に中国・杭州にて開催される「XIHU MUSIC FESTIVAL」に <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> の出演が決定しました！<br><br>日時：11月1日（金）,2日（土）  <br>会場：中国・杭州太子湾公園<br>※Reolは11月2日の出演<br><br>イベント公式weibo：<a href=\"https://t.co/6CSk08uJAS\">https://t.co/6CSk08uJAS</a><br><br>---<br><br>🔹演出信息🔹… <a href=\"https://t.co/H3a2okWfiQ\">pic.twitter.com/H3a2okWfiQ</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1843535170223394843?ref_src=twsrc%5Etfw\">October 8, 2024</a></blockquote>"
+        "livePostId": "1850155775525814464",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024<br>Reol × Cö shu Nie <a href=\"https://twitter.com/co_shu_nie?ref_src=twsrc%5Etfw\">@co_shu_nie</a> <br><br>泥臭く熱く今生きてる！って実感できた空間でした　ともにステージに立ってくれたコシュニエに感謝します　互いの音楽のおかげで今日ができた　ともに過ごしてくれた皆様ありがとう<br><br>愛すべき大阪、また一月にお逢いしましょう <a href=\"https://t.co/uKBNdKsXp6\">pic.twitter.com/uKBNdKsXp6</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1850155775525814464?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
       },
       {
         "liveId": 57,
         "livePostNo": 2,
-        "livePostId": "1852532788106608737",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔹Today🔹<br><br>本日は中国・杭州にて 「XIHU MUSIC FESTIVAL」に出演！<br><br>Reol goods販売も行います！<br>この機会に是非お買い求めください✨<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> will perform on 19:40 -<br>风车舞台(Windmill Stage)<br><br>イベント公式weibo：<a href=\"https://t.co/6CSk08uJAS\">https://t.co/6CSk08uJAS</a><br><br>---<br><br>今天我们将在中国杭州“西湖音乐节”演出！… <a href=\"https://t.co/W6BsDE5d37\">pic.twitter.com/W6BsDE5d37</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1852532788106608737?ref_src=twsrc%5Etfw\">November 2, 2024</a></blockquote>"
+        "livePostId": "1850159783711502706",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024  -1st Anniversary-<br><br>at. Yogibo META VALLEY<br><br>Cö shu Nieとの初対バン！Reolとも関わりの深いお二人の刺激的な音世界にまみれながら、燃えに燃えた夜になりました。また狂おしく遊びましょう <a href=\"https://t.co/EcRsbYhS9N\">pic.twitter.com/EcRsbYhS9N</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1850159783711502706?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
       },
       {
         "liveId": 57,
         "livePostNo": 3,
-        "livePostId": "1852723256870187367",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">XIHU MUSIC FESTIVAL<br>at.杭州太子湾公园<br>2024年11月2日<br><br>夜空のもと、最高のパッションを皆様と共有できました！<br>海を超えて音楽が出来る喜びを噛み締めながら、更なる進化を誓います！<a href=\"https://twitter.com/hashtag/%E9%9B%B7%E5%AE%9D?src=hash&amp;ref_src=twsrc%5Etfw\">#雷宝</a> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/2024%E8%A5%BF%E6%B9%96%E9%9F%B3%E4%B9%90%E8%8A%82?src=hash&amp;ref_src=twsrc%5Etfw\">#2024西湖音乐节</a> <a href=\"https://twitter.com/hashtag/2024XIHUMUSICFESTIVAL?src=hash&amp;ref_src=twsrc%5Etfw\">#2024XIHUMUSICFESTIVAL</a> <a href=\"https://t.co/IZuvn1lZEM\">pic.twitter.com/IZuvn1lZEM</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1852723256870187367?ref_src=twsrc%5Etfw\">November 2, 2024</a></blockquote>"
+        "livePostId": "1850161883330011226",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Namba Culture Terminal 2024<br>ありがとうございました⭐︎<br><br>大阪に帰れてうれしかった<br>またお会いしましょう🖤 <a href=\"https://t.co/sWynDwUSIv\">pic.twitter.com/sWynDwUSIv</a></p>&mdash; 𝙼𝚒𝚔𝚞 𝙽𝚊𝚔𝚊𝚖𝚞𝚛𝚊 ꙳ 🇨ö ˢʰᵘ 🇳 ⁱᵉ ꙳ ໒꒱ (@co_shu_mikun) <a href=\"https://twitter.com/co_shu_mikun/status/1850161883330011226?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
       },
       {
         "liveId": 57,
         "livePostNo": 4,
-        "livePostId": "1853038928741449779",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/2024XIHUMUSICFESTIVAL?src=hash&amp;ref_src=twsrc%5Etfw\">#2024XIHUMUSICFESTIVAL</a> 🌿🦢🤍<a href=\"https://t.co/SHorWkP5Tk\">https://t.co/SHorWkP5Tk</a> <a href=\"https://t.co/7ni35gQkx3\">pic.twitter.com/7ni35gQkx3</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1853038928741449779?ref_src=twsrc%5Etfw\">November 3, 2024</a></blockquote>"
+        "livePostId": "1850142409805517018",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">大阪Yogibo META VALLEYの1周年記念！<br>Reol対バン！ご来場ありがとうございました(๑`ө´๑)💯<br>みんなで1日楽しめてほんとに幸せ。<br>一緒にイベントできるの楽しかったなぁ、呼んでもらえて光栄でした🍔<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/coshulive?src=hash&amp;ref_src=twsrc%5Etfw\">#coshulive</a> <a href=\"https://t.co/Rzw8dg5CTl\">pic.twitter.com/Rzw8dg5CTl</a></p>&mdash; Shunsuke Matsumoto ꙳ 🇨ö ˢʰᵘ 🇳 ⁱᵉ ꙳ (@coshuns5) <a href=\"https://twitter.com/coshuns5/status/1850142409805517018?ref_src=twsrc%5Etfw\">October 26, 2024</a></blockquote>"
       }
     ],
     "items": [
