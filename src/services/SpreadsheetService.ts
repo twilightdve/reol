@@ -7,7 +7,13 @@ import { google, sheets_v4 } from "googleapis";
 import { JSONClient } from "google-auth-library/build/src/auth/googleauth";
 import { OAuth2Client } from "google-auth-library";
 import { Video } from "../types/youtube-data";
-import { Discography, DiscographyPost, Song } from "../types/discography";
+import {
+  Discography,
+  DiscographyPost,
+  DiscographyRepo,
+  Song,
+  SongFeature,
+} from "../types/discography";
 import { News } from "../types/news";
 import {
   Live,
@@ -40,6 +46,7 @@ export class SheetService {
       const credentials = JSON.parse(content.toString());
       return google.auth.fromJSON(credentials);
     } catch (err) {
+      console.log(err);
       return null;
     }
   }
@@ -81,7 +88,6 @@ export class SheetService {
   }
 
   async getValues(range: string) {
-    await this.initialize();
     const res = await this.sheets?.spreadsheets.values.get({
       spreadsheetId,
       range,
@@ -122,6 +128,20 @@ export class SheetService {
     }));
   }
 
+  async getDiscographyRepos(): Promise<DiscographyRepo[]> {
+    const values = await this.getValues(`discography_repo!A2:E`);
+    return values
+      .map((row) => {
+        return {
+          discographyId: +row[0],
+          discographyRepoNo: +row[2],
+          discographyReportName: row[3],
+          discographyReportUrl: row[4],
+        };
+      })
+      .filter((v) => v.discographyRepoNo);
+  }
+
   async getDiscographyPosts(): Promise<DiscographyPost[]> {
     const values = await this.getValues(`discography_post!A2:F`);
     return values
@@ -137,7 +157,7 @@ export class SheetService {
   }
 
   async getSongs(): Promise<Song[]> {
-    const values = await this.getValues(`song!A2:J`);
+    const values = await this.getValues(`song!A2:P`);
     return values.map((row) => ({
       songId: +row[0],
       discographyId: +row[1],
@@ -149,6 +169,34 @@ export class SheetService {
       musicVideoUrl: row[7] ?? null,
       lyricVideoUrl: row[8] ?? null,
       liveVideoUrl: row[9] ?? null,
+      lyricUrl: row[10] ?? null,
+      spotifyTrackId: row[11] ?? null,
+      lyricMember: row[12] ?? null,
+      musicMember: row[13] ?? null,
+      produceMember: row[14] ?? null,
+      etcMember: row[15] ?? null,
+    }));
+  }
+
+  async getSongFeature(): Promise<SongFeature[]> {
+    const values = await this.getValues(`song_feature!A2:R`);
+    return values.map((row) => ({
+      spotifyTrackId: row[2],
+      songName: row[1],
+      popularity: row[4],
+      danceability: +row[5],
+      energy: +row[6],
+      key: +row[7],
+      loudness: +row[8],
+      mode: +row[9],
+      speechiness: +row[10],
+      acousticness: +row[11],
+      instrumentalness: +row[12],
+      liveness: +row[13],
+      valence: +row[14],
+      tempo: +row[15],
+      durationMs: +row[16],
+      timeSignature: +row[17],
     }));
   }
 
@@ -170,6 +218,7 @@ export class SheetService {
       name: row[3],
       date: row[4],
       siteUrl: row[5] ?? null,
+      spotifyPlaylistId: row[6] ?? null,
     }));
   }
 
@@ -198,6 +247,7 @@ export class SheetService {
       placeSite: row[7] ?? null,
       address: row[8] ?? null,
       googleMapsUrl: row[9] ?? null,
+      spotifyPlaylistId: row[10] ?? null,
     }));
   }
 

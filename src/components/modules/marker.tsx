@@ -51,7 +51,6 @@ export default class Map extends Component<PropsWithChildren<Props>, State> {
   }
 
   componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {
-    console.log(this.props.visible);
     if (this.props.visible) {
       this.state.marker?.setOpacity(1);
     } else {

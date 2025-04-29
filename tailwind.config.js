@@ -1,6 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require("tailwindcss/colors");
-module.exports = {
+// let topBubbles = {},
+//   bottomBubbles = {};
+// Array.from({ length: 30 }).map((i, index) => {
+//   topBubbles[`topBubbles${index}`] = `topBubbles 1s ease-in-out ${
+//     index / 10
+//   }s infinite`;
+//   bottomBubbles[`bottomBubbles${index}`] = `bottomBubbles ease-in-out ${
+//     index / 10
+//   }s infinite`;
+// });
+
+const config = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
@@ -34,6 +48,9 @@ module.exports = {
         "serif",
       ],
       icon: ["Cormorant", "serif"],
+      tegaki: ["Klee One", "serif"],
+      tegakifr: ["Niconne", "serif"],
+      system: ["system-ui", "serif"],
     },
     extend: {
       colors: {
@@ -64,10 +81,18 @@ module.exports = {
         unbox: "unbox 4s ease-in-out forwards",
         unboxReverse: "unboxReverse 4s ease-in-out forwards",
         untape: "untape 4s ease-in-out forwards",
-        turnAround: "turnAround 15s linear 0s infinite normal none running",
+        turnAround: "turnAround 12s linear 0s infinite normal none running",
         fadeIn: "fadeIn 1.5s ease-in-out forwards",
+        fadeInFast: "fadeIn 0.2s ease-in-out forwards",
+        fadeOut: "fadeOut 3s ease-in-out 1s forwards",
+        fadeInOut1: "fadeInOut 10s ease-in-out 0s forwards",
+        fadeInOut2: "fadeInOut 10s ease-in-out 10s forwards",
+        fadeInOut3: "fadeInOut 10s ease-in-out 20s forwards",
         blink: "blink 0.5s ease-in-out infinite normal none running",
         intro: "intro 4s ease-in-out forwards",
+        topBubbles: "topBubbles 1s ease-out 1s infinite normal",
+        bottomBubbles: "bottomBubbles 0.5s ease-out 1s infinite",
+        cloud: "cloud 120s linear infinite",
       },
       keyframes: {
         byeShutter: {
@@ -156,6 +181,20 @@ module.exports = {
             opacity: 0,
           },
         },
+        fadeInOut: {
+          "0%": {
+            opacity: 0,
+          },
+          "25%": {
+            opacity: 1,
+          },
+          "75%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0,
+          },
+        },
         intro: {
           "0%": {
             opacity: 0,
@@ -178,11 +217,63 @@ module.exports = {
             opacity: 0,
           },
         },
+        topBubbles: {
+          "0%": {
+            backgroundSize: "60% 60%, 40% 40%",
+            backgroundPosition: "20% 20%, 20% 20%",
+            opacity: 0,
+          },
+          "30%": {
+            backgroundSize: "60% 60%, 40% 40%",
+            backgroundPosition: "20% 20%, 20% 20%",
+            opacity: 1,
+          },
+          "80%": {
+            opacity: 1,
+          },
+          "100%": {
+            backgroundSize: "0% 0%, 0% 0%",
+            backgroundPosition: "20% 20%, 20% 20%",
+            opacity: 0,
+          },
+        },
+        cloud: {
+          "0%": {
+            backgroundPosition: "0px",
+          },
+          "100%": {
+            backgroundPosition: "5440px",
+          },
+        },
+      },
+      width: {
+        fill: "fill-available",
+        "webkit-fill": "-webkit-fill-available",
+        "moz-fill": "-moz-available",
+      },
+      height: {
+        fill: "fill-available",
+        "webkit-fill": "-webkit-fill-available",
+        "moz-fill": "-moz-available",
+      },
+      maxWidth: {
+        fill: "fill-available",
+        "webkit-fill": "-webkit-fill-available",
+        "moz-fill": "-moz-available",
+      },
+      maxHeight: {
+        fill: "fill-available",
+        "webkit-fill": "-webkit-fill-available",
+        "moz-fill": "-moz-available",
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("flowbite/plugin"),
+    require("@tailwindcss/aspect-ratio"),
     require("tailwindcss-3d"),
     ({ addUtilities }) => {
       const newUtilities = {
@@ -210,3 +301,4 @@ module.exports = {
     },
   ],
 };
+module.exports = config;

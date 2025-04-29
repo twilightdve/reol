@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Button, FlowbiteTimelineTheme, Timeline } from "flowbite-react";
 import { DiscographyWithSongs } from "../../../types/discography";
-import { FaCirclePlay } from "react-icons/fa6";
-import { RootState } from "../../../redux/store";
+import { RouteState } from "../../../redux/store";
 import { connect } from "react-redux";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
@@ -75,6 +74,8 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
 const tags = {
   name: ["Reol", "REOL", "れをる", "あにょすぺにょすゃゃ"],
   year: [
+    "2025",
+    "2024",
     "2023",
     "2022",
     "2021",
@@ -238,10 +239,6 @@ class Discography extends Component<Props, State> {
             );
           })}
         </div>
-        <p className="flex text-xs whitespace-nowrap items-center pt-3">
-          <FaCirclePlay />
-          &nbsp;をタップすると画面上部のプレイヤーで動画を再生します
-        </p>
         <p className="text-xs text-right pt-2">{list.length}件</p>
         <Timeline theme={timelineRootTheme}>
           {list.map((item, i) => {
@@ -258,6 +255,6 @@ class Discography extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: RootState) => state.player;
+const mapStateToProps = (state: RouteState) => state.player;
 
 export default connect(mapStateToProps)(Discography);

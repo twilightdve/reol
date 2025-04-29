@@ -6,13 +6,14 @@ require("dotenv").config({
 const siteUrl = "https://reol.twilightea.com";
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "!Legit | Reol Unofficial Fansite",
+    title: "!Legit｜Reol Unofficial Fansite",
     description:
       "当サイトは、アーティスト「Reol(REOL/あにょすぺにょすゃゃ/れをる)」の非公式ファンサイトです。自己満足的な推し活の一環として独自にReolに関する情報を発信していきますので、内容に偏りや間違いなどあるかもしれませんが、もしご興味あればご覧ください。",
     siteUrl,
   },
   graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
@@ -24,7 +25,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-flow",
     "gatsby-plugin-typegen",
     "gatsby-plugin-postcss",
-    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

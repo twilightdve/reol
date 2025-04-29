@@ -9,6 +9,7 @@ export type Live = {
   name: string;
   date: string;
   siteUrl: string | null;
+  spotifyPlaylistId: string | null;
 };
 
 export type LivePost = {
@@ -27,6 +28,7 @@ export type LiveItem = {
   placeSite: string | null;
   address: string | null;
   googleMapsUrl: string | null;
+  spotifyPlaylistId: string | null;
 };
 
 export type LiveItemSong = {

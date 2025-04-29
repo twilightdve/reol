@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { RootState } from "../../redux/store";
+import { RouteState } from "../../redux/store";
 import { connect } from "react-redux";
 import { FaCirclePlay } from "react-icons/fa6";
 import UtilityService from "../../services/UtilityService";
+import "../../styles/opening.scss";
+import CloudImage from "../../images/cloud.png";
 
 type Props = {
   isLoaded: any;
@@ -25,14 +27,18 @@ class Opening extends Component<Props, State> {
   }
 
   componentDidMount() {
-    document
-      .getElementsByTagName("body")[0]
-      .classList.toggle("overflow-hidden");
+    const queries = UtilityService.getObjectQueries();
+    if ("op" in queries && queries.op === "0") {
+      this.setState({
+        ...this.state,
+        isSkip: true,
+      });
+    }
   }
 
   componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
 
-  renderCubeSide() {
+  renderUnboxCubeSide() {
     return (
       <span
         style={{ backfaceVisibility: "hidden" }}
@@ -49,8 +55,8 @@ class Opening extends Component<Props, State> {
     );
   }
 
-  render() {
-    const boxBaseClass = `w-full h-full col-[1/1] row-[1/1] border-2 border-[#ea6000] flex items-center justify-center transform-gpu bg-black text-[#ea6000] will-change-auto transform-gpu${
+  renderUnbox() {
+    const boxBaseClass = `w-full h-full col-[1/1] row-[1/1] border-2 border-white flex items-center justify-center transform-gpu bg-black text-[#ea6000] will-change-auto transform-gpu${
       this.state.unbox ? " animate-unbox" : ""
     }`;
     if (!this.state.onend && !this.state.isSkip) {
@@ -150,12 +156,15 @@ class Opening extends Component<Props, State> {
                     action: "opening",
                     label: "unbox",
                   });
+
                   if (this.props.playerRef.current) {
                     this.props.playerRef.current.internalPlayer?.playVideo();
                   }
+
                   document
                     .getElementsByTagName("body")[0]
-                    .classList.toggle("overflow-hidden");
+                    .classList.remove("overflow-hidden");
+
                   this.setState({
                     ...this.state,
                     unbox: true,
@@ -164,24 +173,24 @@ class Opening extends Component<Props, State> {
               }}
             >
               <div className={`${boxBaseClass} translate-z-28`}>
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
               <div
                 className={`${boxBaseClass} rotate-x-180 rotate-z-180 -translate-z-28`}
               >
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
               <div className={`${boxBaseClass} -rotate-y-90 -translate-x-28`}>
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
               <div className={`${boxBaseClass} rotate-y-90 translate-x-28`}>
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
               <div className={`${boxBaseClass} -rotate-x-90 translate-y-28`}>
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
               <div className={`${boxBaseClass} -rotate-x-90 -translate-y-28`}>
-                {this.renderCubeSide()}
+                {this.renderUnboxCubeSide()}
               </div>
             </div>
           </div>
@@ -201,7 +210,8 @@ class Opening extends Component<Props, State> {
                 onClick={(event) => {
                   document
                     .getElementsByTagName("body")[0]
-                    .classList.toggle("overflow-hidden");
+                    .classList.remove("overflow-hidden");
+
                   this.setState({
                     ...this.state,
                     unbox: true,
@@ -214,11 +224,12 @@ class Opening extends Component<Props, State> {
           </div>
           {!this.state.introEnd && (
             <span
-              className="fixed bottom-3 right-4 z-[90] text-lg text-blue-500 pointer-events-auto"
+              className="fixed bottom-3 right-4 z-[300] text-lg text-blue-500 pointer-events-auto"
               onClick={(event) => {
                 document
                   .getElementsByTagName("body")[0]
-                  .classList.toggle("overflow-hidden");
+                  .classList.remove("overflow-hidden");
+
                 this.setState({ ...this.state, isSkip: true });
               }}
             >
@@ -231,8 +242,195 @@ class Opening extends Component<Props, State> {
       return <></>;
     }
   }
+
+  renderBubbles() {
+    const randomInt = (min: number, max: number) =>
+      Math.floor(Math.random() * (max - min + 1)) + min;
+    return Array.from({ length: 20 }).map((i, index) => {
+      const size = randomInt(5, 6);
+      // const time = Math.floor((index + 1) * Math.random() * 10) / 10;
+      const time = index * 0.1;
+      return (
+        <div
+          key={`bubble-${index}`}
+          style={{
+            left: `${Math.floor(50 + index * Math.random() * 2)}%`,
+            animation: `float ${time}s cubic-bezier(0.470, 0.000, 0.745, 0.715) ${time}s infinite normal`,
+          }}
+          className={`absolute w-full -bottom-14`}
+        >
+          <div
+            style={{
+              transform: `scale(${index * 0.1})`,
+            }}
+          >
+            <div
+              style={{
+                animation: `shake ${time}s ease 0s infinite normal`,
+              }}
+              className={
+                `relative z-[100] block w-${size} h-${size} rounded-full shadow-white shadow-inner ` +
+                `after:absolute after:block after:content-[''] after:w-1/5 after:h-1/5 after:rounded-full after:bg-white/80 after:right-1/4 after:top-1/4 after:blur-sm after:rotate-45 after:scale-x-75`
+              }
+            />
+          </div>
+        </div>
+      );
+    });
+  }
+
+  renderNoTitleCubeSide() {
+    return (
+      <span
+        style={{ backfaceVisibility: "hidden" }}
+        className={`font-bold text-4xl opacity-0 will-change-auto transition-all transform-gpu ${
+          this.props.isLoaded && !this.state.unbox ? " animate-fadeIn" : ""
+        }${this.state.unbox ? " animate-blink" : ""}`}
+        onAnimationEnd={(event) => {
+          event.stopPropagation();
+        }}
+      ></span>
+    );
+  }
+
+  renderNoTitleBox() {
+    const boxBaseClass = `w-full h-full col-[1/1] row-[1/1] border-2 border-white flex items-center justify-center transform-gpu bg-white text-white will-change-auto transform-gpu shadow-xl`;
+    return (
+      <>
+        <div
+          className={`fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all perspective-9 perspective-origin-top z-[90]${
+            this.state.introEnd ? " z-50" : " z-30"
+          }`}
+        >
+          <div
+            className={`grid w-56 h-56 grid-cols-1 grid-rows-1 duration-1000 origin-center transform-style-3d will-change-auto transform-gpu animate-turnAround hover:cursor-pointer`}
+            onAnimationEnd={(event) => {
+              event.stopPropagation();
+              this.setState({ ...this.state, onend: true });
+            }}
+          >
+            <div className={`${boxBaseClass} translate-z-28`}>
+              {this.renderNoTitleCubeSide()}
+            </div>
+            <div
+              className={`${boxBaseClass} rotate-x-180 rotate-z-180 -translate-z-28`}
+            >
+              {this.renderNoTitleCubeSide()}
+            </div>
+            <div className={`${boxBaseClass} -rotate-y-90 -translate-x-28`}>
+              {this.renderNoTitleCubeSide()}
+            </div>
+            <div className={`${boxBaseClass} rotate-y-90 translate-x-28`}>
+              {this.renderNoTitleCubeSide()}
+            </div>
+            <div className={`${boxBaseClass} -rotate-x-90 translate-y-28`}>
+              {this.renderNoTitleCubeSide()}
+            </div>
+            <div className={`${boxBaseClass} -rotate-x-90 -translate-y-28`}>
+              {this.renderNoTitleCubeSide()}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  render() {
+    if (!this.state.onend && !this.state.isSkip) {
+      return (
+        <>
+          {!this.state.introEnd && (
+            <>
+              <div>
+                <div
+                  className={`fixed top-0 left-0 z-[90] w-full h-full will-change-auto transform-gpu bg-gradient-to-br from-letter from-20% via-sky-600 via-50% to-white${
+                    this.state.unbox ? " animate-fadeOut" : ""
+                  }`}
+                  onAnimationEnd={(event) => {
+                    event.stopPropagation();
+                    if ("fadeOut" === event.animationName) {
+                      if (!this.props.isLoaded) return;
+                      if (this.state.unbox) {
+                        this.setState({ ...this.state, introEnd: true });
+                      }
+                    }
+                  }}
+                >
+                  <div
+                    className="fixed top-0 left-0 z-[100] w-full h-full bg-cover animate-cloud"
+                    style={{
+                      backgroundImage: `url(${CloudImage})`,
+                    }}
+                  />
+                  {this.renderNoTitleBox()}
+                  <div className="absolute top-0 left-0 w-full h-full z-[200]">
+                    <div
+                      className="flex flex-col justify-center items-center w-full h-full text-black text-3xl sm:text-5xl tracking-widest"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        if (!this.props.isLoaded) return;
+                        if (!this.state.unbox) {
+                          UtilityService.gtag({
+                            category: "click",
+                            action: "opening",
+                            label: "unbox",
+                          });
+
+                          if (this.props.playerRef.current) {
+                            this.props.playerRef.current.internalPlayer?.playVideo();
+                          }
+
+                          document
+                            .getElementsByTagName("body")[0]
+                            .classList.remove("overflow-hidden");
+
+                          this.setState({
+                            ...this.state,
+                            unbox: true,
+                          });
+                        }
+                      }}
+                    >
+                      <span className="font-extrabold leading-relaxed text-theme">
+                        Reol
+                      </span>
+                      <span className="font-bold leading-relaxed text-gray-700">
+                        Unofficial Fansite
+                      </span>
+                      <span className="font-extrabold text-center leading-normal text-letter">
+                        !Legit
+                      </span>
+                      <span className="text-sm text-gray-700">
+                        &#40;not Legit&#41;
+                      </span>
+                    </div>
+                  </div>
+                  {this.state.unbox && this.renderBubbles()}
+                </div>
+              </div>
+              <span
+                className="fixed bottom-3 right-4 z-[300] text-lg text-black pointer-events-auto tracking-wide"
+                onClick={(event) => {
+                  document
+                    .getElementsByTagName("body")[0]
+                    .classList.remove("overflow-hidden");
+
+                  this.setState({ ...this.state, isSkip: true });
+                }}
+              >
+                SKIP&nbsp;&gt;&gt;
+              </span>
+            </>
+          )}
+        </>
+      );
+    } else {
+      return <></>;
+    }
+    // return this.renderUnbox();
+  }
 }
 
-const mapStateToProps = (state: RootState) => state.player;
+const mapStateToProps = (state: RouteState) => state.player;
 
 export default connect(mapStateToProps)(Opening);

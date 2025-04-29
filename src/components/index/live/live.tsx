@@ -67,6 +67,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
 const tags = {
   name: ["Reol", "REOL", "れをる"],
   year: [
+    "2025",
     "2024",
     "2023",
     "2022",
@@ -219,7 +220,7 @@ export default class Live extends Component<Props, State> {
                   });
                 }}
               >
-                #{tag === "event" ? "イベント出演" : "ワンマンライブ"}
+                #{tag === "event" ? "イベント出演" : "ワンマンライヴ"}
               </span>
             );
           })}

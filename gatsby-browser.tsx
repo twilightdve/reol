@@ -1,6 +1,8 @@
 import "@fontsource/noto-serif-jp";
 import "@fontsource/cormorant";
-import "./src/styles/global.css";
+import "@fontsource/klee-one";
+import "@fontsource/niconne";
+import "./src/styles/global.scss";
 import React from "react";
 import Body from "./src/components/modules/body";
 import { GatsbyBrowser } from "gatsby";

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Noto Serif JP",
+    "YuMincho",
+    "Hiragino Mincho ProN",
+    "MS PMincho",
+    serif;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-600px);
+    opacity: 0;
+  }
+}
+
+.w-fill {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+}
+
+.h-fill {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
+}
+
+.max-w-fill {
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
+  max-width: fill-available;
+}
+
+.max-h-fill {
+  max-height: -webkit-fill-available;
+  max-height: -moz-available;
+  max-height: fill-available;
+}

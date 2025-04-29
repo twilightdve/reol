@@ -7,6 +7,9 @@ import { LiveInfo } from "../types/live";
 import ogImage from "../images/ogimage.png";
 import { Recommend } from "../types/recommend";
 import { Place } from "../types/places";
+import TopHeader from "../components/modules/header";
+import { FaXTwitter } from "react-icons/fa6";
+import { GoLinkExternal } from "react-icons/go";
 
 type siteMetadata = {
   title: string;
@@ -49,6 +52,36 @@ export const query = graphql`
           musicVideoUrl
           lyricVideoUrl
           liveVideoUrl
+          lyricUrl
+          spotifyTrackId
+          lyricMember
+          musicMember
+          produceMember
+          etcMember
+          feature {
+            spotifyTrackId
+            songName
+            popularity
+            danceability
+            energy
+            key
+            loudness
+            mode
+            speechiness
+            acousticness
+            instrumentalness
+            liveness
+            valence
+            tempo
+            durationMs
+            timeSignature
+          }
+        }
+        reports {
+          discographyId
+          discographyRepoNo
+          discographyReportName
+          discographyReportUrl
         }
         posts {
           discographyId
@@ -66,6 +99,7 @@ export const query = graphql`
         name
         date
         siteUrl
+        spotifyPlaylistId
         reports {
           liveId
           liveReportNo
@@ -87,6 +121,7 @@ export const query = graphql`
           placeSite
           address
           googleMapsUrl
+          spotifyPlaylistId
           setList {
             liveId
             liveItemNo
@@ -137,12 +172,37 @@ const IndexPage: FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const liveInfos: LiveInfo[] = data.live.liveInfos;
   const places: Place[] = data.place.places;
   return (
-    <IndexContents
-      discographies={discographies}
-      recommend={recommend}
-      liveInfos={liveInfos}
-      places={places}
-    />
+    <>
+      <TopHeader title={data.site.siteMetadata.title} />
+      <main className="relative bg-gray-100 mx-auto inset-auto w-screen">
+        <IndexContents
+          discographies={discographies}
+          recommend={recommend}
+          liveInfos={liveInfos}
+          places={places}
+        />
+      </main>
+      <footer className="relative bg-theme text-white pt-5 h-40">
+        <ul className="flex justify-around py-3">
+          <li>
+            <a
+              href="https://twitter.com/twilightplc"
+              target="_blank"
+              className="flex justify-between items-end"
+            >
+              <FaXTwitter className="font-bold text-xl" />
+              <p className="flex items-center ml-2 text-sm">
+                <span>(非公式ファンサイト運営)</span>
+                <GoLinkExternal className="ml-1 font-bold" />
+              </p>
+            </a>
+          </li>
+        </ul>
+        <div className="text-center py-3 text-[#27489b]">
+          <p className="text-xs">&copy;&nbsp;2023&nbsp;Pochi</p>
+        </div>
+      </footer>
+    </>
   );
 };
 
@@ -165,6 +225,7 @@ export const Head: HeadFC<PageProps<IndexPageQuery>> = ({ data }) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@twilightplc" />
       <link rel="canonical" href={siteMetadata.siteUrl} />
+      <body />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Timeline } from "flowbite-react";
 import { GoChevronUp, GoLinkExternal, GoListUnordered } from "react-icons/go";
-import { RootState } from "../../../redux/store";
+import { RouteState } from "../../../redux/store";
 import { connect } from "react-redux";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
@@ -10,6 +10,8 @@ import { LiveInfo } from "../../../types/live";
 import { MdLocationPin, MdTour } from "react-icons/md";
 import LiveItem from "./live-item";
 import UtilityService from "../../../services/UtilityService";
+import YouTube from "react-youtube";
+import LazyComponent from "../../modules/LazyComponent";
 
 type Props = {
   live: LiveInfo;
@@ -129,10 +131,10 @@ class TimelineItem extends Component<Props, State> {
             }}
           >
             <div className="pt-2">
-              <span className={`w-full sm:text-lg text-sm`}>{live.title}</span>
+              <span className={`w-full text-sm`}>{live.title}</span>
             </div>
             <div className="flex justify-between items-center">
-              <ul className="flex justify-start list-none py-2 text-xs sm:text-sm text-gray-500 font-thin tracking-widest">
+              <ul className="flex justify-start list-none py-2 text-xs text-gray-500 font-thin tracking-widest">
                 {live?.name && (
                   <li>
                     <span>名義:&nbsp;</span>
@@ -190,6 +192,31 @@ class TimelineItem extends Component<Props, State> {
                     </ul>
                   </div>
                 )}
+                {(live.siteUrl?.startsWith("https://www.youtube.com/live/") ||
+                  live.siteUrl?.startsWith("https://youtu.be/")) && (
+                  <LazyComponent>
+                    <YouTube
+                      videoId={live.siteUrl
+                        .replace("https://www.youtube.com/live/", "")
+                        .replace("https://youtu.be/", "")}
+                      opts={{
+                        height: "180",
+                        width: "320",
+                        playerVars: {
+                          autoplay: 0,
+                          enablejsapi: 1,
+                          playsinline: 1,
+                          loop: 0,
+                          rel: 0,
+                          color: "white",
+                          origin: "https://reol.twilightea.com/",
+                          widget_referrer: "https://reol.twilightea.com/",
+                        },
+                      }}
+                      iframeClassName="w-full h-48"
+                    />
+                  </LazyComponent>
+                )}
                 {live.items.length > 0 && (
                   <>
                     {1 === live.items.length ? (
@@ -237,7 +264,7 @@ class TimelineItem extends Component<Props, State> {
                             </h4>
                             <Tweets
                               parentId={`${live.liveId}`}
-                              posts={live.posts.map((post) => ({
+                              posts={live.posts.reverse().map((post) => ({
                                 id: post.livePostId,
                                 html: post.livePostHTML,
                               }))}
@@ -257,6 +284,6 @@ class TimelineItem extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: RootState) => state.player;
+const mapStateToProps = (state: RouteState) => state.player;
 
 export default connect(mapStateToProps)(TimelineItem);

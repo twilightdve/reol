@@ -44,12 +44,26 @@ const createDiscographyNodes = async (
   const { createNode } = actions;
 
   const discography = await sheet.getDiscography();
+  const reports = await sheet.getDiscographyRepos();
   const posts = await sheet.getDiscographyPosts();
-  const songs = await sheet.getSongs();
+  const feature = await sheet.getSongFeature();
+  const songs = (await sheet.getSongs()).map((item) => {
+    return {
+      ...item,
+      feature: item.spotifyTrackId
+        ? feature.find(
+            (featureItem) => featureItem.spotifyTrackId === item.spotifyTrackId
+          )
+        : null,
+    };
+  });
   const discographyWithSongs: DiscographyWithSongs[] = discography
     .map((item) => {
       return {
         ...item,
+        reports: reports
+          .filter((song) => item.discographyId === song.discographyId)
+          .sort((a, b) => a.discographyRepoNo - b.discographyRepoNo),
         posts: posts
           .filter((song) => item.discographyId === song.discographyId)
           .sort((a, b) => a.discographyPostNo - b.discographyPostNo),
@@ -220,11 +234,16 @@ const createPlaceNodes = async (
 export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
   try {
     const sheet = new SheetService();
-    await createVideoNodes(sheet, args);
-    await createDiscographyNodes(sheet, args);
-    await createNewsNodes(sheet, args);
-    await createLiveNodes(sheet, args);
-    await createRecommendNodes(sheet, args);
-    await createPlaceNodes(sheet, args);
-  } catch (error) {}
+    await sheet.initialize();
+    await Promise.all([
+      createVideoNodes(sheet, args),
+      createDiscographyNodes(sheet, args),
+      createNewsNodes(sheet, args),
+      createLiveNodes(sheet, args),
+      createRecommendNodes(sheet, args),
+      createPlaceNodes(sheet, args),
+    ]);
+  } catch (error) {
+    console.error(error);
+  }
 };

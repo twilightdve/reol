@@ -5,3 +5,7 @@ src/gatsby-types.d.ts
 credentials.json
 .env*
 src/__generated__
+src/images/**.JPG
+src/images/**/*.JPG
+src/images/**/*.png
+src/images/**/*.jpeg

@@ -3,7 +3,7 @@ import { Timeline } from "flowbite-react";
 import { DiscographyWithSongs } from "../../../types/discography";
 import { GoChevronUp, GoLinkExternal, GoListUnordered } from "react-icons/go";
 import { FaCompactDisc, FaCirclePlay } from "react-icons/fa6";
-import { AppDispatch, RootState } from "../../../redux/store";
+import { AppDispatch, RouteState } from "../../../redux/store";
 import { connect } from "react-redux";
 import { setNextVideo } from "../../../redux/slices/playerSlice";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
@@ -11,6 +11,8 @@ import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
 import Tweets from "../../modules/tweets";
 import UtilityService from "../../../services/UtilityService";
+import ItemSong from "./item-song";
+import LazyComponent from "../../modules/LazyComponent";
 
 type Props = {
   item: DiscographyWithSongs;
@@ -125,10 +127,10 @@ class TimelineItem extends Component<Props, State> {
               }}
             >
               <FaCirclePlay className="mr-2 w-4" />
-              <span className={`sm:text-xl text-sm`}>{item.title}</span>
+              <span className={`text-sm tracking-widest`}>{item.title}</span>
             </div>
             <div className="flex justify-between items-center">
-              <ul className="flex justify-start list-none py-2 ml-6 text-xs sm:text-sm text-black font-thin tracking-widest">
+              <ul className="flex justify-start list-none py-2 ml-6 text-xs text-black font-thin tracking-widest">
                 {item?.name && (
                   <li>
                     <span>名義:&nbsp;</span>
@@ -169,130 +171,62 @@ class TimelineItem extends Component<Props, State> {
                 <div
                   className={`${item.posts.length > 0 ? "sm:w-1/2" : "w-full"}`}
                 >
-                  <h4 className="font-bold leading-10 text-black">収録曲</h4>
-                  <ol className="list-decimal pl-5 text-black font-thin tracking-widest">
+                  <h4 className="text-sm font-bold leading-10 text-black">
+                    収録曲
+                  </h4>
+                  <ol className="list-decimal list-outside pl-5 text-black font-thin tracking-widest">
                     {item.songs.map((song, i) => {
                       return (
-                        <li
-                          className="ml-2 pl-2 sm:py-1"
+                        <ItemSong
                           key={`songs-${item.discographyId}-${i}`}
-                        >
-                          <span className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-xs sm:text-base">
-                            {song.songName}
-                          </span>
-                          {(song.downloadUrl ||
-                            song.musicVideoUrl ||
-                            song.lyricVideoUrl ||
-                            song.liveVideoUrl) && (
-                            <ul className="list-none text-xs">
-                              {song.downloadUrl && (
-                                <li className="my-2 ml-4 list-disc">
-                                  <a
-                                    className="flex text-letter justify-start items-center"
-                                    href={song.downloadUrl}
-                                    target="_blank"
-                                    onClick={() =>
-                                      UtilityService.gtag({
-                                        category: "click",
-                                        action: "link",
-                                        label: song.downloadUrl ?? "",
-                                      })
-                                    }
-                                  >
-                                    <span className="pr-1">download</span>
-                                    <GoLinkExternal />
-                                  </a>
-                                </li>
-                              )}
-                              {song.musicVideoUrl && (
-                                <li
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    if (song.musicVideoUrl) {
-                                      UtilityService.gtag({
-                                        category: "click",
-                                        action: "play",
-                                        label: song.musicVideoUrl,
-                                      });
-                                      this.props.setNextVideo(
-                                        song.musicVideoUrl
-                                      );
-                                    }
-                                  }}
-                                >
-                                  <div className="flex justify-start items-center py-1">
-                                    <FaCirclePlay className="mr-2" />
-                                    <span className="text-letter">
-                                      Music Video
-                                    </span>
-                                  </div>
-                                </li>
-                              )}
-                              {song.lyricVideoUrl && (
-                                <li
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    if (song.lyricVideoUrl) {
-                                      UtilityService.gtag({
-                                        category: "click",
-                                        action: "play",
-                                        label: song.lyricVideoUrl,
-                                      });
-                                      this.props.setNextVideo(
-                                        song.lyricVideoUrl
-                                      );
-                                    }
-                                  }}
-                                >
-                                  <div className="flex justify-start items-center py-1">
-                                    <FaCirclePlay className="mr-2" />
-                                    <span className="text-letter">
-                                      Lyric Video
-                                    </span>
-                                  </div>
-                                </li>
-                              )}
-                              {song.liveVideoUrl && (
-                                <li
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    if (song.liveVideoUrl) {
-                                      UtilityService.gtag({
-                                        category: "click",
-                                        action: "play",
-                                        label: song.liveVideoUrl,
-                                      });
-                                      this.props.setNextVideo(
-                                        song.liveVideoUrl
-                                      );
-                                    }
-                                  }}
-                                >
-                                  <div className="flex justify-start items-center py-1">
-                                    <FaCirclePlay className="mr-2" />
-                                    <span className="text-letter">
-                                      Live Video
-                                    </span>
-                                  </div>
-                                </li>
-                              )}
-                            </ul>
-                          )}
-                        </li>
+                          song={song}
+                        />
                       );
                     })}
                   </ol>
+                  {item.reports && item.reports.length > 0 && (
+                    <div className="text-black">
+                      <h4 className="text-sm tracking-widest pt-3 pb-2">
+                        &lt;インタビュー&gt;
+                      </h4>
+                      <ul className="list-disc pl-5 text-xs">
+                        {item.reports.map((report) => {
+                          return (
+                            <li
+                              key={`report-${report.discographyId}-${report.discographyRepoNo}`}
+                            >
+                              <a
+                                className="leading-loose"
+                                href={report.discographyReportUrl}
+                                target="_blank"
+                                onClick={() =>
+                                  UtilityService.gtag({
+                                    category: "click",
+                                    action: "link",
+                                    label: report.discographyReportUrl,
+                                  })
+                                }
+                              >
+                                {report.discographyReportName}
+                                <GoLinkExternal className="ml-1 inline" />
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 {item.posts.length > 0 && (
                   <div
                     className={`relative w-full sm:h-full sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden sm:max-h-192`}
                   >
-                    <h4 className="text-base pt-1 pb-2 text-black">
+                    <h4 className="text-sm font-bold pt-1 pb-2 text-black">
                       関連ポスト
                     </h4>
                     <Tweets
                       parentId={`${item.discographyId}`}
-                      posts={item.posts.map((post) => ({
+                      posts={item.posts.reverse().map((post) => ({
                         id: post.discographyPostId,
                         html: post.discographyPostHTML,
                       }))}
@@ -308,7 +242,7 @@ class TimelineItem extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: RootState) => state.player;
+const mapStateToProps = (state: RouteState) => state.player;
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {

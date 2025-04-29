@@ -14,6 +14,13 @@ export type Discography = {
   xfdUrl?: string | null;
 };
 
+export type DiscographyRepo = {
+  discographyId: number;
+  discographyRepoNo: number;
+  discographyReportName: string;
+  discographyReportUrl: string;
+};
+
 export type DiscographyPost = {
   discographyId: number;
   discographyPostNo: number;
@@ -32,10 +39,37 @@ export type Song = {
   musicVideoUrl?: string | null;
   lyricVideoUrl?: string | null;
   liveVideoUrl?: string | null;
+  lyricUrl?: string | null;
+  spotifyTrackId?: string | null;
+  lyricMember?: string | null;
+  musicMember?: string | null;
+  produceMember?: string | null;
+  etcMember?: string | null;
+  feature?: SongFeature | null;
+};
+
+export type SongFeature = {
+  spotifyTrackId?: string | null;
+  songName: string;
+  popularity: number;
+  danceability: number;
+  energy: number;
+  key: number;
+  loudness: number;
+  mode: number;
+  speechiness: number;
+  acousticness: number;
+  instrumentalness: number;
+  liveness: number;
+  valence: number;
+  tempo: number;
+  durationMs: number;
+  timeSignature: number;
 };
 
 export type DiscographyWithSongs = Merge<
   Discography & {
+    reports?: DiscographyRepo[];
     posts: DiscographyPost[];
     songs: Song[];
   }

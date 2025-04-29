@@ -39,5 +39,16 @@ class UtilityService {
         event_label: options.label,
       });
   };
+
+  static getObjectQueries = (): { [key: string]: string } => {
+    if (!location.search) return {};
+    return location.search
+      .substring(1)
+      .split("&")
+      .reduce((acc, cur) => {
+        acc[cur.split("=")[0]] = cur.split("=")[1];
+        return acc;
+      }, {} as { [key: string]: string });
+  };
 }
 export default UtilityService;
