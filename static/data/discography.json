@@ -99,7 +99,7 @@
     ],
     "songs": [
       {
-        "songId": 166,
+        "songId": 167,
         "discographyId": 38,
         "discographyTitle": "SHINOBI",
         "songNo": 1,
@@ -186,7 +186,7 @@
     ],
     "songs": [
       {
-        "songId": 160,
+        "songId": 161,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 1,
@@ -204,7 +204,7 @@
         "etcMember": null
       },
       {
-        "songId": 161,
+        "songId": 162,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 2,
@@ -240,7 +240,7 @@
         }
       },
       {
-        "songId": 162,
+        "songId": 163,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 3,
@@ -276,7 +276,7 @@
         }
       },
       {
-        "songId": 163,
+        "songId": 164,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 4,
@@ -294,7 +294,7 @@
         "etcMember": null
       },
       {
-        "songId": 164,
+        "songId": 165,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 5,
@@ -312,7 +312,7 @@
         "etcMember": null
       },
       {
-        "songId": 165,
+        "songId": 166,
         "discographyId": 37,
         "discographyTitle": "秘色録",
         "songNo": 6,
@@ -410,7 +410,7 @@
     ],
     "songs": [
       {
-        "songId": 159,
+        "songId": 160,
         "discographyId": 36,
         "discographyTitle": "RE RESCUE",
         "songNo": 1,
@@ -473,7 +473,7 @@
     ],
     "songs": [
       {
-        "songId": 158,
+        "songId": 159,
         "discographyId": 35,
         "discographyTitle": "ULTRA C",
         "songNo": 1,
@@ -528,6 +528,42 @@
         "discographyTitle": "ディア",
         "songNo": 1,
         "songName": "ディア",
+        "tieupDescription": "",
+        "downloadUrl": "https://reol.lnk.to/DEAR",
+        "musicVideoUrl": "https://youtu.be/E1zxsx3PfuU",
+        "lyricVideoUrl": "",
+        "liveVideoUrl": "",
+        "lyricUrl": "https://www.uta-net.com/song/358805/",
+        "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L",
+        "lyricMember": "Reol",
+        "musicMember": "Giga",
+        "produceMember": "Giga",
+        "etcMember": "Movie&Artwork by Okiku\nIllustration by Key Mochizuki",
+        "feature": {
+          "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L",
+          "songName": "ディア",
+          "popularity": "49",
+          "danceability": 0.655,
+          "energy": 0.99,
+          "key": 10,
+          "loudness": -0.969,
+          "mode": 0,
+          "speechiness": 0.111,
+          "acousticness": 0.00424,
+          "instrumentalness": 0.000126,
+          "liveness": 0.278,
+          "valence": 0.674,
+          "tempo": 132,
+          "durationMs": 174560,
+          "timeSignature": 4
+        }
+      },
+      {
+        "songId": 158,
+        "discographyId": 34,
+        "discographyTitle": "ディア",
+        "songNo": 2,
+        "songName": "ディア (Instrumental)",
         "tieupDescription": "",
         "downloadUrl": "https://reol.lnk.to/DEAR",
         "musicVideoUrl": "https://youtu.be/E1zxsx3PfuU",
