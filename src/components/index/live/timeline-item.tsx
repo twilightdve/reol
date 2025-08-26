@@ -15,10 +15,10 @@ import LazyComponent from "../../modules/LazyComponent";
 
 type Props = {
   live: LiveInfo;
-  isLoaded: any;
-  currentVideoId: any;
-  isShrinked: any;
-  playerRef: any;
+  isLoaded: boolean;
+  currentVideoId: string;
+  isShrinked: boolean;
+  playerRef: React.RefObject<YouTube> | null;
 };
 
 type State = {
@@ -61,10 +61,6 @@ class TimelineItem extends Component<Props, State> {
       isExpand: false,
     };
   }
-
-  componentDidMount() {}
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
 
   render() {
     const live = this.props.live;

@@ -1,4 +1,10 @@
-import React, { Component, PropsWithChildren } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  PropsWithChildren,
+  useCallback,
+} from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 
 type Props = {
@@ -7,72 +13,60 @@ type Props = {
   className?: string;
 };
 
-type State = {
-  ref: React.RefObject<HTMLDivElement> | null;
-  isLoaded: boolean;
-  observer: IntersectionObserver | null;
-};
+const LazyComponent: React.FC<PropsWithChildren<Props>> = ({
+  debugMessage,
+  threshold = 0.4,
+  className,
+  children,
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-export default class LazyComponent extends Component<
-  PropsWithChildren<Props>,
-  State
-> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      ref: React.createRef<HTMLDivElement>(),
-      isLoaded: false,
-      observer: null,
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !this.state.isLoaded) {
-          if (this.props.debugMessage) {
-            // console.log(this.props.debugMessage);
+        if (entry.isIntersecting && !isLoaded) {
+          if (debugMessage) {
+            // console.log(debugMessage);
           }
-          this.setState({ ...this.state, isLoaded: true });
-          this.state.observer?.disconnect(); // ロード後は監視を解除
+          setIsLoaded(true);
+          observer.disconnect(); // ロード後は監視を解除
         }
       },
-      { threshold: this.props.threshold ?? 0.4 }
+      { threshold }
     );
-    if (this.state.ref?.current) {
-      observer.observe(this.state.ref?.current);
-    }
-    this.setState({
-      ...this.state,
-      observer,
-    });
-  }
 
-  componentWillUnmount() {
-    if (this.state.observer) {
-      this.state.observer.disconnect();
+    if (ref.current) {
+      observer.observe(ref.current);
+      observerRef.current = observer;
     }
-  }
 
-  renderLoading() {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [debugMessage, threshold, isLoaded]);
+
+  const renderLoading = useCallback(() => {
     return (
       <div className="w-full bg-gray-600">
         <AiOutlineLoading className="absolute h-6 w-6 animate-spin top-0 bottom-0 left-0 right-0 m-auto" />
       </div>
     );
-  }
+  }, []);
 
-  render() {
-    return (
-      <div ref={this.state.ref} className={this.props.className}>
-        {!this.state.isLoaded
-          ? this.renderLoading()
-          : React.Children.map(
-              this.props.children,
-              (child) => React.isValidElement(child) && child
-            )}
-      </div>
-    );
-  }
-}
+  return (
+    <div ref={ref} className={className}>
+      {!isLoaded
+        ? renderLoading()
+        : React.Children.map(
+            children,
+            (child) => React.isValidElement(child) && child
+          )}
+    </div>
+  );
+};
+
+export default LazyComponent;

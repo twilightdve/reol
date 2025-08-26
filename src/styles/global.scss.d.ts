@@ -1,6 +1,10 @@
+export declare const animateFadeIn: string;
+export declare const animatePulseGlow: string;
+export declare const fadeIn: string;
 export declare const float: string;
 export declare const hFill: string;
 export declare const maxHFill: string;
 export declare const maxWFill: string;
+export declare const pulseGlow: string;
 export declare const shake: string;
 export declare const wFill: string;

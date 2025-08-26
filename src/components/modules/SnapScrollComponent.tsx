@@ -1,79 +1,69 @@
-import React, { Component, PropsWithChildren } from "react";
+import React, { useRef, useState, useEffect, PropsWithChildren } from "react";
 
-type Props = {
+interface SnapScrollComponentProps {
   index: number;
   className?: string;
   debugMessage?: string;
   threshold?: number;
   onIntersecting?: (index: number) => void;
-};
+}
 
-type State = {
-  ref: React.RefObject<HTMLDivElement> | null;
-  isShown: boolean;
-  observer: IntersectionObserver | null;
-};
+const SnapScrollComponent: React.FC<
+  PropsWithChildren<SnapScrollComponentProps>
+> = ({
+  index,
+  className,
+  debugMessage,
+  threshold = 0.9,
+  onIntersecting,
+  children,
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isShown, setIsShown] = useState(false);
+  const [observer, setObserver] = useState<IntersectionObserver | null>(null);
 
-export default class SnapScrollComponent extends Component<
-  PropsWithChildren<Props>,
-  State
-> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      ref: React.createRef<HTMLDivElement>(),
-      isShown: false,
-      observer: null,
-    };
-  }
-
-  componentDidMount() {
-    const observer = new IntersectionObserver(
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         // console.log(entry);
         if (entry.isIntersecting) {
-          this.props?.onIntersecting &&
-            this.props?.onIntersecting.call(this, this.props.index);
+          onIntersecting?.(index);
         }
-        if (this.props.debugMessage) {
+        if (debugMessage) {
           if (entry.isIntersecting) {
-            // console.log("intersecting: ", this.props.debugMessage);
+            // console.log("intersecting: ", debugMessage);
           } else {
-            // console.log("disintersecting: ", this.props.debugMessage);
+            // console.log("disintersecting: ", debugMessage);
           }
         }
-        this.setState({ ...this.state, isShown: entry.isIntersecting });
+        setIsShown(entry.isIntersecting);
       },
-      { threshold: this.props.threshold ?? 0.9 }
+      { threshold }
     );
-    if (this.state.ref?.current) {
-      // if (this.props.debugMessage)
-      //   console.log("observe:", this.props.debugMessage);
-      observer.observe(this.state.ref?.current);
-    }
-    this.setState({
-      ...this.state,
-      observer,
-    });
-  }
 
-  componentWillUnmount() {
-    if (this.state.observer) {
-      // if (this.props.debugMessage)
-      //   console.log("unmount:", this.props.debugMessage);
-      this.state.observer.disconnect();
+    if (ref.current) {
+      // if (debugMessage)
+      //   console.log("observe:", debugMessage);
+      intersectionObserver.observe(ref.current);
     }
-  }
 
-  render() {
-    return (
-      <div ref={this.state.ref} className={this.props.className}>
-        {React.Children.map(
-          this.props.children,
-          (child) => React.isValidElement(child) && child
-        )}
-      </div>
-    );
-  }
-}
+    setObserver(intersectionObserver);
+
+    return () => {
+      // if (debugMessage)
+      //   console.log("unmount:", debugMessage);
+      intersectionObserver.disconnect();
+    };
+  }, [index, threshold, onIntersecting, debugMessage]);
+
+  return (
+    <div ref={ref} className={className}>
+      {React.Children.map(
+        children,
+        (child) => React.isValidElement(child) && child
+      )}
+    </div>
+  );
+};
+
+export default SnapScrollComponent;

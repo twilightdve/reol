@@ -72,7 +72,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
 };
 
 const tags = {
-  name: ["Reol", "REOL", "れをる", "あにょすぺにょすゃゃ"],
+  name: ["Reol", "REOL", "れをる", "あにょすぺにょすゃゃ", "FZMZ(icy)"],
   year: [
     "2025",
     "2024",
@@ -113,10 +113,6 @@ class Discography extends Component<Props, State> {
       currentFormats: [],
     };
   }
-
-  componentDidMount() {}
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
 
   toggleTag(currentList: string[], target: string) {
     let list = currentList;

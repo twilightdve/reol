@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import type { Fs20240817PageQuery } from "../../../gatsby-types";
 import ogImage from "../../images/ogimage.png";
-import { fs20240817 } from "../../components/fs/20240817";
+import { fs20240817 } from "../../../bk/fs/20240817";
 
 type siteMetadata = {
   title: string;

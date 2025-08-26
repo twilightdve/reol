@@ -1,23 +1,17 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { initFlowbite } from "flowbite";
 
-type Props = {
+interface LayoutProps {
   title: string;
-  children: any;
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  useEffect(() => {
+    initFlowbite();
+  }, []);
+
+  return <>{children}</>;
 };
 
-export default class Layout extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    initFlowbite();
-  }
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
-
-  render() {
-    return <>{this.props.children}</>;
-  }
-}
+export default Layout;

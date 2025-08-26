@@ -1,9 +1,4 @@
-import React, {
-  Component,
-  PropsWithChildren,
-  RefObject,
-  createRef,
-} from "react";
+import React, { useRef, useState, useEffect, PropsWithChildren } from "react";
 
 interface MapProps extends google.maps.MapOptions {
   style: { [key: string]: string };
@@ -11,53 +6,47 @@ interface MapProps extends google.maps.MapOptions {
   onIdle?: (map: google.maps.Map) => void;
 }
 
-type Props = {
+interface MapComponentProps {
   options: MapProps;
-};
-
-type State = {
-  map: google.maps.Map | null;
-};
-
-export default class Map extends Component<PropsWithChildren<Props>, State> {
-  mapRef: RefObject<HTMLDivElement> = createRef<HTMLDivElement>();
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      map: null,
-    };
-  }
-
-  componentDidMount() {
-    if (this.mapRef && this.mapRef.current && !this.state.map) {
-      const map = new window.google.maps.Map(this.mapRef.current, {});
-      map.setOptions(this.props.options);
-      this.setState({
-        ...this.state,
-        map,
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {
-    this.state.map?.setOptions(this.props.options);
-  }
-
-  render() {
-    return (
-      <>
-        <div ref={this.mapRef} style={this.props.options.style} />
-        {this.state.map &&
-          React.Children.map(
-            this.props.children,
-            (child) =>
-              React.isValidElement(child) &&
-              React.cloneElement(child, {
-                // @ts-ignore
-                map: this.state.map,
-              })
-          )}
-      </>
-    );
-  }
 }
+
+const Map: React.FC<PropsWithChildren<MapComponentProps>> = ({
+  options,
+  children,
+}) => {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+
+  useEffect(() => {
+    if (mapRef.current && !map) {
+      const newMap = new window.google.maps.Map(mapRef.current, {});
+      newMap.setOptions(options);
+      setMap(newMap);
+    }
+  }, [map, options]);
+
+  useEffect(() => {
+    if (map) {
+      map.setOptions(options);
+    }
+  }, [map, options]);
+
+  return (
+    <>
+      <div ref={mapRef} style={options.style} />
+      {map &&
+        React.Children.map(
+          children,
+          (child) =>
+            React.isValidElement(child) &&
+            React.cloneElement(child, {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              map: map,
+            })
+        )}
+    </>
+  );
+};
+
+export default Map;

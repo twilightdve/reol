@@ -77,4 +77,4 @@ const input: INode[] = [
 ];
 
 const output = mergeChildren(input);
-console.log(JSON.stringify(output, null, 2));
+// console.log(JSON.stringify(output, null, 2));

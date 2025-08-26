@@ -5,7 +5,7 @@ import { useLocation } from "@reach/router";
 import { v4 as uuidv4 } from "uuid";
 
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
-import db, { quizData } from "./common";
+import db, { quizData } from "../../services/bbq2025/common";
 
 const QuizPage = () => {
   const location = useLocation();
@@ -16,6 +16,8 @@ const QuizPage = () => {
   const [answers, setAnswers] = useState({});
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     const nickname = localStorage.getItem("bbq2025_nickname");
     if (!nickname) {
       navigate("/quiz/bbq2025/intro");
@@ -48,9 +50,7 @@ const QuizPage = () => {
     const userHash = localStorage.getItem("bbq2025_user_hash") || "";
     const nickname = localStorage.getItem("bbq2025_nickname") || "";
     const score = quizData.reduce((acc, q) => acc + (updatedAnswers[q.id] === q.answer ? 1 : 0), 0);
-    console.log(updatedAnswers)
-    console.log(score)
-
+    
     try {
       await setDoc(doc(db, "bbq2025_answers", userHash), {
         userHash,
@@ -60,7 +60,7 @@ const QuizPage = () => {
         timestamp: serverTimestamp(),
       });
     } catch (err) {
-      console.log(err)
+      // エラーログは本番環境では出力しない
       alert("送信に失敗しました。通信状況をご確認ください。");
     }
 
@@ -78,10 +78,10 @@ const QuizPage = () => {
 
   return (
     <div className="h-svh px-4 py-2 max-w-xl mx-auto bg-[#2F4D3A] overflow-y-hidden font-tegaki">
-      <h2 className="font-bold mb-4 text-white whitespace-nowrap">
-        <span className="text-xs">Q{qParam}&nbsp;/&nbsp;{quizData.length}</span>
+      <h2 className="font-bold mb-4 text-white">
+        <span className="text-sm">Q.{qParam}／{quizData.length}</span>
         <br />
-        <span className="text-base">{question.question}</span>
+        <p className="text-xl py-2">{question.question}</p>
       </h2>
       <div className="space-y-2 h-full">
         {question.options.map((opt, idx) => {
@@ -89,7 +89,7 @@ const QuizPage = () => {
           return (
             <button
               key={idx}
-              className="w-full h-1/5 bg-[#F3E7D3] rounded border-[#E8C55D] border-2 font-bold text-xl active:bg-[#F3E7D3]"
+              className="w-full h-1/6 bg-[#F3E7D3] rounded border-[#E8C55D] border-2 font-bold text-2xl active:bg-[#F3E7D3] text-left px-4"
               onClick={() => handleSelect(opt)}
               disabled={!!selected}
             >

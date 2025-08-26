@@ -1,38 +1,24 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
-type Props = {
+interface InfoWindowProps {
   options: google.maps.InfoWindowOptions;
   // map?: google.maps.Map;
-};
-
-type State = {
-  window: google.maps.InfoWindow | null;
-};
-
-export default class InfoWindow extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      window: null,
-    };
-  }
-
-  componentDidMount() {
-    if (!this.state.window) {
-      //  && this.props.map
-      const infoWindow = new google.maps.InfoWindow();
-      // infoWindow.setMap(this.props?.map);
-      infoWindow.setOptions(this.props.options);
-      this.setState({
-        ...this.state,
-        window: infoWindow,
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
-
-  render() {
-    return null;
-  }
 }
+
+const InfoWindow: React.FC<InfoWindowProps> = ({ options }) => {
+  const [window, setWindow] = useState<google.maps.InfoWindow | null>(null);
+
+  useEffect(() => {
+    if (!window) {
+      //  && props.map
+      const infoWindow = new google.maps.InfoWindow();
+      // infoWindow.setMap(props?.map);
+      infoWindow.setOptions(options);
+      setWindow(infoWindow);
+    }
+  }, [window, options]);
+
+  return null;
+};
+
+export default InfoWindow;

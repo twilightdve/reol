@@ -1,63 +1,48 @@
-import React, { Component } from "react";
+import React, { useRef, useState, useCallback, useMemo } from "react";
 import { MdCloseFullscreen } from "react-icons/md";
 import { TYPES } from "./posts";
 import StaticYoutube from "../../modules/StaticYoutube";
 import SnapScrollComponent from "../../modules/SnapScrollComponent";
 import LazyComponent from "../../modules/LazyComponent";
 
-type Photo = {
+interface Photo {
   type: number;
   src: string;
-};
+}
 
-type Link = {
+interface Link {
   title: string;
   url: string;
-};
+}
 
-type Post = {
+interface Post {
   date: string;
   title: string;
   description: string;
   items: Photo[];
   links: Link[];
   relatedPosts: string[];
-};
+}
 
-type Props = {
+interface PhotographyProps {
   posts: Post[];
-};
+}
 
-type State = {
-  dialogRef: React.RefObject<HTMLDialogElement>;
-  dialogContentsContainerRef: React.RefObject<HTMLDivElement>;
-  carouselDivRefs: React.RefObject<HTMLDivElement>[];
-  selectedIndex: number;
-  hasLoadedFlags: boolean[];
-  prevCarouselIndex: number;
-};
+const Photography: React.FC<PhotographyProps> = ({ posts }) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogContentsContainerRef = useRef<HTMLDivElement>(null);
+  const carouselDivRefs = useMemo(
+    () => posts.map(() => React.createRef<HTMLDivElement>()),
+    [posts]
+  );
 
-export default class Photography extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [hasLoadedFlags, setHasLoadedFlags] = useState(() =>
+    posts.map(() => false)
+  );
+  const [prevCarouselIndex, setPrevCarouselIndex] = useState(0);
 
-    this.state = {
-      dialogRef: React.createRef<HTMLDialogElement>(),
-      dialogContentsContainerRef: React.createRef<HTMLDivElement>(),
-      carouselDivRefs: this.props.posts.map(() =>
-        React.createRef<HTMLDivElement>()
-      ),
-      selectedIndex: -1,
-      hasLoadedFlags: this.props.posts.map(() => false),
-      prevCarouselIndex: 0,
-    };
-  }
-
-  componentDidMount() {}
-
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {}
-
-  getHeightCarousel(post: Post): string {
+  const getHeightCarousel = useCallback((post: Post): string => {
     const patterns = ["h-160", "h-80", "h-60"];
     let index = 1;
 
@@ -74,42 +59,87 @@ export default class Photography extends Component<Props, State> {
     }
 
     return patterns[index];
-  }
+  }, []);
 
-  getShowingPosts(posts: Post[], index: number): Post[] {
-    let list = [];
+  const getShowingPosts = useCallback(
+    (posts: Post[], index: number): Post[] => {
+      let list = [];
 
-    if (index < 0) {
-      return [];
+      if (index < 0) {
+        return [];
+      }
+
+      // list[0]
+      if (0 === index) {
+        list.push(posts[index]);
+      } else if (0 < index) {
+        list.push(posts[index - 1]);
+      }
+
+      // list[1]
+      if (0 <= index && index < posts.length) {
+        list.push(posts[index]);
+      }
+
+      // list[2]
+      if (index + 1 < posts.length) {
+        list.push(posts[index + 1]);
+      } else {
+        list.push(posts[index]);
+      }
+
+      return list;
+    },
+    []
+  );
+
+  const handleIntersecting = useCallback(
+    (currentIndex: number) => {
+      let direction = 0;
+      if (currentIndex > prevCarouselIndex) {
+        direction = 1;
+      } else if (currentIndex < prevCarouselIndex) {
+        direction = -1;
+      }
+
+      setHasLoadedFlags((prevFlags) => {
+        const newFlags = [...prevFlags];
+        newFlags[currentIndex] = true;
+        return newFlags;
+      });
+
+      setPrevCarouselIndex(currentIndex);
+      setSelectedIndex((prevSelected) => prevSelected + direction);
+    },
+    [prevCarouselIndex]
+  );
+
+  const handleDialogClose = useCallback(() => {
+    document.body.classList.remove("overflow-hidden");
+    if (dialogRef.current) {
+      dialogRef.current.close();
     }
+  }, []);
 
-    // list[0]
-    if (0 === index) {
-      list.push(posts[index]);
-    } else if (0 < index) {
-      list.push(posts[index - 1]);
-    }
+  const handlePostClick = useCallback(
+    (postIndex: number) => {
+      document.body.classList.add("overflow-hidden");
 
-    // list[1]
-    if (0 <= index && index < posts.length) {
-      list.push(posts[index]);
-    }
+      if (dialogRef.current) {
+        dialogRef.current.showModal();
+      }
 
-    // list[2]
-    if (index + 1 < posts.length) {
-      list.push(posts[index + 1]);
-    } else {
-      list.push(posts[index]);
-    }
+      carouselDivRefs[postIndex]?.current?.scrollIntoView();
+      setSelectedIndex(postIndex);
+    },
+    [carouselDivRefs]
+  );
 
-    return list;
-  }
-
-  dialogContents(post: Post, index: number) {
-    return (
+  const dialogContents = useCallback(
+    (post: Post, index: number) => (
       <div
         key={`carousel-contents-${index}`}
-        ref={this.state.carouselDivRefs[index]}
+        ref={carouselDivRefs[index]}
         className="relative w-full h-min max-w-sm shrink-0 z-10 snap-center snap-normal bg-gray-900"
         onClick={(event) => {
           event.stopPropagation();
@@ -129,31 +159,13 @@ export default class Photography extends Component<Props, State> {
             <SnapScrollComponent
               key={`SnapScrollComponent-${index}`}
               index={index}
-              // className="h-fit"
               debugMessage={post.title}
-              onIntersecting={(currentIndex) => {
-                let direction = 0;
-                if (currentIndex > this.state.prevCarouselIndex) {
-                  direction = 1;
-                } else if (currentIndex < this.state.prevCarouselIndex) {
-                  direction = -1;
-                }
-
-                const newHasLoadedFlags = [...this.state.hasLoadedFlags];
-                newHasLoadedFlags[currentIndex] = true;
-
-                this.setState({
-                  ...this.state,
-                  prevCarouselIndex: currentIndex,
-                  selectedIndex: this.state.selectedIndex + direction,
-                  hasLoadedFlags: newHasLoadedFlags,
-                });
-              }}
+              onIntersecting={handleIntersecting}
             >
-              {this.state.selectedIndex === index - 1 ||
-              this.state.selectedIndex === index ||
-              this.state.selectedIndex === index + 1 ||
-              this.state.hasLoadedFlags[index] ? (
+              {selectedIndex === index - 1 ||
+              selectedIndex === index ||
+              selectedIndex === index + 1 ||
+              hasLoadedFlags[index] ? (
                 post.items.map((item, itemIndex) => {
                   if (
                     item.type === TYPES.photo ||
@@ -162,14 +174,14 @@ export default class Photography extends Component<Props, State> {
                   ) {
                     return (
                       <div
-                        key={`post-timeline-${this.state.selectedIndex}-${itemIndex}`}
+                        key={`post-timeline-${selectedIndex}-${itemIndex}`}
                         className="bg-gray-900 pb-2"
                       >
                         <img
                           className="w-full h-auto"
-                          srcSet={item.src}
+                          src={item.src}
                           loading="lazy"
-                          alt=""
+                          alt="Photography content"
                         />
                       </div>
                     );
@@ -179,12 +191,13 @@ export default class Photography extends Component<Props, State> {
                   ) {
                     return (
                       <StaticYoutube
-                        key={`video-${this.state.selectedIndex}-${itemIndex}`}
+                        key={`video-${selectedIndex}-${itemIndex}`}
                         videoId={item.src}
                         type={item.type}
                       />
                     );
                   }
+                  return null;
                 })
               ) : (
                 <></>
@@ -196,10 +209,11 @@ export default class Photography extends Component<Props, State> {
               <ul className="list-disc ml-5">
                 {post.links.map((link, linkIndex) => {
                   return (
-                    <li key={`link-${this.state.selectedIndex}-${linkIndex}`}>
+                    <li key={`link-${selectedIndex}-${linkIndex}`}>
                       <a
                         href={link.url}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="text-blue-400"
                       >
                         {link.title}
@@ -211,91 +225,61 @@ export default class Photography extends Component<Props, State> {
             </div>
           )}
         </div>
-        {/* {this.props.posts.map((post, postIndex) => {
-              return 
-              ) : (
-                <></>
-              );
-            })} */}
       </div>
-    );
-  }
+    ),
+    [selectedIndex, hasLoadedFlags, carouselDivRefs, handleIntersecting]
+  );
 
-  render() {
-    return (
-      <section className="py-4">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-full gap-1">
-          {this.props.posts.map((post, postIndex) => {
-            return (
-              <div
-                key={`photo-tile-${postIndex}-0`}
-                className="aspect-w-1 aspect-h-1"
-                onClick={(event) => {
-                  event.stopPropagation();
-
-                  document
-                    .getElementsByTagName("body")[0]
-                    .classList.add("overflow-hidden");
-
-                  if (this.state.dialogRef?.current) {
-                    this.state.dialogRef.current.showModal();
-                  }
-
-                  this.state.carouselDivRefs[
-                    postIndex
-                  ]?.current?.scrollIntoView();
-
-                  this.setState({
-                    ...this.state,
-                    selectedIndex: postIndex,
-                  });
-                }}
-              >
-                <LazyComponent className="w-full h-full">
-                  <img
-                    className="w-full h-full object-cover object-center"
-                    srcSet={
-                      post.items[0].type === TYPES.photo ||
-                      post.items[0].type === TYPES.photo_tate ||
-                      post.items[0].type === TYPES.photo_wide
-                        ? post.items[0].src
-                        : `https://i.ytimg.com/vi/${post.items[0].src}/mqdefault.jpg`
-                    }
-                    loading="lazy"
-                    alt=""
-                  />
-                </LazyComponent>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <dialog
-            ref={this.state.dialogRef}
-            className={`w-full h-[90dvh] max-w-112 sm:max-w-208 md:max-w-256 lg:max-w-480 bg-transparent text-white backdrop:backdrop-opacity-60 backdrop:backdrop-blur-sm m-auto open:animate-fadeInFast font-system z-10 overflow-y-hidden`}
-            onClick={(event) => {
-              event.stopPropagation();
-
-              document
-                .getElementsByTagName("body")[0]
-                .classList.remove("overflow-hidden");
-
-              if (this.state.dialogRef?.current) {
-                this.state.dialogRef.current.close();
-              }
-            }}
-          >
+  return (
+    <section className="py-4">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-full gap-1">
+        {posts.map((post, postIndex) => {
+          return (
             <div
-              ref={this.state.dialogContentsContainerRef}
-              className="overflow-x-scroll flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 snap-x snap-mandatory will-change-scroll"
+              key={`photo-tile-${postIndex}-0`}
+              className="aspect-w-1 aspect-h-1"
+              onClick={(event) => {
+                event.stopPropagation();
+                handlePostClick(postIndex);
+              }}
             >
-              {this.props.posts.map((item, index) =>
-                this.dialogContents(item, index)
-              )}
+              <LazyComponent className="w-full h-full">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src={
+                    post.items[0].type === TYPES.photo ||
+                    post.items[0].type === TYPES.photo_tate ||
+                    post.items[0].type === TYPES.photo_wide
+                      ? post.items[0].src
+                      : `https://i.ytimg.com/vi/${post.items[0].src}/mqdefault.jpg`
+                  }
+                  loading="lazy"
+                  alt="Photography thumbnail"
+                />
+              </LazyComponent>
             </div>
-          </dialog>
-        </div>
-      </section>
-    );
-  }
-}
+          );
+        })}
+      </div>
+      <div>
+        <dialog
+          ref={dialogRef}
+          className={`w-full h-[90dvh] max-w-112 sm:max-w-208 md:max-w-256 lg:max-w-480 bg-transparent text-white backdrop:backdrop-opacity-60 backdrop:backdrop-blur-sm m-auto open:animate-fadeInFast font-system z-10 overflow-y-hidden`}
+          onClick={(event) => {
+            event.stopPropagation();
+            handleDialogClose();
+          }}
+        >
+          <div
+            ref={dialogContentsContainerRef}
+            className="overflow-x-scroll flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 snap-x snap-mandatory will-change-scroll"
+          >
+            {posts.map((item, index) => dialogContents(item, index))}
+          </div>
+        </dialog>
+      </div>
+    </section>
+  );
+};
+
+export default Photography;

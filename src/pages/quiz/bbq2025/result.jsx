@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { quizData } from "../common";
+import { quizData } from "../../../services/bbq2025/common";
 import { FaCheck } from "react-icons/fa";
+import { navigate } from "gatsby";
+import { default as resultImage } from "../../../images/event/20250503_BBQ/IMG_2316.webp";
 
 const ResultPage = () => {
   const [nickname, setNickname] = useState("");
   const [answers, setAnswers] = useState({});
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     const storedNickname = localStorage.getItem("bbq2025_nickname") || "";
     const storedAnswers = JSON.parse(localStorage.getItem("bbq2025_answers") || "{}");
     setNickname(storedNickname);
@@ -18,13 +22,20 @@ const ResultPage = () => {
   }, 0);
   const accuracy = ((correctCount / quizData.length) * 100).toFixed(1); // 小数点1桁
 
+  const handleStart = () => navigate("/quiz/bbq2025?q=1");
 
   return (
     <div className="px-4 pt-2 pb-4 max-w-xl mx-auto bg-[#2F4D3A] font-tegaki">
       <h1 className="text-2xl font-bold mb-4 text-white whitespace-nowrap">{nickname}さんの回答結果</h1>
       <ul className="space-y-4">
-        <div className="text-lg mb-6 text-[#E8C55D]">
-          正答率: <span className="font-bold">{accuracy}%</span>（{correctCount} / {quizData.length}問）
+        <div className="flex justify-between items-center w-full">
+          <div className="text-xl text-[#E8C55D] text-center w-[calc(100%-128px)]">
+            正答率: <span className="font-bold">{accuracy}%</span><br/>
+            （{correctCount} / {quizData.length}問）
+          </div>
+          <div className="w-32 h-32">
+            <img className="" src={resultImage} />
+          </div>
         </div>
         {quizData.map((q, idx) => (
           <li key={q.id} className="relative p-2 bg-[#F3E7D3] rounded border-[#E8C55D] border-2 text-base">
@@ -39,6 +50,14 @@ const ResultPage = () => {
           </li>
         ))}
       </ul>
+      <div className="mt-8 mb-4 text-center">
+        <button
+            onClick={handleStart}
+            className="bg-[#A6262E] active:bg-[#A6262E] text-white py-2 px-4 rounded disabled:bg-gray-400 font-bold w-44"
+          >
+            再挑戦する
+        </button>        
+      </div>
     </div>
   );
 };

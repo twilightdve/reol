@@ -46,7 +46,7 @@ export class SheetService {
       const credentials = JSON.parse(content.toString());
       return google.auth.fromJSON(credentials);
     } catch (err) {
-      console.log(err);
+      // トークン読み込みエラー（本番環境では出力しない）
       return null;
     }
   }

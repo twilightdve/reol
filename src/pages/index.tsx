@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
-import type { IndexPageQuery } from "../gatsby-types";
 import { DiscographyWithSongs } from "../types/discography";
 import IndexContents from "../components/index/contents";
 import { LiveInfo } from "../types/live";
@@ -165,15 +164,17 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: FC<PageProps<IndexPageQuery>> = ({ data }) => {
+const IndexPage: FC<PageProps<any>> = ({ data }) => {
   const discographies: DiscographyWithSongs[] =
     data.discography.discographyWithSongs;
   const recommend: Recommend[] = data.recommend.recommend;
   const liveInfos: LiveInfo[] = data.live.liveInfos;
   const places: Place[] = data.place.places;
+
   return (
     <>
       <TopHeader title={data.site.siteMetadata.title} />
+
       <main className="relative bg-gray-100 mx-auto inset-auto w-screen">
         <IndexContents
           discographies={discographies}
@@ -208,7 +209,7 @@ const IndexPage: FC<PageProps<IndexPageQuery>> = ({ data }) => {
 
 export default IndexPage;
 
-export const Head: HeadFC<PageProps<IndexPageQuery>> = ({ data }) => {
+export const Head: HeadFC<any> = ({ data }) => {
   const siteMetadata: siteMetadata = data.site.siteMetadata;
   return (
     <>

@@ -24,6 +24,17 @@ const config = {
     colors: {
       theme: "#D2AF57",
       letter: "#27489b",
+      // CSS変数を使用した動的カラー
+      "dynamic-primary": "var(--color-primary)",
+      "dynamic-secondary": "var(--color-secondary)",
+      "dynamic-accent": "var(--color-accent)",
+      "dynamic-background": "var(--color-background)",
+      "dynamic-text": "var(--color-text)",
+      "temp-primary": "var(--temp-color-primary)",
+      "temp-secondary": "var(--temp-color-secondary)",
+      "temp-accent": "var(--temp-color-accent)",
+      "temp-background": "var(--temp-color-background)",
+      "temp-text": "var(--temp-color-text)",
     },
     screens: {
       sm: "640px",

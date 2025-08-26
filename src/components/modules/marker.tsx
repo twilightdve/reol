@@ -1,64 +1,53 @@
-import React, { Component, PropsWithChildren } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
-type Props = {
+interface MarkerProps {
   options: google.maps.MarkerOptions;
   map?: google.maps.Map;
   visible: boolean;
-};
+}
 
-type State = {
-  marker: google.maps.Marker | null;
-  infoWindow: google.maps.InfoWindow | null;
-};
+const Marker: React.FC<MarkerProps> = ({ options, map, visible }) => {
+  const [marker, setMarker] = useState<google.maps.Marker | null>(null);
+  const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
+    null
+  );
 
-export default class Map extends Component<PropsWithChildren<Props>, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      marker: null,
-      infoWindow: new google.maps.InfoWindow({
-        content: this.infoWindowContent(),
+  const infoWindowContent = useCallback(() => {
+    return `<span>${options.title}</span>`;
+  }, [options.title]);
+
+  useEffect(() => {
+    if (!marker && map) {
+      const newInfoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent(),
         maxWidth: 200,
-      }),
-    };
-  }
+      });
+      setInfoWindow(newInfoWindow);
 
-  infoWindowContent() {
-    return `<span>${this.props.options.title}</span>`;
-  }
-
-  componentDidMount() {
-    if (!this.state.marker && this.props.map) {
-      const marker = new google.maps.Marker();
-      marker.setMap(this.props?.map);
-      marker.setOptions(this.props.options);
-      marker.addListener("click", () => {
-        if (this.props.map instanceof google.maps.Map) {
-          const position = marker.getPosition();
-          if (!!position) this.props.map.panTo(position);
+      const newMarker = new google.maps.Marker();
+      newMarker.setMap(map);
+      newMarker.setOptions(options);
+      newMarker.addListener("click", () => {
+        if (map instanceof google.maps.Map) {
+          const position = newMarker.getPosition();
+          if (position) map.panTo(position);
         }
-        this.state.infoWindow?.open({
-          map: this.props.map,
-          anchor: marker,
+        newInfoWindow.open({
+          map: map,
+          anchor: newMarker,
         });
       });
-      this.setState({
-        ...this.state,
-        marker,
-        infoWindow: this.state.infoWindow,
-      });
+      setMarker(newMarker);
     }
-  }
+  }, [marker, map, options, infoWindowContent]);
 
-  componentDidUpdate(prevProps: Readonly<Props>, snapshot?: any) {
-    if (this.props.visible) {
-      this.state.marker?.setOpacity(1);
-    } else {
-      this.state.marker?.setOpacity(0);
+  useEffect(() => {
+    if (marker) {
+      marker.setOpacity(visible ? 1 : 0);
     }
-  }
+  }, [marker, visible]);
 
-  render() {
-    return null;
-  }
-}
+  return null;
+};
+
+export default Marker;
