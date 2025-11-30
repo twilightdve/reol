@@ -1,41 +1,139 @@
 [
   {
-    "liveId": 66,
+    "liveId": 69,
     "type": "oneman",
     "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
     "name": "Reol",
     "date": "2025-11-09",
     "siteUrl": "https://reol.jp/feature/Arena_Yokohama",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#F4ECD5",
+    "themeColorSecondary": "#87735B",
     "posts": [
       {
-        "liveId": 66,
+        "liveId": 69,
+        "livePostNo": 1,
+        "livePostId": "1987483906350973151",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live<br>無題 改め 美辞学 at 横浜アリーナ<br><br>初・横アリの舞台、目撃してくれたすべての皆様ありがとうございました！ここから先はまた新たな標、聴いてくれるみんながわたしの導<br><br>次のステージでまた逢いましょう！<br>ラブユーオール <a href=\"https://twitter.com/hashtag/Reol%E6%A8%AA%E3%82%A2%E3%83%AA%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol横アリ美辞学</a> <a href=\"https://t.co/KEc6uj1jm3\">pic.twitter.com/KEc6uj1jm3</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987483906350973151?ref_src=twsrc%5Etfw\">November 9, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
         "livePostNo": 1,
         "livePostId": "1824779378225823982",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2025年11月9日、自身最大規模となる横浜アリーナでのワンマンライヴが決定 ！<br><br>🗓️2025年11月9日（日）<br>📍神奈川県 横浜アリーナ<br>🕕開場 17:00 / 開演 18:00<br>🎫チケット料金 : 全席指定 ¥9,900<br> <br>FC&quot;Legit&quot;会員限定最速先行をただいまよりスタート🕊… <a href=\"https://t.co/teXN8pS8To\">pic.twitter.com/teXN8pS8To</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1824779378225823982?ref_src=twsrc%5Etfw\">August 17, 2024</a></blockquote>"
       },
       {
-        "liveId": 66,
+        "liveId": 69,
+        "livePostNo": 2,
+        "livePostId": "1987534128770908474",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ステージでうたうことが、好き<br>ありがとう横浜アリーナ！ <a href=\"https://t.co/SJOwMMzb3D\">pic.twitter.com/SJOwMMzb3D</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987534128770908474?ref_src=twsrc%5Etfw\">November 9, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
         "livePostNo": 2,
         "livePostId": "1825779309078028320",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🕯️愛してバースデイ0817情報まとめ🕯️<br><br>❶来年11/9 横浜アリーナ公演開催決定<br>❷ 新曲「ディア」サプライズ公開<br>❸ &quot;No title&quot; Special Live Book発売決定<br>❹ENCORE <a href=\"https://twitter.com/encore_filtr?ref_src=twsrc%5Etfw\">@encore_filtr</a> 公開<br>❺本日8/20 18:15- テレビ信州密着OA <a href=\"https://t.co/XJfmmlWSYW\">pic.twitter.com/XJfmmlWSYW</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1825779309078028320?ref_src=twsrc%5Etfw\">August 20, 2024</a></blockquote>"
       },
       {
-        "liveId": 66,
+        "liveId": 69,
+        "livePostNo": 3,
+        "livePostId": "1987804966640357589",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀ <a href=\"https://t.co/5jWL5IiW1d\">pic.twitter.com/5jWL5IiW1d</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987804966640357589?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
         "livePostNo": 3,
         "livePostId": "1824794898236846300",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">十年の間に出逢えた君たちと、十年後の夏にあつまれたこと　日々それぞれにいろんな難儀を乗り越えて今日ここにいてくれてること、本当にありがとう　わたしは同志である君たちを祝いたい　おめでとう、わたしたち！このつづきは横浜アリーナで！<br><br>ラブユーオール、心から愛してるよ <a href=\"https://t.co/YpDUZD8IL1\">pic.twitter.com/YpDUZD8IL1</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1824794898236846300?ref_src=twsrc%5Etfw\">August 17, 2024</a></blockquote>"
       },
       {
-        "liveId": 66,
+        "liveId": 69,
+        "livePostNo": 4,
+        "livePostId": "1987805147125395734",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀ <a href=\"https://t.co/0qabvvOCve\">pic.twitter.com/0qabvvOCve</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987805147125395734?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
         "livePostNo": 4,
         "livePostId": "1890380542459187620",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">横浜アリーナ、きて<a href=\"https://t.co/LH6Bztl5z7\">https://t.co/LH6Bztl5z7</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1890380542459187620?ref_src=twsrc%5Etfw\">February 14, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 5,
+        "livePostId": "1987805518199767183",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀ <a href=\"https://t.co/qQWcLayrjn\">pic.twitter.com/qQWcLayrjn</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987805518199767183?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 6,
+        "livePostId": "1987806196947136626",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀ <a href=\"https://t.co/YiJodrZVCF\">pic.twitter.com/YiJodrZVCF</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987806196947136626?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 7,
+        "livePostId": "1987806703858196882",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀ <a href=\"https://t.co/w4155OMExq\">pic.twitter.com/w4155OMExq</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987806703858196882?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 8,
+        "livePostId": "1987815061969338559",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学、たくさんの方にお力添えをいただき果たせたステージでした🙏<br><br>History of Reolのナレーションは海賊？の女こと宝鐘マリン <a href=\"https://twitter.com/houshoumarine?ref_src=twsrc%5Etfw\">@houshoumarine</a> と映像の女お菊 <a href=\"https://twitter.com/__Lizel?ref_src=twsrc%5Etfw\">@__Lizel</a> 、新曲「おとめの肖像」の曲冒頭ボイスは学者の男こと成田先生 <a href=\"https://twitter.com/narita_yusuke?ref_src=twsrc%5Etfw\">@narita_yusuke</a> にご担当いたただきました<br><br>あとはインスタへ📸 <a href=\"https://t.co/5GX8nkVV4Q\">pic.twitter.com/5GX8nkVV4Q</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987815061969338559?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 9,
+        "livePostId": "1987822713893962147",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">そういえば誕生日でした(32)！<br>ジャスト誕生日にワンマンライヴは初めてでした　幼少より宿してきた圧倒的に強い自我に乗っかって、本年も頑張ります<br><br>まだまだ愛してバースデー🤍<br>れをる屋を宜しくお願い申し上げます🤍 <a href=\"https://t.co/O2SoFadmal\">pic.twitter.com/O2SoFadmal</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987822713893962147?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 10,
+        "livePostId": "1987837010942579179",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>2025.11.09<br>⠀ ⠀<br>Reol Oneman Live 美辞学<br>at 横浜アリーナ<br>⠀ ⠀<br> <a href=\"https://t.co/fH2Hk5VAvh\">pic.twitter.com/fH2Hk5VAvh</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987837010942579179?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 11,
+        "livePostId": "1987872263736262858",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">一夜明けた<br><br>カメラチームから送られてきたライヴフォトを見ながら、ほんとうに演ったんだな、という実感をすこし遅れて感じている　このデータを保存しているわたしのハードディスクの「1109横アリ_美辞学」フォルダは30GBを越えている… <a href=\"https://t.co/FSuUSRCQjC\">pic.twitter.com/FSuUSRCQjC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987872263736262858?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 12,
+        "livePostId": "1987729623535460467",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">昨日横浜アリーナで開催された「Reol Oneman Live &#39;美辞学&#39;」セットリストをストリーミングサービスで公開しました<a href=\"https://t.co/ERbJcMWBs6\">https://t.co/ERbJcMWBs6</a><br><br>メモリアルな一日の追体験をお楽しみ下さい✨️<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://t.co/TPiNLJowD4\">pic.twitter.com/TPiNLJowD4</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1987729623535460467?ref_src=twsrc%5Etfw\">November 10, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 13,
+        "livePostId": "1988156667192897759",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学バンド🖋️<br><br>Bass&amp;Band Reader<br>二家本亮介(にか) <a href=\"https://twitter.com/chan_nika116?ref_src=twsrc%5Etfw\">@chan_nika116</a> <br><br>Electric Guitar, Acoustic Guitar<br>菰口雄矢(こも) <a href=\"https://twitter.com/Yuya_Komoguchi?ref_src=twsrc%5Etfw\">@Yuya_Komoguchi</a> <br><br>Piano Keyboard<br>岸田勇気(きっしー) <a href=\"https://twitter.com/yukikishida?ref_src=twsrc%5Etfw\">@yukikishida</a> <br><br>Drums<br>上原俊亮(しゅんち) <a href=\"https://twitter.com/shunsukedrums?ref_src=twsrc%5Etfw\">@shunsukedrums</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1988156667192897759?ref_src=twsrc%5Etfw\">November 11, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 14,
+        "livePostId": "1988155538472136841",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\">🤍 <a href=\"https://t.co/NhUVvBK36S\">pic.twitter.com/NhUVvBK36S</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1988155538472136841?ref_src=twsrc%5Etfw\">November 11, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 15,
+        "livePostId": "1988160440799830028",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\">✨✨ <a href=\"https://t.co/zaeTRdjxyA\">pic.twitter.com/zaeTRdjxyA</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1988160440799830028?ref_src=twsrc%5Etfw\">November 11, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 69,
+        "livePostNo": 16,
+        "livePostId": "1988822089130996228",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">無題から美辞学へ ✂︎✂︎<br>みなさま立派なお花を有難う！<br>発送をたのしみにお待ちください🤍 <a href=\"https://t.co/LqGuJq4bNT\">pic.twitter.com/LqGuJq4bNT</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1988822089130996228?ref_src=twsrc%5Etfw\">November 13, 2025</a></blockquote>"
       }
     ],
     "items": [
       {
-        "liveId": 66,
+        "liveId": 69,
         "liveItemNo": 1,
         "liveItemName": "神奈川",
         "date": "2025-11-09",
@@ -46,10 +144,437 @@
         "spotifyPlaylistId": null,
         "setList": [
           {
-            "liveId": 66,
+            "liveId": 69,
             "liveItemNo": 1,
             "liveItemSongNo": 1,
-            "liveItemSongName": "(未開催)"
+            "liveItemSongName": "-序章-"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "美辞目録"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "No title - Seaside Remix"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "アストロノーツ"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "ウテナ"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "SCORPION"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "ギミアブレスタッナウ"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "おとめの肖像"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "感情御中"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "ディア"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "染"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "真空オールドローズ"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "あ可よろし"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "Digression of Reol"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "激白"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "白夜"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "RE RESCUE"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "劣等上等"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 26,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 27,
+            "liveItemSongName": "うつくしじごく"
+          },
+          {
+            "liveId": 69,
+            "liveItemNo": 1,
+            "liveItemSongNo": 28,
+            "liveItemSongName": "-終章-"
+          }
+        ],
+        "posts": []
+      }
+    ],
+    "reports": [
+      {
+        "liveId": 69,
+        "liveReportNo": 1,
+        "liveReportName": "Reolがリスナーと “新しい1ページ”を刻んだ初横アリ公演「地獄の先で、お互いのステージでまた会いましょう",
+        "liveReportUrl": "https://natalie.mu/music/news/647738"
+      }
+    ]
+  },
+  {
+    "liveId": 68,
+    "type": "oneman",
+    "title": "Reol Oneman Live 'No title' in SHANGHAI",
+    "name": "Reol",
+    "date": "2025-08-17",
+    "siteUrl": "https://reol.jp/feature/no_title?_normalbrowse_=1&#shanghai",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E3EDF6",
+    "themeColorSecondary": "#2A84B9",
+    "posts": [
+      {
+        "liveId": 68,
+        "livePostNo": 1,
+        "livePostId": "1957023896940503507",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"und\" dir=\"ltr\">２０２５.０８.１７ <a href=\"https://t.co/O4COFYuYcP\">pic.twitter.com/O4COFYuYcP</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1957023896940503507?ref_src=twsrc%5Etfw\">August 17, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 2,
+        "livePostId": "1957091501378613582",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live &#39;No title&#39; in SHANGHAI<br><br>れをるにとって初めての海の向こうの街である上海で、この再演が叶って良かったです　一年前のアンコールでしたが一年前とはまた全然違った景色に見えた　変わってくこの響きは変わらずに！<br><br>次は横浜アリーナ「無題」でお会いしましょう、再见！ <a href=\"https://t.co/asUJGDpS8A\">pic.twitter.com/asUJGDpS8A</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1957091501378613582?ref_src=twsrc%5Etfw\">August 17, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 3,
+        "livePostId": "1957092483541921864",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live &#39;No title&#39; in SHANGHAI<br><br>at. JING&#39;AN SPORTS CENTER<br><br>この日を共に過ごしてくれた皆さま、心からありがとうございます。Reolのファンはどこに居ても繋がってることが心に刻まれた一夜でした。これからも私たちの素敵な未来を一緒に創りましょう <a href=\"https://t.co/Jc5x1PpXN0\">pic.twitter.com/Jc5x1PpXN0</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1957092483541921864?ref_src=twsrc%5Etfw\">August 17, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 4,
+        "livePostId": "1957140924745846904",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"in\" dir=\"ltr\">2025.08.17 Reol Oneman Live<br>&#39;No title&#39; in SHANGHAI<br><br>📹Haruka Odaki (BRUME.) <a href=\"https://t.co/jczwcBUnN2\">pic.twitter.com/jczwcBUnN2</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1957140924745846904?ref_src=twsrc%5Etfw\">August 17, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 5,
+        "livePostId": "1957470783036657872",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">⠀ ⠀<br>ラブユーオール！<a href=\"https://twitter.com/hashtag/Reol11th?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol11th</a> <br>⠀ ⠀<br>photo by <a href=\"https://twitter.com/alan_xzr?ref_src=twsrc%5Etfw\">@alan_xzr</a> <a href=\"https://t.co/vrYBJZ6359\">pic.twitter.com/vrYBJZ6359</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1957470783036657872?ref_src=twsrc%5Etfw\">August 18, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 6,
+        "livePostId": "1957478433367466135",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\"><a href=\"https://t.co/oPdkKpnkeu\">pic.twitter.com/oPdkKpnkeu</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1957478433367466135?ref_src=twsrc%5Etfw\">August 18, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 7,
+        "livePostId": "1959120419723636754",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"zh\" dir=\"ltr\">2025.08.17 <a href=\"https://twitter.com/hashtag/Reol11th?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol11th</a><br>⠀ ⠀<br>Reol Oneman Live &#39;No title&#39; in SHANGHAI<br>at 静安体育中心 JING&#39;AN SPORTS CENTER<br>⠀ ⠀<br>📸 <a href=\"https://twitter.com/alan_xzr?ref_src=twsrc%5Etfw\">@alan_xzr</a> <a href=\"https://t.co/VgfHKyA5c4\">pic.twitter.com/VgfHKyA5c4</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1959120419723636754?ref_src=twsrc%5Etfw\">August 23, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 8,
+        "livePostId": "1959123208629862586",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol11th?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol11th</a> <a href=\"https://t.co/7Utzrp3NHS\">pic.twitter.com/7Utzrp3NHS</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1959123208629862586?ref_src=twsrc%5Etfw\">August 23, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 68,
+        "livePostNo": 9,
+        "livePostId": "1959516715156668671",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">綺羅 <a href=\"https://t.co/YJVW4aEGWP\">pic.twitter.com/YJVW4aEGWP</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1959516715156668671?ref_src=twsrc%5Etfw\">August 24, 2025</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 68,
+        "liveItemNo": 1,
+        "liveItemName": "上海",
+        "date": "2025-08-17",
+        "place": "静安体育中心",
+        "placeSite": "",
+        "address": "",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6823.197520692648!2d121.44735519370822!3d31.231843947389198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27018e8cc520f%3A0x8d0ff340c4503a48!2z6Z2Z5a6J5L2T6IKy5Lit5b-D!5e0!3m2!1sja!2sjp!4v1764521383141!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "introduction（-Ending-）"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "極彩色"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "オオエドランヴ"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "insider"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "宵々古今"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "生命線"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "アシンメトリー"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "サイサキ"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "RE RESCUE"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "1LDK"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "Echo"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "REOL Σ_Mushupppppコーナー<br/>\n-BWW SCREAM-<br/>\n～ちるちる<br/>\n～サマーホラーパーティ<br/>\n～神様になった日<br/>\n～DetaramE KiddinG<br/>\n～VIP KID<br/>\n～エンドレスライン<br/>\n～ニュータイプトーキョー<br/>\n～コノヨ Loading...<br/>\n～ギミアブレスタッナウ"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "B12"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "drop pop candy"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "劣等上等"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "Boy"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "DDD"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "感情御中 - WANT U LUV IT-"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "-ムーブのための試奏曲 Nr.4-"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "たい"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "金字塔"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 25,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 26,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 27,
+            "liveItemSongName": "ディア"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 28,
+            "liveItemSongName": "ギガンティックO.T.N"
+          },
+          {
+            "liveId": 68,
+            "liveItemNo": 1,
+            "liveItemSongNo": 29,
+            "liveItemSongName": "-Opening-"
           }
         ],
         "posts": []
@@ -58,30 +583,212 @@
     "reports": []
   },
   {
-    "liveId": 65,
+    "liveId": 67,
+    "type": "event",
+    "title": "Sammy presents NEW HORIZON FEST",
+    "name": "Reol",
+    "date": "2025-08-02",
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#06D303",
+    "themeColorSecondary": "#0E3113",
+    "posts": [
+      {
+        "liveId": 67,
+        "livePostNo": 1,
+        "livePostId": "1951432614801449231",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\"><a href=\"https://t.co/YuPy9QcKvY\">pic.twitter.com/YuPy9QcKvY</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1951432614801449231?ref_src=twsrc%5Etfw\">August 1, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 2,
+        "livePostId": "1951260325678031234",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">𝗔𝗥𝗘 𝗬𝗢𝗨 𝗥𝗘𝗔𝗗𝗬?<br><br>🍣🍣🍣🍣🍣<br><br>Performing tomorrow at<a href=\"https://twitter.com/NEWH0RIZ0NFEST?ref_src=twsrc%5Etfw\">@NEWH0RIZ0NFEST</a> <a href=\"https://twitter.com/hashtag/FZMZ?src=hash&amp;ref_src=twsrc%5Etfw\">#FZMZ</a> <a href=\"https://twitter.com/hashtag/NEW_HORIZON_FEST?src=hash&amp;ref_src=twsrc%5Etfw\">#NEW_HORIZON_FEST</a> <a href=\"https://twitter.com/hashtag/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%9B%E3%83%A9?src=hash&amp;ref_src=twsrc%5Etfw\">#ニューホラ</a> <a href=\"https://t.co/KoYih2PlIW\">pic.twitter.com/KoYih2PlIW</a></p>&mdash; FZMZ - ファゾムズ (@FZMZ_Official) <a href=\"https://twitter.com/FZMZ_Official/status/1951260325678031234?ref_src=twsrc%5Etfw\">August 1, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 3,
+        "livePostId": "1951470751925797095",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">FZMZありがとうございました🧊<br>MAH is DEAD👿👿👿<a href=\"https://twitter.com/hashtag/NEWHORIZONFEST?src=hash&amp;ref_src=twsrc%5Etfw\">#NEWHORIZONFEST</a> <a href=\"https://twitter.com/hashtag/FZMZ?src=hash&amp;ref_src=twsrc%5Etfw\">#FZMZ</a> <a href=\"https://t.co/7k5uHORWE5\">pic.twitter.com/7k5uHORWE5</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1951470751925797095?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 4,
+        "livePostId": "1951511886585020718",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reolありがとうございました🔥<a href=\"https://twitter.com/hashtag/NEWHORIZONFES?src=hash&amp;ref_src=twsrc%5Etfw\">#NEWHORIZONFES</a> <a href=\"https://t.co/EmFda8Liei\">pic.twitter.com/EmFda8Liei</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1951511886585020718?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 5,
+        "livePostId": "1951498770379841545",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">✨️Thank you✨️<br><br>2025.08.02(Sat) ＠幕張メッセ<br>FZMZ(<a href=\"https://twitter.com/FZMZ_Official?ref_src=twsrc%5Etfw\">@FZMZ_Official</a>)<br> Live at NEWHORIZONFEST <br><br>photo by <a href=\"https://twitter.com/kouhey0622?ref_src=twsrc%5Etfw\">@kouhey0622</a><a href=\"https://twitter.com/hashtag/Sammy?src=hash&amp;ref_src=twsrc%5Etfw\">#Sammy</a> <a href=\"https://twitter.com/hashtag/NEWHORIZONFEST?src=hash&amp;ref_src=twsrc%5Etfw\">#NEWHORIZONFEST</a> <a href=\"https://twitter.com/hashtag/FZMZ?src=hash&amp;ref_src=twsrc%5Etfw\">#FZMZ</a> <a href=\"https://t.co/tXLeAz8Lpw\">pic.twitter.com/tXLeAz8Lpw</a></p>&mdash; NEW HORIZON FEST (@NEWH0RIZ0NFEST) <a href=\"https://twitter.com/NEWH0RIZ0NFEST/status/1951498770379841545?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 6,
+        "livePostId": "1951546015749906686",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">THX new HORIZON Fest<br><br>DAWN STAGE O.A. <a href=\"https://twitter.com/hashtag/FZMZ?src=hash&amp;ref_src=twsrc%5Etfw\">#FZMZ</a> 🍣<br>Danger Danger feat. icy<br><br>DUSK STAGE <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> 🤍<br>赤裸裸<br>劣等上等<br>十中八九<br>煩悩遊戯<br>ギガンティック O.T.N<br>宵々古今<br>LUVORATORRRRRY!<br>No title<br>第六感<br><br>みんなと遊べて最高の夏でした<br>続きは横浜アリーナで、お待ちしてる<a href=\"https://t.co/LH6BztlDoF\">https://t.co/LH6BztlDoF</a> <a href=\"https://t.co/Vem5xcGagp\">pic.twitter.com/Vem5xcGagp</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1951546015749906686?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 7,
+        "livePostId": "1951547386884661385",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">それでは、また明日 <a href=\"https://twitter.com/hashtag/WhereIsReol?src=hash&amp;ref_src=twsrc%5Etfw\">#WhereIsReol</a> <a href=\"https://t.co/vxEZb4WwSv\">pic.twitter.com/vxEZb4WwSv</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1951547386884661385?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 67,
+        "livePostNo": 8,
+        "livePostId": "1951553562200191165",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">✨️Thank you✨️<br><br>2025.08.02(Sat) ＠幕張メッセ<br>Reol(<a href=\"https://twitter.com/RRReol?ref_src=twsrc%5Etfw\">@RRReol</a>)<br> Live at NEWHORIZONFEST <br><br>photo by <a href=\"https://twitter.com/kawado_photo?ref_src=twsrc%5Etfw\">@kawado_photo</a><a href=\"https://twitter.com/hashtag/Sammy?src=hash&amp;ref_src=twsrc%5Etfw\">#Sammy</a> <a href=\"https://twitter.com/hashtag/NEWHORIZONFEST?src=hash&amp;ref_src=twsrc%5Etfw\">#NEWHORIZONFEST</a> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://t.co/Ou7Qh8nMkp\">pic.twitter.com/Ou7Qh8nMkp</a></p>&mdash; NEW HORIZON FEST (@NEWH0RIZ0NFEST) <a href=\"https://twitter.com/NEWH0RIZ0NFEST/status/1951553562200191165?ref_src=twsrc%5Etfw\">August 2, 2025</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 67,
+        "liveItemNo": 1,
+        "liveItemName": "千葉",
+        "date": "2025-08-02",
+        "place": "幕張メッセ ホール 9・10・11",
+        "placeSite": "https://www.m-messe.co.jp/",
+        "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "劣等上等"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "ギガンティック O.T.N"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "宵々古今"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "No title"
+          },
+          {
+            "liveId": 67,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "第六感"
+          }
+        ],
+        "posts": []
+      }
+    ],
+    "reports": []
+  },
+  {
+    "liveId": 66,
     "type": "event",
     "title": "須田景凪 presents \"MINGLE -三面鏡-“",
     "name": "Reol",
     "date": "2025-07-26",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E9E5C0",
+    "themeColorSecondary": "#48223B",
     "posts": [
       {
-        "liveId": 65,
+        "liveId": 66,
         "livePostNo": 1,
         "livePostId": "1901470175234601436",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">🔸NEWS🔸<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> が出演する「須田景凪 presents &quot;MINGLE -三面鏡-&quot;」のMINGLE 最速先行が開始しました！<br>どなた様もお申し込みいただけます。<br><br>🗓️2025年7月26日(土)<br>📍Zepp Namba(OSAKA)<br>🕕開場17:00 / 開演18:00<br>🎫￥7,500(D代別)<br><br>w/ 須田景凪 <a href=\"https://twitter.com/balloon0120?ref_src=twsrc%5Etfw\">@balloon0120</a><br>Chevon <a href=\"https://twitter.com/Chev0n?ref_src=twsrc%5Etfw\">@chev0n</a>… <a href=\"https://t.co/lQwSWzaU07\">pic.twitter.com/lQwSWzaU07</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1901470175234601436?ref_src=twsrc%5Etfw\">March 17, 2025</a></blockquote>"
       },
       {
-        "liveId": 65,
+        "liveId": 66,
         "livePostNo": 2,
         "livePostId": "1896851493359349837",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">アルバムFall Apartのご縁で、<br>須田景凪くん <a href=\"https://twitter.com/balloon0120?ref_src=twsrc%5Etfw\">@balloon0120</a> のライヴ「MINGLE」に出演させていただきます<br>大阪です、どうぞ宜しく<br><br>🎫 <a href=\"https://t.co/rjTEdhyCiH\">https://t.co/rjTEdhyCiH</a> <a href=\"https://t.co/Rq2mwQwSlI\">pic.twitter.com/Rq2mwQwSlI</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1896851493359349837?ref_src=twsrc%5Etfw\">March 4, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 3,
+        "livePostId": "1948999950483825002",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">本日は大阪Zepp Nambaにて<br>景凪くん主催 MINGLE 三面鏡<br>よろしくお願いします🪞🪞🪞 <a href=\"https://t.co/V5TjysKmBF\">pic.twitter.com/V5TjysKmBF</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1948999950483825002?ref_src=twsrc%5Etfw\">July 26, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 4,
+        "livePostId": "1949093589180391735",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">本日のミングルな装い<a href=\"https://twitter.com/hashtag/MINGLE%E4%B8%89%E9%9D%A2%E9%8F%A1?src=hash&amp;ref_src=twsrc%5Etfw\">#MINGLE三面鏡</a> <a href=\"https://t.co/v9tkZS8b1s\">pic.twitter.com/v9tkZS8b1s</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1949093589180391735?ref_src=twsrc%5Etfw\">July 26, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 5,
+        "livePostId": "1949093878705127916",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">煩悩遊戯で、沈ませたのはじめて</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1949093878705127916?ref_src=twsrc%5Etfw\">July 26, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 6,
+        "livePostId": "1949440487259299885",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">須田景凪 presents <a href=\"https://twitter.com/hashtag/MINGLE%E4%B8%89%E9%9D%A2%E9%8F%A1?src=hash&amp;ref_src=twsrc%5Etfw\">#MINGLE三面鏡</a><br><br>三者三様に繋ぎあったステージの熱　景凪くんとChevonと皆さんと辿り着いた最後のシャルルは格別でした　孤軍奮闘傷だらけなあの日もこの夜につながるから、もっともっと音楽は光る<br><br>わたしももっと自分の音楽を鳴らしてたい<br>ベストフレンド須田景凪、ありがとう！ <a href=\"https://t.co/ojirTre5tj\">pic.twitter.com/ojirTre5tj</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1949440487259299885?ref_src=twsrc%5Etfw\">July 27, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 7,
+        "livePostId": "1949093342857359396",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">須田景凪presents <a href=\"https://twitter.com/hashtag/MINGLE%E4%B8%89%E9%9D%A2%E9%8F%A1?src=hash&amp;ref_src=twsrc%5Etfw\">#MINGLE三面鏡</a><br><br>レディーレ Fall apart arr.<br>平面鏡<br>ヒビカセ<br>綺羅綺羅<br>失楽園<br>RE RESCUE<br>煩悩遊戯<br>劣等上等<br>煽げや尊し<br><br>互いの姿から生まれた熱が呼応しあっていつまでも止まない、景凪くんの言う通り最高の夜でした　素晴らしい時間をありがとうございました🪞 <a href=\"https://twitter.com/balloon0120?ref_src=twsrc%5Etfw\">@balloon0120</a> <a href=\"https://t.co/yBBabg2zYk\">pic.twitter.com/yBBabg2zYk</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1949093342857359396?ref_src=twsrc%5Etfw\">July 26, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 8,
+        "livePostId": "1949784654221123714",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\">🪞🪞🪞🐐🐈‍⬛🎈 <a href=\"https://t.co/FdbyXatU5L\">pic.twitter.com/FdbyXatU5L</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1949784654221123714?ref_src=twsrc%5Etfw\">July 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 9,
+        "livePostId": "1950149700008759327",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">第六感/Reol(cover)<a href=\"https://twitter.com/RRReol?ref_src=twsrc%5Etfw\">@RRReol</a> <br>for &quot;MINGLE - 三面鏡&quot;<br><br>Rearrange<br>須田景凪,赤山コウ <a href=\"https://twitter.com/red_kou_drum?ref_src=twsrc%5Etfw\">@red_kou_drum</a> <a href=\"https://t.co/as9xZd3QFY\">pic.twitter.com/as9xZd3QFY</a></p>&mdash; 須田景凪  バルーン (@balloon0120) <a href=\"https://twitter.com/balloon0120/status/1950149700008759327?ref_src=twsrc%5Etfw\">July 29, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 66,
+        "livePostNo": 10,
+        "livePostId": "1950451598574178424",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">【ライブレポート】須田景凪×Reol×Chevon大阪三つ巴対バン、互いの曲をカバーしラストは「シャルル」でコラボ（写真21枚）<a href=\"https://t.co/2oBYd204NL\">https://t.co/2oBYd204NL</a><a href=\"https://twitter.com/hashtag/%E9%A0%88%E7%94%B0%E6%99%AF%E5%87%AA?src=hash&amp;ref_src=twsrc%5Etfw\">#須田景凪</a> <a href=\"https://twitter.com/hashtag/MINGLE?src=hash&amp;ref_src=twsrc%5Etfw\">#MINGLE</a> <a href=\"https://t.co/PhkXn2elQ0\">pic.twitter.com/PhkXn2elQ0</a></p>&mdash; 音楽ナタリー (@natalie_mu) <a href=\"https://twitter.com/natalie_mu/status/1950451598574178424?ref_src=twsrc%5Etfw\">July 30, 2025</a></blockquote>"
       }
     ],
     "items": [
       {
-        "liveId": 65,
+        "liveId": 66,
         "liveItemNo": 1,
         "liveItemName": "大阪",
         "date": "2025-07-26",
@@ -92,16 +799,204 @@
         "spotifyPlaylistId": null,
         "setList": [
           {
-            "liveId": 65,
+            "liveId": 66,
             "liveItemNo": 1,
             "liveItemSongNo": 1,
-            "liveItemSongName": "(未開催)"
+            "liveItemSongName": "レディーレ Fall apart arr."
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "綺羅綺羅"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "失楽園"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "RE RESCUE"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "劣等上等"
+          },
+          {
+            "liveId": 66,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "煽げや尊し"
           }
         ],
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveId": 66,
+        "liveReportNo": 1,
+        "liveReportName": "須田景凪×Reol×Chevon大阪三つ巴対バン、互いの曲をカバーしラストは「シャルル」でコラボ",
+        "liveReportUrl": "https://natalie.mu/music/news/634223"
+      }
+    ]
+  },
+  {
+    "liveId": 65,
+    "type": "event",
+    "title": "DEAD POP FESTiVAL 2025",
+    "name": "Reol",
+    "date": "2025-06-28",
+    "siteUrl": "https://deadpopfest.com/",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E72C5F",
+    "themeColorSecondary": "#010000",
+    "posts": [
+      {
+        "liveId": 65,
+        "livePostNo": 1,
+        "livePostId": "1938763652406170025",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">DPFだ！！！！！14:10！！！！CAVE STAGEだ！！！！！！宜しくお願いします！！！！！<a href=\"https://twitter.com/hashtag/DPF25?src=hash&amp;ref_src=twsrc%5Etfw\">#DPF25</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938763652406170025?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 2,
+        "livePostId": "1938855188414271940",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\">🔥🔥🔥🔥🔥<br> <a href=\"https://t.co/HnXJ9o8I8B\">pic.twitter.com/HnXJ9o8I8B</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938855188414271940?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 3,
+        "livePostId": "1938876513459605878",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">最高ーーーーーー❤️‍🔥❤️‍🔥❤️‍🔥<a href=\"https://twitter.com/hashtag/DPF25?src=hash&amp;ref_src=twsrc%5Etfw\">#DPF25</a> <a href=\"https://t.co/6wuicgVp6U\">pic.twitter.com/6wuicgVp6U</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938876513459605878?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 4,
+        "livePostId": "1938941422402740225",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ロックスターと <a href=\"https://t.co/FbsQFnNlqk\">pic.twitter.com/FbsQFnNlqk</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938941422402740225?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 5,
+        "livePostId": "1938941754692247974",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">松本生まれロックンロール育ち <a href=\"https://t.co/LJwA9gOn7w\">pic.twitter.com/LJwA9gOn7w</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938941754692247974?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 6,
+        "livePostId": "1938942600318521609",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">そしてSiM MAHさんと！<br>MAHさんの背中はデカすぎるし、<br>SiMの懐は深すぎる <a href=\"https://twitter.com/MAHfromSiM?ref_src=twsrc%5Etfw\">@MAHfromSiM</a> <br><br>最高のDPFデビュー戦飾れました🔥<br>もっと炎天下でも余裕でぶち上げるので、絶対また呼んでください <a href=\"https://twitter.com/hashtag/DPF25?src=hash&amp;ref_src=twsrc%5Etfw\">#DPF25</a> <a href=\"https://t.co/VH6hFe1hVX\">pic.twitter.com/VH6hFe1hVX</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938942600318521609?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 7,
+        "livePostId": "1938968713920946533",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">オオエドランヴ -DPF Remix-<br>愛を込めてverse蹴りました🦶<br>今日だけ川崎おあつらえ向き<a href=\"https://twitter.com/hashtag/DPF25?src=hash&amp;ref_src=twsrc%5Etfw\">#DPF25</a> <a href=\"https://t.co/jyYTHja8si\">pic.twitter.com/jyYTHja8si</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938968713920946533?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 65,
+        "livePostNo": 8,
+        "livePostId": "1938848194018058702",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">SiM <a href=\"https://twitter.com/SiM_Official?ref_src=twsrc%5Etfw\">@SiM_Official</a> presents<br>DEAD POP FESTiVAL<br><br>初出演、ありがとうございました❤️‍🔥<br><br>M1.赤裸裸<br>M2.劣等上等<br>M3.十中八九<br>M4.煩悩遊戯<br>M5.ギガンティックO.T.N<br>M6.宵々古今<br>M7.オオエドランヴ<br>M8.第六感<br><br>カンカン照りの中<br>一緒に遊んでくれてありがとー！<br>間違いなく一番熱かった❤️‍🔥ラブDPF❤️‍🔥<a href=\"https://twitter.com/hashtag/DPF25?src=hash&amp;ref_src=twsrc%5Etfw\">#DPF25</a> <a href=\"https://t.co/bxoDCBAaNg\">pic.twitter.com/bxoDCBAaNg</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1938848194018058702?ref_src=twsrc%5Etfw\">June 28, 2025</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 65,
+        "liveItemNo": 1,
+        "liveItemName": "川崎",
+        "date": "2025-06-28",
+        "place": "川崎市東扇島東公園特設会場",
+        "placeSite": "",
+        "address": "〒210-0869 神奈川県川崎市川崎区東扇島58-1",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.9956536619898!2d139.7738118!3d35.5043857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018667e2f0ad087%3A0x6cdf9e463fbd2d3d!2z44CSMjEwLTA4Njkg56We5aWI5bed55yM5bed5bSO5biC5bed5bSO5Yy65p2x5omH5bO277yV77yY!5e0!3m2!1sja!2sjp!4v1764528394204!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "赤裸裸"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "劣等上等"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "ギガンティックO.T.N"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "宵々古今"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "オオエドランヴ"
+          },
+          {
+            "liveId": 65,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "第六感"
+          }
+        ],
+        "posts": []
+      }
+    ],
+    "reports": [
+      {
+        "liveId": 65,
+        "liveReportNo": 1,
+        "liveReportName": "【速レポ】<DEAD POP FESTiVAL 2025> Reol - DEAD POPへ挑んだ真っ向勝負、「ここでしか作れない景色、作りたいと思います」",
+        "liveReportUrl": "https://deadpopfest.com/report/2025/?p=1844"
+      }
+    ]
   },
   {
     "liveId": 64,
@@ -110,7 +1005,9 @@
     "name": "Reol",
     "date": "2025-05-23-2025-05-25",
     "siteUrl": "https://animeboston.com",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0170BF",
+    "themeColorSecondary": "#F0FFFD",
     "posts": [
       {
         "liveId": 64,
@@ -135,7 +1032,79 @@
             "liveId": 64,
             "liveItemNo": 1,
             "liveItemSongNo": 1,
-            "liveItemSongName": "(未開催)"
+            "liveItemSongName": "極彩色"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "感情御中"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "宵々古今"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "激白"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "RE RESCUE"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 64,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "No title"
           }
         ],
         "posts": []
@@ -150,7 +1119,9 @@
     "name": "Reol",
     "date": "2025-04-18〜2025-04-20",
     "siteUrl": "https://sakuracon.org/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#C5377F",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [
       {
         "liveId": 63,
@@ -175,7 +1146,79 @@
             "liveId": 63,
             "liveItemNo": 1,
             "liveItemSongNo": 1,
-            "liveItemSongName": "(未開催)"
+            "liveItemSongName": "極彩色"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "第六感"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "感情御中"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "煩悩遊戯"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "十中八九"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "切っ先"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "宵々古今"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "激白"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "RE RESCUE"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "ヒビカセ"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "LUVORATORRRRRY!"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "煽げや尊し"
+          },
+          {
+            "liveId": 63,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "No title"
           }
         ],
         "posts": []
@@ -190,7 +1233,9 @@
     "name": "Reol",
     "date": "2025-04-05",
     "siteUrl": "https://central-fest.com/s/central/?ima=0720",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#5708E6",
+    "themeColorSecondary": "#D450FC",
     "posts": [
       {
         "liveId": 62,
@@ -325,8 +1370,10 @@
     "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
     "name": "Reol",
     "date": "2025-02-16",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0C5196",
+    "themeColorSecondary": "#7094D2",
     "posts": [
       {
         "liveId": 61,
@@ -468,7 +1515,9 @@
     "name": "Reol",
     "date": "2024-01-19〜2024-06-08",
     "siteUrl": "https://reol.jp/feature/Culture_Curriculum",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#D5783F",
+    "themeColorSecondary": "#386F58",
     "posts": [
       {
         "liveId": 60,
@@ -1160,7 +2209,9 @@
     "name": "Reol",
     "date": "2024-11-10",
     "siteUrl": "https://litt.ly/wonderlivet",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#00FE0E",
+    "themeColorSecondary": "#000000",
     "posts": [
       {
         "liveId": 59,
@@ -1284,7 +2335,9 @@
     "name": "Reol",
     "date": "2024-11-02",
     "siteUrl": "https://weibo.com/u/1985372043",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#BFCFB2",
+    "themeColorSecondary": "#E1A998",
     "posts": [
       {
         "liveId": 58,
@@ -1407,8 +2460,10 @@
     "title": "Namba Culture Terminal 2024  -1st Anniversary-",
     "name": "Reol",
     "date": "2024-10-26",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#BC52AE",
+    "themeColorSecondary": "#46A1BE",
     "posts": [
       {
         "liveId": 57,
@@ -1557,7 +2612,9 @@
     "name": "Reol",
     "date": "2024-09-20",
     "siteUrl": "https://www.sonymusic.co.jp/artist/yama/info/564832",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0177FD",
+    "themeColorSecondary": "#FADA8D",
     "posts": [
       {
         "liveId": 56,
@@ -1707,6 +2764,8 @@
     "date": "2024-08-17",
     "siteUrl": "https://reol.jp/feature/no_title",
     "spotifyPlaylistId": "1xUEGwGVds5M8Tp4AyBZkW",
+    "themeColorPrimary": "#E3EDF6",
+    "themeColorSecondary": "#2A84B9",
     "posts": [
       {
         "liveId": 55,
@@ -1957,7 +3016,9 @@
     "name": "Reol",
     "date": "2024-07-30",
     "siteUrl": "https://www.youtube.com/live/NxtHvRVLzXM",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#F60035",
+    "themeColorSecondary": "#A00723",
     "posts": [
       {
         "liveId": 54,
@@ -2003,10 +3064,10 @@
         "liveItemName": "YouTube",
         "date": "2024-07-30",
         "place": "",
-        "placeSite": "https://www.youtube.com/live/NxtHvRVLzXM",
-        "address": null,
-        "googleMapsUrl": null,
-        "spotifyPlaylistId": null,
+        "placeSite": "",
+        "address": "",
+        "googleMapsUrl": "",
+        "spotifyPlaylistId": "",
         "setList": [
           {
             "liveId": 54,
@@ -2032,8 +3093,10 @@
     "title": "FZMZ 1st LIVE \"DEEP:DAWN\"",
     "name": "FZMZ(icy)",
     "date": "2024-07-20",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E65630",
+    "themeColorSecondary": "#FDAD02",
     "posts": [],
     "items": [
       {
@@ -2072,7 +3135,9 @@
     "name": "Reol",
     "date": "2024-06-22",
     "siteUrl": "https://frederic-official.com/feature/homepartytour_umimoyasu2024",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#A9CD9A",
+    "themeColorSecondary": "#C0CD8E",
     "posts": [
       {
         "liveId": 52,
@@ -2199,6 +3264,8 @@
     "date": "2024-04-27",
     "siteUrl": "https://www.choongakusai.jp/",
     "spotifyPlaylistId": "1ll7FOvXASbN58LSWTUqve",
+    "themeColorPrimary": "#00E2CE",
+    "themeColorSecondary": "#FF82BA",
     "posts": [
       {
         "liveId": 51,
@@ -2295,7 +3362,9 @@
     "name": "Reol",
     "date": "2024-04-06〜2024-04-17",
     "siteUrl": "https://reol.jp/feature/secret_LEGIT",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#4FF090",
+    "themeColorSecondary": "#565656",
     "posts": [
       {
         "liveId": 50,
@@ -2618,6 +3687,8 @@
     "date": "2024-03-16〜2024-03-23",
     "siteUrl": "https://reol.jp/feature/unbox_2324",
     "spotifyPlaylistId": "3JDPzO8M5PRCHKreXoBmbA",
+    "themeColorPrimary": "#E85920",
+    "themeColorSecondary": "#B9B9B9",
     "posts": [],
     "items": [
       {
@@ -2715,7 +3786,9 @@
     "name": "Reol",
     "date": "2024-01-07",
     "siteUrl": "https://aniplex-online-fest.com/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#753DD4",
+    "themeColorSecondary": "#8E67D9",
     "posts": [],
     "items": [
       {
@@ -2757,6 +3830,8 @@
     "date": "2023-12-29",
     "siteUrl": "",
     "spotifyPlaylistId": "4FGL4RN5PN9JLL1Cickeut",
+    "themeColorPrimary": "#3CAFCE",
+    "themeColorSecondary": "#AEEDF2",
     "posts": [],
     "items": [
       {
@@ -2888,7 +3963,9 @@
     "name": "Reol",
     "date": "2023-11-18〜2024-03-20",
     "siteUrl": "https://reol.jp/feature/unbox_2324",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FE8630",
+    "themeColorSecondary": "#2E2926",
     "posts": [
       {
         "liveId": 46,
@@ -5804,8 +6881,10 @@
     "title": "Simple Life Shanghai 上海簡単生活節",
     "name": "Reol",
     "date": "2023-10-05",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#F8F80A",
+    "themeColorSecondary": "#6BABD7",
     "posts": [],
     "items": [
       {
@@ -5923,6 +7002,8 @@
     "date": "2023-09-10",
     "siteUrl": "",
     "spotifyPlaylistId": "63wUXZj1B66ksl46FsnBzs",
+    "themeColorPrimary": "#E44393",
+    "themeColorSecondary": "#0274BD",
     "posts": [],
     "items": [
       {
@@ -6037,8 +7118,10 @@
     "title": "SUMMER SONIC 2023",
     "name": "Reol",
     "date": "2023-08-19",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#1F7CBF",
+    "themeColorSecondary": "#DC6A2E",
     "posts": [],
     "items": [
       {
@@ -6128,8 +7211,10 @@
     "title": "Impactnation Japan Festival 2023",
     "name": "Reol",
     "date": "2023-07-30",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#CC403F",
+    "themeColorSecondary": "#721714",
     "posts": [],
     "items": [
       {
@@ -6285,8 +7370,10 @@
     "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
     "name": "Reol",
     "date": "2023-07-22",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E9BC00",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [],
     "items": [
       {
@@ -6388,8 +7475,10 @@
     "title": "LuckyFes'23",
     "name": "Reol",
     "date": "2023-07-16",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#54BF3F",
+    "themeColorSecondary": "#DFE5DF",
     "posts": [],
     "items": [
       {
@@ -6485,8 +7574,10 @@
     "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
     "name": "Reol",
     "date": "2023-05-14",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FABE00",
+    "themeColorSecondary": "#000000",
     "posts": [],
     "items": [
       {
@@ -6597,8 +7688,10 @@
     "title": "さよなら中野サンプラザ音楽祭",
     "name": "Reol",
     "date": "2023-05-13",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#EF0A4C",
+    "themeColorSecondary": "#FBFAC8",
     "posts": [],
     "items": [
       {
@@ -6746,8 +7839,10 @@
     "title": "ARABAKI ROCK FEST. 2023",
     "name": "Reol",
     "date": "2023-04-30",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#A6CCD7",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [],
     "items": [
       {
@@ -6859,6 +7954,8 @@
     "date": "2023-01-26〜2023-03-05",
     "siteUrl": "https://reol.jp/feature/onemanlive_2023",
     "spotifyPlaylistId": "7xJ4kqGEPDUrHqWyVoJgsA",
+    "themeColorPrimary": "#D8BE23",
+    "themeColorSecondary": "#FF5824",
     "posts": [
       {
         "liveId": 36,
@@ -8654,8 +9751,10 @@
     "title": "COUNTDOWN JAPAN 22/23",
     "name": "Reol",
     "date": "2022-12-29",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#038EE1",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [],
     "items": [
       {
@@ -8749,8 +9848,10 @@
     "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
     "name": "Reol",
     "date": "2022-12-23",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#00FE0D",
+    "themeColorSecondary": "#151716",
     "posts": [],
     "items": [
       {
@@ -8881,8 +9982,10 @@
     "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
     "name": "Reol",
     "date": "2022-10-15",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0071B6",
+    "themeColorSecondary": "#36287D",
     "posts": [],
     "items": [
       {
@@ -8998,8 +10101,10 @@
     "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
     "name": "Reol",
     "date": "2022-08-06",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E42311",
+    "themeColorSecondary": "#EAEAEA",
     "posts": [],
     "items": [
       {
@@ -9144,8 +10249,10 @@
     "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
     "name": "Reol",
     "date": "2022-07-23",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E9BC00",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [],
     "items": [
       {
@@ -9187,6 +10294,8 @@
     "date": "2022-04-27〜2022-05-13",
     "siteUrl": "https://reol.jp/feature/tour2022",
     "spotifyPlaylistId": "7p5yOOHDIKqmV843OGGwsI",
+    "themeColorPrimary": "#E36692",
+    "themeColorSecondary": "#DED5DA",
     "posts": [],
     "items": [
       {
@@ -9915,8 +11024,10 @@
     "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
     "name": "Reol",
     "date": "2021-08-07",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FE6818",
+    "themeColorSecondary": "#9A3B52",
     "posts": [],
     "items": [
       {
@@ -9954,8 +11065,10 @@
     "title": "Reol Installation Concert 2021「音沙汰」",
     "name": "Reol",
     "date": "2021-06-26〜2021-06-27",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#39596E",
+    "themeColorSecondary": "#528598",
     "posts": [
       {
         "liveId": 28,
@@ -10388,8 +11501,10 @@
     "title": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
     "name": "Reol",
     "date": "2021-03-04",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#00EAB4",
+    "themeColorSecondary": "#FBFBC9",
     "posts": [],
     "items": [
       {
@@ -10469,6 +11584,8 @@
     "date": "2020-12-30",
     "siteUrl": null,
     "spotifyPlaylistId": null,
+    "themeColorPrimary": null,
+    "themeColorSecondary": null,
     "posts": [],
     "items": [
       {
@@ -10501,8 +11618,10 @@
     "title": "YOUTUBE MUSIC WEEKEND",
     "name": "Reol",
     "date": "2020-12-06",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#304769",
+    "themeColorSecondary": "#D1FF00",
     "posts": [],
     "items": [
       {
@@ -10535,8 +11654,10 @@
     "title": "JAPAN ONLINE FESTIVAL 2020",
     "name": "Reol",
     "date": "2020-11-07",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#00A0E9",
+    "themeColorSecondary": "#FFFFFF",
     "posts": [],
     "items": [
       {
@@ -10640,7 +11761,9 @@
     "name": "Reol",
     "date": "2020-10-11",
     "siteUrl": "https://youtu.be/ieF_TtJhAxo",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#D92026",
+    "themeColorSecondary": "#FFFDFE",
     "posts": [],
     "items": [
       {
@@ -10687,8 +11810,10 @@
     "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
     "name": "Reol",
     "date": "2020-02-08〜2020-08-16",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#EAD79C",
+    "themeColorSecondary": "#AB7932",
     "posts": [
       {
         "liveId": 22,
@@ -11094,8 +12219,10 @@
     "title": "COUNTDOWN JAPAN 19/20",
     "name": "Reol",
     "date": "2019-12-29",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FEE4C9",
+    "themeColorSecondary": "#A87B82",
     "posts": [],
     "items": [
       {
@@ -11199,8 +12326,10 @@
     "title": "YouTube FanFest Japan 2019",
     "name": "Reol",
     "date": "2019-12-04",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#D92026",
+    "themeColorSecondary": "#FFFDFE",
     "posts": [],
     "items": [
       {
@@ -11247,8 +12376,10 @@
     "title": "第16回 東京国際ミュージック・マーケット",
     "name": "Reol",
     "date": "2019-10-28",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#AFADAE",
+    "themeColorSecondary": "#999999",
     "posts": [],
     "items": [
       {
@@ -11283,6 +12414,8 @@
     "date": "2019-10-06〜2019-10-19",
     "siteUrl": "",
     "spotifyPlaylistId": "4GNKKuRmq9zTrKQHW8Z9qT",
+    "themeColorPrimary": "#101012",
+    "themeColorSecondary": "#97A6A3",
     "posts": [
       {
         "liveId": 18,
@@ -11727,8 +12860,10 @@
     "title": "宗像フェス Fukutsu Koinoura",
     "name": "Reol",
     "date": "2019-09-22",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0365B0",
+    "themeColorSecondary": "#E50021",
     "posts": [],
     "items": [
       {
@@ -11768,8 +12903,10 @@
     "title": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
     "name": "Reol",
     "date": "2019-08-03",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#5AB2D6",
+    "themeColorSecondary": "#3C80BD",
     "posts": [],
     "items": [
       {
@@ -11908,8 +13045,10 @@
     "title": "Reol Secret Live 2019「文明ココロミー」",
     "name": "Reol",
     "date": "2019-07-13〜2019-07-19",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#8798A2",
+    "themeColorSecondary": "#D9C8D0",
     "posts": [
       {
         "liveId": 15,
@@ -12172,7 +13311,9 @@
     "name": "Reol",
     "date": "2018-10-26〜2019-01-13",
     "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#CD0000",
+    "themeColorSecondary": "#270000",
     "posts": [
       {
         "liveId": 14,
@@ -12713,8 +13854,10 @@
     "title": "Reol Oneman LIVE「刮目相待」",
     "name": "Reol",
     "date": "2018-06-01〜2018-06-08",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#9A0201",
+    "themeColorSecondary": "#000F4A",
     "posts": [
       {
         "liveId": 13,
@@ -13139,7 +14282,9 @@
     "name": "Reol",
     "date": "2018-03-17",
     "siteUrl": "https://www.rockmatsuri.com/2018/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FFF100",
+    "themeColorSecondary": "#E70012",
     "posts": [
       {
         "liveId": 12,
@@ -13234,7 +14379,9 @@
     "name": "REOL",
     "date": "2017-10-20〜2017-10-22",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/live/syuurakusyou/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#BF1C1C",
+    "themeColorSecondary": "#620E0E",
     "posts": [
       {
         "liveId": 11,
@@ -13408,8 +14555,10 @@
     "title": "HYPER JAPAN Festival 2017 ",
     "name": "REOL",
     "date": "2017-07-14〜2017-07-16",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#E51867",
+    "themeColorSecondary": "#FFFEFF",
     "posts": [
       {
         "liveId": 10,
@@ -13491,8 +14640,10 @@
     "title": "AIR-G' 35th Anniversary New Music Lab 2",
     "name": "REOL",
     "date": "2017-04-28",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#F7EE13",
+    "themeColorSecondary": "#0297DB",
     "posts": [
       {
         "liveId": 9,
@@ -13523,7 +14674,9 @@
     "name": "REOL",
     "date": "2017-02-26〜2017-03-12",
     "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/live/tennkainokoushiki/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#222A3F",
+    "themeColorSecondary": "#010119",
     "posts": [
       {
         "liveId": 8,
@@ -14109,8 +15262,10 @@
     "title": "BIG FOREST LIVE",
     "name": "れをる",
     "date": "2016-08-28",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#DD5310",
+    "themeColorSecondary": "#684A31",
     "posts": [],
     "items": [
       {
@@ -14164,8 +15319,10 @@
     "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
     "name": "れをる",
     "date": "2016-07-02",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#242225",
+    "themeColorSecondary": "#21494B",
     "posts": [],
     "items": [
       {
@@ -14241,7 +15398,9 @@
     "name": "れをる",
     "date": "2015-10-23〜2016-01-09",
     "siteUrl": "https://www.jvcmusic.co.jp/reol/live/",
-    "spotifyPlaylistId": null,
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#0A0350",
+    "themeColorSecondary": "#0B0716",
     "posts": [],
     "items": [
       {
@@ -14299,8 +15458,10 @@
     "title": "Stars on Planet 2015 大宮",
     "name": "れをる",
     "date": "2015-07-11",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#262F34",
+    "themeColorSecondary": "#677E8C",
     "posts": [],
     "items": [
       {
@@ -14545,8 +15706,10 @@
     "title": "ウタカツ！スーパーライブ2015",
     "name": "れをる",
     "date": "2015-03-22",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#ECE441",
+    "themeColorSecondary": "#D01E76",
     "posts": [],
     "items": [
       {
@@ -14849,8 +16012,10 @@
     "title": "nico nico Spirit.",
     "name": "れをる",
     "date": "2015-02-01",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#13BAE4",
+    "themeColorSecondary": "#EDFEFF",
     "posts": [],
     "items": [
       {
@@ -14875,8 +16040,10 @@
     "title": "amphead nico nico singer music live vol.03",
     "name": "れをる",
     "date": "2014-02-01",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#D60050",
+    "themeColorSecondary": "#FEFEFE",
     "posts": [],
     "items": [
       {
@@ -14908,8 +16075,10 @@
     "title": "ぎがばなな ざ べすと シークレットライブ",
     "name": "れをる",
     "date": "2013-09-23",
-    "siteUrl": null,
-    "spotifyPlaylistId": null,
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#FFE89D",
+    "themeColorSecondary": "#E07769",
     "posts": [],
     "items": [
       {
