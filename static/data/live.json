@@ -1,47 +1,75 @@
 [
   {
-    "liveId": 80,
+    "liveId": 73,
+    "type": "event",
+    "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+    "name": "Reol",
+    "date": "2026-08-01",
+    "siteUrl": "https://giga-osaka.com/",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#EC6C00",
+    "themeColorSecondary": "#232971",
+    "posts": [],
+    "items": [
+      {
+        "liveId": 73,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2026-08-01",
+        "place": "舞洲スポーツアイランド",
+        "placeSite": "https://shisetsu.mizuno.jp/m-7402",
+        "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.515729870637!2d135.3924789119308!3d34.66693108491004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1778689353625!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [],
+        "posts": []
+      }
+    ],
+    "reports": []
+  },
+  {
+    "liveId": 72,
     "type": "oneman",
     "title": "Reol Oneman Live 2026 美辞学",
     "name": "Reol",
-    "date": "2026-03-14〜2026-07-10",
+    "date": "2026-03-14〜2026-07-18",
     "siteUrl": "https://reol.jp/feature/bijigaku",
     "spotifyPlaylistId": "",
     "themeColorPrimary": "#B39267",
     "themeColorSecondary": "#EAE0D7",
     "posts": [
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 1,
         "livePostId": "1989531298483110169",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">本日18時より、来年3月から廻る<br>「Reol Oneman Live 2026 &quot;美辞学&quot;」<br>のFC Legit最速先行受付がはじまります<a href=\"https://t.co/GOUvw4oGV3\">https://t.co/GOUvw4oGV3</a><br><br>わたしは学生時代を長野ですごしました　その当時好きだったいくつかの邦楽のアーティストが長野まで公演にくることはとても稀なことでした… <a href=\"https://t.co/xZou2HLHud\">pic.twitter.com/xZou2HLHud</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1989531298483110169?ref_src=twsrc%5Etfw\">November 15, 2025</a></blockquote>"
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 2,
         "livePostId": "1989619873409020091",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2026年、全国ツアー開催決定❕<br><br>『Reol Oneman Live 2026 美辞学』<br><br>FC&quot;Legit&quot;会員限定最速先行の受付を開始しました🕊️<br><br>🎫お申し込みはこちら<a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><br><br>FC&#39;Legit&#39;新規入会<a href=\"https://t.co/TmqJEcURV3\">https://t.co/TmqJEcURV3</a><br><br> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/ReoLegit?src=hash&amp;ref_src=twsrc%5Etfw\">#ReoLegit</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/KCalQOQU0O\">pic.twitter.com/KCalQOQU0O</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1989619873409020091?ref_src=twsrc%5Etfw\">November 15, 2025</a></blockquote>"
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 3,
         "livePostId": "1993254276559495673",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">たくさんの先行申し込みありがとうございます❣❣<br>既に結構バーストしているところが見られるのでご覚悟、、、有難う <a href=\"https://t.co/hhY9aAE4Rn\">https://t.co/hhY9aAE4Rn</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1993254276559495673?ref_src=twsrc%5Etfw\">November 25, 2025</a></blockquote>"
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 4,
         "livePostId": "1994762558809805047",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学ツアーで廻る、<br>21都市のご当地ソングをここにゆる募集<br>予定は未定　否　乞うご期待💬<a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1994762558809805047?ref_src=twsrc%5Etfw\">November 29, 2025</a></blockquote>"
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 5,
         "livePostId": "1987498701863149593",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">そして、来年3月より全21都市を巡る<br>ライヴツアー&quot;美辞学&quot;を開催します🪨⛏️<br>⠀ ⠀<a href=\"https://t.co/GOUvw4oGV3\">https://t.co/GOUvw4oGV3</a><br>⠀ ⠀<br>初日3/14の栃木公演を皮切りに、おなじみの都市に加え未開の地へたくさん赴きます　前半はライヴハウス、後半はホールへ<br>⠀ ⠀<br>美辞学パレード、是非お越しください！<a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/WVrGIBz87T\">pic.twitter.com/WVrGIBz87T</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1987498701863149593?ref_src=twsrc%5Etfw\">November 9, 2025</a></blockquote>"
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "livePostNo": 6,
         "livePostId": "1994766519708868720",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> Oneman Live 2026 &quot; <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> &quot;<br><br>🌟は初めてライヴに赴く都市<br><br>[ライヴハウス篇]<br><br>03.14 sat｜栃木🌟<br>HEAVEN&#39;S ROCK UTSUNOMIYA VJ-2<br><br>03.20 fri｜徳島🌟<br>徳島club GRINDHOUSE⁰<br>03.22 sun｜山口🌟<br>周南RISING HALL<br><br>03.28 sat｜兵庫<br>神戸ハーバースタジオ<br><br>04.04 sat｜三重🌟<br>松阪M&#39;AXA⁰<br>04.11…</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1994766519708868720?ref_src=twsrc%5Etfw\">November 29, 2025</a></blockquote>"
@@ -49,7 +77,7 @@
     ],
     "items": [
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 1,
         "liveItemName": "栃木",
         "date": "2026-03-14",
@@ -58,11 +86,255 @@
         "address": "栃木県宇都宮市宮園町5-33 東武宇都宮西口ビルB1F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7923519298633!2d139.87766411744383!3d36.55911940000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f67b953b5b7c3%3A0x8242cb57adeed091!2zSEVBVkVOJ1MgUk9DSyDlrofpg73lrq4gVkotMg!5e0!3m2!1sja!2sjp!4v1763452827581!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2032483923721408941",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今日になった！遂に美辞学は栃木初日<br>世間はホワイトデーなので物販のおすゝめはスパイスチョコレート🩶🩶<br>ご当地あにょちゃんもお見知り置きを<br>準備万端ヤル気も満タン宜しくう</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2032483923721408941?ref_src=twsrc%5Etfw\">March 13, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2032853400409485643",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ライヴハウスって最高</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2032853400409485643?ref_src=twsrc%5Etfw\">March 14, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2033068419025932377",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">前ツアー、今ツアー <a href=\"https://t.co/Iwx0KCPcfC\">pic.twitter.com/Iwx0KCPcfC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2033068419025932377?ref_src=twsrc%5Etfw\">March 15, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "2033087002607079898",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/ReoLegit?src=hash&amp;ref_src=twsrc%5Etfw\">#ReoLegit</a> [FC limited]<br><br>MEMOを更新🗒️🕊️<br>美辞学ツアー・M1 栃木宇都宮<a href=\"https://t.co/9iwEVny9OM\">https://t.co/9iwEVny9OM</a> <a href=\"https://t.co/j4tqjfkLM9\">pic.twitter.com/j4tqjfkLM9</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2033087002607079898?ref_src=twsrc%5Etfw\">March 15, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 1,
+            "liveItemPostNo": 5,
+            "liveItemPostId": "2032798311271604334",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at. HEAVEN&#39;S ROCK Utsunomiya VJ-2<br><br>遂に開幕！史上最長アルバムツアー「美辞学」ははじめましての栃木から。パンパンのフロアがこの旅を見送ってくれてるようで、心強い限りでした💫次回は徳島！<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/KMVtbFgGBv\">pic.twitter.com/KMVtbFgGBv</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2032798311271604334?ref_src=twsrc%5Etfw\">March 14, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 2,
         "liveItemName": "徳島",
         "date": "2026-03-20",
@@ -71,11 +343,241 @@
         "address": "徳島県徳島市秋田町2-23 ジョイフルビル3F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6610.42566365473!2d134.549314!3d34.064058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355372a7e88ea9f3%3A0xd18469e3d702bada!2sclub%20GRINDHOUSE!5e0!3m2!1sja!2sjp!4v1765044076787!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2034612149428093218",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学ツアー西日本へ上陸！<br>明日は徳島、22日は山口周南です<br>たのしい学び極める💫 <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/rpkRXFo6Qk\">pic.twitter.com/rpkRXFo6Qk</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2034612149428093218?ref_src=twsrc%5Etfw\">March 19, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2034949563380097443",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜徳島 club GRINDHOUSE<br><br>二公演目徳島！ステージとフロアの境目がわからなくなるぐらいの熱<br>はやくも連帯感とグルーヴが増し増しな夜になってまいりました、ありがとう！！<br>また明後日歌えるなんて、幸せだ<br><br>さらに重ねていこう　ネクスト山口周南へ <a href=\"https://t.co/XS0SpsTy6M\">pic.twitter.com/XS0SpsTy6M</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2034949563380097443?ref_src=twsrc%5Etfw\">March 20, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 2,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2034944919522222237",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at.徳島club GRINDHOUSE<br><br>Reol初上陸の徳島。熱を確かめ合うようなアツい時間でした！<br>次回は明後日、山口・周南！チケット若干数ございます。ご都合の合う方はぜひ🔥<br><br>❏TOUR SITE<a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/4UdM0ClxdF\">pic.twitter.com/4UdM0ClxdF</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2034944919522222237?ref_src=twsrc%5Etfw\">March 20, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 3,
         "liveItemName": "山口",
         "date": "2026-03-22",
@@ -84,24 +586,491 @@
         "address": "山口県周南市銀南街49番地4F",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13222.940123617624!2d131.7879645554199!3d34.05066740000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3544e6fde5f00001%3A0xd4d0c5e21e84a6d9!2sRISING%20HALL!5e0!3m2!1sja!2sus!4v1764560579834!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2035373505227939925",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">瀬戸大橋を渡って山口周南へ到着<br>コンビナートを観に行ったらどこからかサッカーボールが飛んできて、蹴り返したのを合図に突如試合開始<br><br>チームReol(6名) VS 地元の少年(1名)で30分程本気のサッカー　少年からの洗練を受けこちら仕上がってます、山口宜しく🔥🔥 <a href=\"https://t.co/085JFSC0qR\">pic.twitter.com/085JFSC0qR</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2035373505227939925?ref_src=twsrc%5Etfw\">March 21, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2035375714183323810",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">少年のサッカーに付き合うわたしと、もうさすがに疲れたので死角に隠れることで撒くことを試みるわたし <a href=\"https://t.co/h7uKIDPGWJ\">pic.twitter.com/h7uKIDPGWJ</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2035375714183323810?ref_src=twsrc%5Etfw\">March 21, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2035663694621966699",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜山口 周南RISING HALL<br><br>ツアー三公演目山口、終演！本州最西端の地にこれだけのリスナーが集ってくれること(でもまだまだもっと)  わたしたちの出逢いを祝うに相応しい夜でした　たくさんの初めましてをどうもありがとう！また来るよ、ネクスト兵庫〜！ <a href=\"https://t.co/AwEPLY3jIl\">pic.twitter.com/AwEPLY3jIl</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2035663694621966699?ref_src=twsrc%5Etfw\">March 22, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 3,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "2035669366667403670",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at.周南 RISING HALL<br><br>ツアー三公演目、終演！<br>山口で交わしたたくさんのはじめましてが、この旅の景色をまたひとつ増やしてくれました。<br>次回、神戸でお会いしましょう！<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/oPTLUZUTbD\">pic.twitter.com/oPTLUZUTbD</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2035669366667403670?ref_src=twsrc%5Etfw\">March 22, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 4,
-        "liveItemName": "兵庫",
+        "liveItemName": "神戸",
         "date": "2026-03-28",
         "place": "神戸Harbor Studio",
         "placeSite": "https://harbor-studio.net/about/?anchor=section03",
         "address": "兵庫県神戸市中央区波止場町6-3 HSビル",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13123.24261458181!2d135.185031!3d34.684728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f0228655555%3A0xfc96682fa0f83aeb!2z56We5oi4SGFyYm9yIFN0dWRpbw!5e0!3m2!1sja!2sus!4v1764560731648!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2037851583539827101",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜兵庫 神戸Harbor Studio<br><br>めちゃくちゃな熱気とその連鎖　音楽をやっていてよかったと、心の底から思わせてもらった神戸の夜でした　ありがとう！<br>ハーバースタジオでの記憶がまたひとつ<br>美辞学はさらに先へ、ネクスト三重！ <a href=\"https://t.co/wVzJuzBroy\">pic.twitter.com/wVzJuzBroy</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2037851583539827101?ref_src=twsrc%5Etfw\">March 28, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2037859669264449861",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">KOBE NIGHT <a href=\"https://t.co/AtKmXnJwyC\">pic.twitter.com/AtKmXnJwyC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2037859669264449861?ref_src=twsrc%5Etfw\">March 28, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 4,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2037862855597490235",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at 神戸Harbor Studio <br><br>ツアー四公演目は<br>UNBOX TOUR以来、再びこの場所へ<br>パンパンのフロア、溢れる熱気！<br>またこうして帰ってこられて嬉しいです🚢<br><br>次回、三重でお会いしましょう！<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/YSJ8Wwyeze\">pic.twitter.com/YSJ8Wwyeze</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2037862855597490235?ref_src=twsrc%5Etfw\">March 28, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 5,
         "liveItemName": "三重",
         "date": "2026-04-04",
@@ -110,11 +1079,234 @@
         "address": "三重県松阪市市場庄町1148-2",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13135.544016810038!2d136.517587!3d34.607044!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60046caa964eda33%3A0xa63b565b0224e680!2z44Op44Kk44OW44Of44Ol44O844K444OD44Kv44Oe44Kv44K1!5e0!3m2!1sja!2sus!4v1764560986362!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2040376488034443325",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜三重 松阪M&#39;AXA<br><br>五公演目はお初・三重松阪！君たちの地元にもれをるを連れてきてくれて、わたしをうたわせてくれてありがとーう　感謝もひとしおな夜でございました<br><br>美辞学との親密度もさらに増して来週末は青森へ伺います！続く↩️ <a href=\"https://t.co/Ym9oRQgEze\">pic.twitter.com/Ym9oRQgEze</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2040376488034443325?ref_src=twsrc%5Etfw\">April 4, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 5,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2040378379288170847",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at 三重・松阪M&#39;AXA<br><br>ツアー5公演目は<br>初めての三重、松坂<br>雨の中でも、会場には確かな熱がありました<br><br>次回、青森。チケット若干数ございます。<br>ぜひお越しください🎫<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/4QaC7805hr\">pic.twitter.com/4QaC7805hr</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2040378379288170847?ref_src=twsrc%5Etfw\">April 4, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 6,
         "liveItemName": "青森",
         "date": "2026-04-11",
@@ -123,11 +1315,257 @@
         "address": "青森県青森市安方2-11-3",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12075.880840115598!2d140.742654!3d40.828618!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9b9ee18a2dd15f%3A0x368eeea3b964138f!2z6Z2S5qOuUXVhcnRlcg!5e0!3m2!1sja!2sus!4v1764561155762!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "津軽海峡・冬景色",
+            "type": "cover",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2042574208379818021",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"es\" dir=\"ltr\">AOMORI ~ <a href=\"https://t.co/2h2lHGdAaC\">pic.twitter.com/2h2lHGdAaC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2042574208379818021?ref_src=twsrc%5Etfw\">April 10, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2042912947115299311",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜青森Quarter<br><br>遂に本州最北端、青森県青森市へ初・襲来！<br>どんな日も音楽にしてきてその先に今日があったんだな　君たちと過ごせて本当に特別でした、ありがとーーう！<br>ご覧、あれが竜飛岬……<br><br>美辞学は北から南へ<br>来週は長崎・熊本上陸です！つづけ！ <a href=\"https://t.co/dgIoUnocuR\">pic.twitter.com/dgIoUnocuR</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2042912947115299311?ref_src=twsrc%5Etfw\">April 11, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2042926235798614491",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今夜限定 <a href=\"https://t.co/PZNPKVI8Ua\">pic.twitter.com/PZNPKVI8Ua</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2042926235798614491?ref_src=twsrc%5Etfw\">April 11, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 6,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "2042921883906248822",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at.青森Quarter<br><br>青森での初公演は、この土地ならではの彩りも添えられた特別な夜となりました🌊<br>ご来場いただいた皆さま、ありがとうございました。<br><br>次週は長崎・熊本公演！<br>チケット若干数ございます。ご都合の合う方はぜひ🔥<br>🎫 <a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a>… <a href=\"https://t.co/bmpVmKQA5i\">pic.twitter.com/bmpVmKQA5i</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2042921883906248822?ref_src=twsrc%5Etfw\">April 11, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 7,
         "liveItemName": "長崎",
         "date": "2026-04-18",
@@ -136,11 +1574,243 @@
         "address": "長崎県長崎市銅座町14-5",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13422.82679668779!2d129.878667!3d32.746978!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35155340abd5d027%3A0x78d285234fecad4a!2sDRUM%20Be-7!5e0!3m2!1sja!2sus!4v1764561252866!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "津軽海峡・冬景色",
+            "type": "cover",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2045447603249377294",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜長崎DRUM Be-7<br><br>そして美辞学は西日本へ！<br>七公演目は初めましての長崎　初めましてとは思えない盛り上がりの長崎　華金より華の土曜日長崎　君たちの喜怒哀楽をステージからみるのがわたしの特権だ<br>大きな愛をありがとう！<br><br>明日は熊本宜しくー🌋 <a href=\"https://t.co/rNrk8CDBpw\">pic.twitter.com/rNrk8CDBpw</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2045447603249377294?ref_src=twsrc%5Etfw\">April 18, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 7,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2045449964038635614",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at.長崎DRUM Be-7<br><br>ツアー7公演目<br>長崎で交わしたフロウ<br>しっかり刻まれました⛓️<br>ご来場いただき、ありがとうございました。<br><br>明日は引き続き九州、熊本公演！<br>チケット若干数ございます。<br>ご都合の合う方はぜひお越しください🐻<br>🎫 <a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a>… <a href=\"https://t.co/20VNDszgeH\">pic.twitter.com/20VNDszgeH</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2045449964038635614?ref_src=twsrc%5Etfw\">April 18, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 8,
         "liveItemName": "熊本",
         "date": "2026-04-19",
@@ -149,11 +1819,250 @@
         "address": "熊本県熊本市城東町5-13",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13413.921450383226!2d130.710823!3d32.806035!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f40f2b20db95%3A0x912e1c5e2053a1be!2z54aK5pysIEIuOQ!5e0!3m2!1sja!2sus!4v1764561645529!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "津軽海峡・冬景色",
+            "type": "cover",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2045817751802171723",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜熊本DRUM Be-9 V1<br><br>八公演目の美辞学、熊本！いつのまにか歌い慣れていた歌を歌いながらあの日のステージのこととかを思い出した　涙だって通り過ぎて、結構遠くまで来たんだな<br>わたしも君も！<br><br>ギタァの菰ちゃん <a href=\"https://twitter.com/Yuya_Komoguchi?ref_src=twsrc%5Etfw\">@Yuya_Komoguchi</a>… <a href=\"https://t.co/Ra6wgCMnq4\">pic.twitter.com/Ra6wgCMnq4</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2045817751802171723?ref_src=twsrc%5Etfw\">April 19, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2045818581649444874",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今日で美辞学ライヴハウス篇ご卒業<br>菰口の兄貴に挨拶しな〜？ <a href=\"https://t.co/ZFLeBR9aGN\">pic.twitter.com/ZFLeBR9aGN</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2045818581649444874?ref_src=twsrc%5Etfw\">April 19, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 8,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2045817935927886134",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br>at. 熊本B.9 V1<br><br>熱気に満ちた一夜！火の国熊本の名にふさわしい盛り上がり🔥<br>ご来場いただいた皆さま、ありがとうございました。<br><br>次回、4/29 沖縄・桜坂セントラル！<br>前売りチケット若干数ございます。<br>沖縄でお会いしましょう🌺<br>🎫 <a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a>… <a href=\"https://t.co/yaaIBh5QGI\">pic.twitter.com/yaaIBh5QGI</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2045817935927886134?ref_src=twsrc%5Etfw\">April 19, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 9,
         "liveItemName": "沖縄",
         "date": "2026-04-29",
@@ -162,39 +2071,729 @@
         "address": "沖縄県那覇市牧志3-9-26",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14317.692227503761!2d127.690374!3d26.21544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e5697a95ca8867%3A0xc70c1715755075b6!2z44Op44Kk44OW44OP44Km44K55qGc5Z2C44K744Oz44OI44Op44Or!5e0!3m2!1sja!2sus!4v1764561687483!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2049441248562311577",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜沖縄 桜坂セントラル<br><br>美辞学ツアー九本目、初めまして沖縄！<br>感情の羽目ははずせましたか？この島でわたしの音楽を聴き続けてくれた君たちとの、縁の深さと強さを再確認させてもらうステージでした… <a href=\"https://t.co/MkHrmiWTRA\">pic.twitter.com/MkHrmiWTRA</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2049441248562311577?ref_src=twsrc%5Etfw\">April 29, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2049441351088165064",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br>at 沖縄 桜坂セントラル🌺<br><br>ツアー ライヴハウス編後半戦、沖縄<br>初めての地での公演となりました<br><br>天気にも恵まれた夜<br>この場所でしか生まれない時間がありました<br><br>来週末は北海道 旭川･札幌🐻！<br>チケット両日とも若干数ございます<br>またお会いしましょう🎫<a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a>… <a href=\"https://t.co/XkLjoqQdNU\">pic.twitter.com/XkLjoqQdNU</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2049441351088165064?ref_src=twsrc%5Etfw\">April 29, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2049444785069699114",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">沖縄のうつくしすぎる海おすそわけ🏝️<br>貝殻は地元のこどもにちょーだい！と言われたのであげました　美辞学ツアー、こどもに絡まれがち <a href=\"https://t.co/S3FumsgpIm\">pic.twitter.com/S3FumsgpIm</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2049444785069699114?ref_src=twsrc%5Etfw\">April 29, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 9,
+            "liveItemPostNo": 4,
+            "liveItemPostId": "2049502064078958871",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今日の <a href=\"https://twitter.com/hashtag/%E4%BA%8C%E5%AE%B6%E6%9C%AC?src=hash&amp;ref_src=twsrc%5Etfw\">#二家本</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <br><br>れを「菰ちゃんがにかさんのMBTIは○○だよ〜！って言ってたけどそうなんですか？」<br>にか「あ、菰ちゃん俺の代わりにやってくれたんだ！？」<br><br>どういうこと</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2049502064078958871?ref_src=twsrc%5Etfw\">April 29, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 10,
-        "liveItemName": "北海道",
+        "liveItemName": "旭川",
         "date": "2026-05-09",
         "place": "旭川CASINO DRIVE",
         "placeSite": "https://www.casinodrive.info/",
         "address": "北海道旭川市3条通8丁目",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11524.749527076094!2d142.36144!3d43.768969!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ce6733730f9df%3A0xc6b3654c2342b63b!2sCASINO%20DRIVE!5e0!3m2!1sja!2sus!4v1764573939232!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2053063298812350830",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜旭川CASINO DRIVE<br><br>美辞学ツアー十公演目、お初・旭川！<br>遂にはじまった怒涛の五月<br>北海道2daysの皮切りは旭川　深い強い愛を受けてこのままの勢いで明日は札幌~~！<br>お湯もすぐ出るし熱々上々でした🚰<br><br>最高のはじめましてだ！明日へつづく <a href=\"https://t.co/Mws8Apolmj\">pic.twitter.com/Mws8Apolmj</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2053063298812350830?ref_src=twsrc%5Etfw\">May 9, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 10,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2053061403226083365",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学  <br>at 旭川CASINO DRIVE<br><br>初めましての旭川、北の空気ごと熱を帯びる夜となりました。ありがとうございました!!<br><br>明日は札幌！<br>チケットあと数枚だけございます🎫  <a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/OWdsARqMqb\">pic.twitter.com/OWdsARqMqb</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2053061403226083365?ref_src=twsrc%5Etfw\">May 9, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 11,
-        "liveItemName": "北海道",
+        "liveItemName": "札幌",
         "date": "2026-05-10",
         "place": "札幌PENNY LANE 24",
         "placeSite": "https://www.pl24.jp/info.html",
         "address": "北海道札幌市中央区南4条西5丁目",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11657.818425874671!2d141.30646!3d43.073937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sus!4v1764573983875!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
-        "posts": []
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
+        "posts": [
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemPostNo": 1,
+            "liveItemPostId": "2053433723492905247",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜札幌PENNY LANE24<br><br>北海道二本立て、ついに札幌！<br>四度目ましてのペニーレーンありがとう<br>あの日の懐かしさを感じながら、今日この日にしかない新しさを瞬間に刻みつけて<br>うたうのはたのしいよ　君がいればなお<br><br>次は港町ヨコハマへまいります⚓️ <a href=\"https://t.co/5PmVt61AqZ\">pic.twitter.com/5PmVt61AqZ</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2053433723492905247?ref_src=twsrc%5Etfw\">May 10, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemPostNo": 2,
+            "liveItemPostId": "2053435740886032883",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学、なんてたのしいんだ</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2053435740886032883?ref_src=twsrc%5Etfw\">May 10, 2026</a></blockquote>"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 11,
+            "liveItemPostNo": 3,
+            "liveItemPostId": "2053440246092906729",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 美辞学<br><br>at 札幌・PENNY LANE 24<br><br>4度目のPENNY LANE 24<br>Reolの物語を見守ってくれたこの場所に<br>また戻ってこられて嬉しいです🐏<br><br>練度が増した美辞学ツアーも折り返し<br><br>ライヴハウス編は<br>新潟のみチケット購入可能です🎫<a href=\"https://t.co/2IeOhyUbnW\">https://t.co/2IeOhyUbnW</a><a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学</a> <a href=\"https://twitter.com/hashtag/%E7%BE%8E%E8%BE%9E%E5%AD%A6tour?src=hash&amp;ref_src=twsrc%5Etfw\">#美辞学tour</a> <a href=\"https://t.co/O52DVNlgzL\">pic.twitter.com/O52DVNlgzL</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/2053440246092906729?ref_src=twsrc%5Etfw\">May 10, 2026</a></blockquote>"
+          }
+        ]
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 12,
-        "liveItemName": "神奈川",
+        "liveItemName": "横浜",
         "date": "2026-05-16",
         "place": "YOKOHAMA BayHall",
         "placeSite": "https://bayhall.jp/access/",
@@ -205,7 +2804,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 13,
         "liveItemName": "長野",
         "date": "2026-05-23",
@@ -218,7 +2817,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 14,
         "liveItemName": "新潟",
         "date": "2026-05-24",
@@ -231,7 +2830,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 15,
         "liveItemName": "京都",
         "date": "2026-05-30",
@@ -244,7 +2843,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 16,
         "liveItemName": "岐阜",
         "date": "2026-05-31",
@@ -257,7 +2856,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 17,
         "liveItemName": "宮城",
         "date": "2026-06-12",
@@ -270,7 +2869,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 18,
         "liveItemName": "大阪",
         "date": "2026-06-19",
@@ -283,7 +2882,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 19,
         "liveItemName": "福岡",
         "date": "2026-06-27",
@@ -296,7 +2895,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 20,
         "liveItemName": "愛知",
         "date": "2026-07-04",
@@ -309,7 +2908,7 @@
         "posts": []
       },
       {
-        "liveId": 80,
+        "liveId": 72,
         "liveItemNo": 21,
         "liveItemName": "東京",
         "date": "2026-07-10",
@@ -319,6 +2918,155 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12966.0787086158!2d139.698555!3d35.664204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2zTElORSBDVUJFIFNISUJVWUHvvIjmuIvosLflhazkvJrloILvvIk!5e0!3m2!1sja!2sus!4v1764574861167!5m2!1sja!2suss",
         "spotifyPlaylistId": null,
         "setList": [],
+        "posts": []
+      },
+      {
+        "liveId": 72,
+        "liveItemNo": 22,
+        "liveItemName": "台北",
+        "date": "2026-07-26",
+        "place": "Zepp New Taipei",
+        "placeSite": "https://www.zepp.co.jp/hall/newtaipei/",
+        "address": "新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2451656125463!2d121.4495726!3d25.059678299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a914b663455b%3A0xee6cea3890a8418f!2sZepp%20New%20Taipei!5e0!3m2!1sja!2sjp!4v1778688972972!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [],
+        "posts": []
+      },
+      {
+        "liveId": 72,
+        "liveItemNo": 23,
+        "liveItemName": "韓国",
+        "date": "2026-07-18",
+        "place": "YES24 WANDERLOCH HALL",
+        "placeSite": "https://wanderlochhall.imweb.me/",
+        "address": "１２９ Sinchon-ro, Seodaemun-gu, Seoul, 韓国",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.936245690093!2d126.93765231202437!3d37.55656582458225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c990070c59fa9%3A0xb0cdd108deb985e6!2sYES24%20Wanderloch%20Hall!5e0!3m2!1sja!2sjp!4v1778689069490!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [],
+        "posts": []
+      }
+    ],
+    "reports": []
+  },
+  {
+    "liveId": 71,
+    "type": "oneman",
+    "title": "COUNTDOWN JAPAN 25/26",
+    "name": "Reol",
+    "date": "2025-12-28",
+    "siteUrl": "",
+    "spotifyPlaylistId": "",
+    "themeColorPrimary": "#3CAFCE",
+    "themeColorSecondary": "#AEEDF2",
+    "posts": [
+      {
+        "liveId": 71,
+        "livePostNo": 1,
+        "livePostId": "2005170441816854643",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カウントダウンジャパン2526<br>入場規制もいただき年の瀬に素晴らしい音楽納め、きてくれた皆様ありがとーう🌅<br><br>来年は1.21アルバム美辞学リリース！<br>3月からライヴツアー日本全国21都市！<br>津々浦々音楽しに参ります<br>ワンマンも来てね<br><br>Reol <a href=\"https://t.co/89QPEItEBq\">pic.twitter.com/89QPEItEBq</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2005170441816854643?ref_src=twsrc%5Etfw\">December 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 71,
+        "livePostNo": 2,
+        "livePostId": "2005206335500247527",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol / COSMO STAGE <a href=\"https://twitter.com/hashtag/CDJ2526?src=hash&amp;ref_src=twsrc%5Etfw\">#CDJ2526</a> <br><br>01. 美辞目録(new)<br>02. 赤裸裸<br>03. 煩悩遊戯<br>04. No title<br>05. 第六感<br>06. 白夜<br>07. うつくしじごく<br><br>🪐🤍 <a href=\"https://t.co/MMcasHJaeU\">pic.twitter.com/MMcasHJaeU</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2005206335500247527?ref_src=twsrc%5Etfw\">December 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 71,
+        "livePostNo": 3,
+        "livePostId": "2005230571992371630",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">かわいいおれたち<br>(れをにかこもきしうえ) <a href=\"https://t.co/mLopJEP3w9\">pic.twitter.com/mLopJEP3w9</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2005230571992371630?ref_src=twsrc%5Etfw\">December 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 71,
+        "livePostNo": 4,
+        "livePostId": "2005232275324342687",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">二〇二五🤍 <a href=\"https://t.co/NHrbxbMD8M\">pic.twitter.com/NHrbxbMD8M</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2005232275324342687?ref_src=twsrc%5Etfw\">December 28, 2025</a></blockquote>"
+      },
+      {
+        "liveId": 71,
+        "livePostNo": 5,
+        "livePostId": "2005301035922022695",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">年忘れ煩悩大遊戯 <a href=\"https://twitter.com/hashtag/CDJ2526?src=hash&amp;ref_src=twsrc%5Etfw\">#CDJ2526</a> <br>よいところおすそわけ🫷🫷🫷 <a href=\"https://t.co/VtIExbJP1n\">pic.twitter.com/VtIExbJP1n</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2005301035922022695?ref_src=twsrc%5Etfw\">December 28, 2025</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveId": 71,
+        "liveItemNo": 1,
+        "liveItemName": "",
+        "date": "2025-12-28",
+        "place": "幕張メッセ",
+        "placeSite": "https://www.m-messe.co.jp/",
+        "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+        "spotifyPlaylistId": "",
+        "setList": [
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "煩悩遊戯",
+            "type": "song",
+            "songId": 57,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "No title -sea side remix-",
+            "type": "song",
+            "songId": 105,
+            "matchSource": "normalized"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 71,
+            "liveItemNo": 1,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          }
+        ],
         "posts": []
       }
     ],

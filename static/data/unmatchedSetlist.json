@@ -1,12 +1,100 @@
 {
   "summary": {
-    "totalSetlistInstances": 1609,
-    "matchedInstances": 1450,
-    "unmatchedInstances": 151,
-    "uniqueSongsPlayed": 111,
-    "uniqueUnmatched": 124
+    "totalSetlistInstances": 1872,
+    "matchedInstances": 1644,
+    "unmatchedInstances": 220,
+    "uniqueSongsPlayed": 112,
+    "uniqueUnmatched": 128
   },
   "unmatched": [
+    {
+      "name": "-MC-",
+      "count": 34,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2015-11-26",
+          "liveTitle": "れをる単独公演「極彩色HighFidelity」",
+          "liveItemName": "西の宴"
+        },
+        {
+          "date": "2026-03-14",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "栃木"
+        },
+        {
+          "date": "2026-03-14",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "栃木"
+        }
+      ]
+    },
+    {
+      "name": "DEAD CENTER",
+      "count": 11,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2026-03-14",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "栃木"
+        },
+        {
+          "date": "2026-03-20",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "徳島"
+        },
+        {
+          "date": "2026-03-22",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "山口"
+        }
+      ]
+    },
+    {
+      "name": "港のヨーコ・ヨコハマ・ヨコスカ",
+      "count": 11,
+      "type": "live_only",
+      "samples": [
+        {
+          "date": "2026-03-14",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "栃木"
+        },
+        {
+          "date": "2026-03-20",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "徳島"
+        },
+        {
+          "date": "2026-03-22",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "山口"
+        }
+      ]
+    },
+    {
+      "name": "感情御中",
+      "count": 11,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2026-03-14",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "栃木"
+        },
+        {
+          "date": "2026-03-20",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "徳島"
+        },
+        {
+          "date": "2026-03-22",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "山口"
+        }
+      ]
+    },
     {
       "name": "interlude for Neo Nostalgia",
       "count": 9,
@@ -91,6 +179,28 @@
           "date": "2025-06-08",
           "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム",
           "liveItemName": "Chengdu"
+        }
+      ]
+    },
+    {
+      "name": "津軽海峡・冬景色",
+      "count": 3,
+      "type": "cover",
+      "samples": [
+        {
+          "date": "2026-04-11",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "青森"
+        },
+        {
+          "date": "2026-04-18",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "長崎"
+        },
+        {
+          "date": "2026-04-19",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "熊本"
         }
       ]
     },
@@ -1303,18 +1413,6 @@
       "name": "妄想クエスチョン",
       "count": 1,
       "type": "cover",
-      "samples": [
-        {
-          "date": "2015-11-26",
-          "liveTitle": "れをる単独公演「極彩色HighFidelity」",
-          "liveItemName": "西の宴"
-        }
-      ]
-    },
-    {
-      "name": "-MC-",
-      "count": 1,
-      "type": "song",
       "samples": [
         {
           "date": "2015-11-26",
