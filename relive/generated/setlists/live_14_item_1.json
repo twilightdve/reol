@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_1",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 大阪",
+  "date": "2018-10-26",
+  "venueName": "なんばHatch",
+  "venueId": "venue_なんばhatch",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 1,
+    "sourceId": "live_14_item_1"
+  },
+  "entries": []
+}

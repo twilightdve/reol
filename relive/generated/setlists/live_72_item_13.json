@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_72_item_13",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 長野",
+  "date": "2026-05-23",
+  "venueName": "NAGANO CLUB JUNK BOX",
+  "venueId": "venue_nagano_club_junk_box",
+  "source": {
+    "type": "site_db",
+    "liveId": 72,
+    "liveItemNo": 13,
+    "sourceId": "live_72_item_13"
+  },
+  "entries": []
+}

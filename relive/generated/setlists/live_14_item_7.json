@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_7",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 広州",
+  "date": "2019-01-10",
+  "venueName": "Mao live house",
+  "venueId": "venue_mao_live_house",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 7,
+    "sourceId": "live_14_item_7"
+  },
+  "entries": []
+}

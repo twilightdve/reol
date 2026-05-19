@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_9_item_1",
+  "tourName": "AIR-G' 35th Anniversary New Music Lab 2",
+  "liveTitle": "AIR-G' 35th Anniversary New Music Lab 2",
+  "date": "2017-04-28",
+  "venueName": "cube garden",
+  "venueId": "venue_cube_garden",
+  "source": {
+    "type": "site_db",
+    "liveId": 9,
+    "liveItemNo": 1,
+    "sourceId": "live_9_item_1"
+  },
+  "entries": []
+}

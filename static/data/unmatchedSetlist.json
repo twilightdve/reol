@@ -1,15 +1,15 @@
 {
   "summary": {
-    "totalSetlistInstances": 1872,
-    "matchedInstances": 1644,
-    "unmatchedInstances": 220,
+    "totalSetlistInstances": 1895,
+    "matchedInstances": 1661,
+    "unmatchedInstances": 226,
     "uniqueSongsPlayed": 112,
     "uniqueUnmatched": 128
   },
   "unmatched": [
     {
       "name": "-MC-",
-      "count": 34,
+      "count": 37,
       "type": "song",
       "samples": [
         {
@@ -31,7 +31,7 @@
     },
     {
       "name": "DEAD CENTER",
-      "count": 11,
+      "count": 12,
       "type": "song",
       "samples": [
         {
@@ -53,7 +53,7 @@
     },
     {
       "name": "港のヨーコ・ヨコハマ・ヨコスカ",
-      "count": 11,
+      "count": 12,
       "type": "live_only",
       "samples": [
         {
@@ -75,7 +75,7 @@
     },
     {
       "name": "感情御中",
-      "count": 11,
+      "count": 12,
       "type": "song",
       "samples": [
         {
@@ -1676,7 +1676,7 @@
     {
       "name": "レディーレ Fall apart arr.",
       "count": 1,
-      "type": "cover",
+      "type": "song",
       "samples": [
         {
           "date": "2025-07-26",

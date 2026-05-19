@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-19T16:05:28.851Z",
+  "counts": {
+    "venues": 116,
+    "layouts": 116,
+    "verified": 0,
+    "partiallyVerified": 12,
+    "estimated": 0,
+    "needsVerification": 104,
+    "unknown": 0,
+    "withCapacity": 22,
+    "withDimensions": 1,
+    "withFloorStructure": 9,
+    "withOfficialSite": 98,
+    "withGoogleMaps": 107,
+    "withOverrides": 12,
+    "enrichmentTasks": 116
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_72_item_16",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 岐阜",
+  "date": "2026-05-31",
+  "venueName": "岐阜Club-G",
+  "venueId": "venue_岐阜club_g",
+  "source": {
+    "type": "site_db",
+    "liveId": 72,
+    "liveItemNo": 16,
+    "sourceId": "live_72_item_16"
+  },
+  "entries": []
+}

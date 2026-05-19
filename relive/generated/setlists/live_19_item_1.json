@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_19_item_1",
+  "tourName": "第16回 東京国際ミュージック・マーケット",
+  "liveTitle": "第16回 東京国際ミュージック・マーケット",
+  "date": "2019-10-28",
+  "venueName": "Veats Shibuya",
+  "venueId": "venue_veats_shibuya",
+  "source": {
+    "type": "site_db",
+    "liveId": 19,
+    "liveItemNo": 1,
+    "sourceId": "live_19_item_1"
+  },
+  "entries": []
+}

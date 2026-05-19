@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "scannedAt": "2026-05-17T12:00:00+09:00",
+  "localTracks": [
+    {
+      "schemaVersion": 1,
+      "fileKey": "Reol/第六感.flac|30124567|1779000000000",
+      "fileName": "第六感.flac",
+      "relativePath": "Reol/AlbumA/第六感.flac",
+      "extension": "flac",
+      "mimeType": "audio/flac",
+      "size": 30124567,
+      "lastModified": 1779000000000,
+      "metadata": {
+        "title": "第六感",
+        "artist": "Reol",
+        "album": "Sample Album A",
+        "trackNo": 1,
+        "discNo": 1,
+        "durationSec": 206,
+        "codec": "FLAC",
+        "sampleRate": 44100,
+        "bitRate": 950000,
+        "channels": 2
+      },
+      "normalized": {
+        "titleKeys": [
+          "第六感",
+          "dairokkan"
+        ],
+        "artistKeys": [
+          "reol"
+        ],
+        "fileNameKey": "第六感",
+        "pathKey": "reolalbuma第六感"
+      },
+      "scannedAt": "2026-05-17T12:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "fileKey": "Reol/404 not found.flac|35678210|1779000000001",
+      "fileName": "404 not found.flac",
+      "relativePath": "Reol/AlbumB/404 not found.flac",
+      "extension": "flac",
+      "mimeType": "audio/flac",
+      "size": 35678210,
+      "lastModified": 1779000000001,
+      "metadata": {
+        "title": "404 not found",
+        "artist": "Reol",
+        "album": "Sample Album B",
+        "trackNo": 4,
+        "discNo": 1,
+        "durationSec": 244,
+        "codec": "FLAC",
+        "sampleRate": 44100,
+        "bitRate": 980000,
+        "channels": 2
+      },
+      "normalized": {
+        "titleKeys": [
+          "404notfound",
+          "404"
+        ],
+        "artistKeys": [
+          "reol"
+        ],
+        "fileNameKey": "404notfound",
+        "pathKey": "reolalbumb404notfound"
+      },
+      "scannedAt": "2026-05-17T12:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "fileKey": "Reol/syrup_live_edit.flac|32999210|1779000000002",
+      "fileName": "syrup_live_edit.flac",
+      "relativePath": "Reol/LiveLike/syrup_live_edit.flac",
+      "extension": "flac",
+      "mimeType": "audio/flac",
+      "size": 32999210,
+      "lastModified": 1779000000002,
+      "metadata": {
+        "title": "syrup - live edit",
+        "artist": "Reol",
+        "album": "Sample LiveLike",
+        "trackNo": 7,
+        "discNo": 1,
+        "durationSec": 226,
+        "codec": "FLAC",
+        "sampleRate": 44100,
+        "bitRate": 930000,
+        "channels": 2
+      },
+      "normalized": {
+        "titleKeys": [
+          "syrup",
+          "syrupliveedit",
+          "シロップ"
+        ],
+        "artistKeys": [
+          "reol"
+        ],
+        "fileNameKey": "syrupliveedit",
+        "pathKey": "reollivelikesyrupliveedit"
+      },
+      "scannedAt": "2026-05-17T12:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "fileKey": "Reol/END.m4a|9123456|1779000000003",
+      "fileName": "END.m4a",
+      "relativePath": "Reol/AlbumC/END.m4a",
+      "extension": "m4a",
+      "mimeType": "audio/mp4",
+      "size": 9123456,
+      "lastModified": 1779000000003,
+      "metadata": {
+        "title": "END",
+        "artist": "REOL",
+        "album": "Sample Album C",
+        "trackNo": 8,
+        "discNo": 1,
+        "durationSec": 238,
+        "codec": "AAC",
+        "sampleRate": 44100,
+        "bitRate": 256000,
+        "channels": 2
+      },
+      "normalized": {
+        "titleKeys": [
+          "end",
+          "エンド"
+        ],
+        "artistKeys": [
+          "reol"
+        ],
+        "fileNameKey": "end",
+        "pathKey": "reolalbumcend"
+      },
+      "scannedAt": "2026-05-17T12:00:00+09:00"
+    }
+  ]
+}

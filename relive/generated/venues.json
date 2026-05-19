@@ -1,0 +1,3042 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "type": "fansite-live-json",
+    "path": "static/data/live.json"
+  },
+  "venues": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_big_cat",
+      "name": "BIG CAT",
+      "aliases": [
+        "BIG CAT"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.bigcat-live.com/",
+      "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3360052.538545521!2d130.8845977!3d34.6723442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e710519fc2c9%3A0x290d8038f398edb3!2z5b-D5paO5qmLQklHQ0FU!5e0!3m2!1sja!2sjp!4v1697821903430!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        5,
+        50
+      ],
+      "sourceSetlistIds": [
+        "live_50_item_1",
+        "live_5_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_cube_garden",
+      "name": "cube garden",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.cube-garden.com/",
+      "address": "〒060-0032 北海道札幌市中央区北２条東３丁目２−５ ｃｕｂｅ ｇａｒｄｅｎ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.8767583440194!2d141.36014799999998!3d43.06505949999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2976d3b464b3%3A0x51a7c5ed2104e794!2scube%20garden!5e0!3m2!1sja!2sjp!4v1697822189156!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        9
+      ],
+      "sourceSetlistIds": [
+        "live_9_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_drum_be_7",
+      "name": "DRUM Be-7",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.live-drum.com/",
+      "address": "長崎県長崎市銅座町14-5",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13422.82679668779!2d129.878667!3d32.746978!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35155340abd5d027%3A0x78d285234fecad4a!2sDRUM%20Be-7!5e0!3m2!1sja!2sus!4v1764561252866!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_7"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_drum_logos",
+      "name": "DRUM LOGOS",
+      "aliases": [
+        "DRUM LOGOS"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.live-drum.com/",
+      "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4781575038783!2d130.39398!3d33.59289599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191891bfc5a3b%3A0x9963fe6cbbac97fd!2z44OJ44Op44Og44Ot44K044K5!5e0!3m2!1sja!2sjp!4v1697822627140!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14,
+        22
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_3",
+        "live_22_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ex_theater_roppongi",
+      "name": "EX THEATER ROPPONGI",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.ex-theater.com/",
+      "address": "〒106-0031 東京都港区西麻布１丁目２−９",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.639060734356!2d139.7272975!3d35.661263399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b77564f5899%3A0xb47d261864b68591!2sEX%20THEATER%20ROPPONGI!5e0!3m2!1sja!2sjp!4v1697822261609!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        13
+      ],
+      "sourceSetlistIds": [
+        "live_13_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_heavens_rock_utsunomiya_vj_2",
+      "name": "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.heavensrock.com/utsunomiya/access/",
+      "address": "栃木県宇都宮市宮園町5-33 東武宇都宮西口ビルB1F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7923519298633!2d139.87766411744383!3d36.55911940000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f67b953b5b7c3%3A0x8242cb57adeed091!2zSEVBVkVOJ1MgUk9DSyDlrofpg73lrq4gVkotMg!5e0!3m2!1sja!2sjp!4v1763452827581!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_hondae_muvhall",
+      "name": "HONDAE MUVHALL",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_6"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_hongdae_v_hall",
+      "name": "HONGDAE V-HALL",
+      "aliases": [
+        "HONGDAE V-HALL"
+      ],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://www.vhall.co.kr/main/",
+      "address": "２５ Hongik-ro, Mapo-gu, Seoul, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.0287086111025!2d126.92195190000001!3d37.554387399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c4ab0f99e5%3A0xc77b085935db0652!2sHanatour%20V-Hall!5e0!3m2!1sja!2sjp!4v1697822137846!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        8
+      ],
+      "sourceSetlistIds": [
+        "live_8_item_3",
+        "live_8_item_4"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_hynes_convention_center_in_boston",
+      "name": "Hynes Convention Center in Boston",
+      "aliases": [],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": "https://www.signatureboston.com/hynes",
+      "address": "900 Boylston St, Boston, MA 02115 アメリカ合衆国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.7397186399544!2d-71.08622848779856!3d42.3480723357379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a0febee848b%3A0xbce6f9a63000697b!2z44OP44Kk44Oz44K644O744Kz44Oz44OZ44Oz44K344On44Oz44O744K744Oz44K_44O8!5e0!3m2!1sja!2sjp!4v1743274003340!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        64
+      ],
+      "sourceSetlistIds": [
+        "live_64_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_istora_gelora_bung_karno_jakarta_indonesia",
+      "name": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+      "aliases": [],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword"
+      ],
+      "siteUrl": "http://gelorabungkarno.co.id/",
+      "address": "Jl. Pintu Satu Senayan No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270 インドネシア",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3293533869773!2d106.8056639!3d-6.2202283000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f14d81ff223b%3A0x7f2d1c6db9fe661f!2z44Kk44K544OI44Op44O744Ky44Ot44Op44O744OW44Oz44O744Kr44Or44OO!5e0!3m2!1sja!2sjp!4v1697823232145!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        42
+      ],
+      "sourceSetlistIds": [
+        "live_42_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_kintex_hall",
+      "name": "KINTEX HALL",
+      "aliases": [],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": "https://www.kintex.com/",
+      "address": "217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6316.468708826054!2d126.73443527770992!3d37.66720070000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c8f8a08067c47%3A0xb46572c5de3e0eda!2zS0lOVEVYIOmfk-WbveWbvemam-WxleekuuWgtA!5e0!3m2!1sja!2sjp!4v1725468554066!5m2!1sja!2sjpp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        59
+      ],
+      "sourceSetlistIds": [
+        "live_59_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_kt_zepp_yokohama",
+      "name": "KT Zepp Yokohama",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/yokohama/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい4-3-6",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.80221126326!2d139.6233054757779!3d35.45969077265953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185db755d1cfcb%3A0xb3d0979a6d6c0535!2sKT%20Zepp%20Yokohama!5e0!3m2!1sja!2sjp!4v1743281264211!5m2!1sja!2sjp",
+      "capacity": 2146,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        36,
+        62
+      ],
+      "sourceSetlistIds": [
+        "live_36_item_4",
+        "live_62_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1251,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "KT Zepp Yokohama | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/yokohama/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,146; seated configuration 1,251. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_kyoto_fanj",
+      "name": "KYOTO FANJ",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.kyoto-fanj.com/information.html",
+      "address": "京都府京都市下京区四条通寺町東入2丁目御旅町48",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13062.906161046772!2d135.77329198715822!3d35.06357539999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600109d4f6424eed%3A0xb863587cf6e7534d!2z5Lqs6YO9RkFOSg!5e0!3m2!1sja!2sus!4v1764574692325!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_15"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_line_cube_shibuya",
+      "name": "LINE CUBE SHIBUYA",
+      "aliases": [
+        "渋谷公会堂"
+      ],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://linecubeshibuya.com/",
+      "address": "〒150-8010 東京都渋谷区宇田川町1-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12966.0787086158!2d139.698555!3d35.664204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2zTElORSBDVUJFIFNISUJVWUHvvIjmuIvosLflhazkvJrloILvvIk!5e0!3m2!1sja!2sus!4v1764574861167!5m2!1sja!2suss",
+      "capacity": 1956,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        22,
+        28,
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_22_item_7",
+        "live_22_item_9",
+        "live_28_item_1",
+        "live_72_item_21"
+      ],
+      "capacityKind": "seated",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "施設概要 - LINE CUBE SHIBUYA（渋谷公会堂）",
+          "url": "https://linecubeshibuya.com/facility",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Seat count 1,956, including 126 orchestra-pit seats."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_live_roxy_shizuoka",
+      "name": "LIVE ROXY SHIZUOKA",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://live-roxy.com/",
+      "address": "〒420-0851 静岡県静岡市葵区黒金町２８−１−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.448413382188!2d138.3860067!3d34.9704312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a49f6d3386ae3%3A0x4f4e2e7eb8811e69!2sLIVE%20ROXY%20SHIZUOKA!5e0!3m2!1sja!2sjp!4v1697823321907!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_4"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_mao_live_house",
+      "name": "Mao live house",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822391962!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_7"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_mao_livehouse",
+      "name": "MAO livehouse",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822018336!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        5
+      ],
+      "sourceSetlistIds": [
+        "live_5_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_modernsky_lab",
+      "name": "Modernsky Lab",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": "中国 Yunnan, Kunming, Xishan, 杨家路 邮政编码: 650228",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.717311484492!2d102.6856049!3d25.009719900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36d085cb72451cd7%3A0x651d9e3569e84706!2sModernsky%20Lab!5e0!3m2!1sja!2sjp!4v1697822409876!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_8"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_musinsa_garage",
+      "name": "musinsa garage",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.musinsagarage.com/",
+      "address": "３２ Jandari-ro, Mapo-gu, Seoul, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.149403358787!2d126.9172053758731!3d37.551543672042435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99e21f281c77%3A0x37b8cb2577692919!2sMusinsa%20Garage!5e0!3m2!1sja!2sjp!4v1704741343244!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        49
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_6"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_nagano_club_junk_box",
+      "name": "NAGANO CLUB JUNK BOX",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.junkbox.co.jp/nagano/sp/info.html",
+      "address": "長野県長野市南石堂町1423",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12804.977539789488!2d138.189812!3d36.644571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d86ecf9e91009%3A0x5ad5e487adde8e7a!2sNAGANO%20CLUB%20JUNK%20BOX!5e0!3m2!1sja!2sus!4v1764574251248!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_13"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_nubond_live_house",
+      "name": "NUBOND LIVE HOUSE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        49
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_portal",
+      "name": "PORTAL",
+      "aliases": [],
+      "type": "unknown",
+      "typeGuessReason": [
+        "no_type_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        60
+      ],
+      "sourceSetlistIds": [
+        "live_60_item_4"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_reny_limited",
+      "name": "ReNY limited",
+      "aliases": [
+        "ReNY limited"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://ruido.org/nagoya_reny/",
+      "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.623807986571!2d136.9082345!3d35.166001699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370d1f12c4e23%3A0xa9007845de5a6a41!2sNAGOYA%20ReNY%20limited!5e0!3m2!1sja!2sjp!4v1697822525871!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14,
+        18
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_4",
+        "live_18_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_seattle_convention_center",
+      "name": "Seattle Convention Center",
+      "aliases": [],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": "https://seattleconventioncenter.com/",
+      "address": "705 Pike St, Seattle, WA 98101 アメリカ合衆国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.6842124831865!2d-122.33425693758868!3d47.61282973742659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab5090f3cc7%3A0x38d32c762126bc69!2z44K344Ki44OI44Or44Kz44Oz44OZ44Oz44K344On44Oz44K744Oz44K_!5e0!3m2!1sja!2sjp!4v1743273942543!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        63
+      ],
+      "sourceSetlistIds": [
+        "live_63_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_spotify_o_east",
+      "name": "Spotify O-EAST",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74225086221!2d139.6956111!3d35.6587215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa1779185b%3A0x790982143d7b6367!2sSpotify%20O-EAST!5e0!3m2!1sja!2sjp!4v1697821870147!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        50
+      ],
+      "sourceSetlistIds": [
+        "live_50_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_t_o_p_s_bittshall",
+      "name": "T.O.P.S BittsHALL",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.oita-tops.com/bittshall",
+      "address": "〒870-0003 大分県大分市生石５丁目３−７８３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3336.720982884769!2d131.5875461!3d33.247612399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3546a1ce953a5a95%3A0x44bf21450334a8de!2z44OI44OD44OX44K544OT44OD44OE44Ob44O844Or77yI77y077yO77yv77yO77yw77yO77yz77yi772J772U772U772T77yo77yh77ys77ys77yJ!5e0!3m2!1sja!2sjp!4v1697823306177!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_tango_live",
+      "name": "Tango live",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_9"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_tobacco_dock",
+      "name": "Tobacco Dock",
+      "aliases": [],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        10
+      ],
+      "sourceSetlistIds": [
+        "live_10_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_tokyo_dome_city_hall",
+      "name": "TOKYO DOME CITY HALL",
+      "aliases": [
+        "Kanadevia Hall",
+        "カナデビアホール"
+      ],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.tokyo-dome.co.jp/tdc-hall/",
+      "address": "〒112-8575 東京都文京区後楽1-3-61",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9147424123707!2d139.7542363!3d35.703715599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d3597a9f885%3A0x1f7f744127cbc2fd!2sTOKYO%20DOME%20CITY%20HALL!5e0!3m2!1sja!2sjp!4v1697823007193!5m2!1sja!2sjp",
+      "capacity": 3190,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        36
+      ],
+      "sourceSetlistIds": [
+        "live_36_item_2"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 2471,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "貸し会場 | ビジネス利用の方 | 東京ドームシティ",
+          "url": "https://www.tokyo-dome.co.jp/business/event-space/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Official business page lists Kanadevia Hall standing event capacity 3,190 and seated arena event capacity 2,471."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_tsutaya_o_east",
+      "name": "TSUTAYA O-EAST",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74225086221!2d139.6956111!3d35.6587215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa1779185b%3A0x790982143d7b6367!2sSpotify%20O-EAST!5e0!3m2!1sja!2sjp!4v1697821870147!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        5
+      ],
+      "sourceSetlistIds": [
+        "live_5_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_veats_shibuya",
+      "name": "Veats Shibuya",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://veats.jp/",
+      "address": "〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6598340504634!2d139.6973995!3d35.6607517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6548f4b94f%3A0x3645d2e5afa9c2f6!2z44OT44O844OE44O744K344OW44Ok!5e0!3m2!1sja!2sjp!4v1697822556701!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        19
+      ],
+      "sourceSetlistIds": [
+        "live_19_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_yes24_wanderloch_hall",
+      "name": "YES24 WANDERLOCH HALL",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://wanderlochhall.imweb.me/",
+      "address": "１２９ Sinchon-ro, Seodaemun-gu, Seoul, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.936245690093!2d126.93765231202437!3d37.55656582458225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c990070c59fa9%3A0xb0cdd108deb985e6!2sYES24%20Wanderloch%20Hall!5e0!3m2!1sja!2sjp!4v1778689069490!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_23"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_yogibo_meta_valley",
+      "name": "Yogibo META VALLEY",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://selebro.co.jp/metavalley/",
+      "address": "〒556-0011 大阪府大阪市浪速区難波中２丁目１１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8138270576787!2d135.5001142757426!3d34.65940437293429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7771d04c62f%3A0xc40bc252dcb7e6d3!2sYogibo%20META%20VALLEY!5e0!3m2!1sja!2sjp!4v1743276404716!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        57
+      ],
+      "sourceSetlistIds": [
+        "live_57_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_yokohama_bayhall",
+      "name": "YOKOHAMA BayHall",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://bayhall.jp/access/",
+      "address": "神奈川県横浜市神奈川区金港町1-10",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13002.122287602611!2d139.661112!3d35.441657!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185d3d57ece991%3A0xcde3f954aef28bb0!2z5qiq5rWc44OZ44Kk44Ob44O844Or!5e0!3m2!1sja!2sus!4v1764574041596!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_12"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_divercity_tokyo",
+      "name": "Zepp DiverCity (TOKYO)",
+      "aliases": [
+        "Zepp DiverCity Tokyo",
+        "Zepp DiverCity"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/divercity/",
+      "address": "〒135-0064 東京都江東区青海1-1-10 ダイバーシティ東京プラザ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1206516008656!2d139.77201061196095!3d35.6247520329593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2sZepp%20DiverCity%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1743281363934!5m2!1sja!2sjp",
+      "capacity": 2473,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        60
+      ],
+      "sourceSetlistIds": [
+        "live_60_item_3"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1102,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp DiverCity(TOKYO) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/divercity/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,473; seated configuration 1,102. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_divercity",
+      "name": "Zepp DiverCity (TOKYO)",
+      "aliases": [
+        "Zepp DiverCity",
+        "Zepp DiverCity Tokyo"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/divercity/",
+      "address": "〒135-0064 東京都江東区青海1-1-10 ダイバーシティ東京プラザ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1208284605586!2d139.77201597578517!3d35.62474767260555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2zWmVwcCDjg4DjgqTjg5Djg7zjgrfjg4bjgqPmnbHkuqw!5e0!3m2!1sja!2sjp!4v1697990250505!5m2!1sja!2sjp",
+      "capacity": 2473,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        48
+      ],
+      "sourceSetlistIds": [
+        "live_48_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1102,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp DiverCity(TOKYO) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/divercity/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,473; seated configuration 1,102. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_fukuoka",
+      "name": "Zepp Fukuoka",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-8639 福岡県福岡市中央区地行浜2-2-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823293414!5m2!1sja!2sjp",
+      "capacity": 1526,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        30,
+        36,
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_30_item_3",
+        "live_36_item_5",
+        "live_46_item_2"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 669,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Fukuoka | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/fukuoka/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 1,526; seated configuration 669. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_haneda",
+      "name": "Zepp Haneda (TOKYO)",
+      "aliases": [
+        "Zepp Haneda"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/haneda/",
+      "address": "〒144-0041 東京都大田区羽田空港1-1-4 HANEDA INNOVATION CITY ZONE H",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822884453!5m2!1sja!2sjp",
+      "capacity": 2925,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        30
+      ],
+      "sourceSetlistIds": [
+        "live_30_item_5",
+        "live_30_item_6"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1207,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Haneda（TOKYO) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/haneda/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,925; seated configuration 1,207. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_nagoya",
+      "name": "Zepp Nagoya",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町4-60-7",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
+      "capacity": 1864,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        30,
+        36,
+        46,
+        60
+      ],
+      "sourceSetlistIds": [
+        "live_30_item_1",
+        "live_36_item_1",
+        "live_46_item_8",
+        "live_60_item_2"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 741,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Nagoya | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/nagoya/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 1,864; seated configuration 741. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zeep_namba",
+      "name": "Zepp Namba (OSAKA)",
+      "aliases": [
+        "Zeep Namba",
+        "Zepp Namba"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/namba/",
+      "address": "〒556-0012 大阪府大阪市浪速区敷津東2-1-39",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.894385768297!2d135.49870311193683!3d34.65737008542275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1743274041934!5m2!1sja!2sjp",
+      "capacity": 2513,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        66
+      ],
+      "sourceSetlistIds": [
+        "live_66_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1206,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Namba(OSAKA) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/namba/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,513; seated configuration 1,206. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_namba",
+      "name": "Zepp Namba (OSAKA)",
+      "aliases": [
+        "Zepp Namba",
+        "Zeep Namba"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/namba/",
+      "address": "〒556-0012 大阪府大阪市浪速区敷津東2-1-39",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8945605003178!2d135.49870847574272!3d34.657365672935114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1699166570248!5m2!1sja!2sjp",
+      "capacity": 2513,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        11
+      ],
+      "sourceSetlistIds": [
+        "live_11_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1206,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Namba(OSAKA) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/namba/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,513; seated configuration 1,206. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_new_taipei",
+      "name": "Zepp New Taipei",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/newtaipei/",
+      "address": "新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2451656125463!2d121.4495726!3d25.059678299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a914b663455b%3A0xee6cea3890a8418f!2sZepp%20New%20Taipei!5e0!3m2!1sja!2sjp!4v1778688972972!5m2!1sja!2sjp",
+      "capacity": 2245,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        49,
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_5",
+        "live_72_item_22"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1025,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp New Taipei | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/newtaipei/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,245; seated configuration 1,025. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_osaka_bayside",
+      "name": "Zepp Osaka Bayside",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/osakabayside/",
+      "address": "〒554-0031 大阪府大阪市此花区桜島1-1-61",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
+      "capacity": 2801,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        30,
+        36,
+        60
+      ],
+      "sourceSetlistIds": [
+        "live_30_item_2",
+        "live_36_item_7",
+        "live_60_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 1198,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "Zepp Osaka Bayside | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/osakabayside/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 2,801; seated configuration 1,198. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_tokyo",
+      "name": "Zepp Tokyo",
+      "aliases": [
+        "Zepp Tokyo"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.zepp.co.jp/hall/tokyo/",
+      "address": "〒135-0064 東京都江東区青海１丁目３−１１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.072620073445!2d139.7823209!3d35.6259362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889faff99249d%3A0x10223bd1a6ac0bf6!2sZepp%20Tokyo!5e0!3m2!1sja!2sjp!4v1697822377798!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        8,
+        14
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_5",
+        "live_8_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_オリックス劇場",
+      "name": "オリックス劇場",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.orixtheater.jp/",
+      "address": "〒550-0013 大阪府大阪市西区新町1丁目14番15号",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.221636888064!2d135.495387!3d34.678551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7b24b87684b%3A0xc8ccca24d40d8902!2z44Kq44Oq44OD44Kv44K55YqH5aC0!5e0!3m2!1sja!2sus!4v1764574776410!5m2!1sja!2sus",
+      "capacity": 2400,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_18"
+      ],
+      "capacityKind": "seated",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "施設案内｜オリックス劇場 ORIX THEATER",
+          "url": "https://www.orixtheater.jp/information/guide/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Seat count 2,400; 2,356 when orchestra pit is used."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ト_クネットホ_ル仙台",
+      "name": "トークネットホール仙台",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://sendai.pia-pit.jp/access/index.html",
+      "address": "宮城県仙台市青葉区中央2-7-11",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12537.624387961816!2d140.885163!3d38.223683!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sus!4v1764574749197!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_17"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_なんばhatch",
+      "name": "なんばHatch",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町1丁目3-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579278733117!2d135.4930117757429!3d34.66839037293119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1724679202856!5m2!1sja!2sjp",
+      "capacity": 1931,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        8,
+        13,
+        14,
+        22,
+        56
+      ],
+      "sourceSetlistIds": [
+        "live_13_item_2",
+        "live_14_item_1",
+        "live_22_item_6",
+        "live_56_item_1",
+        "live_8_item_2"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "本館施設／なんばHatch | 湊町リバープレイス",
+          "url": "https://www.oud.co.jp/riverplace/about/namba-hatch.html",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Maximum capacity 1,931. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ぴあアリ_ナmm",
+      "name": "ぴあアリーナMM",
+      "aliases": [],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://pia-arena-mm.jp/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい3-2-2",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.956198720636!2d139.6287176!3d35.455878799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185d5437c93077%3A0x30bb3126eca8ccd0!2z44G044GC44Ki44Oq44O844OKTU0!5e0!3m2!1sja!2sjp!4v1697822796868!5m2!1sja!2sjp",
+      "capacity": 12141,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        29
+      ],
+      "sourceSetlistIds": [
+        "live_29_item_1"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": 10057,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "ぴあアリーナMM 施設概要",
+          "url": "https://pia-arena-mm.jp/assets/images/facility_summary.pdf",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Standing capacity 12,141; seated/end-stage reference capacity 10,057. Layout varies by event."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_フェスティバルホ_ル",
+      "name": "フェスティバルホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "outdoor_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.festivalhall.jp/",
+      "address": "〒530-0005 大阪府大阪市北区中之島2丁目3-18",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.4594894085476!2d135.4969513!3d34.6935888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6f1bf451d73%3A0x79284ec9f5029055!2z44OV44Kn44K544OG44Kj44OQ44Or44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823280304!5m2!1sja!2sjp",
+      "capacity": 2700,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_1"
+      ],
+      "capacityKind": "seated",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "ホールのご紹介 | フェスティバルホール",
+          "url": "https://www.festivalhall.jp/about/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Corrects keyword-only type inference from outdoor_festival to hall."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_フェニ_チェ堺",
+      "name": "フェニーチェ堺",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.fenice-sacay.jp/",
+      "address": "〒590-0061 大阪府堺市堺区翁橋町２丁１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.2649436633023!2d135.4795384!3d34.5721621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000dc849f1541d1%3A0xb259d6e252c0f095!2z44OV44Kn44OL44O844OB44Kn5aC677yI5aC65biC5rCR6Iq46KGT5paH5YyW44Ob44O844Or77yJ!5e0!3m2!1sja!2sjp!4v1697822781337!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        28
+      ],
+      "sourceSetlistIds": [
+        "live_28_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_まつもと市民芸術館",
+      "name": "まつもと市民芸術館",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.mpac.jp/",
+      "address": "〒390-0815 長野県松本市深志３丁目１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.3921863040314!2d137.9746548!3d36.229965899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d0eecc37f8c55%3A0xbbbda22d53976b3d!2z44G-44Gk44KC44Go5biC5rCR6Iq46KGT6aSo!5e0!3m2!1sja!2sjp!4v1697823117305!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        36
+      ],
+      "sourceSetlistIds": [
+        "live_36_item_9"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_みちのく公園_北地区",
+      "name": "みちのく公園 北地区",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒989-1503 宮城県柴田郡川崎町川内藤折",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6271.317943941707!2d140.6559058!3d38.194595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a317c6299b841%3A0x43b8ce9c8ecdd241!2z44G_44Gh44Gu44GP5YWs5ZySIOWMl-WcsOWMug!5e0!3m2!1sja!2sjp!4v1697823135168!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        37
+      ],
+      "sourceSetlistIds": [
+        "live_37_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_旭川casino_drive",
+      "name": "旭川CASINO DRIVE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.casinodrive.info/",
+      "address": "〒070-0034 北海道旭川市4条通8丁目1703-5 アピスホール4階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11524.749527076094!2d142.36144!3d43.768969!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ce6733730f9df%3A0xc6b3654c2342b63b!2sCASINO%20DRIVE!5e0!3m2!1sja!2sus!4v1764573939232!5m2!1sja!2sus",
+      "capacity": 300,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_10"
+      ],
+      "capacityKind": "standing",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "ライブハウス | Casino drive | 旭川市",
+          "url": "https://www.casinodrive.info/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Official site lists capacity 300 and current 4条通 address."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_横浜アリ_ナ",
+      "name": "横浜アリーナ",
+      "aliases": [],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.yokohama-arena.co.jp/",
+      "address": "〒222-0033 神奈川県横浜市港北区新横浜3丁目10番地",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.6766833139773!2d139.61760477578017!3d35.512272072642276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185eda022dd1bd%3A0x2ed62e22af68ca17!2z5qiq5rWc44Ki44Oq44O844OK!5e0!3m2!1sja!2sjp!4v1743277674670!5m2!1sja!2sjp",
+      "capacity": 17000,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        34,
+        69
+      ],
+      "sourceSetlistIds": [
+        "live_34_item_1",
+        "live_69_item_1"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "概略 | 主な設備のご案内 | 横浜アリーナ",
+          "url": "https://www.yokohama-arena.co.jp/organizer/equipment/",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Maximum capacity 17,000. Actual concert capacity depends on stage pattern."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_岡山_crazymama_kingdom",
+      "name": "岡山 CRAZYMAMA KINGDOM",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://banquetunion.com/kingdom/",
+      "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.9036910313584!2d133.9234456!3d34.657135100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407b5ea8fffe9%3A0xd7a17f9294b8e153!2sCRAZY%20MAMA%20KINGDOM!5e0!3m2!1sja!2sjp!4v1697823468992!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_11"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_岡谷鋼機名古屋公会堂",
+      "name": "岡谷鋼機名古屋公会堂",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://nagoyashi-kokaido.hall-info.jp/access/",
+      "address": "愛知県名古屋市昭和区鶴舞1-1-3",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13047.990657531383!2d136.919118!3d35.156679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370bc26485bb1%3A0xaa773c547ea00cdf!2z5bKh6LC36Yu85qmf5ZCN5Y-k5bGL5YWs5Lya5aCC!5e0!3m2!1sja!2sus!4v1764574826802!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_20"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_海とのふれあい広場",
+      "name": "海とのふれあい広場",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/",
+      "address": "〒590-0908 大阪府堺市堺区匠町６−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.079102674517!2d135.4280183!3d34.6021612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000c29404ddd759%3A0x94059bb8d9120e67!2z5rW344Go44Gu44G144KM44GC44GE5bqD5aC0!5e0!3m2!1sja!2sjp!4v1697823163334!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        39
+      ],
+      "sourceSetlistIds": [
+        "live_39_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_岐阜club_g",
+      "name": "岐阜Club-G",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://club-g.jp/access.html",
+      "address": "岐阜県岐阜市玉宮町2-5",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13005.849577495761!2d136.759685!3d35.418574!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003a945d1f532df%3A0x9ad8619e32446afc!2z5bKQ6ZicY2x1Yi1H!5e0!3m2!1sja!2sus!4v1764574717404!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_16"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_金沢_エイトホ_ル",
+      "name": "金沢 エイトホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://www.eighthall.com/",
+      "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7871214834263!2d136.6519152!3d36.559245499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8347ef64ab997%3A0x7bc2f62dc5e09edc!2sEIGHT%20HALL!5e0!3m2!1sja!2sjp!4v1697823416473!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_17"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_熊本b_9_v1",
+      "name": "熊本B.9 V1",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.live-drum.com/be9/index1.shtml",
+      "address": "熊本県熊本市城東町5-13",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13413.921450383226!2d130.710823!3d32.806035!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f40f2b20db95%3A0x912e1c5e2053a1be!2z54aK5pysIEIuOQ!5e0!3m2!1sja!2sus!4v1764561645529!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_8"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_原宿_astro_hall",
+      "name": "原宿 ASTRO HALL",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB",
+      "address": "〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12965.20932854474!2d139.70655!3d35.669557!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca37d3e980b%3A0x8aa3e641b892411a!2z44Ki44K544OI44Ot44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697821131639!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        1
+      ],
+      "sourceSetlistIds": [
+        "live_1_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_広島クラブクアトロ",
+      "name": "広島クラブクアトロ",
+      "aliases": [
+        "広島クラブクアトロ"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.club-quattro.com/",
+      "address": "〒730-0035 広島県広島市中区本通１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823453873!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        22,
+        36,
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_22_item_1",
+        "live_36_item_6",
+        "live_46_item_10"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_高松_dime",
+      "name": "高松 DIME",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.dime-dime.com/",
+      "address": "〒760-0051 香川県高松市南新町１−４ ５階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3294.354809280077!2d134.046771!3d34.341447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9983de121d%3A0x806b84bf4ee8098a!2z6auY5p2-IERpTUU!5e0!3m2!1sja!2sjp!4v1697823366846!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_7"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_高松_festhalle",
+      "name": "高松 festhalle",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "http://festhalle.jp/",
+      "address": "〒760-0054 香川県高松市常磐町１丁目３−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.484229540866!2d134.05235729999998!3d34.3381523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9958891783%3A0x141915e3d562fb8e!2z44OV44Kn44K544OI44OP44Os!5e0!3m2!1sja!2sjp!4v1697823103594!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        36
+      ],
+      "sourceSetlistIds": [
+        "live_36_item_8"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_国営ひたち海浜公園",
+      "name": "国営ひたち海浜公園",
+      "aliases": [
+        "国営ひたち海浜公園"
+      ],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "https://hitachikaihin.jp/",
+      "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.1376837254797!2d140.59648679999998!3d36.405864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60218b1d845e4441%3A0x767e1dea03e6f0e1!2z5Zu95Za244Gy44Gf44Gh5rW35rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697823206211!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        16,
+        40
+      ],
+      "sourceSetlistIds": [
+        "live_16_item_1",
+        "live_40_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_国立代々木競技場第一体育館",
+      "name": "国立代々木競技場 第一体育館",
+      "aliases": [
+        "国立代々木競技場第一体育館"
+      ],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.jpnsport.go.jp/yoyogi/",
+      "address": "〒150-0041 東京都渋谷区神南2-1-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3798779783533!2d139.7001458!3d35.667647200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cafea3fe4c5%3A0x6e74f313e8ed1b7b!2z5Zu956uL5Luj44CF5pyo56u25oqA5aC0IOesrOS4gOS9k-iCsumkqA!5e0!3m2!1sja!2sjp!4v1697821794211!5m2!1sja!2sjp",
+      "capacity": 12934,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        3
+      ],
+      "sourceSetlistIds": [
+        "live_3_item_1"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": 12898,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "第一体育館 | 施設案内 | 代々木競技場 | JAPAN SPORT COUNCIL",
+          "url": "https://www.jpnsport.go.jp/yoyogi/Default.aspx?TabId=70",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Official page states total 12,898 seats, maximum 12,934 seats."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_桜坂セントラル",
+      "name": "桜坂セントラル",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.nahacentral.com/about.html",
+      "address": "沖縄県那覇市牧志3-9-26",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14317.692227503761!2d127.690374!3d26.21544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e5697a95ca8867%3A0xc70c1715755075b6!2z44Op44Kk44OW44OP44Km44K55qGc5Z2C44K744Oz44OI44Op44Or!5e0!3m2!1sja!2sus!4v1764561687483!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_9"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_札幌penny_lane_24",
+      "name": "札幌PENNY LANE 24",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.pl24.jp/info.html",
+      "address": "北海道札幌市中央区南4条西5丁目",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11657.818425874671!2d141.30646!3d43.073937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sus!4v1764573983875!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_11"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_札幌ペニ_レ_ン24",
+      "name": "札幌ペニーレーン24",
+      "aliases": [
+        "札幌ペニーレーン24"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697823509700!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        14,
+        22,
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_14_item_2",
+        "live_22_item_4",
+        "live_46_item_14"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_札幌芸術の森野外ステ_ジ",
+      "name": "札幌芸術の森野外ステージ",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.967315879723!2d141.3382863!3d42.9368159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f752b67056b9dcf%3A0x57549a3c3ff4451f!2z44CSMDA1LTA4NjQg5YyX5rW36YGT5pyt5bmM5biC5Y2X5Yy66Iq46KGT44Gu5qOu77yS5LiB55uu77yZ77yR77yQ4oiS77yRIOmHjuWkluOCueODhuODvOOCuA!5e0!3m2!1sja!2sjp!4v1697822069385!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        7
+      ],
+      "sourceSetlistIds": [
+        "live_7_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_周南rising_hall",
+      "name": "周南RISING HALL",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://risinghallshunan.wixsite.com/rising-hall/access",
+      "address": "山口県周南市銀南街49番地4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13222.940123617624!2d131.7879645554199!3d34.05066740000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3544e6fde5f00001%3A0xd4d0c5e21e84a6d9!2sRISING%20HALL!5e0!3m2!1sja!2sus!4v1764560579834!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_渋谷ストリ_ムホ_ル",
+      "name": "渋谷ストリームホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://stream-hall.jp/",
+      "address": "〒150-0002 東京都渋谷区渋谷３丁目２１−３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.789445259059!2d139.7025291!3d35.657558900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5997e18dc9%3A0x4e339e5573667786!2z5riL6LC344K544OI44Oq44O844OgIOODm-ODvOODqw!5e0!3m2!1sja!2sjp!4v1697822429591!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        15
+      ],
+      "sourceSetlistIds": [
+        "live_15_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_昭和女子大学人見記念講堂",
+      "name": "昭和女子大学人見記念講堂",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://hall.swu.ac.jp/",
+      "address": "〒154-8533 東京都世田谷区太子堂１丁目７−５７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.318044122612!2d139.67622409999998!3d35.644535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f4a40eeaaecd%3A0x8d49cb295c3a8853!2z5pit5ZKM5aWz5a2Q5aSn5a2mIOS6uuimi-iomOW_teism-Wggg!5e0!3m2!1sja!2sjp!4v1697823399919!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_9"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_松下impホ_ル",
+      "name": "松下IMPホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.kanden-kaijyou.jp/event_hole/imp/",
+      "address": "〒540-6301 大阪府大阪市中央区城見１丁目３−７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.528402383035!2d135.5296916!3d34.691850099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0d108cd8595%3A0x856dd6f3cfce52db!2z5p2-5LiL77yp77yt77yw44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822512150!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        18
+      ],
+      "sourceSetlistIds": [
+        "live_18_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_松阪maxa",
+      "name": "松阪M'AXA",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.maxa.jp/access/",
+      "address": "三重県松阪市市場庄町1148-2",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13135.544016810038!2d136.517587!3d34.607044!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60046caa964eda33%3A0xa63b565b0224e680!2z44Op44Kk44OW44Of44Ol44O844K444OD44Kv44Oe44Kv44K1!5e0!3m2!1sja!2sus!4v1764560986362!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_5"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_松山_wstudio_red",
+      "name": "松山 Wstudio RED",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://red.double-ustudio.com/",
+      "address": "〒790-0012 愛媛県松山市湊町４丁目１０−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.071514890211!2d132.7649873!3d33.836266300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354fe58cbd8a4289%3A0x5208eab83998c79d!2sW%20studio%20RED!5e0!3m2!1sja!2sjp!4v1697823350698!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_6"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新潟_lots",
+      "name": "新潟 LOTS",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.fmniigata.com/user/lots/",
+      "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.79699306701!2d139.04876339999998!3d37.91180749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2fTE9UUw!5e0!3m2!1sja!2sjp!4v1697823439558!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_16"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新潟lots",
+      "name": "新潟LOTS",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.fmniigata.com/lots/access",
+      "address": "新潟県新潟市中央区古町通6-953-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12590.125659419535!2d139.046599!3d37.918014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2f77ys77yv77y077yz!5e0!3m2!1sja!2sus!4v1764574654178!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_14"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新潟テルサ",
+      "name": "新潟テルサ",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.n-terrsa.jp/",
+      "address": "〒950-1141 新潟県新潟市中央区鐘木１８５−１８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.2697687094806!2d139.0470246!3d37.87737339999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c8c3cefc630f%3A0x589907b1378b5556!2z5paw5r2f44OG44Or44K1!5e0!3m2!1sja!2sjp!4v1697823250383!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        44
+      ],
+      "sourceSetlistIds": [
+        "live_44_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新宿reny",
+      "name": "新宿ReNY",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://ruido.org/reny/index.html",
+      "address": "〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.362441149594!2d139.6925046!3d35.6926976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd562de946d%3A0xd1c51ff1568a2d3b!2z5paw5a6_UmVOWe-8iOODrOODi-ODvO-8iQ!5e0!3m2!1sja!2sjp!4v1697821780880!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        2
+      ],
+      "sourceSetlistIds": [
+        "live_2_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新北市_新北大都会公園",
+      "name": "新北市・新北大都会公園",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "https://www.ototix.com/events/Bandstival2025/Bandstival2025-live",
+      "address": "Section 1, Shuiyang Rd, Sanchong District, New Taipei City, 台湾 241",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.369457012725!2d121.47817097537715!3d25.055463977802482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8fac6152a05%3A0x3821847e329dcd64!2z5paw5YyX5aSn6YO95Lya5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1765042650175!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        70
+      ],
+      "sourceSetlistIds": [
+        "live_70_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_新木場スタジオコ_スト",
+      "name": "新木場スタジオコースト",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.studio-coast.com/",
+      "address": "〒136-0082 東京都江東区新木場２丁目２−１０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1621.206384132544!2d139.8230647!3d35.6422007!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188825be03617f%3A0xa63b794809b4339a!2z44K544K_44K444Kq44Kz44O844K544OI!5e0!3m2!1sja!2sjp!4v1697822540166!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        18
+      ],
+      "sourceSetlistIds": [
+        "live_18_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_神戸harbor_studio",
+      "name": "神戸Harbor Studio",
+      "aliases": [
+        "神戸ハーバースタジオ"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://harbor-studio.net/",
+      "address": "〒650-0042 兵庫県神戸市中央区波止場町6-3 甲陽運輸内1F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13123.24261458181!2d135.185031!3d34.684728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f0228655555%3A0xfc96682fa0f83aeb!2z56We5oi4SGFyYm9yIFN0dWRpbw!5e0!3m2!1sja!2sus!4v1764560731648!5m2!1sja!2sus",
+      "capacity": 600,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_4"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": null,
+      "capacityRange": {
+        "min": 200,
+        "max": 600
+      },
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "文化施設利用サポート緊急事業 登録施設一覧",
+          "url": "https://www.city.kobe.lg.jp/documents/63800/00_4_shisetsuichiran_20230828.pdf",
+          "sourceType": "public_agency",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Kobe City facility list states capacity 600. Some current venue notices may apply temporary or event-specific limits."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_神戸ハ_バ_スタジオ",
+      "name": "神戸Harbor Studio",
+      "aliases": [
+        "神戸ハーバースタジオ"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://harbor-studio.net/",
+      "address": "〒650-0042 兵庫県神戸市中央区波止場町6-3 甲陽運輸内1F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8146321695017!2d135.1850968!3d34.6846276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f0228655555%3A0xfc96682fa0f83aeb!2z56We5oi4SGFyYm9yIFN0dWRpbw!5e0!3m2!1sja!2sjp!4v1697823338775!5m2!1sja!2sjp",
+      "capacity": 600,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_5"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": null,
+      "capacityRange": {
+        "min": 200,
+        "max": 600
+      },
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "文化施設利用サポート緊急事業 登録施設一覧",
+          "url": "https://www.city.kobe.lg.jp/documents/63800/00_4_shisetsuichiran_20230828.pdf",
+          "sourceType": "public_agency",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Kobe City facility list states capacity 600. Some current venue notices may apply temporary or event-specific limits."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_神奈川県民ホ_ル",
+      "name": "神奈川県民ホール",
+      "aliases": [
+        "神奈川県民ホール"
+      ],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://www.kanagawa-kenminhall.com/",
+      "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823528024!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        22,
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_22_item_8",
+        "live_46_item_15"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_盛岡_club_change_wave",
+      "name": "盛岡 club change WAVE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://clubchange.com/",
+      "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.657283201103!2d141.14704899999998!3d39.702408999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f85762ff02bb3f9%3A0x8d743805d73f9e7f!2sCLUB%20CHANGE%20WAVE(Live%20Music%20Venue)!5e0!3m2!1sja!2sjp!4v1697823495558!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_13"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_青森quarter",
+      "name": "青森Quarter",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://aomoriquarter.com/access",
+      "address": "青森県青森市安方2-11-3",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12075.880840115598!2d140.742654!3d40.828618!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9b9ee18a2dd15f%3A0x368eeea3b964138f!2z6Z2S5qOuUXVhcnRlcg!5e0!3m2!1sja!2sus!4v1764561155762!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_6"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_静安体育中心",
+      "name": "静安体育中心",
+      "aliases": [],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6823.197520692648!2d121.44735519370822!3d31.231843947389198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27018e8cc520f%3A0x8d0ff340c4503a48!2z6Z2Z5a6J5L2T6IKy5Lit5b-D!5e0!3m2!1sja!2sjp!4v1764521383141!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        68
+      ],
+      "sourceSetlistIds": [
+        "live_68_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_赤坂blitz",
+      "name": "赤坂BLITZ",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.tbs.co.jp/blitz/",
+      "address": "〒107-0052 東京都港区赤坂５丁目３−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.180894073147!2d139.73533570000004!3d35.6725476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8092ddc2dd%3A0x34fef75324da816b!2zVEJT6LWk5Z2CQkxJVFrjgrnjgr_jgrjjgqo!5e0!3m2!1sja!2sjp!4v1697822045176!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        6
+      ],
+      "sourceSetlistIds": [
+        "live_6_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_仙台_gigs",
+      "name": "仙台 GIGS",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.sendaigigs.com/",
+      "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.571661125976!2d140.9490026!3d38.243045699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f89883a268ad3af%3A0xe9b96b6c6cf26058!2z5LuZ5Y-w44Ku44Kw44K577yIU0VOREFJIEdJR1PvvIk!5e0!3m2!1sja!2sjp!4v1697823480651!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        46
+      ],
+      "sourceSetlistIds": [
+        "live_46_item_12"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_仙台_rensa",
+      "name": "仙台 Rensa",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://www.rensa.jp/",
+      "address": "〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.6247579841056!2d140.8701878!3d38.265008099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28255100405b%3A0x1929b92b35599bac!2zUmVuc2HvvIjjg6zjg7PjgrXvvIk!5e0!3m2!1sja!2sjp!4v1697822640676!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        22
+      ],
+      "sourceSetlistIds": [
+        "live_22_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_仙台pit",
+      "name": "仙台PIT",
+      "aliases": [
+        "仙台PIT"
+      ],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "http://sendai-pit.team-smile.org/",
+      "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697823022418!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        30,
+        36
+      ],
+      "sourceSetlistIds": [
+        "live_30_item_4",
+        "live_36_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_千葉市蘇我スポ_ツ公園",
+      "name": "千葉市蘇我スポーツ公園",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "http://sogasportspark.com/",
+      "address": "〒260-0835 千葉県千葉市中央区川崎町１−２０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1710707466696!2d140.1229314!3d35.5741692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60229b0b9c50b1c9%3A0xdcf05836c92a2aad!2z5Y2D6JGJ5biC6JiH5oiR44K544Od44O844OE5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697822923640!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        32
+      ],
+      "sourceSetlistIds": [
+        "live_32_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_川崎市東扇島東公園特設会場",
+      "name": "川崎市東扇島東公園特設会場",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒210-0869 神奈川県川崎市川崎区東扇島58-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.9956536619898!2d139.7738118!3d35.5043857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018667e2f0ad087%3A0x6cdf9e463fbd2d3d!2z44CSMjEwLTA4Njkg56We5aWI5bed55yM5bed5bSO5biC5bed5bSO5Yy65p2x5omH5bO277yV77yY!5e0!3m2!1sja!2sjp!4v1764528394204!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        65
+      ],
+      "sourceSetlistIds": [
+        "live_65_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_太空间_live_house",
+      "name": "太空间 LIVE HOUSE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        49
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_大宮ソニックシティ",
+      "name": "大宮ソニックシティ",
+      "aliases": [
+        "大宮ソニックシティ"
+      ],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.sonic-city.or.jp/",
+      "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7039744763006!2d139.61713467579776!3d35.90526517251586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018c14334b5b89f%3A0x1f5fecd47f68d7f1!2z44K944OL44OD44Kv44K344OG44Kj!5e0!3m2!1sja!2sjp!4v1708601350280!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        4
+      ],
+      "sourceSetlistIds": [
+        "live_4_item_1",
+        "live_4_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_大阪城音楽堂",
+      "name": "大阪城音楽堂",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "https://www.osakacastlepark.jp/ongakudo/",
+      "address": "〒540-0002 大阪府大阪市中央区大阪城３−１１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8908562086635!2d135.530568!3d34.68270400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0c965623ca1%3A0x54d2f6bfb0e225d1!2z5aSn6Ziq5Z-O6Z-z5qW95aCC!5e0!3m2!1sja!2sjp!4v1697822939062!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        33
+      ],
+      "sourceSetlistIds": [
+        "live_33_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_中杭州太子湾公園_中国",
+      "name": "中杭州太子湾公園（中国）",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        58
+      ],
+      "sourceSetlistIds": [
+        "live_58_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_中国上海_森蘭緑地_sen_lan_green_park",
+      "name": "中国上海・森蘭緑地（Sen Lan Green Park)",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": "中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6817.638695596002!2d121.5885642!3d31.3087378!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b275067079adfd%3A0x8cb909ee77d9ea76!2z5Lit6I-v5Lq65rCR5YWx5ZKM5Zu9IFNoYW5nIEhhaSBTaGksIFB1IERvbmcgWGluIFF1LCDlvKDmnajljJfot68yNzAw5Y-3IOmCruaUv-e8lueggTogMjAwMTI4!5e0!3m2!1sja!2sjp!4v1697823267398!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        45
+      ],
+      "sourceSetlistIds": [
+        "live_45_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_中野サンプラザ",
+      "name": "中野サンプラザ",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒164-8512 東京都中野区中野４丁目１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3239.7505778649!2d139.6601168!3d35.707755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f290dc9d39cf%3A0xde9cfca35472a9ed!2z5Lit6YeO44K144Oz44OX44Op44K2!5e0!3m2!1sja!2sjp!4v1697823149440!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        38
+      ],
+      "sourceSetlistIds": [
+        "live_38_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_東京_ニッショ_ホ_ル",
+      "name": "東京 ニッショーホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://nissho-hall.jp/accesmap.html",
+      "address": "〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4459473537463!2d139.75777907578694!3d35.66601997259222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b91e9a4fa79%3A0xb2e8ca280138b3bf!2z44OL44OD44K344On44O844Ob44O844OrICjml6fjg6Tjgq_jg6vjg4jjg5vjg7zjg6sp!5e0!3m2!1sja!2sjp!4v1708596592473!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        0
+      ],
+      "sourceSetlistIds": [
+        "live_0_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_徳島club_grindhouse",
+      "name": "徳島club GRINDHOUSE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://c-gh.jp/",
+      "address": "徳島県徳島市秋田町2-23 ジョイフルビル3F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6610.42566365473!2d134.549314!3d34.064058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355372a7e88ea9f3%3A0xd18469e3d702bada!2sclub%20GRINDHOUSE!5e0!3m2!1sja!2sjp!4v1765044076787!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_日本武道館",
+      "name": "日本武道館",
+      "aliases": [],
+      "type": "arena",
+      "typeGuessReason": [
+        "arena_keyword",
+        "venue_enrichment_snapshot"
+      ],
+      "siteUrl": "https://www.nipponbudokan.or.jp/",
+      "address": "〒102-8321 東京都千代田区北の丸公園2番3号",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.345893300968!2d139.7507088!3d35.6931049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c6b81cbf4d5%3A0x1b07be5a5a19fb50!2z44CSMTAyLTAwOTEg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65YyX44Gu5Li45YWs5ZyS77yS4oiS77yT!5e0!3m2!1sja!2sjp!4v1703788576226!5m2!1sja!2sjpp",
+      "capacity": 14471,
+      "capacityStatus": "verified",
+      "sourceLiveIds": [
+        55
+      ],
+      "sourceSetlistIds": [
+        "live_55_item_1"
+      ],
+      "capacityKind": "max",
+      "seatedCapacity": null,
+      "capacityRange": null,
+      "verifiedAt": "2026-05-17",
+      "verificationSources": [
+        {
+          "title": "月刊武道 2017年4月号",
+          "url": "https://www.nipponbudokan.or.jp/pdf/201704.pdf",
+          "sourceType": "official",
+          "fields": [
+            "name",
+            "siteUrl",
+            "address",
+            "capacity"
+          ]
+        }
+      ],
+      "verificationNotes": [
+        "Official Budokan publication states maximum capacity 14,471."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_梅田バナナホ_ル",
+      "name": "梅田バナナホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://www.banana-hall.com/",
+      "address": "〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0893599643073!2d135.504592!3d34.702926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6eac54e727f%3A0x9e4f8f4047af9f24!2z44OQ44OK44OK44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822448453!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        15
+      ],
+      "sourceSetlistIds": [
+        "live_15_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_舞洲スポ_ツアイランド",
+      "name": "舞洲スポーツアイランド",
+      "aliases": [
+        "舞洲スポーツアイランド"
+      ],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": "https://shisetsu.mizuno.jp/m-7402",
+      "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.515729870637!2d135.3924789119308!3d34.66693108491004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1778689353625!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        31,
+        41,
+        73
+      ],
+      "sourceSetlistIds": [
+        "live_31_item_1",
+        "live_41_item_1",
+        "live_73_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_福岡_スカラエスパシオ",
+      "name": "福岡　スカラエスパシオ",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://espacio.ne.jp/",
+      "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26589.880035401657!2d130.401964!3d33.586229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919abe78fded%3A0x18f611fe71aa9768!2z56aP5bKh44OI44Oo44K_44Ob44O844Or44K544Kr44Op44Ko44K544OR44K344Kq!5e0!3m2!1sja!2sjp!4v1712829092881!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        52
+      ],
+      "sourceSetlistIds": [
+        "live_52_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_福岡unitedlab",
+      "name": "福岡UNITEDLAB",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://unitedlab.live/",
+      "address": "福岡市中央区大名 1-3-36",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1661.8607011683832!2d130.392776!3d33.5865821!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419186c3b0d99b%3A0xfd1c65e90bc996a3!2z44CSODEwLTAwNDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSn5ZCN77yR5LiB55uu77yT4oiS77yT77yW!5e0!3m2!1sja!2sjp!4v1743273904762!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        61
+      ],
+      "sourceSetlistIds": [
+        "live_61_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_福岡国際会議場メインホ_ル",
+      "name": "福岡国際会議場メインホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "https://www.marinemesse.or.jp/messe-b/access/",
+      "address": "福岡県福岡市博多区沖浜町7-1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13291.815380834367!2d130.403739!3d33.606502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419103c2e8dae9%3A0x3f3a58d1591bf115!2z44Oe44Oq44Oz44Oh44OD44K756aP5bKhIELppKg!5e0!3m2!1sja!2sus!4v1764574798565!5m2!1sja!2sus",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        72
+      ],
+      "sourceSetlistIds": [
+        "live_72_item_19"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_豊洲pit",
+      "name": "豊洲PIT",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒135-0061 東京都江東区豊洲６丁目１−２３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.112244144704!2d139.7883756!3d35.6496061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188999e8701f8f%3A0x617c01d55ad9dd8e!2z6LGK5rSyUElU!5e0!3m2!1sja!2sjp!4v1699166690325!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        11
+      ],
+      "sourceSetlistIds": [
+        "live_11_item_2"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_幕張メッセ",
+      "name": "幕張メッセ",
+      "aliases": [
+        "幕張メッセ"
+      ],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        12,
+        20,
+        21,
+        35,
+        43,
+        47,
+        71
+      ],
+      "sourceSetlistIds": [
+        "live_12_item_1",
+        "live_20_item_1",
+        "live_21_item_1",
+        "live_35_item_1",
+        "live_43_item_1",
+        "live_47_item_1",
+        "live_71_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_幕張メッセ_ホ_ル_9_10_11",
+      "name": "幕張メッセ ホール 9・10・11",
+      "aliases": [
+        "幕張メッセ ホール 9・10・11"
+      ],
+      "type": "exhibition",
+      "typeGuessReason": [
+        "exhibition_keyword"
+      ],
+      "siteUrl": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        51,
+        67
+      ],
+      "sourceSetlistIds": [
+        "live_51_item_1",
+        "live_67_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_名古屋_e_l_l",
+      "name": "名古屋 E.L.L.",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": "https://www.ell.co.jp/",
+      "address": "〒460-0011 愛知県名古屋市中区大須２丁目１０−３５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.8295164851293!2d136.8987258!3d35.1608723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377320e4c59bd%3A0xd496d7b256aaa133!2zRWxsLlNpemUsIO-8kuS4geebri3vvJHvvJAt77yT77yVIOWkp-mgiCDkuK3ljLog5ZCN5Y-k5bGL5biCIOaEm-efpeecjCA0NjAtMDAxMQ!5e0!3m2!1sja!2sjp!4v1697822462166!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        15
+      ],
+      "sourceSetlistIds": [
+        "live_15_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_名古屋ダイアモンドホ_ル",
+      "name": "名古屋ダイアモンドホール",
+      "aliases": [],
+      "type": "hall",
+      "typeGuessReason": [
+        "hall_keyword"
+      ],
+      "siteUrl": "http://diamond.sflag.co.jp/",
+      "address": "〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.4905691723843!2d136.9204545!3d35.1693237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370c2ec5eec45%3A0x2d3b9ed7ab878e2f!2z44OA44Kk44Ki44Oi44Oz44OJ44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822671940!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        22
+      ],
+      "sourceSetlistIds": [
+        "live_22_item_5"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_恋の浦海岸",
+      "name": "恋の浦海岸",
+      "aliases": [],
+      "type": "outdoor_festival",
+      "typeGuessReason": [
+        "outdoor_keyword"
+      ],
+      "siteUrl": null,
+      "address": "〒811-3307 福岡県福津市渡６４１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53042.92195504263!2d130.456049!3d33.8076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354226123b226e87%3A0x4b98b30ed274d95b!2z44CSODExLTMzMDcg56aP5bKh55yM56aP5rSl5biC5rih77yW77yU77yR!5e0!3m2!1sja!2sjp!4v1697822493200!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        17
+      ],
+      "sourceSetlistIds": [
+        "live_17_item_1"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_蜚声_phase_live_house",
+      "name": "蜚声 PHASE LIVE HOUSE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        49
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_3"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_东郎east_live",
+      "name": "东郎EAST LIVE",
+      "aliases": [],
+      "type": "live_house",
+      "typeGuessReason": [
+        "live_house_keyword"
+      ],
+      "siteUrl": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveIds": [
+        49
+      ],
+      "sourceSetlistIds": [
+        "live_49_item_4"
+      ]
+    }
+  ]
+}

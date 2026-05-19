@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_18_item_1",
+  "tourName": "Reol Oneman Live 2019「侵攻アップグレード」",
+  "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」 大阪",
+  "date": "2019-10-06",
+  "venueName": "松下IMPホール",
+  "venueId": "venue_松下impホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveId": 18,
+    "liveItemNo": 1,
+    "sourceId": "live_18_item_1"
+  },
+  "entries": []
+}

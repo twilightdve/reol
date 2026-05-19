@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_7_item_1",
+  "tourName": "BIG FOREST LIVE",
+  "liveTitle": "BIG FOREST LIVE",
+  "date": "2016-08-28",
+  "venueName": "札幌芸術の森野外ステージ",
+  "venueId": "venue_札幌芸術の森野外ステ_ジ",
+  "source": {
+    "type": "site_db",
+    "liveId": 7,
+    "liveItemNo": 1,
+    "sourceId": "live_7_item_1"
+  },
+  "entries": []
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_1",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 広島",
+  "date": "2020-02-08",
+  "venueName": "広島クラブクアトロ",
+  "venueId": "venue_広島クラブクアトロ",
+  "source": {
+    "type": "site_db",
+    "liveId": 22,
+    "liveItemNo": 1,
+    "sourceId": "live_22_item_1"
+  },
+  "entries": []
+}

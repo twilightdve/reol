@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_72_item_15",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 京都",
+  "date": "2026-05-30",
+  "venueName": "KYOTO FANJ",
+  "venueId": "venue_kyoto_fanj",
+  "source": {
+    "type": "site_db",
+    "liveId": 72,
+    "liveItemNo": 15,
+    "sourceId": "live_72_item_15"
+  },
+  "entries": []
+}

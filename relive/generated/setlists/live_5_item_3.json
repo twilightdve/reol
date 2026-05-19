@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_5_item_3",
+  "tourName": "れをる単独公演「極彩色HighFidelity」",
+  "liveTitle": "れをる単独公演「極彩色HighFidelity」 華の宴 in 上海",
+  "date": "2016-01-09",
+  "venueName": "MAO livehouse",
+  "venueId": "venue_mao_livehouse",
+  "source": {
+    "type": "site_db",
+    "liveId": 5,
+    "liveItemNo": 3,
+    "sourceId": "live_5_item_3"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_1",
+      "order": 1,
+      "rawTitle": "-nil-",
+      "displayTitle": "-nil-",
+      "normalizedTitle": "nil",
+      "policy": "required",
+      "trackId": "song_12",
+      "aliases": [],
+      "expectedDurationSec": 36.9,
+      "afterglowTailSec": 9.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_2",
+      "order": 2,
+      "rawTitle": "極彩色",
+      "displayTitle": "極彩色",
+      "normalizedTitle": "極彩色",
+      "policy": "required",
+      "trackId": "song_13",
+      "aliases": [],
+      "expectedDurationSec": 250.5,
+      "afterglowTailSec": 12.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_3",
+      "order": 3,
+      "rawTitle": "magician's operation <Giga Remix ver>",
+      "displayTitle": "magician's operation <Giga Remix ver>",
+      "normalizedTitle": "magiciansoperationgigaremixver",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_4",
+      "order": 4,
+      "rawTitle": "ロジックエージェント",
+      "displayTitle": "ロジックエージェント",
+      "normalizedTitle": "ロジックエージェント",
+      "policy": "required",
+      "trackId": "song_17",
+      "aliases": [],
+      "expectedDurationSec": 215.1,
+      "afterglowTailSec": 13.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_5",
+      "order": 5,
+      "rawTitle": "drop pop candy",
+      "displayTitle": "drop pop candy",
+      "normalizedTitle": "droppopcandy",
+      "policy": "required",
+      "trackId": "song_183",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_6",
+      "order": 6,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_27",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_7",
+      "order": 7,
+      "rawTitle": "ハルシアン",
+      "displayTitle": "ハルシアン",
+      "normalizedTitle": "ハルシアン",
+      "policy": "required",
+      "trackId": "song_16",
+      "aliases": [],
+      "expectedDurationSec": 178.6,
+      "afterglowTailSec": 12.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_8",
+      "order": 8,
+      "rawTitle": "ラ・タタン",
+      "displayTitle": "ラ・タタン",
+      "normalizedTitle": "ラタタン",
+      "policy": "required",
+      "trackId": "song_21",
+      "aliases": [],
+      "expectedDurationSec": 214.5,
+      "afterglowTailSec": 10.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_9",
+      "order": 9,
+      "rawTitle": "ジッタードール",
+      "displayTitle": "ジッタードール",
+      "normalizedTitle": "ジッタードール",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_10",
+      "order": 10,
+      "rawTitle": "FLASH BACK <Kameria Remix ver>",
+      "displayTitle": "FLASH BACK <Kameria Remix ver>",
+      "normalizedTitle": "flashbackkameriaremixver",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_11",
+      "order": 11,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_44",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_12",
+      "order": 12,
+      "rawTitle": "ギガンティックO.T.N",
+      "displayTitle": "ギガンティックO.T.N",
+      "normalizedTitle": "ギガンティックotn",
+      "policy": "required",
+      "trackId": "song_195",
+      "aliases": [
+        "ギガンティックO.T.N -Big Death Edition-"
+      ],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 13.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_13",
+      "order": 13,
+      "rawTitle": "FANTASTIC BABY <Giga Remix ver> Feat. Majiko.",
+      "displayTitle": "FANTASTIC BABY <Giga Remix ver> Feat. Majiko.",
+      "normalizedTitle": "fantasticbabygigaremixverfeatmajiko",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_14",
+      "order": 14,
+      "rawTitle": "心臓デモクラシー Feat. MIKITOP",
+      "displayTitle": "心臓デモクラシー Feat. MIKITOP",
+      "normalizedTitle": "心臓デモクラシーfeatmikitop",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_5_item_3_entry_15",
+      "order": 15,
+      "rawTitle": "いーあるふぁんくらぶ Feat. Majiko, MIKITOP <Giga Remix ver>",
+      "displayTitle": "いーあるふぁんくらぶ Feat. Majiko, MIKITOP <Giga Remix ver>",
+      "normalizedTitle": "いーあるふぁんくらぶfeatmajikomikitopgigaremixver",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

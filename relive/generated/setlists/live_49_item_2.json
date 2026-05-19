@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_2",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" 広州",
+  "date": "2024-03-03",
+  "venueName": "太空间 LIVE HOUSE",
+  "venueId": "venue_太空间_live_house",
+  "source": {
+    "type": "site_db",
+    "liveId": 49,
+    "liveItemNo": 2,
+    "sourceId": "live_49_item_2"
+  },
+  "entries": []
+}

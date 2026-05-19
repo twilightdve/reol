@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_3",
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」 福岡",
+  "date": "2022-05-02",
+  "venueName": "Zepp Fukuoka",
+  "venueId": "venue_zepp_fukuoka",
+  "source": {
+    "type": "site_db",
+    "liveId": 30,
+    "liveItemNo": 3,
+    "sourceId": "live_30_item_3"
+  },
+  "entries": []
+}

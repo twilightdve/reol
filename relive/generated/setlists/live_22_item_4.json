@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_4",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 北海道",
+  "date": "2020-02-22",
+  "venueName": "札幌ペニーレーン24",
+  "venueId": "venue_札幌ペニ_レ_ン24",
+  "source": {
+    "type": "site_db",
+    "liveId": 22,
+    "liveItemNo": 4,
+    "sourceId": "live_22_item_4"
+  },
+  "entries": []
+}

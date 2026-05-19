@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_72_item_22",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 台北",
+  "date": "2026-07-26",
+  "venueName": "Zepp New Taipei",
+  "venueId": "venue_zepp_new_taipei",
+  "source": {
+    "type": "site_db",
+    "liveId": 72,
+    "liveItemNo": 22,
+    "sourceId": "live_72_item_22"
+  },
+  "entries": []
+}

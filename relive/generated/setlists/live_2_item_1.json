@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_2_item_1",
+  "tourName": "nico nico Spirit.",
+  "liveTitle": "nico nico Spirit.",
+  "date": "2015-02-01",
+  "venueName": "新宿ReNY",
+  "venueId": "venue_新宿reny",
+  "source": {
+    "type": "site_db",
+    "liveId": 2,
+    "liveItemNo": 1,
+    "sourceId": "live_2_item_1"
+  },
+  "entries": []
+}

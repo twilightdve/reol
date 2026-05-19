@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_0_item_1",
+  "tourName": "ぎがばなな ざ べすと シークレットライブ",
+  "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
+  "date": "2013-09-23",
+  "venueName": "東京 ニッショーホール",
+  "venueId": "venue_東京_ニッショ_ホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveId": 0,
+    "liveItemNo": 1,
+    "sourceId": "live_0_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "えれくとりっく・えんじぇぅ（れをる）",
+      "displayTitle": "えれくとりっく・えんじぇぅ（れをる）",
+      "normalizedTitle": "えれくとりっくえんじぇぅれをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "ネトゲ廃人シュプレヒコール（kradness）",
+      "displayTitle": "ネトゲ廃人シュプレヒコール（kradness）",
+      "normalizedTitle": "ネトゲ廃人シュプレヒコールkradness",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "からくりピエロ（96猫）",
+      "displayTitle": "からくりピエロ（96猫）",
+      "normalizedTitle": "からくりピエロ96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "ギガンティックO.T.N（そらる）",
+      "displayTitle": "ギガンティックO.T.N（そらる）",
+      "normalizedTitle": "ギガンティックotnそらる",
+      "policy": "cover",
+      "trackId": "song_195",
+      "aliases": [
+        "ギガンティックO.T.N -Big Death Edition-"
+      ],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 13.1,
+      "note": "source_cover",
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:stripped"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "流線プリズム（kradness＆れをる）",
+      "displayTitle": "流線プリズム（kradness＆れをる）",
+      "normalizedTitle": "流線プリズムkradnessれをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "ＤＪギガＰ",
+      "displayTitle": "ＤＪギガＰ",
+      "normalizedTitle": "djギガp",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "へたくそユートピア政策（スズム）",
+      "displayTitle": "へたくそユートピア政策（スズム）",
+      "normalizedTitle": "へたくそユートピア政策スズム",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_8",
+      "order": 8,
+      "rawTitle": "いーあるふぁんくらぶ（96猫＆そらる）",
+      "displayTitle": "いーあるふぁんくらぶ（96猫＆そらる）",
+      "normalizedTitle": "いーあるふぁんくらぶ96猫そらる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_9",
+      "order": 9,
+      "rawTitle": "演奏者・ダンサー紹介",
+      "displayTitle": "演奏者・ダンサー紹介",
+      "normalizedTitle": "演奏者ダンサー紹介",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_10",
+      "order": 10,
+      "rawTitle": "cLick cRack（れをる＆kradness＆そらる＆96猫）",
+      "displayTitle": "cLick cRack（れをる＆kradness＆そらる＆96猫）",
+      "normalizedTitle": "clickcrackれをるkradnessそらる96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_11",
+      "order": 11,
+      "rawTitle": "トーク",
+      "displayTitle": "トーク",
+      "normalizedTitle": "トーク",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_12",
+      "order": 12,
+      "rawTitle": "トーク２",
+      "displayTitle": "トーク２",
+      "normalizedTitle": "トーク2",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_0_item_1_entry_13",
+      "order": 13,
+      "rawTitle": "いーあるふぁんくらぶ（れをる＆kradness＆そらる＆96猫）",
+      "displayTitle": "いーあるふぁんくらぶ（れをる＆kradness＆そらる＆96猫）",
+      "normalizedTitle": "いーあるふぁんくらぶれをるkradnessそらる96猫",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1026 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-19T16:05:28.851Z",
+  "counts": {
+    "sourceLives": 74,
+    "sourceLiveItems": 165,
+    "sourceSetlistEntries": 1895,
+    "sourceDiscographies": 90,
+    "sourceSongs": 220,
+    "generatedTracks": 220,
+    "generatedSetlists": 165,
+    "generatedVenues": 116,
+    "verifiedVenueCapacities": 22,
+    "venueCapacitiesNeedingVerification": 94,
+    "matchedEntries": 1643,
+    "candidateEntries": 35,
+    "specialEntries": 83,
+    "unmatchedEntries": 134
+  },
+  "unmatchedRawTitles": [
+    {
+      "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
+      "normalizedTitle": "港のヨーコヨコハマヨコスカ",
+      "count": 12,
+      "exampleSetlistIds": [
+        "live_72_item_12",
+        "live_72_item_11",
+        "live_72_item_10",
+        "live_72_item_9",
+        "live_72_item_8"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Winners feat. Reol & Giga",
+      "normalizedTitle": "winnersfeatgiga",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_22_item_9",
+        "live_15_item_2",
+        "live_15_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "津軽海峡・冬景色",
+      "normalizedTitle": "津軽海峡冬景色",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_72_item_8",
+        "live_72_item_7",
+        "live_72_item_6"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "不乱不破",
+      "normalizedTitle": "不乱不破",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_60_item_3",
+        "live_60_item_2",
+        "live_60_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "21世紀難民",
+      "normalizedTitle": "21世紀難民",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_15_item_2",
+        "live_15_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ray（そらる&夏代孝明）",
+      "normalizedTitle": "rayそらる夏代孝明",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_4_item_2",
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Starduster（そらる）",
+      "normalizedTitle": "stardusterそらる",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_4_item_1",
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "アストロノーツ",
+      "normalizedTitle": "アストロノーツ",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_69_item_1",
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "おこちゃま戦争",
+      "normalizedTitle": "おこちゃま戦争",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_11_item_2",
+        "live_11_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ジェミニ（96猫&れをる）",
+      "normalizedTitle": "ジェミニ96猫れをる",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_4_item_2",
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ジッタードール",
+      "normalizedTitle": "ジッタードール",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_5_item_3",
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "テトロドトキサイザ2号",
+      "normalizedTitle": "テトロドトキサイザ2号",
+      "count": 2,
+      "exampleSetlistIds": [
+        "live_15_item_2",
+        "live_15_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Boy with ゼップへお集まりの皆様",
+      "normalizedTitle": "boywithゼップへお集まりの皆様",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_62_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "BROKEN GAMES",
+      "normalizedTitle": "brokengames",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_53_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "By Your Side（八王子P×伊東歌詞太郎）",
+      "normalizedTitle": "byyourside八王子p伊東歌詞太郎",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Calc.Piano ver（いかさん）",
+      "normalizedTitle": "calcpianoverいかさん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "cLick cRack（れをる＆kradness＆そらる＆96猫）",
+      "normalizedTitle": "clickcrackれをるkradnessそらる96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Cotton Candy Cloud（cleanero）",
+      "normalizedTitle": "cottoncandycloudcleanero",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "DESIRE -情熱-",
+      "normalizedTitle": "desire情熱",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_14_item_5"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Drive into you（samfree×柿チョコ、Dancing Dolls R）",
+      "normalizedTitle": "driveintoyousamfree柿チョコdancingdollsr",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "FANTASTIC BABY <Giga Remix ver> Feat. Majiko.",
+      "normalizedTitle": "fantasticbabygigaremixverfeatmajiko",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_3"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "FLASH BACK <Kameria Remix ver>",
+      "normalizedTitle": "flashbackkameriaremixver",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_3"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "normalizedTitle": "imyourtreasureboxあなたはマリンせんちょうをたからばこからみつけた",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_54_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Jupiter（96猫）",
+      "normalizedTitle": "jupiter96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Love Ninja（ROOT FIVE）",
+      "normalizedTitle": "loveninjarootfive",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "magician's operation <Giga Remix ver>",
+      "normalizedTitle": "magiciansoperationgigaremixver",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_3"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "magnet（赤飯×ピコ）",
+      "normalizedTitle": "magnet赤飯ピコ",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "MERRY GO ROUND（ROOT FIVE）",
+      "normalizedTitle": "merrygoroundrootfive",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "MY→WAY（Dancing Dolls R）",
+      "normalizedTitle": "mywaydancingdollsr",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "REOL MASH UP Remix TIME",
+      "normalizedTitle": "mashupremixtime",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_8_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "S・K・Y（りょーくん）",
+      "normalizedTitle": "skyりょーくん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Shiningray（96猫）",
+      "normalizedTitle": "shiningray96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Starduster（96猫）",
+      "normalizedTitle": "starduster96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Super☆D（みきとP×まじ娘）",
+      "normalizedTitle": "superdみきとpまじ娘",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "The Bandits（Gero）",
+      "normalizedTitle": "thebanditsgero",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "View（蝶々P×rairu）",
+      "normalizedTitle": "view蝶々prairu",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "WAVE（kradness）",
+      "normalizedTitle": "wavekradness",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "Winners",
+      "normalizedTitle": "winners",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_50_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "アイマイ独立宣言（ゆうゆ×びびあん）",
+      "normalizedTitle": "アイマイ独立宣言ゆうゆびびあん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "アストロノーツ（れをる）",
+      "normalizedTitle": "アストロノーツれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "アポロ（天月）",
+      "normalizedTitle": "アポロ天月",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "いーあるふぁんくらぶ Feat. Majiko, MIKITOP <Giga Remix ver>",
+      "normalizedTitle": "いーあるふぁんくらぶfeatmajikomikitopgigaremixver",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_3"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "いーあるふぁんくらぶ（96猫＆そらる）",
+      "normalizedTitle": "いーあるふぁんくらぶ96猫そらる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "いーあるふぁんくらぶ（Gero×ぐるみたん）",
+      "normalizedTitle": "いーあるふぁんくらぶgeroぐるみたん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "いーあるふぁんくらぶ（れをる＆kradness＆そらる＆96猫）",
+      "normalizedTitle": "いーあるふぁんくらぶれをるkradnessそらる96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "えれくとりっく・えんじぇぅ（れをる）",
+      "normalizedTitle": "えれくとりっくえんじぇぅれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "からくりピエロ koma'nアレンジver（koma'n（Pf）×cleanero）",
+      "normalizedTitle": "からくりピエロkomanアレンジverkomanpfcleanero",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "からくりピエロ（96猫）",
+      "normalizedTitle": "からくりピエロ96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "こちら、幸福安心委員会です。（＿＿（アンダーバー））",
+      "normalizedTitle": "こちら幸福安心委員会ですアンダーバー",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "サクラミツツキ（天月）",
+      "normalizedTitle": "サクラミツツキ天月",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "サリシノハラ（みきとP×kain）",
+      "normalizedTitle": "サリシノハラみきとpkain",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ジッタードール（れをる）",
+      "normalizedTitle": "ジッタードールれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "スターフィッシュ（夏代孝明）",
+      "normalizedTitle": "スターフィッシュ夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "スターライトパレード（天月）",
+      "normalizedTitle": "スターライトパレード天月",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ストリーミングハート",
+      "normalizedTitle": "ストリーミングハート",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ストリーミングハート（＋α/あるふぁきゅん。）",
+      "normalizedTitle": "ストリーミングハートαあるふぁきゅん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "デート（HoneyWorks×鎖那）",
+      "normalizedTitle": "デートhoneyworks鎖那",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "トキオ・ファンカ",
+      "normalizedTitle": "トキオファンカ",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ネトゲ廃人シュプレヒコール（kradness）",
+      "normalizedTitle": "ネトゲ廃人シュプレヒコールkradness",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "フィードバック・インターステラ（そらる）",
+      "normalizedTitle": "フィードバックインターステラそらる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "フタリボシ（天月&佐香智久）",
+      "normalizedTitle": "フタリボシ天月佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "へたくそユートピア政策（スズム）",
+      "normalizedTitle": "へたくそユートピア政策スズム",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ホシアイ（天月）",
+      "normalizedTitle": "ホシアイ天月",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ホシトリアミ（夏代孝明）",
+      "normalizedTitle": "ホシトリアミ夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "マーシャルの嬌声（夏代孝明）",
+      "normalizedTitle": "マーシャルの嬌声夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "マトリョシカ（ROOT FIVE×luz）",
+      "normalizedTitle": "マトリョシカrootfiveluz",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ルカルカ★ナイトフィーバー（samfree×愛川こずえ with I LoVU）",
+      "normalizedTitle": "ルカルカナイトフィーバーsamfree愛川こずえwithilovu",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "レッド・パージ！！！",
+      "normalizedTitle": "レッドパージ",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "レディーレ Fall apart arr.",
+      "normalizedTitle": "レディーレfallapartarr",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_66_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "ローリンガール（ぐるたみん）",
+      "normalizedTitle": "ローリンガールぐるたみん",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "下弦の月（96猫）",
+      "normalizedTitle": "下弦の月96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "花鳥風月（佐香智久）",
+      "normalizedTitle": "花鳥風月佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "金曜日のおはよう（HoneyWorks×Gero）",
+      "normalizedTitle": "金曜日のおはようhoneyworksgero",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "君の知らない物語（佐香智久）",
+      "normalizedTitle": "君の知らない物語佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "月に負け犬（れをる）",
+      "normalizedTitle": "月に負け犬れをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "月のしずく（96猫）",
+      "normalizedTitle": "月のしずく96猫",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "月のワルツ（れをる）",
+      "normalizedTitle": "月のワルツれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "見習いハーデス（赤飯）",
+      "normalizedTitle": "見習いハーデス赤飯",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "虎視眈々（luz）",
+      "normalizedTitle": "虎視眈々luz",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "光るなら（全員）",
+      "normalizedTitle": "光るなら全員",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "今好きになる。（HoneyWorks×鎖那）",
+      "normalizedTitle": "今好きになるhoneyworks鎖那",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "春を告げる",
+      "normalizedTitle": "春を告げる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_56_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "小さな恋のうた（佐香智久）",
+      "normalizedTitle": "小さな恋のうた佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "松本ぼんぼん（Born Born Remix）",
+      "normalizedTitle": "松本ぼんぼんbornbornremix",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_36_item_9"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "心臓デモクラシー Feat. MIKITOP",
+      "normalizedTitle": "心臓デモクラシーfeatmikitop",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_3"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "心拍数＃0822（kain）",
+      "normalizedTitle": "心拍数0822kain",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "心做し（ピコ）",
+      "normalizedTitle": "心做しピコ",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "人生リセットボタン（松下）",
+      "normalizedTitle": "人生リセットボタン松下",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "水底遊歩道",
+      "normalizedTitle": "水底遊歩道",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "世界は恋に落ちている（CHiCO with HoneyWorks）",
+      "normalizedTitle": "世界は恋に落ちているchicowithhoneyworks",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星が瞬くこんな夜に（佐香智久）",
+      "normalizedTitle": "星が瞬くこんな夜に佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星が消えた夏（夏代孝明）",
+      "normalizedTitle": "星が消えた夏夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星に願いを（そらる）",
+      "normalizedTitle": "星に願いをそらる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星の唄（天月&佐香智久）",
+      "normalizedTitle": "星の唄天月佐香智久",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星間飛行（そらる）",
+      "normalizedTitle": "星間飛行そらる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "星屑サンセット（れをる）",
+      "normalizedTitle": "星屑サンセットれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "聖槍爆裂ボーイ（いかふぁきゅん（いかさん×＋α/あるふぁきゅん。）×れるりり）",
+      "normalizedTitle": "聖槍爆裂ボーイいかふぁきゅんいかさんαあるふぁきゅんれるりり",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "千本桜（ALL ARTISTS）",
+      "normalizedTitle": "千本桜allartists",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "体調不良のため出演キャンセル",
+      "normalizedTitle": "体調不良のため出演キャンセル",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_31_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "地球最後の告白を（un：c）",
+      "normalizedTitle": "地球最後の告白をunc",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "天体観測（全員）",
+      "normalizedTitle": "天体観測全員",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "二息歩行（りょーくん×赤飯）",
+      "normalizedTitle": "二息歩行りょーくん赤飯",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "脳漿炸裂ガール（れをる×＋α/あるふぁきゅん×れるりり）",
+      "normalizedTitle": "脳漿炸裂ガールれをるαあるふぁきゅんれるりり",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "妄想クエスチョン",
+      "normalizedTitle": "妄想クエスチョン",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_5_item_2"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "妄想税（れをる×nqrse）",
+      "normalizedTitle": "妄想税れをるnqrse",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "夜咄ディセイブ（un：c×夏代孝明）",
+      "normalizedTitle": "夜咄ディセイブunc夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "流線プリズム（kradness＆れをる）",
+      "normalizedTitle": "流線プリズムkradnessれをる",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_0_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "嗚呼、素晴らしきニャン生（＿＿（アンダーバー）×松下）",
+      "normalizedTitle": "嗚呼素晴らしきニャン生アンダーバー松下",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_3_item_1"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "帚星（夏代孝明）",
+      "normalizedTitle": "帚星夏代孝明",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_4_item_1"
+      ],
+      "reason": "no_discography_match"
+    }
+  ],
+  "warnings": [
+    "Some live items have empty setlists.",
+    "Some discography songs do not have Spotify audio features.",
+    "Venue capacity is intentionally null until web verification is completed."
+  ]
+}
