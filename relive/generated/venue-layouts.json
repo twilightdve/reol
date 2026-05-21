@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T13:36:02.438Z",
+  "generatedAt": "2026-05-21T18:10:15.199Z",
   "source": {
     "type": "generated-from-venues",
     "venuesPath": "/relive/generated/venues.json",
@@ -190,7 +190,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -373,7 +373,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -556,7 +556,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -741,7 +741,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -924,7 +924,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -1107,7 +1107,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -1328,7 +1328,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -1564,7 +1564,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -1747,7 +1747,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -1981,7 +1981,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -2164,7 +2164,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -2574,7 +2574,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3064,7 +3064,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3247,7 +3247,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3430,7 +3430,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3606,7 +3606,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3789,7 +3789,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -3972,7 +3972,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -4142,7 +4142,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -4312,7 +4312,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -4497,7 +4497,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -4680,7 +4680,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -4863,7 +4863,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -5097,7 +5097,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -5267,7 +5267,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -5437,7 +5437,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -5906,7 +5906,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -6089,7 +6089,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -6323,7 +6323,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -6506,7 +6506,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -6740,7 +6740,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -6926,7 +6926,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -7112,7 +7112,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -7295,7 +7295,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -8394,7 +8394,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -8806,7 +8806,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -9345,7 +9345,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -9528,7 +9528,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -10350,7 +10350,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -10584,7 +10584,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -10784,7 +10784,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -10967,7 +10967,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -11456,7 +11456,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -11690,7 +11690,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -11897,7 +11897,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -12080,7 +12080,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -12314,7 +12314,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -12497,7 +12497,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -12731,7 +12731,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -12916,7 +12916,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -13099,7 +13099,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -13306,7 +13306,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -13515,7 +13515,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -13751,7 +13751,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -13934,7 +13934,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -14119,7 +14119,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -14319,7 +14319,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -14553,7 +14553,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -14787,7 +14787,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15021,7 +15021,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15255,7 +15255,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15438,7 +15438,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15621,7 +15621,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15804,7 +15804,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -15987,7 +15987,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -16221,7 +16221,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -16404,7 +16404,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -16611,7 +16611,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -16794,7 +16794,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -16979,7 +16979,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -17164,7 +17164,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -17400,7 +17400,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -17583,7 +17583,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -17766,7 +17766,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -17993,7 +17993,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -18176,7 +18176,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -18359,7 +18359,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -18542,7 +18542,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -18727,7 +18727,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -18934,7 +18934,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -19134,7 +19134,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -19304,7 +19304,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -19540,7 +19540,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -19747,7 +19747,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -19941,7 +19941,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -20141,7 +20141,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -20368,7 +20368,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -20602,7 +20602,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -20785,7 +20785,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -21019,7 +21019,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -21253,7 +21253,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -21462,7 +21462,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -21696,7 +21696,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -21879,7 +21879,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -22113,7 +22113,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -22289,7 +22289,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -22474,7 +22474,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -22657,7 +22657,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -22891,7 +22891,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -23091,7 +23091,7 @@
         }
       ],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -23261,7 +23261,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     },
     {
       "schemaVersion": 1,
@@ -23431,7 +23431,7 @@
       ],
       "sourceUrls": [],
       "notes": "Base layout generated from venue type. Official floor map images and HTML are not bundled.",
-      "updatedAt": "2026-05-21T13:36:02.438Z"
+      "updatedAt": "2026-05-21T18:10:15.199Z"
     }
   ]
 }
