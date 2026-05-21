@@ -1,0 +1,537 @@
+{
+  "舞洲スポーツアイランド": {
+    "lat": 34.66693108491004,
+    "lng": 135.3924789119308,
+    "source": "googleMapsUrl"
+  },
+  "HEAVEN'S ROCK UTSUNOMIYA VJ-2": {
+    "lat": 36.55911940000001,
+    "lng": 139.87766411744383,
+    "source": "googleMapsUrl"
+  },
+  "徳島club GRINDHOUSE": {
+    "lat": 34.064058,
+    "lng": 134.549314,
+    "source": "googleMapsUrl"
+  },
+  "周南RISING HALL": {
+    "lat": 34.05066740000003,
+    "lng": 131.7879645554199,
+    "source": "googleMapsUrl"
+  },
+  "神戸Harbor Studio": {
+    "lat": 34.684728,
+    "lng": 135.185031,
+    "source": "googleMapsUrl"
+  },
+  "松阪M'AXA": {
+    "lat": 34.607044,
+    "lng": 136.517587,
+    "source": "googleMapsUrl"
+  },
+  "青森Quarter": {
+    "lat": 40.828618,
+    "lng": 140.742654,
+    "source": "googleMapsUrl"
+  },
+  "DRUM Be-7": {
+    "lat": 32.746978,
+    "lng": 129.878667,
+    "source": "googleMapsUrl"
+  },
+  "熊本B.9 V1": {
+    "lat": 32.806035,
+    "lng": 130.710823,
+    "source": "googleMapsUrl"
+  },
+  "桜坂セントラル": {
+    "lat": 26.21544,
+    "lng": 127.690374,
+    "source": "googleMapsUrl"
+  },
+  "旭川CASINO DRIVE": {
+    "lat": 43.768969,
+    "lng": 142.36144,
+    "source": "googleMapsUrl"
+  },
+  "札幌ペニーレーン24": {
+    "lat": 43.073937,
+    "lng": 141.30646,
+    "source": "googleMapsUrl"
+  },
+  "YOKOHAMA BayHall": {
+    "lat": 35.441657,
+    "lng": 139.661112,
+    "source": "googleMapsUrl"
+  },
+  "NAGANO CLUB JUNK BOX": {
+    "lat": 36.644571,
+    "lng": 138.189812,
+    "source": "googleMapsUrl"
+  },
+  "新潟LOTS": {
+    "lat": 37.918014,
+    "lng": 139.046599,
+    "source": "googleMapsUrl"
+  },
+  "KYOTO FANJ": {
+    "lat": 35.06357539999998,
+    "lng": 135.77329198715822,
+    "source": "googleMapsUrl"
+  },
+  "岐阜Club-G": {
+    "lat": 35.418574,
+    "lng": 136.759685,
+    "source": "googleMapsUrl"
+  },
+  "トークネットホール仙台": {
+    "lat": 38.223683,
+    "lng": 140.885163,
+    "source": "googleMapsUrl"
+  },
+  "オリックス劇場": {
+    "lat": 34.678551,
+    "lng": 135.495387,
+    "source": "googleMapsUrl"
+  },
+  "福岡国際会議場メインホール": {
+    "lat": 33.606502,
+    "lng": 130.403739,
+    "source": "googleMapsUrl"
+  },
+  "岡谷鋼機名古屋公会堂": {
+    "lat": 35.156679,
+    "lng": 136.919118,
+    "source": "googleMapsUrl"
+  },
+  "LINE CUBE SHIBUYA": {
+    "lat": 35.664204,
+    "lng": 139.698555,
+    "source": "googleMapsUrl"
+  },
+  "Zepp New Taipei": {
+    "lat": 25.059678299999998,
+    "lng": 121.4495726,
+    "source": "googleMapsUrl"
+  },
+  "YES24 WANDERLOCH HALL": {
+    "lat": 37.55656582458225,
+    "lng": 126.93765231202437,
+    "source": "googleMapsUrl"
+  },
+  "幕張メッセ": {
+    "lat": 35.647009700000005,
+    "lng": 140.03443489999998,
+    "source": "googleMapsUrl"
+  },
+  "新北市・新北大都会公園": {
+    "lat": 25.055463977802482,
+    "lng": 121.47817097537715,
+    "source": "googleMapsUrl"
+  },
+  "横浜アリーナ": {
+    "lat": 35.512272072642276,
+    "lng": 139.61760477578017,
+    "source": "googleMapsUrl"
+  },
+  "静安体育中心": {
+    "lat": 31.231843947389198,
+    "lng": 121.44735519370822,
+    "source": "googleMapsUrl"
+  },
+  "幕張メッセ ホール 9・10・11": {
+    "lat": 35.647009700000005,
+    "lng": 140.03443489999998,
+    "source": "googleMapsUrl"
+  },
+  "Zeep Namba": {
+    "lat": 34.65737008542275,
+    "lng": 135.49870311193683,
+    "source": "googleMapsUrl"
+  },
+  "川崎市東扇島東公園特設会場": {
+    "lat": 35.5043857,
+    "lng": 139.7738118,
+    "source": "googleMapsUrl"
+  },
+  "Hynes Convention Center in Boston": {
+    "lat": 42.3480723357379,
+    "lng": -71.08622848779856,
+    "source": "googleMapsUrl"
+  },
+  "Seattle Convention Center": {
+    "lat": 47.61282973742659,
+    "lng": -122.33425693758868,
+    "source": "googleMapsUrl"
+  },
+  "KT Zepp Yokohama": {
+    "lat": 35.45969077265953,
+    "lng": 139.6233054757779,
+    "source": "googleMapsUrl"
+  },
+  "福岡UNITEDLAB ": {
+    "lat": 33.5865821,
+    "lng": 130.392776,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Osaka Bayside": {
+    "lat": 34.6621016,
+    "lng": 135.4351611,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Nagoya": {
+    "lat": 35.1633536,
+    "lng": 136.88473159999998,
+    "source": "googleMapsUrl"
+  },
+  "Zepp DiverCity Tokyo": {
+    "lat": 35.6247520329593,
+    "lng": 139.77201061196095,
+    "source": "googleMapsUrl"
+  },
+  "KINTEX HALL": {
+    "lat": 37.66720070000001,
+    "lng": 126.73443527770992,
+    "source": "googleMapsUrl"
+  },
+  "Yogibo META VALLEY": {
+    "lat": 34.65940437293429,
+    "lng": 135.5001142757426,
+    "source": "googleMapsUrl"
+  },
+  "なんばHatch": {
+    "lat": 34.66839037293119,
+    "lng": 135.4930117757429,
+    "source": "googleMapsUrl"
+  },
+  "日本武道館": {
+    "lat": 35.6931049,
+    "lng": 139.7507088,
+    "source": "googleMapsUrl"
+  },
+  "福岡　スカラエスパシオ": {
+    "lat": 33.586229,
+    "lng": 130.401964,
+    "source": "googleMapsUrl"
+  },
+  "BIG CAT": {
+    "lat": 34.6723442,
+    "lng": 130.8845977,
+    "source": "googleMapsUrl"
+  },
+  "Spotify O-EAST": {
+    "lat": 35.6587215,
+    "lng": 139.6956111,
+    "source": "googleMapsUrl"
+  },
+  "musinsa garage": {
+    "lat": 37.551543672042435,
+    "lng": 126.9172053758731,
+    "source": "googleMapsUrl"
+  },
+  "Zepp DiverCity": {
+    "lat": 35.62474767260555,
+    "lng": 139.77201597578517,
+    "source": "googleMapsUrl"
+  },
+  "フェスティバルホール": {
+    "lat": 34.6935888,
+    "lng": 135.4969513,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Fukuoka": {
+    "lat": 33.5935422,
+    "lng": 130.3631641,
+    "source": "googleMapsUrl"
+  },
+  "T.O.P.S BittsHALL": {
+    "lat": 33.247612399999994,
+    "lng": 131.5875461,
+    "source": "googleMapsUrl"
+  },
+  "LIVE ROXY SHIZUOKA": {
+    "lat": 34.9704312,
+    "lng": 138.3860067,
+    "source": "googleMapsUrl"
+  },
+  "神戸ハーバースタジオ": {
+    "lat": 34.6846276,
+    "lng": 135.1850968,
+    "source": "googleMapsUrl"
+  },
+  "松山 Wstudio RED": {
+    "lat": 33.836266300000005,
+    "lng": 132.7649873,
+    "source": "googleMapsUrl"
+  },
+  "高松 DIME": {
+    "lat": 34.341447,
+    "lng": 134.046771,
+    "source": "googleMapsUrl"
+  },
+  "昭和女子大学人見記念講堂": {
+    "lat": 35.644535,
+    "lng": 139.67622409999998,
+    "source": "googleMapsUrl"
+  },
+  "広島クラブクアトロ": {
+    "lat": 34.9120616,
+    "lng": 130.7965647,
+    "source": "googleMapsUrl"
+  },
+  "岡山 CRAZYMAMA KINGDOM": {
+    "lat": 34.657135100000005,
+    "lng": 133.9234456,
+    "source": "googleMapsUrl"
+  },
+  "仙台 GIGS": {
+    "lat": 38.243045699999996,
+    "lng": 140.9490026,
+    "source": "googleMapsUrl"
+  },
+  "盛岡 club change WAVE": {
+    "lat": 39.702408999999996,
+    "lng": 141.14704899999998,
+    "source": "googleMapsUrl"
+  },
+  "神奈川県民ホール": {
+    "lat": 35.446063099999996,
+    "lng": 139.64708919999998,
+    "source": "googleMapsUrl"
+  },
+  "新潟 LOTS": {
+    "lat": 37.91180749999999,
+    "lng": 139.04876339999998,
+    "source": "googleMapsUrl"
+  },
+  "金沢 エイトホール": {
+    "lat": 36.559245499999996,
+    "lng": 136.6519152,
+    "source": "googleMapsUrl"
+  },
+  "中国上海・森蘭緑地（Sen Lan Green Park)": {
+    "lat": 31.3087378,
+    "lng": 121.5885642,
+    "source": "googleMapsUrl"
+  },
+  "新潟テルサ": {
+    "lat": 37.87737339999999,
+    "lng": 139.0470246,
+    "source": "googleMapsUrl"
+  },
+  "Istora Gelora Bung Karno Jakarta, Indonesia.": {
+    "lat": -6.2202283000000005,
+    "lng": 106.8056639,
+    "source": "googleMapsUrl"
+  },
+  "国営ひたち海浜公園": {
+    "lat": 36.405864,
+    "lng": 140.59648679999998,
+    "source": "googleMapsUrl"
+  },
+  "海とのふれあい広場": {
+    "lat": 34.6021612,
+    "lng": 135.4280183,
+    "source": "googleMapsUrl"
+  },
+  "中野サンプラザ": {
+    "lat": 35.707755,
+    "lng": 139.6601168,
+    "source": "googleMapsUrl"
+  },
+  "みちのく公園 北地区": {
+    "lat": 38.194595,
+    "lng": 140.6559058,
+    "source": "googleMapsUrl"
+  },
+  "TOKYO DOME CITY HALL": {
+    "lat": 35.703715599999995,
+    "lng": 139.7542363,
+    "source": "googleMapsUrl"
+  },
+  "仙台PIT": {
+    "lat": 38.223683199999996,
+    "lng": 140.8851631,
+    "source": "googleMapsUrl"
+  },
+  "高松 festhalle": {
+    "lat": 34.3381523,
+    "lng": 134.05235729999998,
+    "source": "googleMapsUrl"
+  },
+  "まつもと市民芸術館": {
+    "lat": 36.229965899999996,
+    "lng": 137.9746548,
+    "source": "googleMapsUrl"
+  },
+  "大阪城音楽堂": {
+    "lat": 34.68270400000001,
+    "lng": 135.530568,
+    "source": "googleMapsUrl"
+  },
+  "千葉市蘇我スポーツ公園": {
+    "lat": 35.5741692,
+    "lng": 140.1229314,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Haneda": {
+    "lat": 35.5473958,
+    "lng": 139.7565213,
+    "source": "googleMapsUrl"
+  },
+  "ぴあアリーナMM": {
+    "lat": 35.455878799999994,
+    "lng": 139.6287176,
+    "source": "googleMapsUrl"
+  },
+  "フェニーチェ堺": {
+    "lat": 34.5721621,
+    "lng": 135.4795384,
+    "source": "googleMapsUrl"
+  },
+  "DRUM LOGOS": {
+    "lat": 33.59289599999999,
+    "lng": 130.39398,
+    "source": "googleMapsUrl"
+  },
+  "仙台 Rensa": {
+    "lat": 38.265008099999996,
+    "lng": 140.8701878,
+    "source": "googleMapsUrl"
+  },
+  "名古屋ダイアモンドホール": {
+    "lat": 35.1693237,
+    "lng": 136.9204545,
+    "source": "googleMapsUrl"
+  },
+  "LINE CUBE SHIBUYA ": {
+    "lat": 35.6642039,
+    "lng": 139.69855529999998,
+    "source": "googleMapsUrl"
+  },
+  "Veats Shibuya": {
+    "lat": 35.6607517,
+    "lng": 139.6973995,
+    "source": "googleMapsUrl"
+  },
+  "松下IMPホール": {
+    "lat": 34.691850099999996,
+    "lng": 135.5296916,
+    "source": "googleMapsUrl"
+  },
+  "ReNY limited": {
+    "lat": 35.166001699999995,
+    "lng": 136.9082345,
+    "source": "googleMapsUrl"
+  },
+  "新木場スタジオコースト": {
+    "lat": 35.6422007,
+    "lng": 139.8230647,
+    "source": "googleMapsUrl"
+  },
+  "恋の浦海岸": {
+    "lat": 33.8076,
+    "lng": 130.456049,
+    "source": "googleMapsUrl"
+  },
+  "渋谷ストリームホール": {
+    "lat": 35.657558900000005,
+    "lng": 139.7025291,
+    "source": "googleMapsUrl"
+  },
+  "梅田バナナホール": {
+    "lat": 34.702926,
+    "lng": 135.504592,
+    "source": "googleMapsUrl"
+  },
+  "名古屋 E.L.L.": {
+    "lat": 35.1608723,
+    "lng": 136.8987258,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Tokyo": {
+    "lat": 35.6259362,
+    "lng": 139.7823209,
+    "source": "googleMapsUrl"
+  },
+  "Mao live house": {
+    "lat": 39.54595700000001,
+    "lng": 116.267943,
+    "source": "googleMapsUrl"
+  },
+  "Modernsky Lab": {
+    "lat": 25.009719900000004,
+    "lng": 102.6856049,
+    "source": "googleMapsUrl"
+  },
+  "EX THEATER ROPPONGI": {
+    "lat": 35.661263399999996,
+    "lng": 139.7272975,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Namba": {
+    "lat": 34.657365672935114,
+    "lng": 135.49870847574272,
+    "source": "googleMapsUrl"
+  },
+  "豊洲PIT": {
+    "lat": 35.6496061,
+    "lng": 139.7883756,
+    "source": "googleMapsUrl"
+  },
+  "cube garden": {
+    "lat": 43.06505949999999,
+    "lng": 141.36014799999998,
+    "source": "googleMapsUrl"
+  },
+  "HONGDAE V-HALL": {
+    "lat": 37.554387399999996,
+    "lng": 126.92195190000001,
+    "source": "googleMapsUrl"
+  },
+  "札幌芸術の森野外ステージ": {
+    "lat": 42.9368159,
+    "lng": 141.3382863,
+    "source": "googleMapsUrl"
+  },
+  "赤坂BLITZ": {
+    "lat": 35.6725476,
+    "lng": 139.73533570000004,
+    "source": "googleMapsUrl"
+  },
+  "TSUTAYA O-EAST": {
+    "lat": 35.6587215,
+    "lng": 139.6956111,
+    "source": "googleMapsUrl"
+  },
+  "MAO livehouse": {
+    "lat": 39.54595700000001,
+    "lng": 116.267943,
+    "source": "googleMapsUrl"
+  },
+  "大宮ソニックシティ": {
+    "lat": 35.90526517251586,
+    "lng": 139.61713467579776,
+    "source": "googleMapsUrl"
+  },
+  "国立代々木競技場第一体育館": {
+    "lat": 35.667647200000005,
+    "lng": 139.7001458,
+    "source": "googleMapsUrl"
+  },
+  "新宿ReNY": {
+    "lat": 35.6926976,
+    "lng": 139.6925046,
+    "source": "googleMapsUrl"
+  },
+  "原宿 ASTRO HALL": {
+    "lat": 35.669557,
+    "lng": 139.70655,
+    "source": "googleMapsUrl"
+  },
+  "東京 ニッショーホール": {
+    "lat": 35.66601997259222,
+    "lng": 139.75777907578694,
+    "source": "googleMapsUrl"
+  }
+}
