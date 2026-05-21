@@ -543,8 +543,8 @@
       "liveItemNo": 1,
       "title": "Sammy presents NEW HORIZON FEST 千葉",
       "date": "2025-08-02",
-      "venueName": "幕張メッセ ホール 9・10・11",
-      "venueId": "venue_幕張メッセ_ホ_ル_9_10_11",
+      "venueName": "幕張メッセ",
+      "venueId": "venue_幕張メッセ",
       "type": "event",
       "songCount": 9,
       "playablePolicySummary": {
@@ -934,8 +934,8 @@
       "liveItemNo": 1,
       "title": "超音楽祭 in ニコニコ超会議2024",
       "date": "2024-04-27",
-      "venueName": "幕張メッセ ホール 9・10・11",
-      "venueId": "venue_幕張メッセ_ホ_ル_9_10_11",
+      "venueName": "幕張メッセ",
+      "venueId": "venue_幕張メッセ",
       "type": "event",
       "songCount": 8,
       "playablePolicySummary": {

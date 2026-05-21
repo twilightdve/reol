@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T11:08:13.817Z",
+  "generatedAt": "2026-05-21T13:36:02.438Z",
   "counts": {
-    "venues": 115,
-    "layouts": 115,
+    "venues": 114,
+    "layouts": 114,
     "verified": 0,
     "partiallyVerified": 12,
     "estimated": 0,
-    "needsVerification": 103,
+    "needsVerification": 102,
     "unknown": 0,
     "withCapacity": 22,
     "withDimensions": 1,
     "withFloorStructure": 9,
-    "withOfficialSite": 97,
-    "withGoogleMaps": 106,
+    "withOfficialSite": 96,
+    "withGoogleMaps": 105,
     "withOverrides": 12,
-    "enrichmentTasks": 115
+    "enrichmentTasks": 114
   }
 }

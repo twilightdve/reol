@@ -4,8 +4,8 @@
   "tourName": "Sammy presents NEW HORIZON FEST",
   "liveTitle": "Sammy presents NEW HORIZON FEST 千葉",
   "date": "2025-08-02",
-  "venueName": "幕張メッセ ホール 9・10・11",
-  "venueId": "venue_幕張メッセ_ホ_ル_9_10_11",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_幕張メッセ",
   "source": {
     "type": "site_db",
     "liveId": 67,

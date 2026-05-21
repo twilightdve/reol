@@ -2877,6 +2877,8 @@
         35,
         43,
         47,
+        51,
+        67,
         71
       ],
       "sourceSetlistIds": [
@@ -2886,32 +2888,9 @@
         "live_35_item_1",
         "live_43_item_1",
         "live_47_item_1",
-        "live_71_item_1"
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "venueId": "venue_幕張メッセ_ホ_ル_9_10_11",
-      "name": "幕張メッセ ホール 9・10・11",
-      "aliases": [
-        "幕張メッセ ホール 9・10・11"
-      ],
-      "type": "exhibition",
-      "typeGuessReason": [
-        "exhibition_keyword"
-      ],
-      "siteUrl": "https://www.m-messe.co.jp/",
-      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
-      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
-      "capacity": null,
-      "capacityStatus": "needs_web_verification",
-      "sourceLiveIds": [
-        51,
-        67
-      ],
-      "sourceSetlistIds": [
         "live_51_item_1",
-        "live_67_item_1"
+        "live_67_item_1",
+        "live_71_item_1"
       ]
     },
     {
