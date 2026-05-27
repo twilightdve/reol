@@ -204,14 +204,14 @@
       "venueName": "新潟LOTS",
       "venueId": "venue_新潟lots",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 23,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
+        "required": 19,
+        "special": 3,
         "medley": 0,
         "cover": 0,
-        "se": 0,
-        "unknown": 0
+        "se": 3,
+        "unknown": 1
       }
     },
     {
@@ -223,14 +223,14 @@
       "venueName": "NAGANO CLUB JUNK BOX",
       "venueId": "venue_nagano_club_junk_box",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 24,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
+        "required": 19,
+        "special": 3,
         "medley": 0,
         "cover": 0,
-        "se": 0,
-        "unknown": 0
+        "se": 3,
+        "unknown": 2
       }
     },
     {

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T18:10:15.199Z",
+  "generatedAt": "2026-05-27T13:46:14.038Z",
   "counts": {
     "sourceLives": 74,
     "sourceLiveItems": 165,
-    "sourceSetlistEntries": 1895,
+    "sourceSetlistEntries": 1942,
     "sourceDiscographies": 90,
     "sourceSongs": 220,
     "generatedTracks": 220,
@@ -12,22 +12,22 @@
     "generatedVenues": 114,
     "verifiedVenueCapacities": 22,
     "venueCapacitiesNeedingVerification": 92,
-    "matchedEntries": 1643,
-    "candidateEntries": 35,
-    "specialEntries": 83,
-    "unmatchedEntries": 134
+    "matchedEntries": 1677,
+    "candidateEntries": 39,
+    "specialEntries": 89,
+    "unmatchedEntries": 137
   },
   "unmatchedRawTitles": [
     {
       "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
       "normalizedTitle": "港のヨーコヨコハマヨコスカ",
-      "count": 12,
+      "count": 14,
       "exampleSetlistIds": [
+        "live_72_item_14",
+        "live_72_item_13",
         "live_72_item_12",
         "live_72_item_11",
-        "live_72_item_10",
-        "live_72_item_9",
-        "live_72_item_8"
+        "live_72_item_10"
       ],
       "reason": "no_discography_match"
     },
@@ -789,6 +789,15 @@
       "count": 1,
       "exampleSetlistIds": [
         "live_36_item_9"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "信濃の国",
+      "normalizedTitle": "信濃の国",
+      "count": 1,
+      "exampleSetlistIds": [
+        "live_72_item_13"
       ],
       "reason": "no_discography_match"
     },

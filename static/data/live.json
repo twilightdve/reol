@@ -3043,7 +3043,224 @@
         "address": "長野県長野市南石堂町1423",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12804.977539789488!2d138.189812!3d36.644571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d86ecf9e91009%3A0x5ad5e487adde8e7a!2sNAGANO%20CLUB%20JUNK%20BOX!5e0!3m2!1sja!2sus!4v1764574251248!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "信濃の国",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songId": 51,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 13,
+            "liveItemSongNo": 24,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
         "posts": []
       },
       {
@@ -3056,7 +3273,215 @@
         "address": "新潟県新潟市中央区古町通6-953-1",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12590.125659419535!2d139.046599!3d37.918014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2f77ys77yv77y077yz!5e0!3m2!1sja!2sus!4v1764574654178!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 1,
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songId": 210,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 2,
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songId": 45,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 3,
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songId": 185,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 4,
+            "liveItemSongName": "DEAD CENTER",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 5,
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songId": 167,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 6,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 7,
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songId": 91,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 8,
+            "liveItemSongName": "二等星",
+            "type": "song",
+            "songId": 217,
+            "matchSource": "stripped"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 9,
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songId": 211,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 10,
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "live_only",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 11,
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 12,
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songId": 92,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 13,
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songId": 180,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 14,
+            "liveItemSongName": "Boy",
+            "type": "song",
+            "songId": 95,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 15,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 16,
+            "liveItemSongName": "No title",
+            "type": "song",
+            "songId": 6,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 17,
+            "liveItemSongName": "ヒビカセ",
+            "type": "song",
+            "songId": 2,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 18,
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songId": 159,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 19,
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songId": 157,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 20,
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songId": 160,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 21,
+            "liveItemSongName": "-MC-",
+            "type": "song",
+            "songId": null,
+            "matchSource": "none"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 22,
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songId": 103,
+            "matchSource": "exact"
+          },
+          {
+            "liveId": 72,
+            "liveItemNo": 14,
+            "liveItemSongNo": 23,
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songId": 220,
+            "matchSource": "exact"
+          }
+        ],
         "posts": []
       },
       {
