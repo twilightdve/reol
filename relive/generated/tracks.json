@@ -4372,7 +4372,7 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
-      "canonicalTitle": "感情御中 -WANT U LUV IT",
+      "canonicalTitle": "感情御中 -WANT U LUV IT-",
       "aliases": [
         "感情御中 - WANT U LUV IT"
       ],
@@ -5300,7 +5300,7 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-d50a-7e2a-8a8c-7e380776f130",
-      "canonicalTitle": "感情御中 -WANT U LUV IT",
+      "canonicalTitle": "感情御中 -WANT U LUV IT-",
       "aliases": [
         "感情御中 - WANT U LUV IT"
       ],
@@ -6006,7 +6006,7 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-e1d7-722e-ad1a-1247b82b3b4a",
-      "canonicalTitle": "感情御中 - WANT U LUV IT-",
+      "canonicalTitle": "感情御中 -WANT U LUV IT-",
       "aliases": [
         "感情御中 - WANT U LUV IT"
       ],
@@ -6591,7 +6591,7 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-eef7-72ba-beb4-fc9d404110ef",
-      "canonicalTitle": "感情御中 -WANT U LUV IT",
+      "canonicalTitle": "感情御中 -WANT U LUV IT-",
       "aliases": [
         "感情御中 - WANT U LUV IT"
       ],
@@ -6626,14 +6626,14 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-ef5c-7711-bf91-eddf15d1cc2c",
-      "canonicalTitle": "DEAD CENTER feat. LiSA feat. LiSA",
+      "canonicalTitle": "DEAD CENTER feat. LiSA",
       "aliases": [],
       "artistNames": [
         "Reol"
       ],
       "kind": "original",
       "matchHints": [
-        "deadcenterfeatlisafeatlisa"
+        "deadcenterfeatlisa"
       ],
       "source": {
         "type": "fansite-discography-json",

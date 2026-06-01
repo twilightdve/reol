@@ -1,10 +1,10 @@
 {
   "summary": {
     "totalSetlistInstances": 2034,
-    "matchedInstances": 1752,
-    "unmatchedInstances": 273,
+    "matchedInstances": 1766,
+    "unmatchedInstances": 257,
     "uniqueSongsPlayed": 112,
-    "uniqueUnmatched": 132
+    "uniqueUnmatched": 131
   },
   "unmatched": [
     {
@@ -48,28 +48,6 @@
           "date": "2015-10-23",
           "liveTitle": "れをる単独公演「極彩色HighFidelity」",
           "liveItemName": "東の宴"
-        }
-      ]
-    },
-    {
-      "name": "DEAD CENTER feat. LiSA",
-      "count": 16,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2026-03-14",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "栃木"
-        },
-        {
-          "date": "2026-03-20",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "徳島"
-        },
-        {
-          "date": "2026-03-22",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "山口"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-01T15:30:17.309Z",
+  "generatedAt": "2026-06-01T15:37:11.512Z",
   "counts": {
     "sourceLives": 74,
     "sourceLiveItems": 165,
@@ -12,8 +12,8 @@
     "generatedVenues": 114,
     "verifiedVenueCapacities": 22,
     "venueCapacitiesNeedingVerification": 92,
-    "matchedEntries": 1745,
-    "candidateEntries": 27,
+    "matchedEntries": 1761,
+    "candidateEntries": 11,
     "specialEntries": 119,
     "unmatchedEntries": 142
   },

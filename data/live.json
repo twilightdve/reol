@@ -120,8 +120,8 @@
             "liveItemUuid": "019e8284-e742-712a-b02a-6f4969cdb7e6",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-1b3b-761c-b685-22e9639f72ff",
@@ -177,7 +177,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-1e14-710f-89bf-ff0c768ede1f",
@@ -350,8 +350,8 @@
             "liveItemUuid": "019e8284-ea47-7700-b47f-ce07cf0cf38d",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-29a6-7939-b977-e117eba80c21",
@@ -407,7 +407,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-2e9b-7b24-ba2a-98b97db087a0",
@@ -568,8 +568,8 @@
             "liveItemUuid": "019e8284-eaa8-7608-bcf7-a21340afa42d",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-35bd-7c76-b8a1-72a76630db2a",
@@ -625,7 +625,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-3c76-7034-b96a-6c36e3dfedf6",
@@ -792,8 +792,8 @@
             "liveItemUuid": "019e8284-eb96-7f88-882d-79cf86a6d621",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-4777-70d3-990b-0979780abb17",
@@ -849,7 +849,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-4a43-76da-b6c8-78c9bf5d4bd7",
@@ -1010,8 +1010,8 @@
             "liveItemUuid": "019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-51ef-7a39-b24a-79e6030f48a4",
@@ -1067,7 +1067,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-57f6-7a4e-9cdc-5a1a39069e0c",
@@ -1222,8 +1222,8 @@
             "liveItemUuid": "019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-6316-7584-ba53-44358ced2987",
@@ -1287,7 +1287,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-66cf-71e8-a46d-6900d66726de",
@@ -1454,8 +1454,8 @@
             "liveItemUuid": "019e8284-ecc7-72d8-892d-6b5849778f8e",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-6e69-7941-b826-0c3e48635112",
@@ -1519,7 +1519,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-7410-7906-9df6-8980a0e343fd",
@@ -1674,8 +1674,8 @@
             "liveItemUuid": "019e8284-ed23-7141-92cc-06d8f958f7c5",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-7c93-784b-8f28-1fad483718d4",
@@ -1739,7 +1739,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-836c-71e4-b9c6-0932f774c370",
@@ -1900,8 +1900,8 @@
             "liveItemUuid": "019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-8a1c-7ed6-ac85-6103baff9320",
@@ -1957,7 +1957,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-8d33-7856-be33-84875d040e93",
@@ -2124,8 +2124,8 @@
             "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-97a1-7632-815d-b03a4dd7d79a",
@@ -2181,7 +2181,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-9a7f-723e-8c96-13ac8c831b48",
@@ -2298,6 +2298,12 @@
             "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
             "liveItemPostId": "2055986363485638742",
             "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol - 持てないよ！無理でしょ！<br>at &#39;美辞学&#39; in 旭川<br><br>vlogの編集がんばるかーーーーっ <a href=\"https://t.co/trLm866hBN\">pic.twitter.com/trLm866hBN</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/2055986363485638742?ref_src=twsrc%5Etfw\">May 17, 2026</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e4b1-73ba-b946-0f76eb5ff9c5",
+            "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
+            "liveItemPostId": "2055986363485638742",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol - 持てないよ！無理でしょ！<br>at &#39;美辞学&#39; in 旭川<br><br>vlogの編集がんばるかーーーーっ <a href=\"https://t.co/trLm866hBN\">pic.twitter.com/trLm866hBN</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2055986363485638742?ref_src=twsrc%5Etfw\">May 17, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
           }
         ]
       },
@@ -2342,8 +2348,8 @@
             "liveItemUuid": "019e8284-ee54-7b7c-a2aa-205a32069d45",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-a6ad-7d62-bb49-bfe571accf12",
@@ -2399,7 +2405,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-a992-7dfd-a390-159ac17dfea9",
@@ -2560,8 +2566,8 @@
             "liveItemUuid": "019e8284-eebd-7c61-baa5-d69014b33336",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-b108-7a84-a326-9fefba9b1b76",
@@ -2617,7 +2623,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-b5fb-7fca-bcf2-57c7cd4abd9d",
@@ -2772,8 +2778,8 @@
             "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-bc51-7693-b004-5354fbf00b7d",
@@ -2837,7 +2843,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-c4f7-74ce-99f9-935112624809",
@@ -2936,7 +2942,32 @@
             "matchSource": "sheet"
           }
         ],
-        "posts": []
+        "posts": [
+          {
+            "liveItemPostUuid": "019e83cf-e4e5-7f17-9448-c1ba6f5d556b",
+            "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
+            "liveItemPostId": "2058144163762417791",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜長野CLUB JUNK BOX<br><br>美辞学ツアー13公演目、遂に我が地元・長野へ凱旋！憧れを想像してなんとか保ってた思春期　色んなことがあったけど無かった方がいいことだってあったけど… <a href=\"https://t.co/1w469YMZgA\">pic.twitter.com/1w469YMZgA</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058144163762417791?ref_src=twsrc%5Etfw\">May 23, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e521-7c84-9b72-f6f1e47a748b",
+            "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
+            "liveItemPostId": "2058156443493384415",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"qme\" dir=\"ltr\"><a href=\"https://x.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AE%E4%BA%8C%E5%AE%B6%E6%9C%AC?src=hash&amp;ref_src=twsrc%5Etfw\">#今日の二家本</a><a href=\"https://x.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AE%E4%B8%8A%E5%8E%9F?src=hash&amp;ref_src=twsrc%5Etfw\">#今日の上原</a><a href=\"https://x.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AE%E3%82%8C%E3%82%92%E3%82%8B?src=hash&amp;ref_src=twsrc%5Etfw\">#今日のれをる</a> <a href=\"https://t.co/Kn64WwRuTa\">pic.twitter.com/Kn64WwRuTa</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058156443493384415?ref_src=twsrc%5Etfw\">May 23, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e55f-7fae-b0d0-4082d9703fcd",
+            "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
+            "liveItemPostId": "2058205498504294654",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学 長野でのモーメント<br>ライヴハウス篇、残すところあと三本<br>終わりたくないよーーーーー <a href=\"https://t.co/dhzSSy0e5S\">pic.twitter.com/dhzSSy0e5S</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058205498504294654?ref_src=twsrc%5Etfw\">May 23, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e5a8-7b96-90b7-e9598f21a871",
+            "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
+            "liveItemPostId": "2058739495797936249",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">美辞学ツアーNAGANO<br>カメラの練習に励んでいる <a href=\"https://t.co/KVUwR6Hgi3\">pic.twitter.com/KVUwR6Hgi3</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058739495797936249?ref_src=twsrc%5Etfw\">May 25, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          }
+        ]
       },
       {
         "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
@@ -2979,8 +3010,8 @@
             "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-ceca-73d0-89f6-6b0065486e74",
@@ -3036,7 +3067,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-d192-7900-b2e6-dbaa69a7870b",
@@ -3178,8 +3209,8 @@
             "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-dcc2-7c93-a22c-d8c9f5f05715",
@@ -3243,7 +3274,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e833e-2334-7353-9e14-97dfed736b0e",
@@ -3342,7 +3373,14 @@
             "matchSource": "sheet"
           }
         ],
-        "posts": []
+        "posts": [
+          {
+            "liveItemPostUuid": "019e83cf-e5dc-7555-b2b2-291568ecfd2b",
+            "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
+            "liveItemPostId": "2058492665910698142",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜新潟LOTS<br><br>美辞学ツアー14公演目、新潟LOTS凱旋！<br>過ぎたあの日を思い出した　色んな日をわたしも、君も越えてきた！別れのあとには出逢いがあるよ　何かの終わりは何かのはじまり<br>これからを待ち遠しく思えるのはいつもいてくれる君のおかげ！ネクスト京都⛩️ <a href=\"https://t.co/S88uOL0A36\">pic.twitter.com/S88uOL0A36</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058492665910698142?ref_src=twsrc%5Etfw\">May 24, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          }
+        ]
       },
       {
         "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
@@ -3385,8 +3423,8 @@
             "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
             "liveItemSongName": "DEAD CENTER feat. LiSA",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e833e-29a2-7bd4-b2f5-a23c96320b67",
@@ -3458,7 +3496,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e833e-2d7a-775f-a6fb-7d78a675cd92",
@@ -3557,7 +3595,26 @@
             "matchSource": "sheet"
           }
         ],
-        "posts": []
+        "posts": [
+          {
+            "liveItemPostUuid": "019e83cf-e61e-7c4d-8e5c-9185f39b4bd9",
+            "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
+            "liveItemPostId": "2058528796622684600",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://x.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AE%E4%BA%8C%E5%AE%B6%E6%9C%AC?src=hash&amp;ref_src=twsrc%5Etfw\">#今日の二家本</a><br><br>にか「財布無くした！！！！！」<br>一同、ソファひっくり返して大捜索<br><br>マネ「ステージ袖にあった！何で！？」<br>にか「そっか！リハの時ここ置いたんだ！」<br>一同 (何で？)</p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2058528796622684600?ref_src=twsrc%5Etfw\">May 24, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e655-775c-92f2-fdc0a48642ce",
+            "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
+            "liveItemPostId": "2060567855276626207",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">アタイ、京都着いたよ(タワレコ巡回) <a href=\"https://t.co/6WmYLmMbit\">pic.twitter.com/6WmYLmMbit</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2060567855276626207?ref_src=twsrc%5Etfw\">May 30, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e694-7c1a-9207-a6864a173b9b",
+            "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
+            "liveItemPostId": "2060666065479467122",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜京都FANJ<br><br>ライヴハウス篇セミファイナル京都<br>初めましての京都公演、西のみんなに乗せられて最高潮の渦になってた！今日とて最高！<br>四・綾・仏・高・松・万・五条<br>リベンジのためにアタイまた来るよ<br>ありがとう京都<br><br>明日は岐阜<br>ライヴハウス篇ファイナル！ <a href=\"https://t.co/iSccI7qckg\">pic.twitter.com/iSccI7qckg</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2060666065479467122?ref_src=twsrc%5Etfw\">May 30, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          }
+        ]
       },
       {
         "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
@@ -3571,7 +3628,20 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12537.624387961816!2d140.885163!3d38.223683!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sus!4v1764574749197!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
         "setList": [],
-        "posts": []
+        "posts": [
+          {
+            "liveItemPostUuid": "019e83cf-e6e7-71cb-8aa0-a8ee015c0fbc",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemPostId": "2061040546983166072",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2026 <br>&#39;美辞学&#39; TOUR｜岐阜club-G<br><br>遂にライヴハウス篇ラスト岐阜終演<br>宿した熱を強めながら北へ南へ君の街まで　わたしの音楽と出逢いあの日見つけてくれた君をわたしがみつける美辞学パレード！<br>こんなに近づいて歌えたのは近づいてくれた君のおかげです　最高ーの夜だった！… <a href=\"https://t.co/unohu4hZQn\">pic.twitter.com/unohu4hZQn</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2061040546983166072?ref_src=twsrc%5Etfw\">May 31, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          },
+          {
+            "liveItemPostUuid": "019e83cf-e736-7234-b52e-943eea9ad1fd",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemPostId": "2061108299089768555",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">たのしいことってあっという間に過ぎてく<br>あの日に戻りたい！と思える瞬間を過去だけじゃなくてこの先の未来に探すこと　探そうとすること　絶対に忘れたくないこと<br>おやすみい🌙</p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2061108299089768555?ref_src=twsrc%5Etfw\">May 31, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
+          }
+        ]
       },
       {
         "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
@@ -4057,6 +4127,12 @@
         "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
         "livePostId": "1890380542459187620",
         "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">横浜アリーナ、きて<a href=\"https://t.co/LH6Bztl5z7\">https://t.co/LH6Bztl5z7</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1890380542459187620?ref_src=twsrc%5Etfw\">February 14, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e83d2-4057-7c2a-84a1-a67b79c2f0ad",
+        "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+        "livePostId": "2059592445923676316",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2026.06.03 RELEASE<br>⠀ ⠀<br>Reol Oneman Live &#39;美辞学&#39;<br>　　　　　in YOKOHAMA ARENA<br>⠀ ⠀<br>Bandよりベース・二家本亮介(にかさん) <a href=\"https://x.com/chan_nika116?ref_src=twsrc%5Etfw\">@chan_nika116</a> Dancersより中川絢音(あやね) <a href=\"https://x.com/aoooooooooo6?ref_src=twsrc%5Etfw\">@aoooooooooo6</a> をお迎えして、あらためてあの日を振り返りました<br>映像作品リリース間近、ぜひ🙏<a href=\"https://t.co/5nmm2asZLl\">https://t.co/5nmm2asZLl</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://x.com/RRReol/status/2059592445923676316?ref_src=twsrc%5Etfw\">May 27, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>"
       }
     ],
     "items": [
@@ -4190,7 +4266,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-03ba-7f78-8eef-1d287cd00d6f",
@@ -5183,7 +5259,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-c759-709c-b48a-43644c8766b1",
@@ -5339,7 +5415,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-c1d5-7696-912f-341675cfe062",
@@ -5699,7 +5775,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-a968-79db-8c0c-c3ff17962877",
@@ -5925,7 +6001,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-7ba1-7071-a8aa-0f5c5b2e3e80",
@@ -6153,7 +6229,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-8a82-7b8b-83cb-1201a904d5fa",
@@ -6365,7 +6441,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-991c-7929-8c21-9bae28d6b136",
@@ -6710,7 +6786,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-770f-743f-b3e9-5c2f04dc1017",
@@ -6868,7 +6944,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-6b00-7cb8-866e-6e0a40d120f8",
@@ -7034,7 +7110,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-6084-772e-9381-1618a296f0c3",
@@ -7245,7 +7321,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-58aa-7740-81ed-1d7dd789eb3f",
@@ -8051,7 +8127,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-399b-729d-89c3-c33cd55c4c1b",
@@ -8267,7 +8343,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-24c2-728a-947f-b6a5f966c2ab",
@@ -8445,7 +8521,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-2d83-75d8-a049-0cb2de95d123",
@@ -12407,7 +12483,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-10fc-7fcf-91bc-5d736fd41331",
@@ -12431,7 +12507,7 @@
             "liveItemSongName": "感情御中 -WANT U LUV IT-",
             "type": "song",
             "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "normalized"
+            "matchSource": "sheet"
           }
         ],
         "posts": [

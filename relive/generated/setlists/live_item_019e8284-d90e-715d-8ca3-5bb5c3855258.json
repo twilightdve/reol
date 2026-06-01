@@ -264,7 +264,7 @@
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:normalized"
+        "reason": "source_song_uuid:sheet"
       }
     },
     {
