@@ -6626,14 +6626,14 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-ef5c-7711-bf91-eddf15d1cc2c",
-      "canonicalTitle": "DEAD CENTER feat. LiSA",
+      "canonicalTitle": "DEAD CENTER feat. LiSA feat. LiSA",
       "aliases": [],
       "artistNames": [
         "Reol"
       ],
       "kind": "original",
       "matchHints": [
-        "deadcenterfeatlisa"
+        "deadcenterfeatlisafeatlisa"
       ],
       "source": {
         "type": "fansite-discography-json",
