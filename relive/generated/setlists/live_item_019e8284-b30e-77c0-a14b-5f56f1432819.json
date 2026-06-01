@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b30e-77c0-a14b-5f56f1432819",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 東京 ※中止",
+  "date": "2020-03-21",
+  "venueName": "LINE CUBE SHIBUYA",
+  "venueId": "venue_line_cube_shibuya",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b30e-77c0-a14b-5f56f1432819",
+    "sourceId": "live_item_019e8284-b30e-77c0-a14b-5f56f1432819"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b30e-77c0-a14b-5f56f1432819_entry_019e82a6-ef9f-7877-95e0-4df232b464a0",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

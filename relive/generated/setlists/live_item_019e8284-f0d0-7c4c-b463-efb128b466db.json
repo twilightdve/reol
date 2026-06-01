@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-f0d0-7c4c-b463-efb128b466db",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 宮城",
+  "date": "2026-06-12",
+  "venueName": "トークネットホール仙台",
+  "venueId": "venue_ト_クネットホ_ル仙台",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+    "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+    "sourceId": "live_item_019e8284-f0d0-7c4c-b463-efb128b466db"
+  },
+  "entries": []
+}

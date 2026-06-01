@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-ab71-7292-b058-481464da9ac5",
+  "tourName": "宗像フェス Fukutsu Koinoura",
+  "liveTitle": "宗像フェス Fukutsu Koinoura",
+  "date": "2019-09-22",
+  "venueName": "恋の浦海岸",
+  "venueId": "venue_恋の浦海岸",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7401-7fdb-a8b3-6ad9c08e61eb",
+    "liveItemUuid": "019e8284-ab71-7292-b058-481464da9ac5",
+    "sourceId": "live_item_019e8284-ab71-7292-b058-481464da9ac5"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-ab71-7292-b058-481464da9ac5_entry_019e82a6-bd85-7529-a91e-5fbd2c40ce75",
+      "order": 1,
+      "rawTitle": "悪天候のため中止",
+      "displayTitle": "悪天候のため中止",
+      "normalizedTitle": "悪天候のため中止",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    }
+  ]
+}

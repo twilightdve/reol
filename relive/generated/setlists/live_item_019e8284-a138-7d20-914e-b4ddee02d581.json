@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a138-7d20-914e-b4ddee02d581",
+  "tourName": "AIR-G' 35th Anniversary New Music Lab 2",
+  "liveTitle": "AIR-G' 35th Anniversary New Music Lab 2",
+  "date": "2017-04-28",
+  "venueName": "cube garden",
+  "venueId": "venue_cube_garden",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7079-7afe-9ce9-a931cde94292",
+    "liveItemUuid": "019e8284-a138-7d20-914e-b4ddee02d581",
+    "sourceId": "live_item_019e8284-a138-7d20-914e-b4ddee02d581"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a138-7d20-914e-b4ddee02d581_entry_019e82a6-5593-7b1e-ab1e-02b59315dd7e",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

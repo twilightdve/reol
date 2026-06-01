@@ -1,0 +1,521 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a",
+  "tourName": "れをる単独公演「極彩色HighFidelity」",
+  "liveTitle": "れをる単独公演「極彩色HighFidelity」 西の宴",
+  "date": "2015-11-26",
+  "venueName": "BIG CAT",
+  "venueId": "venue_big_cat",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
+    "liveItemUuid": "019e8284-9998-73ba-9d7c-ecb64e09dc3a",
+    "sourceId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-35fa-768e-a61b-3d6087e0e2b0",
+      "order": 1,
+      "rawTitle": "-nil-",
+      "displayTitle": "-nil-",
+      "normalizedTitle": "nil",
+      "policy": "required",
+      "trackId": "song_019e8282-88dd-71bc-a94d-9cdd721917e3",
+      "aliases": [],
+      "expectedDurationSec": 36.9,
+      "afterglowTailSec": 9.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-362a-7557-a47e-3f8f8a7e2d34",
+      "order": 2,
+      "rawTitle": "極彩色",
+      "displayTitle": "極彩色",
+      "normalizedTitle": "極彩色",
+      "policy": "required",
+      "trackId": "song_019e8282-8933-7d04-8788-b26cdc9183a6",
+      "aliases": [],
+      "expectedDurationSec": 250.5,
+      "afterglowTailSec": 12.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-365f-7424-aa58-66b33bbe0164",
+      "order": 3,
+      "rawTitle": "水底遊歩道",
+      "displayTitle": "水底遊歩道",
+      "normalizedTitle": "水底遊歩道",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-368d-7a9f-b516-86d03d495709",
+      "order": 4,
+      "rawTitle": "アシンメトリー",
+      "displayTitle": "アシンメトリー",
+      "normalizedTitle": "アシンメトリー",
+      "policy": "required",
+      "trackId": "song_019e8282-8796-7721-9b9c-f10f99f1463b",
+      "aliases": [],
+      "expectedDurationSec": 255.8,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-36c0-799b-b2ae-5a7fa62001d4",
+      "order": 5,
+      "rawTitle": "-BWW SCREAM-",
+      "displayTitle": "-BWW SCREAM-",
+      "normalizedTitle": "bwwscream",
+      "policy": "required",
+      "trackId": "song_019e8282-872d-7ca7-ad90-7fdc19b21e83",
+      "aliases": [],
+      "expectedDurationSec": 81.9,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3a26-7cad-a2ae-aa23e8b04472",
+      "order": 6,
+      "rawTitle": "-MC-",
+      "displayTitle": "-MC-",
+      "normalizedTitle": "mc",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3aa3-78c2-9a9c-0442f5fb2382",
+      "order": 7,
+      "rawTitle": "ロジックエージェント",
+      "displayTitle": "ロジックエージェント",
+      "normalizedTitle": "ロジックエージェント",
+      "policy": "required",
+      "trackId": "song_019e8282-8ae7-74d5-9842-69f7b5f41756",
+      "aliases": [],
+      "expectedDurationSec": 215.1,
+      "afterglowTailSec": 13.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3ad5-706d-a46e-4754b0a3f98e",
+      "order": 8,
+      "rawTitle": "ハルシアン",
+      "displayTitle": "ハルシアン",
+      "normalizedTitle": "ハルシアン",
+      "policy": "required",
+      "trackId": "song_019e8282-8a79-7924-be2a-2ae51e764636",
+      "aliases": [],
+      "expectedDurationSec": 178.6,
+      "afterglowTailSec": 12.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3e17-7505-bbe2-c062d9caf373",
+      "order": 9,
+      "rawTitle": "トキオ・ファンカ",
+      "displayTitle": "トキオ・ファンカ",
+      "normalizedTitle": "トキオファンカ",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3e4b-713d-baaa-0cf67da7a4f3",
+      "order": 10,
+      "rawTitle": "Behind the night",
+      "displayTitle": "Behind the night",
+      "normalizedTitle": "behindthenight",
+      "policy": "required",
+      "trackId": "song_019e8282-8ee8-73ac-ac5f-6c399eac0fd3",
+      "aliases": [],
+      "expectedDurationSec": 289.4,
+      "afterglowTailSec": 12.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3e7d-7b11-b627-348196b19613",
+      "order": 11,
+      "rawTitle": "-MC-",
+      "displayTitle": "-MC-",
+      "normalizedTitle": "mc",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3eb4-71ee-9863-473fd16fdfe2",
+      "order": 12,
+      "rawTitle": "ラ・タタン",
+      "displayTitle": "ラ・タタン",
+      "normalizedTitle": "ラタタン",
+      "policy": "required",
+      "trackId": "song_019e8282-8d1b-7746-a03c-6168be0b3d0e",
+      "aliases": [],
+      "expectedDurationSec": 214.5,
+      "afterglowTailSec": 10.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3ee3-74a0-a06b-972001a905df",
+      "order": 13,
+      "rawTitle": "レッド・パージ！！！",
+      "displayTitle": "レッド・パージ！！！",
+      "normalizedTitle": "レッドパージ",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3f24-7741-ae5e-eb0ab620afea",
+      "order": 14,
+      "rawTitle": "約束の蒼",
+      "displayTitle": "約束の蒼",
+      "normalizedTitle": "約束の蒼",
+      "policy": "required",
+      "trackId": "song_019e8282-8fbe-71e0-ba7e-d57f82126212",
+      "aliases": [],
+      "expectedDurationSec": 238.3,
+      "afterglowTailSec": 13.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3f58-7405-ab97-a9bdb397064c",
+      "order": 15,
+      "rawTitle": "妄想クエスチョン",
+      "displayTitle": "妄想クエスチョン",
+      "normalizedTitle": "妄想クエスチョン",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3f88-7d78-8d14-4ec10365c111",
+      "order": 16,
+      "rawTitle": "-MC-",
+      "displayTitle": "-MC-",
+      "normalizedTitle": "mc",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3fb9-729c-b598-cf2316788a15",
+      "order": 17,
+      "rawTitle": "アストロノーツ",
+      "displayTitle": "アストロノーツ",
+      "normalizedTitle": "アストロノーツ",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-3fec-7aad-b19a-f2511ec9f597",
+      "order": 18,
+      "rawTitle": "Echo",
+      "displayTitle": "Echo",
+      "normalizedTitle": "echo",
+      "policy": "required",
+      "trackId": "song_019e8282-86cf-7048-844d-9d300e4cf6e6",
+      "aliases": [],
+      "expectedDurationSec": 213,
+      "afterglowTailSec": 9.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-401e-7577-b582-56e66116b4fc",
+      "order": 19,
+      "rawTitle": "Syrup",
+      "displayTitle": "Syrup",
+      "normalizedTitle": "syrup",
+      "policy": "required",
+      "trackId": "song_019e8282-8bff-7dd2-846d-ed1e8b78c431",
+      "aliases": [],
+      "expectedDurationSec": 249.3,
+      "afterglowTailSec": 10.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-43af-7e5c-bb42-23e4c599066f",
+      "order": 20,
+      "rawTitle": "mede:mede",
+      "displayTitle": "mede:mede",
+      "normalizedTitle": "medemede",
+      "policy": "required",
+      "trackId": "song_019e8282-8ba5-7d40-902b-e994975bf05a",
+      "aliases": [],
+      "expectedDurationSec": 215.1,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-43db-756c-a835-cc18df897d97",
+      "order": 21,
+      "rawTitle": "-orderly-",
+      "displayTitle": "-orderly-",
+      "normalizedTitle": "orderly",
+      "policy": "required",
+      "trackId": "song_019e8282-8b44-7bc7-9a6e-e263b24876f2",
+      "aliases": [],
+      "expectedDurationSec": 117.6,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-440c-7fb1-946c-50b6f72ea9ea",
+      "order": 22,
+      "rawTitle": "ジッタードール",
+      "displayTitle": "ジッタードール",
+      "normalizedTitle": "ジッタードール",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-4448-74db-ae6f-4a0d0b593bad",
+      "order": 23,
+      "rawTitle": "-MC-",
+      "displayTitle": "-MC-",
+      "normalizedTitle": "mc",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-4476-7367-9372-9f6650db461b",
+      "order": 24,
+      "rawTitle": "ミッドナイトストロウラ",
+      "displayTitle": "ミッドナイトストロウラ",
+      "normalizedTitle": "ミッドナイトストロウラ",
+      "policy": "required",
+      "trackId": "song_019e8282-8d77-7522-a885-d14a4873ca1f",
+      "aliases": [],
+      "expectedDurationSec": 207.3,
+      "afterglowTailSec": 13.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-44ab-74f5-8094-58c2cf7a36b6",
+      "order": 25,
+      "rawTitle": "＋♂",
+      "displayTitle": "＋♂",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-44d9-7fb4-929b-31984f7638da",
+      "order": 26,
+      "rawTitle": "ROXY",
+      "displayTitle": "ROXY",
+      "normalizedTitle": "roxy",
+      "policy": "required",
+      "trackId": "song_019e8282-8f59-75cf-9359-ad35a0cb40ad",
+      "aliases": [],
+      "expectedDurationSec": 205.5,
+      "afterglowTailSec": 11.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-450e-7fb6-8c97-0036de3474c6",
+      "order": 27,
+      "rawTitle": "ストリーミングハート",
+      "displayTitle": "ストリーミングハート",
+      "normalizedTitle": "ストリーミングハート",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-453f-7005-812e-6527a379166c",
+      "order": 28,
+      "rawTitle": "MONSTER",
+      "displayTitle": "MONSTER",
+      "normalizedTitle": "monster",
+      "policy": "required",
+      "trackId": "song_019e8282-9020-7457-9b15-125dc38bee15",
+      "aliases": [],
+      "expectedDurationSec": 201.9,
+      "afterglowTailSec": 12.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-456e-7a40-9a37-5103a1ce8fb4",
+      "order": 29,
+      "rawTitle": "ギガンティックO.T.N",
+      "displayTitle": "ギガンティックO.T.N",
+      "normalizedTitle": "ギガンティックotn",
+      "policy": "required",
+      "trackId": "song_019e8282-e50d-7766-92e8-5edfa82f644f",
+      "aliases": [
+        "ギガンティックO.T.N -Big Death Edition-"
+      ],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 17.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a_entry_019e82a6-4599-7e31-9bd9-ac1b5c815837",
+      "order": 30,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_019e8282-908f-7915-a305-74f7c9d6efcc",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 15.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

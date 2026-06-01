@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
+  "tourName": "COUNTDOWN JAPAN 25/26",
+  "liveTitle": "COUNTDOWN JAPAN 25/26",
+  "date": "2025-12-28",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_幕張メッセ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+    "liveItemUuid": "019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
+    "sourceId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-146c-780b-b9df-94c0a6302c45",
+      "order": 1,
+      "rawTitle": "美辞目録 (Rhetoric Index)",
+      "displayTitle": "美辞目録 (Rhetoric Index)",
+      "normalizedTitle": "美辞目録rhetoricindex",
+      "policy": "required",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
+      "aliases": [
+        "美辞目録"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-14d5-7d64-ba97-646e2616b494",
+      "order": 2,
+      "rawTitle": "赤裸裸(NAKED)",
+      "displayTitle": "赤裸裸(NAKED)",
+      "normalizedTitle": "赤裸裸naked",
+      "policy": "required",
+      "trackId": "song_019e8282-b714-7a5d-933a-34fa187bc83b",
+      "aliases": [
+        "赤裸裸"
+      ],
+      "expectedDurationSec": 160.1,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-1538-724f-b785-a0c5b915315a",
+      "order": 3,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-15a2-7807-a414-abf2ea447b99",
+      "order": 4,
+      "rawTitle": "No title -sea side remix-",
+      "displayTitle": "No title -sea side remix-",
+      "normalizedTitle": "notitleseasideremix",
+      "policy": "required",
+      "trackId": "song_019e8282-b7e3-730d-a541-f5b4804e1631",
+      "aliases": [],
+      "expectedDurationSec": 252.1,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-173a-72fe-84d7-70a83db82830",
+      "order": 5,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-179e-7d2e-a3f7-cceb3c407c7f",
+      "order": 6,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49_entry_019e82aa-181d-79d3-b636-606a67472771",
+      "order": 7,
+      "rawTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "displayTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "normalizedTitle": "うつくしじごくutsukushijigoku",
+      "policy": "required",
+      "trackId": "song_019e8282-ee36-7d02-919b-36babd0173f5",
+      "aliases": [
+        "うつくしじごく"
+      ],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

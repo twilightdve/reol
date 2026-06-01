@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e",
+  "tourName": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+  "liveTitle": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心 台湾",
+  "date": "2025-12-06",
+  "venueName": "新北市・新北大都会公園",
+  "venueId": "venue_新北市_新北大都会公園",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
+    "liveItemUuid": "019e8284-e654-7d1d-9a67-1a419c63a86e",
+    "sourceId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-0d29-7572-b718-8a00cb20ddd3",
+      "order": 1,
+      "rawTitle": "美辞目録 (Rhetoric Index)",
+      "displayTitle": "美辞目録 (Rhetoric Index)",
+      "normalizedTitle": "美辞目録rhetoricindex",
+      "policy": "required",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
+      "aliases": [
+        "美辞目録"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-0d9f-7741-8354-2a0f71ff20b2",
+      "order": 2,
+      "rawTitle": "赤裸裸(NAKED)",
+      "displayTitle": "赤裸裸(NAKED)",
+      "normalizedTitle": "赤裸裸naked",
+      "policy": "required",
+      "trackId": "song_019e8282-b714-7a5d-933a-34fa187bc83b",
+      "aliases": [
+        "赤裸裸"
+      ],
+      "expectedDurationSec": 160.1,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-0e04-7c8c-9e38-e55761a055c1",
+      "order": 3,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-10e2-7862-9aa5-2fc4159b411a",
+      "order": 4,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-114c-7ee9-b2e8-bb00bbc3be6a",
+      "order": 5,
+      "rawTitle": "No title -sea side remix-",
+      "displayTitle": "No title -sea side remix-",
+      "normalizedTitle": "notitleseasideremix",
+      "policy": "required",
+      "trackId": "song_019e8282-b7e3-730d-a541-f5b4804e1631",
+      "aliases": [],
+      "expectedDurationSec": 252.1,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-1245-74da-b842-cb7f873f6cd6",
+      "order": 6,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-12be-7139-bfa8-65979a4f9d83",
+      "order": 7,
+      "rawTitle": "ギミアブレスタッナウ",
+      "displayTitle": "ギミアブレスタッナウ",
+      "normalizedTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "trackId": "song_019e8282-916c-7afe-ad65-19e75b32b017",
+      "aliases": [],
+      "expectedDurationSec": 222,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-132f-7ec0-a5f2-3457ca506a40",
+      "order": 8,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-1396-73a0-8373-c600fa88a0ae",
+      "order": 9,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 15.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e_entry_019e82aa-13ff-778d-9223-e6bbe9d5297d",
+      "order": 10,
+      "rawTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "displayTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "normalizedTitle": "うつくしじごくutsukushijigoku",
+      "policy": "required",
+      "trackId": "song_019e8282-ee36-7d02-919b-36babd0173f5",
+      "aliases": [
+        "うつくしじごく"
+      ],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

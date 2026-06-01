@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5",
+  "tourName": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+  "liveTitle": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+  "date": "2019-08-03",
+  "venueName": "国営ひたち海浜公園",
+  "venueId": "venue_国営ひたち海浜公園",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7398-7161-8232-c0f7f40a58b0",
+    "liveItemUuid": "019e8284-aafc-7167-a183-6bf1990d28e5",
+    "sourceId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-baac-7f06-b57f-274a1389e4be",
+      "order": 1,
+      "rawTitle": "宵々古今",
+      "displayTitle": "宵々古今",
+      "normalizedTitle": "宵々古今",
+      "policy": "required",
+      "trackId": "song_019e8282-91d8-7397-a5fd-4aa163c238ca",
+      "aliases": [],
+      "expectedDurationSec": 257.7,
+      "afterglowTailSec": 13,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bb2b-7bf2-adac-77db43c0887f",
+      "order": 2,
+      "rawTitle": "サイサキ",
+      "displayTitle": "サイサキ",
+      "normalizedTitle": "サイサキ",
+      "policy": "required",
+      "trackId": "song_019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+      "aliases": [],
+      "expectedDurationSec": 217.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bb8d-7920-81be-e92910dca8d3",
+      "order": 3,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bbf6-7bf1-b43e-e6e9e7c560f5",
+      "order": 4,
+      "rawTitle": "ゆーれいずみー",
+      "displayTitle": "ゆーれいずみー",
+      "normalizedTitle": "ゆーれいずみー",
+      "policy": "required",
+      "trackId": "song_019e8282-acdf-79e4-b6be-f1de4e78e657",
+      "aliases": [],
+      "expectedDurationSec": 231.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bc57-778e-b785-2ba7d02c5451",
+      "order": 5,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_019e8282-8424-7cc7-a286-7bf3738631d1",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bcbf-728f-90a3-269d24b852d9",
+      "order": 6,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 15.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5_entry_019e82a6-bd22-7761-9129-d881eb1c65b1",
+      "order": 7,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9b0b-7f45-899a-ac47ee172c60",
+  "tourName": "BIG FOREST LIVE",
+  "liveTitle": "BIG FOREST LIVE",
+  "date": "2016-08-28",
+  "venueName": "札幌芸術の森野外ステージ",
+  "venueId": "venue_札幌芸術の森野外ステ_ジ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6fb3-7eff-9d85-01c4e051436a",
+    "liveItemUuid": "019e8284-9b0b-7f45-899a-ac47ee172c60",
+    "sourceId": "live_item_019e8284-9b0b-7f45-899a-ac47ee172c60"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9b0b-7f45-899a-ac47ee172c60_entry_019e82a6-48ee-795e-9963-8e58e24af15a",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

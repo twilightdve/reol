@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e0eb-7cc7-8c5b-9919e849ba61",
+  "tourName": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+  "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム Chengdu",
+  "date": "2025-06-08",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+    "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
+    "sourceId": "live_item_019e8284-e0eb-7cc7-8c5b-9919e849ba61"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e0eb-7cc7-8c5b-9919e849ba61_entry_019e82a9-a7c5-71ab-be8a-7aa8634f8757",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a6c7-795c-8c06-e825d8986a10",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 福岡",
+  "date": "2018-11-11",
+  "venueName": "DRUM LOGOS",
+  "venueId": "venue_drum_logos",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+    "liveItemUuid": "019e8284-a6c7-795c-8c06-e825d8986a10",
+    "sourceId": "live_item_019e8284-a6c7-795c-8c06-e825d8986a10"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a6c7-795c-8c06-e825d8986a10_entry_019e82a6-8385-7227-8836-005efc9d07ca",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

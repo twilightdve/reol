@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-db67-7983-b404-0dff42e5887c",
+  "tourName": "軌道共鳴2024",
+  "liveTitle": "軌道共鳴2024 大阪",
+  "date": "2024-09-20",
+  "venueName": "なんばHatch",
+  "venueId": "venue_なんばhatch",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
+    "liveItemUuid": "019e8284-db67-7983-b404-0dff42e5887c",
+    "sourceId": "live_item_019e8284-db67-7983-b404-0dff42e5887c"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5609-712f-8e58-98a391251f52",
+      "order": 1,
+      "rawTitle": "Final Call",
+      "displayTitle": "Final Call",
+      "normalizedTitle": "finalcall",
+      "policy": "required",
+      "trackId": "song_019e8282-bd6b-7747-9245-2e75cfa1eda2",
+      "aliases": [],
+      "expectedDurationSec": 199.5,
+      "afterglowTailSec": 11.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5669-7cd8-9008-f8ece3ead879",
+      "order": 2,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_019e8282-b9f9-7865-84a7-e9853fda1749",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-56d1-73b7-a768-4fc86e802334",
+      "order": 3,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-573e-7f0e-a814-a59c370c58a9",
+      "order": 4,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5841-7fdd-9d45-1efbbf022136",
+      "order": 5,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-58aa-7740-81ed-1d7dd789eb3f",
+      "order": 6,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-591b-7842-9c81-1bac8e303f4d",
+      "order": 7,
+      "rawTitle": "春を告げる",
+      "displayTitle": "春を告げる",
+      "normalizedTitle": "春を告げる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5986-7900-ab0a-bcba1a302055",
+      "order": 8,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_019e8282-908f-7915-a305-74f7c9d6efcc",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-59ed-7df4-add9-9873507d408a",
+      "order": 9,
+      "rawTitle": "ミュータント",
+      "displayTitle": "ミュータント",
+      "normalizedTitle": "ミュータント",
+      "policy": "required",
+      "trackId": "song_019e8282-b605-7246-8348-d347270aa7e6",
+      "aliases": [],
+      "expectedDurationSec": 248.1,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5d9a-758d-ba7a-111d805a6c65",
+      "order": 10,
+      "rawTitle": "SCORPION",
+      "displayTitle": "SCORPION",
+      "normalizedTitle": "scorpion",
+      "policy": "required",
+      "trackId": "song_019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+      "aliases": [],
+      "expectedDurationSec": 176.9,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5dfd-7897-a151-ec42b01fda41",
+      "order": 11,
+      "rawTitle": "TAKE OFF",
+      "displayTitle": "TAKE OFF",
+      "normalizedTitle": "takeoff",
+      "policy": "required",
+      "trackId": "song_019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+      "aliases": [],
+      "expectedDurationSec": 236,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5e5b-7d87-b7b1-d8b7012eb68e",
+      "order": 12,
+      "rawTitle": "ディア",
+      "displayTitle": "ディア",
+      "normalizedTitle": "ディア",
+      "policy": "required",
+      "trackId": "song_019e8282-d2de-7503-a017-b8b32643a99d",
+      "aliases": [],
+      "expectedDurationSec": 174.6,
+      "afterglowTailSec": 16.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-db67-7983-b404-0dff42e5887c_entry_019e82a9-5ef6-7526-8c3c-8ccb612f8f36",
+      "order": 13,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

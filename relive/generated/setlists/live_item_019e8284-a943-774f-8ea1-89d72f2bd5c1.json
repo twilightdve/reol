@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a943-774f-8ea1-89d72f2bd5c1",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 北京",
+  "date": "2019-01-13",
+  "venueName": "Tango live",
+  "venueId": "venue_tango_live",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+    "liveItemUuid": "019e8284-a943-774f-8ea1-89d72f2bd5c1",
+    "sourceId": "live_item_019e8284-a943-774f-8ea1-89d72f2bd5c1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a943-774f-8ea1-89d72f2bd5c1_entry_019e82a6-a31c-71ce-95b1-0149682816b3",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

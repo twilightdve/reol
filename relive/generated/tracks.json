@@ -7,7 +7,7 @@
   "tracks": [
     {
       "schemaVersion": 1,
-      "trackId": "song_1",
+      "trackId": "song_019e8282-7fb8-7040-8107-2ce45ad79b9f",
       "canonicalTitle": "-Opening-",
       "aliases": [],
       "artistNames": [
@@ -34,14 +34,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 1,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-7fb8-7040-8107-2ce45ad79b9f",
         "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_2",
+      "trackId": "song_019e8282-801f-7552-a1a6-fa5a912a47f8",
       "canonicalTitle": "ヒビカセ",
       "aliases": [],
       "artistNames": [
@@ -68,14 +68,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 2,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_3",
+      "trackId": "song_019e8282-8086-71d2-b69e-440dd933a405",
       "canonicalTitle": "オオエドランヴ (feat. nqrse)",
       "aliases": [
         "オオエドランヴ"
@@ -105,14 +105,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 3,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
         "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_4",
+      "trackId": "song_019e8282-80f0-74e0-9c8b-0191e39556a8",
       "canonicalTitle": "drop pop candy (feat. ギガ)",
       "aliases": [
         "drop pop candy"
@@ -142,14 +142,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 4,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-80f0-74e0-9c8b-0191e39556a8",
         "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_5",
+      "trackId": "song_019e8282-83b6-73df-ac13-a6be6454dd56",
       "canonicalTitle": "-Interlude-",
       "aliases": [],
       "artistNames": [
@@ -176,14 +176,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 5,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-83b6-73df-ac13-a6be6454dd56",
         "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_6",
+      "trackId": "song_019e8282-8424-7cc7-a286-7bf3738631d1",
       "canonicalTitle": "No title",
       "aliases": [],
       "artistNames": [
@@ -210,14 +210,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 6,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-8424-7cc7-a286-7bf3738631d1",
         "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_7",
+      "trackId": "song_019e8282-86cf-7048-844d-9d300e4cf6e6",
       "canonicalTitle": "Echo",
       "aliases": [],
       "artistNames": [
@@ -244,14 +244,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 7,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-86cf-7048-844d-9d300e4cf6e6",
         "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_8",
+      "trackId": "song_019e8282-872d-7ca7-ad90-7fdc19b21e83",
       "canonicalTitle": "-BWW SCREAM-",
       "aliases": [],
       "artistNames": [
@@ -278,14 +278,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 8,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-872d-7ca7-ad90-7fdc19b21e83",
         "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_9",
+      "trackId": "song_019e8282-8796-7721-9b9c-f10f99f1463b",
       "canonicalTitle": "アシンメトリー",
       "aliases": [],
       "artistNames": [
@@ -312,14 +312,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 9,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-8796-7721-9b9c-f10f99f1463b",
         "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_10",
+      "trackId": "song_019e8282-87ff-7c86-886c-662768f1a782",
       "canonicalTitle": "ギガンティックO.T.N -Big Death Edition-",
       "aliases": [
         "ギガンティックO.T.N"
@@ -349,14 +349,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 10,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-87ff-7c86-886c-662768f1a782",
         "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_11",
+      "trackId": "song_019e8282-8869-7dd2-8fcd-d43a77d323b3",
       "canonicalTitle": "-Ending-",
       "aliases": [],
       "artistNames": [
@@ -383,14 +383,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 1,
-        "songId": 11,
+        "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+        "songUuid": "019e8282-8869-7dd2-8fcd-d43a77d323b3",
         "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_12",
+      "trackId": "song_019e8282-88dd-71bc-a94d-9cdd721917e3",
       "canonicalTitle": "-nil-",
       "aliases": [],
       "artistNames": [
@@ -417,14 +417,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 12,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-88dd-71bc-a94d-9cdd721917e3",
         "spotifyTrackId": "3GQ2gAf01f7GTmsODylJWw"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_13",
+      "trackId": "song_019e8282-8933-7d04-8788-b26cdc9183a6",
       "canonicalTitle": "極彩色",
       "aliases": [],
       "artistNames": [
@@ -451,14 +451,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 13,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8933-7d04-8788-b26cdc9183a6",
         "spotifyTrackId": "1ppgOVjBFREq0apmtBBIqM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_14",
+      "trackId": "song_019e8282-89a5-74fb-af3d-eba9f9d552a6",
       "canonicalTitle": "生命線",
       "aliases": [],
       "artistNames": [
@@ -485,14 +485,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 14,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-89a5-74fb-af3d-eba9f9d552a6",
         "spotifyTrackId": "4YDnmsQW2lnZL4Cju7EPMT"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_15",
+      "trackId": "song_019e8282-8a0e-7ef8-9d60-9a12bc681430",
       "canonicalTitle": "水底游歩道",
       "aliases": [],
       "artistNames": [
@@ -519,14 +519,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 15,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8a0e-7ef8-9d60-9a12bc681430",
         "spotifyTrackId": "2Y8MpEW37sCOqJjSUTaSCu"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_16",
+      "trackId": "song_019e8282-8a79-7924-be2a-2ae51e764636",
       "canonicalTitle": "ハルシアン",
       "aliases": [],
       "artistNames": [
@@ -553,14 +553,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 16,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8a79-7924-be2a-2ae51e764636",
         "spotifyTrackId": "5NwsH1cb8Pn0sNgzMEY9GV"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_17",
+      "trackId": "song_019e8282-8ae7-74d5-9842-69f7b5f41756",
       "canonicalTitle": "ロジックエージェント",
       "aliases": [],
       "artistNames": [
@@ -587,14 +587,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 17,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8ae7-74d5-9842-69f7b5f41756",
         "spotifyTrackId": "0aPmJfAIIoPJW7FyLGWgtW"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_18",
+      "trackId": "song_019e8282-8b44-7bc7-9a6e-e263b24876f2",
       "canonicalTitle": "-orderly-",
       "aliases": [],
       "artistNames": [
@@ -621,14 +621,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 18,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8b44-7bc7-9a6e-e263b24876f2",
         "spotifyTrackId": "6Onx9jbhBqzG6noNtyrTD4"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_19",
+      "trackId": "song_019e8282-8ba5-7d40-902b-e994975bf05a",
       "canonicalTitle": "mede:mede",
       "aliases": [],
       "artistNames": [
@@ -655,14 +655,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 19,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
         "spotifyTrackId": "6euB4nKEbVotA7xZLcMSAg"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_20",
+      "trackId": "song_019e8282-8bff-7dd2-846d-ed1e8b78c431",
       "canonicalTitle": "Syrup",
       "aliases": [],
       "artistNames": [
@@ -689,14 +689,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 20,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8bff-7dd2-846d-ed1e8b78c431",
         "spotifyTrackId": "3fqUAfyGlVGFxTprWorbvu"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_21",
+      "trackId": "song_019e8282-8d1b-7746-a03c-6168be0b3d0e",
       "canonicalTitle": "ラ・タタン",
       "aliases": [],
       "artistNames": [
@@ -723,14 +723,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 21,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8d1b-7746-a03c-6168be0b3d0e",
         "spotifyTrackId": "4wWsvdoRehEVJ8Kt8m2b7Q"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_22",
+      "trackId": "song_019e8282-8d77-7522-a885-d14a4873ca1f",
       "canonicalTitle": "ミッドナイトストロウラ",
       "aliases": [],
       "artistNames": [
@@ -757,14 +757,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 22,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8d77-7522-a885-d14a4873ca1f",
         "spotifyTrackId": "7xyxcFjyp3pDlXx6HxctPo"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_23",
+      "trackId": "song_019e8282-8ee8-73ac-ac5f-6c399eac0fd3",
       "canonicalTitle": "Behind The Night",
       "aliases": [],
       "artistNames": [
@@ -791,14 +791,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 23,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8ee8-73ac-ac5f-6c399eac0fd3",
         "spotifyTrackId": "7njTy0RJcAI37nkahgADXZ"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_24",
+      "trackId": "song_019e8282-8f59-75cf-9359-ad35a0cb40ad",
       "canonicalTitle": "ROXY",
       "aliases": [],
       "artistNames": [
@@ -825,14 +825,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 24,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8f59-75cf-9359-ad35a0cb40ad",
         "spotifyTrackId": "7k5IQbg0uWIgkZrtOfYQRq"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_25",
+      "trackId": "song_019e8282-8fbe-71e0-ba7e-d57f82126212",
       "canonicalTitle": "約束の蒼",
       "aliases": [],
       "artistNames": [
@@ -859,14 +859,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 25,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-8fbe-71e0-ba7e-d57f82126212",
         "spotifyTrackId": "4l1oMylHERx6Ez54g49Tdz"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_26",
+      "trackId": "song_019e8282-9020-7457-9b15-125dc38bee15",
       "canonicalTitle": "MONSTER",
       "aliases": [],
       "artistNames": [
@@ -893,14 +893,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 26,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
         "spotifyTrackId": "6zoNHckACUOGj2bERXgmnw"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_27",
+      "trackId": "song_019e8282-908f-7915-a305-74f7c9d6efcc",
       "canonicalTitle": "染",
       "aliases": [],
       "artistNames": [
@@ -927,14 +927,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 2,
-        "songId": 27,
+        "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+        "songUuid": "019e8282-908f-7915-a305-74f7c9d6efcc",
         "spotifyTrackId": "4YEP26yNgvVHVT44QmttLL"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_28",
+      "trackId": "song_019e8282-9100-7de6-b068-abb907e16395",
       "canonicalTitle": "VIP KID",
       "aliases": [],
       "artistNames": [
@@ -961,14 +961,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 28,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-9100-7de6-b068-abb907e16395",
         "spotifyTrackId": "3gu7cBBiDQ8GzT2gDsE215"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_29",
+      "trackId": "song_019e8282-916c-7afe-ad65-19e75b32b017",
       "canonicalTitle": "ギミアブレスタッナウ",
       "aliases": [],
       "artistNames": [
@@ -995,14 +995,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 29,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-916c-7afe-ad65-19e75b32b017",
         "spotifyTrackId": "05GgDzto0aWkNJ5NJcdNxl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_30",
+      "trackId": "song_019e8282-91d8-7397-a5fd-4aa163c238ca",
       "canonicalTitle": "宵々古今",
       "aliases": [],
       "artistNames": [
@@ -1029,14 +1029,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 30,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "spotifyTrackId": "3KLHSYHSmny4sJo2finqy9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_31",
+      "trackId": "song_019e8282-94d9-77c2-87b4-ffc0134219f6",
       "canonicalTitle": "コノヨLoading...",
       "aliases": [],
       "artistNames": [
@@ -1063,14 +1063,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 31,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-94d9-77c2-87b4-ffc0134219f6",
         "spotifyTrackId": "5ZBs9dRavxKAS23WT1MwkQ"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_32",
+      "trackId": "song_019e8282-954c-7262-bc7d-60bfbfdd0a30",
       "canonicalTitle": "RE:",
       "aliases": [],
       "artistNames": [
@@ -1097,14 +1097,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 32,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-954c-7262-bc7d-60bfbfdd0a30",
         "spotifyTrackId": "1NVwPClQWzPNFSl10DEGlT"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_33",
+      "trackId": "song_019e8282-95b3-75bc-93fa-724ccbce939f",
       "canonicalTitle": "Lunatic",
       "aliases": [],
       "artistNames": [
@@ -1131,14 +1131,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 33,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-95b3-75bc-93fa-724ccbce939f",
         "spotifyTrackId": "29e4olePA461RCLrLNh9h4"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_34",
+      "trackId": "song_019e8282-9618-718f-b19f-8707fc5f04d3",
       "canonicalTitle": "神様になった日",
       "aliases": [],
       "artistNames": [
@@ -1165,14 +1165,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 34,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-9618-718f-b19f-8707fc5f04d3",
         "spotifyTrackId": "7apgxRbih9txqqDGrqXiRn"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_35",
+      "trackId": "song_019e8282-9677-71ba-834f-526dbc3b7b50",
       "canonicalTitle": "ちるちる",
       "aliases": [],
       "artistNames": [
@@ -1199,14 +1199,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 35,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-9677-71ba-834f-526dbc3b7b50",
         "spotifyTrackId": "4homtlmmqdnMSv6uLJR2kI"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_36",
+      "trackId": "song_019e8282-971c-72cf-9f98-fbfe784b5964",
       "canonicalTitle": "-FINAL SIGMA-",
       "aliases": [],
       "artistNames": [
@@ -1233,14 +1233,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 36,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-971c-72cf-9f98-fbfe784b5964",
         "spotifyTrackId": "3MwUMfuXTpEb1lwu18fLN0"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_37",
+      "trackId": "song_019e8282-979d-7961-bd68-1a04724184bb",
       "canonicalTitle": "DetaramE KiddinG",
       "aliases": [],
       "artistNames": [
@@ -1267,14 +1267,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 37,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-979d-7961-bd68-1a04724184bb",
         "spotifyTrackId": "3jZAk59A3WahOfhYC4w07c"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_38",
+      "trackId": "song_019e8282-980c-7897-af8d-f29a00eea377",
       "canonicalTitle": "サマーホラーパーティ",
       "aliases": [],
       "artistNames": [
@@ -1301,14 +1301,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 38,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-980c-7897-af8d-f29a00eea377",
         "spotifyTrackId": "76li5HpPEGVY9nCwz4pusX"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_39",
+      "trackId": "song_019e8282-987d-71ac-b390-33bdbee08323",
       "canonicalTitle": "404 not found",
       "aliases": [],
       "artistNames": [
@@ -1335,14 +1335,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 39,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-987d-71ac-b390-33bdbee08323",
         "spotifyTrackId": "2BY5fNHmpjV797ByjLX4I7"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_40",
+      "trackId": "song_019e8282-98ec-78d4-a7e5-1429844e87a6",
       "canonicalTitle": "VIORA",
       "aliases": [],
       "artistNames": [
@@ -1369,14 +1369,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 3,
-        "songId": 40,
+        "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+        "songUuid": "019e8282-98ec-78d4-a7e5-1429844e87a6",
         "spotifyTrackId": "5eGKu7tJ56GQgBvDb8EZFv"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_41",
+      "trackId": "song_019e8282-9957-71ac-96bc-bba797083999",
       "canonicalTitle": "ニュータイプトーキョー",
       "aliases": [],
       "artistNames": [
@@ -1389,14 +1389,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 4,
-        "songId": 41,
+        "discographyUuid": "019e8282-654b-730d-b992-f93b7917576a",
+        "songUuid": "019e8282-9957-71ac-96bc-bba797083999",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_42",
+      "trackId": "song_019e8282-99bf-77c9-99cd-be2effc99c23",
       "canonicalTitle": "B12",
       "aliases": [],
       "artistNames": [
@@ -1409,14 +1409,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 4,
-        "songId": 42,
+        "discographyUuid": "019e8282-654b-730d-b992-f93b7917576a",
+        "songUuid": "019e8282-99bf-77c9-99cd-be2effc99c23",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_43",
+      "trackId": "song_019e8282-9a62-7eca-bbc3-b00a4788ccf0",
       "canonicalTitle": "エンドレスライン",
       "aliases": [],
       "artistNames": [
@@ -1443,14 +1443,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 4,
-        "songId": 43,
+        "discographyUuid": "019e8282-654b-730d-b992-f93b7917576a",
+        "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
         "spotifyTrackId": "0LNzbdozYW70uarbuAzyOg"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_44",
+      "trackId": "song_019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
       "canonicalTitle": "LUVORATORRRRRY!",
       "aliases": [],
       "artistNames": [
@@ -1477,14 +1477,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 4,
-        "songId": 44,
+        "discographyUuid": "019e8282-654b-730d-b992-f93b7917576a",
+        "songUuid": "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
         "spotifyTrackId": "1AMzUKhF0vCFHZTx8H7OS4"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_45",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
       "canonicalTitle": "平面鏡",
       "aliases": [],
       "artistNames": [
@@ -1510,14 +1510,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 5,
-        "songId": 45,
+        "discographyUuid": "019e8282-65b9-7ba5-850f-a814d3f0fde3",
+        "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_46",
+      "trackId": "song_019e8282-9b94-7dd6-8594-018b304cfdcb",
       "canonicalTitle": "エンド",
       "aliases": [],
       "artistNames": [
@@ -1543,14 +1543,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 6,
-        "songId": 46,
+        "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+        "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
         "spotifyTrackId": "4bCY4od5T0HCBVISAmkoFO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_47",
+      "trackId": "song_019e8282-9bf7-794d-9501-a2010051b8f9",
       "canonicalTitle": "平面鏡",
       "aliases": [],
       "artistNames": [
@@ -1576,14 +1576,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 6,
-        "songId": 47,
+        "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+        "songUuid": "019e8282-9bf7-794d-9501-a2010051b8f9",
         "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_48",
+      "trackId": "song_019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
       "canonicalTitle": "ミッシング",
       "aliases": [],
       "artistNames": [
@@ -1609,14 +1609,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 6,
-        "songId": 48,
+        "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+        "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
         "spotifyTrackId": "5G9evYGjsdgjpjUEeOkmy5"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_49",
+      "trackId": "song_019e8282-9db9-780c-8bac-8a5af7dc20a4",
       "canonicalTitle": "カルト",
       "aliases": [],
       "artistNames": [
@@ -1642,14 +1642,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 6,
-        "songId": 49,
+        "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+        "songUuid": "019e8282-9db9-780c-8bac-8a5af7dc20a4",
         "spotifyTrackId": "1n2sJdib6jFWmbDfTyYmTL"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_50",
+      "trackId": "song_019e8282-9e1a-7177-9501-7ac3e24ed303",
       "canonicalTitle": "あ可よろし",
       "aliases": [],
       "artistNames": [
@@ -1675,14 +1675,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 6,
-        "songId": 50,
+        "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+        "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
         "spotifyTrackId": "3jt4Zj8aKP7xwWwUJql6c1"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_51",
+      "trackId": "song_019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
       "canonicalTitle": "サイサキ",
       "aliases": [],
       "artistNames": [
@@ -1708,14 +1708,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 7,
-        "songId": 51,
+        "discographyUuid": "019e8282-6687-73c7-882a-0ea8735912fb",
+        "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_52",
+      "trackId": "song_019e8282-9eea-7677-822b-93f7cf6fbc6a",
       "canonicalTitle": "SAIREN",
       "aliases": [],
       "artistNames": [
@@ -1741,14 +1741,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 8,
-        "songId": 52,
+        "discographyUuid": "019e8282-6723-7295-a6a7-e8d7891ee6bd",
+        "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
         "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_53",
+      "trackId": "song_019e8282-9f54-7887-9472-340713e38467",
       "canonicalTitle": "幽居のワルツ",
       "aliases": [],
       "artistNames": [
@@ -1774,14 +1774,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 53,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-9f54-7887-9472-340713e38467",
         "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_54",
+      "trackId": "song_019e8282-9fde-74c9-907d-aa211e4a9e75",
       "canonicalTitle": "サイサキ",
       "aliases": [],
       "artistNames": [
@@ -1807,14 +1807,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 54,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-9fde-74c9-907d-aa211e4a9e75",
         "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_55",
+      "trackId": "song_019e8282-a043-72e8-a2e5-fe78da7ab58c",
       "canonicalTitle": "激白",
       "aliases": [],
       "artistNames": [
@@ -1840,14 +1840,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 55,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
         "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_56",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
       "canonicalTitle": "十中八九",
       "aliases": [],
       "artistNames": [
@@ -1873,14 +1873,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 56,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_57",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
       "canonicalTitle": "煩悩遊戯",
       "aliases": [],
       "artistNames": [
@@ -1906,14 +1906,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 57,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_58",
+      "trackId": "song_019e8282-a173-7574-883d-03ba2a816c1a",
       "canonicalTitle": "-MANDARA FACT-",
       "aliases": [],
       "artistNames": [
@@ -1939,14 +1939,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 58,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a173-7574-883d-03ba2a816c1a",
         "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_59",
+      "trackId": "song_019e8282-a3bf-78da-920a-67daf07accf9",
       "canonicalTitle": "真空オールドローズ",
       "aliases": [],
       "artistNames": [
@@ -1972,14 +1972,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 59,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a3bf-78da-920a-67daf07accf9",
         "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_60",
+      "trackId": "song_019e8282-a484-7754-947a-b329bcd014cd",
       "canonicalTitle": "ミラージュ",
       "aliases": [],
       "artistNames": [
@@ -2005,14 +2005,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 60,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
         "spotifyTrackId": "5SPFU6mys52n07fem3EXBA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_61",
+      "trackId": "song_019e8282-a4de-75f6-b17b-bdbff7c6a3d6",
       "canonicalTitle": "SAIREN",
       "aliases": [],
       "artistNames": [
@@ -2038,14 +2038,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 61,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a4de-75f6-b17b-bdbff7c6a3d6",
         "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_62",
+      "trackId": "song_019e8282-a55e-7762-a9ca-0995bc06f57f",
       "canonicalTitle": "秋映",
       "aliases": [],
       "artistNames": [
@@ -2071,14 +2071,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 62,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a55e-7762-a9ca-0995bc06f57f",
         "spotifyTrackId": "7bGOND7852tOD0RInMTO0u"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_63",
+      "trackId": "song_019e8282-a5c3-7479-a563-f338a6fdab57",
       "canonicalTitle": "mede:mede -JJJ Remix-",
       "aliases": [],
       "artistNames": [
@@ -2090,14 +2090,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 63,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a5c3-7479-a563-f338a6fdab57",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_64",
+      "trackId": "song_019e8282-a62a-7a15-87e8-7a8649c18930",
       "canonicalTitle": "劣等上等 (Special Editionのみ)",
       "aliases": [
         "劣等上等"
@@ -2112,14 +2112,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 9,
-        "songId": 64,
+        "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+        "songUuid": "019e8282-a62a-7a15-87e8-7a8649c18930",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_65",
+      "trackId": "song_019e8282-a69c-7448-bfb1-ae2273ccc08c",
       "canonicalTitle": "ウテナ",
       "aliases": [],
       "artistNames": [
@@ -2145,14 +2145,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 10,
-        "songId": 65,
+        "discographyUuid": "019e8282-69de-70bd-a74f-23c7d5ea84f7",
+        "songUuid": "019e8282-a69c-7448-bfb1-ae2273ccc08c",
         "spotifyTrackId": "4j8iEmJZidEu5hwM7lBtVM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_66",
+      "trackId": "song_019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
       "canonicalTitle": "たい",
       "aliases": [],
       "artistNames": [
@@ -2178,14 +2178,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 10,
-        "songId": 66,
+        "discographyUuid": "019e8282-69de-70bd-a74f-23c7d5ea84f7",
+        "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
         "spotifyTrackId": "4gtvQM3JWzRNYwGF1iYkmb"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_67",
+      "trackId": "song_019e8282-a763-7a98-ab53-31b9a3d16b68",
       "canonicalTitle": "シンカロン",
       "aliases": [],
       "artistNames": [
@@ -2211,14 +2211,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 10,
-        "songId": 67,
+        "discographyUuid": "019e8282-69de-70bd-a74f-23c7d5ea84f7",
+        "songUuid": "019e8282-a763-7a98-ab53-31b9a3d16b68",
         "spotifyTrackId": "15eeDH2c5RDLvSKY9qjldS"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_68",
+      "trackId": "song_019e8282-a7d9-7308-98f9-05fe78d54b53",
       "canonicalTitle": "失楽園",
       "aliases": [],
       "artistNames": [
@@ -2244,14 +2244,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 10,
-        "songId": 68,
+        "discographyUuid": "019e8282-69de-70bd-a74f-23c7d5ea84f7",
+        "songUuid": "019e8282-a7d9-7308-98f9-05fe78d54b53",
         "spotifyTrackId": "3yXwighahVa3l4v71wZ0LT"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_69",
+      "trackId": "song_019e8282-a84b-7f6f-9674-6ab390e000d5",
       "canonicalTitle": "幽居のワルツ",
       "aliases": [],
       "artistNames": [
@@ -2277,14 +2277,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 69,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-a84b-7f6f-9674-6ab390e000d5",
         "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_70",
+      "trackId": "song_019e8282-a8b1-7023-9c98-628d5922bc73",
       "canonicalTitle": "サイサキ",
       "aliases": [],
       "artistNames": [
@@ -2310,14 +2310,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 70,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-a8b1-7023-9c98-628d5922bc73",
         "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_71",
+      "trackId": "song_019e8282-a917-7ee2-9d87-d11ed4801b2b",
       "canonicalTitle": "激白",
       "aliases": [],
       "artistNames": [
@@ -2343,14 +2343,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 71,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-a917-7ee2-9d87-d11ed4801b2b",
         "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_72",
+      "trackId": "song_019e8282-a97a-7ffa-978a-cf6e2da01794",
       "canonicalTitle": "十中八九",
       "aliases": [],
       "artistNames": [
@@ -2376,14 +2376,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 72,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-a97a-7ffa-978a-cf6e2da01794",
         "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_73",
+      "trackId": "song_019e8282-aa76-79d8-8976-8bc9bffa9178",
       "canonicalTitle": "煩悩遊戯",
       "aliases": [],
       "artistNames": [
@@ -2409,14 +2409,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 73,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-aa76-79d8-8976-8bc9bffa9178",
         "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_74",
+      "trackId": "song_019e8282-aade-7764-818d-c0fadeddb5be",
       "canonicalTitle": "-MANDARA FACT-",
       "aliases": [],
       "artistNames": [
@@ -2442,14 +2442,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 74,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-aade-7764-818d-c0fadeddb5be",
         "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_75",
+      "trackId": "song_019e8282-ab52-7a08-9023-17f161d82b58",
       "canonicalTitle": "真空オールドローズ",
       "aliases": [],
       "artistNames": [
@@ -2475,14 +2475,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 75,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-ab52-7a08-9023-17f161d82b58",
         "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_76",
+      "trackId": "song_019e8282-abbb-7c61-8254-bb4ca1430aec",
       "canonicalTitle": "ミラージュ",
       "aliases": [],
       "artistNames": [
@@ -2508,14 +2508,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 76,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-abbb-7c61-8254-bb4ca1430aec",
         "spotifyTrackId": "5SPFU6mys52n07fem3EXBA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_77",
+      "trackId": "song_019e8282-ac1f-7df3-ba5f-fbe003d87166",
       "canonicalTitle": "SAIREN",
       "aliases": [],
       "artistNames": [
@@ -2541,14 +2541,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 77,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-ac1f-7df3-ba5f-fbe003d87166",
         "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_78",
+      "trackId": "song_019e8282-ac87-71db-8447-b08d2da6217b",
       "canonicalTitle": "秋映",
       "aliases": [],
       "artistNames": [
@@ -2574,14 +2574,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 11,
-        "songId": 78,
+        "discographyUuid": "019e8282-6a4d-7a37-ab02-a4b40f372a33",
+        "songUuid": "019e8282-ac87-71db-8447-b08d2da6217b",
         "spotifyTrackId": "7bGOND7852tOD0RInMTO0u"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_79",
+      "trackId": "song_019e8282-acdf-79e4-b6be-f1de4e78e657",
       "canonicalTitle": "ゆーれいずみー",
       "aliases": [],
       "artistNames": [
@@ -2607,14 +2607,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 12,
-        "songId": 79,
+        "discographyUuid": "019e8282-6ac8-7ed7-abd4-1e883a2cba06",
+        "songUuid": "019e8282-acdf-79e4-b6be-f1de4e78e657",
         "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_80",
+      "trackId": "song_019e8282-ad45-712c-abc5-4dc5ed07cdc1",
       "canonicalTitle": "HYPE MODE",
       "aliases": [],
       "artistNames": [
@@ -2640,14 +2640,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 13,
-        "songId": 80,
+        "discographyUuid": "019e8282-6b3c-7a32-9a9b-a57d5095c4be",
+        "songUuid": "019e8282-ad45-712c-abc5-4dc5ed07cdc1",
         "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_81",
+      "trackId": "song_019e8282-adad-7bc0-9325-9fe96e85c651",
       "canonicalTitle": "金字塔",
       "aliases": [],
       "artistNames": [
@@ -2673,14 +2673,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 81,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-adad-7bc0-9325-9fe96e85c651",
         "spotifyTrackId": "02HNBwIheiZAuzC8p1QBPn"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_82",
+      "trackId": "song_019e8282-ae0d-7f10-81f1-a37b78d034be",
       "canonicalTitle": "HYPE MODE",
       "aliases": [],
       "artistNames": [
@@ -2706,14 +2706,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 82,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-ae0d-7f10-81f1-a37b78d034be",
         "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_83",
+      "trackId": "song_019e8282-ae77-7460-9f00-b3aea66a5050",
       "canonicalTitle": "ゆーれいずみー",
       "aliases": [],
       "artistNames": [
@@ -2739,14 +2739,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 83,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-ae77-7460-9f00-b3aea66a5050",
         "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_84",
+      "trackId": "song_019e8282-aede-7f64-a17b-7b73662a8470",
       "canonicalTitle": "-ムーブのための試奏曲 Nr.4-",
       "aliases": [],
       "artistNames": [
@@ -2772,14 +2772,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 84,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-aede-7f64-a17b-7b73662a8470",
         "spotifyTrackId": "5f67BMdyuOf0VNYFFnuwRs"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_85",
+      "trackId": "song_019e8282-af43-7216-898c-3e8d77c87b12",
       "canonicalTitle": "ハーメルン",
       "aliases": [],
       "artistNames": [
@@ -2805,14 +2805,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 85,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-af43-7216-898c-3e8d77c87b12",
         "spotifyTrackId": "76zCFsWIre89p4HQrRerbf"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_86",
+      "trackId": "song_019e8282-afa5-7e91-9c36-59164936111c",
       "canonicalTitle": "un, deux, trois",
       "aliases": [],
       "artistNames": [
@@ -2838,14 +2838,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 86,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
         "spotifyTrackId": "2NXqn7SaFWJmIpjwu9Ae6c"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_87",
+      "trackId": "song_019e8282-b012-7b78-8e55-fa91bc320dd8",
       "canonicalTitle": "insider",
       "aliases": [],
       "artistNames": [
@@ -2871,14 +2871,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 87,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-b012-7b78-8e55-fa91bc320dd8",
         "spotifyTrackId": "0GY0AgfcwuKDUHaZgRv4QM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_88",
+      "trackId": "song_019e8282-b080-7b80-b17b-5b31ddfbe416",
       "canonicalTitle": "ダリ",
       "aliases": [],
       "artistNames": [
@@ -2904,14 +2904,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 88,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-b080-7b80-b17b-5b31ddfbe416",
         "spotifyTrackId": "7f4PaZuWlLM4ZsPTZIPLe1"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_89",
+      "trackId": "song_019e8282-b0ed-76e9-a147-07373358994e",
       "canonicalTitle": "-ルネの小品 Nr.9-",
       "aliases": [],
       "artistNames": [
@@ -2937,14 +2937,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 89,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-b0ed-76e9-a147-07373358994e",
         "spotifyTrackId": "65leI2ZvSJRWtGozl5g1tf"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_90",
+      "trackId": "song_019e8282-b15a-78b5-aba8-2ec6c1deb7cf",
       "canonicalTitle": "GRIMOIRE",
       "aliases": [],
       "artistNames": [
@@ -2956,14 +2956,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 90,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-b15a-78b5-aba8-2ec6c1deb7cf",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_91",
+      "trackId": "song_019e8282-b1ba-7da3-b053-e30f89c4d9b9",
       "canonicalTitle": "1LDK",
       "aliases": [],
       "artistNames": [
@@ -2989,14 +2989,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 14,
-        "songId": 91,
+        "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+        "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "spotifyTrackId": "27MVvs7ErNpl81dkwwNS5i"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_92",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
       "canonicalTitle": "第六感",
       "aliases": [],
       "artistNames": [
@@ -3022,14 +3022,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 15,
-        "songId": 92,
+        "discographyUuid": "019e8282-6c4f-78a7-8a70-d83f2b33d38b",
+        "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
         "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_93",
+      "trackId": "song_019e8282-b2ad-7dd6-9931-f352016f0f37",
       "canonicalTitle": "Q?",
       "aliases": [],
       "artistNames": [
@@ -3055,14 +3055,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 16,
-        "songId": 93,
+        "discographyUuid": "019e8282-6cae-7c1e-b86a-3ce6f91ae023",
+        "songUuid": "019e8282-b2ad-7dd6-9931-f352016f0f37",
         "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_94",
+      "trackId": "song_019e8282-b315-798d-b991-c7fc740b5dc5",
       "canonicalTitle": "白夜(White Midnight)",
       "aliases": [
         "白夜"
@@ -3091,14 +3091,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 18,
-        "songId": 94,
+        "discographyUuid": "019e8282-6f69-7468-b8d3-dd7133fa6d75",
+        "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
         "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_95",
+      "trackId": "song_019e8282-b38d-7f15-8cf5-c31353acff03",
       "canonicalTitle": "Boy",
       "aliases": [],
       "artistNames": [
@@ -3124,14 +3124,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 19,
-        "songId": 95,
+        "discographyUuid": "019e8282-6fcf-7e19-a929-db7fcb6a2146",
+        "songUuid": "019e8282-b38d-7f15-8cf5-c31353acff03",
         "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_96",
+      "trackId": "song_019e8282-b400-70bc-af3c-8f7696c20ef8",
       "canonicalTitle": "第六感",
       "aliases": [],
       "artistNames": [
@@ -3157,14 +3157,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 96,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b400-70bc-af3c-8f7696c20ef8",
         "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_97",
+      "trackId": "song_019e8282-b46d-7f31-9cf1-6b0c0ad48042",
       "canonicalTitle": "Q?",
       "aliases": [],
       "artistNames": [
@@ -3190,14 +3190,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 97,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b46d-7f31-9cf1-6b0c0ad48042",
         "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_98",
+      "trackId": "song_019e8282-b4cf-7347-9d12-536f29d4cf12",
       "canonicalTitle": "Ms.CONTROL",
       "aliases": [],
       "artistNames": [
@@ -3223,14 +3223,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 98,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b4cf-7347-9d12-536f29d4cf12",
         "spotifyTrackId": "09oabCfaOPGGXpyoAHxrXK"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_99",
+      "trackId": "song_019e8282-b52b-7686-826a-df43d94c74c5",
       "canonicalTitle": "白夜(White Midnight)",
       "aliases": [
         "白夜"
@@ -3259,14 +3259,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 99,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b52b-7686-826a-df43d94c74c5",
         "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_100",
+      "trackId": "song_019e8282-b605-7246-8348-d347270aa7e6",
       "canonicalTitle": "ミュータント",
       "aliases": [],
       "artistNames": [
@@ -3292,14 +3292,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 100,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b605-7246-8348-d347270aa7e6",
         "spotifyTrackId": "3AkvJc5aJt3FauOliKi9Z9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_101",
+      "trackId": "song_019e8282-b65d-763b-bc27-2fbe2ae62a8a",
       "canonicalTitle": "Nd60",
       "aliases": [],
       "artistNames": [
@@ -3325,14 +3325,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 101,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
         "spotifyTrackId": "2PxrSoQiYfGf1VgvN30UDd"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_102",
+      "trackId": "song_019e8282-b6bf-7eb0-8f1b-e06756fc6fc0",
       "canonicalTitle": "Boy",
       "aliases": [],
       "artistNames": [
@@ -3358,14 +3358,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 20,
-        "songId": 102,
+        "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+        "songUuid": "019e8282-b6bf-7eb0-8f1b-e06756fc6fc0",
         "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_103",
+      "trackId": "song_019e8282-b714-7a5d-933a-34fa187bc83b",
       "canonicalTitle": "赤裸裸(NAKED)",
       "aliases": [
         "赤裸裸"
@@ -3394,14 +3394,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 21,
-        "songId": 103,
+        "discographyUuid": "019e8282-7093-722f-90f0-156233c1d91a",
+        "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
         "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_104",
+      "trackId": "song_019e8282-b788-7d1d-a5f7-c81d27df50ac",
       "canonicalTitle": "煽げや尊し(Agitate)",
       "aliases": [
         "煽げや尊し"
@@ -3430,14 +3430,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 22,
-        "songId": 104,
+        "discographyUuid": "019e8282-715a-79c1-a9cc-df04477e2747",
+        "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_105",
+      "trackId": "song_019e8282-b7e3-730d-a541-f5b4804e1631",
       "canonicalTitle": "No title - Seaside Remix",
       "aliases": [],
       "artistNames": [
@@ -3463,14 +3463,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 23,
-        "songId": 105,
+        "discographyUuid": "019e8282-74c4-7ccc-89ae-85d89c764bea",
+        "songUuid": "019e8282-b7e3-730d-a541-f5b4804e1631",
         "spotifyTrackId": "3EVQv88JzEKwUf4gSyAtZm"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_106",
+      "trackId": "song_019e8282-b84b-7700-b7fd-523c6a6e9b2c",
       "canonicalTitle": "SCORPION",
       "aliases": [],
       "artistNames": [
@@ -3496,14 +3496,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 24,
-        "songId": 106,
+        "discographyUuid": "019e8282-7527-7765-91b7-ed528cde4667",
+        "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_107",
+      "trackId": "song_019e8282-b8c5-71a2-b3fc-e57afa0fd8d0",
       "canonicalTitle": "SCORPION",
       "aliases": [],
       "artistNames": [
@@ -3529,14 +3529,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 25,
-        "songId": 107,
+        "discographyUuid": "019e8282-7590-798e-9cd2-d275e8de457a",
+        "songUuid": "019e8282-b8c5-71a2-b3fc-e57afa0fd8d0",
         "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_108",
+      "trackId": "song_019e8282-b92f-7d20-bd2e-2189afd4074b",
       "canonicalTitle": "secret trip",
       "aliases": [],
       "artistNames": [
@@ -3562,14 +3562,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 25,
-        "songId": 108,
+        "discographyUuid": "019e8282-7590-798e-9cd2-d275e8de457a",
+        "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
         "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_109",
+      "trackId": "song_019e8282-b998-719f-8189-4b4c8920f44a",
       "canonicalTitle": "感情が群れを成すパレイド",
       "aliases": [],
       "artistNames": [
@@ -3595,14 +3595,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 25,
-        "songId": 109,
+        "discographyUuid": "019e8282-7590-798e-9cd2-d275e8de457a",
+        "songUuid": "019e8282-b998-719f-8189-4b4c8920f44a",
         "spotifyTrackId": "4G4kVFSOHVKegIXMbWUboK"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_110",
+      "trackId": "song_019e8282-b9f9-7865-84a7-e9853fda1749",
       "canonicalTitle": "綺羅綺羅(Glitter)",
       "aliases": [
         "綺羅綺羅"
@@ -3631,14 +3631,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 26,
-        "songId": 110,
+        "discographyUuid": "019e8282-75fe-7b0b-a80a-8f786730c963",
+        "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
         "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_111",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
       "canonicalTitle": "切っ先(Edge)",
       "aliases": [
         "切っ先"
@@ -3667,14 +3667,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 27,
-        "songId": 111,
+        "discographyUuid": "019e8282-765c-7fd1-8ac4-ab571e47154c",
+        "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_112",
+      "trackId": "song_019e8282-bafd-7e97-b493-1365412a6f6d",
       "canonicalTitle": "切っ先(Edge)",
       "aliases": [
         "切っ先"
@@ -3703,14 +3703,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 112,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bafd-7e97-b493-1365412a6f6d",
         "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_113",
+      "trackId": "song_019e8282-bb76-7b90-bc04-1878d312a250",
       "canonicalTitle": "綺羅綺羅(Glitter)",
       "aliases": [
         "綺羅綺羅"
@@ -3739,14 +3739,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 113,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bb76-7b90-bc04-1878d312a250",
         "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_114",
+      "trackId": "song_019e8282-bbd8-71b5-a42a-f6e65a2cb154",
       "canonicalTitle": "煽げや尊し(FAKE TYPE. Remix)",
       "aliases": [
         "煽げや尊し"
@@ -3775,14 +3775,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 114,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bbd8-71b5-a42a-f6e65a2cb154",
         "spotifyTrackId": "3ScmMzh4kEqbrrJcHBKoJz"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_115",
+      "trackId": "song_019e8282-bc2f-7368-8f62-51d3721d74a2",
       "canonicalTitle": "切っ先(edge) -Anime Ver.-",
       "aliases": [
         "切っ先 -Anime Ver.-"
@@ -3797,14 +3797,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 115,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bc2f-7368-8f62-51d3721d74a2",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_116",
+      "trackId": "song_019e8282-bc93-7d99-aece-45b1e7ea8717",
       "canonicalTitle": "切っ先 -Instrumental-",
       "aliases": [
         "切っ先"
@@ -3819,14 +3819,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 116,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bc93-7d99-aece-45b1e7ea8717",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_117",
+      "trackId": "song_019e8282-bcf6-7878-b322-75944fe394c8",
       "canonicalTitle": "綺羅綺羅(Glitter) -Instrumental-",
       "aliases": [
         "綺羅綺羅 -Instrumental-",
@@ -3843,14 +3843,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 28,
-        "songId": 117,
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "songUuid": "019e8282-bcf6-7878-b322-75944fe394c8",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_118",
+      "trackId": "song_019e8282-bd6b-7747-9245-2e75cfa1eda2",
       "canonicalTitle": "Final Call",
       "aliases": [],
       "artistNames": [
@@ -3876,14 +3876,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 118,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-bd6b-7747-9245-2e75cfa1eda2",
         "spotifyTrackId": "16LtCuhBDYWI0oCOMW8jg9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_119",
+      "trackId": "song_019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
       "canonicalTitle": "TAKE OFF",
       "aliases": [],
       "artistNames": [
@@ -3909,14 +3909,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 119,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "spotifyTrackId": "1owuehstJOr079w8WoEKXw"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_120",
+      "trackId": "song_019e8282-be52-76e0-897f-1f3f72d5a44c",
       "canonicalTitle": "SCORPION",
       "aliases": [],
       "artistNames": [
@@ -3942,14 +3942,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 120,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-be52-76e0-897f-1f3f72d5a44c",
         "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_121",
+      "trackId": "song_019e8282-beb2-7a36-9d05-659c01c6d15a",
       "canonicalTitle": "綺羅綺羅(Glitter)",
       "aliases": [
         "綺羅綺羅"
@@ -3978,14 +3978,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 121,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-beb2-7a36-9d05-659c01c6d15a",
         "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_122",
+      "trackId": "song_019e8282-bf28-7f63-8d0a-0c63f32097aa",
       "canonicalTitle": "-Neo Nostalgia-",
       "aliases": [],
       "artistNames": [
@@ -4011,14 +4011,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 122,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-bf28-7f63-8d0a-0c63f32097aa",
         "spotifyTrackId": "0rRiinixC23Bn9hPKOrbTN"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_123",
+      "trackId": "song_019e8282-bfa1-7ae3-8615-3985618c41c9",
       "canonicalTitle": "secret trip",
       "aliases": [],
       "artistNames": [
@@ -4044,14 +4044,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 123,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-bfa1-7ae3-8615-3985618c41c9",
         "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_124",
+      "trackId": "song_019e8282-bfff-71fe-9248-52ba962bd28c",
       "canonicalTitle": "さよならのすゝめ、今日のつづき",
       "aliases": [],
       "artistNames": [
@@ -4077,14 +4077,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 124,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-bfff-71fe-9248-52ba962bd28c",
         "spotifyTrackId": "0MgMBO8GREfoOkr9mPFJRP"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_125",
+      "trackId": "song_019e8282-c063-7b88-b3d4-4fbe2cc379f0",
       "canonicalTitle": "切っ先(Edge)",
       "aliases": [
         "切っ先"
@@ -4113,14 +4113,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 125,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c063-7b88-b3d4-4fbe2cc379f0",
         "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_126",
+      "trackId": "song_019e8282-c0bf-7b4a-a2ca-c7b4da46bd3d",
       "canonicalTitle": "-#000000-",
       "aliases": [],
       "artistNames": [
@@ -4146,14 +4146,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 126,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c0bf-7b4a-a2ca-c7b4da46bd3d",
         "spotifyTrackId": "6oDOYu3pYuP8DhkGqaOK7n"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_127",
+      "trackId": "song_019e8282-c12d-7b1c-ad00-b0329fafa802",
       "canonicalTitle": "DDD",
       "aliases": [],
       "artistNames": [
@@ -4179,14 +4179,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 127,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c12d-7b1c-ad00-b0329fafa802",
         "spotifyTrackId": "7rVwTKcjSm0IfZ0Jz8k7A9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_128",
+      "trackId": "song_019e8282-c184-7739-9a88-78744e2b2316",
       "canonicalTitle": "煽げや尊し(Agitate)",
       "aliases": [
         "煽げや尊し"
@@ -4215,14 +4215,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 128,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c184-7739-9a88-78744e2b2316",
         "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_129",
+      "trackId": "song_019e8282-c1f3-738e-85de-49da988a8dd5",
       "canonicalTitle": "赤裸裸(NAKED)",
       "aliases": [
         "赤裸裸"
@@ -4251,14 +4251,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 129,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c1f3-738e-85de-49da988a8dd5",
         "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_130",
+      "trackId": "song_019e8282-c32a-7a15-843d-5a771d0b069d",
       "canonicalTitle": "第六感 - From THE FIRST TAKE",
       "aliases": [],
       "artistNames": [
@@ -4284,14 +4284,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 29,
-        "songId": 130,
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "songUuid": "019e8282-c32a-7a15-843d-5a771d0b069d",
         "spotifyTrackId": "611w2dL7Vk4c54JvtH0qo6"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_131",
+      "trackId": "song_019e8282-c3ab-7db6-84aa-58238944db54",
       "canonicalTitle": "Danger Danger",
       "aliases": [],
       "artistNames": [
@@ -4318,14 +4318,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 30,
-        "songId": 131,
+        "discographyUuid": "019e8282-77a6-767a-bb1a-cb8495efe90d",
+        "songUuid": "019e8282-c3ab-7db6-84aa-58238944db54",
         "spotifyTrackId": "72fowNtwZtSkYFDEYMDjQo"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_132",
+      "trackId": "song_019e8282-c414-7830-927b-9a93101d2fa1",
       "canonicalTitle": "Danger Danger (Anime Size)",
       "aliases": [
         "Danger Danger"
@@ -4341,14 +4341,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 30,
-        "songId": 132,
+        "discographyUuid": "019e8282-77a6-767a-bb1a-cb8495efe90d",
+        "songUuid": "019e8282-c414-7830-927b-9a93101d2fa1",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_133",
+      "trackId": "song_019e8282-c475-749d-8ff7-99acef3a6687",
       "canonicalTitle": "Danger Danger (Instrumental)",
       "aliases": [
         "Danger Danger"
@@ -4364,14 +4364,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 30,
-        "songId": 133,
+        "discographyUuid": "019e8282-77a6-767a-bb1a-cb8495efe90d",
+        "songUuid": "019e8282-c475-749d-8ff7-99acef3a6687",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_134",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
       "canonicalTitle": "感情御中 -WANT U LUV IT",
       "aliases": [
         "感情御中 - WANT U LUV IT"
@@ -4399,14 +4399,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 31,
-        "songId": 134,
+        "discographyUuid": "019e8282-780c-7488-b7d0-eaaa2772bbe8",
+        "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
         "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_135",
+      "trackId": "song_019e8282-c544-7022-aca9-7853bcc97d06",
       "canonicalTitle": "-Opening-",
       "aliases": [],
       "artistNames": [
@@ -4433,14 +4433,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 135,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c544-7022-aca9-7853bcc97d06",
         "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_136",
+      "trackId": "song_019e8282-c5b6-7e2d-8a31-7086d0f67f48",
       "canonicalTitle": "ヒビカセ",
       "aliases": [],
       "artistNames": [
@@ -4467,14 +4467,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 136,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c5b6-7e2d-8a31-7086d0f67f48",
         "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_137",
+      "trackId": "song_019e8282-c760-7ae6-b2b2-fc2bcbc79b96",
       "canonicalTitle": "オオエドランヴ (feat. nqrse)",
       "aliases": [
         "オオエドランヴ"
@@ -4504,14 +4504,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 137,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c760-7ae6-b2b2-fc2bcbc79b96",
         "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_138",
+      "trackId": "song_019e8282-c7ce-755a-9d84-ae4b5a34f010",
       "canonicalTitle": "drop pop candy (feat. ギガ)",
       "aliases": [
         "drop pop candy"
@@ -4541,14 +4541,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 138,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c7ce-755a-9d84-ae4b5a34f010",
         "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_139",
+      "trackId": "song_019e8282-c82c-7262-a65a-211b2147ab6c",
       "canonicalTitle": "-Interlude-",
       "aliases": [],
       "artistNames": [
@@ -4575,14 +4575,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 139,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c82c-7262-a65a-211b2147ab6c",
         "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_140",
+      "trackId": "song_019e8282-c8ee-74f3-9761-d58233179e6b",
       "canonicalTitle": "No title",
       "aliases": [],
       "artistNames": [
@@ -4609,14 +4609,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 140,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c8ee-74f3-9761-d58233179e6b",
         "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_141",
+      "trackId": "song_019e8282-c954-7e5d-81cf-12a4499a3a26",
       "canonicalTitle": "Echo",
       "aliases": [],
       "artistNames": [
@@ -4643,14 +4643,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 141,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c954-7e5d-81cf-12a4499a3a26",
         "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_142",
+      "trackId": "song_019e8282-c9c3-711c-b056-d3658d052286",
       "canonicalTitle": "-BWW SCREAM-",
       "aliases": [],
       "artistNames": [
@@ -4677,14 +4677,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 142,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-c9c3-711c-b056-d3658d052286",
         "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_143",
+      "trackId": "song_019e8282-ca2a-7039-91a9-49bd6143fa7a",
       "canonicalTitle": "アシンメトリー",
       "aliases": [],
       "artistNames": [
@@ -4711,14 +4711,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 143,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-ca2a-7039-91a9-49bd6143fa7a",
         "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_144",
+      "trackId": "song_019e8282-caa6-74e2-bbe4-773774d0918d",
       "canonicalTitle": "ギガンティックO.T.N -Big Death Edition-",
       "aliases": [
         "ギガンティックO.T.N"
@@ -4748,14 +4748,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 144,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-caa6-74e2-bbe4-773774d0918d",
         "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_145",
+      "trackId": "song_019e8282-cb18-7f28-ad19-f080cbe51a14",
       "canonicalTitle": "-Ending-",
       "aliases": [],
       "artistNames": [
@@ -4782,14 +4782,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 32,
-        "songId": 145,
+        "discographyUuid": "019e8282-7884-7467-8aa1-92dd754093a9",
+        "songUuid": "019e8282-cb18-7f28-ad19-f080cbe51a14",
         "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_146",
+      "trackId": "song_019e8282-cb86-7e1a-953a-06e37c04d2ed",
       "canonicalTitle": "-Opening-",
       "aliases": [],
       "artistNames": [
@@ -4816,14 +4816,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 146,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-cb86-7e1a-953a-06e37c04d2ed",
         "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_147",
+      "trackId": "song_019e8282-cbf4-7669-902e-dc0db9590020",
       "canonicalTitle": "ヒビカセ",
       "aliases": [],
       "artistNames": [
@@ -4850,14 +4850,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 147,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-cbf4-7669-902e-dc0db9590020",
         "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_148",
+      "trackId": "song_019e8282-cc55-7543-9e46-501ed645c21b",
       "canonicalTitle": "オオエドランヴ (feat. nqrse)",
       "aliases": [
         "オオエドランヴ"
@@ -4887,14 +4887,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 148,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-cc55-7543-9e46-501ed645c21b",
         "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_149",
+      "trackId": "song_019e8282-ccca-7efd-9e2c-94d4bc0e9f9a",
       "canonicalTitle": "drop pop candy (feat. ギガ)",
       "aliases": [
         "drop pop candy"
@@ -4924,14 +4924,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 149,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-ccca-7efd-9e2c-94d4bc0e9f9a",
         "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_150",
+      "trackId": "song_019e8282-cd29-73f2-ac10-20f49741fb8c",
       "canonicalTitle": "-Interlude-",
       "aliases": [],
       "artistNames": [
@@ -4958,14 +4958,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 150,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-cd29-73f2-ac10-20f49741fb8c",
         "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_151",
+      "trackId": "song_019e8282-cd9d-7d2d-bfc4-e4c39421b837",
       "canonicalTitle": "No title",
       "aliases": [],
       "artistNames": [
@@ -4992,14 +4992,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 151,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-cd9d-7d2d-bfc4-e4c39421b837",
         "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_152",
+      "trackId": "song_019e8282-d0b1-7f11-814d-693e3c260390",
       "canonicalTitle": "Echo",
       "aliases": [],
       "artistNames": [
@@ -5026,14 +5026,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 152,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-d0b1-7f11-814d-693e3c260390",
         "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_153",
+      "trackId": "song_019e8282-d113-7beb-8d99-e6e17ac0c771",
       "canonicalTitle": "-BWW SCREAM-",
       "aliases": [],
       "artistNames": [
@@ -5060,14 +5060,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 153,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-d113-7beb-8d99-e6e17ac0c771",
         "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_154",
+      "trackId": "song_019e8282-d187-7da8-8b21-a6d9d5dd6528",
       "canonicalTitle": "アシンメトリー",
       "aliases": [],
       "artistNames": [
@@ -5094,14 +5094,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 154,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-d187-7da8-8b21-a6d9d5dd6528",
         "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_155",
+      "trackId": "song_019e8282-d1f4-7c0c-9d34-4b32b931e8a6",
       "canonicalTitle": "ギガンティックO.T.N -Big Death Edition-",
       "aliases": [
         "ギガンティックO.T.N"
@@ -5131,14 +5131,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 155,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-d1f4-7c0c-9d34-4b32b931e8a6",
         "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_156",
+      "trackId": "song_019e8282-d276-793b-9b58-e8e8eb7a7715",
       "canonicalTitle": "-Ending-",
       "aliases": [],
       "artistNames": [
@@ -5165,14 +5165,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 33,
-        "songId": 156,
+        "discographyUuid": "019e8282-78f1-73fc-a385-038b060a52dc",
+        "songUuid": "019e8282-d276-793b-9b58-e8e8eb7a7715",
         "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_157",
+      "trackId": "song_019e8282-d2de-7503-a017-b8b32643a99d",
       "canonicalTitle": "ディア",
       "aliases": [],
       "artistNames": [
@@ -5198,14 +5198,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 34,
-        "songId": 157,
+        "discographyUuid": "019e8282-7956-7e4e-ab1b-48aca3abe472",
+        "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
         "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_158",
+      "trackId": "song_019e8282-d33d-7054-9fb7-2e120bf9e55d",
       "canonicalTitle": "ディア (Instrumental)",
       "aliases": [
         "ディア"
@@ -5234,14 +5234,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 34,
-        "songId": 158,
+        "discographyUuid": "019e8282-7956-7e4e-ab1b-48aca3abe472",
+        "songUuid": "019e8282-d33d-7054-9fb7-2e120bf9e55d",
         "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_159",
+      "trackId": "song_019e8282-d3b8-74db-a4f7-36f2b78bbec5",
       "canonicalTitle": "ULTRA C",
       "aliases": [],
       "artistNames": [
@@ -5254,14 +5254,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 35,
-        "songId": 159,
+        "discographyUuid": "019e8282-79bd-743c-b866-15bc14a32adb",
+        "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
         "spotifyTrackId": "16TNNC68tTEIGc8vqvoWg6"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_160",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
       "canonicalTitle": "RE RESCUE",
       "aliases": [],
       "artistNames": [
@@ -5273,14 +5273,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 36,
-        "songId": 160,
+        "discographyUuid": "019e8282-7a2b-7261-a873-761451702a1c",
+        "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "spotifyTrackId": "1i5u28LuH3TddcRfOC7Y8U"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_161",
+      "trackId": "song_019e8282-d4a3-71ea-9f27-e457b0ba3745",
       "canonicalTitle": "RE RESCUE",
       "aliases": [],
       "artistNames": [
@@ -5292,14 +5292,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 161,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d4a3-71ea-9f27-e457b0ba3745",
         "spotifyTrackId": "1i5u28LuH3TddcRfOC7Y8U"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_162",
+      "trackId": "song_019e8282-d50a-7e2a-8a8c-7e380776f130",
       "canonicalTitle": "感情御中 -WANT U LUV IT",
       "aliases": [
         "感情御中 - WANT U LUV IT"
@@ -5327,14 +5327,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 162,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d50a-7e2a-8a8c-7e380776f130",
         "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_163",
+      "trackId": "song_019e8282-d561-714e-854c-dc4ae98f84ed",
       "canonicalTitle": "ディア",
       "aliases": [],
       "artistNames": [
@@ -5360,14 +5360,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 163,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d561-714e-854c-dc4ae98f84ed",
         "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_164",
+      "trackId": "song_019e8282-d5d9-7ed5-a50a-40ed83f41a08",
       "canonicalTitle": "ULTRA C",
       "aliases": [],
       "artistNames": [
@@ -5379,14 +5379,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 164,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d5d9-7ed5-a50a-40ed83f41a08",
         "spotifyTrackId": "16TNNC68tTEIGc8vqvoWg6"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_165",
+      "trackId": "song_019e8282-d62f-706e-be6b-2ce618a70d36",
       "canonicalTitle": "RE RESCUE -aoexedit-",
       "aliases": [],
       "artistNames": [
@@ -5398,14 +5398,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 165,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
         "spotifyTrackId": "4c5b6K1yuogs62fsnwQL1h"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_166",
+      "trackId": "song_019e8282-d69a-7f53-a378-6231bd5e4dfb",
       "canonicalTitle": "感情御中 -CRUSHedRemix-",
       "aliases": [],
       "artistNames": [
@@ -5417,14 +5417,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 37,
-        "songId": 166,
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
         "spotifyTrackId": "4mummqPsyHBdjHiS4PuJ57"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_167",
+      "trackId": "song_019e8282-d776-70df-b9dc-d510f145a2f5",
       "canonicalTitle": "SHINOBI",
       "aliases": [],
       "artistNames": [
@@ -5436,14 +5436,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 38,
-        "songId": 167,
+        "discographyUuid": "019e8282-7af1-7f98-999d-09232d2ba3c3",
+        "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
         "spotifyTrackId": "24gfv6xKvWBigrbEpOY1DB"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_168",
+      "trackId": "song_019e8282-d7de-75c0-a3c6-5c8de967a70c",
       "canonicalTitle": "-Ending-",
       "aliases": [],
       "artistNames": [
@@ -5469,14 +5469,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 168,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-d7de-75c0-a3c6-5c8de967a70c",
         "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_169",
+      "trackId": "song_019e8282-d84d-7330-b4a0-c5f74d6f22d9",
       "canonicalTitle": "極彩色",
       "aliases": [],
       "artistNames": [
@@ -5502,14 +5502,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 169,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-d84d-7330-b4a0-c5f74d6f22d9",
         "spotifyTrackId": "1ppgOVjBFREq0apmtBBIqM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_170",
+      "trackId": "song_019e8282-d8b6-7a54-89e6-60ef20ae23ce",
       "canonicalTitle": "オオエドランヴ",
       "aliases": [],
       "artistNames": [
@@ -5521,14 +5521,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 170,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_171",
+      "trackId": "song_019e8282-d91e-7394-b823-685663763d88",
       "canonicalTitle": "insider",
       "aliases": [],
       "artistNames": [
@@ -5554,14 +5554,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 171,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-d91e-7394-b823-685663763d88",
         "spotifyTrackId": "0GY0AgfcwuKDUHaZgRv4QM"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_172",
+      "trackId": "song_019e8282-d9aa-7043-a87c-4b51e2b511bc",
       "canonicalTitle": "宵々古今",
       "aliases": [],
       "artistNames": [
@@ -5587,14 +5587,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 172,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-d9aa-7043-a87c-4b51e2b511bc",
         "spotifyTrackId": "3KLHSYHSmny4sJo2finqy9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_173",
+      "trackId": "song_019e8282-da0b-75e5-9430-f8c49ba7c2f8",
       "canonicalTitle": "生命線",
       "aliases": [],
       "artistNames": [
@@ -5620,14 +5620,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 173,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-da0b-75e5-9430-f8c49ba7c2f8",
         "spotifyTrackId": "4YDnmsQW2lnZL4Cju7EPMT"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_174",
+      "trackId": "song_019e8282-da6a-75b5-9e10-5fc0ca768d00",
       "canonicalTitle": "アシンメトリー",
       "aliases": [],
       "artistNames": [
@@ -5653,14 +5653,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 174,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-da6a-75b5-9e10-5fc0ca768d00",
         "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_175",
+      "trackId": "song_019e8282-dad1-7a96-81a1-727cc448fac2",
       "canonicalTitle": "第六感",
       "aliases": [],
       "artistNames": [
@@ -5686,14 +5686,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 175,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-dad1-7a96-81a1-727cc448fac2",
         "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_176",
+      "trackId": "song_019e8282-db36-7c90-b322-b2b3bf3a22b8",
       "canonicalTitle": "サイサキ",
       "aliases": [],
       "artistNames": [
@@ -5719,14 +5719,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 176,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-db36-7c90-b322-b2b3bf3a22b8",
         "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_177",
+      "trackId": "song_019e8282-db99-7d79-b744-737cba3ee204",
       "canonicalTitle": "RE RESCUE",
       "aliases": [],
       "artistNames": [
@@ -5738,14 +5738,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 177,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-db99-7d79-b744-737cba3ee204",
         "spotifyTrackId": "1i5u28LuH3TddcRfOC7Y8U"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_178",
+      "trackId": "song_019e8282-dc0a-7637-868b-053fe11a04f2",
       "canonicalTitle": "1LDK",
       "aliases": [],
       "artistNames": [
@@ -5771,14 +5771,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 178,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-dc0a-7637-868b-053fe11a04f2",
         "spotifyTrackId": "27MVvs7ErNpl81dkwwNS5i"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_179",
+      "trackId": "song_019e8282-dc75-711e-84b2-232f2036ea58",
       "canonicalTitle": "Echo",
       "aliases": [],
       "artistNames": [
@@ -5804,14 +5804,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 179,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-dc75-711e-84b2-232f2036ea58",
         "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_180",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
       "canonicalTitle": "白夜",
       "aliases": [],
       "artistNames": [
@@ -5823,14 +5823,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 180,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_181",
+      "trackId": "song_019e8282-dd52-7b66-8588-b09abaa187b4",
       "canonicalTitle": "REOL BDK SCREAM",
       "aliases": [],
       "artistNames": [
@@ -5842,14 +5842,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 181,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-dd52-7b66-8588-b09abaa187b4",
         "spotifyTrackId": "2sLg0Lf0gXNOSzaC5tiNSy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_182",
+      "trackId": "song_019e8282-ddcd-7a6d-b9b0-bdf8c9d7c4b7",
       "canonicalTitle": "B12",
       "aliases": [],
       "artistNames": [
@@ -5861,14 +5861,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 182,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-ddcd-7a6d-b9b0-bdf8c9d7c4b7",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_183",
+      "trackId": "song_019e8282-de39-73a2-bd46-329895b231b6",
       "canonicalTitle": "drop pop candy",
       "aliases": [],
       "artistNames": [
@@ -5880,14 +5880,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 183,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-de39-73a2-bd46-329895b231b6",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_184",
+      "trackId": "song_019e8282-de9c-7b90-bf1d-b7ef1f6069dd",
       "canonicalTitle": "ヒビカセ",
       "aliases": [],
       "artistNames": [
@@ -5913,14 +5913,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 184,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-de9c-7b90-bf1d-b7ef1f6069dd",
         "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_185",
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
       "canonicalTitle": "劣等上等",
       "aliases": [],
       "artistNames": [
@@ -5932,14 +5932,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 185,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_186",
+      "trackId": "song_019e8282-e0a4-76ee-ac81-54084e1e606d",
       "canonicalTitle": "Boy",
       "aliases": [],
       "artistNames": [
@@ -5965,14 +5965,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 186,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e0a4-76ee-ac81-54084e1e606d",
         "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_187",
+      "trackId": "song_019e8282-e10c-787d-9bc4-d07e610b3322",
       "canonicalTitle": "DDD",
       "aliases": [],
       "artistNames": [
@@ -5998,14 +5998,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 187,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e10c-787d-9bc4-d07e610b3322",
         "spotifyTrackId": "7rVwTKcjSm0IfZ0Jz8k7A9"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_188",
+      "trackId": "song_019e8282-e1d7-722e-ad1a-1247b82b3b4a",
       "canonicalTitle": "感情御中 - WANT U LUV IT-",
       "aliases": [
         "感情御中 - WANT U LUV IT"
@@ -6033,14 +6033,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 188,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e1d7-722e-ad1a-1247b82b3b4a",
         "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_189",
+      "trackId": "song_019e8282-e237-7b1d-97a4-dad5e3866f95",
       "canonicalTitle": "-ムーブのための試奏曲 Nr.4-",
       "aliases": [],
       "artistNames": [
@@ -6066,14 +6066,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 189,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e237-7b1d-97a4-dad5e3866f95",
         "spotifyTrackId": "5f67BMdyuOf0VNYFFnuwRs"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_190",
+      "trackId": "song_019e8282-e338-7e16-b8e5-749019dbc230",
       "canonicalTitle": "たい",
       "aliases": [],
       "artistNames": [
@@ -6099,14 +6099,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 190,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e338-7e16-b8e5-749019dbc230",
         "spotifyTrackId": "4gtvQM3JWzRNYwGF1iYkmb"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_191",
+      "trackId": "song_019e8282-e394-7e97-a141-2eb43097263b",
       "canonicalTitle": "金字塔",
       "aliases": [],
       "artistNames": [
@@ -6132,14 +6132,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 191,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e394-7e97-a141-2eb43097263b",
         "spotifyTrackId": "02HNBwIheiZAuzC8p1QBPn"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_192",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
       "canonicalTitle": "煽げや尊し",
       "aliases": [],
       "artistNames": [
@@ -6151,14 +6151,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 192,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
         "spotifyTrackId": null
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_193",
+      "trackId": "song_019e8282-e458-7e63-9227-97a4759bfd5e",
       "canonicalTitle": "No title",
       "aliases": [],
       "artistNames": [
@@ -6184,14 +6184,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 193,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e458-7e63-9227-97a4759bfd5e",
         "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_194",
+      "trackId": "song_019e8282-e4b0-7eaa-95c7-b0c909f70754",
       "canonicalTitle": "ディア",
       "aliases": [],
       "artistNames": [
@@ -6217,14 +6217,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 194,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e4b0-7eaa-95c7-b0c909f70754",
         "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_195",
+      "trackId": "song_019e8282-e50d-7766-92e8-5edfa82f644f",
       "canonicalTitle": "ギガンティックO.T.N",
       "aliases": [
         "ギガンティックO.T.N -Big Death Edition-"
@@ -6253,14 +6253,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 195,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e50d-7766-92e8-5edfa82f644f",
         "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_196",
+      "trackId": "song_019e8282-e566-79af-ba8c-6dd749dcce5e",
       "canonicalTitle": "-Opening-",
       "aliases": [],
       "artistNames": [
@@ -6286,14 +6286,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 39,
-        "songId": 196,
+        "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+        "songUuid": "019e8282-e566-79af-ba8c-6dd749dcce5e",
         "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_197",
+      "trackId": "song_019e8282-e5da-7ff7-8611-8e53d66915be",
       "canonicalTitle": "オオエドランヴ feat. nqrse -十年物 Edition-",
       "aliases": [],
       "artistNames": [
@@ -6305,14 +6305,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 40,
-        "songId": 197,
+        "discographyUuid": "019e8282-7bc5-788e-b1dd-ae8c0d910051",
+        "songUuid": "019e8282-e5da-7ff7-8611-8e53d66915be",
         "spotifyTrackId": "0y2mu4CirpyZ16k5nqE0By"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_198",
+      "trackId": "song_019e8282-e639-74a1-9b8c-fbd1e6171dbd",
       "canonicalTitle": "introduction（-Ending-）",
       "aliases": [
         "introduction"
@@ -6327,14 +6327,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 198,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-e639-74a1-9b8c-fbd1e6171dbd",
         "spotifyTrackId": "07x97X4mUeGBast4KAoSO7"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_199",
+      "trackId": "song_019e8282-e6a4-709c-ba2b-a538865e833c",
       "canonicalTitle": "ヒビカセ",
       "aliases": [],
       "artistNames": [
@@ -6346,14 +6346,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 199,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-e6a4-709c-ba2b-a538865e833c",
         "spotifyTrackId": "0RCbs15HfYTFcl8JxcVaFh"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_200",
+      "trackId": "song_019e8282-e76a-75e8-b393-bda4ea72582f",
       "canonicalTitle": "オオエドランヴ",
       "aliases": [],
       "artistNames": [
@@ -6365,14 +6365,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 200,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-e76a-75e8-b393-bda4ea72582f",
         "spotifyTrackId": "5ptmdTV3SoWwZhFAC3Cuha"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_201",
+      "trackId": "song_019e8282-e7d3-7a1c-805c-e866a74163ab",
       "canonicalTitle": "drop pop candy",
       "aliases": [],
       "artistNames": [
@@ -6384,14 +6384,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 201,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-e7d3-7a1c-805c-e866a74163ab",
         "spotifyTrackId": "1kllk3JcIjAajDKSHdak4w"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_202",
+      "trackId": "song_019e8282-e839-763a-9675-ca4c07214f56",
       "canonicalTitle": "No title",
       "aliases": [],
       "artistNames": [
@@ -6403,14 +6403,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 202,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-e839-763a-9675-ca4c07214f56",
         "spotifyTrackId": "26sgfu0nQEOH7mOU9RDXks"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_203",
+      "trackId": "song_019e8282-eb4a-7a57-bbd9-3ae17a084e6f",
       "canonicalTitle": "Echo",
       "aliases": [],
       "artistNames": [
@@ -6422,14 +6422,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 203,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-eb4a-7a57-bbd9-3ae17a084e6f",
         "spotifyTrackId": "30rznWoZ6THej8h8z603sy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_204",
+      "trackId": "song_019e8282-ebae-74a3-a71f-b06fc69f37f2",
       "canonicalTitle": "-BWW SCREAM-",
       "aliases": [],
       "artistNames": [
@@ -6441,14 +6441,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 204,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ebae-74a3-a71f-b06fc69f37f2",
         "spotifyTrackId": "2sLg0Lf0gXNOSzaC5tiNSy"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_205",
+      "trackId": "song_019e8282-ec13-7582-b6fa-f7144821060f",
       "canonicalTitle": "アシンメトリー",
       "aliases": [],
       "artistNames": [
@@ -6460,14 +6460,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 205,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ec13-7582-b6fa-f7144821060f",
         "spotifyTrackId": "2YYwlxErCwQdhn1BgT9EDJ"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_206",
+      "trackId": "song_019e8282-ec73-750c-b731-b1d449385609",
       "canonicalTitle": "ギガンティックO.T.N -Big Death Edition-",
       "aliases": [
         "ギガンティックO.T.N"
@@ -6482,14 +6482,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 206,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ec73-750c-b731-b1d449385609",
         "spotifyTrackId": "1vNwi8bzkhGYh0y7y7eh7V"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_207",
+      "trackId": "song_019e8282-ecdb-74be-b14b-5e13018dc56c",
       "canonicalTitle": "-Opening-",
       "aliases": [],
       "artistNames": [
@@ -6501,14 +6501,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 207,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ecdb-74be-b14b-5e13018dc56c",
         "spotifyTrackId": "400GMbjTZBzomJTIfEbY0Q"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_208",
+      "trackId": "song_019e8282-ed35-7c17-93b9-556bfa8e6476",
       "canonicalTitle": "REOL BDK SCREAM",
       "aliases": [],
       "artistNames": [
@@ -6520,14 +6520,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 208,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ed35-7c17-93b9-556bfa8e6476",
         "spotifyTrackId": "4QAOHiP0QOV5hY2EqMWiXR"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_209",
+      "trackId": "song_019e8282-ed93-72b8-9544-795de5f380de",
       "canonicalTitle": "No title -10 Years Later Edition-",
       "aliases": [],
       "artistNames": [
@@ -6539,14 +6539,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 41,
-        "songId": 209,
+        "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+        "songUuid": "019e8282-ed93-72b8-9544-795de5f380de",
         "spotifyTrackId": "4af8LFCiyB7EUxNxYaVAaP"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_210",
+      "trackId": "song_019e8282-ee36-7d02-919b-36babd0173f5",
       "canonicalTitle": "うつくしじごく (Utsukushi Jigoku)",
       "aliases": [
         "うつくしじごく"
@@ -6561,14 +6561,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 210,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
         "spotifyTrackId": "52tuMlVkSWg4LbpIcHpvgi"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_211",
+      "trackId": "song_019e8282-ee94-77a8-b274-270d4d301d22",
       "canonicalTitle": "おとめの肖像 (Portrait of Her)",
       "aliases": [
         "おとめの肖像"
@@ -6583,14 +6583,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 211,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
         "spotifyTrackId": "2cpQtKvfgzNQE8MGhOuM7v"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_212",
+      "trackId": "song_019e8282-eef7-72ba-beb4-fc9d404110ef",
       "canonicalTitle": "感情御中 -WANT U LUV IT",
       "aliases": [
         "感情御中 - WANT U LUV IT"
@@ -6618,14 +6618,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 212,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-eef7-72ba-beb4-fc9d404110ef",
         "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_213",
+      "trackId": "song_019e8282-ef5c-7711-bf91-eddf15d1cc2c",
       "canonicalTitle": "DEAD CENTER feat. LiSA",
       "aliases": [],
       "artistNames": [
@@ -6637,14 +6637,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 213,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
         "spotifyTrackId": "26mR5pRpqRqgSBZ6ZTR1ix"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_214",
+      "trackId": "song_019e8282-efb9-7c6f-9b6a-d09e11f67b28",
       "canonicalTitle": "ディア",
       "aliases": [],
       "artistNames": [
@@ -6670,14 +6670,14 @@
       },
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 214,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-efb9-7c6f-9b6a-d09e11f67b28",
         "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_215",
+      "trackId": "song_019e8282-f01e-7771-81df-3fe545a6d1e1",
       "canonicalTitle": "ULTRA C",
       "aliases": [],
       "artistNames": [
@@ -6689,14 +6689,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 215,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f01e-7771-81df-3fe545a6d1e1",
         "spotifyTrackId": "16TNNC68tTEIGc8vqvoWg6"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_216",
+      "trackId": "song_019e8282-f083-7d2a-aea0-683e4252df4e",
       "canonicalTitle": "SHINOBI",
       "aliases": [],
       "artistNames": [
@@ -6708,14 +6708,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 216,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f083-7d2a-aea0-683e4252df4e",
         "spotifyTrackId": "24gfv6xKvWBigrbEpOY1DB"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_217",
+      "trackId": "song_019e8282-f0ea-7081-9940-1493f104ebd8",
       "canonicalTitle": "二等星 (Immitation Star)",
       "aliases": [
         "二等星"
@@ -6730,14 +6730,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 217,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
         "spotifyTrackId": "6rbCbnnX56JukmOF7BlA7I"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_218",
+      "trackId": "song_019e8282-f153-7e9f-a926-d1fc3c6c5d67",
       "canonicalTitle": "-閑話- (Quiet Talk)",
       "aliases": [
         "-閑話-"
@@ -6752,14 +6752,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 218,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f153-7e9f-a926-d1fc3c6c5d67",
         "spotifyTrackId": "1VfVMVdkMjqlu1cbLItQi6"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_219",
+      "trackId": "song_019e8282-f1d0-762a-8341-562f4b122f0b",
       "canonicalTitle": "RE RESCUE",
       "aliases": [],
       "artistNames": [
@@ -6771,14 +6771,14 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 219,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f1d0-762a-8341-562f4b122f0b",
         "spotifyTrackId": "1i5u28LuH3TddcRfOC7Y8U"
       }
     },
     {
       "schemaVersion": 1,
-      "trackId": "song_220",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
       "canonicalTitle": "美辞目録 (Rhetoric Index)",
       "aliases": [
         "美辞目録"
@@ -6793,8 +6793,8 @@
       ],
       "source": {
         "type": "fansite-discography-json",
-        "discographyId": 42,
-        "songId": 220,
+        "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+        "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
         "spotifyTrackId": "18SEsJtg294TtOjjwwSWgr"
       }
     }

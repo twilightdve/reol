@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe",
+  "tourName": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+  "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+  "date": "2026-08-01",
+  "venueName": "舞洲スポーツアイランド",
+  "venueId": "venue_舞洲スポ_ツアイランド",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
+    "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+    "sourceId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe"
+  },
+  "entries": []
+}

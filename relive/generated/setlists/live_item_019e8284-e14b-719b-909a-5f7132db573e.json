@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e14b-719b-909a-5f7132db573e",
+  "tourName": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
+  "liveTitle": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB 福岡",
+  "date": "2025-02-16",
+  "venueName": "福岡UNITEDLAB",
+  "venueId": "venue_福岡unitedlab",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-89f1-7259-9f8c-d861048a59e6",
+    "liveItemUuid": "019e8284-e14b-719b-909a-5f7132db573e",
+    "sourceId": "live_item_019e8284-e14b-719b-909a-5f7132db573e"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-a830-70a4-b8b8-68cd46307287",
+      "order": 1,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-a894-719e-b74d-76dd36568fab",
+      "order": 2,
+      "rawTitle": "生命線",
+      "displayTitle": "生命線",
+      "normalizedTitle": "生命線",
+      "policy": "required",
+      "trackId": "song_019e8282-89a5-74fb-af3d-eba9f9d552a6",
+      "aliases": [],
+      "expectedDurationSec": 202.3,
+      "afterglowTailSec": 13.5,
+      "note": "source_inst",
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-a901-718c-a9d8-8d9c9d0986d4",
+      "order": 3,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-a968-79db-8c0c-c3ff17962877",
+      "order": 4,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-a9d7-7e73-b82c-60346135283b",
+      "order": 5,
+      "rawTitle": "1LDK",
+      "displayTitle": "1LDK",
+      "normalizedTitle": "1ldk",
+      "policy": "required",
+      "trackId": "song_019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+      "aliases": [],
+      "expectedDurationSec": 234.5,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-ac28-72b6-86a2-b227e33f832d",
+      "order": 6,
+      "rawTitle": "Boy",
+      "displayTitle": "Boy",
+      "normalizedTitle": "boy",
+      "policy": "required",
+      "trackId": "song_019e8282-b38d-7f15-8cf5-c31353acff03",
+      "aliases": [],
+      "expectedDurationSec": 251.8,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-ada2-7c27-bb0f-3d5eb452b848",
+      "order": 7,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_019e8282-8424-7cc7-a286-7bf3738631d1",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-ae0a-7dd0-9711-9f9fe45dbd34",
+      "order": 8,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_019e8282-adad-7bc0-9325-9fe96e85c651",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-b0f0-71b2-a780-1dd6c460f1ac",
+      "order": 9,
+      "rawTitle": "TAKE OFF",
+      "displayTitle": "TAKE OFF",
+      "normalizedTitle": "takeoff",
+      "policy": "required",
+      "trackId": "song_019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+      "aliases": [],
+      "expectedDurationSec": 236,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-b6ff-73d3-af69-0a7311e1dfdd",
+      "order": 10,
+      "rawTitle": "Q?",
+      "displayTitle": "Q?",
+      "normalizedTitle": "q",
+      "policy": "required",
+      "trackId": "song_019e8282-b2ad-7dd6-9931-f352016f0f37",
+      "aliases": [],
+      "expectedDurationSec": 194,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-b766-7621-8569-4f16d4372971",
+      "order": 11,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e14b-719b-909a-5f7132db573e_entry_019e82a9-b7d2-78c9-969c-160bec7687d7",
+      "order": 12,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

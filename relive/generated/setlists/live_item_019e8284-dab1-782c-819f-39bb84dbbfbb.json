@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-dab1-782c-819f-39bb84dbbfbb",
+  "tourName": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】",
+  "liveTitle": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】 YouTube",
+  "date": "2024-07-30",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-8476-721e-9cc9-8d0f83a80ca6",
+    "liveItemUuid": "019e8284-dab1-782c-819f-39bb84dbbfbb",
+    "sourceId": "live_item_019e8284-dab1-782c-819f-39bb84dbbfbb"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dab1-782c-819f-39bb84dbbfbb_entry_019e82a9-465a-7141-9400-e9f2ffe6bc45",
+      "order": 1,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dab1-782c-819f-39bb84dbbfbb_entry_019e82a9-46bc-7bda-b3c8-e9d3d6d8e031",
+      "order": 2,
+      "rawTitle": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "displayTitle": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "normalizedTitle": "imyourtreasureboxあなたはマリンせんちょうをたからばこからみつけた",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

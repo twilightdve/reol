@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-bc20-7763-bc08-90bcab6c5a75",
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」 福岡",
+  "date": "2022-05-02",
+  "venueName": "Zepp Fukuoka",
+  "venueId": "venue_zepp_fukuoka",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+    "liveItemUuid": "019e8284-bc20-7763-bc08-90bcab6c5a75",
+    "sourceId": "live_item_019e8284-bc20-7763-bc08-90bcab6c5a75"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-bc20-7763-bc08-90bcab6c5a75_entry_019e82a7-509f-7121-a738-03d04e65cbdc",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

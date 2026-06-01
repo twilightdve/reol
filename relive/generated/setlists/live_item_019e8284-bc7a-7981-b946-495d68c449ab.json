@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-bc7a-7981-b946-495d68c449ab",
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」 宮城",
+  "date": "2022-05-08",
+  "venueName": "仙台PIT",
+  "venueId": "venue_仙台pit",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+    "liveItemUuid": "019e8284-bc7a-7981-b946-495d68c449ab",
+    "sourceId": "live_item_019e8284-bc7a-7981-b946-495d68c449ab"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-bc7a-7981-b946-495d68c449ab_entry_019e82a7-5112-7453-ab88-f3c2df800b98",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

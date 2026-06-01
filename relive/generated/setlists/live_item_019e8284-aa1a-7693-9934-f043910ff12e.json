@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e",
+  "tourName": "Reol Secret Live 2019「文明ココロミー」",
+  "liveTitle": "Reol Secret Live 2019「文明ココロミー」 -西の塔-",
+  "date": "2019-07-14",
+  "venueName": "梅田バナナホール",
+  "venueId": "venue_梅田バナナホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
+    "liveItemUuid": "019e8284-aa1a-7693-9934-f043910ff12e",
+    "sourceId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-aa1a-73d7-bec0-ece09d21711a",
+      "order": 1,
+      "rawTitle": "ギミアブレスタッナウ",
+      "displayTitle": "ギミアブレスタッナウ",
+      "normalizedTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "trackId": "song_019e8282-916c-7afe-ad65-19e75b32b017",
+      "aliases": [],
+      "expectedDurationSec": 222,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-ac0f-7f6a-b7a0-8b7c4eb7a450",
+      "order": 2,
+      "rawTitle": "DetaramE KiddinG",
+      "displayTitle": "DetaramE KiddinG",
+      "normalizedTitle": "detaramekidding",
+      "policy": "required",
+      "trackId": "song_019e8282-979d-7961-bd68-1a04724184bb",
+      "aliases": [],
+      "expectedDurationSec": 197.2,
+      "afterglowTailSec": 11.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-ac86-779c-ba5b-bf651acf0137",
+      "order": 3,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-ace3-7366-935f-3bac57bd663b",
+      "order": 4,
+      "rawTitle": "ミラージュ",
+      "displayTitle": "ミラージュ",
+      "normalizedTitle": "ミラージュ",
+      "policy": "required",
+      "trackId": "song_019e8282-a484-7754-947a-b329bcd014cd",
+      "aliases": [],
+      "expectedDurationSec": 222.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-afe3-7aa3-a659-1d94aba9ec0b",
+      "order": 5,
+      "rawTitle": "シンカロン",
+      "displayTitle": "シンカロン",
+      "normalizedTitle": "シンカロン",
+      "policy": "required",
+      "trackId": "song_019e8282-a763-7a98-ab53-31b9a3d16b68",
+      "aliases": [],
+      "expectedDurationSec": 222.3,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b043-7efb-be85-9876c70cf761",
+      "order": 6,
+      "rawTitle": "失楽園",
+      "displayTitle": "失楽園",
+      "normalizedTitle": "失楽園",
+      "policy": "required",
+      "trackId": "song_019e8282-a7d9-7308-98f9-05fe78d54b53",
+      "aliases": [],
+      "expectedDurationSec": 254.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b30b-7bb1-877c-293a671beef9",
+      "order": 7,
+      "rawTitle": "-BWW SCREAM-",
+      "displayTitle": "-BWW SCREAM-",
+      "normalizedTitle": "bwwscream",
+      "policy": "required",
+      "trackId": "song_019e8282-872d-7ca7-ad90-7fdc19b21e83",
+      "aliases": [],
+      "expectedDurationSec": 81.9,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b36c-7b16-b879-f979b04619a8",
+      "order": 8,
+      "rawTitle": "Winners feat. Reol & Giga",
+      "displayTitle": "Winners feat. Reol & Giga",
+      "normalizedTitle": "winnersfeatgiga",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b3d2-740d-a8ce-4e393ad1e746",
+      "order": 9,
+      "rawTitle": "テトロドトキサイザ2号",
+      "displayTitle": "テトロドトキサイザ2号",
+      "normalizedTitle": "テトロドトキサイザ2号",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b43c-78e9-af2b-66dd2d0a36ec",
+      "order": 10,
+      "rawTitle": "drop pop candy (feat. ギガ)",
+      "displayTitle": "drop pop candy (feat. ギガ)",
+      "normalizedTitle": "droppopcandyfeatギガ",
+      "policy": "required",
+      "trackId": "song_019e8282-80f0-74e0-9c8b-0191e39556a8",
+      "aliases": [
+        "drop pop candy"
+      ],
+      "expectedDurationSec": 225,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b4a6-764c-9735-13698525f352",
+      "order": 11,
+      "rawTitle": "エンドレスライン",
+      "displayTitle": "エンドレスライン",
+      "normalizedTitle": "エンドレスライン",
+      "policy": "required",
+      "trackId": "song_019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+      "aliases": [],
+      "expectedDurationSec": 221,
+      "afterglowTailSec": 11.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b525-781f-a4ab-a7682d115b33",
+      "order": 12,
+      "rawTitle": "VIP KID",
+      "displayTitle": "VIP KID",
+      "normalizedTitle": "vipkid",
+      "policy": "required",
+      "trackId": "song_019e8282-9100-7de6-b068-abb907e16395",
+      "aliases": [],
+      "expectedDurationSec": 232.4,
+      "afterglowTailSec": 12.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b67d-7026-ad2f-614969249c36",
+      "order": 13,
+      "rawTitle": "404 not found",
+      "displayTitle": "404 not found",
+      "normalizedTitle": "404notfound",
+      "policy": "required",
+      "trackId": "song_019e8282-987d-71ac-b390-33bdbee08323",
+      "aliases": [],
+      "expectedDurationSec": 244.9,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b6df-71ad-9eab-c236ee4fb6b0",
+      "order": 14,
+      "rawTitle": "21世紀難民",
+      "displayTitle": "21世紀難民",
+      "normalizedTitle": "21世紀難民",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b74c-7085-aabd-aa60ada47eb2",
+      "order": 15,
+      "rawTitle": "ゆーれいずみー",
+      "displayTitle": "ゆーれいずみー",
+      "normalizedTitle": "ゆーれいずみー",
+      "policy": "required",
+      "trackId": "song_019e8282-acdf-79e4-b6be-f1de4e78e657",
+      "aliases": [],
+      "expectedDurationSec": 231.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b7af-7e38-bedf-160437c437d9",
+      "order": 16,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b8f2-74ba-830a-3d7a8f9d6f29",
+      "order": 17,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b961-726a-a8e1-7506f7194ba5",
+      "order": 18,
+      "rawTitle": "ウテナ",
+      "displayTitle": "ウテナ",
+      "normalizedTitle": "ウテナ",
+      "policy": "required",
+      "trackId": "song_019e8282-a69c-7448-bfb1-ae2273ccc08c",
+      "aliases": [],
+      "expectedDurationSec": 198.7,
+      "afterglowTailSec": 16.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e_entry_019e82a6-b9c6-7239-8a3c-2134d394a3f4",
+      "order": 19,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 15.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

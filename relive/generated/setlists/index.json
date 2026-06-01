@@ -6,9 +6,9 @@
   },
   "setlists": [
     {
-      "setlistId": "live_73_item_1",
-      "liveId": 73,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe",
+      "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
+      "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
       "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
       "date": "2026-08-01",
       "venueName": "舞洲スポーツアイランド",
@@ -25,9 +25,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_22",
-      "liveId": 72,
-      "liveItemNo": 22,
+      "setlistId": "live_item_019e8284-f2b9-7086-94cd-4756bc3a8a38",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
       "title": "Reol Oneman Live 2026 美辞学 台北",
       "date": "2026-07-26",
       "venueName": "Zepp New Taipei",
@@ -44,9 +44,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_23",
-      "liveId": 72,
-      "liveItemNo": 23,
+      "setlistId": "live_item_019e8284-f332-7d51-a5a3-f8a90b94113c",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
       "title": "Reol Oneman Live 2026 美辞学 韓国",
       "date": "2026-07-18",
       "venueName": "YES24 WANDERLOCH HALL",
@@ -63,9 +63,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_21",
-      "liveId": 72,
-      "liveItemNo": 21,
+      "setlistId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
       "title": "Reol Oneman Live 2026 美辞学 東京",
       "date": "2026-07-10",
       "venueName": "LINE CUBE SHIBUYA",
@@ -82,9 +82,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_20",
-      "liveId": 72,
-      "liveItemNo": 20,
+      "setlistId": "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f1e4-7eb6-afe7-88639d68c221",
       "title": "Reol Oneman Live 2026 美辞学 愛知",
       "date": "2026-07-04",
       "venueName": "岡谷鋼機名古屋公会堂",
@@ -101,9 +101,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_19",
-      "liveId": 72,
-      "liveItemNo": 19,
+      "setlistId": "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
       "title": "Reol Oneman Live 2026 美辞学 福岡",
       "date": "2026-06-27",
       "venueName": "福岡国際会議場メインホール",
@@ -120,9 +120,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_18",
-      "liveId": 72,
-      "liveItemNo": 18,
+      "setlistId": "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
       "title": "Reol Oneman Live 2026 美辞学 大阪",
       "date": "2026-06-19",
       "venueName": "オリックス劇場",
@@ -139,9 +139,9 @@
       }
     },
     {
-      "setlistId": "live_72_item_17",
-      "liveId": 72,
-      "liveItemNo": 17,
+      "setlistId": "live_item_019e8284-f0d0-7c4c-b463-efb128b466db",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
       "title": "Reol Oneman Live 2026 美辞学 宮城",
       "date": "2026-06-12",
       "venueName": "トークネットホール仙台",
@@ -158,47 +158,47 @@
       }
     },
     {
-      "setlistId": "live_72_item_16",
-      "liveId": 72,
-      "liveItemNo": 16,
+      "setlistId": "live_item_019e8284-f06e-7e8f-8887-51966ceb2597",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
       "title": "Reol Oneman Live 2026 美辞学 岐阜",
       "date": "2026-05-31",
       "venueName": "岐阜Club-G",
       "venueId": "venue_岐阜club_g",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
+        "required": 19,
+        "special": 3,
         "medley": 0,
-        "cover": 0,
-        "se": 0,
+        "cover": 3,
+        "se": 3,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_15",
-      "liveId": 72,
-      "liveItemNo": 15,
+      "setlistId": "live_item_019e8284-f00d-7421-8f35-22bb8786a7cb",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
       "title": "Reol Oneman Live 2026 美辞学 京都",
       "date": "2026-05-30",
       "venueName": "KYOTO FANJ",
       "venueId": "venue_kyoto_fanj",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 24,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
+        "required": 19,
+        "special": 3,
         "medley": 0,
-        "cover": 0,
-        "se": 0,
+        "cover": 2,
+        "se": 3,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_14",
-      "liveId": 72,
-      "liveItemNo": 14,
+      "setlistId": "live_item_019e8284-ef89-7f89-b54f-bbde3ec71efa",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
       "title": "Reol Oneman Live 2026 美辞学 新潟",
       "date": "2026-05-24",
       "venueName": "新潟LOTS",
@@ -209,15 +209,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_13",
-      "liveId": 72,
-      "liveItemNo": 13,
+      "setlistId": "live_item_019e8284-ef25-7237-a199-1ebc13374624",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
       "title": "Reol Oneman Live 2026 美辞学 長野",
       "date": "2026-05-23",
       "venueName": "NAGANO CLUB JUNK BOX",
@@ -228,15 +228,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 2,
         "se": 3,
-        "unknown": 2
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_12",
-      "liveId": 72,
-      "liveItemNo": 12,
+      "setlistId": "live_item_019e8284-eebd-7c61-baa5-d69014b33336",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-eebd-7c61-baa5-d69014b33336",
       "title": "Reol Oneman Live 2026 美辞学 横浜",
       "date": "2026-05-16",
       "venueName": "YOKOHAMA BayHall",
@@ -247,15 +247,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_11",
-      "liveId": 72,
-      "liveItemNo": 11,
+      "setlistId": "live_item_019e8284-ee54-7b7c-a2aa-205a32069d45",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ee54-7b7c-a2aa-205a32069d45",
       "title": "Reol Oneman Live 2026 美辞学 札幌",
       "date": "2026-05-10",
       "venueName": "札幌ペニーレーン24",
@@ -266,15 +266,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_10",
-      "liveId": 72,
-      "liveItemNo": 10,
+      "setlistId": "live_item_019e8284-ede7-798a-83f6-183a50e8776a",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
       "title": "Reol Oneman Live 2026 美辞学 旭川",
       "date": "2026-05-09",
       "venueName": "旭川CASINO DRIVE",
@@ -285,15 +285,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_9",
-      "liveId": 72,
-      "liveItemNo": 9,
+      "setlistId": "live_item_019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
       "title": "Reol Oneman Live 2026 美辞学 沖縄",
       "date": "2026-04-29",
       "venueName": "桜坂セントラル",
@@ -304,15 +304,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_8",
-      "liveId": 72,
-      "liveItemNo": 8,
+      "setlistId": "live_item_019e8284-ed23-7141-92cc-06d8f958f7c5",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ed23-7141-92cc-06d8f958f7c5",
       "title": "Reol Oneman Live 2026 美辞学 熊本",
       "date": "2026-04-19",
       "venueName": "熊本B.9 V1",
@@ -323,15 +323,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 1,
+        "cover": 2,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_7",
-      "liveId": 72,
-      "liveItemNo": 7,
+      "setlistId": "live_item_019e8284-ecc7-72d8-892d-6b5849778f8e",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ecc7-72d8-892d-6b5849778f8e",
       "title": "Reol Oneman Live 2026 美辞学 長崎",
       "date": "2026-04-18",
       "venueName": "DRUM Be-7",
@@ -342,15 +342,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 1,
+        "cover": 2,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_6",
-      "liveId": 72,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
       "title": "Reol Oneman Live 2026 美辞学 青森",
       "date": "2026-04-11",
       "venueName": "青森Quarter",
@@ -361,15 +361,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 1,
+        "cover": 2,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_5",
-      "liveId": 72,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
       "title": "Reol Oneman Live 2026 美辞学 三重",
       "date": "2026-04-04",
       "venueName": "松阪M'AXA",
@@ -380,15 +380,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_4",
-      "liveId": 72,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-eb96-7f88-882d-79cf86a6d621",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-eb96-7f88-882d-79cf86a6d621",
       "title": "Reol Oneman Live 2026 美辞学 神戸",
       "date": "2026-03-28",
       "venueName": "神戸Harbor Studio",
@@ -399,15 +399,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_3",
-      "liveId": 72,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-eaa8-7608-bcf7-a21340afa42d",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-eaa8-7608-bcf7-a21340afa42d",
       "title": "Reol Oneman Live 2026 美辞学 山口",
       "date": "2026-03-22",
       "venueName": "周南RISING HALL",
@@ -418,15 +418,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_2",
-      "liveId": 72,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-ea47-7700-b47f-ce07cf0cf38d",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-ea47-7700-b47f-ce07cf0cf38d",
       "title": "Reol Oneman Live 2026 美辞学 徳島",
       "date": "2026-03-20",
       "venueName": "徳島club GRINDHOUSE",
@@ -437,15 +437,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_72_item_1",
-      "liveId": 72,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e742-712a-b02a-6f4969cdb7e6",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019e8284-e742-712a-b02a-6f4969cdb7e6",
       "title": "Reol Oneman Live 2026 美辞学 栃木",
       "date": "2026-03-14",
       "venueName": "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
@@ -456,15 +456,15 @@
         "required": 19,
         "special": 3,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 3,
-        "unknown": 1
+        "unknown": 0
       }
     },
     {
-      "setlistId": "live_71_item_1",
-      "liveId": 71,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
+      "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+      "liveItemUuid": "019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
       "title": "COUNTDOWN JAPAN 25/26",
       "date": "2025-12-28",
       "venueName": "幕張メッセ",
@@ -481,9 +481,9 @@
       }
     },
     {
-      "setlistId": "live_70_item_1",
-      "liveId": 70,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e654-7d1d-9a67-1a419c63a86e",
+      "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
+      "liveItemUuid": "019e8284-e654-7d1d-9a67-1a419c63a86e",
       "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心 台湾",
       "date": "2025-12-06",
       "venueName": "新北市・新北大都会公園",
@@ -500,9 +500,9 @@
       }
     },
     {
-      "setlistId": "live_69_item_1",
-      "liveId": 69,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89",
+      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+      "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
       "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」 神奈川",
       "date": "2025-11-09",
       "venueName": "横浜アリーナ",
@@ -519,9 +519,9 @@
       }
     },
     {
-      "setlistId": "live_68_item_1",
-      "liveId": 68,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e456-75bb-aea4-a4de231dca9a",
+      "liveUuid": "019e8284-8f91-78df-b109-b0d9a80b235c",
+      "liveItemUuid": "019e8284-e456-75bb-aea4-a4de231dca9a",
       "title": "Reol Oneman Live 'No title' in SHANGHAI 上海",
       "date": "2025-08-17",
       "venueName": "静安体育中心",
@@ -538,9 +538,9 @@
       }
     },
     {
-      "setlistId": "live_67_item_1",
-      "liveId": 67,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveUuid": "019e8284-8f1f-7d9d-85bb-a47e9600de25",
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
       "title": "Sammy presents NEW HORIZON FEST 千葉",
       "date": "2025-08-02",
       "venueName": "幕張メッセ",
@@ -557,9 +557,9 @@
       }
     },
     {
-      "setlistId": "live_66_item_1",
-      "liveId": 66,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27",
+      "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
+      "liveItemUuid": "019e8284-e375-7cc4-9665-1dc3d0966c27",
       "title": "須田景凪 presents \"MINGLE -三面鏡-“ 大阪",
       "date": "2025-07-26",
       "venueName": "Zeep Namba",
@@ -576,9 +576,9 @@
       }
     },
     {
-      "setlistId": "live_65_item_1",
-      "liveId": 65,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e310-7509-9ed2-1faafc189aae",
+      "liveUuid": "019e8284-8e53-75a8-a4e0-e148b54fd0eb",
+      "liveItemUuid": "019e8284-e310-7509-9ed2-1faafc189aae",
       "title": "DEAD POP FESTiVAL 2025 川崎",
       "date": "2025-06-28",
       "venueName": "川崎市東扇島東公園特設会場",
@@ -595,9 +595,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_6",
-      "liveId": 60,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-e0eb-7cc7-8c5b-9919e849ba61",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム Chengdu",
       "date": "2025-06-08",
       "type": "oneman",
@@ -612,9 +612,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_5",
-      "liveId": 60,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-e07a-7364-a39a-565ade3f71ed",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-e07a-7364-a39a-565ade3f71ed",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム Guangzhou",
       "date": "2025-06-06",
       "type": "oneman",
@@ -629,9 +629,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_4",
-      "liveId": 60,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-e002-701d-a4b3-25a4a95a582b",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム Hong Kong",
       "date": "2025-06-03",
       "venueName": "PORTAL",
@@ -648,9 +648,9 @@
       }
     },
     {
-      "setlistId": "live_64_item_1",
-      "liveId": 64,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveUuid": "019e8284-8df4-78ef-b518-cc18e3fd346f",
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
       "title": "Anime Boston ボストン",
       "date": "2025-05-23-2025-05-25",
       "venueName": "Hynes Convention Center in Boston",
@@ -667,9 +667,9 @@
       }
     },
     {
-      "setlistId": "live_63_item_1",
-      "liveId": 63,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveUuid": "019e8284-8d78-79c0-9801-bcfa308eca6c",
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
       "title": "Sakura-Con 2025 シアトル",
       "date": "2025-04-18〜2025-04-20",
       "venueName": "Seattle Convention Center",
@@ -686,9 +686,9 @@
       }
     },
     {
-      "setlistId": "live_62_item_1",
-      "liveId": 62,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+      "liveUuid": "019e8284-8a60-7ab0-b760-4ee7014359a6",
+      "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
       "title": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL 横浜",
       "date": "2025-04-05",
       "venueName": "KT Zepp Yokohama",
@@ -705,12 +705,12 @@
       }
     },
     {
-      "setlistId": "live_61_item_1",
-      "liveId": 61,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-e14b-719b-909a-5f7132db573e",
+      "liveUuid": "019e8284-89f1-7259-9f8c-d861048a59e6",
+      "liveItemUuid": "019e8284-e14b-719b-909a-5f7132db573e",
       "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB 福岡",
       "date": "2025-02-16",
-      "venueName": "福岡UNITEDLAB ",
+      "venueName": "福岡UNITEDLAB",
       "venueId": "venue_福岡unitedlab",
       "type": "event",
       "songCount": 12,
@@ -724,9 +724,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_3",
-      "liveId": 60,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-df9c-7077-9032-3ff96d8ff44d",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム 東京",
       "date": "2025-02-02",
       "venueName": "Zepp DiverCity Tokyo",
@@ -743,9 +743,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_2",
-      "liveId": 60,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-df39-730e-afd3-a575664f8694",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム 愛知",
       "date": "2025-01-24",
       "venueName": "Zepp Nagoya",
@@ -762,9 +762,9 @@
       }
     },
     {
-      "setlistId": "live_60_item_1",
-      "liveId": 60,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-decf-7fec-8307-c5845b9552e4",
+      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+      "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
       "title": "Reol Oneman Live 2025 カルチュア・カリキュラム 大阪",
       "date": "2025-01-19",
       "venueName": "Zepp Osaka Bayside",
@@ -781,9 +781,9 @@
       }
     },
     {
-      "setlistId": "live_59_item_1",
-      "liveId": 59,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-de55-75b3-97dc-27fec072c212",
+      "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
       "title": "WONDERLIVET2024 韓国",
       "date": "2024-11-10",
       "venueName": "KINTEX HALL",
@@ -800,9 +800,9 @@
       }
     },
     {
-      "setlistId": "live_58_item_1",
-      "liveId": 58,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
       "title": "XIHU MUSIC FESTIVAL 中国",
       "date": "2024-11-02",
       "venueName": "中杭州太子湾公園（中国）",
@@ -819,9 +819,9 @@
       }
     },
     {
-      "setlistId": "live_57_item_1",
-      "liveId": 57,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-dd72-7b0f-a168-892a0ff78b01",
+      "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
+      "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
       "title": "Namba Culture Terminal 2024  -1st Anniversary- 大阪",
       "date": "2024-10-26",
       "venueName": "Yogibo META VALLEY",
@@ -838,9 +838,9 @@
       }
     },
     {
-      "setlistId": "live_56_item_1",
-      "liveId": 56,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-db67-7983-b404-0dff42e5887c",
+      "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
+      "liveItemUuid": "019e8284-db67-7983-b404-0dff42e5887c",
       "title": "軌道共鳴2024 大阪",
       "date": "2024-09-20",
       "venueName": "なんばHatch",
@@ -857,9 +857,9 @@
       }
     },
     {
-      "setlistId": "live_55_item_1",
-      "liveId": 55,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-db09-75c5-8464-3176f8b63fb0",
+      "liveUuid": "019e8284-8535-7303-acd8-712a29fea774",
+      "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
       "title": "Reol Oneman Live「No title」",
       "date": "2024-08-17",
       "venueName": "日本武道館",
@@ -876,9 +876,9 @@
       }
     },
     {
-      "setlistId": "live_54_item_1",
-      "liveId": 54,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-dab1-782c-819f-39bb84dbbfbb",
+      "liveUuid": "019e8284-8476-721e-9cc9-8d0f83a80ca6",
+      "liveItemUuid": "019e8284-dab1-782c-819f-39bb84dbbfbb",
       "title": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】 YouTube",
       "date": "2024-07-30",
       "type": "event",
@@ -893,9 +893,9 @@
       }
     },
     {
-      "setlistId": "live_53_item_1",
-      "liveId": 53,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-da45-75e7-82bc-d0a1c3aeb0f4",
+      "liveUuid": "019e8284-840a-76af-887b-5bce93eb19d8",
+      "liveItemUuid": "019e8284-da45-75e7-82bc-d0a1c3aeb0f4",
       "title": "FZMZ 1st LIVE \"DEEP:DAWN\" VRChat",
       "date": "2024-07-20",
       "type": "event",
@@ -910,9 +910,9 @@
       }
     },
     {
-      "setlistId": "live_52_item_1",
-      "liveId": 52,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveUuid": "019e8284-83a3-7078-a347-a1dd9298e757",
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
       "title": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
       "date": "2024-06-22",
       "venueName": "福岡　スカラエスパシオ",
@@ -929,9 +929,9 @@
       }
     },
     {
-      "setlistId": "live_51_item_1",
-      "liveId": 51,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d978-7444-bec2-7ce4b9e8cba0",
+      "liveUuid": "019e8284-8332-795c-8108-36792fad7e31",
+      "liveItemUuid": "019e8284-d978-7444-bec2-7ce4b9e8cba0",
       "title": "超音楽祭 in ニコニコ超会議2024",
       "date": "2024-04-27",
       "venueName": "幕張メッセ",
@@ -948,9 +948,9 @@
       }
     },
     {
-      "setlistId": "live_50_item_2",
-      "liveId": 50,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-d90e-715d-8ca3-5bb5c3855258",
+      "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
+      "liveItemUuid": "019e8284-d90e-715d-8ca3-5bb5c3855258",
       "title": "Reol Secret Live  \"極秘LEGIT\" 東の宴",
       "date": "2024-04-17",
       "venueName": "Spotify O-EAST",
@@ -967,9 +967,9 @@
       }
     },
     {
-      "setlistId": "live_50_item_1",
-      "liveId": 50,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9",
+      "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
+      "liveItemUuid": "019e8284-d8b1-724c-b430-ca48389886e9",
       "title": "Reol Secret Live  \"極秘LEGIT\" 西の宴",
       "date": "2024-04-06",
       "venueName": "BIG CAT",
@@ -986,9 +986,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_6",
-      "liveId": 49,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-d84b-78d4-a049-b704738b3b83",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d84b-78d4-a049-b704738b3b83",
       "title": "Reol ASIA TOUR \"UNBOX\" SEOUL",
       "date": "2024-03-23",
       "venueName": "musinsa garage",
@@ -1005,9 +1005,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_17",
-      "liveId": 46,
-      "liveItemNo": 17,
+      "setlistId": "live_item_019e8284-d516-7c73-9817-ef85e9dbf485",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d516-7c73-9817-ef85e9dbf485",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 石川 #pure",
       "date": "2024-03-20",
       "venueName": "金沢 エイトホール",
@@ -1024,9 +1024,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_16",
-      "liveId": 46,
-      "liveItemNo": 16,
+      "setlistId": "live_item_019e8284-d4c3-7fbf-92e5-edce422129bf",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d4c3-7fbf-92e5-edce422129bf",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 新潟 #pure",
       "date": "2024-03-19",
       "venueName": "新潟 LOTS",
@@ -1043,9 +1043,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_5",
-      "liveId": 49,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-d7df-7be2-a435-262dac645f01",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d7df-7be2-a435-262dac645f01",
       "title": "Reol ASIA TOUR \"UNBOX\" TAIPEI",
       "date": "2024-03-16",
       "venueName": "Zepp New Taipei",
@@ -1062,9 +1062,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_4",
-      "liveId": 49,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-d782-7066-80d0-30752536a677",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d782-7066-80d0-30752536a677",
       "title": "Reol ASIA TOUR \"UNBOX\" 北京",
       "date": "2024-03-08",
       "venueName": "东郎EAST LIVE",
@@ -1081,9 +1081,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_3",
-      "liveId": 49,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-d723-76c0-9e37-051edda5a343",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d723-76c0-9e37-051edda5a343",
       "title": "Reol ASIA TOUR \"UNBOX\" 上海",
       "date": "2024-03-06",
       "venueName": "蜚声 PHASE LIVE HOUSE",
@@ -1100,9 +1100,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_2",
-      "liveId": 49,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-d6bc-7539-be29-89a0cfb4c64f",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d6bc-7539-be29-89a0cfb4c64f",
       "title": "Reol ASIA TOUR \"UNBOX\" 広州",
       "date": "2024-03-03",
       "venueName": "太空间 LIVE HOUSE",
@@ -1119,9 +1119,9 @@
       }
     },
     {
-      "setlistId": "live_49_item_1",
-      "liveId": 49,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d643-71d2-aceb-15d61dba4622",
+      "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+      "liveItemUuid": "019e8284-d643-71d2-aceb-15d61dba4622",
       "title": "Reol ASIA TOUR \"UNBOX\" 深圳",
       "date": "2024-03-02",
       "venueName": "NUBOND LIVE HOUSE",
@@ -1138,9 +1138,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_15",
-      "liveId": 46,
-      "liveItemNo": 15,
+      "setlistId": "live_item_019e8284-d45e-7903-8593-b127a4cf4c5c",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d45e-7903-8593-b127a4cf4c5c",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 神奈川 #black",
       "date": "2024-02-18",
       "venueName": "神奈川県民ホール",
@@ -1157,9 +1157,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_14",
-      "liveId": 46,
-      "liveItemNo": 14,
+      "setlistId": "live_item_019e8284-d3ec-7c35-a331-581211218d18",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d3ec-7c35-a331-581211218d18",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 北海道 #pure",
       "date": "2024-02-10",
       "venueName": "札幌ペニーレーン24",
@@ -1176,9 +1176,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_13",
-      "liveId": 46,
-      "liveItemNo": 13,
+      "setlistId": "live_item_019e8284-d392-7e26-a49f-17bea05fa054",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d392-7e26-a49f-17bea05fa054",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 岩手 #pure",
       "date": "2024-02-04",
       "venueName": "盛岡 club change WAVE",
@@ -1195,9 +1195,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_12",
-      "liveId": 46,
-      "liveItemNo": 12,
+      "setlistId": "live_item_019e8284-d336-72f4-8727-231880cee737",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-d336-72f4-8727-231880cee737",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 宮城 #black",
       "date": "2024-02-03",
       "venueName": "仙台 GIGS",
@@ -1214,9 +1214,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_11",
-      "liveId": 46,
-      "liveItemNo": 11,
+      "setlistId": "live_item_019e8284-cdff-7e95-b7c6-4263d047d69f",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cdff-7e95-b7c6-4263d047d69f",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 岡山 #pure",
       "date": "2024-01-28",
       "venueName": "岡山 CRAZYMAMA KINGDOM",
@@ -1233,9 +1233,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_10",
-      "liveId": 46,
-      "liveItemNo": 10,
+      "setlistId": "live_item_019e8284-cd16-7769-b66e-3681500f4a3c",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cd16-7769-b66e-3681500f4a3c",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 広島 #pure",
       "date": "2024-01-27",
       "venueName": "広島クラブクアトロ",
@@ -1252,9 +1252,9 @@
       }
     },
     {
-      "setlistId": "live_48_item_1",
-      "liveId": 48,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d5df-70ab-84d1-89141895c04c",
+      "liveUuid": "019e8284-81fd-70ec-b1ce-109ea8bc6939",
+      "liveItemUuid": "019e8284-d5df-70ab-84d1-89141895c04c",
       "title": "ANIPLEX 20th Anniversary Event -THANX-",
       "date": "2024-01-07",
       "venueName": "Zepp DiverCity",
@@ -1271,9 +1271,9 @@
       }
     },
     {
-      "setlistId": "live_47_item_1",
-      "liveId": 47,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-d57d-78b7-948b-c1fb96e15a7e",
+      "liveUuid": "019e8284-819d-7fed-936d-a92751a327d7",
+      "liveItemUuid": "019e8284-d57d-78b7-948b-c1fb96e15a7e",
       "title": "COUNTDOWN JAPAN 23/24",
       "date": "2023-12-29",
       "venueName": "幕張メッセ",
@@ -1290,9 +1290,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_9",
-      "liveId": 46,
-      "liveItemNo": 9,
+      "setlistId": "live_item_019e8284-ccb6-7429-b476-95e38e9918f1",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-ccb6-7429-b476-95e38e9918f1",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 東京 #black",
       "date": "2023-12-25",
       "venueName": "昭和女子大学人見記念講堂",
@@ -1309,9 +1309,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_8",
-      "liveId": 46,
-      "liveItemNo": 8,
+      "setlistId": "live_item_019e8284-cc53-7145-bf84-d34af9f28af0",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cc53-7145-bf84-d34af9f28af0",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 愛知 #black",
       "date": "2023-12-24",
       "venueName": "Zepp Nagoya",
@@ -1328,9 +1328,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_7",
-      "liveId": 46,
-      "liveItemNo": 7,
+      "setlistId": "live_item_019e8284-cbf8-7230-9a0a-834b66afd97e",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cbf8-7230-9a0a-834b66afd97e",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 香川 #pure",
       "date": "2023-12-17",
       "venueName": "高松 DIME",
@@ -1347,9 +1347,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_6",
-      "liveId": 46,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-cb94-763f-9fdc-83655af172d5",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cb94-763f-9fdc-83655af172d5",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 愛媛 #pure",
       "date": "2023-12-16",
       "venueName": "松山 Wstudio RED",
@@ -1366,9 +1366,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_5",
-      "liveId": 46,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-cb29-73f0-b6a5-f671b79962bc",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cb29-73f0-b6a5-f671b79962bc",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 兵庫 #pure",
       "date": "2023-12-10",
       "venueName": "神戸ハーバースタジオ",
@@ -1385,9 +1385,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_4",
-      "liveId": 46,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-cabc-7172-9f48-27d4b0b032c5",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-cabc-7172-9f48-27d4b0b032c5",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 静岡 #pure",
       "date": "2023-12-09",
       "venueName": "LIVE ROXY SHIZUOKA",
@@ -1404,9 +1404,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_3",
-      "liveId": 46,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-ca4e-748b-99f9-2e91d44a5dbe",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-ca4e-748b-99f9-2e91d44a5dbe",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 大分 #pure",
       "date": "2023-12-02",
       "venueName": "T.O.P.S BittsHALL",
@@ -1423,9 +1423,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_2",
-      "liveId": 46,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-c9ec-7172-be5b-80373aea39b6",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-c9ec-7172-be5b-80373aea39b6",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 福岡 #black",
       "date": "2023-12-01",
       "venueName": "Zepp Fukuoka",
@@ -1442,9 +1442,9 @@
       }
     },
     {
-      "setlistId": "live_46_item_1",
-      "liveId": 46,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c98c-76af-8d99-c0380da22a1d",
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveItemUuid": "019e8284-c98c-76af-8d99-c0380da22a1d",
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」 大阪 #black",
       "date": "2023-11-18",
       "venueName": "フェスティバルホール",
@@ -1461,9 +1461,9 @@
       }
     },
     {
-      "setlistId": "live_45_item_1",
-      "liveId": 45,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c91b-7a1b-af1e-40bda47b0c1c",
+      "liveUuid": "019e8284-80c6-756b-8ed3-a4241a1c7978",
+      "liveItemUuid": "019e8284-c91b-7a1b-af1e-40bda47b0c1c",
       "title": "Simple Life Shanghai 上海簡単生活節",
       "date": "2023-10-05",
       "venueName": "中国上海・森蘭緑地（Sen Lan Green Park)",
@@ -1480,9 +1480,9 @@
       }
     },
     {
-      "setlistId": "live_44_item_1",
-      "liveId": 44,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveUuid": "019e8284-8058-7ca9-9450-058b657d4a33",
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
       "title": "MIRRORBALL PARADE vol.3",
       "date": "2023-09-10",
       "venueName": "新潟テルサ",
@@ -1499,9 +1499,9 @@
       }
     },
     {
-      "setlistId": "live_43_item_1",
-      "liveId": 43,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c84c-7b17-b592-fc88201ab426",
+      "liveUuid": "019e8284-7fed-78ad-ad9d-20795e2f7383",
+      "liveItemUuid": "019e8284-c84c-7b17-b592-fc88201ab426",
       "title": "SUMMER SONIC 2023",
       "date": "2023-08-19",
       "venueName": "幕張メッセ",
@@ -1518,9 +1518,9 @@
       }
     },
     {
-      "setlistId": "live_42_item_1",
-      "liveId": 42,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c7fa-7f44-859b-c2c844e5fe35",
+      "liveUuid": "019e8284-7ee4-7dd4-9e91-d496d0794669",
+      "liveItemUuid": "019e8284-c7fa-7f44-859b-c2c844e5fe35",
       "title": "Impactnation Japan Festival 2023",
       "date": "2023-07-30",
       "venueName": "Istora Gelora Bung Karno Jakarta, Indonesia.",
@@ -1537,9 +1537,9 @@
       }
     },
     {
-      "setlistId": "live_41_item_1",
-      "liveId": 41,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c793-7d38-804e-ee0da3207283",
+      "liveUuid": "019e8284-7e7f-7b86-95f0-fe75d00dbf0a",
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
       "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
       "date": "2023-07-22",
       "venueName": "舞洲スポーツアイランド",
@@ -1556,9 +1556,9 @@
       }
     },
     {
-      "setlistId": "live_40_item_1",
-      "liveId": 40,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveUuid": "019e8284-7e16-73b5-b644-5b0db5adb6c1",
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
       "title": "LuckyFes'23",
       "date": "2023-07-16",
       "venueName": "国営ひたち海浜公園",
@@ -1575,9 +1575,9 @@
       }
     },
     {
-      "setlistId": "live_39_item_1",
-      "liveId": 39,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
       "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
       "date": "2023-05-14",
       "venueName": "海とのふれあい広場",
@@ -1594,9 +1594,9 @@
       }
     },
     {
-      "setlistId": "live_38_item_1",
-      "liveId": 38,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c643-7436-9215-0964d65d0908",
+      "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
+      "liveItemUuid": "019e8284-c643-7436-9215-0964d65d0908",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "venueName": "中野サンプラザ",
@@ -1613,9 +1613,9 @@
       }
     },
     {
-      "setlistId": "live_37_item_1",
-      "liveId": 37,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveUuid": "019e8284-7ce5-76df-ae95-dd262899a483",
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
       "title": "ARABAKI ROCK FEST. 2023",
       "date": "2023-04-30",
       "venueName": "みちのく公園 北地区",
@@ -1632,180 +1632,180 @@
       }
     },
     {
-      "setlistId": "live_36_item_9",
-      "liveId": 36,
-      "liveItemNo": 9,
+      "setlistId": "live_item_019e8284-c56f-750c-8925-8de26e1151b8",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c56f-750c-8925-8de26e1151b8",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 長野",
       "date": "2023-03-05",
       "venueName": "まつもと市民芸術館",
       "venueId": "venue_まつもと市民芸術館",
       "type": "oneman",
-      "songCount": 27,
+      "songCount": 28,
       "playablePolicySummary": {
-        "required": 25,
-        "special": 1,
-        "medley": 1,
+        "required": 27,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 1
       }
     },
     {
-      "setlistId": "live_36_item_8",
-      "liveId": 36,
-      "liveItemNo": 8,
+      "setlistId": "live_item_019e8284-c510-753a-a7ec-4103bcd81648",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c510-753a-a7ec-4103bcd81648",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 香川",
       "date": "2023-02-26",
       "venueName": "高松 festhalle",
       "venueId": "venue_高松_festhalle",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_7",
-      "liveId": 36,
-      "liveItemNo": 7,
+      "setlistId": "live_item_019e8284-c4a8-7d1a-95c9-fea5b06ac38e",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c4a8-7d1a-95c9-fea5b06ac38e",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 大阪",
       "date": "2023-02-25",
       "venueName": "Zepp Osaka Bayside",
       "venueId": "venue_zepp_osaka_bayside",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_6",
-      "liveId": 36,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-c441-7fbe-b556-d41a75b30cf2",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c441-7fbe-b556-d41a75b30cf2",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 広島",
       "date": "2023-02-23",
       "venueName": "広島クラブクアトロ",
       "venueId": "venue_広島クラブクアトロ",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_5",
-      "liveId": 36,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-c3e3-79b5-bbe7-36fc1e5ff9d4",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c3e3-79b5-bbe7-36fc1e5ff9d4",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 福岡",
       "date": "2023-02-18",
       "venueName": "Zepp Fukuoka",
       "venueId": "venue_zepp_fukuoka",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_4",
-      "liveId": 36,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-c246-7903-bb46-b41acb18f4f3",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c246-7903-bb46-b41acb18f4f3",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 神奈川",
       "date": "2023-02-11",
       "venueName": "KT Zepp Yokohama",
       "venueId": "venue_kt_zepp_yokohama",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_3",
-      "liveId": 36,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-c1e0-770a-a065-f7898b03c036",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c1e0-770a-a065-f7898b03c036",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 宮城",
       "date": "2023-02-05",
       "venueName": "仙台PIT",
       "venueId": "venue_仙台pit",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_2",
-      "liveId": 36,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-c0e9-7551-aec4-a75ac40dfd28",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-c0e9-7551-aec4-a75ac40dfd28",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 東京",
       "date": "2023-01-29",
       "venueName": "TOKYO DOME CITY HALL",
       "venueId": "venue_tokyo_dome_city_hall",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 24,
-        "special": 1,
-        "medley": 1,
+        "required": 26,
+        "special": 0,
+        "medley": 0,
         "cover": 0,
         "se": 0,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_36_item_1",
-      "liveId": 36,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-bfd4-72b5-adf2-d41e0cf0b883",
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveItemUuid": "019e8284-bfd4-72b5-adf2-d41e0cf0b883",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 愛知",
       "date": "2023-01-26",
       "venueName": "Zepp Nagoya",
       "venueId": "venue_zepp_nagoya",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 23,
-        "special": 2,
-        "medley": 1,
+        "required": 25,
+        "special": 1,
+        "medley": 0,
         "cover": 0,
         "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_35_item_1",
-      "liveId": 35,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-bf63-7355-aae9-2f580cb39a14",
+      "liveUuid": "019e8284-7c09-7e10-b969-8ef960700248",
+      "liveItemUuid": "019e8284-bf63-7355-aae9-2f580cb39a14",
       "title": "COUNTDOWN JAPAN 22/23",
       "date": "2022-12-29",
       "venueName": "幕張メッセ",
@@ -1822,9 +1822,9 @@
       }
     },
     {
-      "setlistId": "live_34_item_1",
-      "liveId": 34,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-befb-7381-80fa-8799207bbc7d",
+      "liveUuid": "019e8284-7bab-79d4-ac3d-b6ec794328db",
+      "liveItemUuid": "019e8284-befb-7381-80fa-8799207bbc7d",
       "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
       "date": "2022-12-23",
       "venueName": "横浜アリーナ",
@@ -1841,9 +1841,9 @@
       }
     },
     {
-      "setlistId": "live_33_item_1",
-      "liveId": 33,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-be85-772d-b969-a3665639b344",
+      "liveUuid": "019e8284-7b28-76c8-8215-aed344698f6f",
+      "liveItemUuid": "019e8284-be85-772d-b969-a3665639b344",
       "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
       "date": "2022-10-15",
       "venueName": "大阪城音楽堂",
@@ -1860,9 +1860,9 @@
       }
     },
     {
-      "setlistId": "live_32_item_1",
-      "liveId": 32,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-be0d-7313-9126-280dce017540",
+      "liveUuid": "019e8284-7aab-752e-926c-e7c32e2ace07",
+      "liveItemUuid": "019e8284-be0d-7313-9126-280dce017540",
       "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
       "date": "2022-08-06",
       "venueName": "千葉市蘇我スポーツ公園",
@@ -1879,9 +1879,9 @@
       }
     },
     {
-      "setlistId": "live_31_item_1",
-      "liveId": 31,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-bda7-7685-a591-5a5345dd93bc",
+      "liveUuid": "019e8284-7a4b-7c49-be49-2ae9cd6bbd08",
+      "liveItemUuid": "019e8284-bda7-7685-a591-5a5345dd93bc",
       "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
       "date": "2022-07-23",
       "venueName": "舞洲スポーツアイランド",
@@ -1898,9 +1898,9 @@
       }
     },
     {
-      "setlistId": "live_30_item_6",
-      "liveId": 30,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-bd47-779e-b8cb-8fa5e03aaf66",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-bd47-779e-b8cb-8fa5e03aaf66",
       "title": "Reol Oneman Live 2022「激情アラート」 東京",
       "date": "2022-05-13",
       "venueName": "Zepp Haneda",
@@ -1917,66 +1917,66 @@
       }
     },
     {
-      "setlistId": "live_30_item_5",
-      "liveId": 30,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-bcdb-782a-9b24-39c6b22953bb",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-bcdb-782a-9b24-39c6b22953bb",
       "title": "Reol Oneman Live 2022「激情アラート」 東京",
       "date": "2022-05-12",
       "venueName": "Zepp Haneda",
       "venueId": "venue_zepp_haneda",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_30_item_4",
-      "liveId": 30,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-bc7a-7981-b946-495d68c449ab",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-bc7a-7981-b946-495d68c449ab",
       "title": "Reol Oneman Live 2022「激情アラート」 宮城",
       "date": "2022-05-08",
       "venueName": "仙台PIT",
       "venueId": "venue_仙台pit",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_30_item_3",
-      "liveId": 30,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-bc20-7763-bc08-90bcab6c5a75",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-bc20-7763-bc08-90bcab6c5a75",
       "title": "Reol Oneman Live 2022「激情アラート」 福岡",
       "date": "2022-05-02",
       "venueName": "Zepp Fukuoka",
       "venueId": "venue_zepp_fukuoka",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_30_item_2",
-      "liveId": 30,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-b901-7484-8cf4-5a234f4fc725",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-b901-7484-8cf4-5a234f4fc725",
       "title": "Reol Oneman Live 2022「激情アラート」 大阪",
       "date": "2022-04-28",
       "venueName": "Zepp Osaka Bayside",
@@ -1993,9 +1993,9 @@
       }
     },
     {
-      "setlistId": "live_30_item_1",
-      "liveId": 30,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b773-7e30-bbfe-256d8dd37b44",
+      "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+      "liveItemUuid": "019e8284-b773-7e30-bbfe-256d8dd37b44",
       "title": "Reol Oneman Live 2022「激情アラート」 愛知",
       "date": "2022-04-27",
       "venueName": "Zepp Nagoya",
@@ -2012,9 +2012,9 @@
       }
     },
     {
-      "setlistId": "live_29_item_1",
-      "liveId": 29,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b711-7aad-a178-e2fcf5e4c792",
+      "liveUuid": "019e8284-7951-7809-92bc-6a9fadc897fb",
+      "liveItemUuid": "019e8284-b711-7aad-a178-e2fcf5e4c792",
       "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
       "date": "2021-08-07",
       "venueName": "ぴあアリーナMM",
@@ -2031,9 +2031,9 @@
       }
     },
     {
-      "setlistId": "live_28_item_2",
-      "liveId": 28,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-b6b4-7db4-b2f1-7085dc28f432",
+      "liveUuid": "019e8284-78f9-7151-851e-dab821f871cf",
+      "liveItemUuid": "019e8284-b6b4-7db4-b2f1-7085dc28f432",
       "title": "Reol Installation Concert 2021「音沙汰」 大阪",
       "date": "2021-06-27",
       "venueName": "フェニーチェ堺",
@@ -2050,9 +2050,9 @@
       }
     },
     {
-      "setlistId": "live_28_item_1",
-      "liveId": 28,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b648-7830-b110-8a8f621d156c",
+      "liveUuid": "019e8284-78f9-7151-851e-dab821f871cf",
+      "liveItemUuid": "019e8284-b648-7830-b110-8a8f621d156c",
       "title": "Reol Installation Concert 2021「音沙汰」 東京",
       "date": "2021-06-26",
       "venueName": "LINE CUBE SHIBUYA",
@@ -2069,9 +2069,9 @@
       }
     },
     {
-      "setlistId": "live_27_item_1",
-      "liveId": 27,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b5ee-7bd0-9205-4618262b06af",
+      "liveUuid": "019e8284-789b-7daa-949b-e502ca399bc8",
+      "liveItemUuid": "019e8284-b5ee-7bd0-9205-4618262b06af",
       "title": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~ オンライン",
       "date": "2021-03-04",
       "type": "event",
@@ -2086,43 +2086,43 @@
       }
     },
     {
-      "setlistId": "live_26_item_1",
-      "liveId": 26,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b588-74d5-99f6-8cb4ee707858",
+      "liveUuid": "019e8284-7836-736b-be31-ed5a2dda7959",
+      "liveItemUuid": "019e8284-b588-74d5-99f6-8cb4ee707858",
       "title": "COUNTDOWN JAPAN 20/21　※中止",
       "date": "2020-12-30",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_25_item_1",
-      "liveId": 25,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b525-7323-8153-ac56616348a4",
+      "liveUuid": "019e8284-77ca-720a-9c2c-0e113a31f5b8",
+      "liveItemUuid": "019e8284-b525-7323-8153-ac56616348a4",
       "title": "YOUTUBE MUSIC WEEKEND YouTube",
       "date": "2020-12-06",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_24_item_1",
-      "liveId": 24,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1",
+      "liveUuid": "019e8284-775f-7687-aa9a-96d8800107b6",
+      "liveItemUuid": "019e8284-b4b7-7050-a79a-0d20c96c5af1",
       "title": "JAPAN ONLINE FESTIVAL 2020 オンライン",
       "date": "2020-11-07",
       "type": "event",
@@ -2137,26 +2137,26 @@
       }
     },
     {
-      "setlistId": "live_23_item_1",
-      "liveId": 23,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b450-7304-88a4-ef4a5d9b8cdc",
+      "liveUuid": "019e8284-7703-7330-9415-c4d4bb6e4cd0",
+      "liveItemUuid": "019e8284-b450-7304-88a4-ef4a5d9b8cdc",
       "title": "YouTube FanFest Japan 2020 オープニングパフォーマンス YouTube",
       "date": "2020-10-11",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_9",
-      "liveId": 22,
-      "liveItemNo": 9,
+      "setlistId": "live_item_019e8284-b3e6-7700-a8f3-930cd4f8c114",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b3e6-7700-a8f3-930cd4f8c114",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 接続編（無観客LiveYouTube）",
       "date": "2020-08-16",
       "venueName": "LINE CUBE SHIBUYA",
@@ -2173,161 +2173,161 @@
       }
     },
     {
-      "setlistId": "live_22_item_8",
-      "liveId": 22,
-      "liveItemNo": 8,
+      "setlistId": "live_item_019e8284-b386-7d2f-b420-14b147d91f9f",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b386-7d2f-b420-14b147d91f9f",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 出港編（神奈川） ※中止",
       "date": "2020-04-04",
       "venueName": "神奈川県民ホール",
       "venueId": "venue_神奈川県民ホ_ル",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_7",
-      "liveId": 22,
-      "liveItemNo": 7,
+      "setlistId": "live_item_019e8284-b30e-77c0-a14b-5f56f1432819",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b30e-77c0-a14b-5f56f1432819",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 東京 ※中止",
       "date": "2020-03-21",
-      "venueName": "LINE CUBE SHIBUYA ",
+      "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_6",
-      "liveId": 22,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-b245-7d9e-ad1c-9031df2a0b49",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b245-7d9e-ad1c-9031df2a0b49",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 大阪 ※中止",
       "date": "2020-03-07",
       "venueName": "なんばHatch",
       "venueId": "venue_なんばhatch",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_5",
-      "liveId": 22,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-b1d8-78a1-bcdd-bfd09c5bd1bd",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b1d8-78a1-bcdd-bfd09c5bd1bd",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 愛知 ※中止",
       "date": "2020-02-29",
       "venueName": "名古屋ダイアモンドホール",
       "venueId": "venue_名古屋ダイアモンドホ_ル",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_4",
-      "liveId": 22,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-b179-7b31-9b41-f89775761f42",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b179-7b31-9b41-f89775761f42",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 北海道",
       "date": "2020-02-22",
       "venueName": "札幌ペニーレーン24",
       "venueId": "venue_札幌ペニ_レ_ン24",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_3",
-      "liveId": 22,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-b0fd-7243-b17e-17da81ebcf81",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b0fd-7243-b17e-17da81ebcf81",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 宮城",
       "date": "2020-02-15",
       "venueName": "仙台 Rensa",
       "venueId": "venue_仙台_rensa",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_2",
-      "liveId": 22,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-b08f-70ee-a81c-e8b48b81a298",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b08f-70ee-a81c-e8b48b81a298",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 福岡",
       "date": "2020-02-09",
       "venueName": "DRUM LOGOS",
       "venueId": "venue_drum_logos",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_22_item_1",
-      "liveId": 22,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-b024-73db-8803-5b71bac578f7",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveItemUuid": "019e8284-b024-73db-8803-5b71bac578f7",
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」 広島",
       "date": "2020-02-08",
       "venueName": "広島クラブクアトロ",
       "venueId": "venue_広島クラブクアトロ",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_21_item_1",
-      "liveId": 21,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-af9f-74a2-a6b0-fe9eac4e09f2",
+      "liveUuid": "019e8284-75cf-7efc-b07c-aa9eed16fc5c",
+      "liveItemUuid": "019e8284-af9f-74a2-a6b0-fe9eac4e09f2",
       "title": "COUNTDOWN JAPAN 19/20",
       "date": "2019-12-29",
       "venueName": "幕張メッセ",
@@ -2344,47 +2344,47 @@
       }
     },
     {
-      "setlistId": "live_20_item_1",
-      "liveId": 20,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-aeaf-712a-9927-2e2feb5ec614",
+      "liveUuid": "019e8284-7566-707f-a39f-740c8fb977eb",
+      "liveItemUuid": "019e8284-aeaf-712a-9927-2e2feb5ec614",
       "title": "YouTube FanFest Japan 2019",
       "date": "2019-12-04",
       "venueName": "幕張メッセ",
       "venueId": "venue_幕張メッセ",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_19_item_1",
-      "liveId": 19,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-ad1d-7ff6-b55c-0ece6825592d",
+      "liveUuid": "019e8284-74e0-70ed-a033-6668f1643f26",
+      "liveItemUuid": "019e8284-ad1d-7ff6-b55c-0ece6825592d",
       "title": "第16回 東京国際ミュージック・マーケット",
       "date": "2019-10-28",
       "venueName": "Veats Shibuya",
       "venueId": "venue_veats_shibuya",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_18_item_3",
-      "liveId": 18,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-acc2-7e20-8699-e0223343a086",
+      "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
+      "liveItemUuid": "019e8284-acc2-7e20-8699-e0223343a086",
       "title": "Reol Oneman Live 2019「侵攻アップグレード」 東京",
       "date": "2019-10-19",
       "venueName": "新木場スタジオコースト",
@@ -2401,9 +2401,9 @@
       }
     },
     {
-      "setlistId": "live_18_item_2",
-      "liveId": 18,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-ac60-7813-98eb-70bbaa71b61a",
+      "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
+      "liveItemUuid": "019e8284-ac60-7813-98eb-70bbaa71b61a",
       "title": "Reol Oneman Live 2019「侵攻アップグレード」 愛知",
       "date": "2019-10-11",
       "venueName": "ReNY limited",
@@ -2420,28 +2420,28 @@
       }
     },
     {
-      "setlistId": "live_18_item_1",
-      "liveId": 18,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-abf6-7eed-be01-8b053a8f7927",
+      "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
+      "liveItemUuid": "019e8284-abf6-7eed-be01-8b053a8f7927",
       "title": "Reol Oneman Live 2019「侵攻アップグレード」 大阪",
       "date": "2019-10-06",
       "venueName": "松下IMPホール",
       "venueId": "venue_松下impホ_ル",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_17_item_1",
-      "liveId": 17,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-ab71-7292-b058-481464da9ac5",
+      "liveUuid": "019e8284-7401-7fdb-a8b3-6ad9c08e61eb",
+      "liveItemUuid": "019e8284-ab71-7292-b058-481464da9ac5",
       "title": "宗像フェス Fukutsu Koinoura",
       "date": "2019-09-22",
       "venueName": "恋の浦海岸",
@@ -2458,9 +2458,9 @@
       }
     },
     {
-      "setlistId": "live_16_item_1",
-      "liveId": 16,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-aafc-7167-a183-6bf1990d28e5",
+      "liveUuid": "019e8284-7398-7161-8232-c0f7f40a58b0",
+      "liveItemUuid": "019e8284-aafc-7167-a183-6bf1990d28e5",
       "title": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
       "date": "2019-08-03",
       "venueName": "国営ひたち海浜公園",
@@ -2477,28 +2477,28 @@
       }
     },
     {
-      "setlistId": "live_15_item_3",
-      "liveId": 15,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-aa7a-7493-9934-11e7e79d9956",
+      "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
+      "liveItemUuid": "019e8284-aa7a-7493-9934-11e7e79d9956",
       "title": "Reol Secret Live 2019「文明ココロミー」 -央の塔-",
       "date": "2019-07-19",
       "venueName": "名古屋 E.L.L.",
       "venueId": "venue_名古屋_e_l_l",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_15_item_2",
-      "liveId": 15,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-aa1a-7693-9934-f043910ff12e",
+      "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
+      "liveItemUuid": "019e8284-aa1a-7693-9934-f043910ff12e",
       "title": "Reol Secret Live 2019「文明ココロミー」 -西の塔-",
       "date": "2019-07-14",
       "venueName": "梅田バナナホール",
@@ -2515,9 +2515,9 @@
       }
     },
     {
-      "setlistId": "live_15_item_1",
-      "liveId": 15,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a9ab-73bb-a2f5-5dcab3612283",
+      "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
+      "liveItemUuid": "019e8284-a9ab-73bb-a2f5-5dcab3612283",
       "title": "Reol Secret Live 2019「文明ココロミー」 -東の塔-",
       "date": "2019-07-13",
       "venueName": "渋谷ストリームホール",
@@ -2534,85 +2534,85 @@
       }
     },
     {
-      "setlistId": "live_14_item_9",
-      "liveId": 14,
-      "liveItemNo": 9,
+      "setlistId": "live_item_019e8284-a943-774f-8ea1-89d72f2bd5c1",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a943-774f-8ea1-89d72f2bd5c1",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 北京",
       "date": "2019-01-13",
       "venueName": "Tango live",
       "venueId": "venue_tango_live",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_8",
-      "liveId": 14,
-      "liveItemNo": 8,
+      "setlistId": "live_item_019e8284-a8c0-77d1-be32-c1ab1b630350",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a8c0-77d1-be32-c1ab1b630350",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 上海",
       "date": "2019-01-12",
       "venueName": "Modernsky Lab",
       "venueId": "venue_modernsky_lab",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_7",
-      "liveId": 14,
-      "liveItemNo": 7,
+      "setlistId": "live_item_019e8284-a862-7b80-986e-1434d04549db",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a862-7b80-986e-1434d04549db",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 広州",
       "date": "2019-01-10",
       "venueName": "Mao live house",
       "venueId": "venue_mao_live_house",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_6",
-      "liveId": 14,
-      "liveItemNo": 6,
+      "setlistId": "live_item_019e8284-a800-7d6c-94ec-e88dd02b3f74",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a800-7d6c-94ec-e88dd02b3f74",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 韓国",
       "date": "2018-12-15",
       "venueName": "HONDAE MUVHALL",
       "venueId": "venue_hondae_muvhall",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_5",
-      "liveId": 14,
-      "liveItemNo": 5,
+      "setlistId": "live_item_019e8284-a79f-7f1d-aa5b-1217419bf9be",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a79f-7f1d-aa5b-1217419bf9be",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 東京",
       "date": "2018-11-30",
       "venueName": "Zepp Tokyo",
@@ -2629,85 +2629,85 @@
       }
     },
     {
-      "setlistId": "live_14_item_4",
-      "liveId": 14,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-a735-740d-8851-826e4a1bc770",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a735-740d-8851-826e4a1bc770",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 愛知",
       "date": "2018-11-17",
       "venueName": "ReNY limited",
       "venueId": "venue_reny_limited",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_3",
-      "liveId": 14,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-a6c7-795c-8c06-e825d8986a10",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a6c7-795c-8c06-e825d8986a10",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 福岡",
       "date": "2018-11-11",
       "venueName": "DRUM LOGOS",
       "venueId": "venue_drum_logos",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_2",
-      "liveId": 14,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-a664-7242-93a4-8f27649c332a",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a664-7242-93a4-8f27649c332a",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 札幌",
       "date": "2018-11-03",
       "venueName": "札幌ペニーレーン24",
       "venueId": "venue_札幌ペニ_レ_ン24",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_14_item_1",
-      "liveId": 14,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a5a7-7ea4-8fe6-5e952d216409",
+      "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+      "liveItemUuid": "019e8284-a5a7-7ea4-8fe6-5e952d216409",
       "title": "Reol Japan Tour 2018「MADE IN FACTION」 大阪",
       "date": "2018-10-26",
       "venueName": "なんばHatch",
       "venueId": "venue_なんばhatch",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_13_item_2",
-      "liveId": 13,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-a44f-7dd5-a05f-d8c850c7e6d4",
+      "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
+      "liveItemUuid": "019e8284-a44f-7dd5-a05f-d8c850c7e6d4",
       "title": "Reol Oneman LIVE「刮目相待」 大阪",
       "date": "2018-06-08",
       "venueName": "なんばHatch",
@@ -2724,9 +2724,9 @@
       }
     },
     {
-      "setlistId": "live_13_item_1",
-      "liveId": 13,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a3e5-708f-a9b3-30be6dc3e62f",
+      "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
+      "liveItemUuid": "019e8284-a3e5-708f-a9b3-30be6dc3e62f",
       "title": "Reol Oneman LIVE「刮目相待」 東京",
       "date": "2018-06-01",
       "venueName": "EX THEATER ROPPONGI",
@@ -2743,9 +2743,9 @@
       }
     },
     {
-      "setlistId": "live_12_item_1",
-      "liveId": 12,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a333-7756-b5da-740b4cfddb36",
+      "liveUuid": "019e8284-7196-75bd-8b5d-ddadb0486814",
+      "liveItemUuid": "019e8284-a333-7756-b5da-740b4cfddb36",
       "title": "ビクターロック祭り 2018",
       "date": "2018-03-17",
       "venueName": "幕張メッセ",
@@ -2762,9 +2762,9 @@
       }
     },
     {
-      "setlistId": "live_11_item_2",
-      "liveId": 11,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-a2ce-7636-a86a-6b2e5d88a5d2",
+      "liveUuid": "019e8284-7136-7d18-868c-c3b750f137e1",
+      "liveItemUuid": "019e8284-a2ce-7636-a86a-6b2e5d88a5d2",
       "title": "REOL LAST LIVE「終楽章」 TOKYO",
       "date": "2017-10-22",
       "venueName": "豊洲PIT",
@@ -2781,9 +2781,9 @@
       }
     },
     {
-      "setlistId": "live_11_item_1",
-      "liveId": 11,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a20c-7fa9-8858-b25b14d2993a",
+      "liveUuid": "019e8284-7136-7d18-868c-c3b750f137e1",
+      "liveItemUuid": "019e8284-a20c-7fa9-8858-b25b14d2993a",
       "title": "REOL LAST LIVE「終楽章」 OSAKA",
       "date": "2017-10-20",
       "venueName": "Zepp Namba",
@@ -2800,9 +2800,9 @@
       }
     },
     {
-      "setlistId": "live_10_item_1",
-      "liveId": 10,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a19f-7cae-95a8-9799ae0e0c6e",
+      "liveUuid": "019e8284-70d8-7923-9e26-90d49fe34214",
+      "liveItemUuid": "019e8284-a19f-7cae-95a8-9799ae0e0c6e",
       "title": "HYPER JAPAN Festival 2017 ",
       "date": "2017-07-16",
       "venueName": "Tobacco Dock",
@@ -2819,28 +2819,28 @@
       }
     },
     {
-      "setlistId": "live_9_item_1",
-      "liveId": 9,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-a138-7d20-914e-b4ddee02d581",
+      "liveUuid": "019e8284-7079-7afe-9ce9-a931cde94292",
+      "liveItemUuid": "019e8284-a138-7d20-914e-b4ddee02d581",
       "title": "AIR-G' 35th Anniversary New Music Lab 2",
       "date": "2017-04-28",
       "venueName": "cube garden",
       "venueId": "venue_cube_garden",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_8_item_4",
-      "liveId": 8,
-      "liveItemNo": 4,
+      "setlistId": "live_item_019e8284-9f67-7bef-9f49-35cd1b52476b",
+      "liveUuid": "019e8284-7017-73c9-b0e6-5b6e10dc165d",
+      "liveItemUuid": "019e8284-9f67-7bef-9f49-35cd1b52476b",
       "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』 KOREA",
       "date": "2017-03-12",
       "venueName": "HONGDAE V-HALL",
@@ -2857,28 +2857,28 @@
       }
     },
     {
-      "setlistId": "live_8_item_3",
-      "liveId": 8,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-9f02-766e-bae7-3359761e8a68",
+      "liveUuid": "019e8284-7017-73c9-b0e6-5b6e10dc165d",
+      "liveItemUuid": "019e8284-9f02-766e-bae7-3359761e8a68",
       "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』 KOREA",
       "date": "2017-03-11",
       "venueName": "HONGDAE V-HALL",
       "venueId": "venue_hongdae_v_hall",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_8_item_2",
-      "liveId": 8,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-9e9a-74b6-8004-255ecae3cc6a",
+      "liveUuid": "019e8284-7017-73c9-b0e6-5b6e10dc165d",
+      "liveItemUuid": "019e8284-9e9a-74b6-8004-255ecae3cc6a",
       "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』 OSAKA",
       "date": "2017-03-05",
       "venueName": "なんばHatch",
@@ -2895,9 +2895,9 @@
       }
     },
     {
-      "setlistId": "live_8_item_1",
-      "liveId": 8,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-9e35-7021-9816-80e8102d0a47",
+      "liveUuid": "019e8284-7017-73c9-b0e6-5b6e10dc165d",
+      "liveItemUuid": "019e8284-9e35-7021-9816-80e8102d0a47",
       "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』 TOKYO",
       "date": "2017-02-26",
       "venueName": "Zepp Tokyo",
@@ -2914,47 +2914,47 @@
       }
     },
     {
-      "setlistId": "live_7_item_1",
-      "liveId": 7,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-9b0b-7f45-899a-ac47ee172c60",
+      "liveUuid": "019e8284-6fb3-7eff-9d85-01c4e051436a",
+      "liveItemUuid": "019e8284-9b0b-7f45-899a-ac47ee172c60",
       "title": "BIG FOREST LIVE",
       "date": "2016-08-28",
       "venueName": "札幌芸術の森野外ステージ",
       "venueId": "venue_札幌芸術の森野外ステ_ジ",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_6_item_1",
-      "liveId": 6,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-9a9f-78e0-a56d-a42756093efb",
+      "liveUuid": "019e8284-6f4f-7c25-b6cc-8640050428b8",
+      "liveItemUuid": "019e8284-9a9f-78e0-a56d-a42756093efb",
       "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
       "date": "2016-07-02",
       "venueName": "赤坂BLITZ",
       "venueId": "venue_赤坂blitz",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_5_item_3",
-      "liveId": 5,
-      "liveItemNo": 3,
+      "setlistId": "live_item_019e8284-9a1c-7fe1-982e-0ccb2ec4e42e",
+      "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
+      "liveItemUuid": "019e8284-9a1c-7fe1-982e-0ccb2ec4e42e",
       "title": "れをる単独公演「極彩色HighFidelity」 華の宴 in 上海",
       "date": "2016-01-09",
       "venueName": "MAO livehouse",
@@ -2971,9 +2971,9 @@
       }
     },
     {
-      "setlistId": "live_5_item_2",
-      "liveId": 5,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a",
+      "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
+      "liveItemUuid": "019e8284-9998-73ba-9d7c-ecb64e09dc3a",
       "title": "れをる単独公演「極彩色HighFidelity」 西の宴",
       "date": "2015-11-26",
       "venueName": "BIG CAT",
@@ -2990,28 +2990,28 @@
       }
     },
     {
-      "setlistId": "live_5_item_1",
-      "liveId": 5,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-98f1-7e5d-89a7-0f5786ec0141",
+      "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
+      "liveItemUuid": "019e8284-98f1-7e5d-89a7-0f5786ec0141",
       "title": "れをる単独公演「極彩色HighFidelity」 東の宴",
       "date": "2015-10-23",
       "venueName": "TSUTAYA O-EAST",
       "venueId": "venue_tsutaya_o_east",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_4_item_2",
-      "liveId": 4,
-      "liveItemNo": 2,
+      "setlistId": "live_item_019e8284-9896-7155-836a-98d540826296",
+      "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
+      "liveItemUuid": "019e8284-9896-7155-836a-98d540826296",
       "title": "Stars on Planet 2015 大宮 夜の部",
       "date": "2015-07-11",
       "venueName": "大宮ソニックシティ",
@@ -3028,9 +3028,9 @@
       }
     },
     {
-      "setlistId": "live_4_item_1",
-      "liveId": 4,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783",
+      "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
+      "liveItemUuid": "019e8284-9819-73ae-8333-0afd8dcf0783",
       "title": "Stars on Planet 2015 大宮 昼の部",
       "date": "2015-07-11",
       "venueName": "大宮ソニックシティ",
@@ -3047,9 +3047,9 @@
       }
     },
     {
-      "setlistId": "live_3_item_1",
-      "liveId": 3,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-9640-7f73-b4b4-2231cb92f105",
+      "liveUuid": "019e8284-6e21-705d-b925-9c8d28cbe073",
+      "liveItemUuid": "019e8284-9640-7f73-b4b4-2231cb92f105",
       "title": "ウタカツ！スーパーライブ2015",
       "date": "2015-03-22",
       "venueName": "国立代々木競技場第一体育館",
@@ -3066,47 +3066,47 @@
       }
     },
     {
-      "setlistId": "live_2_item_1",
-      "liveId": 2,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-95dd-7e5d-9579-6754d29cd09c",
+      "liveUuid": "019e8284-6da9-7a15-94df-245b2aa9df62",
+      "liveItemUuid": "019e8284-95dd-7e5d-9579-6754d29cd09c",
       "title": "nico nico Spirit.",
       "date": "2015-02-01",
       "venueName": "新宿ReNY",
       "venueId": "venue_新宿reny",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_1_item_1",
-      "liveId": 1,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-956a-746d-91c5-2175bc3671c4",
+      "liveUuid": "019e8284-6d3e-7f46-89f0-1461daae9eeb",
+      "liveItemUuid": "019e8284-956a-746d-91c5-2175bc3671c4",
       "title": "amphead nico nico singer music live vol.03",
       "date": "2014-02-01",
       "venueName": "原宿 ASTRO HALL",
       "venueId": "venue_原宿_astro_hall",
       "type": "event",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
     {
-      "setlistId": "live_0_item_1",
-      "liveId": 0,
-      "liveItemNo": 1,
+      "setlistId": "live_item_019e8284-94b3-73df-bc42-de6fd1bfd63c",
+      "liveUuid": "019e8284-6cd6-7138-99cc-22a335d06b80",
+      "liveItemUuid": "019e8284-94b3-73df-bc42-de6fd1bfd63c",
       "title": "ぎがばなな ざ べすと シークレットライブ",
       "date": "2013-09-23",
       "venueName": "東京 ニッショーホール",

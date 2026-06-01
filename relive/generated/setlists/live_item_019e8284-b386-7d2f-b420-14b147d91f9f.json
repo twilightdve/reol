@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b386-7d2f-b420-14b147d91f9f",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 出港編（神奈川） ※中止",
+  "date": "2020-04-04",
+  "venueName": "神奈川県民ホール",
+  "venueId": "venue_神奈川県民ホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b386-7d2f-b420-14b147d91f9f",
+    "sourceId": "live_item_019e8284-b386-7d2f-b420-14b147d91f9f"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b386-7d2f-b420-14b147d91f9f_entry_019e82a6-f015-7b8b-b5a5-b72df63ab3db",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

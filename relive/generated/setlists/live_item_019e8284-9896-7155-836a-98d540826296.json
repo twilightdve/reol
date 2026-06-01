@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9896-7155-836a-98d540826296",
+  "tourName": "Stars on Planet 2015 大宮",
+  "liveTitle": "Stars on Planet 2015 大宮 夜の部",
+  "date": "2015-07-11",
+  "venueName": "大宮ソニックシティ",
+  "venueId": "venue_大宮ソニックシティ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
+    "liveItemUuid": "019e8284-9896-7155-836a-98d540826296",
+    "sourceId": "live_item_019e8284-9896-7155-836a-98d540826296"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2e5b-7672-9c0c-72d439d2bc32",
+      "order": 1,
+      "rawTitle": "Jupiter（96猫）",
+      "displayTitle": "Jupiter（96猫）",
+      "normalizedTitle": "jupiter96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2e8a-7fe6-87a7-8ef73d516122",
+      "order": 2,
+      "rawTitle": "星が消えた夏（夏代孝明）",
+      "displayTitle": "星が消えた夏（夏代孝明）",
+      "normalizedTitle": "星が消えた夏夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2eb6-7c96-b3e6-229a769d3125",
+      "order": 3,
+      "rawTitle": "花鳥風月（佐香智久）",
+      "displayTitle": "花鳥風月（佐香智久）",
+      "normalizedTitle": "花鳥風月佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2f1a-7d97-948d-4a30dddab18f",
+      "order": 4,
+      "rawTitle": "アストロノーツ（れをる）",
+      "displayTitle": "アストロノーツ（れをる）",
+      "normalizedTitle": "アストロノーツれをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2f55-732a-a01f-264e31bd7ab7",
+      "order": 5,
+      "rawTitle": "アポロ（天月）",
+      "displayTitle": "アポロ（天月）",
+      "normalizedTitle": "アポロ天月",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2f91-7a07-aae8-385da69f74e9",
+      "order": 6,
+      "rawTitle": "星間飛行（そらる）",
+      "displayTitle": "星間飛行（そらる）",
+      "normalizedTitle": "星間飛行そらる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2fc1-7f4d-a5d3-0f46d482d333",
+      "order": 7,
+      "rawTitle": "フタリボシ（天月&佐香智久）",
+      "displayTitle": "フタリボシ（天月&佐香智久）",
+      "normalizedTitle": "フタリボシ天月佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-2ff5-7fdf-9f0c-fb686314cf06",
+      "order": 8,
+      "rawTitle": "スターフィッシュ（夏代孝明）",
+      "displayTitle": "スターフィッシュ（夏代孝明）",
+      "normalizedTitle": "スターフィッシュ夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-324c-7898-bcbe-86d2f3c0ebca",
+      "order": 9,
+      "rawTitle": "星屑サンセット（れをる）",
+      "displayTitle": "星屑サンセット（れをる）",
+      "normalizedTitle": "星屑サンセットれをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-3282-7f71-a49f-40d1e790b985",
+      "order": 10,
+      "rawTitle": "Starduster（96猫）",
+      "displayTitle": "Starduster（96猫）",
+      "normalizedTitle": "starduster96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-32ba-756e-a78f-b948eec01350",
+      "order": 11,
+      "rawTitle": "ホシアイ（天月）",
+      "displayTitle": "ホシアイ（天月）",
+      "normalizedTitle": "ホシアイ天月",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-32e6-7ac9-8138-bb77802e4f96",
+      "order": 12,
+      "rawTitle": "ray（そらる&夏代孝明）",
+      "displayTitle": "ray（そらる&夏代孝明）",
+      "normalizedTitle": "rayそらる夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-34f0-7d47-9d80-5568708ea24c",
+      "order": 13,
+      "rawTitle": "ジェミニ（96猫&れをる）",
+      "displayTitle": "ジェミニ（96猫&れをる）",
+      "normalizedTitle": "ジェミニ96猫れをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-3523-719e-972d-14866556ce2c",
+      "order": 14,
+      "rawTitle": "君の知らない物語（佐香智久）",
+      "displayTitle": "君の知らない物語（佐香智久）",
+      "normalizedTitle": "君の知らない物語佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-355f-74d5-9df3-fcb675554114",
+      "order": 15,
+      "rawTitle": "フィードバック・インターステラ（そらる）",
+      "displayTitle": "フィードバック・インターステラ（そらる）",
+      "normalizedTitle": "フィードバックインターステラそらる",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9896-7155-836a-98d540826296_entry_019e82a6-3593-7b34-8ec5-124abf3e69c7",
+      "order": 16,
+      "rawTitle": "天体観測（全員）",
+      "displayTitle": "天体観測（全員）",
+      "normalizedTitle": "天体観測全員",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

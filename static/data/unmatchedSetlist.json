@@ -1,15 +1,15 @@
 {
   "summary": {
-    "totalSetlistInstances": 1942,
-    "matchedInstances": 1695,
-    "unmatchedInstances": 239,
+    "totalSetlistInstances": 2034,
+    "matchedInstances": 1752,
+    "unmatchedInstances": 273,
     "uniqueSongsPlayed": 112,
-    "uniqueUnmatched": 129
+    "uniqueUnmatched": 132
   },
   "unmatched": [
     {
       "name": "-MC-",
-      "count": 43,
+      "count": 49,
       "type": "song",
       "samples": [
         {
@@ -30,8 +30,30 @@
       ]
     },
     {
+      "name": "",
+      "count": 36,
+      "type": null,
+      "samples": [
+        {
+          "date": "2014-02-01",
+          "liveTitle": "amphead nico nico singer music live vol.03",
+          "liveItemName": null
+        },
+        {
+          "date": "2015-02-01",
+          "liveTitle": "nico nico Spirit.",
+          "liveItemName": null
+        },
+        {
+          "date": "2015-10-23",
+          "liveTitle": "れをる単独公演「極彩色HighFidelity」",
+          "liveItemName": "東の宴"
+        }
+      ]
+    },
+    {
       "name": "DEAD CENTER",
-      "count": 14,
+      "count": 16,
       "type": "song",
       "samples": [
         {
@@ -53,30 +75,8 @@
     },
     {
       "name": "港のヨーコ・ヨコハマ・ヨコスカ",
-      "count": 14,
-      "type": "live_only",
-      "samples": [
-        {
-          "date": "2026-03-14",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "栃木"
-        },
-        {
-          "date": "2026-03-20",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "徳島"
-        },
-        {
-          "date": "2026-03-22",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "山口"
-        }
-      ]
-    },
-    {
-      "name": "感情御中",
-      "count": 14,
-      "type": "song",
+      "count": 16,
+      "type": "cover",
       "samples": [
         {
           "date": "2026-03-14",
@@ -162,27 +162,6 @@
       ]
     },
     {
-      "count": 3,
-      "type": null,
-      "samples": [
-        {
-          "date": "2025-06-03",
-          "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-          "liveItemName": "Hong Kong"
-        },
-        {
-          "date": "2025-06-06",
-          "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-          "liveItemName": "Guangzhou"
-        },
-        {
-          "date": "2025-06-08",
-          "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-          "liveItemName": "Chengdu"
-        }
-      ]
-    },
-    {
       "name": "津軽海峡・冬景色",
       "count": 3,
       "type": "cover",
@@ -212,7 +191,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         },
         {
           "date": "2015-07-11",
@@ -416,12 +395,29 @@
         {
           "date": "2024-08-17",
           "liveTitle": "Reol Oneman Live「No title」",
-          "liveItemName": ""
+          "liveItemName": null
         },
         {
           "date": "2025-08-17",
           "liveTitle": "Reol Oneman Live 'No title' in SHANGHAI",
           "liveItemName": "上海"
+        }
+      ]
+    },
+    {
+      "name": "丸竹夷",
+      "count": 2,
+      "type": "cover",
+      "samples": [
+        {
+          "date": "2026-05-30",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "京都"
+        },
+        {
+          "date": "2026-05-31",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "岐阜"
         }
       ]
     },
@@ -433,7 +429,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -445,7 +441,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -457,7 +453,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -469,7 +465,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -481,7 +477,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -493,7 +489,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -505,7 +501,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -517,7 +513,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -529,7 +525,7 @@
         {
           "date": "2013-09-23",
           "liveTitle": "ぎがばなな ざ べすと シークレットライブ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -541,7 +537,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -553,7 +549,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -565,7 +561,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -577,7 +573,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -589,7 +585,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -601,7 +597,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -613,7 +609,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -625,7 +621,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -637,7 +633,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -649,7 +645,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -661,7 +657,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -673,7 +669,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -685,7 +681,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -697,7 +693,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -709,7 +705,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -721,7 +717,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -733,7 +729,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -745,7 +741,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -757,7 +753,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -769,7 +765,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -781,7 +777,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -793,7 +789,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -805,7 +801,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -817,7 +813,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -829,7 +825,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -841,7 +837,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -853,7 +849,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -865,7 +861,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -877,7 +873,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -889,7 +885,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -901,7 +897,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -913,7 +909,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -925,7 +921,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -937,7 +933,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -949,7 +945,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -961,7 +957,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -973,7 +969,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -985,7 +981,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -997,7 +993,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1009,7 +1005,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1021,7 +1017,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1033,7 +1029,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1045,7 +1041,7 @@
         {
           "date": "2015-03-22",
           "liveTitle": "ウタカツ！スーパーライブ2015",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1525,7 +1521,7 @@
         {
           "date": "2017-07-16",
           "liveTitle": "HYPER JAPAN Festival 2017 ",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1549,7 +1545,31 @@
         {
           "date": "2019-09-22",
           "liveTitle": "宗像フェス Fukutsu Koinoura",
-          "liveItemName": ""
+          "liveItemName": null
+        }
+      ]
+    },
+    {
+      "name": "Introduction～赤裸裸(NAKED)",
+      "count": 1,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2022-05-13",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+          "liveItemName": "東京"
+        }
+      ]
+    },
+    {
+      "name": "Interlude～金字塔（激情edition）",
+      "count": 1,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2022-05-13",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+          "liveItemName": "東京"
         }
       ]
     },
@@ -1561,7 +1581,7 @@
         {
           "date": "2022-07-23",
           "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
-          "liveItemName": ""
+          "liveItemName": null
         }
       ]
     },
@@ -1700,12 +1720,24 @@
     {
       "name": "信濃の国",
       "count": 1,
-      "type": "live_only",
+      "type": "cover",
       "samples": [
         {
           "date": "2026-05-23",
           "liveTitle": "Reol Oneman Live 2026 美辞学",
           "liveItemName": "長野"
+        }
+      ]
+    },
+    {
+      "name": "小豆あらい",
+      "count": 1,
+      "type": "cover",
+      "samples": [
+        {
+          "date": "2026-05-31",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "岐阜"
         }
       ]
     }

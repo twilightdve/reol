@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-bcdb-782a-9b24-39c6b22953bb",
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」 東京",
+  "date": "2022-05-12",
+  "venueName": "Zepp Haneda",
+  "venueId": "venue_zepp_haneda",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
+    "liveItemUuid": "019e8284-bcdb-782a-9b24-39c6b22953bb",
+    "sourceId": "live_item_019e8284-bcdb-782a-9b24-39c6b22953bb"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-bcdb-782a-9b24-39c6b22953bb_entry_019e82a7-5187-737e-8989-680f4b6f60a9",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

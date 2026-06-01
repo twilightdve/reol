@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b179-7b31-9b41-f89775761f42",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 北海道",
+  "date": "2020-02-22",
+  "venueName": "札幌ペニーレーン24",
+  "venueId": "venue_札幌ペニ_レ_ン24",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b179-7b31-9b41-f89775761f42",
+    "sourceId": "live_item_019e8284-b179-7b31-9b41-f89775761f42"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b179-7b31-9b41-f89775761f42_entry_019e82a6-ec6e-7cde-9ece-bed32c4a0c58",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

@@ -215,9 +215,9 @@
     "source": "googleMapsUrl"
   },
   "BIG CAT": {
-    "lat": 34.6723442,
-    "lng": 130.8845977,
-    "source": "googleMapsUrl"
+    "lat": 34.6716122,
+    "lng": 135.4992085,
+    "source": "manual"
   },
   "Spotify O-EAST": {
     "lat": 35.6587215,
@@ -275,9 +275,9 @@
     "source": "googleMapsUrl"
   },
   "広島クラブクアトロ": {
-    "lat": 34.9120616,
-    "lng": 130.7965647,
-    "source": "googleMapsUrl"
+    "lat": 34.3935971,
+    "lng": 132.4585107,
+    "source": "manual"
   },
   "岡山 CRAZYMAMA KINGDOM": {
     "lat": 34.657135100000005,
