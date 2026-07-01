@@ -138,9 +138,9 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-eaa8-7608-bcf7-a21340afa42d_entry_019e82aa-3a45-7f79-b23d-d88901eea965",
       "order": 8,
-      "rawTitle": "二等星",
-      "displayTitle": "二等星",
-      "normalizedTitle": "二等星",
+      "rawTitle": "二等星 (Immitation Star)",
+      "displayTitle": "二等星 (Immitation Star)",
+      "normalizedTitle": "二等星immitationstar",
       "policy": "required",
       "trackId": "song_019e8282-f0ea-7081-9940-1493f104ebd8",
       "aliases": [
@@ -150,7 +150,7 @@
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:stripped"
+        "reason": "source_song_uuid:sheet"
       }
     },
     {

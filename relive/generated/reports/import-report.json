@@ -1,33 +1,44 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-01T15:48:10.450Z",
+  "generatedAt": "2026-07-01T13:25:10.990Z",
   "counts": {
-    "sourceLives": 74,
-    "sourceLiveItems": 165,
-    "sourceSetlistEntries": 2033,
-    "sourceDiscographies": 90,
-    "sourceSongs": 220,
-    "generatedTracks": 220,
-    "generatedSetlists": 165,
-    "generatedVenues": 114,
+    "sourceLives": 75,
+    "sourceLiveItems": 167,
+    "sourceSetlistEntries": 2107,
+    "sourceDiscographies": 92,
+    "sourceSongs": 222,
+    "generatedTracks": 222,
+    "generatedSetlists": 167,
+    "generatedVenues": 115,
     "verifiedVenueCapacities": 22,
-    "venueCapacitiesNeedingVerification": 92,
-    "matchedEntries": 1761,
-    "candidateEntries": 11,
-    "specialEntries": 119,
-    "unmatchedEntries": 142
+    "venueCapacitiesNeedingVerification": 93,
+    "matchedEntries": 1823,
+    "candidateEntries": 12,
+    "specialEntries": 124,
+    "unmatchedEntries": 148
   },
   "unmatchedRawTitles": [
     {
       "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
       "normalizedTitle": "港のヨーコヨコハマヨコスカ",
-      "count": 16,
+      "count": 19,
       "exampleSetlistIds": [
+        "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
+        "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
+        "live_item_019e8284-f0d0-7c4c-b463-efb128b466db",
         "live_item_019e8284-f06e-7e8f-8887-51966ceb2597",
-        "live_item_019e8284-f00d-7421-8f35-22bb8786a7cb",
-        "live_item_019e8284-ef89-7f89-b54f-bbde3ec71efa",
-        "live_item_019e8284-ef25-7237-a199-1ebc13374624",
-        "live_item_019e8284-eebd-7c61-baa5-d69014b33336"
+        "live_item_019e8284-f00d-7421-8f35-22bb8786a7cb"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "COCOON",
+      "normalizedTitle": "cocoon",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
+        "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
+        "live_item_019e8284-f0d0-7c4c-b463-efb128b466db"
       ],
       "reason": "no_discography_match"
     },

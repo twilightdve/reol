@@ -1400,6 +1400,30 @@
     },
     {
       "schemaVersion": 1,
+      "venueId": "venue_フィラ_バルセロナ_グラン_ビア",
+      "name": "フィラ・バルセロナ・グラン・ビア",
+      "aliases": [
+        "フィラ・バルセロナ・グラン・ビア"
+      ],
+      "type": "unknown",
+      "typeGuessReason": [
+        "no_type_keyword"
+      ],
+      "siteUrl": "https://www.barcelona-tourist-guide.com/ja/shigoto/fira-barcelona-gran-via-baruserona.html",
+      "address": "Fira Gran Via - Gate 4 / Porta 4\nCarrer de la Botànica, 64 - 08908 L'Hospitalet de Llobregat, Barcelona",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.991522005826!2d2.1318094!3d41.352537999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498ba6bd15b2f%3A0x51e1e9e65335f92a!2sCarrer%20de%20la%20Bot%C3%A0nica%2C%2060%2C%2008908%20L&#39;Hospitalet%20de%20Llobregat%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1782911534488!5m2!1sca!2ses",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveUuids": [
+        "019f1dd4-db23-741a-a47d-199e67da41ed"
+      ],
+      "sourceSetlistIds": [
+        "live_item_019f1dd4-df1f-7d01-af69-2ddd697f8f57",
+        "live_item_019f1dd4-df98-7bfe-9de5-73e2a258e670"
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "venueId": "venue_フェスティバルホ_ル",
       "name": "フェスティバルホール",
       "aliases": [],

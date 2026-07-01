@@ -6797,6 +6797,44 @@
         "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
         "spotifyTrackId": "18SEsJtg294TtOjjwwSWgr"
       }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019e8e6c-34e3-7eef-b3eb-7c003124d585",
+      "canonicalTitle": "Play On！",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "playon"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019e8e6c-30d9-722e-859b-d287d57c417d",
+        "songUuid": "019e8e6c-34e3-7eef-b3eb-7c003124d585",
+        "spotifyTrackId": "5gLSc8hDi3IRA4UbzvJKgw"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019e8e7b-b836-76a3-a999-abcf1e076fff",
+      "canonicalTitle": "BBBang",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "bbbang"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019e8e7b-265e-72ff-82c3-1a32dd3a1fe9",
+        "songUuid": "019e8e7b-b836-76a3-a999-abcf1e076fff",
+        "spotifyTrackId": null
+      }
     }
   ]
 }

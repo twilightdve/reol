@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019f1dd4-df98-7bfe-9de5-73e2a258e670",
+  "tourName": "Manga Barcelona 2026",
+  "liveTitle": "Manga Barcelona 2026 Spain",
+  "date": "2026-12-07",
+  "venueName": "フィラ・バルセロナ・グラン・ビア",
+  "venueId": "venue_フィラ_バルセロナ_グラン_ビア",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+    "liveItemUuid": "019f1dd4-df98-7bfe-9de5-73e2a258e670",
+    "sourceId": "live_item_019f1dd4-df98-7bfe-9de5-73e2a258e670"
+  },
+  "entries": []
+}

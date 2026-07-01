@@ -1,10 +1,10 @@
 {
   "summary": {
-    "totalSetlistInstances": 2034,
-    "matchedInstances": 1766,
-    "unmatchedInstances": 257,
+    "totalSetlistInstances": 2108,
+    "matchedInstances": 1828,
+    "unmatchedInstances": 269,
     "uniqueSongsPlayed": 112,
-    "uniqueUnmatched": 131
+    "uniqueUnmatched": 134
   },
   "unmatched": [
     {
@@ -31,7 +31,7 @@
     },
     {
       "name": "",
-      "count": 36,
+      "count": 38,
       "type": null,
       "samples": [
         {
@@ -53,7 +53,7 @@
     },
     {
       "name": "港のヨーコ・ヨコハマ・ヨコスカ",
-      "count": 16,
+      "count": 19,
       "type": "cover",
       "samples": [
         {
@@ -158,6 +158,50 @@
           "date": "2026-04-19",
           "liveTitle": "Reol Oneman Live 2026 美辞学",
           "liveItemName": "熊本"
+        }
+      ]
+    },
+    {
+      "name": "(Remix)",
+      "count": 3,
+      "type": "medley",
+      "samples": [
+        {
+          "date": "2026-06-12",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "宮城"
+        },
+        {
+          "date": "2026-06-19",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2026-06-27",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "福岡"
+        }
+      ]
+    },
+    {
+      "name": "COCOON",
+      "count": 3,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2026-06-12",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "宮城"
+        },
+        {
+          "date": "2026-06-19",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2026-06-27",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "福岡"
         }
       ]
     },
@@ -1716,6 +1760,18 @@
           "date": "2026-05-31",
           "liveTitle": "Reol Oneman Live 2026 美辞学",
           "liveItemName": "岐阜"
+        }
+      ]
+    },
+    {
+      "name": "感情御中",
+      "count": 1,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2026-06-12",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "宮城"
         }
       ]
     }

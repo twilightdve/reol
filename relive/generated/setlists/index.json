@@ -6,6 +6,44 @@
   },
   "setlists": [
     {
+      "setlistId": "live_item_019f1dd4-df98-7bfe-9de5-73e2a258e670",
+      "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+      "liveItemUuid": "019f1dd4-df98-7bfe-9de5-73e2a258e670",
+      "title": "Manga Barcelona 2026 Spain",
+      "date": "2026-12-07",
+      "venueName": "フィラ・バルセロナ・グラン・ビア",
+      "venueId": "venue_フィラ_バルセロナ_グラン_ビア",
+      "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_019f1dd4-df1f-7d01-af69-2ddd697f8f57",
+      "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+      "liveItemUuid": "019f1dd4-df1f-7d01-af69-2ddd697f8f57",
+      "title": "Manga Barcelona 2026 Spain",
+      "date": "2026-12-06",
+      "venueName": "フィラ・バルセロナ・グラン・ビア",
+      "venueId": "venue_フィラ_バルセロナ_グラン_ビア",
+      "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
       "setlistId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe",
       "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
       "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
@@ -71,13 +109,13 @@
       "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
@@ -90,13 +128,13 @@
       "venueName": "岡谷鋼機名古屋公会堂",
       "venueId": "venue_岡谷鋼機名古屋公会堂",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 1,
       "playablePolicySummary": {
         "required": 0,
-        "special": 0,
+        "special": 1,
         "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
@@ -109,11 +147,11 @@
       "venueName": "福岡国際会議場メインホール",
       "venueId": "venue_福岡国際会議場メインホ_ル",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 24,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
-        "medley": 0,
+        "required": 23,
+        "special": 1,
+        "medley": 1,
         "cover": 0,
         "se": 0,
         "unknown": 0
@@ -128,11 +166,11 @@
       "venueName": "オリックス劇場",
       "venueId": "venue_オリックス劇場",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 24,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
-        "medley": 0,
+        "required": 23,
+        "special": 1,
+        "medley": 1,
         "cover": 0,
         "se": 0,
         "unknown": 0
@@ -147,11 +185,11 @@
       "venueName": "トークネットホール仙台",
       "venueId": "venue_ト_クネットホ_ル仙台",
       "type": "oneman",
-      "songCount": 0,
+      "songCount": 24,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 0,
-        "medley": 0,
+        "required": 23,
+        "special": 1,
+        "medley": 1,
         "cover": 0,
         "se": 0,
         "unknown": 0

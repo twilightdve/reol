@@ -1,5 +1,49 @@
 [
   {
+    "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+    "slug": "manga-barcelona-2026",
+    "type": "event",
+    "title": "Manga Barcelona 2026",
+    "name": "Reol",
+    "date": " 2026-12-05~2026-12-08",
+    "siteUrl": "https://www.manga-barcelona.com/jp/info.cfm",
+    "spotifyPlaylistId": null,
+    "themeColorPrimary": "#ed1c24",
+    "themeColorSecondary": "#000000",
+    "posts": [],
+    "items": [
+      {
+        "liveItemUuid": "019f1dd4-df1f-7d01-af69-2ddd697f8f57",
+        "slug": "spain",
+        "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+        "liveItemName": "Spain",
+        "date": "2026-12-06",
+        "place": "フィラ・バルセロナ・グラン・ビア",
+        "placeSite": "https://www.barcelona-tourist-guide.com/ja/shigoto/fira-barcelona-gran-via-baruserona.html",
+        "address": "Fira Gran Via - Gate 4 / Porta 4\nCarrer de la Botànica, 64 - 08908 L'Hospitalet de Llobregat, Barcelona",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.991522005826!2d2.1318094!3d41.352537999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498ba6bd15b2f%3A0x51e1e9e65335f92a!2sCarrer%20de%20la%20Bot%C3%A0nica%2C%2060%2C%2008908%20L&#39;Hospitalet%20de%20Llobregat%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1782911534488!5m2!1sca!2ses",
+        "spotifyPlaylistId": null,
+        "setList": [],
+        "posts": []
+      },
+      {
+        "liveItemUuid": "019f1dd4-df98-7bfe-9de5-73e2a258e670",
+        "slug": "spain-2",
+        "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+        "liveItemName": "Spain",
+        "date": "2026-12-07",
+        "place": "フィラ・バルセロナ・グラン・ビア",
+        "placeSite": "https://www.barcelona-tourist-guide.com/ja/shigoto/fira-barcelona-gran-via-baruserona.html",
+        "address": "Fira Gran Via - Gate 4 / Porta 4\nCarrer de la Botànica, 64 - 08908 L'Hospitalet de Llobregat, Barcelona",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.991522005826!2d2.1318094!3d41.352537999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498ba6bd15b2f%3A0x51e1e9e65335f92a!2sCarrer%20de%20la%20Bot%C3%A0nica%2C%2060%2C%2008908%20L&#39;Hospitalet%20de%20Llobregat%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1782911534488!5m2!1sca!2ses",
+        "spotifyPlaylistId": null,
+        "setList": [],
+        "posts": []
+      }
+    ],
+    "reports": []
+  },
+  {
     "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
     "slug": "osaka-gigantic-music-festival-2026",
     "type": "event",
@@ -150,10 +194,10 @@
           {
             "liveItemSongUuid": "019e82aa-1c63-7f92-a479-ff301c582634",
             "liveItemUuid": "019e8284-e742-712a-b02a-6f4969cdb7e6",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-1ccd-7e93-8ff3-63c57ac12b60",
@@ -380,10 +424,10 @@
           {
             "liveItemSongUuid": "019e82aa-2ae3-796b-9460-1ca35cb9c26d",
             "liveItemUuid": "019e8284-ea47-7700-b47f-ce07cf0cf38d",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-2cbc-707e-943b-d7a97b9e5d14",
@@ -598,10 +642,10 @@
           {
             "liveItemSongUuid": "019e82aa-3a45-7f79-b23d-d88901eea965",
             "liveItemUuid": "019e8284-eaa8-7608-bcf7-a21340afa42d",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-3b3e-7733-bb23-f223d92ec1f7",
@@ -822,10 +866,10 @@
           {
             "liveItemSongUuid": "019e82aa-48a1-7d87-bef0-c926fb1f20f0",
             "liveItemUuid": "019e8284-eb96-7f88-882d-79cf86a6d621",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-4908-7a4f-ad0a-2af50a360c30",
@@ -1040,10 +1084,10 @@
           {
             "liveItemSongUuid": "019e82aa-5365-758c-af93-63a2d98edb21",
             "liveItemUuid": "019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-548f-734f-aa0f-f672bc48abb8",
@@ -1252,10 +1296,10 @@
           {
             "liveItemSongUuid": "019e82aa-6452-76b9-b7eb-cc655a623f1c",
             "liveItemUuid": "019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-652e-7805-959d-7e0703518bbe",
@@ -1484,10 +1528,10 @@
           {
             "liveItemSongUuid": "019e82aa-6f8f-7126-9aef-fc70c94eb907",
             "liveItemUuid": "019e8284-ecc7-72d8-892d-6b5849778f8e",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-6fee-73b9-8ebc-f349df3885b0",
@@ -1704,10 +1748,10 @@
           {
             "liveItemSongUuid": "019e82aa-7ef8-7b35-be52-83ded73c8ba5",
             "liveItemUuid": "019e8284-ed23-7141-92cc-06d8f958f7c5",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-7f5b-7ba2-8155-7b03b9d4d21a",
@@ -1930,10 +1974,10 @@
           {
             "liveItemSongUuid": "019e82aa-8b41-7bdf-aca0-c98686300a2a",
             "liveItemUuid": "019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-8bab-70f7-96df-5cf9233e8b82",
@@ -2154,10 +2198,10 @@
           {
             "liveItemSongUuid": "019e82aa-98e5-7e2e-b050-b9e1f308e908",
             "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-994b-7b52-9973-4ca0eb074f5d",
@@ -2378,10 +2422,10 @@
           {
             "liveItemSongUuid": "019e82aa-a7f1-7b6b-be98-f33bd330f1fa",
             "liveItemUuid": "019e8284-ee54-7b7c-a2aa-205a32069d45",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-a84d-7ba1-8bc3-2341a637a8d1",
@@ -2596,10 +2640,10 @@
           {
             "liveItemSongUuid": "019e82aa-b3fe-74e1-9d8b-a55ba893441b",
             "liveItemUuid": "019e8284-eebd-7c61-baa5-d69014b33336",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-b4be-72b0-a423-90587446440a",
@@ -2808,10 +2852,10 @@
           {
             "liveItemSongUuid": "019e82aa-be90-74f5-9878-2edd2d288afd",
             "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-bef4-7e84-89c2-2cddbfe79c35",
@@ -3040,10 +3084,10 @@
           {
             "liveItemSongUuid": "019e82aa-cff5-78fc-8a13-f948f3b2a443",
             "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-d05f-7d51-81c9-79ff7ff55063",
@@ -3239,10 +3283,10 @@
           {
             "liveItemSongUuid": "019e82aa-ddf3-7014-81c7-b4e7677a5118",
             "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-de62-78ee-98ce-3273c38d65f6",
@@ -3453,10 +3497,10 @@
           {
             "liveItemSongUuid": "019e833e-2b0e-7a34-8050-5756c1deae2e",
             "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
-            "liveItemSongName": "二等星",
+            "liveItemSongName": "二等星 (Immitation Star)",
             "type": "song",
             "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e833e-2b89-7a2a-9af5-7cf081a75c19",
@@ -3627,7 +3671,200 @@
         "address": "宮城県仙台市青葉区中央2-7-11",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12537.624387961816!2d140.885163!3d38.223683!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sus!4v1764574749197!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019f1dd4-e38b-7233-ba02-2f1bc3fb8d7a",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e3f1-7962-ba1d-524b30215132",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e444-7660-b1f4-df010b3dec68",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e493-726a-8c34-941a589635ff",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "煽げや尊し",
+            "type": "song",
+            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e516-7d70-8e6d-fd769db563cd",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e569-791c-9c95-7c0a81fff690",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e5c6-7b7e-bf11-9f55db941e77",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e621-7b23-ae77-3eeec649335f",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e683-730c-bdff-cb0664df17af",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e6d0-7981-8dfe-51237172bff2",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "感情御中",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e727-756b-b190-a6c59896ab59",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e78d-7f4b-974f-44f6a4111f05",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e7e1-7780-b2ba-41426f6caad3",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e83d-7e8b-910a-e924544dae6e",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e8bc-7cbb-8996-8db641b02857",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e91d-7078-b0fe-f45d8769b504",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e980-799d-924d-d819001b4927",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "ミッドナイトストロウラ",
+            "type": "song",
+            "songUuid": "019e8282-8d77-7522-a885-d14a4873ca1f",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-e9e9-7fee-af7c-80e2f2e67631",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ea99-75fc-92a0-4af600fc10a6",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-eaf3-772a-8274-95849392490a",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-eb67-70a9-bec0-00cf022a4d2f",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ebc2-72d6-9503-6bc5a38d697e",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ec26-7e2b-977d-d0f0c904191c",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ec77-7201-a80b-311bed9c79ca",
+            "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": [
           {
             "liveItemPostUuid": "019e83cf-e6e7-71cb-8aa0-a8ee015c0fbc",
@@ -3654,7 +3891,200 @@
         "address": "大阪府大阪市西区新町1-14-15",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.221636888064!2d135.495387!3d34.678551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7b24b87684b%3A0xc8ccca24d40d8902!2z44Kq44Oq44OD44Kv44K55YqH5aC0!5e0!3m2!1sja!2sus!4v1764574776410!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019f1dd4-ecdd-7e25-bd30-fc327ca8f76d",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ed7f-78de-b557-48f9930414cb",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ee0b-7361-80f4-0926d496c5ac",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ee7b-74c7-b37b-226f219e988d",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "煽げや尊し",
+            "type": "song",
+            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-eed2-754b-a307-c45746c9ac55",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ef1c-7c30-9a85-42e1cb92a1b2",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ef7c-702d-abec-a3c447c6a195",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-eff8-7e9e-9360-26e73506aea6",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f32c-7804-ae13-c364fe8d7b6b",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f4a1-7618-bced-9cdb4f7ec710",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f585-7069-b576-8f18309df467",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f5e7-7830-96aa-023d865a5df9",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f64f-7f36-ab59-62ae81319c98",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f6bf-757c-ba14-73a0bd61cd57",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f713-7953-865f-ada254e0feb9",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f766-71d1-99a1-1be3e3fe783c",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f7bd-76c9-914d-4df789eae9dc",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-f81f-7415-9b4b-83523107a939",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fa8b-7dc9-a414-5ac831deffe2",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fadc-7b4c-9845-b86bdbb18069",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fdad-79ab-8892-ce60e382b002",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fe0c-7d11-bd9e-24b6d8c3a052",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fe71-7979-bd71-c41b6c6a91b3",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-fef6-70e2-8860-7395eddac3f5",
+            "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": []
       },
       {
@@ -3668,7 +4098,200 @@
         "address": "福岡県福岡市博多区沖浜町7-1",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13291.815380834367!2d130.403739!3d33.606502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419103c2e8dae9%3A0x3f3a58d1591bf115!2z44Oe44Oq44Oz44Oh44OD44K756aP5bKhIELppKg!5e0!3m2!1sja!2sus!4v1764574798565!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019f1dd4-ff53-7432-85ab-f05702a06837",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd4-ffb0-7c6f-9ada-a7e95df3370c",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-000e-7d66-9251-6fa17e1d3a7f",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-007b-7f84-a5c4-a8a65e179d86",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "煽げや尊し",
+            "type": "song",
+            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-00d6-7d07-abed-20ec4e0d3e38",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0134-769b-b30b-abf4a313c3e5",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-01a5-7d95-a042-4e5cb7779e9e",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-020f-716f-bba1-f1710fc4647c",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0257-7493-b57c-26d68c82e7fb",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-02e8-75a7-98d2-008098fbeebc",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0338-7ab8-93f1-1f91128c9393",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-03bb-75bb-9e94-dfd8d2b38f2d",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0426-7169-8cf7-d9f63f616e00",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-047f-7a2d-98c2-2535ab334ec5",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-04e1-7450-98ee-d41f90fe48f9",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0537-7e92-9118-7cf7fa3da1db",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-059d-7cc4-9abd-12895c7bd5f7",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "ミッドナイトストロウラ",
+            "type": "song",
+            "songUuid": "019e8282-8d77-7522-a885-d14a4873ca1f",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-05f5-75bd-946f-d8c5a284d9f2",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-07e2-76e8-9ad3-6b437f1ea5d1",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0828-7131-90a5-2a083317db18",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0877-73d8-9e05-5d13a0ad3fd9",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-08df-7418-a8e5-c77f558c9411",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-0933-7399-81cb-9b4358951450",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019f1dd5-09ad-77d4-a28b-7e7eece5b37c",
+            "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": []
       },
       {
@@ -3682,7 +4305,16 @@
         "address": "愛知県名古屋市昭和区鶴舞1-1-3",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13047.990657531383!2d136.919118!3d35.156679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370bc26485bb1%3A0xaa773c547ea00cdf!2z5bKh6LC36Yu85qmf5ZCN5Y-k5bGL5YWs5Lya5aCC!5e0!3m2!1sja!2sus!4v1764574826802!5m2!1sja!2sus",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019f1dd5-0a23-746e-b9eb-a3e46830c1f3",
+            "liveItemUuid": "019e8284-f1e4-7eb6-afe7-88639d68c221",
+            "liveItemSongName": "",
+            "type": null,
+            "songUuid": null,
+            "matchSource": "none"
+          }
+        ],
         "posts": []
       },
       {
@@ -3696,7 +4328,16 @@
         "address": "東京都渋谷区道玄坂2-3-1",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12966.0787086158!2d139.698555!3d35.664204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2zTElORSBDVUJFIFNISUJVWUHvvIjmuIvosLflhazkvJrloILvvIk!5e0!3m2!1sja!2sus!4v1764574861167!5m2!1sja!2suss",
         "spotifyPlaylistId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019f1dd5-0a80-744f-a109-f6f9bbe65188",
+            "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
+            "liveItemSongName": "",
+            "type": null,
+            "songUuid": null,
+            "matchSource": "none"
+          }
+        ],
         "posts": []
       },
       {
@@ -5870,847 +6511,6 @@
     ]
   },
   {
-    "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-    "slug": "reol-oneman-live-2025",
-    "type": "oneman",
-    "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-    "name": "Reol",
-    "date": "2024-01-19〜2024-06-08",
-    "siteUrl": "https://reol.jp/feature/Culture_Curriculum",
-    "spotifyPlaylistId": null,
-    "themeColorPrimary": "#D5783F",
-    "themeColorSecondary": "#386F58",
-    "posts": [
-      {
-        "livePostUuid": "019e82b1-058e-7265-8d2b-f63c60cb442c",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1844302894734115168",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>「カルチュア・カリキュラム」<br><br>特設サイト <a href=\"https://t.co/TOEh77o98k\">https://t.co/TOEh77o98k</a> <a href=\"https://t.co/oXdck6GUsd\">pic.twitter.com/oXdck6GUsd</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1844302894734115168?ref_src=twsrc%5Etfw\">October 10, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-05cc-75aa-b456-f01fd08bc446",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1844305358992650376",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラムという新しいライヴツアーを年明けにまわります　<br><br>ZEPPでは数年ぶりのオールスタンディング　UNBOXと打って変わって、東名阪のみのショートツアーです　太く短く接近戦で挑みます　三夜だけの学び、再演はナシ　どうぞよろしくお願いします🪧<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1844305358992650376?ref_src=twsrc%5Etfw\">October 10, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0609-75e0-8863-d5a111505e50",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1851237714240418191",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュアのチケット倍率、今までで一番とのこと<br>ありがたき　FC Legit最速先行本日までです〆〆</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1851237714240418191?ref_src=twsrc%5Etfw\">October 29, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-063e-7cc6-8e4b-20750f41894f",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1859871479560798564",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">来るZEPP TOUR カルチュア・カリキュラム、オフィシャルグッズのルックを公開、通販開始しました<br>今作のデザインテーマは&quot;学び&quot;です🖋️<br><br>アパレルのAWっぽい方向を目指ました　ラババンの代わりにミサンガです、よろしゅー<a href=\"https://t.co/ioybqReXOZ\">https://t.co/ioybqReXOZ</a> <a href=\"https://t.co/z2WWv0cIFC\">pic.twitter.com/z2WWv0cIFC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1859871479560798564?ref_src=twsrc%5Etfw\">November 22, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0696-7675-a721-9067ddc25698",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1864217577280716955",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラム！<a href=\"https://t.co/ioybqReXOZ\">https://t.co/ioybqReXOZ</a> <a href=\"https://t.co/kXteaRCW2x\">pic.twitter.com/kXteaRCW2x</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1864217577280716955?ref_src=twsrc%5Etfw\">December 4, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-06cd-7010-be54-e7fddc144e7f",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1870446339378831795",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">来年一月よりはじめるZEPP TOUR🪧<br>カルチュア・カリキュラム一般発売が開始しました<br><br>25/1/19 大阪 ZEPP OSAKA BAYSIDE<br>25/1/24 名古屋 ZEPP NAGOYA<br>25/2/2 東京 ZEPP DIVER CITY TOKYO<br><br>十年目のわたしたちのその先へ　短期決戦オールスタンディングで東名阪へ伺います… <a href=\"https://t.co/2VdMh4P7XO\">https://t.co/2VdMh4P7XO</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1870446339378831795?ref_src=twsrc%5Etfw\">December 21, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0702-7023-be3a-816f2f439651",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1871124306312511678",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア初日リハなう📖🖋️🎓</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1871124306312511678?ref_src=twsrc%5Etfw\">December 23, 2024</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0731-74fd-b5b7-953e56a5e6ac",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1879766902886814002",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア最終リハです <a href=\"https://t.co/t1VvLmlV8I\">pic.twitter.com/t1VvLmlV8I</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1879766902886814002?ref_src=twsrc%5Etfw\">January 16, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0758-7a09-a6aa-24f1d7785b3a",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1886050671050567752",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>夢のような現だった　三つの夜を駆け抜けて、すべてを受け止めてくれた東京　同じ気持ちを向けてくれてありがとう<br>またここからわたしたちが新しい学びをはじめていくための標のような日でした<br><br>横浜アリーナでの再会をたのしみに<br>11年目もよろしく <a href=\"https://t.co/fyn1ZSCQO0\">pic.twitter.com/fyn1ZSCQO0</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886050671050567752?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0795-784e-9a61-a1a4c3ad8948",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1886387793171300361",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">FC Legit 更新<a href=\"https://t.co/8NeRtSeOwR\">https://t.co/8NeRtSeOwR</a><br><br>カルチュア・カリキュラム<br>終、つらつらと</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886387793171300361?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-07d6-7933-90bd-c1b276b8354c",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1888577131699179779",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">YouTube生配信「カルチュア・カリキュラム（総合）」ありがとうございました！<br>冒頭で、ライヴ(主にオールスタンディング)における今のわたしの考えをお話させていただきました<a href=\"https://t.co/I8hL1W9cy4\">https://t.co/I8hL1W9cy4</a>…</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1888577131699179779?ref_src=twsrc%5Etfw\">February 9, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0803-7e57-b252-b31206ba6e3a",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1895777429400273398",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">続、カルチュア・カリキュラム <a href=\"https://twitter.com/hashtag/CultureCurriculum2025?src=hash&amp;ref_src=twsrc%5Etfw\">#CultureCurriculum2025</a><br>香港・広州・成都へのツアーが決定しました<br>各地での学びがたのしみです、よろしくお願いします <a href=\"https://t.co/mIJP1JGrjZ\">pic.twitter.com/mIJP1JGrjZ</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1895777429400273398?ref_src=twsrc%5Etfw\">March 1, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-0840-7e66-ae98-0a1cc59112d8",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1895785149566214323",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラム海外篇は、2020年に果たせなかったハーメルンの大号令リベンジツアーでもあります　いろんな場所でわたしの音楽を楽しんでくれている君へ、遅くなってしまったけれど今までの感謝と、そしてこれからをともに歌うようなツアーにしたい！楽しみにしています！</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1895785149566214323?ref_src=twsrc%5Etfw\">March 1, 2025</a></blockquote>"
-      },
-      {
-        "livePostUuid": "019e82b1-086f-7b16-9d72-fa263213e8b5",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "livePostId": "1886618544336752898",
-        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア開場時BGMのプレイリスト<br>学びをくれた音楽たち、です🪑<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a><a href=\"https://t.co/vQx6ibVgQe\">https://t.co/vQx6ibVgQe</a> <a href=\"https://t.co/x4IM8fGOT7\">https://t.co/x4IM8fGOT7</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886618544336752898?ref_src=twsrc%5Etfw\">February 4, 2025</a></blockquote>"
-      }
-    ],
-    "items": [
-      {
-        "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-        "slug": "c5845b9552e4",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "大阪",
-        "date": "2025-01-19",
-        "place": "Zepp Osaka Bayside",
-        "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
-        "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-7a6e-7ebc-9e70-6f3c1e5a4ffe",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "RE RESCUE -aoex edit-",
-            "type": "song",
-            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7acf-7779-8c13-6d017fbc8d21",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "赤裸裸(NAKED)",
-            "type": "song",
-            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7b3b-7b31-92cd-e09faeeef9be",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "感情御中 -WANT U LUV IT-",
-            "type": "song",
-            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7ba1-7071-a8aa-0f5c5b2e3e80",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "綺羅綺羅(Glitter)",
-            "type": "song",
-            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7c61-7231-a21e-d2b4c2226f27",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "SCORPION",
-            "type": "song",
-            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7cc7-7f39-90bc-936bda6d2382",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "不乱不破",
-            "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7d2b-707e-a955-3b7916d41ec7",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "ULTRA C",
-            "type": "song",
-            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7d97-7a97-bf1b-4d70e6ff4b1c",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "切っ先(Edge)",
-            "type": "song",
-            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7e04-79f3-82d9-68c36d4c5243",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "SHINOBI",
-            "type": "song",
-            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7e74-7a54-9db7-bdc80f998ba8",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "激白",
-            "type": "song",
-            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7ee1-7b61-996d-884ef22c807b",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "感情御中 -CRUSHed Remix-",
-            "type": "song",
-            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7f49-771d-bdbe-4d5a47574153",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "ディア",
-            "type": "song",
-            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-7fb1-7162-a6ae-2cf13ffb9db9",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "たい",
-            "type": "song",
-            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-801f-7b85-a12f-4cfc00bde727",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "TAKE OFF (途中で中止)",
-            "type": "song",
-            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-            "matchSource": "stripped"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-80bb-7023-9da7-194f280da451",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "たい",
-            "type": "song",
-            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8125-715b-8483-ad22e1f0f84f",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "TAKE OFF",
-            "type": "song",
-            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-818c-75d5-aa47-4c4d78a5929a",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "ミラージュ",
-            "type": "song",
-            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-81f6-755b-a249-316e7c31f28e",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "secret trip",
-            "type": "song",
-            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8263-7fb3-af69-3bcd990236bb",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "un, deux, trois",
-            "type": "song",
-            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-82d1-759a-80cf-cc72afc2de89",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "mede:mede",
-            "type": "song",
-            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-847d-781d-b040-723269c468d0",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "SAIREN",
-            "type": "song",
-            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-85b2-7b37-8c11-1312618b5382",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "MONSTER",
-            "type": "song",
-            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8623-70df-9265-3fecaf94dbf7",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "サイサキ",
-            "type": "song",
-            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-868d-7a38-ae9f-a4fe72f9c7be",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "白夜",
-            "type": "song",
-            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-86f8-775e-b8fa-26c485e52802",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "RE RESCUE",
-            "type": "song",
-            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
-            "matchSource": "sheet"
-          }
-        ],
-        "posts": [
-          {
-            "liveItemPostUuid": "019e82ab-52a3-7137-bfbf-c53996deb307",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemPostId": "1880831541288554863",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」大阪公演から開催‼︎<br><br>直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/jM9Qe8XEEC\">https://t.co/jM9Qe8XEEC</a> <a href=\"https://t.co/jCwIDuo9nq\">pic.twitter.com/jCwIDuo9nq</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1880831541288554863?ref_src=twsrc%5Etfw\">January 19, 2025</a></blockquote>"
-          },
-          {
-            "liveItemPostUuid": "019e82ab-52d4-7671-bce0-482da9e4a90d",
-            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemPostId": "1880942234809545054",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP OSAKA BAYSIDE<br><br>2025年初のツアー本日開幕！余計なルールの存在しない学舎。音楽を分かち合うための一夜を、今年もたくさん積み重ねましょう<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/j7rY82Cz9S\">pic.twitter.com/j7rY82Cz9S</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1880942234809545054?ref_src=twsrc%5Etfw\">January 19, 2025</a></blockquote>"
-          }
-        ]
-      },
-      {
-        "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-        "slug": "a575664f8694",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "愛知",
-        "date": "2025-01-24",
-        "place": "Zepp Nagoya",
-        "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
-        "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
-        "spotifyPlaylistId": "0arMxAp9HpWts7YOQZfdNs",
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-8763-7a9a-8d84-d220dbcc5538",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "RE RESCUE -aoex edit-",
-            "type": "song",
-            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-87cd-78e1-ab61-48071e1760a0",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "赤裸裸(NAKED)",
-            "type": "song",
-            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8a1c-71c6-bbf3-33f531d338cd",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "感情御中 -WANT U LUV IT-",
-            "type": "song",
-            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8a82-7b8b-83cb-1201a904d5fa",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "綺羅綺羅(Glitter)",
-            "type": "song",
-            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8af3-70e7-aa2b-72b091438ae2",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "SCORPION",
-            "type": "song",
-            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8b65-7781-adbb-08ae20842ec0",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "不乱不破",
-            "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8bcb-768f-8788-3548b452086f",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "ULTRA C",
-            "type": "song",
-            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8c2e-7c65-8f5a-c0298b9bb071",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "切っ先(Edge)",
-            "type": "song",
-            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8c98-776a-b78f-27a2b357cf78",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "SHINOBI",
-            "type": "song",
-            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8d0f-70cb-aa36-4250fa7a6c6d",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "激白",
-            "type": "song",
-            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8d6e-7293-927e-97e8d34677a4",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "感情御中 -CRUSHed Remix-",
-            "type": "song",
-            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8dd0-7d25-b35a-01503aaed57d",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "ディア",
-            "type": "song",
-            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8e35-7253-99a5-f01ac15396a3",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "たい",
-            "type": "song",
-            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-8e9d-7f60-91ec-97083f77fa66",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "TAKE OFF",
-            "type": "song",
-            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9104-7b61-9cfc-7d8f4a6f0ec3",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "ミラージュ",
-            "type": "song",
-            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9170-7c28-8679-eec952cafc7c",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "secret trip",
-            "type": "song",
-            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-91da-7215-a6a1-5b66167c8b39",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "un, deux, trois",
-            "type": "song",
-            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-923e-7de2-af19-501302f5dea4",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "mede:mede",
-            "type": "song",
-            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-92a8-7d23-b16d-582f3769cee8",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "SAIREN",
-            "type": "song",
-            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-930e-72ed-90d6-70b69e24a997",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "MONSTER",
-            "type": "song",
-            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9378-7a55-bfa8-1febf732c126",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "サイサキ",
-            "type": "song",
-            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-93e5-7458-8251-d469b8861e91",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "白夜",
-            "type": "song",
-            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9773-7381-8c18-6f44ee77d887",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "RE RESCUE",
-            "type": "song",
-            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
-            "matchSource": "sheet"
-          }
-        ],
-        "posts": [
-          {
-            "liveItemPostUuid": "019e82ab-5302-78d6-b168-b27856afe0b3",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemPostId": "1882650075715002604",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」名古屋公演でも開催‼︎<br><br>Reol直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/JbytAlrdLy\">https://t.co/JbytAlrdLy</a> <a href=\"https://t.co/eBGhizNbaT\">pic.twitter.com/eBGhizNbaT</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1882650075715002604?ref_src=twsrc%5Etfw\">January 24, 2025</a></blockquote>"
-          },
-          {
-            "liveItemPostUuid": "019e82ab-532d-7bb6-909e-b4ce8540d152",
-            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemPostId": "1882763751402995738",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP NAGOYA<br><br>ステージと客席の垣根はなく、皆が大切な一瞬を過ごす仲間であれた、素晴らしい一夜でした。また今日のような夜に出会えますように！<br><br>次回は2月2日、ツアー・ファイナル in Zepp DicerCity！<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/evd1wzYQ7f\">pic.twitter.com/evd1wzYQ7f</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1882763751402995738?ref_src=twsrc%5Etfw\">January 24, 2025</a></blockquote>"
-          }
-        ]
-      },
-      {
-        "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-        "slug": "3ff96d8ff44d",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "東京",
-        "date": "2025-02-02",
-        "place": "Zepp DiverCity Tokyo",
-        "placeSite": "https://www.zepp.co.jp/hall/divercity/",
-        "address": "〒135-0064 東京都江東区青海１丁目１−１０",
-        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1206516008656!2d139.77201061196095!3d35.6247520329593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2sZepp%20DiverCity%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1743281363934!5m2!1sja!2sjp",
-        "spotifyPlaylistId": null,
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-97db-786f-9e9e-63bf47939657",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "RE RESCUE -aoex edit-",
-            "type": "song",
-            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9840-7ebd-9730-5c246b399acf",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "赤裸裸(NAKED)",
-            "type": "song",
-            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-98aa-7114-a7a2-aa0503f21047",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "感情御中 -WANT U LUV IT-",
-            "type": "song",
-            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-991c-7929-8c21-9bae28d6b136",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "綺羅綺羅(Glitter)",
-            "type": "song",
-            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9986-7a23-ac35-6a60a945cce5",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "SCORPION",
-            "type": "song",
-            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-99e9-7a11-aa4f-c66e0b2925d8",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "不乱不破",
-            "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9a55-71aa-a4fd-36b9f58cd9f9",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "ULTRA C",
-            "type": "song",
-            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9abb-7ec5-9ade-609f0de8cd2b",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "切っ先(Edge)",
-            "type": "song",
-            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9b23-7802-8e58-8b0e360f9d04",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "SHINOBI",
-            "type": "song",
-            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9e78-7cb7-98b4-dc9155f70200",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "激白",
-            "type": "song",
-            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9edd-7076-b891-a28d831fb917",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "感情御中 -CRUSHed Remix-",
-            "type": "song",
-            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
-            "matchSource": "normalized"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9f45-7c7e-9b58-a89f4fc06e4a",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "ディア",
-            "type": "song",
-            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-9fab-738c-8d20-c1ab586a1ba5",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "たい",
-            "type": "song",
-            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a00a-77b9-b774-72bbd00a6f66",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "TAKE OFF",
-            "type": "song",
-            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a06a-786f-93ab-305bbc602368",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "ミラージュ",
-            "type": "song",
-            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a0d2-7392-9170-c0177db4d0e1",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "secret trip",
-            "type": "song",
-            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a147-77ad-ba0b-6ef7af87fe4e",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "un, deux, trois",
-            "type": "song",
-            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a1b7-789c-8db2-5d73f4cb17d8",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "mede:mede",
-            "type": "song",
-            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a488-70f4-856d-78cbdc41ff3e",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "SAIREN",
-            "type": "song",
-            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a4f3-7059-bca2-08bc1715f18b",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "MONSTER",
-            "type": "song",
-            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a558-7ea3-8085-cca8277c1384",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "サイサキ",
-            "type": "song",
-            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a5b4-762f-ba03-c3d0c2734e30",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "白夜",
-            "type": "song",
-            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
-            "matchSource": "sheet"
-          },
-          {
-            "liveItemSongUuid": "019e82a9-a618-7b4f-8812-1fe1f88a2cf5",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "RE RESCUE",
-            "type": "song",
-            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
-            "matchSource": "sheet"
-          }
-        ],
-        "posts": [
-          {
-            "liveItemPostUuid": "019e82ab-535b-77db-b74d-04782e1a2e5b",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemPostId": "1885898128211288506",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」東京公演でも開催‼︎<br><br>Reol直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/IsEtOZk3rM\">https://t.co/IsEtOZk3rM</a> <a href=\"https://t.co/gSzUK8Vn2f\">pic.twitter.com/gSzUK8Vn2f</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1885898128211288506?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
-          },
-          {
-            "liveItemPostUuid": "019e82ab-538c-775f-96fd-9b519670e732",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemPostId": "1886004287341580714",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP DiverCity<br><br>カルチュア千穐楽！皆さまと歩んできこれまでの歴史と、今しかない感覚が鮮烈に刻み込まれたツアーになりました。この学びの旅が私たちをもっと遠くへ連れて行くことを願って！またお会いしましょう<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/0WAV6xiXpL\">pic.twitter.com/0WAV6xiXpL</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1886004287341580714?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
-          },
-          {
-            "liveItemPostUuid": "019e82ab-53bc-7ded-979d-23985a5d19f8",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemPostId": "1886386894927442429",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">音楽ナタリーに『Reol Oneman Live 2025 カルチュア・カリキュラム』東京公演のライヴレポートが掲載されました<br><br>刹那を駆け抜けた学びの旅、その集大成を記録いただきました。是非復習ください✍️<a href=\"https://t.co/PdP3F6XS6S\">https://t.co/PdP3F6XS6S</a><a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E9%9F%B3%E6%A5%BD%E3%83%8A%E3%82%BF%E3%83%AA%E3%83%BC?src=hash&amp;ref_src=twsrc%5Etfw\">#音楽ナタリー</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1886386894927442429?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
-          },
-          {
-            "liveItemPostUuid": "019e82ab-53e9-7030-bfff-3f89bb93b2ce",
-            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemPostId": "1886387378048188914",
-            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">昨晩は <a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a> <br>ファイナル東京公演、ありがとう🪑<br><br>そして11.09横浜アリーナ公演の<br>チケット一般発売がはじまりました<br>カルチュア・カリキュラムを経て<br>学びの章がはじまっています<br>このカルチュアの宛先お見逃しなく<a href=\"https://t.co/LH6Bztl5z7\">https://t.co/LH6Bztl5z7</a><a href=\"https://twitter.com/hashtag/Reol%E6%A8%AA%E3%82%A2%E3%83%AA%E7%84%A1%E9%A1%8C?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol横アリ無題</a> 📨 <a href=\"https://t.co/YEypNFpSJV\">pic.twitter.com/YEypNFpSJV</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886387378048188914?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
-          }
-        ]
-      },
-      {
-        "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
-        "slug": "hong-kong",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "Hong Kong",
-        "date": "2025-06-03",
-        "place": "PORTAL",
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
-        "spotifyPlaylistId": null,
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-a67c-7300-8a73-c9ade343e3de",
-            "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
-            "liveItemSongName": "",
-            "type": null,
-            "songUuid": null,
-            "matchSource": "none"
-          }
-        ],
-        "posts": []
-      },
-      {
-        "liveItemUuid": "019e8284-e07a-7364-a39a-565ade3f71ed",
-        "slug": "guangzhou",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "Guangzhou",
-        "date": "2025-06-06",
-        "place": null,
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
-        "spotifyPlaylistId": null,
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-a6e3-7cb0-a824-7a65c513ea28",
-            "liveItemUuid": "019e8284-e07a-7364-a39a-565ade3f71ed",
-            "liveItemSongName": "",
-            "type": null,
-            "songUuid": null,
-            "matchSource": "none"
-          }
-        ],
-        "posts": []
-      },
-      {
-        "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
-        "slug": "chengdu",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveItemName": "Chengdu",
-        "date": "2025-06-08",
-        "place": null,
-        "placeSite": null,
-        "address": null,
-        "googleMapsUrl": null,
-        "spotifyPlaylistId": null,
-        "setList": [
-          {
-            "liveItemSongUuid": "019e82a9-a7c5-71ab-be8a-7aa8634f8757",
-            "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
-            "liveItemSongName": "",
-            "type": null,
-            "songUuid": null,
-            "matchSource": "none"
-          }
-        ],
-        "posts": []
-      }
-    ],
-    "reports": [
-      {
-        "liveReportUuid": "019e82b1-425f-7767-be2e-2a5d70b7962e",
-        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-        "liveReportName": "Reol、100分の濃密パフォーマンスで見せた“新しい幕開け”",
-        "liveReportUrl": "https://natalie.mu/music/news/610228"
-      }
-    ]
-  },
-  {
     "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
     "slug": "wonderlivet2024",
     "type": "event",
@@ -8702,6 +8502,847 @@
         "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
         "liveReportName": "",
         "liveReportUrl": ""
+      }
+    ]
+  },
+  {
+    "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+    "slug": "reol-oneman-live-2025",
+    "type": "oneman",
+    "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+    "name": "Reol",
+    "date": "2024-01-19〜2024-06-08",
+    "siteUrl": "https://reol.jp/feature/Culture_Curriculum",
+    "spotifyPlaylistId": null,
+    "themeColorPrimary": "#D5783F",
+    "themeColorSecondary": "#386F58",
+    "posts": [
+      {
+        "livePostUuid": "019e82b1-058e-7265-8d2b-f63c60cb442c",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1844302894734115168",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>「カルチュア・カリキュラム」<br><br>特設サイト <a href=\"https://t.co/TOEh77o98k\">https://t.co/TOEh77o98k</a> <a href=\"https://t.co/oXdck6GUsd\">pic.twitter.com/oXdck6GUsd</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1844302894734115168?ref_src=twsrc%5Etfw\">October 10, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-05cc-75aa-b456-f01fd08bc446",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1844305358992650376",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラムという新しいライヴツアーを年明けにまわります　<br><br>ZEPPでは数年ぶりのオールスタンディング　UNBOXと打って変わって、東名阪のみのショートツアーです　太く短く接近戦で挑みます　三夜だけの学び、再演はナシ　どうぞよろしくお願いします🪧<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1844305358992650376?ref_src=twsrc%5Etfw\">October 10, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0609-75e0-8863-d5a111505e50",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1851237714240418191",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュアのチケット倍率、今までで一番とのこと<br>ありがたき　FC Legit最速先行本日までです〆〆</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1851237714240418191?ref_src=twsrc%5Etfw\">October 29, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-063e-7cc6-8e4b-20750f41894f",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1859871479560798564",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">来るZEPP TOUR カルチュア・カリキュラム、オフィシャルグッズのルックを公開、通販開始しました<br>今作のデザインテーマは&quot;学び&quot;です🖋️<br><br>アパレルのAWっぽい方向を目指ました　ラババンの代わりにミサンガです、よろしゅー<a href=\"https://t.co/ioybqReXOZ\">https://t.co/ioybqReXOZ</a> <a href=\"https://t.co/z2WWv0cIFC\">pic.twitter.com/z2WWv0cIFC</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1859871479560798564?ref_src=twsrc%5Etfw\">November 22, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0696-7675-a721-9067ddc25698",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1864217577280716955",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラム！<a href=\"https://t.co/ioybqReXOZ\">https://t.co/ioybqReXOZ</a> <a href=\"https://t.co/kXteaRCW2x\">pic.twitter.com/kXteaRCW2x</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1864217577280716955?ref_src=twsrc%5Etfw\">December 4, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-06cd-7010-be54-e7fddc144e7f",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1870446339378831795",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">来年一月よりはじめるZEPP TOUR🪧<br>カルチュア・カリキュラム一般発売が開始しました<br><br>25/1/19 大阪 ZEPP OSAKA BAYSIDE<br>25/1/24 名古屋 ZEPP NAGOYA<br>25/2/2 東京 ZEPP DIVER CITY TOKYO<br><br>十年目のわたしたちのその先へ　短期決戦オールスタンディングで東名阪へ伺います… <a href=\"https://t.co/2VdMh4P7XO\">https://t.co/2VdMh4P7XO</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1870446339378831795?ref_src=twsrc%5Etfw\">December 21, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0702-7023-be3a-816f2f439651",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1871124306312511678",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア初日リハなう📖🖋️🎓</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1871124306312511678?ref_src=twsrc%5Etfw\">December 23, 2024</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0731-74fd-b5b7-953e56a5e6ac",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1879766902886814002",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア最終リハです <a href=\"https://t.co/t1VvLmlV8I\">pic.twitter.com/t1VvLmlV8I</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1879766902886814002?ref_src=twsrc%5Etfw\">January 16, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0758-7a09-a6aa-24f1d7785b3a",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1886050671050567752",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>夢のような現だった　三つの夜を駆け抜けて、すべてを受け止めてくれた東京　同じ気持ちを向けてくれてありがとう<br>またここからわたしたちが新しい学びをはじめていくための標のような日でした<br><br>横浜アリーナでの再会をたのしみに<br>11年目もよろしく <a href=\"https://t.co/fyn1ZSCQO0\">pic.twitter.com/fyn1ZSCQO0</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886050671050567752?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0795-784e-9a61-a1a4c3ad8948",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1886387793171300361",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">FC Legit 更新<a href=\"https://t.co/8NeRtSeOwR\">https://t.co/8NeRtSeOwR</a><br><br>カルチュア・カリキュラム<br>終、つらつらと</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886387793171300361?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-07d6-7933-90bd-c1b276b8354c",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1888577131699179779",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">YouTube生配信「カルチュア・カリキュラム（総合）」ありがとうございました！<br>冒頭で、ライヴ(主にオールスタンディング)における今のわたしの考えをお話させていただきました<a href=\"https://t.co/I8hL1W9cy4\">https://t.co/I8hL1W9cy4</a>…</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1888577131699179779?ref_src=twsrc%5Etfw\">February 9, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0803-7e57-b252-b31206ba6e3a",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1895777429400273398",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">続、カルチュア・カリキュラム <a href=\"https://twitter.com/hashtag/CultureCurriculum2025?src=hash&amp;ref_src=twsrc%5Etfw\">#CultureCurriculum2025</a><br>香港・広州・成都へのツアーが決定しました<br>各地での学びがたのしみです、よろしくお願いします <a href=\"https://t.co/mIJP1JGrjZ\">pic.twitter.com/mIJP1JGrjZ</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1895777429400273398?ref_src=twsrc%5Etfw\">March 1, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-0840-7e66-ae98-0a1cc59112d8",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1895785149566214323",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア・カリキュラム海外篇は、2020年に果たせなかったハーメルンの大号令リベンジツアーでもあります　いろんな場所でわたしの音楽を楽しんでくれている君へ、遅くなってしまったけれど今までの感謝と、そしてこれからをともに歌うようなツアーにしたい！楽しみにしています！</p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1895785149566214323?ref_src=twsrc%5Etfw\">March 1, 2025</a></blockquote>"
+      },
+      {
+        "livePostUuid": "019e82b1-086f-7b16-9d72-fa263213e8b5",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "livePostId": "1886618544336752898",
+        "livePostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">カルチュア開場時BGMのプレイリスト<br>学びをくれた音楽たち、です🪑<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a><a href=\"https://t.co/vQx6ibVgQe\">https://t.co/vQx6ibVgQe</a> <a href=\"https://t.co/x4IM8fGOT7\">https://t.co/x4IM8fGOT7</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886618544336752898?ref_src=twsrc%5Etfw\">February 4, 2025</a></blockquote>"
+      }
+    ],
+    "items": [
+      {
+        "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+        "slug": "c5845b9552e4",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "大阪",
+        "date": "2025-01-19",
+        "place": "Zepp Osaka Bayside",
+        "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
+        "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-7a6e-7ebc-9e70-6f3c1e5a4ffe",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "RE RESCUE -aoex edit-",
+            "type": "song",
+            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7acf-7779-8c13-6d017fbc8d21",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7b3b-7b31-92cd-e09faeeef9be",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7ba1-7071-a8aa-0f5c5b2e3e80",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "綺羅綺羅(Glitter)",
+            "type": "song",
+            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7c61-7231-a21e-d2b4c2226f27",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "SCORPION",
+            "type": "song",
+            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7cc7-7f39-90bc-936bda6d2382",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "不乱不破",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7d2b-707e-a955-3b7916d41ec7",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7d97-7a97-bf1b-4d70e6ff4b1c",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "切っ先(Edge)",
+            "type": "song",
+            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7e04-79f3-82d9-68c36d4c5243",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7e74-7a54-9db7-bdc80f998ba8",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "激白",
+            "type": "song",
+            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7ee1-7b61-996d-884ef22c807b",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "感情御中 -CRUSHed Remix-",
+            "type": "song",
+            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7f49-771d-bdbe-4d5a47574153",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-7fb1-7162-a6ae-2cf13ffb9db9",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "たい",
+            "type": "song",
+            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-801f-7b85-a12f-4cfc00bde727",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "TAKE OFF (途中で中止)",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "stripped"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-80bb-7023-9da7-194f280da451",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "たい",
+            "type": "song",
+            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8125-715b-8483-ad22e1f0f84f",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-818c-75d5-aa47-4c4d78a5929a",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "ミラージュ",
+            "type": "song",
+            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-81f6-755b-a249-316e7c31f28e",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "secret trip",
+            "type": "song",
+            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8263-7fb3-af69-3bcd990236bb",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "un, deux, trois",
+            "type": "song",
+            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-82d1-759a-80cf-cc72afc2de89",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "mede:mede",
+            "type": "song",
+            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-847d-781d-b040-723269c468d0",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "SAIREN",
+            "type": "song",
+            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-85b2-7b37-8c11-1312618b5382",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "MONSTER",
+            "type": "song",
+            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8623-70df-9265-3fecaf94dbf7",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-868d-7a38-ae9f-a4fe72f9c7be",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-86f8-775e-b8fa-26c485e52802",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          }
+        ],
+        "posts": [
+          {
+            "liveItemPostUuid": "019e82ab-52a3-7137-bfbf-c53996deb307",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemPostId": "1880831541288554863",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」大阪公演から開催‼︎<br><br>直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/jM9Qe8XEEC\">https://t.co/jM9Qe8XEEC</a> <a href=\"https://t.co/jCwIDuo9nq\">pic.twitter.com/jCwIDuo9nq</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1880831541288554863?ref_src=twsrc%5Etfw\">January 19, 2025</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e82ab-52d4-7671-bce0-482da9e4a90d",
+            "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
+            "liveItemPostId": "1880942234809545054",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP OSAKA BAYSIDE<br><br>2025年初のツアー本日開幕！余計なルールの存在しない学舎。音楽を分かち合うための一夜を、今年もたくさん積み重ねましょう<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/j7rY82Cz9S\">pic.twitter.com/j7rY82Cz9S</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1880942234809545054?ref_src=twsrc%5Etfw\">January 19, 2025</a></blockquote>"
+          }
+        ]
+      },
+      {
+        "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+        "slug": "a575664f8694",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "愛知",
+        "date": "2025-01-24",
+        "place": "Zepp Nagoya",
+        "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+        "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
+        "spotifyPlaylistId": "0arMxAp9HpWts7YOQZfdNs",
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-8763-7a9a-8d84-d220dbcc5538",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "RE RESCUE -aoex edit-",
+            "type": "song",
+            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-87cd-78e1-ab61-48071e1760a0",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8a1c-71c6-bbf3-33f531d338cd",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8a82-7b8b-83cb-1201a904d5fa",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "綺羅綺羅(Glitter)",
+            "type": "song",
+            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8af3-70e7-aa2b-72b091438ae2",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "SCORPION",
+            "type": "song",
+            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8b65-7781-adbb-08ae20842ec0",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "不乱不破",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8bcb-768f-8788-3548b452086f",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8c2e-7c65-8f5a-c0298b9bb071",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "切っ先(Edge)",
+            "type": "song",
+            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8c98-776a-b78f-27a2b357cf78",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8d0f-70cb-aa36-4250fa7a6c6d",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "激白",
+            "type": "song",
+            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8d6e-7293-927e-97e8d34677a4",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "感情御中 -CRUSHed Remix-",
+            "type": "song",
+            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8dd0-7d25-b35a-01503aaed57d",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8e35-7253-99a5-f01ac15396a3",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "たい",
+            "type": "song",
+            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-8e9d-7f60-91ec-97083f77fa66",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9104-7b61-9cfc-7d8f4a6f0ec3",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "ミラージュ",
+            "type": "song",
+            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9170-7c28-8679-eec952cafc7c",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "secret trip",
+            "type": "song",
+            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-91da-7215-a6a1-5b66167c8b39",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "un, deux, trois",
+            "type": "song",
+            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-923e-7de2-af19-501302f5dea4",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "mede:mede",
+            "type": "song",
+            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-92a8-7d23-b16d-582f3769cee8",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "SAIREN",
+            "type": "song",
+            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-930e-72ed-90d6-70b69e24a997",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "MONSTER",
+            "type": "song",
+            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9378-7a55-bfa8-1febf732c126",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-93e5-7458-8251-d469b8861e91",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9773-7381-8c18-6f44ee77d887",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          }
+        ],
+        "posts": [
+          {
+            "liveItemPostUuid": "019e82ab-5302-78d6-b168-b27856afe0b3",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemPostId": "1882650075715002604",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」名古屋公演でも開催‼︎<br><br>Reol直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/JbytAlrdLy\">https://t.co/JbytAlrdLy</a> <a href=\"https://t.co/eBGhizNbaT\">pic.twitter.com/eBGhizNbaT</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1882650075715002604?ref_src=twsrc%5Etfw\">January 24, 2025</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e82ab-532d-7bb6-909e-b4ce8540d152",
+            "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
+            "liveItemPostId": "1882763751402995738",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP NAGOYA<br><br>ステージと客席の垣根はなく、皆が大切な一瞬を過ごす仲間であれた、素晴らしい一夜でした。また今日のような夜に出会えますように！<br><br>次回は2月2日、ツアー・ファイナル in Zepp DicerCity！<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/evd1wzYQ7f\">pic.twitter.com/evd1wzYQ7f</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1882763751402995738?ref_src=twsrc%5Etfw\">January 24, 2025</a></blockquote>"
+          }
+        ]
+      },
+      {
+        "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+        "slug": "3ff96d8ff44d",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "東京",
+        "date": "2025-02-02",
+        "place": "Zepp DiverCity Tokyo",
+        "placeSite": "https://www.zepp.co.jp/hall/divercity/",
+        "address": "〒135-0064 東京都江東区青海１丁目１−１０",
+        "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1206516008656!2d139.77201061196095!3d35.6247520329593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2sZepp%20DiverCity%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1743281363934!5m2!1sja!2sjp",
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-97db-786f-9e9e-63bf47939657",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "RE RESCUE -aoex edit-",
+            "type": "song",
+            "songUuid": "019e8282-d62f-706e-be6b-2ce618a70d36",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9840-7ebd-9730-5c246b399acf",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "赤裸裸(NAKED)",
+            "type": "song",
+            "songUuid": "019e8282-b714-7a5d-933a-34fa187bc83b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-98aa-7114-a7a2-aa0503f21047",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-991c-7929-8c21-9bae28d6b136",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "綺羅綺羅(Glitter)",
+            "type": "song",
+            "songUuid": "019e8282-b9f9-7865-84a7-e9853fda1749",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9986-7a23-ac35-6a60a945cce5",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "SCORPION",
+            "type": "song",
+            "songUuid": "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-99e9-7a11-aa4f-c66e0b2925d8",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "不乱不破",
+            "type": "song",
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9a55-71aa-a4fd-36b9f58cd9f9",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9abb-7ec5-9ade-609f0de8cd2b",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "切っ先(Edge)",
+            "type": "song",
+            "songUuid": "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9b23-7802-8e58-8b0e360f9d04",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9e78-7cb7-98b4-dc9155f70200",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "激白",
+            "type": "song",
+            "songUuid": "019e8282-a043-72e8-a2e5-fe78da7ab58c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9edd-7076-b891-a28d831fb917",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "感情御中 -CRUSHed Remix-",
+            "type": "song",
+            "songUuid": "019e8282-d69a-7f53-a378-6231bd5e4dfb",
+            "matchSource": "normalized"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9f45-7c7e-9b58-a89f4fc06e4a",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-9fab-738c-8d20-c1ab586a1ba5",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "たい",
+            "type": "song",
+            "songUuid": "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a00a-77b9-b774-72bbd00a6f66",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a06a-786f-93ab-305bbc602368",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "ミラージュ",
+            "type": "song",
+            "songUuid": "019e8282-a484-7754-947a-b329bcd014cd",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a0d2-7392-9170-c0177db4d0e1",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "secret trip",
+            "type": "song",
+            "songUuid": "019e8282-b92f-7d20-bd2e-2189afd4074b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a147-77ad-ba0b-6ef7af87fe4e",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "un, deux, trois",
+            "type": "song",
+            "songUuid": "019e8282-afa5-7e91-9c36-59164936111c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a1b7-789c-8db2-5d73f4cb17d8",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "mede:mede",
+            "type": "song",
+            "songUuid": "019e8282-8ba5-7d40-902b-e994975bf05a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a488-70f4-856d-78cbdc41ff3e",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "SAIREN",
+            "type": "song",
+            "songUuid": "019e8282-9eea-7677-822b-93f7cf6fbc6a",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a4f3-7059-bca2-08bc1715f18b",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "MONSTER",
+            "type": "song",
+            "songUuid": "019e8282-9020-7457-9b15-125dc38bee15",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a558-7ea3-8085-cca8277c1384",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "サイサキ",
+            "type": "song",
+            "songUuid": "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a5b4-762f-ba03-c3d0c2734e30",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "白夜",
+            "type": "song",
+            "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019e82a9-a618-7b4f-8812-1fe1f88a2cf5",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          }
+        ],
+        "posts": [
+          {
+            "liveItemPostUuid": "019e82ab-535b-77db-b74d-04782e1a2e5b",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemPostId": "1885898128211288506",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「秘色録」封入『秘色券』抽選会、<br>本日の「カルチュア・カリキュラム」東京公演でも開催‼︎<br><br>Reol直筆サイン入り限定Tシャツ獲得を狙え‼︎<br>CDは会場でもお買い求めいただけます💿<br><br>※各公演「開演時間」が抽選券引換の締め切りとなります⚠️<a href=\"https://twitter.com/hashtag/Reol%E7%A7%98%E8%89%B2%E9%8C%B2?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol秘色録</a> <a href=\"https://t.co/IsEtOZk3rM\">https://t.co/IsEtOZk3rM</a> <a href=\"https://t.co/gSzUK8Vn2f\">pic.twitter.com/gSzUK8Vn2f</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1885898128211288506?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e82ab-538c-775f-96fd-9b519670e732",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemPostId": "1886004287341580714",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Reol Oneman Live 2025<br>カルチュア・カリキュラム<br><br>at.ZEPP DiverCity<br><br>カルチュア千穐楽！皆さまと歩んできこれまでの歴史と、今しかない感覚が鮮烈に刻み込まれたツアーになりました。この学びの旅が私たちをもっと遠くへ連れて行くことを願って！またお会いしましょう<a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%83%BB%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュア・カリキュラム</a> <a href=\"https://t.co/0WAV6xiXpL\">pic.twitter.com/0WAV6xiXpL</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1886004287341580714?ref_src=twsrc%5Etfw\">February 2, 2025</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e82ab-53bc-7ded-979d-23985a5d19f8",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemPostId": "1886386894927442429",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">音楽ナタリーに『Reol Oneman Live 2025 カルチュア・カリキュラム』東京公演のライヴレポートが掲載されました<br><br>刹那を駆け抜けた学びの旅、その集大成を記録いただきました。是非復習ください✍️<a href=\"https://t.co/PdP3F6XS6S\">https://t.co/PdP3F6XS6S</a><a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a> <a href=\"https://twitter.com/hashtag/Reol?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol</a> <a href=\"https://twitter.com/hashtag/%E9%9F%B3%E6%A5%BD%E3%83%8A%E3%82%BF%E3%83%AA%E3%83%BC?src=hash&amp;ref_src=twsrc%5Etfw\">#音楽ナタリー</a></p>&mdash; Reol OFFICIAL (@RRReol_official) <a href=\"https://twitter.com/RRReol_official/status/1886386894927442429?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
+          },
+          {
+            "liveItemPostUuid": "019e82ab-53e9-7030-bfff-3f89bb93b2ce",
+            "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
+            "liveItemPostId": "1886387378048188914",
+            "liveItemPostHTML": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">昨晩は <a href=\"https://twitter.com/hashtag/%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A5%E3%82%A2%E3%82%AB%E3%83%AA%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%A0?src=hash&amp;ref_src=twsrc%5Etfw\">#カルチュアカリキュラム</a> <br>ファイナル東京公演、ありがとう🪑<br><br>そして11.09横浜アリーナ公演の<br>チケット一般発売がはじまりました<br>カルチュア・カリキュラムを経て<br>学びの章がはじまっています<br>このカルチュアの宛先お見逃しなく<a href=\"https://t.co/LH6Bztl5z7\">https://t.co/LH6Bztl5z7</a><a href=\"https://twitter.com/hashtag/Reol%E6%A8%AA%E3%82%A2%E3%83%AA%E7%84%A1%E9%A1%8C?src=hash&amp;ref_src=twsrc%5Etfw\">#Reol横アリ無題</a> 📨 <a href=\"https://t.co/YEypNFpSJV\">pic.twitter.com/YEypNFpSJV</a></p>&mdash; Reol れをる (@RRReol) <a href=\"https://twitter.com/RRReol/status/1886387378048188914?ref_src=twsrc%5Etfw\">February 3, 2025</a></blockquote>"
+          }
+        ]
+      },
+      {
+        "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
+        "slug": "hong-kong",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "Hong Kong",
+        "date": "2025-06-03",
+        "place": "PORTAL",
+        "placeSite": null,
+        "address": null,
+        "googleMapsUrl": null,
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-a67c-7300-8a73-c9ade343e3de",
+            "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
+            "liveItemSongName": "",
+            "type": null,
+            "songUuid": null,
+            "matchSource": "none"
+          }
+        ],
+        "posts": []
+      },
+      {
+        "liveItemUuid": "019e8284-e07a-7364-a39a-565ade3f71ed",
+        "slug": "guangzhou",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "Guangzhou",
+        "date": "2025-06-06",
+        "place": null,
+        "placeSite": null,
+        "address": null,
+        "googleMapsUrl": null,
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-a6e3-7cb0-a824-7a65c513ea28",
+            "liveItemUuid": "019e8284-e07a-7364-a39a-565ade3f71ed",
+            "liveItemSongName": "",
+            "type": null,
+            "songUuid": null,
+            "matchSource": "none"
+          }
+        ],
+        "posts": []
+      },
+      {
+        "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
+        "slug": "chengdu",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveItemName": "Chengdu",
+        "date": "2025-06-08",
+        "place": null,
+        "placeSite": null,
+        "address": null,
+        "googleMapsUrl": null,
+        "spotifyPlaylistId": null,
+        "setList": [
+          {
+            "liveItemSongUuid": "019e82a9-a7c5-71ab-be8a-7aa8634f8757",
+            "liveItemUuid": "019e8284-e0eb-7cc7-8c5b-9919e849ba61",
+            "liveItemSongName": "",
+            "type": null,
+            "songUuid": null,
+            "matchSource": "none"
+          }
+        ],
+        "posts": []
+      }
+    ],
+    "reports": [
+      {
+        "liveReportUuid": "019e82b1-425f-7767-be2e-2a5d70b7962e",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveReportName": "Reol、100分の濃密パフォーマンスで見せた“新しい幕開け”",
+        "liveReportUrl": "https://natalie.mu/music/news/610228"
       }
     ]
   },

@@ -12,5 +12,21 @@
     "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
     "sourceId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6"
   },
-  "entries": []
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6_entry_019f1dd5-0a80-744f-a109-f6f9bbe65188",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
 }
