@@ -231,6 +231,9 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-1 text-xs"
+                  // dialog 全体の onClick(close)へバブリングすると、環境によっては
+                  // close() がリンク遷移をキャンセルして歌詞リンクが無効になるため止める
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <BiCommentDetail />
                 </a>

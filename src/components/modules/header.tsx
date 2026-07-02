@@ -88,6 +88,9 @@ const TopHeader: React.FC<Props> = ({ title }) => {
                   href="https://reol.jp/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  // dialog 全体の onClick(close)へのバブリングで遷移が
+                  // キャンセルされる環境があるため止める
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <span className="text-letter">Reol</span>
                 </a>
@@ -109,6 +112,7 @@ const TopHeader: React.FC<Props> = ({ title }) => {
                   href="https://twitter.com/twilightplc"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <FaXTwitter className="mr-1 inline text-xs" />
                 </a>
