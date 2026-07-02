@@ -92,6 +92,9 @@ const createDiscographyNodes = async (
     .map((item) => {
       return {
         ...item,
+        // シート上の日付は "2012-6-20" のようにゼロ埋めされていないことがあり、
+        // 文字列比較のソートが壊れる(6月 > 12月 扱い)ため正規化する
+        releaseDate: normalizeIsoDate(item.releaseDate),
         reports: reports
           .filter((song) => item.discographyUuid === song.discographyUuid)
           .sort((a, b) =>
@@ -126,6 +129,15 @@ const createDiscographyNodes = async (
   await writeDataJson("discography.json", discographyWithSongs, {
     mirrorToStatic: true,
   });
+};
+
+// "2012-6-20" のようなゼロ埋めなし日付を "2012-06-20" に正規化する。
+// YYYY-M-D 形式以外(範囲表記・空文字など)はそのまま返す
+const normalizeIsoDate = <T extends string | null | undefined>(value: T): T => {
+  if (!value) return value;
+  const m = value.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (!m) return value;
+  return `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}` as T;
 };
 
 // ライブ開催日のソート用キー。"2026-03-14〜2026-07-18" のような範囲は開始日を使う
