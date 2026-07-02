@@ -697,7 +697,10 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 // ----- 記事 & 会場の静的ページを生成 -----
-export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  actions,
+  graphql,
+}) => {
   const { createPage } = actions;
 
   // 記事ページ — slugは記事データと同期が必要（markdownインポートを含むため直接import不可）
@@ -740,4 +743,132 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
       context: { typeCode: code },
     });
   });
+
+  // ----- 曲詳細ハブページ(/songs/<slug>/) -----
+  // SongStats(演奏統計 + plays)と Discography(クレジット等の追加メタ)を
+  // songUuid で結合し、曲ごとに1ページ生成する。
+  const songResult = await graphql<{
+    songStats: {
+      songStats: {
+        songUuid: string;
+        slug: string;
+        songName: string;
+        discographyUuid: string | null;
+        discographySlug: string | null;
+        totalPlays: number;
+        firstPlayedDate: string | null;
+        lastPlayedDate: string | null;
+        musicVideoUrl: string | null;
+        downloadUrl: string | null;
+        plays: {
+          date: string;
+          place: string | null;
+          liveTitle: string;
+          liveSlug: string;
+          liveItemSlug: string;
+          liveItemName: string | null;
+          liveItemSongUuid: string;
+        }[];
+      }[];
+    } | null;
+    discography: {
+      discographyWithSongs: {
+        songs: {
+          songUuid: string;
+          discographyTitle: string | null;
+          lyricUrl: string | null;
+          spotifyTrackId: string | null;
+          lyricMember: string | null;
+          musicMember: string | null;
+        }[];
+      }[];
+    } | null;
+  }>(`
+    query {
+      songStats {
+        songStats {
+          songUuid
+          slug
+          songName
+          discographyUuid
+          discographySlug
+          totalPlays
+          firstPlayedDate
+          lastPlayedDate
+          musicVideoUrl
+          downloadUrl
+          plays {
+            date
+            place
+            liveTitle
+            liveSlug
+            liveItemSlug
+            liveItemName
+            liveItemSongUuid
+          }
+        }
+      }
+      discography {
+        discographyWithSongs {
+          songs {
+            songUuid
+            discographyTitle
+            lyricUrl
+            spotifyTrackId
+            lyricMember
+            musicMember
+          }
+        }
+      }
+    }
+  `);
+
+  if (songResult.errors) {
+    console.error("[songs] GraphQLクエリでエラーが発生しました", songResult.errors);
+  } else {
+    const songStats = songResult.data?.songStats?.songStats ?? [];
+    // songUuid → クレジット等の追加メタ(discography ノードとの結合)
+    const creditByUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? [])
+        .flatMap((disc) => disc.songs)
+        .map((song) => [song.songUuid, song])
+    );
+
+    const songTemplate = path.resolve("./src/templates/song.tsx");
+    songStats.forEach((song) => {
+      // /songs/stats/ という既存ページと衝突するため、万一 slug が "stats" の曲が
+      // 紛れ込んだ場合はページ生成をスキップする(現データにはない想定の将来ガード)
+      if (song.slug === "stats") {
+        console.warn(
+          `[songs] slug "stats" は /songs/stats/ と衝突するためページ生成をスキップします (songUuid=${song.songUuid})`
+        );
+        return;
+      }
+
+      const credit = creditByUuid.get(song.songUuid);
+      createPage({
+        path: `/songs/${song.slug}/`,
+        component: songTemplate,
+        context: {
+          songUuid: song.songUuid,
+          slug: song.slug,
+          songName: song.songName,
+          discographyUuid: song.discographyUuid,
+          discographySlug: song.discographySlug,
+          discographyTitle: credit?.discographyTitle ?? null,
+          totalPlays: song.totalPlays,
+          firstPlayedDate: song.firstPlayedDate,
+          lastPlayedDate: song.lastPlayedDate,
+          musicVideoUrl: song.musicVideoUrl,
+          downloadUrl: song.downloadUrl,
+          lyricUrl: credit?.lyricUrl ?? null,
+          spotifyTrackId: credit?.spotifyTrackId ?? null,
+          lyricMember: credit?.lyricMember ?? null,
+          musicMember: credit?.musicMember ?? null,
+          plays: song.plays,
+        },
+      });
+    });
+    console.log(`[songs] generated ${songStats.length} song pages`);
+  }
 };

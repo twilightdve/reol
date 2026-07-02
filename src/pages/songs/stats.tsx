@@ -339,6 +339,12 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                           収録アルバムを見る →
                         </Link>
                       )}
+                      <Link
+                        to={`/songs/${s.slug}/`}
+                        className="text-amber-700 hover:text-amber-900 underline"
+                      >
+                        この曲のページへ →
+                      </Link>
                     </div>
                     {/* 公式送客: 統計から「聴く」への導線(公式MV/公式配信リンクのみ) */}
                     {(s.musicVideoUrl || s.downloadUrl) && (

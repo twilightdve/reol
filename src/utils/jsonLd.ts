@@ -85,3 +85,18 @@ export const buildMusicEventItemList = (events: ReturnType<typeof buildMusicEven
     item: event,
   })),
 });
+
+export type MusicRecordingInput = {
+  name: string;
+  /** 収録アルバム名(あれば MusicAlbum として付与) */
+  albumName?: string | null;
+};
+
+/** 曲詳細ページ用の MusicRecording を生成する(performer は REOL_PERFORMER に留める) */
+export const buildMusicRecording = ({ name, albumName }: MusicRecordingInput) => ({
+  "@context": "https://schema.org",
+  "@type": "MusicRecording",
+  name,
+  byArtist: REOL_PERFORMER,
+  ...(albumName ? { inAlbum: { "@type": "MusicAlbum", name: albumName } } : {}),
+});

@@ -395,10 +395,7 @@ const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
   );
   if (hit.kind === "song") {
     return (
-      <Link
-        to={`/songs/stats/?songSlug=${hit.songSlug}#song-${hit.songSlug}`}
-        className="block hover:bg-amber-50/70"
-      >
+      <Link to={`/songs/${hit.songSlug}/`} className="block hover:bg-amber-50/70">
         {inner}
       </Link>
     );
