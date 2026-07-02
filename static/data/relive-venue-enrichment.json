@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17",
+  "policy": "Externally checked metadata snapshot for Zankyo Za-hyo. The build reads this file locally and never fetches venue websites. Capacity is only filled when a public source explicitly states it; otherwise it remains null / needs_web_verification.",
+  "venues": [
+    {
+      "venueIds": ["venue_kt_zepp_yokohama"],
+      "canonicalName": "KT Zepp Yokohama",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/yokohama/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい4-3-6",
+      "capacity": 2146,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1251,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "KT Zepp Yokohama | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/yokohama/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,146; seated configuration 1,251. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_nagoya"],
+      "canonicalName": "Zepp Nagoya",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町4-60-7",
+      "capacity": 1864,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 741,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp Nagoya | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/nagoya/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 1,864; seated configuration 741. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_osaka_bayside"],
+      "canonicalName": "Zepp Osaka Bayside",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/osakabayside/",
+      "address": "〒554-0031 大阪府大阪市此花区桜島1-1-61",
+      "capacity": 2801,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1198,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp Osaka Bayside | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/osakabayside/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,801; seated configuration 1,198. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_divercity", "venue_zepp_divercity_tokyo"],
+      "canonicalName": "Zepp DiverCity (TOKYO)",
+      "aliases": ["Zepp DiverCity", "Zepp DiverCity Tokyo"],
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/divercity/",
+      "address": "〒135-0064 東京都江東区青海1-1-10 ダイバーシティ東京プラザ",
+      "capacity": 2473,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1102,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp DiverCity(TOKYO) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/divercity/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,473; seated configuration 1,102. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_haneda"],
+      "canonicalName": "Zepp Haneda (TOKYO)",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/haneda/",
+      "address": "〒144-0041 東京都大田区羽田空港1-1-4 HANEDA INNOVATION CITY ZONE H",
+      "capacity": 2925,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1207,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp Haneda（TOKYO) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/haneda/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,925; seated configuration 1,207. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_fukuoka"],
+      "canonicalName": "Zepp Fukuoka",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-8639 福岡県福岡市中央区地行浜2-2-1",
+      "capacity": 1526,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 669,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp Fukuoka | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/fukuoka/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 1,526; seated configuration 669. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_namba", "venue_zeep_namba"],
+      "canonicalName": "Zepp Namba (OSAKA)",
+      "aliases": ["Zepp Namba", "Zeep Namba"],
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/namba/",
+      "address": "〒556-0012 大阪府大阪市浪速区敷津東2-1-39",
+      "capacity": 2513,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1206,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp Namba(OSAKA) | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/namba/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,513; seated configuration 1,206. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_zepp_new_taipei"],
+      "canonicalName": "Zepp New Taipei",
+      "type": "live_house",
+      "siteUrl": "https://www.zepp.co.jp/hall/newtaipei/",
+      "address": "新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+      "capacity": 2245,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 1025,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "Zepp New Taipei | Zeppホールネットワーク",
+          "url": "https://www.zepp.co.jp/hall/newtaipei/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 2,245; seated configuration 1,025. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_横浜アリ_ナ"],
+      "canonicalName": "横浜アリーナ",
+      "type": "arena",
+      "siteUrl": "https://www.yokohama-arena.co.jp/",
+      "address": "〒222-0033 神奈川県横浜市港北区新横浜3丁目10番地",
+      "capacity": 17000,
+      "capacityStatus": "verified",
+      "capacityKind": "max",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "概略 | 主な設備のご案内 | 横浜アリーナ",
+          "url": "https://www.yokohama-arena.co.jp/organizer/equipment/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Maximum capacity 17,000. Actual concert capacity depends on stage pattern."]
+    },
+    {
+      "venueIds": ["venue_ぴあアリ_ナmm"],
+      "canonicalName": "ぴあアリーナMM",
+      "type": "arena",
+      "siteUrl": "https://pia-arena-mm.jp/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい3-2-2",
+      "capacity": 12141,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 10057,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "ぴあアリーナMM 施設概要",
+          "url": "https://pia-arena-mm.jp/assets/images/facility_summary.pdf",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Standing capacity 12,141; seated/end-stage reference capacity 10,057. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_国立代々木競技場第一体育館"],
+      "canonicalName": "国立代々木競技場 第一体育館",
+      "type": "arena",
+      "siteUrl": "https://www.jpnsport.go.jp/yoyogi/",
+      "address": "〒150-0041 東京都渋谷区神南2-1-1",
+      "capacity": 12934,
+      "capacityStatus": "verified",
+      "capacityKind": "max",
+      "seatedCapacity": 12898,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "第一体育館 | 施設案内 | 代々木競技場 | JAPAN SPORT COUNCIL",
+          "url": "https://www.jpnsport.go.jp/yoyogi/Default.aspx?TabId=70",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Official page states total 12,898 seats, maximum 12,934 seats."]
+    },
+    {
+      "venueIds": ["venue_tokyo_dome_city_hall"],
+      "canonicalName": "TOKYO DOME CITY HALL",
+      "aliases": ["Kanadevia Hall", "カナデビアホール"],
+      "type": "hall",
+      "siteUrl": "https://www.tokyo-dome.co.jp/tdc-hall/",
+      "address": "〒112-8575 東京都文京区後楽1-3-61",
+      "capacity": 3190,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "seatedCapacity": 2471,
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "貸し会場 | ビジネス利用の方 | 東京ドームシティ",
+          "url": "https://www.tokyo-dome.co.jp/business/event-space/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Official business page lists Kanadevia Hall standing event capacity 3,190 and seated arena event capacity 2,471."]
+    },
+    {
+      "venueIds": ["venue_line_cube_shibuya"],
+      "canonicalName": "LINE CUBE SHIBUYA",
+      "aliases": ["渋谷公会堂"],
+      "type": "hall",
+      "siteUrl": "https://linecubeshibuya.com/",
+      "address": "〒150-8010 東京都渋谷区宇田川町1-1",
+      "capacity": 1956,
+      "capacityStatus": "verified",
+      "capacityKind": "seated",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "施設概要 - LINE CUBE SHIBUYA（渋谷公会堂）",
+          "url": "https://linecubeshibuya.com/facility",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Seat count 1,956, including 126 orchestra-pit seats."]
+    },
+    {
+      "venueIds": ["venue_オリックス劇場"],
+      "canonicalName": "オリックス劇場",
+      "type": "hall",
+      "siteUrl": "https://www.orixtheater.jp/",
+      "address": "〒550-0013 大阪府大阪市西区新町1丁目14番15号",
+      "capacity": 2400,
+      "capacityStatus": "verified",
+      "capacityKind": "seated",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "施設案内｜オリックス劇場 ORIX THEATER",
+          "url": "https://www.orixtheater.jp/information/guide/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Seat count 2,400; 2,356 when orchestra pit is used."]
+    },
+    {
+      "venueIds": ["venue_フェスティバルホ_ル"],
+      "canonicalName": "フェスティバルホール",
+      "type": "hall",
+      "siteUrl": "https://www.festivalhall.jp/",
+      "address": "〒530-0005 大阪府大阪市北区中之島2丁目3-18",
+      "capacity": 2700,
+      "capacityStatus": "verified",
+      "capacityKind": "seated",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "ホールのご紹介 | フェスティバルホール",
+          "url": "https://www.festivalhall.jp/about/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Corrects keyword-only type inference from outdoor_festival to hall."]
+    },
+    {
+      "venueIds": ["venue_なんばhatch"],
+      "canonicalName": "なんばHatch",
+      "type": "live_house",
+      "siteUrl": "https://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町1丁目3-1",
+      "capacity": 1931,
+      "capacityStatus": "verified",
+      "capacityKind": "max",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "本館施設／なんばHatch | 湊町リバープレイス",
+          "url": "https://www.oud.co.jp/riverplace/about/namba-hatch.html",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Maximum capacity 1,931. Layout varies by event."]
+    },
+    {
+      "venueIds": ["venue_旭川casino_drive"],
+      "canonicalName": "旭川CASINO DRIVE",
+      "type": "live_house",
+      "siteUrl": "https://www.casinodrive.info/",
+      "address": "〒070-0034 北海道旭川市4条通8丁目1703-5 アピスホール4階",
+      "capacity": 300,
+      "capacityStatus": "verified",
+      "capacityKind": "standing",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "ライブハウス | Casino drive | 旭川市",
+          "url": "https://www.casinodrive.info/",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Official site lists capacity 300 and current 4条通 address."]
+    },
+    {
+      "venueIds": ["venue_神戸harbor_studio", "venue_神戸ハ_バ_スタジオ"],
+      "canonicalName": "神戸Harbor Studio",
+      "aliases": ["神戸ハーバースタジオ"],
+      "type": "live_house",
+      "siteUrl": "https://harbor-studio.net/",
+      "address": "〒650-0042 兵庫県神戸市中央区波止場町6-3 甲陽運輸内1F",
+      "capacity": 600,
+      "capacityStatus": "verified",
+      "capacityKind": "max",
+      "capacityRange": { "min": 200, "max": 600 },
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "文化施設利用サポート緊急事業 登録施設一覧",
+          "url": "https://www.city.kobe.lg.jp/documents/63800/00_4_shisetsuichiran_20230828.pdf",
+          "sourceType": "public_agency",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Kobe City facility list states capacity 600. Some current venue notices may apply temporary or event-specific limits."]
+    },
+    {
+      "venueIds": ["venue_日本武道館"],
+      "canonicalName": "日本武道館",
+      "type": "arena",
+      "siteUrl": "https://www.nipponbudokan.or.jp/",
+      "address": "〒102-8321 東京都千代田区北の丸公園2番3号",
+      "capacity": 14471,
+      "capacityStatus": "verified",
+      "capacityKind": "max",
+      "verifiedAt": "2026-05-17",
+      "sources": [
+        {
+          "title": "月刊武道 2017年4月号",
+          "url": "https://www.nipponbudokan.or.jp/pdf/201704.pdf",
+          "sourceType": "official",
+          "fields": ["name", "siteUrl", "address", "capacity"]
+        }
+      ],
+      "notes": ["Official Budokan publication states maximum capacity 14,471."]
+    }
+  ]
+}

@@ -1,0 +1,1024 @@
+{
+  "tochigi_heavens_rock": {
+    "parking": [
+      {
+        "name": "宇都宮パセオ駐車場",
+        "website": "https://www.utsunomiya-sk.com/paseo/access/",
+        "description": "宇都宮パセオ駐車場の駐車場情報"
+      },
+      {
+        "name": "JR宇都宮駅西口地下駐車場",
+        "website": "https://www.n-parking.com/park/park007.php",
+        "mapsUrl": "https://www.google.com/maps/search/JR宇都宮駅西口地下駐車場",
+        "description": "JR宇都宮駅西口地下駐車場の駐車場情報"
+      },
+      {
+        "name": "トナリエ宇都宮駐車場",
+        "website": "https://tonarie.jp/utsunomiya/access.php",
+        "mapsUrl": "https://www.google.com/maps/search/ララスクエア宇都宮+駐車場",
+        "description": "トナリエ宇都宮駐車場の駐車場情報"
+      },
+      {
+        "name": "タイムズ宇都宮駅前",
+        "website": "https://times-info.net/P09-tochigi/line/L4900/S1639/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+宇都宮駅前",
+        "description": "タイムズ宇都宮駅前の駐車場情報"
+      },
+      {
+        "name": "宇都宮市営中央駐車場",
+        "website": "https://www.city.utsunomiya.lg.jp/kurashi/kotsu/chushajo/1006138.html",
+        "mapsUrl": "https://www.google.com/maps/search/宇都宮市営中央駐車場",
+        "description": "宇都宮市営中央駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR宇都宮駅構内（改札内）",
+        "website": "https://www.jreast.co.jp/estation/stations/248.html",
+        "description": "JR宇都宮駅構内（改札内）のコインロッカー"
+      },
+      {
+        "name": "JR宇都宮駅構内（改札外）",
+        "website": "https://www.jreast.co.jp/estation/stations/248.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR宇都宮駅+コインロッカー",
+        "description": "JR宇都宮駅構内（改札外）のコインロッカー"
+      },
+      {
+        "name": "宇都宮パセオ館内",
+        "website": "https://www.utsunomiya-sk.com/paseo/floor/",
+        "description": "宇都宮パセオ館内のコインロッカー"
+      },
+      {
+        "name": "トナリエ宇都宮",
+        "website": "https://tonarie.jp/utsunomiya/",
+        "mapsUrl": "https://www.google.com/maps/search/ララスクエア宇都宮",
+        "description": "トナリエ宇都宮のコインロッカー"
+      },
+      {
+        "name": "東武宇都宮駅構内",
+        "website": "https://www.tobu.co.jp/railway/guide/station/insidemap/4112/",
+        "mapsUrl": "https://www.google.com/maps/search/東武宇都宮駅",
+        "description": "東武宇都宮駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス パセオ宇都宮店",
+        "website": "https://store.starbucks.co.jp/detail-522/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+宇都宮パセオ",
+        "description": "スターバックス パセオ宇都宮店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 宇都宮駅東店",
+        "website": "https://www.komeda.co.jp/shop/detail.html?id=1053",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+宇都宮駅東",
+        "description": "コメダ珈琲店 宇都宮駅東店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "タリーズコーヒー 宇都宮店",
+        "website": "https://shop.tullys.co.jp/detail/1920773",
+        "mapsUrl": "https://www.google.com/maps/search/タリーズコーヒー+宇都宮",
+        "description": "タリーズコーヒー 宇都宮店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "餃子の正嗣 宮島本店",
+        "website": "https://tabelog.com/tochigi/A0901/A090101/9000046/",
+        "mapsUrl": "https://www.google.com/maps/search/餃子の正嗣+宮島本店+宇都宮",
+        "description": "餃子の正嗣 宮島本店で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "みんみん 本店",
+        "website": "https://tabelog.com/tochigi/A0901/A090101/9000045/",
+        "mapsUrl": "https://www.google.com/maps/search/みんみん+本店+宇都宮",
+        "description": "みんみん 本店で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "ガスト 宇都宮駅前店",
+        "website": "https://store-info.skylark.co.jp/gusto/map/011940/",
+        "mapsUrl": "https://www.google.com/maps/search/ガスト+宇都宮駅前",
+        "description": "ガスト 宇都宮駅前店で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "tokushima_grindhouse": {
+    "parking": [
+      {
+        "name": "タイムズ徳島駅前",
+        "website": "https://times-info.net/P36-tokushima/line/L40900/S7218/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+徳島駅前",
+        "description": "タイムズ徳島駅前の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR徳島駅構内",
+        "website": "https://www.jr-shikoku.co.jp/01_trainbus/kakueki/tokushima/kounai_map.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR徳島駅",
+        "description": "JR徳島駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 徳島駅前店",
+        "website": "https://store.starbucks.co.jp/detail-976/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+徳島駅前",
+        "description": "スターバックス 徳島駅前店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "徳島ラーメン ふく利",
+        "website": "https://tabelog.com/tokushima/A3601/A360102/36000024/",
+        "mapsUrl": "https://www.google.com/maps/search/徳島ラーメンふく利+徳島市",
+        "description": "徳島ラーメン ふく利で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "yamaguchi_rising_hall": {
+    "parking": [
+      {
+        "name": "徳山駅前駐車場",
+        "website": "https://share.google/7U3aXb05KtuI35Bkr",
+        "mapsUrl": "https://www.google.com/maps/search/徳山駅+駐車場",
+        "description": "徳山駅前駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR徳山駅構内",
+        "website": "https://eki.jr-odekake.net/premises?id=0800638",
+        "mapsUrl": "https://www.google.com/maps/search/JR徳山駅",
+        "description": "JR徳山駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "コメダ珈琲店 徳山店",
+        "website": "https://www.komeda.co.jp/shop/detail.html?id=771",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+徳山",
+        "description": "コメダ珈琲店 徳山店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [],
+    "holyPlace": []
+  },
+  "hyogo_harbor_studio": {
+    "parking": [
+      {
+        "name": "umie駐車場",
+        "website": "https://harborland.co.jp/parking/",
+        "mapsUrl": "https://www.google.com/maps/search/umie+駐車場",
+        "description": "umie駐車場の駐車場情報"
+      },
+      {
+        "name": "メリケンパーク駐車場",
+        "website": "https://times-info.net/P28-hyogo/C110/park-detail-BUK0017660/",
+        "mapsUrl": "https://www.google.com/maps/search/メリケンパーク+駐車場",
+        "description": "メリケンパーク駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR神戸駅構内",
+        "website": "https://eki.jr-odekake.net/premises?id=0610145",
+        "mapsUrl": "https://www.google.com/maps/search/JR神戸駅",
+        "description": "JR神戸駅構内のコインロッカー"
+      },
+      {
+        "name": "地下鉄みなと元町駅構内",
+        "website": "https://coinlocker.click/minatomotomachi-kobe-subway-station.php",
+        "mapsUrl": "https://www.google.com/maps/search/みなと元町駅",
+        "description": "地下鉄みなと元町駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス umie店",
+        "website": "https://store.starbucks.co.jp/detail-1146/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+umie",
+        "description": "スターバックス umie店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "タリーズコーヒー メリケンパーク店",
+        "website": "https://shop.tullys.co.jp/detail/1680287",
+        "mapsUrl": "https://www.google.com/maps/search/タリーズコーヒー+メリケンパーク",
+        "description": "タリーズコーヒー メリケンパーク店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "ハーバーランド umie",
+        "website": "https://umie.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/umie+神戸ハーバーランド",
+        "description": "ハーバーランド umieで地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "神戸牛ステーキ 鉄板焼 桜",
+        "website": "https://www.saidining.com/sakura/",
+        "mapsUrl": "https://www.google.com/maps/search/神戸牛鉄板焼+神戸ハーバーランド",
+        "description": "神戸牛ステーキ 鉄板焼 桜で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "mie_maxa": {
+    "parking": [
+      {
+        "name": "JR松阪駅前駐車場",
+        "website": "https://share.google/FXYAq0klpQJEiBBW3",
+        "mapsUrl": "https://www.google.com/maps/search/JR松阪駅前駐車場",
+        "description": "JR松阪駅前駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR松阪駅構内",
+        "website": "https://railway.jr-central.co.jp/station-guide/tokai/matsusaka/map.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR松阪駅",
+        "description": "JR松阪駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス コーヒー 松阪川井店",
+        "website": "https://store.starbucks.co.jp/detail-1498/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+松阪駅前",
+        "description": "スターバックス コーヒー 松阪川井店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [],
+    "holyPlace": []
+  },
+  "aomori_quarter": {
+    "parking": [
+      {
+        "name": "青森駅前駐車場",
+        "website": "https://times-info.net/P02-aomori/C201/park-detail-BUK0078339/",
+        "mapsUrl": "https://www.google.com/maps/search/青森駅前駐車場",
+        "description": "青森駅前駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR青森駅構内",
+        "website": "https://www.jreast.co.jp/estation/stations/25.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR青森駅",
+        "description": "JR青森駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 青森駅前店",
+        "website": "https://store.starbucks.co.jp/detail-4395/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+青森駅前",
+        "description": "スターバックス 青森駅前店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "青森魚菜センター（のっけ丼）",
+        "website": "https://nokkedon.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/青森魚菜センター",
+        "description": "青森魚菜センター（のっけ丼）で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "nagasaki_drum_be7": {
+    "parking": [
+      {
+        "name": "タイムズ長崎浜町",
+        "website": "https://times-info.net/P42-nagasaki/C201/park-detail-BUK0025371/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+長崎浜町",
+        "description": "タイムズ長崎浜町の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "長崎電気軌道 築町電停",
+        "website": "https://coinlocker-navi.com/nagasaki/eki/99916/",
+        "mapsUrl": "https://www.google.com/maps/search/築町電停",
+        "description": "長崎電気軌道 築町電停のコインロッカー"
+      }
+    ],
+    "cafe": [],
+    "restaurant": [
+      {
+        "name": "吉宗（よっそう）",
+        "website": "https://yossou.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/吉宗+長崎",
+        "description": "吉宗（よっそう）で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "kumamoto_b9": {
+    "parking": [
+      {
+        "name": "タイムズ通町筋",
+        "website": "https://times-info.net/P43-kumamoto/line/L54200/S9408/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+通町筋+熊本",
+        "description": "タイムズ通町筋の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "熊本市電・通町筋電停",
+        "website": "https://cloak.ecbo.io/ja/jpn/city/kumamoto/497",
+        "mapsUrl": "https://www.google.com/maps/search/熊本市電+通町筋電停",
+        "description": "熊本市電・通町筋電停のコインロッカー"
+      },
+      {
+        "name": "下通りアーケード",
+        "website": "https://cloak.ecbo.io/ja/jpn/city/kumamoto/1171",
+        "mapsUrl": "https://www.google.com/maps/search/下通りアーケード+熊本",
+        "description": "下通りアーケードのコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 熊本Ｎｅｗ－Ｓ店",
+        "website": "https://store.starbucks.co.jp/detail-340/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+熊本下通",
+        "description": "スターバックス 熊本Ｎｅｗ－Ｓ店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 通町筋店",
+        "website": "https://www.komeda.co.jp/shop/detail.html?id=1169",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+通町筋",
+        "description": "コメダ珈琲店 通町筋店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "勝烈亭",
+        "website": "https://hayashi-sangyo.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/勝烈亭+熊本",
+        "description": "勝烈亭で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "黒亭",
+        "website": "https://www.kokutei.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/黒亭+熊本",
+        "description": "黒亭で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "okinawa_sakurazaka": {
+    "parking": [
+      {
+        "name": "タイムズ桜坂",
+        "website": "https://times-info.net/P40-fukuoka/C133/park-detail-BUK0031920/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+桜坂+那覇",
+        "description": "タイムズ桜坂の駐車場情報"
+      },
+      {
+        "name": "パレット久茂地駐車場",
+        "website": "https://www.palette-kumoji.co.jp/accessparking",
+        "mapsUrl": "https://www.google.com/maps/search/パレット久茂地",
+        "description": "パレット久茂地駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "ゆいレール牧志駅構内",
+        "website": "https://www.yui-rail.co.jp/routemap/makishi/",
+        "mapsUrl": "https://www.google.com/maps/search/ゆいレール牧志駅",
+        "description": "ゆいレール牧志駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [],
+    "restaurant": [
+      {
+        "name": "ステーキハウス88",
+        "website": "https://s88.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/ステーキハウス88+那覇",
+        "description": "ステーキハウス88で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "asahikawa_casino_drive": {
+    "parking": [
+      {
+        "name": "旭川駅前広場駐車場",
+        "website": "https://www.city.asahikawa.hokkaido.jp/kurashi/440/443/444/p004266.html",
+        "mapsUrl": "https://www.google.com/maps/search/旭川駅+駐車場",
+        "description": "旭川駅前広場駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR旭川駅構内",
+        "website": "https://www.coinlocker-navi.com/hokkaido/eki/11103/1110342/",
+        "mapsUrl": "https://www.google.com/maps/search/JR旭川駅",
+        "description": "JR旭川駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス イオンモール旭川駅前店",
+        "website": "https://store.starbucks.co.jp/detail-1266/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+旭川駅",
+        "description": "スターバックス イオンモール旭川駅前店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "旭川ラーメン村",
+        "website": "https://www.ramenmura.com/",
+        "mapsUrl": "https://www.google.com/maps/search/旭川ラーメン村",
+        "description": "旭川ラーメン村で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "sapporo_penny_lane": {
+    "parking": [
+      {
+        "name": "タイムズ すすきの",
+        "website": "https://times-info.net/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+すすきの",
+        "description": "タイムズ すすきのの駐車場情報"
+      },
+      {
+        "name": "ノルベサ駐車場",
+        "website": "https://www.norbesa.jp/access/",
+        "mapsUrl": "https://www.google.com/maps/search/ノルベサ+駐車場",
+        "description": "ノルベサ駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "地下鉄すすきの駅構内",
+        "website": "https://www.city.sapporo.jp/st/subway/ekikonaizu/documents/n08sususkino20240202.pdf",
+        "mapsUrl": "https://www.google.com/maps/search/地下鉄すすきの駅",
+        "description": "地下鉄すすきの駅構内のコインロッカー"
+      },
+      {
+        "name": "ノルベサ",
+        "website": "https://www.norbesa.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/ノルベサ+すすきの",
+        "description": "ノルベサのコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス すすきの店",
+        "website": "https://www.starbucks.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+すすきの",
+        "description": "スターバックス すすきの店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 大通ビッセ店",
+        "website": "https://www.komeda.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+大通ビッセ",
+        "description": "コメダ珈琲店 大通ビッセ店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "元祖さっぽろラーメン横丁",
+        "website": "https://www.ganso-yokocho.com/",
+        "mapsUrl": "https://www.google.com/maps/search/すすきのラーメン横丁",
+        "description": "元祖さっぽろラーメン横丁で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "ジンギスカン だるま",
+        "website": "https://www.sapporo-jingisukan.info/",
+        "mapsUrl": "https://www.google.com/maps/search/ジンギスカンだるま+すすきの",
+        "description": "ジンギスカン だるまで地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "yokohama_bayhall": {
+    "parking": [
+      {
+        "name": "ぴあアリーナMM駐車場",
+        "website": "https://www.pia-arena-mm.jp/access/",
+        "mapsUrl": "https://www.google.com/maps/search/ぴあアリーナMM",
+        "description": "ぴあアリーナMM駐車場の駐車場情報"
+      },
+      {
+        "name": "クイーンズスクエア横浜駐車場",
+        "website": "https://www.qsy-tqc.jp/access/",
+        "mapsUrl": "https://www.google.com/maps/search/クイーンズスクエア横浜+駐車場",
+        "description": "クイーンズスクエア横浜駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "みなとみらい駅構内",
+        "website": "https://www.mm21railway.co.jp/station/minatomirai/stationmap.html",
+        "mapsUrl": "https://www.google.com/maps/search/みなとみらい駅",
+        "description": "みなとみらい駅構内のコインロッカー"
+      },
+      {
+        "name": "クイーンズスクエア横浜",
+        "website": "https://www.qsy-tqc.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/クイーンズスクエア横浜",
+        "description": "クイーンズスクエア横浜のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス みなとみらい店",
+        "website": "https://www.starbucks.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+みなとみらい",
+        "description": "スターバックス みなとみらい店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 クイーンズスクエア店",
+        "website": "https://www.komeda.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+クイーンズスクエア",
+        "description": "コメダ珈琲店 クイーンズスクエア店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "クイーンズスクエア横浜",
+        "website": "https://www.qsy-tqc.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/クイーンズスクエア横浜",
+        "description": "クイーンズスクエア横浜で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "横浜中華街",
+        "website": "https://www.chinatown.or.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/横浜中華街",
+        "description": "横浜中華街で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "nagano_junk_box": {
+    "parking": [
+      {
+        "name": "長野駅東口駐車場",
+        "website": "https://www.city.nagano.nagano.jp/n180500/contents/p001180.html",
+        "mapsUrl": "https://www.google.com/maps/search/長野駅東口駐車場",
+        "description": "長野駅東口駐車場の駐車場情報"
+      },
+      {
+        "name": "権堂パーキング",
+        "website": "https://www.nagaden-net.co.jp/group/parking/gondo",
+        "mapsUrl": "https://www.google.com/maps/search/権堂パーキング+長野",
+        "description": "権堂パーキングの駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR長野駅構内",
+        "website": "https://www.jreast.co.jp/estation/stations/1105.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR長野駅",
+        "description": "JR長野駅構内のコインロッカー"
+      },
+      {
+        "name": "長野電鉄権堂駅",
+        "website": "https://www.nagaden-net.co.jp/info/station/gondo",
+        "mapsUrl": "https://www.google.com/maps/search/長野電鉄権堂駅",
+        "description": "長野電鉄権堂駅のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 長野駅店",
+        "website": "https://store.starbucks.co.jp/detail-497/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+長野駅",
+        "description": "スターバックス 長野駅店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 長野駅東口公園店",
+        "website": "https://www.komeda.co.jp/shop/detail.html?id=1145",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+長野権堂",
+        "description": "コメダ珈琲店 長野駅東口公園店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "権堂商店街",
+        "website": "https://nagano-gondo.com/",
+        "mapsUrl": "https://www.google.com/maps/search/権堂商店街+長野",
+        "description": "権堂商店街で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": [
+      {
+        "name": "信州蕎麦の草笛 MIDORI店",
+        "website": "https://kusabue-nagano.owst.jp/",
+        "mapsUrl": "https://www.google.com/maps/place/%E4%BF%A1%E5%B7%9E%E8%95%8E%E9%BA%A6%E3%81%AE%E8%8D%89%E7%AC%9B/",
+        "description": "れをる関連の聖地: 信州蕎麦の草笛 MIDORI店",
+        "type": "MV/作品関連"
+      }
+    ]
+  },
+  "niigata_lots": {
+    "parking": [
+      {
+        "name": "タイムズ古町",
+        "website": "https://times-info.net/P15-niigata/C103/A157/SC00000001-max_fee/",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+古町+新潟",
+        "description": "タイムズ古町の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR新潟駅構内",
+        "website": "https://www.jreast.co.jp/estation/stations/1137.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR新潟駅",
+        "description": "JR新潟駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 新潟万代シテイ店",
+        "website": "https://store.starbucks.co.jp/detail-238/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+新潟万代",
+        "description": "スターバックス 新潟万代シテイ店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 新潟古町店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+新潟古町",
+        "description": "コメダ珈琲店 新潟古町店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [],
+    "holyPlace": []
+  },
+  "kyoto_fanj": {
+    "parking": [
+      {
+        "name": "京都マルイ駐車場",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/京都マルイ+駐車場",
+        "description": "京都マルイ駐車場の駐車場情報"
+      },
+      {
+        "name": "タイムズ河原町",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+河原町+京都",
+        "description": "タイムズ河原町の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "阪急河原町駅構内",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/阪急河原町駅",
+        "description": "阪急河原町駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 京都河原町店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+京都河原町",
+        "description": "スターバックス 京都河原町店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 河原町三条店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+河原町三条",
+        "description": "コメダ珈琲店 河原町三条店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [],
+    "holyPlace": []
+  },
+  "gifu_club_g": {
+    "parking": [
+      {
+        "name": "岐阜駅前駐車場",
+        "website": "https://www.google.com/maps/search/岐阜駅前駐車場",
+        "mapsUrl": "https://www.google.com/maps/search/岐阜駅前駐車場",
+        "description": "岐阜駅前駐車場の駐車場情報"
+      },
+      {
+        "name": "タイムズ柳ヶ瀬",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/タイムズ+柳ヶ瀬+岐阜",
+        "description": "タイムズ柳ヶ瀬の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR岐阜駅構内",
+        "website": "https://railway.jr-central.co.jp/station-guide/tokai/gifu/map.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR岐阜駅",
+        "description": "JR岐阜駅構内のコインロッカー"
+      },
+      {
+        "name": "名鉄岐阜駅構内",
+        "website": "https://www.meitetsu.co.jp/train/station_info/line01/station/1253.html",
+        "mapsUrl": "https://www.google.com/maps/search/名鉄岐阜駅",
+        "description": "名鉄岐阜駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス ASTY岐阜店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+岐阜駅",
+        "description": "スターバックス ASTY岐阜店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "コメダ珈琲店 柳ヶ瀬店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/コメダ珈琲店+柳ヶ瀬",
+        "description": "コメダ珈琲店 柳ヶ瀬店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "柳ヶ瀬商店街",
+        "website": "https://yanagase-gifu.com/",
+        "mapsUrl": "https://www.google.com/maps/search/柳ヶ瀬商店街+岐阜",
+        "description": "柳ヶ瀬商店街で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "sendai_talknet_hall": {
+    "parking": [
+      {
+        "name": "勾当台公園地下駐車場",
+        "website": "https://www.city.sendai.jp/somu-chose/kurashi/machi/kotsu/chushajo/annai/chushajo/",
+        "mapsUrl": "https://www.google.com/maps/search/勾当台公園地下駐車場",
+        "description": "勾当台公園地下駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "地下鉄勾当台公園駅構内",
+        "website": "https://www.kotsu.city.sendai.jp/subway/station/pdf/gb05.pdf",
+        "mapsUrl": "https://www.google.com/maps/search/地下鉄勾当台公園駅",
+        "description": "地下鉄勾当台公園駅構内のコインロッカー"
+      },
+      {
+        "name": "JR仙台駅構内",
+        "website": "https://www.jreast.co.jp/estation/stations/913.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR仙台駅",
+        "description": "JR仙台駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 仙台国分町店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+仙台国分町",
+        "description": "スターバックス 仙台国分町店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "タリーズコーヒー 仙台一番町店",
+        "website": "会場から遠いので対象外",
+        "mapsUrl": "https://www.google.com/maps/search/タリーズコーヒー+仙台一番町",
+        "description": "タリーズコーヒー 仙台一番町店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "牛タン 利久",
+        "website": "https://tabelog.com/miyagi/A0401/A040101/4022012/",
+        "mapsUrl": "https://www.google.com/maps/search/牛タン利久+仙台",
+        "description": "牛タン 利久で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "国分町飲み屋街",
+        "website": "https://1000bero.net/town_miyagi/",
+        "mapsUrl": "https://www.google.com/maps/search/国分町+仙台+飲み屋",
+        "description": "国分町飲み屋街で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "osaka_orix_theater": {
+    "parking": [],
+    "coinLocker": [
+      {
+        "name": "地下鉄四ツ橋駅構内",
+        "website": "https://subway.osakametro.co.jp/station_guide/Y/Y14/index.php",
+        "mapsUrl": "https://www.google.com/maps/search/地下鉄四ツ橋駅",
+        "description": "地下鉄四ツ橋駅構内のコインロッカー"
+      },
+      {
+        "name": "クリスタ長堀",
+        "website": "https://www.crystanagahori.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/クリスタ長堀",
+        "description": "クリスタ長堀のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 四ツ橋店",
+        "website": "https://store.starbucks.co.jp/detail-248/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+四ツ橋",
+        "description": "スターバックス 四ツ橋店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "すき家・松屋",
+        "website": "ありふれすぎているためNG",
+        "mapsUrl": "https://www.google.com/maps/search/すき家+大阪四ツ橋",
+        "description": "すき家・松屋で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "fukuoka_convention_center": {
+    "parking": [
+      {
+        "name": "福岡国際会議場周辺駐車場",
+        "website": "https://unlocks.jp/w/?id=w8516215a36dba648&cids=266,278&catalog=false",
+        "mapsUrl": "https://www.google.com/maps/search/福岡国際会議場",
+        "description": "福岡国際会議場周辺駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [],
+    "cafe": [],
+    "restaurant": [
+      {
+        "name": "博多一風堂",
+        "website": "ありふれすぎているためNG",
+        "mapsUrl": "https://www.google.com/maps/search/一風堂+博多",
+        "description": "博多一風堂で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": []
+  },
+  "nagoya_kokaido": {
+    "parking": [
+      {
+        "name": "鶴舞公園南駐車場",
+        "website": "https://ssparking.co.jp/detail/%E9%B6%B4%E8%88%9E%E5%85%AC%E5%9C%92%E5%8D%97%E9%A7%90%E8%BB%8A%E5%A0%B4/",
+        "mapsUrl": "https://www.google.com/maps/search/鶴舞公園地下駐車場",
+        "description": "鶴舞公園南駐車場の駐車場情報"
+      },
+      {
+        "name": "名鉄協商パーキング 鶴舞",
+        "website": "https://mkp.jp/search/detail/004575-0/?utm_source=gbp&utm_medium=profile&utm_campaign=4575",
+        "mapsUrl": "https://www.google.com/maps/search/名鉄協商パーキング+鶴舞",
+        "description": "名鉄協商パーキング 鶴舞の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR鶴舞駅構内",
+        "website": "https://railway.jr-central.co.jp/station-guide/tokai/tsurumai/map.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR鶴舞駅",
+        "description": "JR鶴舞駅構内のコインロッカー"
+      },
+      {
+        "name": "地下鉄鶴舞駅構内",
+        "website": "https://www.kotsu.city.nagoya.jp/jp/pc/subway/station_top.html?name=%E9%B6%B4%E8%88%9E",
+        "mapsUrl": "https://www.google.com/maps/search/地下鉄鶴舞駅",
+        "description": "地下鉄鶴舞駅構内のコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス イオンタウン千種店",
+        "website": "https://store.starbucks.co.jp/detail-615/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+鶴舞駅",
+        "description": "スターバックス イオンタウン千種店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [],
+    "holyPlace": []
+  },
+  "tokyo_line_cube": {
+    "parking": [
+      {
+        "name": "渋谷マークシティ駐車場",
+        "website": "https://www.shibuya-mark-city.com/access/",
+        "mapsUrl": "https://www.google.com/maps/search/渋谷マークシティ+駐車場",
+        "description": "渋谷マークシティ駐車場の駐車場情報"
+      },
+      {
+        "name": "渋谷ヒカリエ駐車場",
+        "website": "https://www.hikarie.jp/access/",
+        "mapsUrl": "https://www.google.com/maps/search/渋谷ヒカリエ+駐車場",
+        "description": "渋谷ヒカリエ駐車場の駐車場情報"
+      }
+    ],
+    "coinLocker": [
+      {
+        "name": "JR渋谷駅構内",
+        "website": "https://www.jreast.co.jp/estation/stations/866.html",
+        "mapsUrl": "https://www.google.com/maps/search/JR渋谷駅",
+        "description": "JR渋谷駅構内のコインロッカー"
+      },
+      {
+        "name": "渋谷マークシティ",
+        "website": "https://www.shibuya-mark-city.com/",
+        "mapsUrl": "https://www.google.com/maps/search/渋谷マークシティ",
+        "description": "渋谷マークシティのコインロッカー"
+      },
+      {
+        "name": "渋谷ヒカリエ",
+        "website": "https://www.hikarie.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/渋谷ヒカリエ",
+        "description": "渋谷ヒカリエのコインロッカー"
+      }
+    ],
+    "cafe": [
+      {
+        "name": "スターバックス 渋谷マークシティ店",
+        "website": "https://www.starbucks.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/スターバックス+渋谷マークシティ",
+        "description": "スターバックス 渋谷マークシティ店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "タリーズコーヒー 道玄坂店",
+        "website": "https://www.tullys.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/タリーズコーヒー+道玄坂",
+        "description": "タリーズコーヒー 道玄坂店でライブ前後の休憩に最適"
+      },
+      {
+        "name": "ドトールコーヒー 渋谷駅前店",
+        "website": "https://www.doutor.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/ドトールコーヒー+渋谷駅前",
+        "description": "ドトールコーヒー 渋谷駅前店でライブ前後の休憩に最適"
+      }
+    ],
+    "restaurant": [
+      {
+        "name": "渋谷食堂街",
+        "website": "https://www.google.com/maps/search/渋谷+飲食店",
+        "mapsUrl": "https://www.google.com/maps/search/渋谷+飲食店",
+        "description": "渋谷食堂街で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "道玄坂 鳥心",
+        "website": "https://www.google.com/maps/search/鳥心+道玄坂+渋谷",
+        "mapsUrl": "https://www.google.com/maps/search/鳥心+道玄坂+渋谷",
+        "description": "道玄坂 鳥心で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      },
+      {
+        "name": "ひもの屋",
+        "website": "https://www.shimonya.co.jp/",
+        "mapsUrl": "https://www.google.com/maps/search/ひもの屋+渋谷",
+        "description": "ひもの屋で地元のグルメを楽しめます",
+        "cuisine": "地元料理"
+      }
+    ],
+    "holyPlace": [
+      {
+        "name": "スタジオ Booty 5Fサイバーエリア",
+        "website": "http://bootyjapan.jp/tokyo/gallery/floor_05",
+        "mapsUrl": "https://www.google.com/maps/place/Booty%E6%9D%B1%E4%BA%AC/",
+        "description": "れをる関連の聖地: スタジオ Booty 5Fサイバーエリア",
+        "type": "MV/作品関連"
+      },
+      {
+        "name": "ローズガーデン新宿",
+        "mapsUrl": "https://www.google.com/maps/",
+        "description": "れをる関連の聖地: ローズガーデン新宿",
+        "type": "MV/作品関連"
+      },
+      {
+        "name": "浄土宗 梅窓院",
+        "website": "https://www.baisouin.or.jp/",
+        "mapsUrl": "https://www.google.com/maps/place/%E6%B5%84%E5%9C%9F%E5%AE%97+%E6%A2%85%E7%AA%93%E9%99%A2/",
+        "description": "れをる関連の聖地: 浄土宗 梅窓院",
+        "type": "MV/作品関連"
+      },
+      {
+        "name": "THE GARAGE (Little TAO)",
+        "mapsUrl": "https://www.google.com/maps/place/THE+GARAGE/",
+        "description": "れをる関連の聖地: THE GARAGE (Little TAO)",
+        "type": "MV/作品関連"
+      }
+    ]
+  }
+}
