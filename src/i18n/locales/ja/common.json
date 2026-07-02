@@ -1,4 +1,7 @@
 {
+  "ui": {
+    "retry": "再試行"
+  },
   "attendees": {
     "title": "参加者一覧",
     "count": "名",

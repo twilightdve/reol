@@ -76,6 +76,7 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
       <ErrorRetry
         tone="dark"
         title={t('venueSelector.generalError')}
+        actionLabel={t('ui.retry')}
         onRetry={() => setAttempt((v) => v + 1)}
       />
     );

@@ -1,4 +1,7 @@
 {
+  "ui": {
+    "retry": "Retry"
+  },
   "attendees": {
     "title": "Attendee List",
     "count": "",

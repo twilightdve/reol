@@ -245,6 +245,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
       <div className="py-6">
         <ErrorRetry
           title={t('venueSelector.generalError')}
+          actionLabel={t('ui.retry')}
           onRetry={loadVoteData}
         />
       </div>
@@ -799,6 +800,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
               ) : votersError ? (
                 <ErrorRetry
                   title={t('setlist.votersLoadFailed')}
+                  actionLabel={t('ui.retry')}
                   onRetry={() =>
                     votersModalSong &&
                     openVotersModal(votersModalSong.songUuid, votersModalSong.songName)
