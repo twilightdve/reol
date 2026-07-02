@@ -1,5 +1,6 @@
 import React, { useRef, useCallback } from "react";
 import UtilityService from "../../services/UtilityService";
+import { activityYears } from "../../constants/artist";
 import { Link } from "gatsby";
 import { FaQuestion, FaQuestionCircle, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -94,7 +95,7 @@ const TopHeader: React.FC<Props> = ({ title }) => {
                 <span className="text-sm font-bold">非公式ファンサイト</span>
                 です。
                 <br />
-                これまでReolが辿ってきた10年以上の活動の中で、どのタイミングで出会ったかは人それぞれ。
+                これまでReolが辿ってきた、れをる時代から数えて{activityYears()}年の活動の中で、どのタイミングで出会ったかは人それぞれ。
                 <br />
                 Reolの活動の軌跡を余すことなく遡れる様に様々なコンテンツを掲載しますので、当サイトを通して新参も古参もより深くReolを好きになるきっかけになれば幸いです。
                 <br />

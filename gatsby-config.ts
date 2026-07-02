@@ -7,8 +7,8 @@ const siteUrl = "https://reol.twilightea.com";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "!Legit｜Reol Unofficial Fansite",
-    description:
-      "Reol(れをる)の非公式ファンサイト。全楽曲のライブ演奏統計、歴代ライブのセットリスト、MVロケ地(聖地)マップ、ファンタイプ診断まで。10年分の活動を横断検索できます。",
+    // 活動年数はハードコードすると腐るため、起点年(れをる時代=2012)からビルド時に計算する
+    description: `Reol(れをる)の非公式ファンサイト。全楽曲のライブ演奏統計、歴代ライブのセットリスト、MVロケ地(聖地)マップ、ファンタイプ診断まで。${new Date().getFullYear() - 2012}年分の活動を横断検索できます。`,
     siteUrl,
   },
   graphqlTypegen: true,

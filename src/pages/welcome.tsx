@@ -13,6 +13,7 @@ import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { reolTypes } from "../data/reol-type/types";
+import { ACTIVITY_START_YEAR, activityYears } from "../constants/artist";
 
 // ---------- データ型 ----------
 
@@ -99,9 +100,9 @@ const mergeSongs = (data: WelcomePageData): PickedSong[] => {
   return merged.sort((a, b) => b.totalPlays - a.totalPlays);
 };
 
-/** 年代区分の定義(リリース日ベースの機械区分。2014年以前の曲は「まずはこの曲から」側で自然に出る) */
+/** 年代区分の定義(リリース日ベースの機械区分。起点はれをる名義の活動開始年=2012) */
 const ERAS: { key: string; label: string; from: number; to: number }[] = [
-  { key: "2015-2016", label: "2015–2016", from: 2015, to: 2016 },
+  { key: "2012-2016", label: "2012–2016", from: ACTIVITY_START_YEAR, to: 2016 },
   { key: "2017-2019", label: "2017–2019", from: 2017, to: 2019 },
   { key: "2020-2022", label: "2020–2022", from: 2020, to: 2022 },
   { key: "2023-", label: "2023–", from: 2023, to: 9999 },
@@ -165,7 +166,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           はじめてのReol
         </h1>
         <p className="text-sm leading-relaxed text-gray-700">
-          Reolに出会ったばかりのあなたへ。楽曲・ライブ・セトリ・ロケ地まで、10年分の活動を記録した非公式ファンサイトです。まずは代表曲から。気になったら、そのまま公式へ飛べます。
+          Reolに出会ったばかりのあなたへ。楽曲・ライブ・セトリ・ロケ地まで、れをる時代から{activityYears()}年分の活動を記録した非公式ファンサイトです。まずは代表曲から。気になったら、そのまま公式へ飛べます。
         </p>
       </section>
 

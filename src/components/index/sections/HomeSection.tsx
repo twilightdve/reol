@@ -4,6 +4,7 @@ import { FaExclamation } from "react-icons/fa";
 import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent } from "../../../utils/analytics";
+import { activityYears } from "../../../constants/artist";
 
 interface HomeSectionProps {
   recommend: Recommend[];
@@ -15,7 +16,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend }) => {
       {/* タグライン：初見の人にサイトの価値をひと言で伝える */}
       <div className="pt-4 px-2 text-center">
         <p className="text-lg sm:text-xl font-bold tracking-wide text-shadow">
-          Reolの10年を、ぜんぶ遡れる。
+          Reolの{activityYears()}年を、ぜんぶ遡れる。
         </p>
         <p className="mt-1 text-[11px] sm:text-sm text-gray-500 tracking-wide">
           楽曲・ライブ・セトリ・ロケ地まで。非公式ファンサイト !Legit

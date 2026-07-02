@@ -12,8 +12,10 @@ const SITE_NAME = '!Legit｜Reol Unofficial Fansite'
 const TITLE_SUFFIX = '!Legit - Reol非公式ファンサイト'
 /** title 未指定(=トップページ)時のタイトル */
 const TOP_TITLE = '!Legit｜Reolの楽曲・ライブ・セトリを網羅する非公式ファンサイト'
+// 活動年数はハードコードすると腐るため、起点年(れをる時代=2012)からビルド時に計算する
+const ACTIVITY_YEARS = new Date().getFullYear() - 2012
 const DEFAULT_DESCRIPTION =
-  'Reol(れをる)の非公式ファンサイト。全楽曲のライブ演奏統計、歴代ライブのセットリスト、MVロケ地(聖地)マップ、ファンタイプ診断まで。10年分の活動を横断検索できます。'
+  `Reol(れをる)の非公式ファンサイト。全楽曲のライブ演奏統計、歴代ライブのセットリスト、MVロケ地(聖地)マップ、ファンタイプ診断まで。${ACTIVITY_YEARS}年分の活動を横断検索できます。`
 const OG_IMAGE = `${SITE_URL}/ogimage.png`
 const THEME_COLOR = '#27489b'
 
