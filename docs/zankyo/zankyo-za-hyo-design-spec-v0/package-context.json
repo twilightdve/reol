@@ -1,0 +1,22 @@
+{
+  "project": "zankyo-za-hyo",
+  "recommendedStack": {
+    "framework": "Next.js App Router",
+    "language": "TypeScript",
+    "ui": "React",
+    "audio": "Web Audio API",
+    "graphics": "Canvas 2D",
+    "storage": "IndexedDB",
+    "pwa": true
+  },
+  "excludedFeatures": [
+    "audio upload",
+    "audio streaming",
+    "lyrics",
+    "official artwork",
+    "SNS clipping mode",
+    "video export",
+    "demo mode",
+    "sharing"
+  ]
+}

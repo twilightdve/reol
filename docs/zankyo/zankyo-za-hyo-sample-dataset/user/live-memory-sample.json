@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "liveMemoryId": "memory_bijigaku_2026_asahikawa_left_front",
+  "title": "近すぎた場所",
+  "tourName": "美辞学",
+  "liveTitle": "美辞学 Sample Night",
+  "date": "2026-05-09",
+  "venueId": "venue_livehouse_default",
+  "venueName": "旭川 CASINO DRIVE",
+  "setlistId": "sample_bijigaku_2026_asahikawa",
+  "listener": {
+    "position": {
+      "x": -1.4,
+      "y": 1.5,
+      "z": 5.8
+    },
+    "label": "下手寄り・前方"
+  },
+  "acousticOverride": {
+    "reverb": {
+      "amount": 0.18,
+      "decaySec": 0.52,
+      "preDelayMs": 6,
+      "damping": 0.75
+    },
+    "reflections": {
+      "earlyReflectionAmount": 0.38,
+      "slapDelayMs": 24,
+      "sideReflectionMs": 38
+    }
+  },
+  "visual": {
+    "palette": {
+      "background": "#05030a",
+      "primary": "#b9a8ff",
+      "secondary": "#ff2b52",
+      "accent": "#f8f1ff"
+    },
+    "particleDensity": 0.82,
+    "afterglowDecay": 0.91,
+    "pressureBias": 0.9,
+    "bloomBias": 0.62,
+    "fractureBias": 0.78,
+    "driftBias": 0.35,
+    "beatSensitivity": 0.88,
+    "bassGravity": 0.9
+  },
+  "memoryTags": {
+    "heat": 0.86,
+    "pressure": 0.94,
+    "pain": 0.64,
+    "release": 0.74,
+    "distance": 0.18,
+    "aftertaste": 0.82
+  },
+  "createdAt": "2026-05-17T12:00:00+09:00",
+  "updatedAt": "2026-05-17T12:00:00+09:00"
+}

@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_33_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 33,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 33,
+    "type": "event",
+    "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+    "artistName": "Reol",
+    "dateRange": "2022-10-15",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2022-10-15",
+    "place": "大阪城音楽堂",
+    "placeSite": "https://www.osakacastlepark.jp/ongakudo/",
+    "address": "〒540-0002 大阪府大阪市中央区大阪城３−１１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8908562086635!2d135.530568!3d34.68270400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0c965623ca1%3A0x54d2f6bfb0e225d1!2z5aSn6Ziq5Z-O6Z-z5qW95aCC!5e0!3m2!1sja!2sjp!4v1697822939062!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+  "liveTitle": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+  "date": "2022-10-15",
+  "venueName": "大阪城音楽堂",
+  "venueId": "venue_8d13b23914",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_1",
+      "order": 1,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_2",
+      "order": 2,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_3",
+      "order": 3,
+      "trackId": "song_30",
+      "displayTitle": "宵々古今",
+      "rawTitle": "宵々古今",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_4",
+      "order": 4,
+      "trackId": "song_66",
+      "displayTitle": "たい",
+      "rawTitle": "たい",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_5",
+      "order": 5,
+      "trackId": "song_101",
+      "displayTitle": "Nd60",
+      "rawTitle": "Nd60",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_6",
+      "order": 6,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_7",
+      "order": 7,
+      "trackId": "song_47",
+      "displayTitle": "平面鏡",
+      "rawTitle": "平面鏡",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_8",
+      "order": 8,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_33_item_1_song_9",
+      "order": 9,
+      "trackId": "song_129",
+      "displayTitle": "赤裸裸(NAKED)",
+      "rawTitle": "赤裸裸(NAKED)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

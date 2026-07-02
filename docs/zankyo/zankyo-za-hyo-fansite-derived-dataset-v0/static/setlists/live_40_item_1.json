@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_40_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 40,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 40,
+    "type": "event",
+    "title": "LuckyFes'23",
+    "artistName": "Reol",
+    "dateRange": "2023-07-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-07-16",
+    "place": "国営ひたち海浜公園",
+    "placeSite": "https://hitachikaihin.jp/",
+    "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.1376837254797!2d140.59648679999998!3d36.405864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60218b1d845e4441%3A0x767e1dea03e6f0e1!2z5Zu95Za244Gy44Gf44Gh5rW35rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697823206211!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "LuckyFes'23",
+  "liveTitle": "LuckyFes'23",
+  "date": "2023-07-16",
+  "venueName": "国営ひたち海浜公園",
+  "venueId": "venue_dc6fc12a0b",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_1",
+      "order": 1,
+      "trackId": "song_1",
+      "displayTitle": "-Opening-",
+      "rawTitle": "-Opening-",
+      "policy": "se",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_2",
+      "order": 2,
+      "trackId": "song_44",
+      "displayTitle": "LUVORATORRRRRY!",
+      "rawTitle": "LUVORATORRRRRY!",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_3",
+      "order": 3,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_4",
+      "order": 4,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_5",
+      "order": 5,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_6",
+      "order": 6,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_7",
+      "order": 7,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_song_8",
+      "order": 8,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

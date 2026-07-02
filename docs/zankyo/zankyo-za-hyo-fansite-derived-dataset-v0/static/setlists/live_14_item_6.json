@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_6",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 6,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 6,
+    "name": "韓国",
+    "date": "2018-12-15",
+    "place": "HONDAE MUVHALL",
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2018-12-15",
+  "venueName": "HONDAE MUVHALL",
+  "venueId": "venue_dcd672c215",
+  "entries": []
+}

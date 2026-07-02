@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "広島",
+    "date": "2020-02-08",
+    "place": "広島クラブクアトロ",
+    "placeSite": "https://www.club-quattro.com/",
+    "address": "〒730-0035 広島県広島市中区本通１０−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697822605303!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-02-08",
+  "venueName": "広島クラブクアトロ",
+  "venueId": "venue_5c67999aeb",
+  "entries": []
+}

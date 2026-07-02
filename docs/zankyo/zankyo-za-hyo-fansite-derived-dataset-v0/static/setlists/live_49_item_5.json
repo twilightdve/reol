@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_5",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 49,
+    "liveItemNo": 5,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 49,
+    "type": "oneman",
+    "title": "Reol ASIA TOUR \"UNBOX\"",
+    "artistName": "Reol",
+    "dateRange": "2024-03-16〜2024-03-23",
+    "siteUrl": "https://reol.jp/feature/unbox_2324",
+    "spotifyPlaylistId": "3JDPzO8M5PRCHKreXoBmbA"
+  },
+  "item": {
+    "liveItemNo": 5,
+    "name": "TAIPEI",
+    "date": "2024-03-16",
+    "place": "Zepp New Taipei",
+    "placeSite": "https://www.zepp.co.jp/hall/newtaipei/",
+    "address": "〒24242 新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7228.4866915453995!2d121.44948000000001!3d25.05974!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a914b663455b%3A0xee6cea3890a8418f!2sZepp!5e0!3m2!1sja!2sjp!4v1704741265932!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\"",
+  "date": "2024-03-16",
+  "venueName": "Zepp New Taipei",
+  "venueId": "venue_f22d769e96",
+  "entries": []
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "performanceMode": "standard",
+  "outputDeviceProfile": "earphones",
+  "wakeLockEnabled": true,
+  "mediaSessionEnabled": true,
+  "deviceOrientationEnabled": false,
+  "visual": {
+    "showTrackTitle": true,
+    "showPositionMap": true,
+    "reduceMotion": false
+  },
+  "audio": {
+    "masterGainDb": -4,
+    "limiterEnabled": true,
+    "normalizeTrackGain": true
+  },
+  "privacy": {
+    "localOnlyNoticeAccepted": false,
+    "analyticsEnabled": false
+  },
+  "updatedAt": "2026-05-17T12:00:00+09:00"
+}

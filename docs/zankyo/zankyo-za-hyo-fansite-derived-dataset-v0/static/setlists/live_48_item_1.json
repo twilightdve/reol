@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_48_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 48,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 48,
+    "type": "event",
+    "title": "ANIPLEX 20th Anniversary Event -THANX-",
+    "artistName": "Reol",
+    "dateRange": "2024-01-07",
+    "siteUrl": "https://aniplex-online-fest.com/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2024-01-07",
+    "place": "Zepp DiverCity",
+    "placeSite": "https://www.zepp.co.jp/hall/divercity/",
+    "address": "〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1208284605586!2d139.77201597578517!3d35.62474767260555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2zWmVwcCDjg4DjgqTjg5Djg7zjgrfjg4bjgqPmnbHkuqw!5e0!3m2!1sja!2sjp!4v1697990250505!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ANIPLEX 20th Anniversary Event -THANX-",
+  "liveTitle": "ANIPLEX 20th Anniversary Event -THANX-",
+  "date": "2024-01-07",
+  "venueName": "Zepp DiverCity",
+  "venueId": "venue_8aa88b9275",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_48_item_1_song_1",
+      "order": 1,
+      "trackId": "song_115",
+      "displayTitle": "切っ先(Edge)",
+      "rawTitle": "切っ先(Edge)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

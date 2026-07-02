@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_32_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 32,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 32,
+    "type": "event",
+    "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+    "artistName": "Reol",
+    "dateRange": "2022-08-06",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2022-08-06",
+    "place": "千葉市蘇我スポーツ公園",
+    "placeSite": "http://sogasportspark.com/",
+    "address": "〒260-0835 千葉県千葉市中央区川崎町１−２０",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1710707466696!2d140.1229314!3d35.5741692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60229b0b9c50b1c9%3A0xdcf05836c92a2aad!2z5Y2D6JGJ5biC6JiH5oiR44K544Od44O844OE5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697822923640!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+  "liveTitle": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+  "date": "2022-08-06",
+  "venueName": "千葉市蘇我スポーツ公園",
+  "venueId": "venue_a3ed5a9d25",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_1",
+      "order": 1,
+      "trackId": "song_129",
+      "displayTitle": "赤裸裸(NAKED)",
+      "rawTitle": "赤裸裸(NAKED)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_2",
+      "order": 2,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_3",
+      "order": 3,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_4",
+      "order": 4,
+      "trackId": "song_66",
+      "displayTitle": "たい",
+      "rawTitle": "たい",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_5",
+      "order": 5,
+      "trackId": "song_101",
+      "displayTitle": "Nd60",
+      "rawTitle": "Nd60",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_6",
+      "order": 6,
+      "trackId": "song_102",
+      "displayTitle": "Boy",
+      "rawTitle": "Boy",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_7",
+      "order": 7,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_32_item_1_song_8",
+      "order": 8,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

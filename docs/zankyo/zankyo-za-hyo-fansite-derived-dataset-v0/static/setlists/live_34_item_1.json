@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_34_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 34,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 34,
+    "type": "event",
+    "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+    "artistName": "Reol",
+    "dateRange": "2022-12-23",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2022-12-23",
+    "place": "横浜アリーナ",
+    "placeSite": "https://www.yokohama-arena.co.jp/",
+    "address": "〒222-0033 神奈川県横浜市港北区新横浜３丁目１０",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.676682207367!2d139.6201797!3d35.5122721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185eda022dd1bd%3A0x2ed62e22af68ca17!2z5qiq5rWc44Ki44Oq44O844OK!5e0!3m2!1sja!2sjp!4v1697822963046!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+  "liveTitle": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+  "date": "2022-12-23",
+  "venueName": "横浜アリーナ",
+  "venueId": "venue_d66a87e694",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_34_item_1_song_1",
+      "order": 1,
+      "trackId": "song_120",
+      "displayTitle": "SCORPION",
+      "rawTitle": "SCORPION",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

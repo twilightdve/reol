@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_53_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 53,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 53,
+    "type": "event",
+    "title": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+    "artistName": "FZMZ(icy)",
+    "dateRange": "2024-07-20",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "VRChat",
+    "date": "2024-07-20",
+    "place": null,
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+  "liveTitle": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+  "date": "2024-07-20",
+  "venueName": "VRChat",
+  "venueId": "venue_7571c5aee7",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_53_item_1_song_1",
+      "order": 1,
+      "trackId": null,
+      "displayTitle": "BROKEN GAMES",
+      "rawTitle": "BROKEN GAMES",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_53_item_1_song_2",
+      "order": 2,
+      "trackId": "song_133",
+      "displayTitle": "Danger Danger",
+      "rawTitle": "Danger Danger",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

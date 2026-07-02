@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_7_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 7,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 7,
+    "type": "event",
+    "title": "BIG FOREST LIVE",
+    "artistName": "れをる",
+    "dateRange": "2016-08-28",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2016-08-28",
+    "place": "札幌芸術の森野外ステージ",
+    "placeSite": "",
+    "address": "〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.967315879723!2d141.3382863!3d42.9368159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f752b67056b9dcf%3A0x57549a3c3ff4451f!2z44CSMDA1LTA4NjQg5YyX5rW36YGT5pyt5bmM5biC5Y2X5Yy66Iq46KGT44Gu5qOu77yS5LiB55uu77yZ77yR77yQ4oiS77yRIOmHjuWkluOCueODhuODvOOCuA!5e0!3m2!1sja!2sjp!4v1697822069385!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "BIG FOREST LIVE",
+  "liveTitle": "BIG FOREST LIVE",
+  "date": "2016-08-28",
+  "venueName": "札幌芸術の森野外ステージ",
+  "venueId": "venue_fd5ced1cdc",
+  "entries": []
+}

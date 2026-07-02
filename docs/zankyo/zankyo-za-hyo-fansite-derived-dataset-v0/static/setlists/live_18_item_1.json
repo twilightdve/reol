@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_18_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 18,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 18,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+    "artistName": "Reol",
+    "dateRange": "2019-10-06〜2019-10-19",
+    "siteUrl": "",
+    "spotifyPlaylistId": "4GNKKuRmq9zTrKQHW8Z9qT"
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "大阪",
+    "date": "2019-10-06",
+    "place": "松下IMPホール",
+    "placeSite": "https://www.kanden-kaijyou.jp/event_hole/imp/",
+    "address": "〒540-6301 大阪府大阪市中央区城見１丁目３−７",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.528402383035!2d135.5296916!3d34.691850099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0d108cd8595%3A0x856dd6f3cfce52db!2z5p2-5LiL77yp77yt77yw44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822512150!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2019「侵攻アップグレード」",
+  "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
+  "date": "2019-10-06",
+  "venueName": "松下IMPホール",
+  "venueId": "venue_3ee69f3ee6",
+  "entries": []
+}

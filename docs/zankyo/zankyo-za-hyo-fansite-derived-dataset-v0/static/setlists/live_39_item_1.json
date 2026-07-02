@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_39_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 39,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 39,
+    "type": "event",
+    "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+    "artistName": "Reol",
+    "dateRange": "2023-05-14",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-05-14",
+    "place": "海とのふれあい広場",
+    "placeSite": "http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/",
+    "address": "〒590-0908 大阪府堺市堺区匠町６−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.079102674517!2d135.4280183!3d34.6021612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000c29404ddd759%3A0x94059bb8d9120e67!2z5rW344Go44Gu44G144KM44GC44GE5bqD5aC0!5e0!3m2!1sja!2sjp!4v1697823163334!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+  "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+  "date": "2023-05-14",
+  "venueName": "海とのふれあい広場",
+  "venueId": "venue_9acaeda69b",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_1",
+      "order": 1,
+      "trackId": "song_64",
+      "displayTitle": "劣等上等",
+      "rawTitle": "劣等上等",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_2",
+      "order": 2,
+      "trackId": "song_120",
+      "displayTitle": "SCORPION",
+      "rawTitle": "SCORPION",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_3",
+      "order": 3,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_4",
+      "order": 4,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_5",
+      "order": 5,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_6",
+      "order": 6,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_39_item_1_song_7",
+      "order": 7,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

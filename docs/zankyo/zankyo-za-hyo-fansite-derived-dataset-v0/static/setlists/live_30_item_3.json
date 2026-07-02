@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 30,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 30,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2022「激情アラート」",
+    "artistName": "Reol",
+    "dateRange": "2022-04-27〜2022-05-13",
+    "siteUrl": "https://reol.jp/feature/tour2022",
+    "spotifyPlaylistId": "7p5yOOHDIKqmV843OGGwsI"
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "福岡",
+    "date": "2022-05-02",
+    "place": "Zepp Fukuoka",
+    "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
+    "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697822854298!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+  "date": "2022-05-02",
+  "venueName": "Zepp Fukuoka",
+  "venueId": "venue_ee9dfa68f6",
+  "entries": []
+}

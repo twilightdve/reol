@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_45_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 45,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 45,
+    "type": "event",
+    "title": "Simple Life Shanghai 上海簡単生活節",
+    "artistName": "Reol",
+    "dateRange": "2023-10-05",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-10-05",
+    "place": "中国上海・森蘭緑地（Sen Lan Green Park)",
+    "placeSite": "",
+    "address": "中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6817.638695596002!2d121.5885642!3d31.3087378!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b275067079adfd%3A0x8cb909ee77d9ea76!2z5Lit6I-v5Lq65rCR5YWx5ZKM5Zu9IFNoYW5nIEhhaSBTaGksIFB1IERvbmcgWGluIFF1LCDlvKDmnajljJfot68yNzAw5Y-3IOmCruaUv-e8lueggTogMjAwMTI4!5e0!3m2!1sja!2sjp!4v1697823267398!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Simple Life Shanghai 上海簡単生活節",
+  "liveTitle": "Simple Life Shanghai 上海簡単生活節",
+  "date": "2023-10-05",
+  "venueName": "中国上海・森蘭緑地（Sen Lan Green Park)",
+  "venueId": "venue_224325d355",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_1",
+      "order": 1,
+      "trackId": "song_64",
+      "displayTitle": "劣等上等",
+      "rawTitle": "劣等上等",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_2",
+      "order": 2,
+      "trackId": "song_13",
+      "displayTitle": "極彩色",
+      "rawTitle": "極彩色",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_3",
+      "order": 3,
+      "trackId": "song_120",
+      "displayTitle": "SCORPION",
+      "rawTitle": "SCORPION",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_4",
+      "order": 4,
+      "trackId": "song_54",
+      "displayTitle": "サイサキ",
+      "rawTitle": "サイサキ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_5",
+      "order": 5,
+      "trackId": "song_99",
+      "displayTitle": "白夜(White Midnight)",
+      "rawTitle": "白夜(White Midnight)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_6",
+      "order": 6,
+      "trackId": "song_102",
+      "displayTitle": "Boy",
+      "rawTitle": "Boy",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_7",
+      "order": 7,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_8",
+      "order": 8,
+      "trackId": "song_81",
+      "displayTitle": "金字塔",
+      "rawTitle": "金字塔",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_45_item_1_song_9",
+      "order": 9,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "大阪",
+    "date": "2018-10-26",
+    "place": "なんばHatch",
+    "placeSite": "http://www.namba-hatch.com/",
+    "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822281502!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2018-10-26",
+  "venueName": "なんばHatch",
+  "venueId": "venue_ec74611853",
+  "entries": []
+}

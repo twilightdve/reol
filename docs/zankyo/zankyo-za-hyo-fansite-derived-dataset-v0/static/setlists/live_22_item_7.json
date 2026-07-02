@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_7",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 7,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 7,
+    "name": "東京 ※中止",
+    "date": "2020-03-21",
+    "place": "LINE CUBE SHIBUYA ",
+    "placeSite": "https://linecubeshibuya.com/",
+    "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822703361!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-03-21",
+  "venueName": "LINE CUBE SHIBUYA ",
+  "venueId": "venue_6a159d39cb",
+  "entries": []
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_31_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 31,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 31,
+    "type": "event",
+    "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+    "artistName": "Reol",
+    "dateRange": "2022-07-23",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2022-07-23",
+    "place": "舞洲スポーツアイランド",
+    "placeSite": "https://shisetsu.mizuno.jp/m-7402",
+    "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6563.014545459134!2d135.3919646!3d34.6671446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1697822911482!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+  "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+  "date": "2022-07-23",
+  "venueName": "舞洲スポーツアイランド",
+  "venueId": "venue_a56868eaf4",
+  "entries": []
+}

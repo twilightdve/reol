@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "sample_bijigaku_2026_asahikawa",
+  "totalEntries": 6,
+  "playableEntries": 4,
+  "missingEntries": 0,
+  "candidateEntries": 1,
+  "specialEntries": 2,
+  "isFullyPlayable": false,
+  "isPlayableWithWarnings": true,
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_001",
+      "status": "matched",
+      "matchedFileKey": "Reol/第六感.flac|30124567|1779000000000",
+      "candidates": [
+        {
+          "fileKey": "Reol/第六感.flac|30124567|1779000000000",
+          "score": 0.99,
+          "reasons": [
+            "metadata_exact",
+            "duration_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_002",
+      "status": "matched",
+      "matchedFileKey": "Reol/404 not found.flac|35678210|1779000000001",
+      "candidates": [
+        {
+          "fileKey": "Reol/404 not found.flac|35678210|1779000000001",
+          "score": 0.99,
+          "reasons": [
+            "metadata_exact",
+            "filename_exact",
+            "duration_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_003",
+      "status": "candidate",
+      "candidates": [
+        {
+          "fileKey": "Reol/syrup_live_edit.flac|32999210|1779000000002",
+          "score": 0.84,
+          "reasons": [
+            "metadata_alias",
+            "filename_alias",
+            "duration_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_004",
+      "status": "matched",
+      "matchedFileKey": "Reol/END.m4a|9123456|1779000000003",
+      "candidates": [
+        {
+          "fileKey": "Reol/END.m4a|9123456|1779000000003",
+          "score": 0.93,
+          "reasons": [
+            "metadata_alias",
+            "filename_alias",
+            "duration_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_005",
+      "status": "special",
+      "candidates": [],
+      "missingReason": "cover policy: local file optional"
+    },
+    {
+      "schemaVersion": 1,
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_006",
+      "status": "special",
+      "candidates": [],
+      "missingReason": "se policy: may be represented as gap/afterglow"
+    }
+  ],
+  "checkedAt": "2026-05-17T12:00:00+09:00"
+}

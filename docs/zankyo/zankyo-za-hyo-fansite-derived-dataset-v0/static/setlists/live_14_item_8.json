@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_8",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 8,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 8,
+    "name": "上海",
+    "date": "2019-01-12",
+    "place": "Modernsky Lab",
+    "placeSite": "",
+    "address": "中国 Yunnan, Kunming, Xishan, 杨家路 邮政编码: 650228",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.717311484492!2d102.6856049!3d25.009719900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36d085cb72451cd7%3A0x651d9e3569e84706!2sModernsky%20Lab!5e0!3m2!1sja!2sjp!4v1697822409876!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2019-01-12",
+  "venueName": "Modernsky Lab",
+  "venueId": "venue_3660b2e934",
+  "entries": []
+}

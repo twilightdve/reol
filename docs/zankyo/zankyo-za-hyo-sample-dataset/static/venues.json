@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T12:00:00+09:00",
+  "venuePresets": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_livehouse_default",
+      "name": "Live House Default",
+      "type": "live_house",
+      "acoustic": {
+        "eq": {
+          "bands": [
+            {
+              "type": "lowshelf",
+              "frequencyHz": 80,
+              "gainDb": 3.0
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 160,
+              "gainDb": 2.0,
+              "q": 0.9
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 400,
+              "gainDb": 1.0,
+              "q": 1.0
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 2500,
+              "gainDb": 0.5,
+              "q": 1.2
+            },
+            {
+              "type": "highshelf",
+              "frequencyHz": 8000,
+              "gainDb": -1.5
+            }
+          ]
+        },
+        "reverb": {
+          "amount": 0.22,
+          "decaySec": 0.6,
+          "preDelayMs": 8,
+          "damping": 0.7
+        },
+        "reflections": {
+          "earlyReflectionAmount": 0.35,
+          "slapDelayMs": 28,
+          "sideReflectionMs": 42
+        },
+        "spatial": {
+          "stageWidth": 7,
+          "depth": 18,
+          "height": 3,
+          "leftPaPosition": {
+            "x": -3.2,
+            "y": 2.1,
+            "z": 0
+          },
+          "rightPaPosition": {
+            "x": 3.2,
+            "y": 2.1,
+            "z": 0
+          },
+          "centerPosition": {
+            "x": 0,
+            "y": 1.6,
+            "z": 0
+          },
+          "subPosition": {
+            "x": 0,
+            "y": 0.4,
+            "z": 0
+          },
+          "defaultListenerPosition": {
+            "x": -0.8,
+            "y": 1.5,
+            "z": 6.5
+          },
+          "paSpread": 5.5
+        },
+        "dynamics": {
+          "limiterEnabled": true,
+          "compressorEnabled": true,
+          "outputGainDb": -3,
+          "thresholdDb": -10,
+          "ratio": 4,
+          "attackSec": 0.003,
+          "releaseSec": 0.25
+        }
+      },
+      "visualBias": {
+        "darkness": 0.76,
+        "particleDensity": 0.82,
+        "afterglowDecay": 0.86,
+        "bloomBias": 0.58,
+        "fractureBias": 0.7,
+        "pressureBias": 0.9
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_hall_default",
+      "name": "Hall Default",
+      "type": "hall",
+      "acoustic": {
+        "eq": {
+          "bands": [
+            {
+              "type": "lowshelf",
+              "frequencyHz": 80,
+              "gainDb": -0.5
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 160,
+              "gainDb": 0.5,
+              "q": 0.8
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 400,
+              "gainDb": -0.5,
+              "q": 1.0
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 2500,
+              "gainDb": 1.5,
+              "q": 1.1
+            },
+            {
+              "type": "highshelf",
+              "frequencyHz": 8000,
+              "gainDb": 0.8
+            }
+          ]
+        },
+        "reverb": {
+          "amount": 0.35,
+          "decaySec": 1.6,
+          "preDelayMs": 22,
+          "damping": 0.45
+        },
+        "reflections": {
+          "earlyReflectionAmount": 0.25,
+          "slapDelayMs": 45,
+          "sideReflectionMs": 70
+        },
+        "spatial": {
+          "stageWidth": 14,
+          "depth": 32,
+          "height": 10,
+          "leftPaPosition": {
+            "x": -6,
+            "y": 4.2,
+            "z": 0
+          },
+          "rightPaPosition": {
+            "x": 6,
+            "y": 4.2,
+            "z": 0
+          },
+          "centerPosition": {
+            "x": 0,
+            "y": 2.2,
+            "z": 0
+          },
+          "subPosition": {
+            "x": 0,
+            "y": 0.7,
+            "z": 0
+          },
+          "defaultListenerPosition": {
+            "x": 0,
+            "y": 1.5,
+            "z": 14
+          },
+          "paSpread": 10
+        },
+        "dynamics": {
+          "limiterEnabled": true,
+          "compressorEnabled": true,
+          "outputGainDb": -4,
+          "thresholdDb": -12,
+          "ratio": 3,
+          "attackSec": 0.006,
+          "releaseSec": 0.3
+        }
+      },
+      "visualBias": {
+        "darkness": 0.62,
+        "particleDensity": 0.55,
+        "afterglowDecay": 0.92,
+        "bloomBias": 0.7,
+        "fractureBias": 0.42,
+        "pressureBias": 0.55
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_arena_default",
+      "name": "Arena Default",
+      "type": "arena",
+      "acoustic": {
+        "eq": {
+          "bands": [
+            {
+              "type": "lowshelf",
+              "frequencyHz": 80,
+              "gainDb": 2.5
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 160,
+              "gainDb": 1.5,
+              "q": 0.7
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 400,
+              "gainDb": 0.8,
+              "q": 0.8
+            },
+            {
+              "type": "peaking",
+              "frequencyHz": 2500,
+              "gainDb": -0.3,
+              "q": 1.0
+            },
+            {
+              "type": "highshelf",
+              "frequencyHz": 8000,
+              "gainDb": -2.0
+            }
+          ]
+        },
+        "reverb": {
+          "amount": 0.42,
+          "decaySec": 2.8,
+          "preDelayMs": 55,
+          "damping": 0.8
+        },
+        "reflections": {
+          "earlyReflectionAmount": 0.45,
+          "slapDelayMs": 95,
+          "sideReflectionMs": 135
+        },
+        "spatial": {
+          "stageWidth": 34,
+          "depth": 90,
+          "height": 24,
+          "leftPaPosition": {
+            "x": -15,
+            "y": 10,
+            "z": 0
+          },
+          "rightPaPosition": {
+            "x": 15,
+            "y": 10,
+            "z": 0
+          },
+          "centerPosition": {
+            "x": 0,
+            "y": 5,
+            "z": 0
+          },
+          "subPosition": {
+            "x": 0,
+            "y": 1.0,
+            "z": 0
+          },
+          "defaultListenerPosition": {
+            "x": 0,
+            "y": 1.5,
+            "z": 38
+          },
+          "paSpread": 28
+        },
+        "dynamics": {
+          "limiterEnabled": true,
+          "compressorEnabled": true,
+          "outputGainDb": -5,
+          "thresholdDb": -14,
+          "ratio": 3.5,
+          "attackSec": 0.008,
+          "releaseSec": 0.35
+        }
+      },
+      "visualBias": {
+        "darkness": 0.84,
+        "particleDensity": 0.68,
+        "afterglowDecay": 0.97,
+        "bloomBias": 0.85,
+        "fractureBias": 0.48,
+        "pressureBias": 0.8
+      }
+    }
+  ]
+}

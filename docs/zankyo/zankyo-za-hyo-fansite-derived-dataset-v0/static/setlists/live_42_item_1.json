@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_42_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 42,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 42,
+    "type": "event",
+    "title": "Impactnation Japan Festival 2023",
+    "artistName": "Reol",
+    "dateRange": "2023-07-30",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-07-30",
+    "place": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+    "placeSite": "http://gelorabungkarno.co.id/",
+    "address": "Jl. Pintu Satu Senayan No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270 インドネシア",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3293533869773!2d106.8056639!3d-6.2202283000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f14d81ff223b%3A0x7f2d1c6db9fe661f!2z44Kk44K544OI44Op44O744Ky44Ot44Op44O744OW44Oz44O744Kr44Or44OO!5e0!3m2!1sja!2sjp!4v1697823232145!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Impactnation Japan Festival 2023",
+  "liveTitle": "Impactnation Japan Festival 2023",
+  "date": "2023-07-30",
+  "venueName": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+  "venueId": "venue_82c236ae68",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_1",
+      "order": 1,
+      "trackId": "song_1",
+      "displayTitle": "-Opening-",
+      "rawTitle": "-Opening-",
+      "policy": "se",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_2",
+      "order": 2,
+      "trackId": "song_64",
+      "displayTitle": "劣等上等",
+      "rawTitle": "劣等上等",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_3",
+      "order": 3,
+      "trackId": "song_29",
+      "displayTitle": "ギミアブレスタッナウ",
+      "rawTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_4",
+      "order": 4,
+      "trackId": "song_101",
+      "displayTitle": "Nd60",
+      "rawTitle": "Nd60",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_5",
+      "order": 5,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_6",
+      "order": 6,
+      "trackId": "song_38",
+      "displayTitle": "サマーホラーパーティ",
+      "rawTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_7",
+      "order": 7,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_8",
+      "order": 8,
+      "trackId": "song_81",
+      "displayTitle": "金字塔",
+      "rawTitle": "金字塔",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_9",
+      "order": 9,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_10",
+      "order": 10,
+      "trackId": "song_115",
+      "displayTitle": "切っ先(Edge)",
+      "rawTitle": "切っ先(Edge)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_42_item_1_song_11",
+      "order": 11,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

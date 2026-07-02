@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_6",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 6,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 6,
+    "name": "大阪 ※中止",
+    "date": "2020-03-07",
+    "place": "なんばHatch",
+    "placeSite": "http://www.namba-hatch.com/",
+    "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822688800!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-03-07",
+  "venueName": "なんばHatch",
+  "venueId": "venue_93ff91e709",
+  "entries": []
+}

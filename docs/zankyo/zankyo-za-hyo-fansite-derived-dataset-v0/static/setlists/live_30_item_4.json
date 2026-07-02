@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_4",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 30,
+    "liveItemNo": 4,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 30,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2022「激情アラート」",
+    "artistName": "Reol",
+    "dateRange": "2022-04-27〜2022-05-13",
+    "siteUrl": "https://reol.jp/feature/tour2022",
+    "spotifyPlaylistId": "7p5yOOHDIKqmV843OGGwsI"
+  },
+  "item": {
+    "liveItemNo": 4,
+    "name": "宮城",
+    "date": "2022-05-08",
+    "place": "仙台PIT",
+    "placeSite": "http://sendai-pit.team-smile.org/",
+    "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697822868936!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+  "date": "2022-05-08",
+  "venueName": "仙台PIT",
+  "venueId": "venue_6bdd5c67b3",
+  "entries": []
+}

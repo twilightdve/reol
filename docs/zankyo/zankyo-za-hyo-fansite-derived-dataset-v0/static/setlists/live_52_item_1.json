@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_52_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 52,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 52,
+    "type": "event",
+    "title": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+    "artistName": "Reol",
+    "dateRange": "2024-06-22",
+    "siteUrl": "https://frederic-official.com/feature/homepartytour_umimoyasu2024",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2024-06-22",
+    "place": "福岡　スカラエスパシオ",
+    "placeSite": "https://espacio.ne.jp/",
+    "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26589.880035401657!2d130.401964!3d33.586229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919abe78fded%3A0x18f611fe71aa9768!2z56aP5bKh44OI44Oo44K_44Ob44O844Or44K544Kr44Op44Ko44K544OR44K344Kq!5e0!3m2!1sja!2sjp!4v1712829092881!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+  "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+  "date": "2024-06-22",
+  "venueName": "福岡　スカラエスパシオ",
+  "venueId": "venue_db06566426",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_1",
+      "order": 1,
+      "trackId": "song_55",
+      "displayTitle": "激白",
+      "rawTitle": "激白",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_2",
+      "order": 2,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_3",
+      "order": 3,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_4",
+      "order": 4,
+      "trackId": "song_38",
+      "displayTitle": "サマーホラーパーティ",
+      "rawTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_5",
+      "order": 5,
+      "trackId": "song_121",
+      "displayTitle": "綺羅綺羅",
+      "rawTitle": "綺羅綺羅",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_6",
+      "order": 6,
+      "trackId": "song_119",
+      "displayTitle": "TAKE OFF",
+      "rawTitle": "TAKE OFF",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_7",
+      "order": 7,
+      "trackId": "song_102",
+      "displayTitle": "Boy",
+      "rawTitle": "Boy",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_8",
+      "order": 8,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_9",
+      "order": 9,
+      "trackId": "song_127",
+      "displayTitle": "DDD",
+      "rawTitle": "DDD",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_52_item_1_song_10",
+      "order": 10,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

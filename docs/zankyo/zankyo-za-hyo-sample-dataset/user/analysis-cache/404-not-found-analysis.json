@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": 1,
+  "fileKey": "Reol/404 not found.flac|35678210|1779000000001",
+  "durationSec": 244,
+  "bpm": 142,
+  "bpmConfidence": 0.72,
+  "beats": [
+    {
+      "timeSec": 0.42,
+      "strength": 0.61
+    },
+    {
+      "timeSec": 0.84,
+      "strength": 0.56
+    },
+    {
+      "timeSec": 1.26,
+      "strength": 0.67
+    },
+    {
+      "timeSec": 1.68,
+      "strength": 0.6
+    }
+  ],
+  "peaks": [
+    {
+      "timeSec": 12.48,
+      "strength": 0.83,
+      "band": "low"
+    },
+    {
+      "timeSec": 24.96,
+      "strength": 0.78,
+      "band": "mid"
+    },
+    {
+      "timeSec": 37.44,
+      "strength": 0.91,
+      "band": "full"
+    }
+  ],
+  "pseudoInstrumentEvents": [
+    {
+      "timeSec": 12.48,
+      "instrument": "kick",
+      "strength": 0.88,
+      "confidence": 0.7
+    },
+    {
+      "timeSec": 12.91,
+      "instrument": "hat",
+      "strength": 0.54,
+      "confidence": 0.62
+    },
+    {
+      "timeSec": 13.32,
+      "instrument": "snare",
+      "strength": 0.72,
+      "confidence": 0.58
+    }
+  ],
+  "sections": [
+    {
+      "startSec": 0,
+      "endSec": 28,
+      "type": "intro",
+      "energy": 0.42
+    },
+    {
+      "startSec": 28,
+      "endSec": 83,
+      "type": "verse",
+      "energy": 0.58
+    },
+    {
+      "startSec": 83,
+      "endSec": 137,
+      "type": "chorus",
+      "energy": 0.91
+    },
+    {
+      "startSec": 137,
+      "endSec": 244,
+      "type": "unknown",
+      "energy": 0.74
+    }
+  ],
+  "summary": {
+    "averageRms": 0.62,
+    "lowEnergy": 0.74,
+    "midEnergy": 0.66,
+    "highEnergy": 0.49,
+    "spectralBrightness": 0.53,
+    "dynamicRange": 0.48
+  },
+  "createdAt": "2026-05-17T12:00:00+09:00"
+}

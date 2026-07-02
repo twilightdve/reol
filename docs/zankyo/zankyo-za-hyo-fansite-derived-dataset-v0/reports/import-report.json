@@ -1,0 +1,2326 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T17:00:00+09:00",
+  "summary": {
+    "sourceLives": 59,
+    "sourceLiveItems": 122,
+    "sourceSetlistEntries": 1233,
+    "sourceDiscographies": 85,
+    "sourceDiscographySongs": 157,
+    "tracks": 156,
+    "setlists": 122,
+    "venues": 104,
+    "matchedSetlistEntries": 1101,
+    "specialSetlistEntries": 83,
+    "unmatchedDistinctRawTitles": 87,
+    "setlistsWithNoEntries": 46
+  },
+  "policyUsage": {
+    "unknown": 3,
+    "se": 65,
+    "required": 1150,
+    "medley": 15
+  },
+  "topTracks": [
+    {
+      "trackId": "song_96",
+      "title": "第六感",
+      "count": 52
+    },
+    {
+      "trackId": "song_105",
+      "title": "No title - Seaside Remix",
+      "count": 37
+    },
+    {
+      "trackId": "song_128",
+      "title": "煽げや尊し(Agitate)",
+      "count": 37
+    },
+    {
+      "trackId": "song_120",
+      "title": "SCORPION",
+      "count": 33
+    },
+    {
+      "trackId": "song_129",
+      "title": "赤裸裸(NAKED)",
+      "count": 31
+    },
+    {
+      "trackId": "song_123",
+      "title": "secret trip",
+      "count": 27
+    },
+    {
+      "trackId": "song_102",
+      "title": "Boy",
+      "count": 26
+    },
+    {
+      "trackId": "song_54",
+      "title": "サイサキ",
+      "count": 25
+    },
+    {
+      "trackId": "song_47",
+      "title": "平面鏡",
+      "count": 25
+    },
+    {
+      "trackId": "song_117",
+      "title": "綺羅綺羅(Glitter) -Instrumental-",
+      "count": 25
+    },
+    {
+      "trackId": "song_81",
+      "title": "金字塔",
+      "count": 23
+    },
+    {
+      "trackId": "song_115",
+      "title": "切っ先(edge) -Anime Ver.-",
+      "count": 22
+    },
+    {
+      "trackId": "song_127",
+      "title": "DDD",
+      "count": 20
+    },
+    {
+      "trackId": "song_56",
+      "title": "十中八九",
+      "count": 20
+    },
+    {
+      "trackId": "song_57",
+      "title": "煩悩遊戯",
+      "count": 20
+    },
+    {
+      "trackId": "song_119",
+      "title": "TAKE OFF",
+      "count": 20
+    },
+    {
+      "trackId": "song_65",
+      "title": "ウテナ",
+      "count": 20
+    },
+    {
+      "trackId": "song_30",
+      "title": "宵々古今",
+      "count": 19
+    },
+    {
+      "trackId": "song_118",
+      "title": "Final Call",
+      "count": 18
+    },
+    {
+      "trackId": "song_2",
+      "title": "ヒビカセ",
+      "count": 17
+    },
+    {
+      "trackId": "song_64",
+      "title": "劣等上等 (Special Editionのみ)",
+      "count": 17
+    },
+    {
+      "trackId": "song_101",
+      "title": "Nd60",
+      "count": 17
+    },
+    {
+      "trackId": "song_83",
+      "title": "ゆーれいずみー",
+      "count": 17
+    },
+    {
+      "trackId": "song_124",
+      "title": "さよならのすゝめ、今日のつづき",
+      "count": 17
+    },
+    {
+      "trackId": "song_82",
+      "title": "HYPE MODE",
+      "count": 16
+    },
+    {
+      "trackId": "song_44",
+      "title": "LUVORATORRRRRY!",
+      "count": 16
+    },
+    {
+      "trackId": "song_35",
+      "title": "ちるちる",
+      "count": 16
+    },
+    {
+      "trackId": "song_91",
+      "title": "1LDK",
+      "count": 15
+    },
+    {
+      "trackId": "song_55",
+      "title": "激白",
+      "count": 15
+    },
+    {
+      "trackId": "song_59",
+      "title": "真空オールドローズ",
+      "count": 15
+    },
+    {
+      "trackId": "song_86",
+      "title": "un, deux, trois",
+      "count": 15
+    },
+    {
+      "trackId": "song_41",
+      "title": "ニュータイプトーキョー",
+      "count": 15
+    },
+    {
+      "trackId": "song_66",
+      "title": "たい",
+      "count": 14
+    },
+    {
+      "trackId": "song_37",
+      "title": "DetaramE KiddinG",
+      "count": 14
+    },
+    {
+      "trackId": "song_13",
+      "title": "極彩色",
+      "count": 13
+    },
+    {
+      "trackId": "song_88",
+      "title": "ダリ",
+      "count": 13
+    },
+    {
+      "trackId": "song_27",
+      "title": "染",
+      "count": 13
+    },
+    {
+      "trackId": "song_24",
+      "title": "ROXY",
+      "count": 13
+    },
+    {
+      "trackId": "song_4",
+      "title": "drop pop candy (feat. ギガ)",
+      "count": 12
+    },
+    {
+      "trackId": "song_60",
+      "title": "ミラージュ",
+      "count": 12
+    },
+    {
+      "trackId": "song_85",
+      "title": "ハーメルン",
+      "count": 12
+    },
+    {
+      "trackId": "song_62",
+      "title": "秋映",
+      "count": 12
+    },
+    {
+      "trackId": "song_99",
+      "title": "白夜(White Midnight)",
+      "count": 11
+    },
+    {
+      "trackId": "song_29",
+      "title": "ギミアブレスタッナウ",
+      "count": 11
+    },
+    {
+      "trackId": "song_98",
+      "title": "Ms.CONTROL",
+      "count": 10
+    },
+    {
+      "trackId": "song_18",
+      "title": "-orderly-",
+      "count": 10
+    },
+    {
+      "trackId": "song_90",
+      "title": "GRIMOIRE",
+      "count": 9
+    },
+    {
+      "trackId": "song_67",
+      "title": "シンカロン",
+      "count": 9
+    },
+    {
+      "trackId": "song_15",
+      "title": "水底游歩道",
+      "count": 9
+    },
+    {
+      "trackId": "song_84",
+      "title": "-ムーブのための試奏曲 Nr.4-",
+      "count": 8
+    }
+  ],
+  "unmatchedRawTitles": [
+    {
+      "title": "抽選会",
+      "count": 2,
+      "normalized": "抽選会",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Winners feat. Reol & Giga",
+      "count": 2,
+      "normalized": "winnersfeatreol&giga",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ray（そらる&夏代孝明）",
+      "count": 2,
+      "normalized": "rayそらる&夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ジェミニ（96猫&れをる）",
+      "count": 2,
+      "normalized": "ジェミニ96猫&れをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Starduster（そらる）",
+      "count": 2,
+      "normalized": "stardusterそらる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "count": 1,
+      "normalized": "imyourtreasurebox*あなたはマリンせんちょうをたからばこからみつけた",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "BROKEN GAMES",
+      "count": 1,
+      "normalized": "brokengames",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Winners",
+      "count": 1,
+      "normalized": "winners",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "松本ぼんぼん（Born Born Remix）",
+      "count": 1,
+      "normalized": "松本ぼんぼんbornbornremix",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "テトロドトキサイザ2号",
+      "count": 1,
+      "normalized": "テトロドトキサイザ2号",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "21世紀難民",
+      "count": 1,
+      "normalized": "21世紀難民",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "DESIRE -情熱-",
+      "count": 1,
+      "normalized": "desire-情熱-",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "03. Re:",
+      "count": 1,
+      "normalized": "03re",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "MASH UP",
+      "count": 1,
+      "normalized": "mashup",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "REOL MASH UP Remix TIME",
+      "count": 1,
+      "normalized": "reolmashupremixtime",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "スターライトパレード（天月）",
+      "count": 1,
+      "normalized": "スターライトパレード天月",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "月に負け犬（れをる）",
+      "count": 1,
+      "normalized": "月に負け犬れをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星が瞬くこんな夜に（佐香智久）",
+      "count": 1,
+      "normalized": "星が瞬くこんな夜に佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "帚星（夏代孝明）",
+      "count": 1,
+      "normalized": "帚星夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星に願いを（そらる）",
+      "count": 1,
+      "normalized": "星に願いをそらる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星の唄（天月&佐香智久）",
+      "count": 1,
+      "normalized": "星の唄天月&佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "下弦の月（96猫）",
+      "count": 1,
+      "normalized": "下弦の月96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "小さな恋のうた（佐香智久）",
+      "count": 1,
+      "normalized": "小さな恋のうた佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "月のワルツ（れをる）",
+      "count": 1,
+      "normalized": "月のワルツれをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "月のしずく（96猫）",
+      "count": 1,
+      "normalized": "月のしずく96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "サクラミツツキ（天月）",
+      "count": 1,
+      "normalized": "サクラミツツキ天月",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ホシトリアミ（夏代孝明）",
+      "count": 1,
+      "normalized": "ホシトリアミ夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "光るなら（全員）",
+      "count": 1,
+      "normalized": "光るなら全員",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Jupiter（96猫）",
+      "count": 1,
+      "normalized": "jupiter96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星が消えた夏（夏代孝明）",
+      "count": 1,
+      "normalized": "星が消えた夏夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "花鳥風月（佐香智久）",
+      "count": 1,
+      "normalized": "花鳥風月佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "アポロ（天月）",
+      "count": 1,
+      "normalized": "アポロ天月",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星間飛行（そらる）",
+      "count": 1,
+      "normalized": "星間飛行そらる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "フタリボシ（天月&佐香智久）",
+      "count": 1,
+      "normalized": "フタリボシ天月&佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "スターフィッシュ（夏代孝明）",
+      "count": 1,
+      "normalized": "スターフィッシュ夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "星屑サンセット（れをる）",
+      "count": 1,
+      "normalized": "星屑サンセットれをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Starduster（96猫）",
+      "count": 1,
+      "normalized": "starduster96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ホシアイ（天月）",
+      "count": 1,
+      "normalized": "ホシアイ天月",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "君の知らない物語（佐香智久）",
+      "count": 1,
+      "normalized": "君の知らない物語佐香智久",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "フィードバック・インターステラ（そらる）",
+      "count": 1,
+      "normalized": "フィードバックインターステラそらる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "天体観測（全員）",
+      "count": 1,
+      "normalized": "天体観測全員",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "magnet（赤飯×ピコ）",
+      "count": 1,
+      "normalized": "magnet赤飯×ピコ",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "こちら、幸福安心委員会です。（＿＿（アンダーバー））",
+      "count": 1,
+      "normalized": "こちら幸福安心委員会ですアンダーバー",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "人生リセットボタン（松下）",
+      "count": 1,
+      "normalized": "人生リセットボタン松下",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "嗚呼、素晴らしきニャン生（＿＿（アンダーバー）×松下）",
+      "count": 1,
+      "normalized": "嗚呼素晴らしきニャン生アンダーバー×松下",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Love Ninja（ROOT FIVE）",
+      "count": 1,
+      "normalized": "loveninjarootfive",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "MERRY GO ROUND（ROOT FIVE）",
+      "count": 1,
+      "normalized": "merrygoroundrootfive",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Shiningray（96猫）",
+      "count": 1,
+      "normalized": "shiningray96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "心做し（ピコ）",
+      "count": 1,
+      "normalized": "心做しピコ",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "虎視眈々（luz）",
+      "count": 1,
+      "normalized": "虎視眈々luz",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "MY→WAY（Dancing Dolls R）",
+      "count": 1,
+      "normalized": "my→waydancingdollsr",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "地球最後の告白を（un：c）",
+      "count": 1,
+      "normalized": "地球最後の告白をunc",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "マーシャルの嬌声（夏代孝明）",
+      "count": 1,
+      "normalized": "マーシャルの嬌声夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "アイマイ独立宣言（ゆうゆ×びびあん）",
+      "count": 1,
+      "normalized": "アイマイ独立宣言ゆうゆ×びびあん",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "S・K・Y（りょーくん）",
+      "count": 1,
+      "normalized": "skyりょーくん",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "二息歩行（りょーくん×赤飯）",
+      "count": 1,
+      "normalized": "二息歩行りょーくん×赤飯",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "見習いハーデス（赤飯）",
+      "count": 1,
+      "normalized": "見習いハーデス赤飯",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "The Bandits（Gero）",
+      "count": 1,
+      "normalized": "thebanditsgero",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Calc.Piano ver（いかさん）",
+      "count": 1,
+      "normalized": "calcpianoverいかさん",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Cotton Candy Cloud（cleanero）",
+      "count": 1,
+      "normalized": "cottoncandycloudcleanero",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "からくりピエロ koma'nアレンジver（koma'n（Pf）×cleanero）",
+      "count": 1,
+      "normalized": "からくりピエロkomanアレンジverkomanpf×cleanero",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "心拍数＃0822（kain）",
+      "count": 1,
+      "normalized": "心拍数#0822kain",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "サリシノハラ（みきとP×kain）",
+      "count": 1,
+      "normalized": "サリシノハラみきとp×kain",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Super☆D（みきとP×まじ娘）",
+      "count": 1,
+      "normalized": "super☆dみきとp×まじ娘",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "View（蝶々P×rairu）",
+      "count": 1,
+      "normalized": "view蝶々p×rairu",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "Drive into you（samfree×柿チョコ、Dancing Dolls R）",
+      "count": 1,
+      "normalized": "driveintoyousamfree×柿チョコdancingdollsr",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "By Your Side（八王子P×伊東歌詞太郎）",
+      "count": 1,
+      "normalized": "byyourside八王子p×伊東歌詞太郎",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "デート（HoneyWorks×鎖那）",
+      "count": 1,
+      "normalized": "デートhoneyworks×鎖那",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "今好きになる。（HoneyWorks×鎖那）",
+      "count": 1,
+      "normalized": "今好きになるhoneyworks×鎖那",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "世界は恋に落ちている（CHiCO with HoneyWorks）",
+      "count": 1,
+      "normalized": "世界は恋に落ちているchicowithhoneyworks",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "金曜日のおはよう（HoneyWorks×Gero）",
+      "count": 1,
+      "normalized": "金曜日のおはようhoneyworks×gero",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ルカルカ★ナイトフィーバー（samfree×愛川こずえ with I LoVU）",
+      "count": 1,
+      "normalized": "ルカルカ★ナイトフィーバーsamfree×愛川こずえwithilovu",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "夜咄ディセイブ（un：c×夏代孝明）",
+      "count": 1,
+      "normalized": "夜咄ディセイブunc×夏代孝明",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ローリンガール（ぐるたみん）",
+      "count": 1,
+      "normalized": "ローリンガールぐるたみん",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "脳漿炸裂ガール（れをる×＋α/あるふぁきゅん×れるりり）",
+      "count": 1,
+      "normalized": "脳漿炸裂ガールれをる×+αあるふぁきゅん×れるりり",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "聖槍爆裂ボーイ（いかふぁきゅん（いかさん×＋α/あるふぁきゅん。）×れるりり）",
+      "count": 1,
+      "normalized": "聖槍爆裂ボーイいかふぁきゅんいかさん×+αあるふぁきゅん×れるりり",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "マトリョシカ（ROOT FIVE×luz）",
+      "count": 1,
+      "normalized": "マトリョシカrootfive×luz",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "千本桜（ALL ARTISTS）",
+      "count": 1,
+      "normalized": "千本桜allartists",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "えれくとりっく・えんじぇぅ（れをる）",
+      "count": 1,
+      "normalized": "えれくとりっくえんじぇぅれをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "からくりピエロ（96猫）",
+      "count": 1,
+      "normalized": "からくりピエロ96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "流線プリズム（kradness＆れをる）",
+      "count": 1,
+      "normalized": "流線プリズムkradness&れをる",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "ＤＪギガＰ",
+      "count": 1,
+      "normalized": "djギガp",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "へたくそユートピア政策（スズム）",
+      "count": 1,
+      "normalized": "へたくそユートピア政策スズム",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "演奏者・ダンサー紹介",
+      "count": 1,
+      "normalized": "演奏者ダンサー紹介",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "cLick cRack（れをる＆kradness＆そらる＆96猫）",
+      "count": 1,
+      "normalized": "clickcrackれをる&kradness&そらる&96猫",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "トーク",
+      "count": 1,
+      "normalized": "トーク",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    },
+    {
+      "title": "トーク２",
+      "count": 1,
+      "normalized": "トーク2",
+      "note": "May be cover, collaboration, event-only item, raffle, medley header, or spelling variant requiring manual mapping"
+    }
+  ],
+  "setlistsWithNoEntries": [
+    {
+      "setlistId": "live_49_item_2",
+      "liveId": 49,
+      "title": "Reol ASIA TOUR \"UNBOX\"",
+      "date": "2024-03-03",
+      "venueName": "太空间 LIVE HOUSE"
+    },
+    {
+      "setlistId": "live_49_item_3",
+      "liveId": 49,
+      "title": "Reol ASIA TOUR \"UNBOX\"",
+      "date": "2024-03-06",
+      "venueName": "蜚声 PHASE LIVE HOUSE"
+    },
+    {
+      "setlistId": "live_49_item_4",
+      "liveId": 49,
+      "title": "Reol ASIA TOUR \"UNBOX\"",
+      "date": "2024-03-08",
+      "venueName": "东郎EAST LIVE"
+    },
+    {
+      "setlistId": "live_49_item_5",
+      "liveId": 49,
+      "title": "Reol ASIA TOUR \"UNBOX\"",
+      "date": "2024-03-16",
+      "venueName": "Zepp New Taipei"
+    },
+    {
+      "setlistId": "live_49_item_6",
+      "liveId": 49,
+      "title": "Reol ASIA TOUR \"UNBOX\"",
+      "date": "2024-03-23",
+      "venueName": "musinsa garage"
+    },
+    {
+      "setlistId": "live_31_item_1",
+      "liveId": 31,
+      "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+      "date": "2022-07-23",
+      "venueName": "舞洲スポーツアイランド"
+    },
+    {
+      "setlistId": "live_30_item_3",
+      "liveId": 30,
+      "title": "Reol Oneman Live 2022「激情アラート」",
+      "date": "2022-05-02",
+      "venueName": "Zepp Fukuoka"
+    },
+    {
+      "setlistId": "live_30_item_4",
+      "liveId": 30,
+      "title": "Reol Oneman Live 2022「激情アラート」",
+      "date": "2022-05-08",
+      "venueName": "仙台PIT"
+    },
+    {
+      "setlistId": "live_30_item_5",
+      "liveId": 30,
+      "title": "Reol Oneman Live 2022「激情アラート」",
+      "date": "2022-05-12",
+      "venueName": "Zepp Haneda"
+    },
+    {
+      "setlistId": "live_26_item_1",
+      "liveId": 26,
+      "title": "COUNTDOWN JAPAN 20/21　※中止",
+      "date": "2020-12-30",
+      "venueName": ""
+    },
+    {
+      "setlistId": "live_25_item_1",
+      "liveId": 25,
+      "title": "YOUTUBE MUSIC WEEKEND",
+      "date": "2020-12-06",
+      "venueName": "YouTube"
+    },
+    {
+      "setlistId": "live_23_item_1",
+      "liveId": 23,
+      "title": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+      "date": "2020-10-11",
+      "venueName": "YouTube"
+    },
+    {
+      "setlistId": "live_22_item_1",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-08",
+      "venueName": "広島クラブクアトロ"
+    },
+    {
+      "setlistId": "live_22_item_2",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-09",
+      "venueName": "DRUM LOGOS"
+    },
+    {
+      "setlistId": "live_22_item_3",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-15",
+      "venueName": "仙台 Rensa"
+    },
+    {
+      "setlistId": "live_22_item_4",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-22",
+      "venueName": "札幌ペニーレーン24"
+    },
+    {
+      "setlistId": "live_22_item_5",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-29",
+      "venueName": "名古屋ダイアモンドホール"
+    },
+    {
+      "setlistId": "live_22_item_6",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-03-07",
+      "venueName": "なんばHatch"
+    },
+    {
+      "setlistId": "live_22_item_7",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-03-21",
+      "venueName": "LINE CUBE SHIBUYA "
+    },
+    {
+      "setlistId": "live_22_item_8",
+      "liveId": 22,
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-04-04",
+      "venueName": "神奈川県民ホール"
+    },
+    {
+      "setlistId": "live_20_item_1",
+      "liveId": 20,
+      "title": "YouTube FanFest Japan 2019",
+      "date": "2019-12-04",
+      "venueName": "幕張メッセ"
+    },
+    {
+      "setlistId": "live_19_item_1",
+      "liveId": 19,
+      "title": "第16回 東京国際ミュージック・マーケット",
+      "date": "2019-10-28",
+      "venueName": "Veats Shibuya"
+    },
+    {
+      "setlistId": "live_18_item_1",
+      "liveId": 18,
+      "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+      "date": "2019-10-06",
+      "venueName": "松下IMPホール"
+    },
+    {
+      "setlistId": "live_17_item_1",
+      "liveId": 17,
+      "title": "宗像フェス Fukutsu Koinoura",
+      "date": "2019-09-22",
+      "venueName": "恋の浦海岸"
+    },
+    {
+      "setlistId": "live_15_item_2",
+      "liveId": 15,
+      "title": "Reol Secret Live 2019「文明ココロミー」",
+      "date": "2019-07-14",
+      "venueName": "梅田バナナホール"
+    },
+    {
+      "setlistId": "live_15_item_3",
+      "liveId": 15,
+      "title": "Reol Secret Live 2019「文明ココロミー」",
+      "date": "2019-07-19",
+      "venueName": "名古屋 E.L.L."
+    },
+    {
+      "setlistId": "live_14_item_1",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2018-10-26",
+      "venueName": "なんばHatch"
+    },
+    {
+      "setlistId": "live_14_item_2",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2018-11-03",
+      "venueName": "札幌ペニーレーン24"
+    },
+    {
+      "setlistId": "live_14_item_3",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2018-11-11",
+      "venueName": "DRUM LOGOS"
+    },
+    {
+      "setlistId": "live_14_item_4",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2018-11-17",
+      "venueName": "ReNY limited"
+    },
+    {
+      "setlistId": "live_14_item_6",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2018-12-15",
+      "venueName": "HONDAE MUVHALL"
+    },
+    {
+      "setlistId": "live_14_item_7",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2019-01-10",
+      "venueName": "Mao live house"
+    },
+    {
+      "setlistId": "live_14_item_8",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2019-01-12",
+      "venueName": "Modernsky Lab"
+    },
+    {
+      "setlistId": "live_14_item_9",
+      "liveId": 14,
+      "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+      "date": "2019-01-13",
+      "venueName": "Tango live"
+    },
+    {
+      "setlistId": "live_11_item_1",
+      "liveId": 11,
+      "title": "REOL LAST LIVE「終楽章」",
+      "date": "2017-10-20",
+      "venueName": "Zepp Namba"
+    },
+    {
+      "setlistId": "live_11_item_2",
+      "liveId": 11,
+      "title": "REOL LAST LIVE「終楽章」",
+      "date": "2017-10-22",
+      "venueName": "豊洲PIT"
+    },
+    {
+      "setlistId": "live_9_item_1",
+      "liveId": 9,
+      "title": "AIR-G' 35th Anniversary New Music Lab 2",
+      "date": "2017-04-28",
+      "venueName": "cube garden"
+    },
+    {
+      "setlistId": "live_8_item_3",
+      "liveId": 8,
+      "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "date": "2017-03-11",
+      "venueName": "HONGDAE V-HALL"
+    },
+    {
+      "setlistId": "live_8_item_4",
+      "liveId": 8,
+      "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "date": "2017-03-12",
+      "venueName": "HONGDAE V-HALL"
+    },
+    {
+      "setlistId": "live_7_item_1",
+      "liveId": 7,
+      "title": "BIG FOREST LIVE",
+      "date": "2016-08-28",
+      "venueName": "札幌芸術の森野外ステージ"
+    },
+    {
+      "setlistId": "live_6_item_1",
+      "liveId": 6,
+      "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+      "date": "2016-07-02",
+      "venueName": "赤坂BLITZ"
+    },
+    {
+      "setlistId": "live_5_item_1",
+      "liveId": 5,
+      "title": "れをる単独公演「極彩色HighFidelity」",
+      "date": "2015-10-23",
+      "venueName": "TSUTAYA O-EAST"
+    },
+    {
+      "setlistId": "live_5_item_2",
+      "liveId": 5,
+      "title": "れをる単独公演「極彩色HighFidelity」",
+      "date": "2015-11-26",
+      "venueName": "BIG CAT"
+    },
+    {
+      "setlistId": "live_5_item_3",
+      "liveId": 5,
+      "title": "れをる単独公演「極彩色HighFidelity」",
+      "date": "2016-01-09",
+      "venueName": "MAO livehouse"
+    },
+    {
+      "setlistId": "live_2_item_1",
+      "liveId": 2,
+      "title": "nico nico Spirit.",
+      "date": "2015-02-01",
+      "venueName": "新宿ReNY"
+    },
+    {
+      "setlistId": "live_1_item_1",
+      "liveId": 1,
+      "title": "amphead nico nico singer music live vol.03",
+      "date": "2014-02-01",
+      "venueName": "原宿 ASTRO HALL"
+    }
+  ],
+  "venueEnrichmentTasks": [
+    {
+      "venueId": "venue_aa143c1762",
+      "name": "ぴあアリーナMM",
+      "rawPlace": "ぴあアリーナMM",
+      "inferredType": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://pia-arena-mm.jp/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい３丁目２−２",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_ab3f1683e8",
+      "name": "国立代々木競技場第一体育館",
+      "rawPlace": "国立代々木競技場第一体育館",
+      "inferredType": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.jpnsport.go.jp/yoyogi/",
+      "address": "〒150-0041 東京都渋谷区神南２丁目１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_492a9139fe",
+      "name": "日本武道館",
+      "rawPlace": "日本武道館",
+      "inferredType": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.nipponbudokan.or.jp/",
+      "address": "〒102-8321 東京都千代田区北の丸公園2番3号",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_d66a87e694",
+      "name": "横浜アリーナ",
+      "rawPlace": "横浜アリーナ",
+      "inferredType": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.yokohama-arena.co.jp/",
+      "address": "〒222-0033 神奈川県横浜市港北区新横浜３丁目１０",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_82c236ae68",
+      "name": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+      "rawPlace": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://gelorabungkarno.co.id/",
+      "address": "Jl. Pintu Satu Senayan No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270 インドネシア",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_eecb50d939",
+      "name": "Veats Shibuya",
+      "rawPlace": "Veats Shibuya",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://veats.jp/",
+      "address": "〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_87bdd1c24b",
+      "name": "cube garden",
+      "rawPlace": "cube garden",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.cube-garden.com/",
+      "address": "〒060-0032 北海道札幌市中央区北２条東３丁目２−５ ｃｕｂｅ ｇａｒｄｅｎ",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_b74e7f4be9",
+      "name": "大宮ソニックシティ",
+      "rawPlace": "大宮ソニックシティ",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sonic-city.or.jp/",
+      "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_d971119038",
+      "name": "大宮ソニックシティ",
+      "rawPlace": "大宮ソニックシティ",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sonic-city.or.jp/",
+      "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_db06566426",
+      "name": "福岡　スカラエスパシオ",
+      "rawPlace": "福岡　スカラエスパシオ",
+      "inferredType": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://espacio.ne.jp/",
+      "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_448f196c47",
+      "name": "KINTEX HALL",
+      "rawPlace": "KINTEX HALL",
+      "inferredType": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.kintex.com/",
+      "address": "217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_665aaace30",
+      "name": "幕張メッセ",
+      "rawPlace": "幕張メッセ",
+      "inferredType": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "sourceItemCount": 5
+    },
+    {
+      "venueId": "venue_74df5749fd",
+      "name": "幕張メッセ",
+      "rawPlace": "幕張メッセ",
+      "inferredType": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/organizers/guide/exhibitionhall/guide_exibition9-11",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目２−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_1ebfa25740",
+      "name": "幕張メッセ ホール 9・10・11",
+      "rawPlace": "幕張メッセ ホール 9・10・11",
+      "inferredType": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_dcd672c215",
+      "name": "HONDAE MUVHALL",
+      "rawPlace": "HONDAE MUVHALL",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_d9db7adbf8",
+      "name": "HONGDAE V-HALL",
+      "rawPlace": "HONGDAE V-HALL",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.vhall.co.kr/main/",
+      "address": "２５ Hongik-ro, Mapo-gu, Seoul, 韓国",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_6b8a89833d",
+      "name": "LINE CUBE SHIBUYA",
+      "rawPlace": "LINE CUBE SHIBUYA",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_38f3854d8b",
+      "name": "LINE CUBE SHIBUYA",
+      "rawPlace": "LINE CUBE SHIBUYA",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6a159d39cb",
+      "name": "LINE CUBE SHIBUYA ",
+      "rawPlace": "LINE CUBE SHIBUYA ",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_e2c08b5156",
+      "name": "T.O.P.S BittsHALL",
+      "rawPlace": "T.O.P.S BittsHALL",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.oita-tops.com/bittshall",
+      "address": "〒870-0003 大分県大分市生石５丁目３−７８３",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6cb699190a",
+      "name": "TOKYO DOME CITY HALL",
+      "rawPlace": "TOKYO DOME CITY HALL",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.tokyo-dome.co.jp/tdc-hall/",
+      "address": "〒112-0004 東京都文京区後楽１丁目３−６１ 東京ドームミーツポート1F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_4664798aa4",
+      "name": "Tobacco Dock",
+      "rawPlace": "Tobacco Dock",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_5cc94086da",
+      "name": "まつもと市民芸術館",
+      "rawPlace": "まつもと市民芸術館",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.mpac.jp/",
+      "address": "〒390-0815 長野県松本市深志３丁目１０−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_74527b92d0",
+      "name": "フェスティバルホール",
+      "rawPlace": "フェスティバルホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.festivalhall.jp/",
+      "address": "〒530-0005 大阪府大阪市北区中之島２丁目３−１８",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_0a2fd400f9",
+      "name": "フェニーチェ堺",
+      "rawPlace": "フェニーチェ堺",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.fenice-sacay.jp/",
+      "address": "〒590-0061 大阪府堺市堺区翁橋町２丁１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_f2477dc884",
+      "name": "中野サンプラザ",
+      "rawPlace": "中野サンプラザ",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒164-8512 東京都中野区中野４丁目１−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_40ff77245b",
+      "name": "原宿 ASTRO HALL",
+      "rawPlace": "原宿 ASTRO HALL",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB",
+      "address": "〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_58ac964678",
+      "name": "名古屋ダイアモンドホール",
+      "rawPlace": "名古屋ダイアモンドホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://diamond.sflag.co.jp/",
+      "address": "〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_cd135e4877",
+      "name": "新潟テルサ",
+      "rawPlace": "新潟テルサ",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.n-terrsa.jp/",
+      "address": "〒950-1141 新潟県新潟市中央区鐘木１８５−１８",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_bbf8bc6d20",
+      "name": "昭和女子大学人見記念講堂",
+      "rawPlace": "昭和女子大学人見記念講堂",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://hall.swu.ac.jp/",
+      "address": "〒154-8533 東京都世田谷区太子堂１丁目７−５７",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_71d072c7e1",
+      "name": "東京 ニッショーホール",
+      "rawPlace": "東京 ニッショーホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://nissho-hall.jp/accesmap.html",
+      "address": "〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_3ee69f3ee6",
+      "name": "松下IMPホール",
+      "rawPlace": "松下IMPホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.kanden-kaijyou.jp/event_hole/imp/",
+      "address": "〒540-6301 大阪府大阪市中央区城見１丁目３−７",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_45bc51d60d",
+      "name": "梅田バナナホール",
+      "rawPlace": "梅田バナナホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.banana-hall.com/",
+      "address": "〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_75b1d17d6b",
+      "name": "渋谷ストリームホール",
+      "rawPlace": "渋谷ストリームホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://stream-hall.jp/",
+      "address": "〒150-0002 東京都渋谷区渋谷３丁目２１−３",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_1498597791",
+      "name": "神奈川県民ホール",
+      "rawPlace": "神奈川県民ホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.kanagawa-kenminhall.com/",
+      "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_edb36903a4",
+      "name": "神奈川県民ホール",
+      "rawPlace": "神奈川県民ホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.kanagawa-kenminhall.com/",
+      "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6459030346",
+      "name": "金沢 エイトホール",
+      "rawPlace": "金沢 エイトホール",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.eighthall.com/",
+      "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_844a397def",
+      "name": "高松 festhalle",
+      "rawPlace": "高松 festhalle",
+      "inferredType": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://festhalle.jp/",
+      "address": "〒760-0054 香川県高松市常磐町１丁目３−２",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_8f93544528",
+      "name": "BIG CAT",
+      "rawPlace": "BIG CAT",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.bigcat-live.com/",
+      "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_972069a148",
+      "name": "DRUM LOGOS",
+      "rawPlace": "DRUM LOGOS",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.live-drum.com/",
+      "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_58ea733d4f",
+      "name": "KT Zepp Yokohama",
+      "rawPlace": "KT Zepp Yokohama",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/yokohama/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_26210ad7a9",
+      "name": "LIVE ROXY SHIZUOKA",
+      "rawPlace": "LIVE ROXY SHIZUOKA",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://live-roxy.com/",
+      "address": "〒420-0851 静岡県静岡市葵区黒金町２８−１−２",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_94b984129e",
+      "name": "MAO livehouse",
+      "rawPlace": "MAO livehouse",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_52a8ff0670",
+      "name": "Mao live house",
+      "rawPlace": "Mao live house",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_1bdb081a46",
+      "name": "NUBOND LIVE HOUSE",
+      "rawPlace": "NUBOND LIVE HOUSE",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_5d14906f73",
+      "name": "ReNY limited",
+      "rawPlace": "ReNY limited",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://ruido.org/nagoya_reny/",
+      "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_94b4c9126e",
+      "name": "Spotify O-EAST",
+      "rawPlace": "Spotify O-EAST",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_c35d01dd02",
+      "name": "TSUTAYA O-EAST",
+      "rawPlace": "TSUTAYA O-EAST",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_8aa88b9275",
+      "name": "Zepp DiverCity",
+      "rawPlace": "Zepp DiverCity",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/divercity/",
+      "address": "〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_1de296acf2",
+      "name": "Zepp Fukuoka",
+      "rawPlace": "Zepp Fukuoka",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_ee9dfa68f6",
+      "name": "Zepp Fukuoka",
+      "rawPlace": "Zepp Fukuoka",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_972eb4fd80",
+      "name": "Zepp Haneda",
+      "rawPlace": "Zepp Haneda",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/haneda/",
+      "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_68666eded9",
+      "name": "Zepp Nagoya",
+      "rawPlace": "Zepp Nagoya",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_d1dd73eaaf",
+      "name": "Zepp Nagoya",
+      "rawPlace": "Zepp Nagoya",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_024e2ea015",
+      "name": "Zepp Namba",
+      "rawPlace": "Zepp Namba",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/namba/",
+      "address": "〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_f22d769e96",
+      "name": "Zepp New Taipei",
+      "rawPlace": "Zepp New Taipei",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/newtaipei/",
+      "address": "〒24242 新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_45fa5b54f2",
+      "name": "Zepp Osaka Bayside",
+      "rawPlace": "Zepp Osaka Bayside",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
+      "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_6b0438b472",
+      "name": "Zepp Tokyo",
+      "rawPlace": "Zepp Tokyo",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
+      "address": "〒135-0064 東京都江東区青海１丁目３−１１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_9ee1e0b279",
+      "name": "Zepp Tokyo",
+      "rawPlace": "Zepp Tokyo",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
+      "address": "〒135-0064 東京都江東区青海１丁目３−１１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_8955afd93e",
+      "name": "musinsa garage",
+      "rawPlace": "musinsa garage",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.musinsagarage.com/",
+      "address": "３２ Jandari-ro, Mapo-gu, Seoul, 韓国",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_1216ccde0f",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/index.php",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_93ff91e709",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_ec74611853",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_e4d6644680",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_51e95f306d",
+      "name": "东郎EAST LIVE",
+      "rawPlace": "东郎EAST LIVE",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_7c90260c4a",
+      "name": "仙台 GIGS",
+      "rawPlace": "仙台 GIGS",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sendaigigs.com/",
+      "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_e8763dab87",
+      "name": "仙台 Rensa",
+      "rawPlace": "仙台 Rensa",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.rensa.jp/",
+      "address": "〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6bdd5c67b3",
+      "name": "仙台PIT",
+      "rawPlace": "仙台PIT",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://sendai-pit.team-smile.org/",
+      "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_35ad979fa9",
+      "name": "太空间 LIVE HOUSE",
+      "rawPlace": "太空间 LIVE HOUSE",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_3db991c689",
+      "name": "岡山 CRAZYMAMA KINGDOM",
+      "rawPlace": "岡山 CRAZYMAMA KINGDOM",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://banquetunion.com/kingdom/",
+      "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_b9a6887c5a",
+      "name": "広島クラブクアトロ",
+      "rawPlace": "広島クラブクアトロ",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.club-quattro.com/",
+      "address": "〒730-0035 広島県広島市中区本通１０−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_5c67999aeb",
+      "name": "広島クラブクアトロ",
+      "rawPlace": "広島クラブクアトロ",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.club-quattro.com/",
+      "address": "〒730-0035 広島県広島市中区本通１０−１",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_e3704a4d4a",
+      "name": "新宿ReNY",
+      "rawPlace": "新宿ReNY",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://ruido.org/reny/index.html",
+      "address": "〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_a8ded44c35",
+      "name": "新潟 LOTS",
+      "rawPlace": "新潟 LOTS",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.fmniigata.com/user/lots/",
+      "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_acd864f8db",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_b75adf7ad9",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_f2a087872e",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6cbf9bc6a2",
+      "name": "松山 Wstudio RED",
+      "rawPlace": "松山 Wstudio RED",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://red.double-ustudio.com/",
+      "address": "〒790-0012 愛媛県松山市湊町４丁目１０−８",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_51a5fab81d",
+      "name": "盛岡 club change WAVE",
+      "rawPlace": "盛岡 club change WAVE",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://clubchange.com/",
+      "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_a026a1322a",
+      "name": "蜚声 PHASE LIVE HOUSE",
+      "rawPlace": "蜚声 PHASE LIVE HOUSE",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_fd382a30af",
+      "name": "豊洲PIT",
+      "rawPlace": "豊洲PIT",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒135-0061 東京都江東区豊洲６丁目１−２３",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_28ee7177b1",
+      "name": "赤坂BLITZ",
+      "rawPlace": "赤坂BLITZ",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.tbs.co.jp/blitz/",
+      "address": "〒107-0052 東京都港区赤坂５丁目３−２",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_5aca61a6ec",
+      "name": "高松 DIME",
+      "rawPlace": "高松 DIME",
+      "inferredType": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.dime-dime.com/",
+      "address": "〒760-0051 香川県高松市南新町１−４ ５階",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_7a52beb00e",
+      "name": "みちのく公園 北地区",
+      "rawPlace": "みちのく公園 北地区",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒989-1503 宮城県柴田郡川崎町川内藤折",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_224325d355",
+      "name": "中国上海・森蘭緑地（Sen Lan Green Park)",
+      "rawPlace": "中国上海・森蘭緑地（Sen Lan Green Park)",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_a3ed5a9d25",
+      "name": "千葉市蘇我スポーツ公園",
+      "rawPlace": "千葉市蘇我スポーツ公園",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://sogasportspark.com/",
+      "address": "〒260-0835 千葉県千葉市中央区川崎町１−２０",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_dc6fc12a0b",
+      "name": "国営ひたち海浜公園",
+      "rawPlace": "国営ひたち海浜公園",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://hitachikaihin.jp/",
+      "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_8d13b23914",
+      "name": "大阪城音楽堂",
+      "rawPlace": "大阪城音楽堂",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.osakacastlepark.jp/ongakudo/",
+      "address": "〒540-0002 大阪府大阪市中央区大阪城３−１１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_64cbd170a3",
+      "name": "恋の浦海岸",
+      "rawPlace": "恋の浦海岸",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒811-3307 福岡県福津市渡６４１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_fd5ced1cdc",
+      "name": "札幌芸術の森野外ステージ",
+      "rawPlace": "札幌芸術の森野外ステージ",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_9acaeda69b",
+      "name": "海とのふれあい広場",
+      "rawPlace": "海とのふれあい広場",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/",
+      "address": "〒590-0908 大阪府堺市堺区匠町６−１",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_a56868eaf4",
+      "name": "舞洲スポーツアイランド",
+      "rawPlace": "舞洲スポーツアイランド",
+      "inferredType": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shisetsu.mizuno.jp/m-7402",
+      "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_1002385886",
+      "name": "EX THEATER ROPPONGI",
+      "rawPlace": "EX THEATER ROPPONGI",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.ex-theater.com/",
+      "address": "〒106-0031 東京都港区西麻布１丁目２−９",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_3660b2e934",
+      "name": "Modernsky Lab",
+      "rawPlace": "Modernsky Lab",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "中国 Yunnan, Kunming, Xishan, 杨家路 邮政编码: 650228",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_f561989bd3",
+      "name": "Tango live",
+      "rawPlace": "Tango live",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_98c4b7d37a",
+      "name": "Unknown / Online",
+      "rawPlace": "",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_e0ff5cdc08",
+      "name": "オンライン",
+      "rawPlace": "",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "sourceItemCount": 2
+    },
+    {
+      "venueId": "venue_81d1876ee2",
+      "name": "名古屋 E.L.L.",
+      "rawPlace": "名古屋 E.L.L.",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.ell.co.jp/",
+      "address": "〒460-0011 愛知県名古屋市中区大須２丁目１０−３５",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_b27f25d951",
+      "name": "新木場スタジオコースト",
+      "rawPlace": "新木場スタジオコースト",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.studio-coast.com/",
+      "address": "〒136-0082 東京都江東区新木場２丁目２−１０",
+      "sourceItemCount": 1
+    },
+    {
+      "venueId": "venue_6485373dc2",
+      "name": "神戸ハーバースタジオ",
+      "rawPlace": "神戸ハーバースタジオ",
+      "inferredType": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://harbor-studio.net/",
+      "address": "〒650-0042 兵庫県神戸市中央区波止場６−３",
+      "sourceItemCount": 1
+    }
+  ]
+}

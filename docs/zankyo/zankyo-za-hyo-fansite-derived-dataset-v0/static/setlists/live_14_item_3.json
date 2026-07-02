@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "福岡",
+    "date": "2018-11-11",
+    "place": "DRUM LOGOS",
+    "placeSite": "http://www.live-drum.com/",
+    "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4781575038783!2d130.39398!3d33.59289599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191891bfc5a3b%3A0x9963fe6cbbac97fd!2z44OJ44Op44Og44Ot44K044K5!5e0!3m2!1sja!2sjp!4v1697822346544!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2018-11-11",
+  "venueName": "DRUM LOGOS",
+  "venueId": "venue_972069a148",
+  "entries": []
+}

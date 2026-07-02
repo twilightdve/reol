@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "queueId": "queue_sample_bijigaku_asahikawa",
+  "title": "美辞学 Sample Night / 旭川 CASINO DRIVE",
+  "setlistId": "sample_bijigaku_2026_asahikawa",
+  "liveMemoryId": "memory_bijigaku_2026_asahikawa_left_front",
+  "items": [
+    {
+      "schemaVersion": 1,
+      "queueItemId": "queue_001",
+      "kind": "track",
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_001",
+      "trackId": "track_dairokkan",
+      "fileKey": "Reol/第六感.flac|30124567|1779000000000",
+      "title": "第六感",
+      "durationSec": 206,
+      "afterglowTailSec": 8
+    },
+    {
+      "schemaVersion": 1,
+      "queueItemId": "queue_001_tail",
+      "kind": "afterglow",
+      "title": "afterglow / 第六感",
+      "durationSec": 8
+    },
+    {
+      "schemaVersion": 1,
+      "queueItemId": "queue_002",
+      "kind": "track",
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_002",
+      "trackId": "track_404",
+      "fileKey": "Reol/404 not found.flac|35678210|1779000000001",
+      "title": "404 not found",
+      "durationSec": 244,
+      "afterglowTailSec": 10
+    },
+    {
+      "schemaVersion": 1,
+      "queueItemId": "queue_002_tail",
+      "kind": "afterglow",
+      "title": "afterglow / 404 not found",
+      "durationSec": 10
+    },
+    {
+      "schemaVersion": 1,
+      "queueItemId": "queue_005_special",
+      "kind": "special",
+      "setlistId": "sample_bijigaku_2026_asahikawa",
+      "entryId": "entry_005",
+      "title": "津軽海峡冬景色",
+      "durationSec": 6,
+      "note": "cover special entry: no audio attached"
+    }
+  ],
+  "createdAt": "2026-05-17T12:00:00+09:00"
+}

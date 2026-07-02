@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "name": "zankyo-za-hyo-fansite-derived-dataset-v0",
+  "generatedAt": "2026-05-17T17:00:00+09:00",
+  "sources": [
+    {
+      "sourceJson": "live.json",
+      "description": "Fan site generated live history JSON: lives, live items, venues, setlists, posts, reports"
+    },
+    {
+      "sourceJson": "discography.json",
+      "description": "Fan site generated discography JSON: releases, songs, Spotify-like audio features"
+    }
+  ],
+  "counts": {
+    "sourceLives": 59,
+    "sourceLiveItems": 122,
+    "sourceSetlistEntries": 1233,
+    "sourceDiscographies": 85,
+    "sourceDiscographySongs": 157,
+    "tracks": 156,
+    "setlists": 122,
+    "venues": 104
+  },
+  "notes": [
+    "Venue capacity is intentionally left null until web/source verification.",
+    "Track matching is based on fan-site discography song names, aliases, and normalized title keys.",
+    "Medley/mashup entries preserve rawTitle and parsedChildren for later manual matching.",
+    "Audio files are not included."
+  ]
+}

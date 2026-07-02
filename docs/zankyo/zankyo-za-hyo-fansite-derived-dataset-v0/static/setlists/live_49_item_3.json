@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 49,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 49,
+    "type": "oneman",
+    "title": "Reol ASIA TOUR \"UNBOX\"",
+    "artistName": "Reol",
+    "dateRange": "2024-03-16〜2024-03-23",
+    "siteUrl": "https://reol.jp/feature/unbox_2324",
+    "spotifyPlaylistId": "3JDPzO8M5PRCHKreXoBmbA"
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "上海",
+    "date": "2024-03-06",
+    "place": "蜚声 PHASE LIVE HOUSE",
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\"",
+  "date": "2024-03-06",
+  "venueName": "蜚声 PHASE LIVE HOUSE",
+  "venueId": "venue_a026a1322a",
+  "entries": []
+}

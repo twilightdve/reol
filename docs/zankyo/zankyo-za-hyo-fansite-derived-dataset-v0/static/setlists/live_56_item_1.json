@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_56_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 56,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 56,
+    "type": "event",
+    "title": "軌道共鳴2024",
+    "artistName": "Reol",
+    "dateRange": "2024-09-20",
+    "siteUrl": "https://www.sonymusic.co.jp/artist/yama/info/564832",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "大阪",
+    "date": "2024-09-20",
+    "place": "なんばHatch",
+    "placeSite": "http://www.namba-hatch.com/index.php",
+    "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579278733117!2d135.4930117757429!3d34.66839037293119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1724679202856!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "軌道共鳴2024",
+  "liveTitle": "軌道共鳴2024",
+  "date": "2024-09-20",
+  "venueName": "なんばHatch",
+  "venueId": "venue_1216ccde0f",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_song_1",
+      "order": 1,
+      "trackId": null,
+      "displayTitle": "-",
+      "rawTitle": "-",
+      "policy": "unknown",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 4,
+      "parsedChildren": []
+    }
+  ]
+}

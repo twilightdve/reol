@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_19_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 19,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 19,
+    "type": "event",
+    "title": "第16回 東京国際ミュージック・マーケット",
+    "artistName": "Reol",
+    "dateRange": "2019-10-28",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2019-10-28",
+    "place": "Veats Shibuya",
+    "placeSite": "https://veats.jp/",
+    "address": "〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6598340504634!2d139.6973995!3d35.6607517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6548f4b94f%3A0x3645d2e5afa9c2f6!2z44OT44O844OE44O744K344OW44Ok!5e0!3m2!1sja!2sjp!4v1697822556701!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "第16回 東京国際ミュージック・マーケット",
+  "liveTitle": "第16回 東京国際ミュージック・マーケット",
+  "date": "2019-10-28",
+  "venueName": "Veats Shibuya",
+  "venueId": "venue_eecb50d939",
+  "entries": []
+}

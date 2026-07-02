@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_4",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 4,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 4,
+    "name": "愛知",
+    "date": "2018-11-17",
+    "place": "ReNY limited",
+    "placeSite": "https://ruido.org/nagoya_reny/",
+    "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.623807986571!2d136.9082345!3d35.166001699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370d1f12c4e23%3A0xa9007845de5a6a41!2sNAGOYA%20ReNY%20limited!5e0!3m2!1sja!2sjp!4v1697822360869!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2018-11-17",
+  "venueName": "ReNY limited",
+  "venueId": "venue_5d14906f73",
+  "entries": []
+}

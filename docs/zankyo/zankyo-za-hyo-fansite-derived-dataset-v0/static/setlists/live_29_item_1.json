@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_29_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 29,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 29,
+    "type": "event",
+    "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+    "artistName": "Reol",
+    "dateRange": "2021-08-07",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2021-08-07",
+    "place": "ぴあアリーナMM",
+    "placeSite": "https://pia-arena-mm.jp/",
+    "address": "〒220-0012 神奈川県横浜市西区みなとみらい３丁目２−２",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.956198720636!2d139.6287176!3d35.455878799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185d5437c93077%3A0x30bb3126eca8ccd0!2z44G044GC44Ki44Oq44O844OKTU0!5e0!3m2!1sja!2sjp!4v1697822796868!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+  "liveTitle": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+  "date": "2021-08-07",
+  "venueName": "ぴあアリーナMM",
+  "venueId": "venue_aa143c1762",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_29_item_1_song_1",
+      "order": 1,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_29_item_1_song_2",
+      "order": 2,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

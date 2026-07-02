@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T00:00:00+09:00",
+  "layouts": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_penny_lane_24",
+      "venueName": "札幌ペニーレーン24",
+      "aliases": [
+        "PENNY LANE 24",
+        "ペニーレーン24",
+        "札幌ペニーレーン24"
+      ],
+      "layoutStatus": "needs_verification",
+      "audienceMode": "standing",
+      "layoutShape": "rectangle",
+      "capacity": {
+        "standing": null,
+        "seated": null,
+        "total": null,
+        "status": "needs_verification",
+        "sourceUrl": "http://www.pl24.jp/"
+      },
+      "dimensions": {
+        "widthM": null,
+        "depthM": null,
+        "heightM": null,
+        "status": "needs_verification"
+      },
+      "floors": {
+        "count": null,
+        "hasBalcony": null,
+        "hasSecondFloor": null,
+        "status": "needs_verification"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": {
+          "x": 0,
+          "z": 0
+        },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "estimated"
+      },
+      "zones": [
+        {
+          "zoneId": "front_left",
+          "name": "前方下手",
+          "type": "front",
+          "listenerPreset": {
+            "normalizedX": -0.55,
+            "normalizedZ": 0.18
+          }
+        },
+        {
+          "zoneId": "middle_center",
+          "name": "中央",
+          "type": "middle",
+          "listenerPreset": {
+            "normalizedX": 0,
+            "normalizedZ": 0.5
+          }
+        }
+      ],
+      "defaultListenerPresets": [
+        {
+          "presetId": "front_left",
+          "name": "前方下手",
+          "normalizedX": -0.55,
+          "normalizedZ": 0.18
+        },
+        {
+          "presetId": "middle_center",
+          "name": "中央",
+          "normalizedX": 0,
+          "normalizedZ": 0.5
+        },
+        {
+          "presetId": "rear_center",
+          "name": "後方中央",
+          "normalizedX": 0,
+          "normalizedZ": 0.82
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "PENNY LANE 24",
+          "url": "http://www.pl24.jp/",
+          "checkedAt": "2026-05-17"
+        }
+      ],
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    }
+  ]
+}

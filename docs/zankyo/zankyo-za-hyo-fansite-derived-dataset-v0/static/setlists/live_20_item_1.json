@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_20_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 20,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 20,
+    "type": "event",
+    "title": "YouTube FanFest Japan 2019",
+    "artistName": "Reol",
+    "dateRange": "2019-12-04",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2019-12-04",
+    "place": "幕張メッセ",
+    "placeSite": "https://www.m-messe.co.jp/",
+    "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822577765!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "YouTube FanFest Japan 2019",
+  "liveTitle": "YouTube FanFest Japan 2019",
+  "date": "2019-12-04",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_665aaace30",
+  "entries": []
+}

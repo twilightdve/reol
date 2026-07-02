@@ -1,0 +1,101 @@
+venueId,name,rawPlace,inferredType,venueSizeHint,capacity,capacityStatus,placeSite,address,sourceItemCount
+venue_aa143c1762,ぴあアリーナMM,ぴあアリーナMM,arena,very_large,,needs_web_verification,https://pia-arena-mm.jp/,〒220-0012 神奈川県横浜市西区みなとみらい３丁目２−２,1
+venue_ab3f1683e8,国立代々木競技場第一体育館,国立代々木競技場第一体育館,arena,very_large,,needs_web_verification,http://www.jpnsport.go.jp/yoyogi/,〒150-0041 東京都渋谷区神南２丁目１−１,1
+venue_492a9139fe,日本武道館,日本武道館,arena,very_large,,needs_web_verification,https://www.nipponbudokan.or.jp/,〒102-8321 東京都千代田区北の丸公園2番3号,1
+venue_d66a87e694,横浜アリーナ,横浜アリーナ,arena,very_large,,needs_web_verification,https://www.yokohama-arena.co.jp/,〒222-0033 神奈川県横浜市港北区新横浜３丁目１０,1
+venue_82c236ae68,"Istora Gelora Bung Karno Jakarta, Indonesia.","Istora Gelora Bung Karno Jakarta, Indonesia.",event_venue_unknown,unknown,,needs_web_verification,http://gelorabungkarno.co.id/,"Jl. Pintu Satu Senayan No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270 インドネシア",1
+venue_eecb50d939,Veats Shibuya,Veats Shibuya,event_venue_unknown,unknown,,needs_web_verification,https://veats.jp/,〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル,1
+venue_87bdd1c24b,cube garden,cube garden,event_venue_unknown,unknown,,needs_web_verification,http://www.cube-garden.com/,〒060-0032 北海道札幌市中央区北２条東３丁目２−５ ｃｕｂｅ ｇａｒｄｅｎ,1
+venue_b74e7f4be9,大宮ソニックシティ,大宮ソニックシティ,event_venue_unknown,unknown,,needs_web_verification,https://www.sonic-city.or.jp/,〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５,1
+venue_d971119038,大宮ソニックシティ,大宮ソニックシティ,event_venue_unknown,unknown,,needs_web_verification,https://www.sonic-city.or.jp/,〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５,1
+venue_db06566426,福岡　スカラエスパシオ,福岡　スカラエスパシオ,event_venue_unknown,unknown,,needs_web_verification,https://espacio.ne.jp/,〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階,1
+venue_448f196c47,KINTEX HALL,KINTEX HALL,exhibition_hall,large_to_very_large,,needs_web_verification,https://www.kintex.com/,"217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国",1
+venue_665aaace30,幕張メッセ,幕張メッセ,exhibition_hall,large_to_very_large,,needs_web_verification,https://www.m-messe.co.jp/,〒261-8550 千葉県千葉市美浜区中瀬２丁目１,5
+venue_74df5749fd,幕張メッセ,幕張メッセ,exhibition_hall,large_to_very_large,,needs_web_verification,https://www.m-messe.co.jp/organizers/guide/exhibitionhall/guide_exibition9-11,〒261-8550 千葉県千葉市美浜区中瀬２丁目２−１,1
+venue_1ebfa25740,幕張メッセ ホール 9・10・11,幕張メッセ ホール 9・10・11,exhibition_hall,large_to_very_large,,needs_web_verification,https://www.m-messe.co.jp/,〒261-8550 千葉県千葉市美浜区中瀬２丁目１,1
+venue_dcd672c215,HONDAE MUVHALL,HONDAE MUVHALL,hall,medium_to_large,,needs_web_verification,,,1
+venue_d9db7adbf8,HONGDAE V-HALL,HONGDAE V-HALL,hall,medium_to_large,,needs_web_verification,http://www.vhall.co.kr/main/,"２５ Hongik-ro, Mapo-gu, Seoul, 韓国",2
+venue_6b8a89833d,LINE CUBE SHIBUYA,LINE CUBE SHIBUYA,hall,medium_to_large,,needs_web_verification,https://linecubeshibuya.com/,〒150-0042 東京都渋谷区宇田川町１−１,1
+venue_38f3854d8b,LINE CUBE SHIBUYA,LINE CUBE SHIBUYA,hall,medium_to_large,,needs_web_verification,https://linecubeshibuya.com/,〒150-0042 東京都渋谷区宇田川町１−１,1
+venue_6a159d39cb,LINE CUBE SHIBUYA ,LINE CUBE SHIBUYA ,hall,medium_to_large,,needs_web_verification,https://linecubeshibuya.com/,〒150-0042 東京都渋谷区宇田川町１−１,1
+venue_e2c08b5156,T.O.P.S BittsHALL,T.O.P.S BittsHALL,hall,medium_to_large,,needs_web_verification,https://www.oita-tops.com/bittshall,〒870-0003 大分県大分市生石５丁目３−７８３,1
+venue_6cb699190a,TOKYO DOME CITY HALL,TOKYO DOME CITY HALL,hall,medium_to_large,,needs_web_verification,https://www.tokyo-dome.co.jp/tdc-hall/,〒112-0004 東京都文京区後楽１丁目３−６１ 東京ドームミーツポート1F,1
+venue_4664798aa4,Tobacco Dock,Tobacco Dock,hall,medium_to_large,,needs_web_verification,,,1
+venue_5cc94086da,まつもと市民芸術館,まつもと市民芸術館,hall,medium_to_large,,needs_web_verification,https://www.mpac.jp/,〒390-0815 長野県松本市深志３丁目１０−１,1
+venue_74527b92d0,フェスティバルホール,フェスティバルホール,hall,medium_to_large,,needs_web_verification,http://www.festivalhall.jp/,〒530-0005 大阪府大阪市北区中之島２丁目３−１８,1
+venue_0a2fd400f9,フェニーチェ堺,フェニーチェ堺,hall,medium_to_large,,needs_web_verification,https://www.fenice-sacay.jp/,〒590-0061 大阪府堺市堺区翁橋町２丁１−１,1
+venue_f2477dc884,中野サンプラザ,中野サンプラザ,hall,medium_to_large,,needs_web_verification,,〒164-8512 東京都中野区中野４丁目１−１,1
+venue_40ff77245b,原宿 ASTRO HALL,原宿 ASTRO HALL,hall,medium_to_large,,needs_web_verification,https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB,〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階,1
+venue_58ac964678,名古屋ダイアモンドホール,名古屋ダイアモンドホール,hall,medium_to_large,,needs_web_verification,http://diamond.sflag.co.jp/,〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F,1
+venue_cd135e4877,新潟テルサ,新潟テルサ,hall,medium_to_large,,needs_web_verification,https://www.n-terrsa.jp/,〒950-1141 新潟県新潟市中央区鐘木１８５−１８,1
+venue_bbf8bc6d20,昭和女子大学人見記念講堂,昭和女子大学人見記念講堂,hall,medium_to_large,,needs_web_verification,https://hall.swu.ac.jp/,〒154-8533 東京都世田谷区太子堂１丁目７−５７,1
+venue_71d072c7e1,東京 ニッショーホール,東京 ニッショーホール,hall,medium_to_large,,needs_web_verification,http://nissho-hall.jp/accesmap.html,〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル,1
+venue_3ee69f3ee6,松下IMPホール,松下IMPホール,hall,medium_to_large,,needs_web_verification,https://www.kanden-kaijyou.jp/event_hole/imp/,〒540-6301 大阪府大阪市中央区城見１丁目３−７,1
+venue_45bc51d60d,梅田バナナホール,梅田バナナホール,hall,medium_to_large,,needs_web_verification,http://www.banana-hall.com/,〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1,1
+venue_75b1d17d6b,渋谷ストリームホール,渋谷ストリームホール,hall,medium_to_large,,needs_web_verification,http://stream-hall.jp/,〒150-0002 東京都渋谷区渋谷３丁目２１−３,1
+venue_1498597791,神奈川県民ホール,神奈川県民ホール,hall,medium_to_large,,needs_web_verification,http://www.kanagawa-kenminhall.com/,〒231-0023 神奈川県横浜市中区山下町３−１,1
+venue_edb36903a4,神奈川県民ホール,神奈川県民ホール,hall,medium_to_large,,needs_web_verification,http://www.kanagawa-kenminhall.com/,〒231-0023 神奈川県横浜市中区山下町３−１,1
+venue_6459030346,金沢 エイトホール,金沢 エイトホール,hall,medium_to_large,,needs_web_verification,http://www.eighthall.com/,〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F,1
+venue_844a397def,高松 festhalle,高松 festhalle,hall,medium_to_large,,needs_web_verification,http://festhalle.jp/,〒760-0054 香川県高松市常磐町１丁目３−２,1
+venue_8f93544528,BIG CAT,BIG CAT,live_house,small_to_medium,,needs_web_verification,http://www.bigcat-live.com/,〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F,2
+venue_972069a148,DRUM LOGOS,DRUM LOGOS,live_house,small_to_medium,,needs_web_verification,http://www.live-drum.com/,〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５,2
+venue_58ea733d4f,KT Zepp Yokohama,KT Zepp Yokohama,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/yokohama/,〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６,1
+venue_26210ad7a9,LIVE ROXY SHIZUOKA,LIVE ROXY SHIZUOKA,live_house,small_to_medium,,needs_web_verification,https://live-roxy.com/,〒420-0851 静岡県静岡市葵区黒金町２８−１−２,1
+venue_94b984129e,MAO livehouse,MAO livehouse,live_house,small_to_medium,,needs_web_verification,http://mao-music.com/,"308 Chongqing Nan Lu, Beijing, 中国",1
+venue_52a8ff0670,Mao live house,Mao live house,live_house,small_to_medium,,needs_web_verification,http://mao-music.com/,"308 Chongqing Nan Lu, Beijing, 中国",1
+venue_1bdb081a46,NUBOND LIVE HOUSE,NUBOND LIVE HOUSE,live_house,small_to_medium,,needs_web_verification,,,1
+venue_5d14906f73,ReNY limited,ReNY limited,live_house,small_to_medium,,needs_web_verification,https://ruido.org/nagoya_reny/,〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル,2
+venue_94b4c9126e,Spotify O-EAST,Spotify O-EAST,live_house,small_to_medium,,needs_web_verification,https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing,〒150-0043 東京都渋谷区道玄坂２丁目１４−８,1
+venue_c35d01dd02,TSUTAYA O-EAST,TSUTAYA O-EAST,live_house,small_to_medium,,needs_web_verification,https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing,〒150-0043 東京都渋谷区道玄坂２丁目１４−８,1
+venue_8aa88b9275,Zepp DiverCity,Zepp DiverCity,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/divercity/,〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ,1
+venue_1de296acf2,Zepp Fukuoka,Zepp Fukuoka,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/fukuoka/,〒810-0065 福岡県福岡市中央区地行浜２丁目２−１,1
+venue_ee9dfa68f6,Zepp Fukuoka,Zepp Fukuoka,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/fukuoka/,〒810-0065 福岡県福岡市中央区地行浜２丁目２−１,2
+venue_972eb4fd80,Zepp Haneda,Zepp Haneda,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/haneda/,〒144-0041 東京都大田区羽田空港１丁目１−４,2
+venue_68666eded9,Zepp Nagoya,Zepp Nagoya,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/nagoya/,〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７,1
+venue_d1dd73eaaf,Zepp Nagoya,Zepp Nagoya,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/nagoya/,〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７,2
+venue_024e2ea015,Zepp Namba,Zepp Namba,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/namba/,〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９,1
+venue_f22d769e96,Zepp New Taipei,Zepp New Taipei,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/newtaipei/,〒24242 新北市新莊區新北大道四段3號8樓【宏匯廣場】,1
+venue_45fa5b54f2,Zepp Osaka Bayside,Zepp Osaka Bayside,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/osakabayside/,〒554-0031 大阪府大阪市此花区桜島１丁目１−６１,2
+venue_6b0438b472,Zepp Tokyo,Zepp Tokyo,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/tokyo/,〒135-0064 東京都江東区青海１丁目３−１１,1
+venue_9ee1e0b279,Zepp Tokyo,Zepp Tokyo,live_house,small_to_medium,,needs_web_verification,https://www.zepp.co.jp/hall/tokyo/,〒135-0064 東京都江東区青海１丁目３−１１,1
+venue_8955afd93e,musinsa garage,musinsa garage,live_house,small_to_medium,,needs_web_verification,https://www.musinsagarage.com/,"３２ Jandari-ro, Mapo-gu, Seoul, 韓国",1
+venue_1216ccde0f,なんばHatch,なんばHatch,live_house,small_to_medium,,needs_web_verification,http://www.namba-hatch.com/index.php,〒556-0017 大阪府大阪市浪速区湊町１丁目３−１,1
+venue_93ff91e709,なんばHatch,なんばHatch,live_house,small_to_medium,,needs_web_verification,http://www.namba-hatch.com/,〒556-0017 大阪府大阪市浪速区湊町１丁目３−１,1
+venue_ec74611853,なんばHatch,なんばHatch,live_house,small_to_medium,,needs_web_verification,http://www.namba-hatch.com/,〒556-0017 大阪府大阪市浪速区湊町１丁目３−１,2
+venue_e4d6644680,なんばHatch,なんばHatch,live_house,small_to_medium,,needs_web_verification,http://www.namba-hatch.com/,〒556-0017 大阪府大阪市浪速区湊町１丁目３−１,1
+venue_51e95f306d,东郎EAST LIVE,东郎EAST LIVE,live_house,small_to_medium,,needs_web_verification,,,1
+venue_7c90260c4a,仙台 GIGS,仙台 GIGS,live_house,small_to_medium,,needs_web_verification,https://www.sendaigigs.com/,〒984-0030 宮城県仙台市若林区荒井東１丁目４−１,1
+venue_e8763dab87,仙台 Rensa,仙台 Rensa,live_house,small_to_medium,,needs_web_verification,http://www.rensa.jp/,〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F,1
+venue_6bdd5c67b3,仙台PIT,仙台PIT,live_house,small_to_medium,,needs_web_verification,http://sendai-pit.team-smile.org/,〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０,2
+venue_35ad979fa9,太空间 LIVE HOUSE,太空间 LIVE HOUSE,live_house,small_to_medium,,needs_web_verification,,,1
+venue_3db991c689,岡山 CRAZYMAMA KINGDOM,岡山 CRAZYMAMA KINGDOM,live_house,small_to_medium,,needs_web_verification,http://banquetunion.com/kingdom/,〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F,1
+venue_b9a6887c5a,広島クラブクアトロ,広島クラブクアトロ,live_house,small_to_medium,,needs_web_verification,https://www.club-quattro.com/,〒730-0035 広島県広島市中区本通１０−１,1
+venue_5c67999aeb,広島クラブクアトロ,広島クラブクアトロ,live_house,small_to_medium,,needs_web_verification,https://www.club-quattro.com/,〒730-0035 広島県広島市中区本通１０−１,2
+venue_e3704a4d4a,新宿ReNY,新宿ReNY,live_house,small_to_medium,,needs_web_verification,http://ruido.org/reny/index.html,〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F,1
+venue_a8ded44c35,新潟 LOTS,新潟 LOTS,live_house,small_to_medium,,needs_web_verification,http://www.fmniigata.com/user/lots/,〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ,1
+venue_acd864f8db,札幌ペニーレーン24,札幌ペニーレーン24,live_house,small_to_medium,,needs_web_verification,http://www.pl24.jp/,〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４,1
+venue_b75adf7ad9,札幌ペニーレーン24,札幌ペニーレーン24,live_house,small_to_medium,,needs_web_verification,http://www.pl24.jp/,〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４,1
+venue_f2a087872e,札幌ペニーレーン24,札幌ペニーレーン24,live_house,small_to_medium,,needs_web_verification,http://www.pl24.jp/,〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４,1
+venue_6cbf9bc6a2,松山 Wstudio RED,松山 Wstudio RED,live_house,small_to_medium,,needs_web_verification,http://red.double-ustudio.com/,〒790-0012 愛媛県松山市湊町４丁目１０−８,1
+venue_51a5fab81d,盛岡 club change WAVE,盛岡 club change WAVE,live_house,small_to_medium,,needs_web_verification,http://clubchange.com/,〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1,1
+venue_a026a1322a,蜚声 PHASE LIVE HOUSE,蜚声 PHASE LIVE HOUSE,live_house,small_to_medium,,needs_web_verification,,,1
+venue_fd382a30af,豊洲PIT,豊洲PIT,live_house,small_to_medium,,needs_web_verification,,〒135-0061 東京都江東区豊洲６丁目１−２３,1
+venue_28ee7177b1,赤坂BLITZ,赤坂BLITZ,live_house,small_to_medium,,needs_web_verification,http://www.tbs.co.jp/blitz/,〒107-0052 東京都港区赤坂５丁目３−２,1
+venue_5aca61a6ec,高松 DIME,高松 DIME,live_house,small_to_medium,,needs_web_verification,https://www.dime-dime.com/,〒760-0051 香川県高松市南新町１−４ ５階,1
+venue_7a52beb00e,みちのく公園 北地区,みちのく公園 北地区,outdoor_festival,variable_large,,needs_web_verification,,〒989-1503 宮城県柴田郡川崎町川内藤折,1
+venue_224325d355,中国上海・森蘭緑地（Sen Lan Green Park),中国上海・森蘭緑地（Sen Lan Green Park),outdoor_festival,variable_large,,needs_web_verification,,"中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",1
+venue_a3ed5a9d25,千葉市蘇我スポーツ公園,千葉市蘇我スポーツ公園,outdoor_festival,variable_large,,needs_web_verification,http://sogasportspark.com/,〒260-0835 千葉県千葉市中央区川崎町１−２０,1
+venue_dc6fc12a0b,国営ひたち海浜公園,国営ひたち海浜公園,outdoor_festival,variable_large,,needs_web_verification,https://hitachikaihin.jp/,〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4,2
+venue_8d13b23914,大阪城音楽堂,大阪城音楽堂,outdoor_festival,variable_large,,needs_web_verification,https://www.osakacastlepark.jp/ongakudo/,〒540-0002 大阪府大阪市中央区大阪城３−１１,1
+venue_64cbd170a3,恋の浦海岸,恋の浦海岸,outdoor_festival,variable_large,,needs_web_verification,,〒811-3307 福岡県福津市渡６４１,1
+venue_fd5ced1cdc,札幌芸術の森野外ステージ,札幌芸術の森野外ステージ,outdoor_festival,variable_large,,needs_web_verification,,〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１,1
+venue_9acaeda69b,海とのふれあい広場,海とのふれあい広場,outdoor_festival,variable_large,,needs_web_verification,http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/,〒590-0908 大阪府堺市堺区匠町６−１,1
+venue_a56868eaf4,舞洲スポーツアイランド,舞洲スポーツアイランド,outdoor_festival,variable_large,,needs_web_verification,https://shisetsu.mizuno.jp/m-7402,〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８,2
+venue_1002385886,EX THEATER ROPPONGI,EX THEATER ROPPONGI,unknown,unknown,,needs_web_verification,http://www.ex-theater.com/,〒106-0031 東京都港区西麻布１丁目２−９,1
+venue_3660b2e934,Modernsky Lab,Modernsky Lab,unknown,unknown,,needs_web_verification,,"中国 Yunnan, Kunming, Xishan, 杨家路 邮政编码: 650228",1
+venue_f561989bd3,Tango live,Tango live,unknown,unknown,,needs_web_verification,,,1
+venue_98c4b7d37a,Unknown / Online,,unknown,unknown,,needs_web_verification,,,1
+venue_e0ff5cdc08,オンライン,,unknown,unknown,,needs_web_verification,,,2
+venue_81d1876ee2,名古屋 E.L.L.,名古屋 E.L.L.,unknown,unknown,,needs_web_verification,https://www.ell.co.jp/,〒460-0011 愛知県名古屋市中区大須２丁目１０−３５,1
+venue_b27f25d951,新木場スタジオコースト,新木場スタジオコースト,unknown,unknown,,needs_web_verification,http://www.studio-coast.com/,〒136-0082 東京都江東区新木場２丁目２−１０,1
+venue_6485373dc2,神戸ハーバースタジオ,神戸ハーバースタジオ,unknown,unknown,,needs_web_verification,http://harbor-studio.net/,〒650-0042 兵庫県神戸市中央区波止場６−３,1

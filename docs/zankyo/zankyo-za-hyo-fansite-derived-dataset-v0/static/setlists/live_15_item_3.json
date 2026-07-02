@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_15_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 15,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 15,
+    "type": "oneman",
+    "title": "Reol Secret Live 2019「文明ココロミー」",
+    "artistName": "Reol",
+    "dateRange": "2019-07-13〜2019-07-19",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "-央の塔-",
+    "date": "2019-07-19",
+    "place": "名古屋 E.L.L.",
+    "placeSite": "https://www.ell.co.jp/",
+    "address": "〒460-0011 愛知県名古屋市中区大須２丁目１０−３５",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.8295164851293!2d136.8987258!3d35.1608723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377320e4c59bd%3A0xd496d7b256aaa133!2zRWxsLlNpemUsIO-8kuS4geebri3vvJHvvJAt77yT77yVIOWkp-mgiCDkuK3ljLog5ZCN5Y-k5bGL5biCIOaEm-efpeecjCA0NjAtMDAxMQ!5e0!3m2!1sja!2sjp!4v1697822462166!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Secret Live 2019「文明ココロミー」",
+  "liveTitle": "Reol Secret Live 2019「文明ココロミー」",
+  "date": "2019-07-19",
+  "venueName": "名古屋 E.L.L.",
+  "venueId": "venue_81d1876ee2",
+  "entries": []
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_54_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 54,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 54,
+    "type": "event",
+    "title": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】",
+    "artistName": "Reol",
+    "dateRange": "2024-07-30",
+    "siteUrl": "https://www.youtube.com/live/NxtHvRVLzXM",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "YouTube",
+    "date": "2024-07-30",
+    "place": "",
+    "placeSite": "https://www.youtube.com/live/NxtHvRVLzXM",
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】",
+  "liveTitle": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】",
+  "date": "2024-07-30",
+  "venueName": "YouTube",
+  "venueId": "venue_6b4ca77210",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_54_item_1_song_1",
+      "order": 1,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_54_item_1_song_2",
+      "order": 2,
+      "trackId": null,
+      "displayTitle": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "rawTitle": "I'm Your Treasure Box *あなたは マリンせんちょうを たからばこからみつけた。",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

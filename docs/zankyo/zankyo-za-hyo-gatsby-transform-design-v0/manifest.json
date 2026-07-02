@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "name": "zankyo-za-hyo-gatsby-transform-design-v0",
+  "description": "Design docs for generating Zankyo static data from existing Gatsby fansite live/discography JSON during build time.",
+  "sourceInputs": [
+    "static/data/live.json",
+    "static/data/discography.json"
+  ],
+  "targetOutputs": [
+    "static/zankyo/generated/manifest.json",
+    "static/zankyo/generated/tracks.json",
+    "static/zankyo/generated/venues.json",
+    "static/zankyo/generated/setlists/index.json",
+    "static/zankyo/generated/setlists/*.json",
+    "static/zankyo/generated/reports/import-report.json",
+    "static/zankyo/generated/reports/venue-enrichment-tasks.csv",
+    "static/zankyo/generated/reports/unmatched-raw-titles.csv"
+  ]
+}

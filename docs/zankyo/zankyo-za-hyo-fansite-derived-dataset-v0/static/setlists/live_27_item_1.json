@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_27_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 27,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 27,
+    "type": "event",
+    "title": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+    "artistName": "Reol",
+    "dateRange": "2021-03-04",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "オンライン",
+    "date": "2021-03-04",
+    "place": null,
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+  "liveTitle": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+  "date": "2021-03-04",
+  "venueName": "オンライン",
+  "venueId": "venue_e0ff5cdc08",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_song_1",
+      "order": 1,
+      "trackId": "song_82",
+      "displayTitle": "HYPE MODE",
+      "rawTitle": "HYPE MODE",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_song_2",
+      "order": 2,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_song_3",
+      "order": 3,
+      "trackId": "song_47",
+      "displayTitle": "平面鏡",
+      "rawTitle": "平面鏡",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_song_4",
+      "order": 4,
+      "trackId": "song_81",
+      "displayTitle": "金字塔",
+      "rawTitle": "金字塔",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_song_5",
+      "order": 5,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_8",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 8,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 8,
+    "name": "出港編（神奈川） ※中止",
+    "date": "2020-04-04",
+    "place": "神奈川県民ホール",
+    "placeSite": "http://www.kanagawa-kenminhall.com/",
+    "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822719004!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-04-04",
+  "venueName": "神奈川県民ホール",
+  "venueId": "venue_edb36903a4",
+  "entries": []
+}

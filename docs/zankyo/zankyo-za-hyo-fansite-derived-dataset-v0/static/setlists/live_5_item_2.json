@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_5_item_2",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 5,
+    "liveItemNo": 2,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 5,
+    "type": "oneman",
+    "title": "れをる単独公演「極彩色HighFidelity」",
+    "artistName": "れをる",
+    "dateRange": "2015-10-23〜2016-01-09",
+    "siteUrl": "https://www.jvcmusic.co.jp/reol/live/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 2,
+    "name": "西の宴",
+    "date": "2015-11-26",
+    "place": "BIG CAT",
+    "placeSite": "http://www.bigcat-live.com/",
+    "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3360052.538545521!2d130.8845977!3d34.6723442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e710519fc2c9%3A0x290d8038f398edb3!2z5b-D5paO5qmLQklHQ0FU!5e0!3m2!1sja!2sjp!4v1697821903430!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "れをる単独公演「極彩色HighFidelity」",
+  "liveTitle": "れをる単独公演「極彩色HighFidelity」",
+  "date": "2015-11-26",
+  "venueName": "BIG CAT",
+  "venueId": "venue_8f93544528",
+  "entries": []
+}

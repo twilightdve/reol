@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_17_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 17,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 17,
+    "type": "event",
+    "title": "宗像フェス Fukutsu Koinoura",
+    "artistName": "Reol",
+    "dateRange": "2019-09-22",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2019-09-22",
+    "place": "恋の浦海岸",
+    "placeSite": "",
+    "address": "〒811-3307 福岡県福津市渡６４１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53042.92195504263!2d130.456049!3d33.8076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354226123b226e87%3A0x4b98b30ed274d95b!2z44CSODExLTMzMDcg56aP5bKh55yM56aP5rSl5biC5rih77yW77yU77yR!5e0!3m2!1sja!2sjp!4v1697822493200!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "宗像フェス Fukutsu Koinoura",
+  "liveTitle": "宗像フェス Fukutsu Koinoura",
+  "date": "2019-09-22",
+  "venueName": "恋の浦海岸",
+  "venueId": "venue_64cbd170a3",
+  "entries": []
+}

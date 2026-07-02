@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_6",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 30,
+    "liveItemNo": 6,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 30,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2022「激情アラート」",
+    "artistName": "Reol",
+    "dateRange": "2022-04-27〜2022-05-13",
+    "siteUrl": "https://reol.jp/feature/tour2022",
+    "spotifyPlaylistId": "7p5yOOHDIKqmV843OGGwsI"
+  },
+  "item": {
+    "liveItemNo": 6,
+    "name": "東京",
+    "date": "2022-05-13",
+    "place": "Zepp Haneda",
+    "placeSite": "https://www.zepp.co.jp/hall/haneda/",
+    "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822898654!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+  "date": "2022-05-13",
+  "venueName": "Zepp Haneda",
+  "venueId": "venue_972eb4fd80",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_1",
+      "order": 1,
+      "trackId": null,
+      "displayTitle": "Introduction～赤裸裸(NAKED)",
+      "rawTitle": "Introduction～赤裸裸(NAKED)",
+      "policy": "medley",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": [
+        "Introduction～赤裸裸(NAKED)"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_2",
+      "order": 2,
+      "trackId": "song_3",
+      "displayTitle": "オオエドランヴ",
+      "rawTitle": "オオエドランヴ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_3",
+      "order": 3,
+      "trackId": "song_87",
+      "displayTitle": "insider",
+      "rawTitle": "insider",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_4",
+      "order": 4,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_5",
+      "order": 5,
+      "trackId": "song_101",
+      "displayTitle": "Nd60",
+      "rawTitle": "Nd60",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_6",
+      "order": 6,
+      "trackId": "song_66",
+      "displayTitle": "たい",
+      "rawTitle": "たい",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_7",
+      "order": 7,
+      "trackId": "song_105",
+      "displayTitle": "No title",
+      "rawTitle": "No title",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_8",
+      "order": 8,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_9",
+      "order": 9,
+      "trackId": null,
+      "displayTitle": "Interlude～金字塔（激情edition）",
+      "rawTitle": "Interlude～金字塔（激情edition）",
+      "policy": "medley",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": [
+        "Interlude～金字塔（激情edition）"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_10",
+      "order": 10,
+      "trackId": "song_97",
+      "displayTitle": "Q?",
+      "rawTitle": "Q?",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_11",
+      "order": 11,
+      "trackId": "song_39",
+      "displayTitle": "404 not found",
+      "rawTitle": "404 not found",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_12",
+      "order": 12,
+      "trackId": "song_100",
+      "displayTitle": "ミュータント",
+      "rawTitle": "ミュータント",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_13",
+      "order": 13,
+      "trackId": "song_16",
+      "displayTitle": "ハルシアン",
+      "rawTitle": "ハルシアン",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_14",
+      "order": 14,
+      "trackId": "song_54",
+      "displayTitle": "サイサキ",
+      "rawTitle": "サイサキ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_15",
+      "order": 15,
+      "trackId": "song_99",
+      "displayTitle": "白夜(White Midnight)",
+      "rawTitle": "白夜(White Midnight)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_16",
+      "order": 16,
+      "trackId": "song_98",
+      "displayTitle": "Ms.CONTROL",
+      "rawTitle": "Ms.CONTROL",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_17",
+      "order": 17,
+      "trackId": "song_55",
+      "displayTitle": "激白",
+      "rawTitle": "激白",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_18",
+      "order": 18,
+      "trackId": "song_44",
+      "displayTitle": "LUVORATORRRRRY!",
+      "rawTitle": "LUVORATORRRRRY!",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_19",
+      "order": 19,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_30_item_6_song_20",
+      "order": 20,
+      "trackId": "song_102",
+      "displayTitle": "Boy",
+      "rawTitle": "Boy",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

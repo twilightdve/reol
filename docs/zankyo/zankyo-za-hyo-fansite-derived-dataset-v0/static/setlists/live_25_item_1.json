@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_25_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 25,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 25,
+    "type": "event",
+    "title": "YOUTUBE MUSIC WEEKEND",
+    "artistName": "Reol",
+    "dateRange": "2020-12-06",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "YouTube",
+    "date": "2020-12-06",
+    "place": null,
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "YOUTUBE MUSIC WEEKEND",
+  "liveTitle": "YOUTUBE MUSIC WEEKEND",
+  "date": "2020-12-06",
+  "venueName": "YouTube",
+  "venueId": "venue_c8d8b42781",
+  "entries": []
+}

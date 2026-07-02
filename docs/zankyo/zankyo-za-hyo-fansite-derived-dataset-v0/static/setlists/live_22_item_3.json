@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "宮城",
+    "date": "2020-02-15",
+    "place": "仙台 Rensa",
+    "placeSite": "http://www.rensa.jp/",
+    "address": "〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.6247579841056!2d140.8701878!3d38.265008099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28255100405b%3A0x1929b92b35599bac!2zUmVuc2HvvIjjg6zjg7PjgrXvvIk!5e0!3m2!1sja!2sjp!4v1697822640676!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-02-15",
+  "venueName": "仙台 Rensa",
+  "venueId": "venue_e8763dab87",
+  "entries": []
+}

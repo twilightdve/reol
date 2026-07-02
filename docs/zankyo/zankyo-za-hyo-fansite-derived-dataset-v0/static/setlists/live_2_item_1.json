@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_2_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 2,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 2,
+    "type": "event",
+    "title": "nico nico Spirit.",
+    "artistName": "れをる",
+    "dateRange": "2015-02-01",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2015-02-01",
+    "place": "新宿ReNY",
+    "placeSite": "http://ruido.org/reny/index.html",
+    "address": "〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.362441149594!2d139.6925046!3d35.6926976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd562de946d%3A0xd1c51ff1568a2d3b!2z5paw5a6_UmVOWe-8iOODrOODi-ODvO-8iQ!5e0!3m2!1sja!2sjp!4v1697821780880!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "nico nico Spirit.",
+  "liveTitle": "nico nico Spirit.",
+  "date": "2015-02-01",
+  "venueName": "新宿ReNY",
+  "venueId": "venue_e3704a4d4a",
+  "entries": []
+}

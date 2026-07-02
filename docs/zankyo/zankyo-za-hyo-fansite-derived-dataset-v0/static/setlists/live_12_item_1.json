@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_12_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 12,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 12,
+    "type": "event",
+    "title": "ビクターロック祭り 2018",
+    "artistName": "Reol",
+    "dateRange": "2018-03-17",
+    "siteUrl": "https://www.rockmatsuri.com/2018/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2018-03-17",
+    "place": "幕張メッセ",
+    "placeSite": "https://www.m-messe.co.jp/organizers/guide/exhibitionhall/guide_exibition9-11",
+    "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目２−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3242.1875933163037!2d140.0320526!3d35.6477495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022811ee835c63d%3A0x2b3c032a9fff5515!2z5bmV5by144Oh44OD44K7IOWbvemam-WxleekuuWgtCA5LTEx44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822211581!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ビクターロック祭り 2018",
+  "liveTitle": "ビクターロック祭り 2018",
+  "date": "2018-03-17",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_74df5749fd",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_song_1",
+      "order": 1,
+      "trackId": "song_46",
+      "displayTitle": "エンド",
+      "rawTitle": "エンド",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_song_2",
+      "order": 2,
+      "trackId": "song_48",
+      "displayTitle": "ミッシング",
+      "rawTitle": "ミッシング",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_song_3",
+      "order": 3,
+      "trackId": "song_47",
+      "displayTitle": "平面鏡",
+      "rawTitle": "平面鏡",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

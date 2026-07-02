@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_24_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 24,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 24,
+    "type": "event",
+    "title": "JAPAN ONLINE FESTIVAL 2020",
+    "artistName": "Reol",
+    "dateRange": "2020-11-07",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "オンライン",
+    "date": "2020-11-07",
+    "place": null,
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "JAPAN ONLINE FESTIVAL 2020",
+  "liveTitle": "JAPAN ONLINE FESTIVAL 2020",
+  "date": "2020-11-07",
+  "venueName": "オンライン",
+  "venueId": "venue_e0ff5cdc08",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_1",
+      "order": 1,
+      "trackId": "song_97",
+      "displayTitle": "Q?",
+      "rawTitle": "Q?",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_2",
+      "order": 2,
+      "trackId": "song_47",
+      "displayTitle": "平面鏡",
+      "rawTitle": "平面鏡",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_3",
+      "order": 3,
+      "trackId": "song_87",
+      "displayTitle": "insider",
+      "rawTitle": "insider",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_4",
+      "order": 4,
+      "trackId": "song_60",
+      "displayTitle": "ミラージュ",
+      "rawTitle": "ミラージュ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_5",
+      "order": 5,
+      "trackId": "song_81",
+      "displayTitle": "金字塔",
+      "rawTitle": "金字塔",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_6",
+      "order": 6,
+      "trackId": "song_66",
+      "displayTitle": "たい",
+      "rawTitle": "たい",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_7",
+      "order": 7,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_song_8",
+      "order": 8,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

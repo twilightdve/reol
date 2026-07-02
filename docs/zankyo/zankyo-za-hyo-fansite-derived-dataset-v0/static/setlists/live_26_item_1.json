@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_26_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 26,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 26,
+    "type": "event",
+    "title": "COUNTDOWN JAPAN 20/21　※中止",
+    "artistName": "Reol",
+    "dateRange": "2020-12-30",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2020-12-30",
+    "place": null,
+    "placeSite": null,
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "COUNTDOWN JAPAN 20/21　※中止",
+  "liveTitle": "COUNTDOWN JAPAN 20/21　※中止",
+  "date": "2020-12-30",
+  "venueName": "",
+  "venueId": "venue_98c4b7d37a",
+  "entries": []
+}

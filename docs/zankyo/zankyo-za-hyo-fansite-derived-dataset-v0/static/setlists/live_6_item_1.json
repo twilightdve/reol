@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_6_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 6,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 6,
+    "type": "event",
+    "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+    "artistName": "れをる",
+    "dateRange": "2016-07-02",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2016-07-02",
+    "place": "赤坂BLITZ",
+    "placeSite": "http://www.tbs.co.jp/blitz/",
+    "address": "〒107-0052 東京都港区赤坂５丁目３−２",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.180894073147!2d139.73533570000004!3d35.6725476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8092ddc2dd%3A0x34fef75324da816b!2zVEJT6LWk5Z2CQkxJVFrjgrnjgr_jgrjjgqo!5e0!3m2!1sja!2sjp!4v1697822045176!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "liveTitle": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "date": "2016-07-02",
+  "venueName": "赤坂BLITZ",
+  "venueId": "venue_28ee7177b1",
+  "entries": []
+}

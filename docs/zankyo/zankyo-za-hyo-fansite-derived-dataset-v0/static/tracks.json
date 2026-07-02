@@ -1,0 +1,6578 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T17:00:00+09:00",
+  "tracks": [
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-20",
+      "canonicalTitle": "+♂ ver れをる",
+      "aliases": [
+        "+♂ ver れをる"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -20
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -20,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "+♂verれをる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_126",
+      "canonicalTitle": "-#000000-",
+      "aliases": [
+        "- #000000 -",
+        "-#000000-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          126
+        ],
+        "primarySongId": 126,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6oDOYu3pYuP8DhkGqaOK7n",
+      "expectedDurationSec": 135.827,
+      "audioFeatures": {
+        "danceability": 0.623,
+        "energy": 0.849,
+        "key": 1,
+        "loudness": -4.012,
+        "mode": 1,
+        "speechiness": 0.0455,
+        "acousticness": 0.0111,
+        "instrumentalness": 0.32,
+        "liveness": 0.425,
+        "valence": 0.542,
+        "tempo": 172,
+        "durationMs": 135827,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "#000000",
+        "-#000000-"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_8",
+      "canonicalTitle": "-BWW SCREAM-",
+      "aliases": [
+        "- BWW SCREAM -",
+        "-BWW SCREAM-"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          8,
+          142,
+          153
+        ],
+        "primarySongId": 8,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6tFJqkLO5avJ1fqsYGdQNl",
+      "expectedDurationSec": 81.947,
+      "audioFeatures": {
+        "danceability": 0.533,
+        "energy": 0.992,
+        "key": 10,
+        "loudness": -3.19,
+        "mode": 0,
+        "speechiness": 0.0783,
+        "acousticness": 0.0114,
+        "instrumentalness": 0.546,
+        "liveness": 0.314,
+        "valence": 0.947,
+        "tempo": 90,
+        "durationMs": 81947,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "-bwwscream-",
+        "bwwscream"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_11",
+      "canonicalTitle": "-Ending-",
+      "aliases": [
+        "- Ending -",
+        "-Ending-"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          11,
+          145,
+          156
+        ],
+        "primarySongId": 11,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5mePsEG9iF6IOa3JZfl7Vl",
+      "expectedDurationSec": 50.768,
+      "audioFeatures": {
+        "danceability": 0.683,
+        "energy": 0.52,
+        "key": 9,
+        "loudness": -17.765,
+        "mode": 1,
+        "speechiness": 0.233,
+        "acousticness": 0.862,
+        "instrumentalness": 0.116,
+        "liveness": 0.357,
+        "valence": 0.945,
+        "tempo": 97,
+        "durationMs": 50768,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "-ending-",
+        "ending"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_36",
+      "canonicalTitle": "-FINAL SIGMA-",
+      "aliases": [
+        "- FINAL SIGMA -",
+        "-FINAL SIGMA-"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          36
+        ],
+        "primarySongId": 36,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3MwUMfuXTpEb1lwu18fLN0",
+      "expectedDurationSec": 117.707,
+      "audioFeatures": {
+        "danceability": 0.676,
+        "energy": 0.852,
+        "key": 1,
+        "loudness": -3.672,
+        "mode": 1,
+        "speechiness": 0.324,
+        "acousticness": 0.000159,
+        "instrumentalness": 0.00684,
+        "liveness": 0.0792,
+        "valence": 0.769,
+        "tempo": 128,
+        "durationMs": 117707,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "-finalsigma-",
+        "finalsigma"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_5",
+      "canonicalTitle": "-Interlude-",
+      "aliases": [
+        "- Interlude -",
+        "-Interlude-"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          5,
+          139,
+          150
+        ],
+        "primarySongId": 5,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2VNSxQESXZxHvZiOIH5Miy",
+      "expectedDurationSec": 29.533,
+      "audioFeatures": {
+        "danceability": 0.551,
+        "energy": 0.79,
+        "key": 4,
+        "loudness": -7.622,
+        "mode": 1,
+        "speechiness": 0.055,
+        "acousticness": 0.103,
+        "instrumentalness": 0.349,
+        "liveness": 0.202,
+        "valence": 0.963,
+        "tempo": 100,
+        "durationMs": 29533,
+        "timeSignature": 4,
+        "popularity": "1"
+      },
+      "matchHints": [
+        "-interlude-",
+        "interlude"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_58",
+      "canonicalTitle": "-MANDARA FACT-",
+      "aliases": [
+        "- MANDARA FACT -",
+        "-MANDARA FACT-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          58,
+          74
+        ],
+        "primarySongId": 58,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7llB3cQPT1Yfm7uiVTQTTC",
+      "expectedDurationSec": 112.173,
+      "audioFeatures": {
+        "danceability": 0.606,
+        "energy": 0.945,
+        "key": 2,
+        "loudness": -3.05,
+        "mode": 1,
+        "speechiness": 0.0771,
+        "acousticness": 0.00117,
+        "instrumentalness": 0.457,
+        "liveness": 0.0603,
+        "valence": 0.654,
+        "tempo": 103,
+        "durationMs": 112173,
+        "timeSignature": 4,
+        "popularity": "22"
+      },
+      "matchHints": [
+        "-mandarafact-",
+        "mandarafact"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_122",
+      "canonicalTitle": "-Neo Nostalgia-",
+      "aliases": [
+        "- Neo Nostalgia -",
+        "-Neo Nostalgia-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          122
+        ],
+        "primarySongId": 122,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0rRiinixC23Bn9hPKOrbTN",
+      "expectedDurationSec": 153.08,
+      "audioFeatures": {
+        "danceability": 0.531,
+        "energy": 0.742,
+        "key": 9,
+        "loudness": -8.143,
+        "mode": 0,
+        "speechiness": 0.05,
+        "acousticness": 0.0293,
+        "instrumentalness": 0.717,
+        "liveness": 0.23,
+        "valence": 0.42,
+        "tempo": 160,
+        "durationMs": 153080,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "-neonostalgia-",
+        "neonostalgia"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_1",
+      "canonicalTitle": "-Opening-",
+      "aliases": [
+        "- Opening -",
+        "-Opening-"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          1,
+          135,
+          146
+        ],
+        "primarySongId": 1,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1M3LFqU7puExMNOKYmDP4e",
+      "expectedDurationSec": 107.231,
+      "audioFeatures": {
+        "danceability": 0.626,
+        "energy": 0.79,
+        "key": 1,
+        "loudness": -1.934,
+        "mode": 1,
+        "speechiness": 0.152,
+        "acousticness": 0.00606,
+        "instrumentalness": 2.08e-06,
+        "liveness": 0.059,
+        "valence": 0.875,
+        "tempo": 134,
+        "durationMs": 107231,
+        "timeSignature": 4,
+        "popularity": "29"
+      },
+      "matchHints": [
+        "-opening-",
+        "opening"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_12",
+      "canonicalTitle": "-nil-",
+      "aliases": [
+        "- nil -",
+        "-nil-"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          12
+        ],
+        "primarySongId": 12,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3GQ2gAf01f7GTmsODylJWw",
+      "expectedDurationSec": 36.868,
+      "audioFeatures": {
+        "danceability": 0.71,
+        "energy": 0.501,
+        "key": 10,
+        "loudness": -14.591,
+        "mode": 0,
+        "speechiness": 0.035,
+        "acousticness": 0.171,
+        "instrumentalness": 0.786,
+        "liveness": 0.113,
+        "valence": 0.693,
+        "tempo": 137,
+        "durationMs": 36868,
+        "timeSignature": 4,
+        "popularity": "19"
+      },
+      "matchHints": [
+        "-nil-",
+        "nil"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_18",
+      "canonicalTitle": "-orderly-",
+      "aliases": [
+        "- orderly -",
+        "-orderly-"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          18
+        ],
+        "primarySongId": 18,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6Onx9jbhBqzG6noNtyrTD4",
+      "expectedDurationSec": 117.6,
+      "audioFeatures": {
+        "danceability": 0.681,
+        "energy": 0.858,
+        "key": 0,
+        "loudness": -5.979,
+        "mode": 0,
+        "speechiness": 0.0416,
+        "acousticness": 0.018,
+        "instrumentalness": 0.658,
+        "liveness": 0.0662,
+        "valence": 0.966,
+        "tempo": 128,
+        "durationMs": 117600,
+        "timeSignature": 4,
+        "popularity": "19"
+      },
+      "matchHints": [
+        "-orderly-",
+        "orderly"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_84",
+      "canonicalTitle": "-ムーブのための試奏曲 Nr.4-",
+      "aliases": [
+        "- ムーブのための試奏曲 Nr.4 -",
+        "-ムーブのための試奏曲 Nr.4-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          84
+        ],
+        "primarySongId": 84,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5f67BMdyuOf0VNYFFnuwRs",
+      "expectedDurationSec": 83.267,
+      "audioFeatures": {
+        "danceability": 0.347,
+        "energy": 0.833,
+        "key": 7,
+        "loudness": -4.788,
+        "mode": 1,
+        "speechiness": 0.0486,
+        "acousticness": 0.00246,
+        "instrumentalness": 0.0509,
+        "liveness": 0.182,
+        "valence": 0.478,
+        "tempo": 127,
+        "durationMs": 83267,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "-ムーブのための試奏曲nr4-",
+        "ムーブのための試奏曲nr4"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_89",
+      "canonicalTitle": "-ルネの小品 Nr.9-",
+      "aliases": [
+        "- ルネの小品 Nr.9 -",
+        "-ルネの小品 Nr.9-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "se",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          89
+        ],
+        "primarySongId": 89,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "65leI2ZvSJRWtGozl5g1tf",
+      "expectedDurationSec": 37.498,
+      "audioFeatures": {
+        "danceability": 0.492,
+        "energy": 0.716,
+        "key": 10,
+        "loudness": -4.552,
+        "mode": 0,
+        "speechiness": 0.0468,
+        "acousticness": 0.00765,
+        "instrumentalness": 0,
+        "liveness": 0.205,
+        "valence": 0.393,
+        "tempo": 170,
+        "durationMs": 37498,
+        "timeSignature": 4,
+        "popularity": "21"
+      },
+      "matchHints": [
+        "-ルネの小品nr9-",
+        "ルネの小品nr9"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_91",
+      "canonicalTitle": "1LDK",
+      "aliases": [
+        "1LDK"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          91
+        ],
+        "primarySongId": 91,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "27MVvs7ErNpl81dkwwNS5i",
+      "expectedDurationSec": 234.533,
+      "audioFeatures": {
+        "danceability": 0.672,
+        "energy": 0.914,
+        "key": 2,
+        "loudness": -3.982,
+        "mode": 0,
+        "speechiness": 0.0295,
+        "acousticness": 0.000565,
+        "instrumentalness": 0.000654,
+        "liveness": 0.0957,
+        "valence": 0.421,
+        "tempo": 112,
+        "durationMs": 234533,
+        "timeSignature": 4,
+        "popularity": "35"
+      },
+      "matchHints": [
+        "1ldk"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_39",
+      "canonicalTitle": "404 not found",
+      "aliases": [
+        "404 not found"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          39
+        ],
+        "primarySongId": 39,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2BY5fNHmpjV797ByjLX4I7",
+      "expectedDurationSec": 244.907,
+      "audioFeatures": {
+        "danceability": 0.628,
+        "energy": 0.967,
+        "key": 9,
+        "loudness": -2.62,
+        "mode": 0,
+        "speechiness": 0.0908,
+        "acousticness": 0.00777,
+        "instrumentalness": 5.09e-05,
+        "liveness": 0.338,
+        "valence": 0.744,
+        "tempo": 140,
+        "durationMs": 244907,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "404notfound"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_42",
+      "canonicalTitle": "B12",
+      "aliases": [
+        "B12"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          4
+        ],
+        "songIds": [
+          42
+        ],
+        "primarySongId": 42,
+        "primaryDiscographyId": 4,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "b12"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_23",
+      "canonicalTitle": "Behind The Night",
+      "aliases": [
+        "Behind The Night"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          23
+        ],
+        "primarySongId": 23,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7njTy0RJcAI37nkahgADXZ",
+      "expectedDurationSec": 289.4,
+      "audioFeatures": {
+        "danceability": 0.524,
+        "energy": 0.95,
+        "key": 7,
+        "loudness": -3.23,
+        "mode": 0,
+        "speechiness": 0.145,
+        "acousticness": 0.0503,
+        "instrumentalness": 0,
+        "liveness": 0.388,
+        "valence": 0.453,
+        "tempo": 144,
+        "durationMs": 289400,
+        "timeSignature": 4,
+        "popularity": "22"
+      },
+      "matchHints": [
+        "behindthenight"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_102",
+      "canonicalTitle": "Boy",
+      "aliases": [
+        "Boy"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          19,
+          20
+        ],
+        "songIds": [
+          95,
+          102
+        ],
+        "primarySongId": 102,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3rr6dGA0wrd3L5kqcP3yns",
+      "expectedDurationSec": 251.827,
+      "audioFeatures": {
+        "danceability": 0.76,
+        "energy": 0.826,
+        "key": 0,
+        "loudness": -3.75,
+        "mode": 0,
+        "speechiness": 0.0508,
+        "acousticness": 0.0132,
+        "instrumentalness": 6.54e-06,
+        "liveness": 0.144,
+        "valence": 0.279,
+        "tempo": 106,
+        "durationMs": 251827,
+        "timeSignature": 4,
+        "popularity": "22"
+      },
+      "matchHints": [
+        "boy"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_127",
+      "canonicalTitle": "DDD",
+      "aliases": [
+        "DDD"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          127
+        ],
+        "primarySongId": 127,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7rVwTKcjSm0IfZ0Jz8k7A9",
+      "expectedDurationSec": 174.627,
+      "audioFeatures": {
+        "danceability": 0.714,
+        "energy": 0.963,
+        "key": 11,
+        "loudness": -2.077,
+        "mode": 0,
+        "speechiness": 0.0941,
+        "acousticness": 0.0616,
+        "instrumentalness": 0.000475,
+        "liveness": 0.343,
+        "valence": 0.879,
+        "tempo": 100,
+        "durationMs": 174627,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "ddd"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_131",
+      "canonicalTitle": "Danger Danger",
+      "aliases": [
+        "Danger Danger"
+      ],
+      "artistNames": [
+        "FZMZ(icy)"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          30
+        ],
+        "songIds": [
+          131
+        ],
+        "primarySongId": 131,
+        "primaryDiscographyId": 30,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "72fowNtwZtSkYFDEYMDjQo",
+      "expectedDurationSec": 221.0,
+      "audioFeatures": {
+        "danceability": 0.548,
+        "energy": 0.912,
+        "key": 1,
+        "loudness": -3.797,
+        "mode": 1,
+        "speechiness": 0.0695,
+        "acousticness": 8.66e-05,
+        "instrumentalness": 0,
+        "liveness": 0.487,
+        "valence": 0.54,
+        "tempo": 103,
+        "durationMs": 221000,
+        "timeSignature": 4,
+        "popularity": "54"
+      },
+      "matchHints": [
+        "dangerdanger"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_132",
+      "canonicalTitle": "Danger Danger (Anime Size)",
+      "aliases": [
+        "Danger Danger",
+        "Danger Danger (Anime Size)"
+      ],
+      "artistNames": [
+        "FZMZ(icy)"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          30
+        ],
+        "songIds": [
+          132
+        ],
+        "primarySongId": 132,
+        "primaryDiscographyId": 30,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "dangerdanger",
+        "dangerdangeranimesize"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_133",
+      "canonicalTitle": "Danger Danger (Instrumental)",
+      "aliases": [
+        "Danger Danger",
+        "Danger Danger (Instrumental)"
+      ],
+      "artistNames": [
+        "FZMZ(icy)"
+      ],
+      "kind": "instrumental",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          30
+        ],
+        "songIds": [
+          133
+        ],
+        "primarySongId": 133,
+        "primaryDiscographyId": 30,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "dangerdanger",
+        "dangerdangerinstrumental"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_37",
+      "canonicalTitle": "DetaramE KiddinG",
+      "aliases": [
+        "DetaramE KiddinG"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          37
+        ],
+        "primarySongId": 37,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3jZAk59A3WahOfhYC4w07c",
+      "expectedDurationSec": 197.213,
+      "audioFeatures": {
+        "danceability": 0.706,
+        "energy": 0.839,
+        "key": 5,
+        "loudness": -3.033,
+        "mode": 0,
+        "speechiness": 0.0444,
+        "acousticness": 0.000859,
+        "instrumentalness": 9.73e-05,
+        "liveness": 0.126,
+        "valence": 0.962,
+        "tempo": 146,
+        "durationMs": 197213,
+        "timeSignature": 4,
+        "popularity": "33"
+      },
+      "matchHints": [
+        "detaramekidding"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_7",
+      "canonicalTitle": "Echo",
+      "aliases": [
+        "ECHO",
+        "Echo"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ",
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          0,
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          7,
+          141,
+          152
+        ],
+        "primarySongId": 7,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "discography-title-fallback",
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5nmm8HIFxr6BZmw4CR2LKq",
+      "expectedDurationSec": 212.974,
+      "audioFeatures": {
+        "danceability": 0.722,
+        "energy": 0.549,
+        "key": 9,
+        "loudness": -5.597,
+        "mode": 1,
+        "speechiness": 0.0427,
+        "acousticness": 0.296,
+        "instrumentalness": 0.000156,
+        "liveness": 0.0898,
+        "valence": 0.547,
+        "tempo": 132,
+        "durationMs": 212974,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "echo"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_118",
+      "canonicalTitle": "Final Call",
+      "aliases": [
+        "Final Call"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          118
+        ],
+        "primarySongId": 118,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "16LtCuhBDYWI0oCOMW8jg9",
+      "expectedDurationSec": 199.547,
+      "audioFeatures": {
+        "danceability": 0.791,
+        "energy": 0.873,
+        "key": 6,
+        "loudness": -4.845,
+        "mode": 0,
+        "speechiness": 0.248,
+        "acousticness": 0.0865,
+        "instrumentalness": 0,
+        "liveness": 0.275,
+        "valence": 0.42,
+        "tempo": 123,
+        "durationMs": 199547,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "finalcall"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_90",
+      "canonicalTitle": "GRIMOIRE",
+      "aliases": [
+        "GRIMOIRE"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          90
+        ],
+        "primarySongId": 90,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "grimoire"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_82",
+      "canonicalTitle": "HYPE MODE",
+      "aliases": [
+        "HYPE MODE"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          13,
+          14
+        ],
+        "songIds": [
+          80,
+          82
+        ],
+        "primarySongId": 82,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4BLp8YfoGLtspzHhN6bsi9",
+      "expectedDurationSec": 211.119,
+      "audioFeatures": {
+        "danceability": 0.62,
+        "energy": 0.959,
+        "key": 7,
+        "loudness": -2.648,
+        "mode": 1,
+        "speechiness": 0.201,
+        "acousticness": 0.0239,
+        "instrumentalness": 7.92e-05,
+        "liveness": 0.294,
+        "valence": 0.701,
+        "tempo": 105,
+        "durationMs": 211119,
+        "timeSignature": 4,
+        "popularity": "29"
+      },
+      "matchHints": [
+        "hypemode"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_44",
+      "canonicalTitle": "LUVORATORRRRRY!",
+      "aliases": [
+        "LUVORATORRRRRY!"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          4
+        ],
+        "songIds": [
+          44
+        ],
+        "primarySongId": 44,
+        "primaryDiscographyId": 4,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1AMzUKhF0vCFHZTx8H7OS4",
+      "expectedDurationSec": 204.187,
+      "audioFeatures": {
+        "danceability": 0.679,
+        "energy": 0.951,
+        "key": 6,
+        "loudness": -3.066,
+        "mode": 0,
+        "speechiness": 0.147,
+        "acousticness": 0.0169,
+        "instrumentalness": 0.0882,
+        "liveness": 0.0176,
+        "valence": 0.945,
+        "tempo": 128,
+        "durationMs": 204187,
+        "timeSignature": 4,
+        "popularity": "49"
+      },
+      "matchHints": [
+        "luvoratorrrrry"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-21",
+      "canonicalTitle": "LUVORATORRRRRY! ver れをる feat.nqrse",
+      "aliases": [
+        "LUVORATORRRRRY! ver れをる",
+        "LUVORATORRRRRY! ver れをる feat.nqrse"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -21
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -21,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "luvoratorrrrryverれをる",
+        "luvoratorrrrryverれをるfeatnqrse"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_33",
+      "canonicalTitle": "Lunatic",
+      "aliases": [
+        "Lunatic"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          33
+        ],
+        "primarySongId": 33,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "29e4olePA461RCLrLNh9h4",
+      "expectedDurationSec": 197.787,
+      "audioFeatures": {
+        "danceability": 0.769,
+        "energy": 0.723,
+        "key": 1,
+        "loudness": -3.382,
+        "mode": 1,
+        "speechiness": 0.0404,
+        "acousticness": 0.000781,
+        "instrumentalness": 0.0154,
+        "liveness": 0.134,
+        "valence": 0.913,
+        "tempo": 105,
+        "durationMs": 197787,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "lunatic"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_26",
+      "canonicalTitle": "MONSTER",
+      "aliases": [
+        "MONSTER"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          26
+        ],
+        "primarySongId": 26,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6zoNHckACUOGj2bERXgmnw",
+      "expectedDurationSec": 201.933,
+      "audioFeatures": {
+        "danceability": 0.488,
+        "energy": 0.968,
+        "key": 6,
+        "loudness": -1.55,
+        "mode": 0,
+        "speechiness": 0.25,
+        "acousticness": 0.0295,
+        "instrumentalness": 0,
+        "liveness": 0.215,
+        "valence": 0.359,
+        "tempo": 164,
+        "durationMs": 201933,
+        "timeSignature": 4,
+        "popularity": "46"
+      },
+      "matchHints": [
+        "monster"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-27",
+      "canonicalTitle": "Masked bitcH -GIGA Birthday Arrange-",
+      "aliases": [
+        "Masked bitcH",
+        "Masked bitcH  - GIGA Birthday Arrange -",
+        "Masked bitcH -GIGA Birthday Arrange-"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -27
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -27,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "maskedbitch",
+        "maskedbitch-gigabirthdayarrange-",
+        "maskedbitchgigabirthdayarrange"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_98",
+      "canonicalTitle": "Ms.CONTROL",
+      "aliases": [
+        "Ms.CONTROL"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          20
+        ],
+        "songIds": [
+          98
+        ],
+        "primarySongId": 98,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "09oabCfaOPGGXpyoAHxrXK",
+      "expectedDurationSec": 190.36,
+      "audioFeatures": {
+        "danceability": 0.483,
+        "energy": 0.972,
+        "key": 9,
+        "loudness": -4.182,
+        "mode": 0,
+        "speechiness": 0.159,
+        "acousticness": 0.0145,
+        "instrumentalness": 0.00019,
+        "liveness": 0.295,
+        "valence": 0.61,
+        "tempo": 150,
+        "durationMs": 190360,
+        "timeSignature": 4,
+        "popularity": "21"
+      },
+      "matchHints": [
+        "mscontrol"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_101",
+      "canonicalTitle": "Nd60",
+      "aliases": [
+        "Nd60"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          20
+        ],
+        "songIds": [
+          101
+        ],
+        "primarySongId": 101,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2PxrSoQiYfGf1VgvN30UDd",
+      "expectedDurationSec": 241.107,
+      "audioFeatures": {
+        "danceability": 0.801,
+        "energy": 0.889,
+        "key": 7,
+        "loudness": -2.335,
+        "mode": 1,
+        "speechiness": 0.0613,
+        "acousticness": 0.0611,
+        "instrumentalness": 0.000163,
+        "liveness": 0.182,
+        "valence": 0.752,
+        "tempo": 128,
+        "durationMs": 241107,
+        "timeSignature": 4,
+        "popularity": "20"
+      },
+      "matchHints": [
+        "nd60"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_6",
+      "canonicalTitle": "No title",
+      "aliases": [
+        "No title"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ",
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -13,
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          6,
+          140,
+          151
+        ],
+        "primarySongId": 6,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "discography-title-fallback",
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5pZVsZ8TOGly1KnYFmZ61B",
+      "expectedDurationSec": 243.903,
+      "audioFeatures": {
+        "danceability": 0.502,
+        "energy": 0.874,
+        "key": 1,
+        "loudness": -5.981,
+        "mode": 0,
+        "speechiness": 0.0677,
+        "acousticness": 0.0933,
+        "instrumentalness": 0.000173,
+        "liveness": 0.0638,
+        "valence": 0.884,
+        "tempo": 200,
+        "durationMs": 243903,
+        "timeSignature": 4,
+        "popularity": "54"
+      },
+      "matchHints": [
+        "notitle"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_105",
+      "canonicalTitle": "No title - Seaside Remix",
+      "aliases": [
+        "No title",
+        "No title  -  Seaside Remix",
+        "No title - Seaside Remix",
+        "No title-Seaside Remix"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          23
+        ],
+        "songIds": [
+          105
+        ],
+        "primarySongId": 105,
+        "primaryDiscographyId": 23,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3EVQv88JzEKwUf4gSyAtZm",
+      "expectedDurationSec": 252.067,
+      "audioFeatures": {
+        "danceability": 0.687,
+        "energy": 0.932,
+        "key": 1,
+        "loudness": -3.88,
+        "mode": 0,
+        "speechiness": 0.0513,
+        "acousticness": 0.249,
+        "instrumentalness": 0,
+        "liveness": 0.684,
+        "valence": 0.891,
+        "tempo": 100,
+        "durationMs": 252067,
+        "timeSignature": 4,
+        "popularity": "37"
+      },
+      "matchHints": [
+        "notitle",
+        "notitle-seasideremix",
+        "notitleseasideremix"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-12",
+      "canonicalTitle": "POPEE the クラウン を うたいました",
+      "aliases": [
+        "POPEE the クラウン を うたいました"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -12
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -12,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "popeetheクラウンをうたいました"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_97",
+      "canonicalTitle": "Q?",
+      "aliases": [
+        "Q?"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          16,
+          20
+        ],
+        "songIds": [
+          93,
+          97
+        ],
+        "primarySongId": 97,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6z8lqqJDjpLisnIA1Gf88o",
+      "expectedDurationSec": 194.04,
+      "audioFeatures": {
+        "danceability": 0.569,
+        "energy": 0.949,
+        "key": 10,
+        "loudness": -3.999,
+        "mode": 0,
+        "speechiness": 0.106,
+        "acousticness": 0.00274,
+        "instrumentalness": 1.05e-06,
+        "liveness": 0.163,
+        "valence": 0.809,
+        "tempo": 180,
+        "durationMs": 194040,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "q"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_36",
+      "canonicalTitle": "RE RESCUE",
+      "aliases": [
+        "RE RESCUE"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          36
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": 36,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "rerescue"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_32",
+      "canonicalTitle": "RE:",
+      "aliases": [
+        "RE:"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          32
+        ],
+        "primarySongId": 32,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1NVwPClQWzPNFSl10DEGlT",
+      "expectedDurationSec": 203.24,
+      "audioFeatures": {
+        "danceability": 0.68,
+        "energy": 0.929,
+        "key": 1,
+        "loudness": -2.913,
+        "mode": 1,
+        "speechiness": 0.0662,
+        "acousticness": 0.000722,
+        "instrumentalness": 8.24e-05,
+        "liveness": 0.111,
+        "valence": 0.747,
+        "tempo": 140,
+        "durationMs": 203240,
+        "timeSignature": 4,
+        "popularity": "35"
+      },
+      "matchHints": [
+        "re"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_24",
+      "canonicalTitle": "ROXY",
+      "aliases": [
+        "ROXY"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          24
+        ],
+        "primarySongId": 24,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7k5IQbg0uWIgkZrtOfYQRq",
+      "expectedDurationSec": 205.533,
+      "audioFeatures": {
+        "danceability": 0.738,
+        "energy": 0.839,
+        "key": 1,
+        "loudness": -3.552,
+        "mode": 1,
+        "speechiness": 0.118,
+        "acousticness": 0.0495,
+        "instrumentalness": 0,
+        "liveness": 0.0302,
+        "valence": 0.894,
+        "tempo": 105,
+        "durationMs": 205533,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "roxy"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_17",
+      "canonicalTitle": "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+      "aliases": [
+        "Reol LIVE 2019",
+        "Reol LIVE 2019 - 2020\n - ハーメルンの大号令 / 侵攻アップグレード‐",
+        "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+        "Reol LIVE 2019-2020 -ハーメルンの大号令 / 侵攻アップグレード‐"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          17
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": 17,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "reollive2019",
+        "reollive2019-2020-ハーメルンの大号令侵攻アップグレード‐",
+        "reollive20192020ハーメルンの大号令侵攻アップグレード‐"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_61",
+      "canonicalTitle": "SAIREN",
+      "aliases": [
+        "SAIREN"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          8,
+          9,
+          11
+        ],
+        "songIds": [
+          52,
+          61,
+          77
+        ],
+        "primarySongId": 61,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5xrkAXDPhJx44YeNpk9Z1f",
+      "expectedDurationSec": 231.893,
+      "audioFeatures": {
+        "danceability": 0.599,
+        "energy": 0.97,
+        "key": 2,
+        "loudness": -1.843,
+        "mode": 1,
+        "speechiness": 0.0947,
+        "acousticness": 0.00117,
+        "instrumentalness": 0,
+        "liveness": 0.316,
+        "valence": 0.357,
+        "tempo": 105,
+        "durationMs": 231893,
+        "timeSignature": 4,
+        "popularity": "28"
+      },
+      "matchHints": [
+        "sairen"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_120",
+      "canonicalTitle": "SCORPION",
+      "aliases": [
+        "SCORPION"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          24,
+          25,
+          29
+        ],
+        "songIds": [
+          106,
+          107,
+          120
+        ],
+        "primarySongId": 120,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2JCN5EKVc9pdN2WfimcJ4a",
+      "expectedDurationSec": 176.88,
+      "audioFeatures": {
+        "danceability": 0.702,
+        "energy": 0.904,
+        "key": 11,
+        "loudness": -2.307,
+        "mode": 0,
+        "speechiness": 0.152,
+        "acousticness": 0.0125,
+        "instrumentalness": 0,
+        "liveness": 0.264,
+        "valence": 0.425,
+        "tempo": 126,
+        "durationMs": 176880,
+        "timeSignature": 4,
+        "popularity": "29"
+      },
+      "matchHints": [
+        "scorpion"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-36",
+      "canonicalTitle": "Sweet Devil 〔feat.kradness〕",
+      "aliases": [
+        "Sweet Devil 〔",
+        "Sweet Devil 〔feat.kradness〕"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -36
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -36,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "sweetdevil〔",
+        "sweetdevil〔featkradness〕"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_20",
+      "canonicalTitle": "Syrup",
+      "aliases": [
+        "Syrup"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          20
+        ],
+        "primarySongId": 20,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3fqUAfyGlVGFxTprWorbvu",
+      "expectedDurationSec": 249.333,
+      "audioFeatures": {
+        "danceability": 0.625,
+        "energy": 0.683,
+        "key": 2,
+        "loudness": -8.248,
+        "mode": 0,
+        "speechiness": 0.0378,
+        "acousticness": 0.791,
+        "instrumentalness": 4.28e-05,
+        "liveness": 0.0683,
+        "valence": 0.293,
+        "tempo": 104,
+        "durationMs": 249333,
+        "timeSignature": 4,
+        "popularity": "22"
+      },
+      "matchHints": [
+        "syrup"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_119",
+      "canonicalTitle": "TAKE OFF",
+      "aliases": [
+        "TAKE OFF"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          119
+        ],
+        "primarySongId": 119,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1owuehstJOr079w8WoEKXw",
+      "expectedDurationSec": 235.96,
+      "audioFeatures": {
+        "danceability": 0.735,
+        "energy": 0.88,
+        "key": 9,
+        "loudness": -4.494,
+        "mode": 0,
+        "speechiness": 0.117,
+        "acousticness": 0.0217,
+        "instrumentalness": 1.32e-06,
+        "liveness": 0.344,
+        "valence": 0.567,
+        "tempo": 140,
+        "durationMs": 235960,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "takeoff"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_35",
+      "canonicalTitle": "ULTRA C",
+      "aliases": [
+        "ULTRA C"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          35
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": 35,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ultrac"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_40",
+      "canonicalTitle": "VIORA",
+      "aliases": [
+        "VIORA"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          40
+        ],
+        "primarySongId": 40,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5eGKu7tJ56GQgBvDb8EZFv",
+      "expectedDurationSec": 222.84,
+      "audioFeatures": {
+        "danceability": 0.607,
+        "energy": 0.76,
+        "key": 5,
+        "loudness": -3.759,
+        "mode": 0,
+        "speechiness": 0.0482,
+        "acousticness": 0.00836,
+        "instrumentalness": 8.47e-05,
+        "liveness": 0.139,
+        "valence": 0.637,
+        "tempo": 75,
+        "durationMs": 222840,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "viora"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_28",
+      "canonicalTitle": "VIP KID",
+      "aliases": [
+        "VIP KID"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          28
+        ],
+        "primarySongId": 28,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3gu7cBBiDQ8GzT2gDsE215",
+      "expectedDurationSec": 232.427,
+      "audioFeatures": {
+        "danceability": 0.635,
+        "energy": 0.929,
+        "key": 5,
+        "loudness": -2.61,
+        "mode": 0,
+        "speechiness": 0.0624,
+        "acousticness": 0.000475,
+        "instrumentalness": 0.00427,
+        "liveness": 0.262,
+        "valence": 0.504,
+        "tempo": 128,
+        "durationMs": 232427,
+        "timeSignature": 4,
+        "popularity": "33"
+      },
+      "matchHints": [
+        "vipkid"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-42",
+      "canonicalTitle": "WAVE",
+      "aliases": [
+        "WAVE"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -42
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -42,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "wave"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-3",
+      "canonicalTitle": "WAVE 〔niki × EZFG〕",
+      "aliases": [
+        "WAVE 〔niki × EZFG〕"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -3
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -3,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "wave〔niki×ezfg〕"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-32",
+      "canonicalTitle": "cLick cRack ver NORISHIO味",
+      "aliases": [
+        "cLick cRack ver NORISHIO味"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -32
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -32,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "clickcrackvernorishio味"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_4",
+      "canonicalTitle": "drop pop candy (feat. ギガ)",
+      "aliases": [
+        "drop pop candy",
+        "drop pop candy (",
+        "drop pop candy (feat. ギガ)"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          4,
+          138,
+          149
+        ],
+        "primarySongId": 4,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3fao1RoZVQPtkHY8upjezr",
+      "expectedDurationSec": 224.963,
+      "audioFeatures": {
+        "danceability": 0.698,
+        "energy": 0.942,
+        "key": 6,
+        "loudness": -1.936,
+        "mode": 0,
+        "speechiness": 0.0537,
+        "acousticness": 0.0194,
+        "instrumentalness": 0.000181,
+        "liveness": 0.0114,
+        "valence": 0.967,
+        "tempo": 130,
+        "durationMs": 224963,
+        "timeSignature": 4,
+        "popularity": "53"
+      },
+      "matchHints": [
+        "droppopcandy",
+        "droppopcandyfeatギガ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-17",
+      "canonicalTitle": "drop pop candy ver れをるとギガ",
+      "aliases": [
+        "drop pop candy ver れをるとギガ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -17
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -17,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "droppopcandyverれをるとギガ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_87",
+      "canonicalTitle": "insider",
+      "aliases": [
+        "insider"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          87
+        ],
+        "primarySongId": 87,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0GY0AgfcwuKDUHaZgRv4QM",
+      "expectedDurationSec": 221.896,
+      "audioFeatures": {
+        "danceability": 0.497,
+        "energy": 0.957,
+        "key": 1,
+        "loudness": -2.838,
+        "mode": 1,
+        "speechiness": 0.307,
+        "acousticness": 0.0387,
+        "instrumentalness": 2.93e-05,
+        "liveness": 0.917,
+        "valence": 0.409,
+        "tempo": 100,
+        "durationMs": 221896,
+        "timeSignature": 4,
+        "popularity": "28"
+      },
+      "matchHints": [
+        "insider"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-41",
+      "canonicalTitle": "lllトゥルティンアンテナlll",
+      "aliases": [
+        "lllトゥルティンアンテナlll"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -41
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -41,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "lllトゥルティンアンテナlll"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-46",
+      "canonicalTitle": "magician's operation",
+      "aliases": [
+        "magician's operation"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -46
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -46,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "magiciansoperation"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_19",
+      "canonicalTitle": "mede:mede",
+      "aliases": [
+        "mede:mede"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          19
+        ],
+        "primarySongId": 19,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6euB4nKEbVotA7xZLcMSAg",
+      "expectedDurationSec": 215.133,
+      "audioFeatures": {
+        "danceability": 0.756,
+        "energy": 0.826,
+        "key": 6,
+        "loudness": -5.312,
+        "mode": 1,
+        "speechiness": 0.0449,
+        "acousticness": 0.239,
+        "instrumentalness": 0,
+        "liveness": 0.356,
+        "valence": 0.912,
+        "tempo": 115,
+        "durationMs": 215133,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "medemede"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_63",
+      "canonicalTitle": "mede:mede -JJJ Remix-(Bonus Track)",
+      "aliases": [
+        "mede:mede",
+        "mede:mede  - JJJ Remix - (Bonus Track)",
+        "mede:mede -JJJ Remix-",
+        "mede:mede -JJJ Remix-(Bonus Track)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9
+        ],
+        "songIds": [
+          63
+        ],
+        "primarySongId": 63,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "medemede",
+        "medemede-jjjremix-",
+        "medemede-jjjremix-bonustrack",
+        "medemedejjjremix",
+        "medemedejjjremixbonustrack"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_123",
+      "canonicalTitle": "secret trip",
+      "aliases": [
+        "secret trip"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          25,
+          29
+        ],
+        "songIds": [
+          108,
+          123
+        ],
+        "primarySongId": 123,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0m8qjC1tC557m8noP4OLTO",
+      "expectedDurationSec": 211.813,
+      "audioFeatures": {
+        "danceability": 0.667,
+        "energy": 0.914,
+        "key": 0,
+        "loudness": -4.91,
+        "mode": 1,
+        "speechiness": 0.109,
+        "acousticness": 0.103,
+        "instrumentalness": 7.48e-05,
+        "liveness": 0.0845,
+        "valence": 0.673,
+        "tempo": 150,
+        "durationMs": 211813,
+        "timeSignature": 4,
+        "popularity": "26"
+      },
+      "matchHints": [
+        "secrettrip"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_86",
+      "canonicalTitle": "un, deux, trois",
+      "aliases": [
+        "un, deux, trois"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          86
+        ],
+        "primarySongId": 86,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2NXqn7SaFWJmIpjwu9Ae6c",
+      "expectedDurationSec": 225.562,
+      "audioFeatures": {
+        "danceability": 0.749,
+        "energy": 0.87,
+        "key": 9,
+        "loudness": -2.271,
+        "mode": 1,
+        "speechiness": 0.0595,
+        "acousticness": 0.0167,
+        "instrumentalness": 0.000297,
+        "liveness": 0.0559,
+        "valence": 0.469,
+        "tempo": 96,
+        "durationMs": 225562,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "undeuxtrois"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-25",
+      "canonicalTitle": "【kradness＆れをる】 リモコン",
+      "aliases": [
+        "【kradness＆れをる】 リモコン"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -25
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -25,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "kradness&れをるリモコン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-22",
+      "canonicalTitle": "〔96猫×れをる〕 DOGS",
+      "aliases": [
+        "〔96猫×れをる〕 DOGS"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -22
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -22,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "〔96猫×れをる〕dogs"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-18",
+      "canonicalTitle": "〔PSYCHO-PASS〕 abnormalize -Band Cover-",
+      "aliases": [
+        "〔PSYCHO",
+        "〔PSYCHO - PASS〕 abnormalize  - Band Cover -",
+        "〔PSYCHO-PASS〕 abnormalize -Band Cover-"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -18
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -18,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "〔psycho",
+        "〔psycho-pass〕abnormalize-bandcover-",
+        "〔psychopass〕abnormalizebandcover"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-29",
+      "canonicalTitle": "〔ななひら×れをる〕 8HIT",
+      "aliases": [
+        "〔ななひら×れをる〕 8HIT"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -29
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -29,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "〔ななひら×れをる〕8hit"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-16",
+      "canonicalTitle": "〔れをるとお菊〕 ようかい体操第一",
+      "aliases": [
+        "〔れをるとお菊〕 ようかい体操第一"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -16
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -16,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "〔れをるとお菊〕ようかい体操第一"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_50",
+      "canonicalTitle": "あ可よろし",
+      "aliases": [
+        "あ可よろし"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          6
+        ],
+        "songIds": [
+          50
+        ],
+        "primarySongId": 50,
+        "primaryDiscographyId": 6,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3jt4Zj8aKP7xwWwUJql6c1",
+      "expectedDurationSec": 303.64,
+      "audioFeatures": {
+        "danceability": 0.518,
+        "energy": 0.987,
+        "key": 2,
+        "loudness": -2.114,
+        "mode": 0,
+        "speechiness": 0.12,
+        "acousticness": 0.00246,
+        "instrumentalness": 0.000104,
+        "liveness": 0.233,
+        "valence": 0.321,
+        "tempo": 135,
+        "durationMs": 303640,
+        "timeSignature": 4,
+        "popularity": "20"
+      },
+      "matchHints": [
+        "あ可よろし"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-43",
+      "canonicalTitle": "いーあるふぁんくらぶ",
+      "aliases": [
+        "いーあるふぁんくらぶ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -43
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -43,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "いーあるふぁんくらぶ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_124",
+      "canonicalTitle": "さよならのすゝめ、今日のつづき",
+      "aliases": [
+        "さよならのすゝめ、今日のつづき"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          124
+        ],
+        "primarySongId": 124,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0MgMBO8GREfoOkr9mPFJRP",
+      "expectedDurationSec": 266.427,
+      "audioFeatures": {
+        "danceability": 0.592,
+        "energy": 0.769,
+        "key": 8,
+        "loudness": -5.576,
+        "mode": 1,
+        "speechiness": 0.0414,
+        "acousticness": 0.0436,
+        "instrumentalness": 6.52e-05,
+        "liveness": 0.191,
+        "valence": 0.293,
+        "tempo": 164,
+        "durationMs": 266427,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "さよならのすゝめ今日のつづき"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_66",
+      "canonicalTitle": "たい",
+      "aliases": [
+        "たい"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          10
+        ],
+        "songIds": [
+          66
+        ],
+        "primarySongId": 66,
+        "primaryDiscographyId": 10,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4gtvQM3JWzRNYwGF1iYkmb",
+      "expectedDurationSec": 224.667,
+      "audioFeatures": {
+        "danceability": 0.721,
+        "energy": 0.965,
+        "key": 11,
+        "loudness": -2.2,
+        "mode": 1,
+        "speechiness": 0.0849,
+        "acousticness": 0.0192,
+        "instrumentalness": 0.0156,
+        "liveness": 0.316,
+        "valence": 0.683,
+        "tempo": 128,
+        "durationMs": 224667,
+        "timeSignature": 4,
+        "popularity": "32"
+      },
+      "matchHints": [
+        "たい"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_35",
+      "canonicalTitle": "ちるちる",
+      "aliases": [
+        "ちるちる"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          35
+        ],
+        "primarySongId": 35,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4homtlmmqdnMSv6uLJR2kI",
+      "expectedDurationSec": 197.053,
+      "audioFeatures": {
+        "danceability": 0.846,
+        "energy": 0.871,
+        "key": 7,
+        "loudness": -3.674,
+        "mode": 1,
+        "speechiness": 0.0851,
+        "acousticness": 0.0218,
+        "instrumentalness": 0.00163,
+        "liveness": 0.12,
+        "valence": 0.961,
+        "tempo": 128,
+        "durationMs": 197053,
+        "timeSignature": 4,
+        "popularity": "40"
+      },
+      "matchHints": [
+        "ちるちる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-35",
+      "canonicalTitle": "ぴんこすてぃっくLuv ver れをる",
+      "aliases": [
+        "ぴんこすてぃっくLuv ver れをる"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -35
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -35,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ぴんこすてぃっくluvverれをる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-47",
+      "canonicalTitle": "ゆるふわ樹海ガール",
+      "aliases": [
+        "ゆるふわ樹海ガール"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -47
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -47,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ゆるふわ樹海ガール"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_83",
+      "canonicalTitle": "ゆーれいずみー",
+      "aliases": [
+        "ゆーれいずみー"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          12,
+          14
+        ],
+        "songIds": [
+          79,
+          83
+        ],
+        "primarySongId": 83,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0NsnScldVs3A8psn3uCLZr",
+      "expectedDurationSec": 231.747,
+      "audioFeatures": {
+        "danceability": 0.647,
+        "energy": 0.975,
+        "key": 11,
+        "loudness": -3.267,
+        "mode": 0,
+        "speechiness": 0.297,
+        "acousticness": 0.0176,
+        "instrumentalness": 4.06e-05,
+        "liveness": 0.795,
+        "valence": 0.693,
+        "tempo": 128,
+        "durationMs": 231747,
+        "timeSignature": 4,
+        "popularity": "35"
+      },
+      "matchHints": [
+        "ゆーれいずみー"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_9",
+      "canonicalTitle": "アシンメトリー",
+      "aliases": [
+        "アシンメトリー"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          9,
+          143,
+          154
+        ],
+        "primarySongId": 9,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "56QwV4Er5l1qKQXnhnyTaA",
+      "expectedDurationSec": 255.814,
+      "audioFeatures": {
+        "danceability": 0.511,
+        "energy": 0.906,
+        "key": 6,
+        "loudness": -2.009,
+        "mode": 0,
+        "speechiness": 0.0883,
+        "acousticness": 0.00168,
+        "instrumentalness": 0.0035,
+        "liveness": 0.0891,
+        "valence": 0.469,
+        "tempo": 184,
+        "durationMs": 255814,
+        "timeSignature": 4,
+        "popularity": "40"
+      },
+      "matchHints": [
+        "アシンメトリー"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-10",
+      "canonicalTitle": "アストロノーツ",
+      "aliases": [
+        "アストロノーツ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -10
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -10,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "アストロノーツ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_65",
+      "canonicalTitle": "ウテナ",
+      "aliases": [
+        "ウテナ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          10
+        ],
+        "songIds": [
+          65
+        ],
+        "primarySongId": 65,
+        "primaryDiscographyId": 10,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4j8iEmJZidEu5hwM7lBtVM",
+      "expectedDurationSec": 198.733,
+      "audioFeatures": {
+        "danceability": 0.615,
+        "energy": 0.954,
+        "key": 11,
+        "loudness": -2.169,
+        "mode": 0,
+        "speechiness": 0.0674,
+        "acousticness": 0.0171,
+        "instrumentalness": 0.000469,
+        "liveness": 0.209,
+        "valence": 0.822,
+        "tempo": 160,
+        "durationMs": 198733,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "ウテナ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_46",
+      "canonicalTitle": "エンド",
+      "aliases": [
+        "エンド"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          6
+        ],
+        "songIds": [
+          46
+        ],
+        "primarySongId": 46,
+        "primaryDiscographyId": 6,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4bCY4od5T0HCBVISAmkoFO",
+      "expectedDurationSec": 297.667,
+      "audioFeatures": {
+        "danceability": 0.319,
+        "energy": 0.954,
+        "key": 6,
+        "loudness": -2.186,
+        "mode": 0,
+        "speechiness": 0.218,
+        "acousticness": 0.0416,
+        "instrumentalness": 0,
+        "liveness": 0.208,
+        "valence": 0.499,
+        "tempo": 192,
+        "durationMs": 297667,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "エンド"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_43",
+      "canonicalTitle": "エンドレスライン",
+      "aliases": [
+        "エンドレスライン"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          4
+        ],
+        "songIds": [
+          43
+        ],
+        "primarySongId": 43,
+        "primaryDiscographyId": 4,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0LNzbdozYW70uarbuAzyOg",
+      "expectedDurationSec": 221.048,
+      "audioFeatures": {
+        "danceability": 0.735,
+        "energy": 0.858,
+        "key": 6,
+        "loudness": -2.454,
+        "mode": 0,
+        "speechiness": 0.0941,
+        "acousticness": 0.028,
+        "instrumentalness": 0.000101,
+        "liveness": 0.0903,
+        "valence": 0.685,
+        "tempo": 95,
+        "durationMs": 221048,
+        "timeSignature": 4,
+        "popularity": "36"
+      },
+      "matchHints": [
+        "エンドレスライン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-37",
+      "canonicalTitle": "エンヴィキャットウォーク",
+      "aliases": [
+        "エンヴィキャットウォーク"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -37
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -37,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "エンヴィキャットウォーク"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_3",
+      "canonicalTitle": "オオエドランヴ (feat. nqrse)",
+      "aliases": [
+        "オオエドランヴ",
+        "オオエドランヴ (",
+        "オオエドランヴ (feat. nqrse)"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          3,
+          137,
+          148
+        ],
+        "primarySongId": 3,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6tU6BJ2UnspK8GxMrT2gXb",
+      "expectedDurationSec": 181.176,
+      "audioFeatures": {
+        "danceability": 0.586,
+        "energy": 0.995,
+        "key": 8,
+        "loudness": -2.394,
+        "mode": 1,
+        "speechiness": 0.119,
+        "acousticness": 0.0832,
+        "instrumentalness": 0,
+        "liveness": 0.259,
+        "valence": 0.633,
+        "tempo": 134,
+        "durationMs": 181176,
+        "timeSignature": 4,
+        "popularity": "43"
+      },
+      "matchHints": [
+        "オオエドランヴ",
+        "オオエドランヴfeatnqrse"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_49",
+      "canonicalTitle": "カルト",
+      "aliases": [
+        "カルト"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          6
+        ],
+        "songIds": [
+          49
+        ],
+        "primarySongId": 49,
+        "primaryDiscographyId": 6,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1n2sJdib6jFWmbDfTyYmTL",
+      "expectedDurationSec": 271.2,
+      "audioFeatures": {
+        "danceability": 0.456,
+        "energy": 0.927,
+        "key": 11,
+        "loudness": -5.104,
+        "mode": 0,
+        "speechiness": 0.0867,
+        "acousticness": 0.0599,
+        "instrumentalness": 0.0032,
+        "liveness": 0.101,
+        "valence": 0.605,
+        "tempo": 176,
+        "durationMs": 271200,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "カルト"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_10",
+      "canonicalTitle": "ギガンティックO.T.N -Big Death Edition-",
+      "aliases": [
+        "ギガンティックO.T.N",
+        "ギガンティックO.T.N  - Big Death Edition -",
+        "ギガンティックO.T.N -Big Death Edition-"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          10,
+          144,
+          155
+        ],
+        "primarySongId": 10,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3P59scZW5NShZ47HzgfQMN",
+      "expectedDurationSec": 207.678,
+      "audioFeatures": {
+        "danceability": 0.396,
+        "energy": 0.944,
+        "key": 1,
+        "loudness": -1.565,
+        "mode": 0,
+        "speechiness": 0.152,
+        "acousticness": 0.00454,
+        "instrumentalness": 0.00184,
+        "liveness": 0.109,
+        "valence": 0.405,
+        "tempo": 95,
+        "durationMs": 207678,
+        "timeSignature": 4,
+        "popularity": "39"
+      },
+      "matchHints": [
+        "ギガンティックotn",
+        "ギガンティックotn-bigdeathedition-",
+        "ギガンティックotnbigdeathedition"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-39",
+      "canonicalTitle": "ギガンティックO.T.N ver れをる",
+      "aliases": [
+        "ギガンティックO.T.N ver れをる"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -39
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -39,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ギガンティックotnverれをる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_29",
+      "canonicalTitle": "ギミアブレスタッナウ",
+      "aliases": [
+        "ギミアブレスタッナウ"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          29
+        ],
+        "primarySongId": 29,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "05GgDzto0aWkNJ5NJcdNxl",
+      "expectedDurationSec": 221.987,
+      "audioFeatures": {
+        "danceability": 0.674,
+        "energy": 0.94,
+        "key": 10,
+        "loudness": -2.393,
+        "mode": 1,
+        "speechiness": 0.122,
+        "acousticness": 0.0295,
+        "instrumentalness": 3.05e-05,
+        "liveness": 0.274,
+        "valence": 0.852,
+        "tempo": 128,
+        "durationMs": 221987,
+        "timeSignature": 4,
+        "popularity": "37"
+      },
+      "matchHints": [
+        "ギミアブレスタッナウ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-1",
+      "canonicalTitle": "クラブ＝マジェスティ",
+      "aliases": [
+        "クラブ＝マジェスティ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -1
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -1,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "クラブ=マジェスティ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_31",
+      "canonicalTitle": "コノヨLoading...",
+      "aliases": [
+        "コノヨLoading..."
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          31
+        ],
+        "primarySongId": 31,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5ZBs9dRavxKAS23WT1MwkQ",
+      "expectedDurationSec": 205.787,
+      "audioFeatures": {
+        "danceability": 0.754,
+        "energy": 0.988,
+        "key": 11,
+        "loudness": -2.678,
+        "mode": 0,
+        "speechiness": 0.176,
+        "acousticness": 0.179,
+        "instrumentalness": 0,
+        "liveness": 0.282,
+        "valence": 0.906,
+        "tempo": 128,
+        "durationMs": 205787,
+        "timeSignature": 4,
+        "popularity": "48"
+      },
+      "matchHints": [
+        "コノヨloading"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_54",
+      "canonicalTitle": "サイサキ",
+      "aliases": [
+        "サイサキ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          7,
+          9,
+          11
+        ],
+        "songIds": [
+          51,
+          54,
+          70
+        ],
+        "primarySongId": 54,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5yMHjWC8xY3MvHl090qABC",
+      "expectedDurationSec": 217.68,
+      "audioFeatures": {
+        "danceability": 0.687,
+        "energy": 0.956,
+        "key": 1,
+        "loudness": -2.81,
+        "mode": 1,
+        "speechiness": 0.057,
+        "acousticness": 0.00216,
+        "instrumentalness": 1.36e-05,
+        "liveness": 0.335,
+        "valence": 0.855,
+        "tempo": 105,
+        "durationMs": 217680,
+        "timeSignature": 4,
+        "popularity": "40"
+      },
+      "matchHints": [
+        "サイサキ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-24",
+      "canonicalTitle": "サイバーサンダーサイダー",
+      "aliases": [
+        "サイバーサンダーサイダー"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -24
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -24,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "サイバーサンダーサイダー"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_38",
+      "canonicalTitle": "サマーホラーパーティ",
+      "aliases": [
+        "サマーホラーパーティ"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          38
+        ],
+        "primarySongId": 38,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "76li5HpPEGVY9nCwz4pusX",
+      "expectedDurationSec": 254.573,
+      "audioFeatures": {
+        "danceability": 0.589,
+        "energy": 0.834,
+        "key": 6,
+        "loudness": -2.851,
+        "mode": 1,
+        "speechiness": 0.0281,
+        "acousticness": 0.000111,
+        "instrumentalness": 8.81e-06,
+        "liveness": 0.374,
+        "valence": 0.496,
+        "tempo": 95,
+        "durationMs": 254573,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "サマーホラーパーティ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-7",
+      "canonicalTitle": "システマティック・ラヴ",
+      "aliases": [
+        "システマティック・ラヴ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -7
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -7,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "システマティックラヴ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_67",
+      "canonicalTitle": "シンカロン",
+      "aliases": [
+        "シンカロン"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          10
+        ],
+        "songIds": [
+          67
+        ],
+        "primarySongId": 67,
+        "primaryDiscographyId": 10,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "15eeDH2c5RDLvSKY9qjldS",
+      "expectedDurationSec": 222.267,
+      "audioFeatures": {
+        "danceability": 0.546,
+        "energy": 0.943,
+        "key": 5,
+        "loudness": -1.855,
+        "mode": 0,
+        "speechiness": 0.144,
+        "acousticness": 0.0144,
+        "instrumentalness": 1.03e-05,
+        "liveness": 0.153,
+        "valence": 0.614,
+        "tempo": 180,
+        "durationMs": 222267,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "シンカロン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-28",
+      "canonicalTitle": "ジッタードール",
+      "aliases": [
+        "ジッタードール"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -28
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -28,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ジッタードール"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-45",
+      "canonicalTitle": "ジャバヲッキー・ジャバヲッカ",
+      "aliases": [
+        "ジャバヲッキー・ジャバヲッカ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -45
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -45,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ジャバヲッキージャバヲッカ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-11",
+      "canonicalTitle": "ストリーミングハート",
+      "aliases": [
+        "ストリーミングハート"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -11
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -11,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ストリーミングハート"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_88",
+      "canonicalTitle": "ダリ",
+      "aliases": [
+        "ダリ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          88
+        ],
+        "primarySongId": 88,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7f4PaZuWlLM4ZsPTZIPLe1",
+      "expectedDurationSec": 191.213,
+      "audioFeatures": {
+        "danceability": 0.644,
+        "energy": 0.972,
+        "key": 6,
+        "loudness": -2.934,
+        "mode": 0,
+        "speechiness": 0.0525,
+        "acousticness": 0.000783,
+        "instrumentalness": 0.0437,
+        "liveness": 0.354,
+        "valence": 0.928,
+        "tempo": 150,
+        "durationMs": 191213,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "ダリ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_157",
+      "canonicalTitle": "ディア",
+      "aliases": [
+        "ディア"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          34
+        ],
+        "songIds": [
+          157
+        ],
+        "primarySongId": 157,
+        "primaryDiscographyId": 34,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2C6am2buzRLvFKNVr4nl3L",
+      "expectedDurationSec": 174.56,
+      "audioFeatures": {
+        "danceability": 0.655,
+        "energy": 0.99,
+        "key": 10,
+        "loudness": -0.969,
+        "mode": 0,
+        "speechiness": 0.111,
+        "acousticness": 0.00424,
+        "instrumentalness": 0.000126,
+        "liveness": 0.278,
+        "valence": 0.674,
+        "tempo": 132,
+        "durationMs": 174560,
+        "timeSignature": 4,
+        "popularity": "49"
+      },
+      "matchHints": [
+        "ディア"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_41",
+      "canonicalTitle": "ニュータイプトーキョー",
+      "aliases": [
+        "ニュータイプトーキョー"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          4
+        ],
+        "songIds": [
+          41
+        ],
+        "primarySongId": 41,
+        "primaryDiscographyId": 4,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ニュータイプトーキョー"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-44",
+      "canonicalTitle": "ネトゲ廃人シュプレヒコール",
+      "aliases": [
+        "ネトゲ廃人シュプレヒコール"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -44
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -44,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ネトゲ廃人シュプレヒコール"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_16",
+      "canonicalTitle": "ハルシアン",
+      "aliases": [
+        "ハルシアン"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          16
+        ],
+        "primarySongId": 16,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5NwsH1cb8Pn0sNgzMEY9GV",
+      "expectedDurationSec": 178.6,
+      "audioFeatures": {
+        "danceability": 0.683,
+        "energy": 0.976,
+        "key": 9,
+        "loudness": -3.094,
+        "mode": 1,
+        "speechiness": 0.12,
+        "acousticness": 0.0144,
+        "instrumentalness": 0,
+        "liveness": 0.0297,
+        "valence": 0.963,
+        "tempo": 148,
+        "durationMs": 178600,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "ハルシアン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_85",
+      "canonicalTitle": "ハーメルン",
+      "aliases": [
+        "ハーメルン"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          85
+        ],
+        "primarySongId": 85,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "76zCFsWIre89p4HQrRerbf",
+      "expectedDurationSec": 199.342,
+      "audioFeatures": {
+        "danceability": 0.597,
+        "energy": 0.862,
+        "key": 6,
+        "loudness": -4.024,
+        "mode": 0,
+        "speechiness": 0.0445,
+        "acousticness": 0.14,
+        "instrumentalness": 0.0022,
+        "liveness": 0.459,
+        "valence": 0.253,
+        "tempo": 170,
+        "durationMs": 199342,
+        "timeSignature": 4,
+        "popularity": "27"
+      },
+      "matchHints": [
+        "ハーメルン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-31",
+      "canonicalTitle": "パレットには君がいっぱい",
+      "aliases": [
+        "パレットには君がいっぱい"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -31
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -31,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "パレットには君がいっぱい"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_2",
+      "canonicalTitle": "ヒビカセ",
+      "aliases": [
+        "ヒビカセ"
+      ],
+      "artistNames": [
+        "あにょすぺにょすゃゃ"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          1,
+          32,
+          33
+        ],
+        "songIds": [
+          2,
+          136,
+          147
+        ],
+        "primarySongId": 2,
+        "primaryDiscographyId": 1,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0H1iMm1pO61srixV0rGYRe",
+      "expectedDurationSec": 250.552,
+      "audioFeatures": {
+        "danceability": 0.711,
+        "energy": 0.764,
+        "key": 6,
+        "loudness": -2.308,
+        "mode": 0,
+        "speechiness": 0.203,
+        "acousticness": 0.00206,
+        "instrumentalness": 0.000667,
+        "liveness": 0.0538,
+        "valence": 0.835,
+        "tempo": 140,
+        "durationMs": 250552,
+        "timeSignature": 4,
+        "popularity": "51"
+      },
+      "matchHints": [
+        "ヒビカセ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-15",
+      "canonicalTitle": "ヒビカセ ver れをる",
+      "aliases": [
+        "ヒビカセ ver れをる"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -15
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -15,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ヒビカセverれをる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_48",
+      "canonicalTitle": "ミッシング",
+      "aliases": [
+        "ミッシング"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          6
+        ],
+        "songIds": [
+          48
+        ],
+        "primarySongId": 48,
+        "primaryDiscographyId": 6,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5G9evYGjsdgjpjUEeOkmy5",
+      "expectedDurationSec": 287.293,
+      "audioFeatures": {
+        "danceability": 0.394,
+        "energy": 0.959,
+        "key": 1,
+        "loudness": -1.971,
+        "mode": 1,
+        "speechiness": 0.0932,
+        "acousticness": 2.52e-05,
+        "instrumentalness": 0.00222,
+        "liveness": 0.347,
+        "valence": 0.451,
+        "tempo": 160,
+        "durationMs": 287293,
+        "timeSignature": 4,
+        "popularity": "22"
+      },
+      "matchHints": [
+        "ミッシング"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_22",
+      "canonicalTitle": "ミッドナイトストロウラ",
+      "aliases": [
+        "ミッドナイトストロウラ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          22
+        ],
+        "primarySongId": 22,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7xyxcFjyp3pDlXx6HxctPo",
+      "expectedDurationSec": 207.267,
+      "audioFeatures": {
+        "danceability": 0.315,
+        "energy": 0.978,
+        "key": 6,
+        "loudness": -3.108,
+        "mode": 0,
+        "speechiness": 0.326,
+        "acousticness": 0.00392,
+        "instrumentalness": 0.0019,
+        "liveness": 0.0406,
+        "valence": 0.767,
+        "tempo": 180,
+        "durationMs": 207267,
+        "timeSignature": 5,
+        "popularity": "25"
+      },
+      "matchHints": [
+        "ミッドナイトストロウラ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_100",
+      "canonicalTitle": "ミュータント",
+      "aliases": [
+        "ミュータント"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          20
+        ],
+        "songIds": [
+          100
+        ],
+        "primarySongId": 100,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3AkvJc5aJt3FauOliKi9Z9",
+      "expectedDurationSec": 248.147,
+      "audioFeatures": {
+        "danceability": 0.662,
+        "energy": 0.834,
+        "key": 5,
+        "loudness": -3.76,
+        "mode": 0,
+        "speechiness": 0.0509,
+        "acousticness": 0.162,
+        "instrumentalness": 0,
+        "liveness": 0.514,
+        "valence": 0.615,
+        "tempo": 160,
+        "durationMs": 248147,
+        "timeSignature": 4,
+        "popularity": "21"
+      },
+      "matchHints": [
+        "ミュータント"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_60",
+      "canonicalTitle": "ミラージュ",
+      "aliases": [
+        "ミラージュ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          60,
+          76
+        ],
+        "primarySongId": 60,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5SPFU6mys52n07fem3EXBA",
+      "expectedDurationSec": 222.48,
+      "audioFeatures": {
+        "danceability": 0.703,
+        "energy": 0.928,
+        "key": 9,
+        "loudness": -2.437,
+        "mode": 1,
+        "speechiness": 0.0507,
+        "acousticness": 0.03,
+        "instrumentalness": 4.05e-06,
+        "liveness": 0.174,
+        "valence": 0.485,
+        "tempo": 140,
+        "durationMs": 222480,
+        "timeSignature": 4,
+        "popularity": "32"
+      },
+      "matchHints": [
+        "ミラージュ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-5",
+      "canonicalTitle": "メリュー",
+      "aliases": [
+        "メリュー"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -5
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -5,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "メリュー"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-33",
+      "canonicalTitle": "ラズベリー＊モンスター",
+      "aliases": [
+        "ラズベリー＊モンスター"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -33
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -33,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ラズベリー*モンスター"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_21",
+      "canonicalTitle": "ラ・タタン",
+      "aliases": [
+        "ラ・タタン"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          21
+        ],
+        "primarySongId": 21,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4wWsvdoRehEVJ8Kt8m2b7Q",
+      "expectedDurationSec": 214.467,
+      "audioFeatures": {
+        "danceability": 0.661,
+        "energy": 0.669,
+        "key": 5,
+        "loudness": -3.618,
+        "mode": 0,
+        "speechiness": 0.0518,
+        "acousticness": 0.083,
+        "instrumentalness": 0,
+        "liveness": 0.0355,
+        "valence": 0.972,
+        "tempo": 186,
+        "durationMs": 214467,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "ラタタン"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-14",
+      "canonicalTitle": "レッド・パージ！！！",
+      "aliases": [
+        "レッド・パージ！！！"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -14
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -14,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "レッドパージ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_17",
+      "canonicalTitle": "ロジックエージェント",
+      "aliases": [
+        "ロジックエージェント"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          17
+        ],
+        "primarySongId": 17,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0aPmJfAIIoPJW7FyLGWgtW",
+      "expectedDurationSec": 215.067,
+      "audioFeatures": {
+        "danceability": 0.31,
+        "energy": 0.985,
+        "key": 5,
+        "loudness": -1.709,
+        "mode": 1,
+        "speechiness": 0.23,
+        "acousticness": 0.133,
+        "instrumentalness": 4.79e-06,
+        "liveness": 0.101,
+        "valence": 0.185,
+        "tempo": 190,
+        "durationMs": 215067,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "ロジックエージェント"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-8",
+      "canonicalTitle": "ロジックエージェント　/　niki × れをる",
+      "aliases": [
+        "ロジックエージェント / niki × れをる",
+        "ロジックエージェント　/　niki × れをる"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -8
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -8,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ロジックエージェントniki×れをる"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-34",
+      "canonicalTitle": "ロストワンの号哭",
+      "aliases": [
+        "ロストワンの号哭"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -34
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -34,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "ロストワンの号哭"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-26",
+      "canonicalTitle": "一心不乱 〔feat.ill.bell,nqrse〕",
+      "aliases": [
+        "一心不乱 〔",
+        "一心不乱 〔feat.ill.bell,nqrse〕"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -26
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -26,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "一心不乱〔",
+        "一心不乱〔featillbellnqrse〕"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_116",
+      "canonicalTitle": "切っ先 -Instrumental-",
+      "aliases": [
+        "切っ先",
+        "切っ先  - Instrumental -",
+        "切っ先 -Instrumental-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "instrumental",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          28
+        ],
+        "songIds": [
+          116
+        ],
+        "primarySongId": 116,
+        "primaryDiscographyId": 28,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "切っ先",
+        "切っ先-instrumental-",
+        "切っ先instrumental"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_125",
+      "canonicalTitle": "切っ先(Edge)",
+      "aliases": [
+        "切っ先",
+        "切っ先(Edge)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          27,
+          28,
+          29
+        ],
+        "songIds": [
+          111,
+          112,
+          125
+        ],
+        "primarySongId": 125,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4SfiyJGpbCj4CZD27gJooS",
+      "expectedDurationSec": 210.067,
+      "audioFeatures": {
+        "danceability": 0.651,
+        "energy": 0.917,
+        "key": 4,
+        "loudness": -3.328,
+        "mode": 0,
+        "speechiness": 0.0406,
+        "acousticness": 0.00227,
+        "instrumentalness": 0,
+        "liveness": 0.271,
+        "valence": 0.379,
+        "tempo": 120,
+        "durationMs": 210067,
+        "timeSignature": 4,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "切っ先",
+        "切っ先edge"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_115",
+      "canonicalTitle": "切っ先(edge) -Anime Ver.-",
+      "aliases": [
+        "切っ先 -Anime Ver.-",
+        "切っ先(edge)",
+        "切っ先(edge)  - Anime Ver. -",
+        "切っ先(edge) -Anime Ver.-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          28
+        ],
+        "songIds": [
+          115
+        ],
+        "primarySongId": 115,
+        "primaryDiscographyId": 28,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "切っ先-animever-",
+        "切っ先animever",
+        "切っ先edge",
+        "切っ先edge-animever-",
+        "切っ先edgeanimever"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_64",
+      "canonicalTitle": "劣等上等 (Special Editionのみ)",
+      "aliases": [
+        "劣等上等",
+        "劣等上等 (Special Editionのみ)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9
+        ],
+        "songIds": [
+          64
+        ],
+        "primarySongId": 64,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "劣等上等",
+        "劣等上等specialeditionのみ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_56",
+      "canonicalTitle": "十中八九",
+      "aliases": [
+        "十中八九"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          56,
+          72
+        ],
+        "primarySongId": 56,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "6aT65ClPOm6vdAzXsmuNlc",
+      "expectedDurationSec": 225.6,
+      "audioFeatures": {
+        "danceability": 0.733,
+        "energy": 0.935,
+        "key": 5,
+        "loudness": -2.096,
+        "mode": 0,
+        "speechiness": 0.0735,
+        "acousticness": 0.0101,
+        "instrumentalness": 0.00839,
+        "liveness": 0.208,
+        "valence": 0.86,
+        "tempo": 128,
+        "durationMs": 225600,
+        "timeSignature": 4,
+        "popularity": "35"
+      },
+      "matchHints": [
+        "十中八九"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_68",
+      "canonicalTitle": "失楽園",
+      "aliases": [
+        "失楽園"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          10
+        ],
+        "songIds": [
+          68
+        ],
+        "primarySongId": 68,
+        "primaryDiscographyId": 10,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3yXwighahVa3l4v71wZ0LT",
+      "expectedDurationSec": 254.733,
+      "audioFeatures": {
+        "danceability": 0.715,
+        "energy": 0.97,
+        "key": 0,
+        "loudness": -2.27,
+        "mode": 0,
+        "speechiness": 0.0467,
+        "acousticness": 0.0211,
+        "instrumentalness": 1.95e-05,
+        "liveness": 0.335,
+        "valence": 0.802,
+        "tempo": 108,
+        "durationMs": 254733,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "失楽園"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-19",
+      "canonicalTitle": "女子高生チェーンソウデイズ",
+      "aliases": [
+        "女子高生チェーンソウデイズ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -19
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -19,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "女子高生チェーンソウデイズ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-9",
+      "canonicalTitle": "妄想税 〔nqrse〕",
+      "aliases": [
+        "妄想税 〔nqrse〕"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -9
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -9,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "妄想税〔nqrse〕"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_30",
+      "canonicalTitle": "宵々古今",
+      "aliases": [
+        "宵々古今"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          30
+        ],
+        "primarySongId": 30,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3KLHSYHSmny4sJo2finqy9",
+      "expectedDurationSec": 257.733,
+      "audioFeatures": {
+        "danceability": 0.46,
+        "energy": 0.977,
+        "key": 1,
+        "loudness": -2.184,
+        "mode": 1,
+        "speechiness": 0.293,
+        "acousticness": 0.000423,
+        "instrumentalness": 0,
+        "liveness": 0.358,
+        "valence": 0.547,
+        "tempo": 150,
+        "durationMs": 257733,
+        "timeSignature": 4,
+        "popularity": "50"
+      },
+      "matchHints": [
+        "宵々古今"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-40",
+      "canonicalTitle": "小夜子",
+      "aliases": [
+        "小夜子"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -40
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -40,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "小夜子"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_47",
+      "canonicalTitle": "平面鏡",
+      "aliases": [
+        "平面鏡"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          5,
+          6
+        ],
+        "songIds": [
+          45,
+          47
+        ],
+        "primarySongId": 47,
+        "primaryDiscographyId": 6,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "0CSh8fiMJWLUb2ISewuu7c",
+      "expectedDurationSec": 194.442,
+      "audioFeatures": {
+        "danceability": 0.682,
+        "energy": 0.9,
+        "key": 10,
+        "loudness": -3.059,
+        "mode": 0,
+        "speechiness": 0.0432,
+        "acousticness": 0.000807,
+        "instrumentalness": 0.00359,
+        "liveness": 0.354,
+        "valence": 0.432,
+        "tempo": 100,
+        "durationMs": 194442,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "平面鏡"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_53",
+      "canonicalTitle": "幽居のワルツ",
+      "aliases": [
+        "幽居のワルツ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          53,
+          69
+        ],
+        "primarySongId": 53,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "56zgAN1IE4gLKI2dbvknCI",
+      "expectedDurationSec": 233.2,
+      "audioFeatures": {
+        "danceability": 0.592,
+        "energy": 0.908,
+        "key": 4,
+        "loudness": -2.906,
+        "mode": 0,
+        "speechiness": 0.0437,
+        "acousticness": 0.182,
+        "instrumentalness": 1.83e-06,
+        "liveness": 0.318,
+        "valence": 0.469,
+        "tempo": 180,
+        "durationMs": 233200,
+        "timeSignature": 3,
+        "popularity": "26"
+      },
+      "matchHints": [
+        "幽居のワルツ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_109",
+      "canonicalTitle": "感情が群れを成すパレイド",
+      "aliases": [
+        "感情が群れを成すパレイド"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          25
+        ],
+        "songIds": [
+          109
+        ],
+        "primarySongId": 109,
+        "primaryDiscographyId": 25,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4G4kVFSOHVKegIXMbWUboK",
+      "expectedDurationSec": 159.573,
+      "audioFeatures": {
+        "danceability": 0.694,
+        "energy": 0.727,
+        "key": 5,
+        "loudness": -8.484,
+        "mode": 0,
+        "speechiness": 0.135,
+        "acousticness": 0.0282,
+        "instrumentalness": 0.126,
+        "liveness": 0.356,
+        "valence": 0.399,
+        "tempo": 105,
+        "durationMs": 159573,
+        "timeSignature": 4,
+        "popularity": "18"
+      },
+      "matchHints": [
+        "感情が群れを成すパレイド"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_134",
+      "canonicalTitle": "感情御中 -WANT U LUV IT",
+      "aliases": [
+        "感情御中",
+        "感情御中  -  WANT U LUV IT",
+        "感情御中  - WANT U LUV IT",
+        "感情御中 - WANT U LUV IT",
+        "感情御中 -WANT U LUV IT",
+        "感情御中-WANT U LUV IT"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          31
+        ],
+        "songIds": [
+          134
+        ],
+        "primarySongId": 134,
+        "primaryDiscographyId": 31,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5f3Dg1YIy5yTlFa7H4MyCO",
+      "expectedDurationSec": 175.231,
+      "audioFeatures": {
+        "danceability": 0.649,
+        "energy": 0.924,
+        "key": 10,
+        "loudness": -3.515,
+        "mode": 0,
+        "speechiness": 0.092,
+        "acousticness": 0.00134,
+        "instrumentalness": 1.85e-05,
+        "liveness": 0.3,
+        "valence": 0.86,
+        "tempo": 145,
+        "durationMs": 175231,
+        "timeSignature": 4,
+        "popularity": "46"
+      },
+      "matchHints": [
+        "感情御中",
+        "感情御中-wantuluvit",
+        "感情御中wantuluvit"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_27",
+      "canonicalTitle": "染",
+      "aliases": [
+        "染"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          27
+        ],
+        "primarySongId": 27,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4YEP26yNgvVHVT44QmttLL",
+      "expectedDurationSec": 284.0,
+      "audioFeatures": {
+        "danceability": 0.491,
+        "energy": 0.713,
+        "key": 11,
+        "loudness": -4.325,
+        "mode": 0,
+        "speechiness": 0.044,
+        "acousticness": 0.253,
+        "instrumentalness": 0,
+        "liveness": 0.18,
+        "valence": 0.404,
+        "tempo": 160,
+        "durationMs": 284000,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "染"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_13",
+      "canonicalTitle": "極彩色",
+      "aliases": [
+        "極彩色"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -6,
+          2
+        ],
+        "songIds": [
+          13
+        ],
+        "primarySongId": 13,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "discography-title-fallback",
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1ppgOVjBFREq0apmtBBIqM",
+      "expectedDurationSec": 250.532,
+      "audioFeatures": {
+        "danceability": 0.566,
+        "energy": 0.979,
+        "key": 1,
+        "loudness": -2.873,
+        "mode": 1,
+        "speechiness": 0.246,
+        "acousticness": 0.013,
+        "instrumentalness": 0.00076,
+        "liveness": 0.304,
+        "valence": 0.525,
+        "tempo": 137,
+        "durationMs": 250532,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "極彩色"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-23",
+      "canonicalTitle": "毒占欲",
+      "aliases": [
+        "毒占欲"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -23
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -23,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "毒占欲"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_15",
+      "canonicalTitle": "水底游歩道",
+      "aliases": [
+        "水底游歩道"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          15
+        ],
+        "primarySongId": 15,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2Y8MpEW37sCOqJjSUTaSCu",
+      "expectedDurationSec": 304.0,
+      "audioFeatures": {
+        "danceability": 0.465,
+        "energy": 0.942,
+        "key": 9,
+        "loudness": -4.648,
+        "mode": 0,
+        "speechiness": 0.33,
+        "acousticness": 0.0273,
+        "instrumentalness": 0,
+        "liveness": 0.628,
+        "valence": 0.345,
+        "tempo": 175,
+        "durationMs": 304000,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "水底游歩道"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-38",
+      "canonicalTitle": "深海シティアンダーグラウンド",
+      "aliases": [
+        "深海シティアンダーグラウンド"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -38
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -38,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "深海シティアンダーグラウンド"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_55",
+      "canonicalTitle": "激白",
+      "aliases": [
+        "激白"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          55,
+          71
+        ],
+        "primarySongId": 55,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "44NoxHRefNWip1dlZTjNB9",
+      "expectedDurationSec": 206.68,
+      "audioFeatures": {
+        "danceability": 0.671,
+        "energy": 0.943,
+        "key": 5,
+        "loudness": -2.455,
+        "mode": 0,
+        "speechiness": 0.0497,
+        "acousticness": 0.00345,
+        "instrumentalness": 1.46e-06,
+        "liveness": 0.392,
+        "valence": 0.82,
+        "tempo": 108,
+        "durationMs": 206680,
+        "timeSignature": 4,
+        "popularity": "37"
+      },
+      "matchHints": [
+        "激白"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_57",
+      "canonicalTitle": "煩悩遊戯",
+      "aliases": [
+        "煩悩遊戯"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          57,
+          73
+        ],
+        "primarySongId": 57,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1CaAFF5iAXhG5f8mp8qIGf",
+      "expectedDurationSec": 192.48,
+      "audioFeatures": {
+        "danceability": 0.684,
+        "energy": 0.916,
+        "key": 10,
+        "loudness": -1.135,
+        "mode": 0,
+        "speechiness": 0.0644,
+        "acousticness": 0.041,
+        "instrumentalness": 4.59e-06,
+        "liveness": 0.341,
+        "valence": 0.538,
+        "tempo": 100,
+        "durationMs": 192480,
+        "timeSignature": 4,
+        "popularity": "33"
+      },
+      "matchHints": [
+        "煩悩遊戯"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_128",
+      "canonicalTitle": "煽げや尊し(Agitate)",
+      "aliases": [
+        "煽げや尊し",
+        "煽げや尊し(Agitate)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          22,
+          29
+        ],
+        "songIds": [
+          104,
+          128
+        ],
+        "primarySongId": 128,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm",
+      "expectedDurationSec": 217.107,
+      "audioFeatures": {
+        "danceability": 0.703,
+        "energy": 0.926,
+        "key": 6,
+        "loudness": -1.803,
+        "mode": 1,
+        "speechiness": 0.187,
+        "acousticness": 0.00749,
+        "instrumentalness": 4.89e-06,
+        "liveness": 0.361,
+        "valence": 0.55,
+        "tempo": 131,
+        "durationMs": 217107,
+        "timeSignature": 4,
+        "popularity": "37"
+      },
+      "matchHints": [
+        "煽げや尊し",
+        "煽げや尊しagitate"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_114",
+      "canonicalTitle": "煽げや尊し(FAKE TYPE. Remix)",
+      "aliases": [
+        "煽げや尊し",
+        "煽げや尊し(FAKE TYPE. Remix)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          28
+        ],
+        "songIds": [
+          114
+        ],
+        "primarySongId": 114,
+        "primaryDiscographyId": 28,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3ScmMzh4kEqbrrJcHBKoJz",
+      "expectedDurationSec": 215.96,
+      "audioFeatures": {
+        "danceability": 0.675,
+        "energy": 0.966,
+        "key": 6,
+        "loudness": -0.742,
+        "mode": 1,
+        "speechiness": 0.156,
+        "acousticness": 0.0771,
+        "instrumentalness": 0,
+        "liveness": 0.0599,
+        "valence": 0.736,
+        "tempo": 131,
+        "durationMs": 215960,
+        "timeSignature": 4,
+        "popularity": "28"
+      },
+      "matchHints": [
+        "煽げや尊し",
+        "煽げや尊しfaketyperemix"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_14",
+      "canonicalTitle": "生命線",
+      "aliases": [
+        "生命線"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          14
+        ],
+        "primarySongId": 14,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4YDnmsQW2lnZL4Cju7EPMT",
+      "expectedDurationSec": 202.267,
+      "audioFeatures": {
+        "danceability": 0.364,
+        "energy": 0.986,
+        "key": 7,
+        "loudness": -2.435,
+        "mode": 0,
+        "speechiness": 0.34,
+        "acousticness": 0.00212,
+        "instrumentalness": 0,
+        "liveness": 0.0872,
+        "valence": 0.26,
+        "tempo": 162,
+        "durationMs": 202267,
+        "timeSignature": 4,
+        "popularity": "28"
+      },
+      "matchHints": [
+        "生命線"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_99",
+      "canonicalTitle": "白夜(White Midnight)",
+      "aliases": [
+        "白夜",
+        "白夜(White Midnight)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          18,
+          20
+        ],
+        "songIds": [
+          94,
+          99
+        ],
+        "primarySongId": 99,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv",
+      "expectedDurationSec": 251.19,
+      "audioFeatures": {
+        "danceability": 0.51,
+        "energy": 0.833,
+        "key": 8,
+        "loudness": -4.627,
+        "mode": 0,
+        "speechiness": 0.0686,
+        "acousticness": 0.00397,
+        "instrumentalness": 2.17e-06,
+        "liveness": 0.146,
+        "valence": 0.366,
+        "tempo": 190,
+        "durationMs": 251190,
+        "timeSignature": 4,
+        "popularity": "24"
+      },
+      "matchHints": [
+        "白夜",
+        "白夜whitemidnight"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_59",
+      "canonicalTitle": "真空オールドローズ",
+      "aliases": [
+        "真空オールドローズ"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          59,
+          75
+        ],
+        "primarySongId": 59,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "782U3IhpWQR99iaZIuQ4x4",
+      "expectedDurationSec": 248.973,
+      "audioFeatures": {
+        "danceability": 0.651,
+        "energy": 0.968,
+        "key": 9,
+        "loudness": -1.593,
+        "mode": 0,
+        "speechiness": 0.0566,
+        "acousticness": 0.00449,
+        "instrumentalness": 1.67e-06,
+        "liveness": 0.127,
+        "valence": 0.856,
+        "tempo": 102,
+        "durationMs": 248973,
+        "timeSignature": 4,
+        "popularity": "30"
+      },
+      "matchHints": [
+        "真空オールドローズ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_34",
+      "canonicalTitle": "神様になった日",
+      "aliases": [
+        "神様になった日"
+      ],
+      "artistNames": [
+        "REOL"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          3
+        ],
+        "songIds": [
+          34
+        ],
+        "primarySongId": 34,
+        "primaryDiscographyId": 3,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7apgxRbih9txqqDGrqXiRn",
+      "expectedDurationSec": 245.08,
+      "audioFeatures": {
+        "danceability": 0.715,
+        "energy": 0.948,
+        "key": 11,
+        "loudness": -2.817,
+        "mode": 0,
+        "speechiness": 0.0595,
+        "acousticness": 0.0258,
+        "instrumentalness": 0.000184,
+        "liveness": 0.0544,
+        "valence": 0.858,
+        "tempo": 97,
+        "durationMs": 245080,
+        "timeSignature": 4,
+        "popularity": "32"
+      },
+      "matchHints": [
+        "神様になった日"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_62",
+      "canonicalTitle": "秋映",
+      "aliases": [
+        "秋映"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          9,
+          11
+        ],
+        "songIds": [
+          62,
+          78
+        ],
+        "primarySongId": 62,
+        "primaryDiscographyId": 9,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "7bGOND7852tOD0RInMTO0u",
+      "expectedDurationSec": 182.12,
+      "audioFeatures": {
+        "danceability": 0.571,
+        "energy": 0.646,
+        "key": 7,
+        "loudness": -3.54,
+        "mode": 1,
+        "speechiness": 0.0414,
+        "acousticness": 0.413,
+        "instrumentalness": 5.31e-06,
+        "liveness": 0.0899,
+        "valence": 0.488,
+        "tempo": 125,
+        "durationMs": 182120,
+        "timeSignature": 3,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "秋映"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_37",
+      "canonicalTitle": "秘色録",
+      "aliases": [
+        "秘色録"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          37
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": 37,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "秘色録"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_96",
+      "canonicalTitle": "第六感",
+      "aliases": [
+        "第六感"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          15,
+          20
+        ],
+        "songIds": [
+          92,
+          96
+        ],
+        "primarySongId": 96,
+        "primaryDiscographyId": 20,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "5zYnmO6kfYp88THtqvxYTW",
+      "expectedDurationSec": 191.933,
+      "audioFeatures": {
+        "danceability": 0.676,
+        "energy": 0.943,
+        "key": 7,
+        "loudness": -3.373,
+        "mode": 1,
+        "speechiness": 0.0736,
+        "acousticness": 0.00855,
+        "instrumentalness": 7.73e-05,
+        "liveness": 0.395,
+        "valence": 0.785,
+        "tempo": 134,
+        "durationMs": 191933,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "第六感"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_130",
+      "canonicalTitle": "第六感 - From THE FIRST TAKE",
+      "aliases": [
+        "第六感",
+        "第六感  -  From THE FIRST TAKE",
+        "第六感 - From THE FIRST TAKE",
+        "第六感-From THE FIRST TAKE"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          29
+        ],
+        "songIds": [
+          130
+        ],
+        "primarySongId": 130,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "611w2dL7Vk4c54JvtH0qo6",
+      "expectedDurationSec": 194.2,
+      "audioFeatures": {
+        "danceability": 0.723,
+        "energy": 0.934,
+        "key": 7,
+        "loudness": -1.995,
+        "mode": 1,
+        "speechiness": 0.0811,
+        "acousticness": 0.167,
+        "instrumentalness": 0,
+        "liveness": 0.3,
+        "valence": 0.843,
+        "tempo": 134,
+        "durationMs": 194200,
+        "timeSignature": 4,
+        "popularity": "29"
+      },
+      "matchHints": [
+        "第六感",
+        "第六感-fromthefirsttake",
+        "第六感fromthefirsttake"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_25",
+      "canonicalTitle": "約束の蒼",
+      "aliases": [
+        "約束の蒼"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          2
+        ],
+        "songIds": [
+          25
+        ],
+        "primarySongId": 25,
+        "primaryDiscographyId": 2,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "4l1oMylHERx6Ez54g49Tdz",
+      "expectedDurationSec": 238.267,
+      "audioFeatures": {
+        "danceability": 0.255,
+        "energy": 0.95,
+        "key": 5,
+        "loudness": -2.286,
+        "mode": 0,
+        "speechiness": 0.312,
+        "acousticness": 0.00165,
+        "instrumentalness": 0.000207,
+        "liveness": 0.0988,
+        "valence": 0.451,
+        "tempo": 78,
+        "durationMs": 238267,
+        "timeSignature": 5,
+        "popularity": "23"
+      },
+      "matchHints": [
+        "約束の蒼"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_121",
+      "canonicalTitle": "綺羅綺羅(Glitter)",
+      "aliases": [
+        "綺羅綺羅",
+        "綺羅綺羅(Glitter)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          26,
+          28,
+          29
+        ],
+        "songIds": [
+          110,
+          113,
+          121
+        ],
+        "primarySongId": 121,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "1PYf8NPd7Q9xjtfjVCgPw1",
+      "expectedDurationSec": 193.292,
+      "audioFeatures": {
+        "danceability": 0.754,
+        "energy": 0.921,
+        "key": 1,
+        "loudness": -3.271,
+        "mode": 1,
+        "speechiness": 0.214,
+        "acousticness": 0.0145,
+        "instrumentalness": 0,
+        "liveness": 0.308,
+        "valence": 0.673,
+        "tempo": 129,
+        "durationMs": 193292,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "綺羅綺羅",
+        "綺羅綺羅glitter"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_117",
+      "canonicalTitle": "綺羅綺羅(Glitter) -Instrumental-",
+      "aliases": [
+        "綺羅綺羅 -Instrumental-",
+        "綺羅綺羅(Glitter)",
+        "綺羅綺羅(Glitter)  - Instrumental -",
+        "綺羅綺羅(Glitter) -Instrumental-"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "instrumental",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          28
+        ],
+        "songIds": [
+          117
+        ],
+        "primarySongId": 117,
+        "primaryDiscographyId": 28,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "綺羅綺羅-instrumental-",
+        "綺羅綺羅glitter",
+        "綺羅綺羅glitter-instrumental-",
+        "綺羅綺羅glitterinstrumental",
+        "綺羅綺羅instrumental"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-30",
+      "canonicalTitle": "聖槍爆裂ボーイ",
+      "aliases": [
+        "聖槍爆裂ボーイ"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -30
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -30,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "聖槍爆裂ボーイ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-2",
+      "canonicalTitle": "脳内革命ガール 〔ill.bell〕",
+      "aliases": [
+        "脳内革命ガール 〔ill.bell〕"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -2
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -2,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "脳内革命ガール〔illbell〕"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_129",
+      "canonicalTitle": "赤裸裸(NAKED)",
+      "aliases": [
+        "赤裸裸",
+        "赤裸裸(NAKED)"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          21,
+          29
+        ],
+        "songIds": [
+          103,
+          129
+        ],
+        "primarySongId": 129,
+        "primaryDiscographyId": 29,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "2fws0PJcupSLyCNCarcxGM",
+      "expectedDurationSec": 160.131,
+      "audioFeatures": {
+        "danceability": 0.576,
+        "energy": 0.944,
+        "key": 7,
+        "loudness": -2.045,
+        "mode": 1,
+        "speechiness": 0.219,
+        "acousticness": 0.00456,
+        "instrumentalness": 0.000282,
+        "liveness": 0.377,
+        "valence": 0.697,
+        "tempo": 140,
+        "durationMs": 160131,
+        "timeSignature": 4,
+        "popularity": "31"
+      },
+      "matchHints": [
+        "赤裸裸",
+        "赤裸裸naked"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_81",
+      "canonicalTitle": "金字塔",
+      "aliases": [
+        "金字塔"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          14
+        ],
+        "songIds": [
+          81
+        ],
+        "primarySongId": 81,
+        "primaryDiscographyId": 14,
+        "sourceKinds": [
+          "song"
+        ]
+      },
+      "spotifyTrackId": "02HNBwIheiZAuzC8p1QBPn",
+      "expectedDurationSec": 207.733,
+      "audioFeatures": {
+        "danceability": 0.743,
+        "energy": 0.812,
+        "key": 6,
+        "loudness": -3.528,
+        "mode": 1,
+        "speechiness": 0.0445,
+        "acousticness": 0.0244,
+        "instrumentalness": 5.79e-05,
+        "liveness": 0.0892,
+        "valence": 0.641,
+        "tempo": 128,
+        "durationMs": 207733,
+        "timeSignature": 4,
+        "popularity": "34"
+      },
+      "matchHints": [
+        "金字塔"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "discography_-4",
+      "canonicalTitle": "頓珍漢の宴",
+      "aliases": [
+        "頓珍漢の宴"
+      ],
+      "artistNames": [
+        "れをる"
+      ],
+      "kind": "original",
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyIds": [
+          -4
+        ],
+        "songIds": [],
+        "primarySongId": null,
+        "primaryDiscographyId": -4,
+        "sourceKinds": [
+          "discography-title-fallback"
+        ]
+      },
+      "spotifyTrackId": "",
+      "expectedDurationSec": null,
+      "audioFeatures": {},
+      "matchHints": [
+        "頓珍漢の宴"
+      ]
+    }
+  ]
+}

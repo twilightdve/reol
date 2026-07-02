@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_1_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 1,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 1,
+    "type": "event",
+    "title": "amphead nico nico singer music live vol.03",
+    "artistName": "れをる",
+    "dateRange": "2014-02-01",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2014-02-01",
+    "place": "原宿 ASTRO HALL",
+    "placeSite": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB",
+    "address": "〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12965.20932854474!2d139.70655!3d35.669557!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca37d3e980b%3A0x8aa3e641b892411a!2z44Ki44K544OI44Ot44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697821131639!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "amphead nico nico singer music live vol.03",
+  "liveTitle": "amphead nico nico singer music live vol.03",
+  "date": "2014-02-01",
+  "venueName": "原宿 ASTRO HALL",
+  "venueId": "venue_40ff77245b",
+  "entries": []
+}

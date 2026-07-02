@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_6",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 49,
+    "liveItemNo": 6,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 49,
+    "type": "oneman",
+    "title": "Reol ASIA TOUR \"UNBOX\"",
+    "artistName": "Reol",
+    "dateRange": "2024-03-16〜2024-03-23",
+    "siteUrl": "https://reol.jp/feature/unbox_2324",
+    "spotifyPlaylistId": "3JDPzO8M5PRCHKreXoBmbA"
+  },
+  "item": {
+    "liveItemNo": 6,
+    "name": "SEOUL",
+    "date": "2024-03-23",
+    "place": "musinsa garage",
+    "placeSite": "https://www.musinsagarage.com/",
+    "address": "３２ Jandari-ro, Mapo-gu, Seoul, 韓国",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.149403358787!2d126.9172053758731!3d37.551543672042435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99e21f281c77%3A0x37b8cb2577692919!2sMusinsa%20Garage!5e0!3m2!1sja!2sjp!4v1704741343244!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\"",
+  "date": "2024-03-23",
+  "venueName": "musinsa garage",
+  "venueId": "venue_8955afd93e",
+  "entries": []
+}

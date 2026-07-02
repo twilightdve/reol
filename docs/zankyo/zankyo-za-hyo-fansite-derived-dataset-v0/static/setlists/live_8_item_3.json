@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_8_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 8,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 8,
+    "type": "oneman",
+    "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+    "artistName": "REOL",
+    "dateRange": "2017-02-26〜2017-03-12",
+    "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/live/tennkainokoushiki/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "KOREA",
+    "date": "2017-03-11",
+    "place": "HONGDAE V-HALL",
+    "placeSite": "http://www.vhall.co.kr/main/",
+    "address": "２５ Hongik-ro, Mapo-gu, Seoul, 韓国",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.0287086111025!2d126.92195190000001!3d37.554387399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c4ab0f99e5%3A0xc77b085935db0652!2sHanatour%20V-Hall!5e0!3m2!1sja!2sjp!4v1697822137846!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+  "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+  "date": "2017-03-11",
+  "venueName": "HONGDAE V-HALL",
+  "venueId": "venue_d9db7adbf8",
+  "entries": []
+}

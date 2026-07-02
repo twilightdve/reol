@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_23_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 23,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 23,
+    "type": "event",
+    "title": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+    "artistName": "Reol",
+    "dateRange": "2020-10-11",
+    "siteUrl": "https://youtu.be/ieF_TtJhAxo",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "YouTube",
+    "date": "2020-10-11",
+    "place": "",
+    "placeSite": "https://youtu.be/ieF_TtJhAxo",
+    "address": null,
+    "googleMapsUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "tourName": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+  "liveTitle": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+  "date": "2020-10-11",
+  "venueName": "YouTube",
+  "venueId": "venue_e8d0a5bad8",
+  "entries": []
+}

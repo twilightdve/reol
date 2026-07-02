@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_57_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 57,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 57,
+    "type": "event",
+    "title": "XIHU MUSIC FESTIVAL",
+    "artistName": "Reol",
+    "dateRange": "2024-11-10",
+    "siteUrl": "https://litt.ly/wonderlivet",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "韓国",
+    "date": "2024-11-10",
+    "place": "KINTEX HALL",
+    "placeSite": "https://www.kintex.com/",
+    "address": "217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6316.468708826054!2d126.73443527770992!3d37.66720070000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c8f8a08067c47%3A0xb46572c5de3e0eda!2zS0lOVEVYIOmfk-WbveWbvemam-WxleekuuWgtA!5e0!3m2!1sja!2sjp!4v1725468554066!5m2!1sja!2sjpp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "XIHU MUSIC FESTIVAL",
+  "liveTitle": "XIHU MUSIC FESTIVAL",
+  "date": "2024-11-10",
+  "venueName": "KINTEX HALL",
+  "venueId": "venue_448f196c47",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_57_item_1_song_1",
+      "order": 1,
+      "trackId": null,
+      "displayTitle": "-",
+      "rawTitle": "-",
+      "policy": "unknown",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 4,
+      "parsedChildren": []
+    }
+  ]
+}

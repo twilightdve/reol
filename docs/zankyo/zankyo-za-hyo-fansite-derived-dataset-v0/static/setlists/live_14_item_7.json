@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_7",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 14,
+    "liveItemNo": 7,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 14,
+    "type": "oneman",
+    "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+    "artistName": "Reol",
+    "dateRange": "2018-10-26〜2019-01-13",
+    "siteUrl": "https://www.jvcmusic.co.jp/-/Live/A025153.html?article=live4",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 7,
+    "name": "広州",
+    "date": "2019-01-10",
+    "place": "Mao live house",
+    "placeSite": "http://mao-music.com/",
+    "address": "308 Chongqing Nan Lu, Beijing, 中国",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822391962!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "date": "2019-01-10",
+  "venueName": "Mao live house",
+  "venueId": "venue_52a8ff0670",
+  "entries": []
+}

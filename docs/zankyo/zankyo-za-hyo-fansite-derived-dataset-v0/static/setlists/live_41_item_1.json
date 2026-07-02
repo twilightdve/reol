@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_41_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 41,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 41,
+    "type": "event",
+    "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+    "artistName": "Reol",
+    "dateRange": "2023-07-22",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-07-22",
+    "place": "舞洲スポーツアイランド",
+    "placeSite": "https://shisetsu.mizuno.jp/m-7402",
+    "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6563.014545459134!2d135.3919646!3d34.6671446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1697823219585!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+  "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+  "date": "2023-07-22",
+  "venueName": "舞洲スポーツアイランド",
+  "venueId": "venue_a56868eaf4",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_1",
+      "order": 1,
+      "trackId": "song_1",
+      "displayTitle": "-Opening-",
+      "rawTitle": "-Opening-",
+      "policy": "se",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_2",
+      "order": 2,
+      "trackId": "song_44",
+      "displayTitle": "LUVORATORRRRRY!",
+      "rawTitle": "LUVORATORRRRRY!",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_3",
+      "order": 3,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_4",
+      "order": 4,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_5",
+      "order": 5,
+      "trackId": "song_38",
+      "displayTitle": "サマーホラーパーティ",
+      "rawTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_6",
+      "order": 6,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_7",
+      "order": 7,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_8",
+      "order": 8,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_41_item_1_song_9",
+      "order": 9,
+      "trackId": "song_115",
+      "displayTitle": "切っ先(Edge)",
+      "rawTitle": "切っ先(Edge)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

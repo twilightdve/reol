@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_43_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 43,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 43,
+    "type": "event",
+    "title": "SUMMER SONIC 2023",
+    "artistName": "Reol",
+    "dateRange": "2023-08-19",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-08-19",
+    "place": "幕張メッセ",
+    "placeSite": "https://www.m-messe.co.jp/",
+    "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "SUMMER SONIC 2023",
+  "liveTitle": "SUMMER SONIC 2023",
+  "date": "2023-08-19",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_665aaace30",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_1",
+      "order": 1,
+      "trackId": "song_64",
+      "displayTitle": "劣等上等",
+      "rawTitle": "劣等上等",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_2",
+      "order": 2,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_3",
+      "order": 3,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_4",
+      "order": 4,
+      "trackId": "song_29",
+      "displayTitle": "ギミアブレスタッナウ",
+      "rawTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_5",
+      "order": 5,
+      "trackId": "song_2",
+      "displayTitle": "ヒビカセ",
+      "rawTitle": "ヒビカセ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_6",
+      "order": 6,
+      "trackId": "song_115",
+      "displayTitle": "切っ先(Edge)",
+      "rawTitle": "切っ先(Edge)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_43_item_1_song_7",
+      "order": 7,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

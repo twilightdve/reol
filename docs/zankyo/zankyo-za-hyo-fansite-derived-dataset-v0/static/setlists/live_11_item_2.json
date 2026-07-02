@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_11_item_2",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 11,
+    "liveItemNo": 2,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 11,
+    "type": "oneman",
+    "title": "REOL LAST LIVE「終楽章」",
+    "artistName": "REOL",
+    "dateRange": "2017-10-20〜2017-10-22",
+    "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/live/syuurakusyou/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 2,
+    "name": "TOKYO",
+    "date": "2017-10-22",
+    "place": "豊洲PIT",
+    "placeSite": "",
+    "address": "〒135-0061 東京都江東区豊洲６丁目１−２３",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.112244144704!2d139.7883756!3d35.6496061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188999e8701f8f%3A0x617c01d55ad9dd8e!2z6LGK5rSyUElU!5e0!3m2!1sja!2sjp!4v1699166690325!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "REOL LAST LIVE「終楽章」",
+  "liveTitle": "REOL LAST LIVE「終楽章」",
+  "date": "2017-10-22",
+  "venueName": "豊洲PIT",
+  "venueId": "venue_fd382a30af",
+  "entries": []
+}

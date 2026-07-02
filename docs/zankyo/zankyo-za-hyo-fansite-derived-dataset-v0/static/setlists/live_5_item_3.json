@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_5_item_3",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 5,
+    "liveItemNo": 3,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 5,
+    "type": "oneman",
+    "title": "れをる単独公演「極彩色HighFidelity」",
+    "artistName": "れをる",
+    "dateRange": "2015-10-23〜2016-01-09",
+    "siteUrl": "https://www.jvcmusic.co.jp/reol/live/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 3,
+    "name": "華の宴 in 上海",
+    "date": "2016-01-09",
+    "place": "MAO livehouse",
+    "placeSite": "http://mao-music.com/",
+    "address": "308 Chongqing Nan Lu, Beijing, 中国",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822018336!5m2!1sja!2sjp",
+    "spotifyPlaylistId": null
+  },
+  "tourName": "れをる単独公演「極彩色HighFidelity」",
+  "liveTitle": "れをる単独公演「極彩色HighFidelity」",
+  "date": "2016-01-09",
+  "venueName": "MAO livehouse",
+  "venueId": "venue_94b984129e",
+  "entries": []
+}

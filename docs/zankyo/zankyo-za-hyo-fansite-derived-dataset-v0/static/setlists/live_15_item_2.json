@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_15_item_2",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 15,
+    "liveItemNo": 2,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 15,
+    "type": "oneman",
+    "title": "Reol Secret Live 2019「文明ココロミー」",
+    "artistName": "Reol",
+    "dateRange": "2019-07-13〜2019-07-19",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 2,
+    "name": "-西の塔-",
+    "date": "2019-07-14",
+    "place": "梅田バナナホール",
+    "placeSite": "http://www.banana-hall.com/",
+    "address": "〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0893599643073!2d135.504592!3d34.702926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6eac54e727f%3A0x9e4f8f4047af9f24!2z44OQ44OK44OK44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822448453!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Secret Live 2019「文明ココロミー」",
+  "liveTitle": "Reol Secret Live 2019「文明ココロミー」",
+  "date": "2019-07-14",
+  "venueName": "梅田バナナホール",
+  "venueId": "venue_45bc51d60d",
+  "entries": []
+}

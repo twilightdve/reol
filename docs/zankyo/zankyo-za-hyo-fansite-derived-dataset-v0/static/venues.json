@@ -1,0 +1,2922 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T17:00:00+09:00",
+  "venuePresets": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_aa143c1762",
+      "name": "ぴあアリーナMM",
+      "rawPlace": "ぴあアリーナMM",
+      "type": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://pia-arena-mm.jp/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい３丁目２−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.956198720636!2d139.6287176!3d35.455878799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185d5437c93077%3A0x30bb3126eca8ccd0!2z44G044GC44Ki44Oq44O844OKTU0!5e0!3m2!1sja!2sjp!4v1697822796868!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 29,
+          "liveItemNo": 1,
+          "date": "2021-08-07",
+          "liveTitle": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ab3f1683e8",
+      "name": "国立代々木競技場第一体育館",
+      "rawPlace": "国立代々木競技場第一体育館",
+      "type": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.jpnsport.go.jp/yoyogi/",
+      "address": "〒150-0041 東京都渋谷区神南２丁目１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3798779783533!2d139.7001458!3d35.667647200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cafea3fe4c5%3A0x6e74f313e8ed1b7b!2z5Zu956uL5Luj44CF5pyo56u25oqA5aC0IOesrOS4gOS9k-iCsumkqA!5e0!3m2!1sja!2sjp!4v1697821794211!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 3,
+          "liveItemNo": 1,
+          "date": "2015-03-22",
+          "liveTitle": "ウタカツ！スーパーライブ2015"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_492a9139fe",
+      "name": "日本武道館",
+      "rawPlace": "日本武道館",
+      "type": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.nipponbudokan.or.jp/",
+      "address": "〒102-8321 東京都千代田区北の丸公園2番3号",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.345893300968!2d139.7507088!3d35.6931049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c6b81cbf4d5%3A0x1b07be5a5a19fb50!2z44CSMTAyLTAwOTEg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65YyX44Gu5Li45YWs5ZyS77yS4oiS77yT!5e0!3m2!1sja!2sjp!4v1703788576226!5m2!1sja!2sjpp",
+      "sourceLiveItems": [
+        {
+          "liveId": 55,
+          "liveItemNo": 1,
+          "date": "2024-08-17",
+          "liveTitle": "Reol Oneman Live「No title」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_d66a87e694",
+      "name": "横浜アリーナ",
+      "rawPlace": "横浜アリーナ",
+      "type": "arena",
+      "venueSizeHint": "very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.yokohama-arena.co.jp/",
+      "address": "〒222-0033 神奈川県横浜市港北区新横浜３丁目１０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.676682207367!2d139.6201797!3d35.5122721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185eda022dd1bd%3A0x2ed62e22af68ca17!2z5qiq5rWc44Ki44Oq44O844OK!5e0!3m2!1sja!2sjp!4v1697822963046!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 34,
+          "liveItemNo": 1,
+          "date": "2022-12-23",
+          "liveTitle": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_82c236ae68",
+      "name": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+      "rawPlace": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://gelorabungkarno.co.id/",
+      "address": "Jl. Pintu Satu Senayan No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270 インドネシア",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3293533869773!2d106.8056639!3d-6.2202283000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f14d81ff223b%3A0x7f2d1c6db9fe661f!2z44Kk44K544OI44Op44O744Ky44Ot44Op44O744OW44Oz44O744Kr44Or44OO!5e0!3m2!1sja!2sjp!4v1697823232145!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 42,
+          "liveItemNo": 1,
+          "date": "2023-07-30",
+          "liveTitle": "Impactnation Japan Festival 2023"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_eecb50d939",
+      "name": "Veats Shibuya",
+      "rawPlace": "Veats Shibuya",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://veats.jp/",
+      "address": "〒150-0042 東京都渋谷区宇田川町３３−１ グランド東京渋谷ビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6598340504634!2d139.6973995!3d35.6607517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6548f4b94f%3A0x3645d2e5afa9c2f6!2z44OT44O844OE44O744K344OW44Ok!5e0!3m2!1sja!2sjp!4v1697822556701!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 19,
+          "liveItemNo": 1,
+          "date": "2019-10-28",
+          "liveTitle": "第16回 東京国際ミュージック・マーケット"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_87bdd1c24b",
+      "name": "cube garden",
+      "rawPlace": "cube garden",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.cube-garden.com/",
+      "address": "〒060-0032 北海道札幌市中央区北２条東３丁目２−５ ｃｕｂｅ ｇａｒｄｅｎ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.8767583440194!2d141.36014799999998!3d43.06505949999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2976d3b464b3%3A0x51a7c5ed2104e794!2scube%20garden!5e0!3m2!1sja!2sjp!4v1697822189156!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 9,
+          "liveItemNo": 1,
+          "date": "2017-04-28",
+          "liveTitle": "AIR-G' 35th Anniversary New Music Lab 2"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_b74e7f4be9",
+      "name": "大宮ソニックシティ",
+      "rawPlace": "大宮ソニックシティ",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sonic-city.or.jp/",
+      "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7039744763006!2d139.61713467579776!3d35.90526517251586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018c14334b5b89f%3A0x1f5fecd47f68d7f1!2z44K944OL44OD44Kv44K344OG44Kj!5e0!3m2!1sja!2sjp!4v1708601350280!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 4,
+          "liveItemNo": 1,
+          "date": "2015-07-11",
+          "liveTitle": "Stars on Planet 2015 大宮"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_d971119038",
+      "name": "大宮ソニックシティ",
+      "rawPlace": "大宮ソニックシティ",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sonic-city.or.jp/",
+      "address": "〒330-0854 埼玉県さいたま市大宮区桜木町１丁目７−５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7039744763006!2d139.61713467579776!3d35.90526517251586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018c14334b5b89f%3A0x1f5fecd47f68d7f1!2z44K944OL44OD44Kv44K344OG44Kj!5e0!3m2!1sja!2sjp!4v1708601350280!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 4,
+          "liveItemNo": 2,
+          "date": "2015-07-11",
+          "liveTitle": "Stars on Planet 2015 大宮"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_db06566426",
+      "name": "福岡　スカラエスパシオ",
+      "rawPlace": "福岡　スカラエスパシオ",
+      "type": "event_venue_unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://espacio.ne.jp/",
+      "address": "〒810-0004 福岡県福岡市中央区渡辺通４丁目８−２８ F.Tビル 地下2階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26589.880035401657!2d130.401964!3d33.586229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919abe78fded%3A0x18f611fe71aa9768!2z56aP5bKh44OI44Oo44K_44Ob44O844Or44K544Kr44Op44Ko44K544OR44K344Kq!5e0!3m2!1sja!2sjp!4v1712829092881!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 52,
+          "liveItemNo": 1,
+          "date": "2024-06-22",
+          "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_448f196c47",
+      "name": "KINTEX HALL",
+      "rawPlace": "KINTEX HALL",
+      "type": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.kintex.com/",
+      "address": "217−60  Kintex-ro, Ilsanseo-gu, Goyang-si, Gyeonggi-do, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6316.468708826054!2d126.73443527770992!3d37.66720070000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c8f8a08067c47%3A0xb46572c5de3e0eda!2zS0lOVEVYIOmfk-WbveWbvemam-WxleekuuWgtA!5e0!3m2!1sja!2sjp!4v1725468554066!5m2!1sja!2sjpp",
+      "sourceLiveItems": [
+        {
+          "liveId": 57,
+          "liveItemNo": 1,
+          "date": "2024-11-10",
+          "liveTitle": "XIHU MUSIC FESTIVAL"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_665aaace30",
+      "name": "幕張メッセ",
+      "rawPlace": "幕張メッセ",
+      "type": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 47,
+          "liveItemNo": 1,
+          "date": "2023-12-29",
+          "liveTitle": "COUNTDOWN JAPAN 23/24"
+        },
+        {
+          "liveId": 43,
+          "liveItemNo": 1,
+          "date": "2023-08-19",
+          "liveTitle": "SUMMER SONIC 2023"
+        },
+        {
+          "liveId": 35,
+          "liveItemNo": 1,
+          "date": "2022-12-29",
+          "liveTitle": "COUNTDOWN JAPAN 22/23"
+        },
+        {
+          "liveId": 21,
+          "liveItemNo": 1,
+          "date": "2019-12-29",
+          "liveTitle": "COUNTDOWN JAPAN 19/20"
+        },
+        {
+          "liveId": 20,
+          "liveItemNo": 1,
+          "date": "2019-12-04",
+          "liveTitle": "YouTube FanFest Japan 2019"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_74df5749fd",
+      "name": "幕張メッセ",
+      "rawPlace": "幕張メッセ",
+      "type": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/organizers/guide/exhibitionhall/guide_exibition9-11",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目２−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3242.1875933163037!2d140.0320526!3d35.6477495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022811ee835c63d%3A0x2b3c032a9fff5515!2z5bmV5by144Oh44OD44K7IOWbvemam-WxleekuuWgtCA5LTEx44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822211581!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 12,
+          "liveItemNo": 1,
+          "date": "2018-03-17",
+          "liveTitle": "ビクターロック祭り 2018"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1ebfa25740",
+      "name": "幕張メッセ ホール 9・10・11",
+      "rawPlace": "幕張メッセ ホール 9・10・11",
+      "type": "exhibition_hall",
+      "venueSizeHint": "large_to_very_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.m-messe.co.jp/",
+      "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822979294!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 51,
+          "liveItemNo": 1,
+          "date": "2024-04-27",
+          "liveTitle": "超音楽祭 in ニコニコ超会議2024"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "arena"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_dcd672c215",
+      "name": "HONDAE MUVHALL",
+      "rawPlace": "HONDAE MUVHALL",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 6,
+          "date": "2018-12-15",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_d9db7adbf8",
+      "name": "HONGDAE V-HALL",
+      "rawPlace": "HONGDAE V-HALL",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.vhall.co.kr/main/",
+      "address": "２５ Hongik-ro, Mapo-gu, Seoul, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.0287086111025!2d126.92195190000001!3d37.554387399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c4ab0f99e5%3A0xc77b085935db0652!2sHanatour%20V-Hall!5e0!3m2!1sja!2sjp!4v1697822137846!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 8,
+          "liveItemNo": 3,
+          "date": "2017-03-11",
+          "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』"
+        },
+        {
+          "liveId": 8,
+          "liveItemNo": 4,
+          "date": "2017-03-12",
+          "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6b8a89833d",
+      "name": "LINE CUBE SHIBUYA",
+      "rawPlace": "LINE CUBE SHIBUYA",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822734146!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 28,
+          "liveItemNo": 1,
+          "date": "2021-06-26",
+          "liveTitle": "Reol Installation Concert 2021「音沙汰」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_38f3854d8b",
+      "name": "LINE CUBE SHIBUYA",
+      "rawPlace": "LINE CUBE SHIBUYA",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822734146!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 9,
+          "date": "2020-08-16",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6a159d39cb",
+      "name": "LINE CUBE SHIBUYA ",
+      "rawPlace": "LINE CUBE SHIBUYA ",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://linecubeshibuya.com/",
+      "address": "〒150-0042 東京都渋谷区宇田川町１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.519681213932!2d139.69855529999998!3d35.6642039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb803a8804f%3A0x99c035bb4f34ccfe!2sLINE%20CUBE%20SHIBUYA!5e0!3m2!1sja!2sjp!4v1697822703361!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 7,
+          "date": "2020-03-21",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e2c08b5156",
+      "name": "T.O.P.S BittsHALL",
+      "rawPlace": "T.O.P.S BittsHALL",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.oita-tops.com/bittshall",
+      "address": "〒870-0003 大分県大分市生石５丁目３−７８３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3336.720982884769!2d131.5875461!3d33.247612399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3546a1ce953a5a95%3A0x44bf21450334a8de!2z44OI44OD44OX44K544OT44OD44OE44Ob44O844Or77yI77y077yO77yv77yO77yw77yO77yz77yi772J772U772U772T77yo77yh77ys77ys77yJ!5e0!3m2!1sja!2sjp!4v1697823306177!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 3,
+          "date": "2023-12-02",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6cb699190a",
+      "name": "TOKYO DOME CITY HALL",
+      "rawPlace": "TOKYO DOME CITY HALL",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.tokyo-dome.co.jp/tdc-hall/",
+      "address": "〒112-0004 東京都文京区後楽１丁目３−６１ 東京ドームミーツポート1F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9147424123707!2d139.7542363!3d35.703715599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d3597a9f885%3A0x1f7f744127cbc2fd!2sTOKYO%20DOME%20CITY%20HALL!5e0!3m2!1sja!2sjp!4v1697823007193!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 2,
+          "date": "2023-01-29",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_4664798aa4",
+      "name": "Tobacco Dock",
+      "rawPlace": "Tobacco Dock",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "",
+      "googleMapsUrl": "",
+      "sourceLiveItems": [
+        {
+          "liveId": 10,
+          "liveItemNo": 1,
+          "date": "2017-07-16",
+          "liveTitle": "HYPER JAPAN Festival 2017 "
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_5cc94086da",
+      "name": "まつもと市民芸術館",
+      "rawPlace": "まつもと市民芸術館",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.mpac.jp/",
+      "address": "〒390-0815 長野県松本市深志３丁目１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.3921863040314!2d137.9746548!3d36.229965899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d0eecc37f8c55%3A0xbbbda22d53976b3d!2z44G-44Gk44KC44Go5biC5rCR6Iq46KGT6aSo!5e0!3m2!1sja!2sjp!4v1697823117305!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 9,
+          "date": "2023-03-05",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_74527b92d0",
+      "name": "フェスティバルホール",
+      "rawPlace": "フェスティバルホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.festivalhall.jp/",
+      "address": "〒530-0005 大阪府大阪市北区中之島２丁目３−１８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.4594894085476!2d135.4969513!3d34.6935888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6f1bf451d73%3A0x79284ec9f5029055!2z44OV44Kn44K544OG44Kj44OQ44Or44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823280304!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 1,
+          "date": "2023-11-18",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_0a2fd400f9",
+      "name": "フェニーチェ堺",
+      "rawPlace": "フェニーチェ堺",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.fenice-sacay.jp/",
+      "address": "〒590-0061 大阪府堺市堺区翁橋町２丁１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.2649436633023!2d135.4795384!3d34.5721621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000dc849f1541d1%3A0xb259d6e252c0f095!2z44OV44Kn44OL44O844OB44Kn5aC677yI5aC65biC5rCR6Iq46KGT5paH5YyW44Ob44O844Or77yJ!5e0!3m2!1sja!2sjp!4v1697822781337!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 28,
+          "liveItemNo": 2,
+          "date": "2021-06-27",
+          "liveTitle": "Reol Installation Concert 2021「音沙汰」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_f2477dc884",
+      "name": "中野サンプラザ",
+      "rawPlace": "中野サンプラザ",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒164-8512 東京都中野区中野４丁目１−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3239.7505778649!2d139.6601168!3d35.707755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f290dc9d39cf%3A0xde9cfca35472a9ed!2z5Lit6YeO44K144Oz44OX44Op44K2!5e0!3m2!1sja!2sjp!4v1697823149440!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 38,
+          "liveItemNo": 1,
+          "date": "2023-05-13",
+          "liveTitle": "さよなら中野サンプラザ音楽祭"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_40ff77245b",
+      "name": "原宿 ASTRO HALL",
+      "rawPlace": "原宿 ASTRO HALL",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%AE%BF%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9B%E3%83%BC%E3%83%AB",
+      "address": "〒150-0001 東京都渋谷区神宮前4丁目32-12 ニューウェイヴ原宿地下1階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12965.20932854474!2d139.70655!3d35.669557!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca37d3e980b%3A0x8aa3e641b892411a!2z44Ki44K544OI44Ot44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697821131639!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 1,
+          "liveItemNo": 1,
+          "date": "2014-02-01",
+          "liveTitle": "amphead nico nico singer music live vol.03"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_58ac964678",
+      "name": "名古屋ダイアモンドホール",
+      "rawPlace": "名古屋ダイアモンドホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://diamond.sflag.co.jp/",
+      "address": "〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.4905691723843!2d136.9204545!3d35.1693237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370c2ec5eec45%3A0x2d3b9ed7ab878e2f!2z44OA44Kk44Ki44Oi44Oz44OJ44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822671940!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 5,
+          "date": "2020-02-29",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_cd135e4877",
+      "name": "新潟テルサ",
+      "rawPlace": "新潟テルサ",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.n-terrsa.jp/",
+      "address": "〒950-1141 新潟県新潟市中央区鐘木１８５−１８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.2697687094806!2d139.0470246!3d37.87737339999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c8c3cefc630f%3A0x589907b1378b5556!2z5paw5r2f44OG44Or44K1!5e0!3m2!1sja!2sjp!4v1697823250383!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 44,
+          "liveItemNo": 1,
+          "date": "2023-09-10",
+          "liveTitle": "MIRRORBALL PARADE vol.3"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_bbf8bc6d20",
+      "name": "昭和女子大学人見記念講堂",
+      "rawPlace": "昭和女子大学人見記念講堂",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://hall.swu.ac.jp/",
+      "address": "〒154-8533 東京都世田谷区太子堂１丁目７−５７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.318044122612!2d139.67622409999998!3d35.644535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f4a40eeaaecd%3A0x8d49cb295c3a8853!2z5pit5ZKM5aWz5a2Q5aSn5a2mIOS6uuimi-iomOW_teism-Wggg!5e0!3m2!1sja!2sjp!4v1697823399919!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 9,
+          "date": "2023-12-25",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_71d072c7e1",
+      "name": "東京 ニッショーホール",
+      "rawPlace": "東京 ニッショーホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://nissho-hall.jp/accesmap.html",
+      "address": "〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4459473537463!2d139.75777907578694!3d35.66601997259222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b91e9a4fa79%3A0xb2e8ca280138b3bf!2z44OL44OD44K344On44O844Ob44O844OrICjml6fjg6Tjgq_jg6vjg4jjg5vjg7zjg6sp!5e0!3m2!1sja!2sjp!4v1708596592473!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 0,
+          "liveItemNo": 1,
+          "date": "2013-09-23",
+          "liveTitle": "ぎがばなな ざ べすと シークレットライブ"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_3ee69f3ee6",
+      "name": "松下IMPホール",
+      "rawPlace": "松下IMPホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.kanden-kaijyou.jp/event_hole/imp/",
+      "address": "〒540-6301 大阪府大阪市中央区城見１丁目３−７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.528402383035!2d135.5296916!3d34.691850099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0d108cd8595%3A0x856dd6f3cfce52db!2z5p2-5LiL77yp77yt77yw44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822512150!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 18,
+          "liveItemNo": 1,
+          "date": "2019-10-06",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_45bc51d60d",
+      "name": "梅田バナナホール",
+      "rawPlace": "梅田バナナホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.banana-hall.com/",
+      "address": "〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0893599643073!2d135.504592!3d34.702926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6eac54e727f%3A0x9e4f8f4047af9f24!2z44OQ44OK44OK44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822448453!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 15,
+          "liveItemNo": 2,
+          "date": "2019-07-14",
+          "liveTitle": "Reol Secret Live 2019「文明ココロミー」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_75b1d17d6b",
+      "name": "渋谷ストリームホール",
+      "rawPlace": "渋谷ストリームホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://stream-hall.jp/",
+      "address": "〒150-0002 東京都渋谷区渋谷３丁目２１−３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.789445259059!2d139.7025291!3d35.657558900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5997e18dc9%3A0x4e339e5573667786!2z5riL6LC344K544OI44Oq44O844OgIOODm-ODvOODqw!5e0!3m2!1sja!2sjp!4v1697822429591!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 15,
+          "liveItemNo": 1,
+          "date": "2019-07-13",
+          "liveTitle": "Reol Secret Live 2019「文明ココロミー」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1498597791",
+      "name": "神奈川県民ホール",
+      "rawPlace": "神奈川県民ホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.kanagawa-kenminhall.com/",
+      "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697823528024!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 15,
+          "date": "2024-02-18",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_edb36903a4",
+      "name": "神奈川県民ホール",
+      "rawPlace": "神奈川県民ホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.kanagawa-kenminhall.com/",
+      "address": "〒231-0023 神奈川県横浜市中区山下町３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.3526449732167!2d139.64708919999998!3d35.446063099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cfcc314e0a3%3A0x59c29a58bd190974!2z56We5aWI5bed55yM5rCR44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822719004!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 8,
+          "date": "2020-04-04",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6459030346",
+      "name": "金沢 エイトホール",
+      "rawPlace": "金沢 エイトホール",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.eighthall.com/",
+      "address": "〒920-0981 石川県金沢市片町１丁目６−１０ ブラザービル 2F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7871214834263!2d136.6519152!3d36.559245499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8347ef64ab997%3A0x7bc2f62dc5e09edc!2sEIGHT%20HALL!5e0!3m2!1sja!2sjp!4v1697823416473!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 17,
+          "date": "2024-03-20",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_844a397def",
+      "name": "高松 festhalle",
+      "rawPlace": "高松 festhalle",
+      "type": "hall",
+      "venueSizeHint": "medium_to_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://festhalle.jp/",
+      "address": "〒760-0054 香川県高松市常磐町１丁目３−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.484229540866!2d134.05235729999998!3d34.3381523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9958891783%3A0x141915e3d562fb8e!2z44OV44Kn44K544OI44OP44Os!5e0!3m2!1sja!2sjp!4v1697823103594!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 8,
+          "date": "2023-02-26",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "hall"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_8f93544528",
+      "name": "BIG CAT",
+      "rawPlace": "BIG CAT",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.bigcat-live.com/",
+      "address": "〒542-0086 大阪府大阪市中央区西心斎橋１丁目６−１４ BIGSTEP 4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3360052.538545521!2d130.8845977!3d34.6723442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e710519fc2c9%3A0x290d8038f398edb3!2z5b-D5paO5qmLQklHQ0FU!5e0!3m2!1sja!2sjp!4v1697821903430!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 50,
+          "liveItemNo": 1,
+          "date": "2024-04-06",
+          "liveTitle": "Reol Secret Live  \"極秘LEGIT\""
+        },
+        {
+          "liveId": 5,
+          "liveItemNo": 2,
+          "date": "2015-11-26",
+          "liveTitle": "れをる単独公演「極彩色HighFidelity」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_972069a148",
+      "name": "DRUM LOGOS",
+      "rawPlace": "DRUM LOGOS",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.live-drum.com/",
+      "address": "〒810-0073 福岡県福岡市中央区舞鶴１丁目８−２５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4781575038783!2d130.39398!3d33.59289599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191891bfc5a3b%3A0x9963fe6cbbac97fd!2z44OJ44Op44Og44Ot44K044K5!5e0!3m2!1sja!2sjp!4v1697822627140!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 2,
+          "date": "2020-02-09",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        },
+        {
+          "liveId": 14,
+          "liveItemNo": 3,
+          "date": "2018-11-11",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_58ea733d4f",
+      "name": "KT Zepp Yokohama",
+      "rawPlace": "KT Zepp Yokohama",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/yokohama/",
+      "address": "〒220-0012 神奈川県横浜市西区みなとみらい４丁目３−６",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.80221015877!2d139.6258804!3d35.4596908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185db755d1cfcb%3A0xb3d0979a6d6c0535!2sKT%20Zepp%20Yokohama!5e0!3m2!1sja!2sjp!4v1697823035405!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 4,
+          "date": "2023-02-11",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_26210ad7a9",
+      "name": "LIVE ROXY SHIZUOKA",
+      "rawPlace": "LIVE ROXY SHIZUOKA",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://live-roxy.com/",
+      "address": "〒420-0851 静岡県静岡市葵区黒金町２８−１−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.448413382188!2d138.3860067!3d34.9704312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a49f6d3386ae3%3A0x4f4e2e7eb8811e69!2sLIVE%20ROXY%20SHIZUOKA!5e0!3m2!1sja!2sjp!4v1697823321907!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 4,
+          "date": "2023-12-09",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_94b984129e",
+      "name": "MAO livehouse",
+      "rawPlace": "MAO livehouse",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822018336!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 5,
+          "liveItemNo": 3,
+          "date": "2016-01-09",
+          "liveTitle": "れをる単独公演「極彩色HighFidelity」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_52a8ff0670",
+      "name": "Mao live house",
+      "rawPlace": "Mao live house",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://mao-music.com/",
+      "address": "308 Chongqing Nan Lu, Beijing, 中国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.605307965895!2d116.267943!3d39.54595700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f02f2fbd79390b%3A0x528833fe97f82688!2sMao%20Livehouse!5e0!3m2!1sja!2sjp!4v1697822391962!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 7,
+          "date": "2019-01-10",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1bdb081a46",
+      "name": "NUBOND LIVE HOUSE",
+      "rawPlace": "NUBOND LIVE HOUSE",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 1,
+          "date": "2024-03-02",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_5d14906f73",
+      "name": "ReNY limited",
+      "rawPlace": "ReNY limited",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://ruido.org/nagoya_reny/",
+      "address": "〒460-0008 愛知県名古屋市中区栄３丁目１５−２０ B1・B2 エンゼルビル",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.623807986571!2d136.9082345!3d35.166001699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370d1f12c4e23%3A0xa9007845de5a6a41!2sNAGOYA%20ReNY%20limited!5e0!3m2!1sja!2sjp!4v1697822525871!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 18,
+          "liveItemNo": 2,
+          "date": "2019-10-11",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」"
+        },
+        {
+          "liveId": 14,
+          "liveItemNo": 4,
+          "date": "2018-11-17",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_94b4c9126e",
+      "name": "Spotify O-EAST",
+      "rawPlace": "Spotify O-EAST",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74225086221!2d139.6956111!3d35.6587215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa1779185b%3A0x790982143d7b6367!2sSpotify%20O-EAST!5e0!3m2!1sja!2sjp!4v1697821870147!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 50,
+          "liveItemNo": 2,
+          "date": "2024-04-17",
+          "liveTitle": "Reol Secret Live  \"極秘LEGIT\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_c35d01dd02",
+      "name": "TSUTAYA O-EAST",
+      "rawPlace": "TSUTAYA O-EAST",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shibuya-o.com/east/?utm_source=business-profile&utm_medium=listing",
+      "address": "〒150-0043 東京都渋谷区道玄坂２丁目１４−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74225086221!2d139.6956111!3d35.6587215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa1779185b%3A0x790982143d7b6367!2sSpotify%20O-EAST!5e0!3m2!1sja!2sjp!4v1697821870147!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 5,
+          "liveItemNo": 1,
+          "date": "2015-10-23",
+          "liveTitle": "れをる単独公演「極彩色HighFidelity」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_8aa88b9275",
+      "name": "Zepp DiverCity",
+      "rawPlace": "Zepp DiverCity",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/divercity/",
+      "address": "〒135-0064 東京都江東区青海 1-1-10 ダイバーシティ東京プラザ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.1208284605586!2d139.77201597578517!3d35.62474767260555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889f82431abf5%3A0x78241f667fd1e861!2zWmVwcCDjg4DjgqTjg5Djg7zjgrfjg4bjgqPmnbHkuqw!5e0!3m2!1sja!2sjp!4v1697990250505!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 48,
+          "liveItemNo": 1,
+          "date": "2024-01-07",
+          "liveTitle": "ANIPLEX 20th Anniversary Event -THANX-"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1de296acf2",
+      "name": "Zepp Fukuoka",
+      "rawPlace": "Zepp Fukuoka",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823293414!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 2,
+          "date": "2023-12-01",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ee9dfa68f6",
+      "name": "Zepp Fukuoka",
+      "rawPlace": "Zepp Fukuoka",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/fukuoka/",
+      "address": "〒810-0065 福岡県福岡市中央区地行浜２丁目２−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4532601843143!2d130.3631641!3d33.5935422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541924cc5aeef19%3A0xd7b848f93d410392!2sZepp%20Fukuoka!5e0!3m2!1sja!2sjp!4v1697823048594!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 5,
+          "date": "2023-02-18",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        },
+        {
+          "liveId": 30,
+          "liveItemNo": 3,
+          "date": "2022-05-02",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_972eb4fd80",
+      "name": "Zepp Haneda",
+      "rawPlace": "Zepp Haneda",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/haneda/",
+      "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822884453!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 30,
+          "liveItemNo": 5,
+          "date": "2022-05-12",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        },
+        {
+          "liveId": 30,
+          "liveItemNo": 6,
+          "date": "2022-05-13",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_68666eded9",
+      "name": "Zepp Nagoya",
+      "rawPlace": "Zepp Nagoya",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697823385426!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 8,
+          "date": "2023-12-24",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_d1dd73eaaf",
+      "name": "Zepp Nagoya",
+      "rawPlace": "Zepp Nagoya",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/nagoya/",
+      "address": "〒453-0872 愛知県名古屋市中村区平池町４丁目６０−７",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.7300101581272!2d136.88473159999998!3d35.1633536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003772013375053%3A0xe15edf97c3c77d3d!2sZepp%20Nagoya!5e0!3m2!1sja!2sjp!4v1697822993110!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 1,
+          "date": "2023-01-26",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        },
+        {
+          "liveId": 30,
+          "liveItemNo": 1,
+          "date": "2022-04-27",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_024e2ea015",
+      "name": "Zepp Namba",
+      "rawPlace": "Zepp Namba",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/namba/",
+      "address": "〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8945605003178!2d135.49870847574272!3d34.657365672935114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1699166570248!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 11,
+          "liveItemNo": 1,
+          "date": "2017-10-20",
+          "liveTitle": "REOL LAST LIVE「終楽章」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_f22d769e96",
+      "name": "Zepp New Taipei",
+      "rawPlace": "Zepp New Taipei",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/newtaipei/",
+      "address": "〒24242 新北市新莊區新北大道四段3號8樓【宏匯廣場】",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7228.4866915453995!2d121.44948000000001!3d25.05974!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a914b663455b%3A0xee6cea3890a8418f!2sZepp!5e0!3m2!1sja!2sjp!4v1704741265932!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 5,
+          "date": "2024-03-16",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_45fa5b54f2",
+      "name": "Zepp Osaka Bayside",
+      "rawPlace": "Zepp Osaka Bayside",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/osakabayside/",
+      "address": "〒554-0031 大阪府大阪市此花区桜島１丁目１−６１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.707009260181!2d135.4351611!3d34.6621016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e8ec5670d9cb%3A0x656c49066168d3!2sZepp%20Osaka%20Bayside!5e0!3m2!1sja!2sjp!4v1697823076033!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 7,
+          "date": "2023-02-25",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        },
+        {
+          "liveId": 30,
+          "liveItemNo": 2,
+          "date": "2022-04-28",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6b0438b472",
+      "name": "Zepp Tokyo",
+      "rawPlace": "Zepp Tokyo",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
+      "address": "〒135-0064 東京都江東区青海１丁目３−１１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.072620073445!2d139.7823209!3d35.6259362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889faff99249d%3A0x10223bd1a6ac0bf6!2sZepp%20Tokyo!5e0!3m2!1sja!2sjp!4v1697822377798!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 5,
+          "date": "2018-11-30",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_9ee1e0b279",
+      "name": "Zepp Tokyo",
+      "rawPlace": "Zepp Tokyo",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.zepp.co.jp/hall/tokyo/",
+      "address": "〒135-0064 東京都江東区青海１丁目３−１１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.072620073445!2d139.7823209!3d35.6259362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889faff99249d%3A0x10223bd1a6ac0bf6!2sZepp%20Tokyo!5e0!3m2!1sja!2sjp!4v1697822091704!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 8,
+          "liveItemNo": 1,
+          "date": "2017-02-26",
+          "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_8955afd93e",
+      "name": "musinsa garage",
+      "rawPlace": "musinsa garage",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.musinsagarage.com/",
+      "address": "３２ Jandari-ro, Mapo-gu, Seoul, 韓国",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.149403358787!2d126.9172053758731!3d37.551543672042435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99e21f281c77%3A0x37b8cb2577692919!2sMusinsa%20Garage!5e0!3m2!1sja!2sjp!4v1704741343244!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 6,
+          "date": "2024-03-23",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1216ccde0f",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/index.php",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579278733117!2d135.4930117757429!3d34.66839037293119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1724679202856!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 56,
+          "liveItemNo": 1,
+          "date": "2024-09-20",
+          "liveTitle": "軌道共鳴2024"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_93ff91e709",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822688800!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 6,
+          "date": "2020-03-07",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ec74611853",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822281502!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 1,
+          "date": "2018-10-26",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        },
+        {
+          "liveId": 13,
+          "liveItemNo": 2,
+          "date": "2018-06-08",
+          "liveTitle": "Reol Oneman LIVE「刮目相待」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e4d6644680",
+      "name": "なんばHatch",
+      "rawPlace": "なんばHatch",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.namba-hatch.com/",
+      "address": "〒556-0017 大阪府大阪市浪速区湊町１丁目３−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4579268011043!2d135.4955867!3d34.6683904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aea2b1b%3A0x95f0543cc6961cfa!2z44Gq44KT44GwSGF0Y2g!5e0!3m2!1sja!2sjp!4v1697822112764!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 8,
+          "liveItemNo": 2,
+          "date": "2017-03-05",
+          "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_51e95f306d",
+      "name": "东郎EAST LIVE",
+      "rawPlace": "东郎EAST LIVE",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 4,
+          "date": "2024-03-08",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_7c90260c4a",
+      "name": "仙台 GIGS",
+      "rawPlace": "仙台 GIGS",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.sendaigigs.com/",
+      "address": "〒984-0030 宮城県仙台市若林区荒井東１丁目４−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.571661125976!2d140.9490026!3d38.243045699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f89883a268ad3af%3A0xe9b96b6c6cf26058!2z5LuZ5Y-w44Ku44Kw44K577yIU0VOREFJIEdJR1PvvIk!5e0!3m2!1sja!2sjp!4v1697823480651!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 12,
+          "date": "2024-02-03",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e8763dab87",
+      "name": "仙台 Rensa",
+      "rawPlace": "仙台 Rensa",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.rensa.jp/",
+      "address": "〒980-0811 宮城県仙台市青葉区一番町４丁目９−１８ Ticビル 7F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.6247579841056!2d140.8701878!3d38.265008099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28255100405b%3A0x1929b92b35599bac!2zUmVuc2HvvIjjg6zjg7PjgrXvvIk!5e0!3m2!1sja!2sjp!4v1697822640676!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 3,
+          "date": "2020-02-15",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6bdd5c67b3",
+      "name": "仙台PIT",
+      "rawPlace": "仙台PIT",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://sendai-pit.team-smile.org/",
+      "address": "〒982-0007 宮城県仙台市太白区あすと長町２丁目２−５０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.4060883732996!2d140.8851631!3d38.223683199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a264ad437e97d%3A0xc3398644f24997df!2z5LuZ5Y-wUElU!5e0!3m2!1sja!2sjp!4v1697823022418!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 3,
+          "date": "2023-02-05",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        },
+        {
+          "liveId": 30,
+          "liveItemNo": 4,
+          "date": "2022-05-08",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_35ad979fa9",
+      "name": "太空间 LIVE HOUSE",
+      "rawPlace": "太空间 LIVE HOUSE",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 2,
+          "date": "2024-03-03",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_3db991c689",
+      "name": "岡山 CRAZYMAMA KINGDOM",
+      "rawPlace": "岡山 CRAZYMAMA KINGDOM",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://banquetunion.com/kingdom/",
+      "address": "〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.9036910313584!2d133.9234456!3d34.657135100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407b5ea8fffe9%3A0xd7a17f9294b8e153!2sCRAZY%20MAMA%20KINGDOM!5e0!3m2!1sja!2sjp!4v1697823468992!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 11,
+          "date": "2024-01-28",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_b9a6887c5a",
+      "name": "広島クラブクアトロ",
+      "rawPlace": "広島クラブクアトロ",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.club-quattro.com/",
+      "address": "〒730-0035 広島県広島市中区本通１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823453873!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 10,
+          "date": "2024-01-27",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_5c67999aeb",
+      "name": "広島クラブクアトロ",
+      "rawPlace": "広島クラブクアトロ",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.club-quattro.com/",
+      "address": "〒730-0035 広島県広島市中区本通１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6700597.971640265!2d130.7965647!3d34.9120616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa20f6f6fe1fd%3A0x25c88ef4d87c7b4d!2sHIROSHIMA%20CLUB%20QUATTRO!5e0!3m2!1sja!2sjp!4v1697823062813!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 36,
+          "liveItemNo": 6,
+          "date": "2023-02-23",
+          "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」"
+        },
+        {
+          "liveId": 22,
+          "liveItemNo": 1,
+          "date": "2020-02-08",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e3704a4d4a",
+      "name": "新宿ReNY",
+      "rawPlace": "新宿ReNY",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://ruido.org/reny/index.html",
+      "address": "〒160-0023 東京都新宿区西新宿６丁目５−１ アイランドホール ２F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.362441149594!2d139.6925046!3d35.6926976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd562de946d%3A0xd1c51ff1568a2d3b!2z5paw5a6_UmVOWe-8iOODrOODi-ODvO-8iQ!5e0!3m2!1sja!2sjp!4v1697821780880!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 2,
+          "liveItemNo": 1,
+          "date": "2015-02-01",
+          "liveTitle": "nico nico Spirit."
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_a8ded44c35",
+      "name": "新潟 LOTS",
+      "rawPlace": "新潟 LOTS",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.fmniigata.com/user/lots/",
+      "address": "〒950-0908 新潟県新潟市中央区幸西４丁目３−５ 新潟ＬＯＴＳ",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.79699306701!2d139.04876339999998!3d37.91180749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c996145e5881%3A0xdd0292b911355ae7!2z5paw5r2fTE9UUw!5e0!3m2!1sja!2sjp!4v1697823439558!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 16,
+          "date": "2024-03-19",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_acd864f8db",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697823509700!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 14,
+          "date": "2024-02-10",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_b75adf7ad9",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697822656968!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 22,
+          "liveItemNo": 4,
+          "date": "2020-02-22",
+          "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_f2a087872e",
+      "name": "札幌ペニーレーン24",
+      "rawPlace": "札幌ペニーレーン24",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.pl24.jp/",
+      "address": "〒063-0804 北海道札幌市西区二十四軒４条５丁目５−２１ ＰＥＮＮＹ ＬＡＮＥ ２４",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.454606468668!2d141.30646!3d43.073937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b284b7075fa89%3A0xc8c9623237f84ba4!2z44Oa44OL44O844Os44O844OzMjQ!5e0!3m2!1sja!2sjp!4v1697822332260!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 2,
+          "date": "2018-11-03",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6cbf9bc6a2",
+      "name": "松山 Wstudio RED",
+      "rawPlace": "松山 Wstudio RED",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://red.double-ustudio.com/",
+      "address": "〒790-0012 愛媛県松山市湊町４丁目１０−８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.071514890211!2d132.7649873!3d33.836266300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354fe58cbd8a4289%3A0x5208eab83998c79d!2sW%20studio%20RED!5e0!3m2!1sja!2sjp!4v1697823350698!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 6,
+          "date": "2023-12-16",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_51a5fab81d",
+      "name": "盛岡 club change WAVE",
+      "rawPlace": "盛岡 club change WAVE",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://clubchange.com/",
+      "address": "〒020-0022 岩手県盛岡市大通り１丁目１１−１２ ヒグチビル B1",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.657283201103!2d141.14704899999998!3d39.702408999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f85762ff02bb3f9%3A0x8d743805d73f9e7f!2sCLUB%20CHANGE%20WAVE(Live%20Music%20Venue)!5e0!3m2!1sja!2sjp!4v1697823495558!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 13,
+          "date": "2024-02-04",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_a026a1322a",
+      "name": "蜚声 PHASE LIVE HOUSE",
+      "rawPlace": "蜚声 PHASE LIVE HOUSE",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 49,
+          "liveItemNo": 3,
+          "date": "2024-03-06",
+          "liveTitle": "Reol ASIA TOUR \"UNBOX\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_fd382a30af",
+      "name": "豊洲PIT",
+      "rawPlace": "豊洲PIT",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒135-0061 東京都江東区豊洲６丁目１−２３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.112244144704!2d139.7883756!3d35.6496061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188999e8701f8f%3A0x617c01d55ad9dd8e!2z6LGK5rSyUElU!5e0!3m2!1sja!2sjp!4v1699166690325!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 11,
+          "liveItemNo": 2,
+          "date": "2017-10-22",
+          "liveTitle": "REOL LAST LIVE「終楽章」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_28ee7177b1",
+      "name": "赤坂BLITZ",
+      "rawPlace": "赤坂BLITZ",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.tbs.co.jp/blitz/",
+      "address": "〒107-0052 東京都港区赤坂５丁目３−２",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.180894073147!2d139.73533570000004!3d35.6725476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8092ddc2dd%3A0x34fef75324da816b!2zVEJT6LWk5Z2CQkxJVFrjgrnjgr_jgrjjgqo!5e0!3m2!1sja!2sjp!4v1697822045176!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 6,
+          "liveItemNo": 1,
+          "date": "2016-07-02",
+          "liveTitle": "日本工学院ミュージックカレッジ presents Summer Rise 2016"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_5aca61a6ec",
+      "name": "高松 DIME",
+      "rawPlace": "高松 DIME",
+      "type": "live_house",
+      "venueSizeHint": "small_to_medium",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.dime-dime.com/",
+      "address": "〒760-0051 香川県高松市南新町１−４ ５階",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3294.354809280077!2d134.046771!3d34.341447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb9983de121d%3A0x806b84bf4ee8098a!2z6auY5p2-IERpTUU!5e0!3m2!1sja!2sjp!4v1697823366846!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 7,
+          "date": "2023-12-17",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "live_house"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_7571c5aee7",
+      "name": "VRChat",
+      "rawPlace": "",
+      "type": "online_virtual",
+      "venueSizeHint": "not_applicable",
+      "capacity": null,
+      "capacityStatus": "not_applicable",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 53,
+          "liveItemNo": 1,
+          "date": "2024-07-20",
+          "liveTitle": "FZMZ 1st LIVE \"DEEP:DAWN\""
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6b4ca77210",
+      "name": "YouTube",
+      "rawPlace": "",
+      "type": "online_virtual",
+      "venueSizeHint": "not_applicable",
+      "capacity": null,
+      "capacityStatus": "not_applicable",
+      "placeSite": "https://www.youtube.com/live/NxtHvRVLzXM",
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 54,
+          "liveItemNo": 1,
+          "date": "2024-07-30",
+          "liveTitle": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_c8d8b42781",
+      "name": "YouTube",
+      "rawPlace": "",
+      "type": "online_virtual",
+      "venueSizeHint": "not_applicable",
+      "capacity": null,
+      "capacityStatus": "not_applicable",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 25,
+          "liveItemNo": 1,
+          "date": "2020-12-06",
+          "liveTitle": "YOUTUBE MUSIC WEEKEND"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e8d0a5bad8",
+      "name": "YouTube",
+      "rawPlace": "",
+      "type": "online_virtual",
+      "venueSizeHint": "not_applicable",
+      "capacity": null,
+      "capacityStatus": "not_applicable",
+      "placeSite": "https://youtu.be/ieF_TtJhAxo",
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 23,
+          "liveItemNo": 1,
+          "date": "2020-10-11",
+          "liveTitle": "YouTube FanFest Japan 2020 オープニングパフォーマンス"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_7a52beb00e",
+      "name": "みちのく公園 北地区",
+      "rawPlace": "みちのく公園 北地区",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒989-1503 宮城県柴田郡川崎町川内藤折",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6271.317943941707!2d140.6559058!3d38.194595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a317c6299b841%3A0x43b8ce9c8ecdd241!2z44G_44Gh44Gu44GP5YWs5ZySIOWMl-WcsOWMug!5e0!3m2!1sja!2sjp!4v1697823135168!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 37,
+          "liveItemNo": 1,
+          "date": "2023-04-30",
+          "liveTitle": "ARABAKI ROCK FEST. 2023"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_224325d355",
+      "name": "中国上海・森蘭緑地（Sen Lan Green Park)",
+      "rawPlace": "中国上海・森蘭緑地（Sen Lan Green Park)",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6817.638695596002!2d121.5885642!3d31.3087378!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b275067079adfd%3A0x8cb909ee77d9ea76!2z5Lit6I-v5Lq65rCR5YWx5ZKM5Zu9IFNoYW5nIEhhaSBTaGksIFB1IERvbmcgWGluIFF1LCDlvKDmnajljJfot68yNzAw5Y-3IOmCruaUv-e8lueggTogMjAwMTI4!5e0!3m2!1sja!2sjp!4v1697823267398!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 45,
+          "liveItemNo": 1,
+          "date": "2023-10-05",
+          "liveTitle": "Simple Life Shanghai 上海簡単生活節"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_a3ed5a9d25",
+      "name": "千葉市蘇我スポーツ公園",
+      "rawPlace": "千葉市蘇我スポーツ公園",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://sogasportspark.com/",
+      "address": "〒260-0835 千葉県千葉市中央区川崎町１−２０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1710707466696!2d140.1229314!3d35.5741692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60229b0b9c50b1c9%3A0xdcf05836c92a2aad!2z5Y2D6JGJ5biC6JiH5oiR44K544Od44O844OE5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697822923640!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 32,
+          "liveItemNo": 1,
+          "date": "2022-08-06",
+          "liveTitle": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_dc6fc12a0b",
+      "name": "国営ひたち海浜公園",
+      "rawPlace": "国営ひたち海浜公園",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://hitachikaihin.jp/",
+      "address": "〒312-0012 茨城県ひたちなか市馬渡 字大沼605-4",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.1376837254797!2d140.59648679999998!3d36.405864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60218b1d845e4441%3A0x767e1dea03e6f0e1!2z5Zu95Za244Gy44Gf44Gh5rW35rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1697823206211!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 40,
+          "liveItemNo": 1,
+          "date": "2023-07-16",
+          "liveTitle": "LuckyFes'23"
+        },
+        {
+          "liveId": 16,
+          "liveItemNo": 1,
+          "date": "2019-08-03",
+          "liveTitle": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_8d13b23914",
+      "name": "大阪城音楽堂",
+      "rawPlace": "大阪城音楽堂",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.osakacastlepark.jp/ongakudo/",
+      "address": "〒540-0002 大阪府大阪市中央区大阪城３−１１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8908562086635!2d135.530568!3d34.68270400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0c965623ca1%3A0x54d2f6bfb0e225d1!2z5aSn6Ziq5Z-O6Z-z5qW95aCC!5e0!3m2!1sja!2sjp!4v1697822939062!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 33,
+          "liveItemNo": 1,
+          "date": "2022-10-15",
+          "liveTitle": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_64cbd170a3",
+      "name": "恋の浦海岸",
+      "rawPlace": "恋の浦海岸",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒811-3307 福岡県福津市渡６４１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53042.92195504263!2d130.456049!3d33.8076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354226123b226e87%3A0x4b98b30ed274d95b!2z44CSODExLTMzMDcg56aP5bKh55yM56aP5rSl5biC5rih77yW77yU77yR!5e0!3m2!1sja!2sjp!4v1697822493200!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 17,
+          "liveItemNo": 1,
+          "date": "2019-09-22",
+          "liveTitle": "宗像フェス Fukutsu Koinoura"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_fd5ced1cdc",
+      "name": "札幌芸術の森野外ステージ",
+      "rawPlace": "札幌芸術の森野外ステージ",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "〒005-0864 北海道札幌市南区芸術の森２丁目９１０−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.967315879723!2d141.3382863!3d42.9368159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f752b67056b9dcf%3A0x57549a3c3ff4451f!2z44CSMDA1LTA4NjQg5YyX5rW36YGT5pyt5bmM5biC5Y2X5Yy66Iq46KGT44Gu5qOu77yS5LiB55uu77yZ77yR77yQ4oiS77yRIOmHjuWkluOCueODhuODvOOCuA!5e0!3m2!1sja!2sjp!4v1697822069385!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 7,
+          "liveItemNo": 1,
+          "date": "2016-08-28",
+          "liveTitle": "BIG FOREST LIVE"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_9acaeda69b",
+      "name": "海とのふれあい広場",
+      "rawPlace": "海とのふれあい広場",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/",
+      "address": "〒590-0908 大阪府堺市堺区匠町６−１",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.079102674517!2d135.4280183!3d34.6021612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000c29404ddd759%3A0x94059bb8d9120e67!2z5rW344Go44Gu44G144KM44GC44GE5bqD5aC0!5e0!3m2!1sja!2sjp!4v1697823163334!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 39,
+          "liveItemNo": 1,
+          "date": "2023-05-14",
+          "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_a56868eaf4",
+      "name": "舞洲スポーツアイランド",
+      "rawPlace": "舞洲スポーツアイランド",
+      "type": "outdoor_festival",
+      "venueSizeHint": "variable_large",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://shisetsu.mizuno.jp/m-7402",
+      "address": "〒554-0042 大阪府大阪市此花区北港緑地２丁目１−１２８",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6563.014545459134!2d135.3919646!3d34.6671446!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1697823219585!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 41,
+          "liveItemNo": 1,
+          "date": "2023-07-22",
+          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-"
+        },
+        {
+          "liveId": 31,
+          "liveItemNo": 1,
+          "date": "2022-07-23",
+          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "outdoor"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_1002385886",
+      "name": "EX THEATER ROPPONGI",
+      "rawPlace": "EX THEATER ROPPONGI",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.ex-theater.com/",
+      "address": "〒106-0031 東京都港区西麻布１丁目２−９",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.639060734356!2d139.7272975!3d35.661263399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b77564f5899%3A0xb47d261864b68591!2sEX%20THEATER%20ROPPONGI!5e0!3m2!1sja!2sjp!4v1697822261609!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 13,
+          "liveItemNo": 1,
+          "date": "2018-06-01",
+          "liveTitle": "Reol Oneman LIVE「刮目相待」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_3660b2e934",
+      "name": "Modernsky Lab",
+      "rawPlace": "Modernsky Lab",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "",
+      "address": "中国 Yunnan, Kunming, Xishan, 杨家路 邮政编码: 650228",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.717311484492!2d102.6856049!3d25.009719900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36d085cb72451cd7%3A0x651d9e3569e84706!2sModernsky%20Lab!5e0!3m2!1sja!2sjp!4v1697822409876!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 8,
+          "date": "2019-01-12",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_f561989bd3",
+      "name": "Tango live",
+      "rawPlace": "Tango live",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 14,
+          "liveItemNo": 9,
+          "date": "2019-01-13",
+          "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_98c4b7d37a",
+      "name": "Unknown / Online",
+      "rawPlace": "",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 26,
+          "liveItemNo": 1,
+          "date": "2020-12-30",
+          "liveTitle": "COUNTDOWN JAPAN 20/21　※中止"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_e0ff5cdc08",
+      "name": "オンライン",
+      "rawPlace": "",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": null,
+      "address": null,
+      "googleMapsUrl": null,
+      "sourceLiveItems": [
+        {
+          "liveId": 27,
+          "liveItemNo": 1,
+          "date": "2021-03-04",
+          "liveTitle": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~"
+        },
+        {
+          "liveId": 24,
+          "liveItemNo": 1,
+          "date": "2020-11-07",
+          "liveTitle": "JAPAN ONLINE FESTIVAL 2020"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_81d1876ee2",
+      "name": "名古屋 E.L.L.",
+      "rawPlace": "名古屋 E.L.L.",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "https://www.ell.co.jp/",
+      "address": "〒460-0011 愛知県名古屋市中区大須２丁目１０−３５",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.8295164851293!2d136.8987258!3d35.1608723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377320e4c59bd%3A0xd496d7b256aaa133!2zRWxsLlNpemUsIO-8kuS4geebri3vvJHvvJAt77yT77yVIOWkp-mgiCDkuK3ljLog5ZCN5Y-k5bGL5biCIOaEm-efpeecjCA0NjAtMDAxMQ!5e0!3m2!1sja!2sjp!4v1697822462166!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 15,
+          "liveItemNo": 3,
+          "date": "2019-07-19",
+          "liveTitle": "Reol Secret Live 2019「文明ココロミー」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_b27f25d951",
+      "name": "新木場スタジオコースト",
+      "rawPlace": "新木場スタジオコースト",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://www.studio-coast.com/",
+      "address": "〒136-0082 東京都江東区新木場２丁目２−１０",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1621.206384132544!2d139.8230647!3d35.6422007!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188825be03617f%3A0xa63b794809b4339a!2z44K544K_44K444Kq44Kz44O844K544OI!5e0!3m2!1sja!2sjp!4v1697822540166!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 18,
+          "liveItemNo": 3,
+          "date": "2019-10-19",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_6485373dc2",
+      "name": "神戸ハーバースタジオ",
+      "rawPlace": "神戸ハーバースタジオ",
+      "type": "unknown",
+      "venueSizeHint": "unknown",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "placeSite": "http://harbor-studio.net/",
+      "address": "〒650-0042 兵庫県神戸市中央区波止場６−３",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.8146321695017!2d135.1850968!3d34.6846276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f0228655555%3A0xfc96682fa0f83aeb!2z56We5oi4SGFyYm9yIFN0dWRpbw!5e0!3m2!1sja!2sjp!4v1697823338775!5m2!1sja!2sjp",
+      "sourceLiveItems": [
+        {
+          "liveId": 46,
+          "liveItemNo": 5,
+          "date": "2023-12-10",
+          "liveTitle": "Reol Oneman Live 2023/24「UNBOX black/pure」"
+        }
+      ],
+      "acousticPresetHint": {
+        "basePresetType": "default"
+      },
+      "enrichmentNotes": [
+        "capacity and detailed room geometry are intentionally left null until web/source verification"
+      ]
+    }
+  ]
+}

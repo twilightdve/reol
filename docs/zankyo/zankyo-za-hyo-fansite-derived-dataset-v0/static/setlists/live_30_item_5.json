@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_5",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 30,
+    "liveItemNo": 5,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 30,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2022「激情アラート」",
+    "artistName": "Reol",
+    "dateRange": "2022-04-27〜2022-05-13",
+    "siteUrl": "https://reol.jp/feature/tour2022",
+    "spotifyPlaylistId": "7p5yOOHDIKqmV843OGGwsI"
+  },
+  "item": {
+    "liveItemNo": 5,
+    "name": "東京",
+    "date": "2022-05-12",
+    "place": "Zepp Haneda",
+    "placeSite": "https://www.zepp.co.jp/hall/haneda/",
+    "address": "〒144-0041 東京都大田区羽田空港１丁目１−４",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.255330239678!2d139.7565213!3d35.5473958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861ea3a805979%3A0x1086e663f83866a1!2sZepp%20Haneda%20(TOKYO)!5e0!3m2!1sja!2sjp!4v1697822884453!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+  "date": "2022-05-12",
+  "venueName": "Zepp Haneda",
+  "venueId": "venue_972eb4fd80",
+  "entries": []
+}

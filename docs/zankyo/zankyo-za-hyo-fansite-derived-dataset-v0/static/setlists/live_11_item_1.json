@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_11_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 11,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 11,
+    "type": "oneman",
+    "title": "REOL LAST LIVE「終楽章」",
+    "artistName": "REOL",
+    "dateRange": "2017-10-20〜2017-10-22",
+    "siteUrl": "https://www.toysfactory.co.jp/artist/reol/official/live/syuurakusyou/",
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "OSAKA",
+    "date": "2017-10-20",
+    "place": "Zepp Namba",
+    "placeSite": "https://www.zepp.co.jp/hall/namba/",
+    "address": "〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8945605003178!2d135.49870847574272!3d34.657365672935114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1699166570248!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "REOL LAST LIVE「終楽章」",
+  "liveTitle": "REOL LAST LIVE「終楽章」",
+  "date": "2017-10-20",
+  "venueName": "Zepp Namba",
+  "venueId": "venue_024e2ea015",
+  "entries": []
+}

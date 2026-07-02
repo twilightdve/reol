@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "name": "zankyo-za-hyo-venue-layout-design-v0",
+  "description": "Design addendum for importing venue layout metadata into Zankyo Gatsby transform.",
+  "inputs": [
+    "live.json place/placeSite/address/googleMapsUrl",
+    "venue-layout-overrides.json"
+  ],
+  "outputs": [
+    "venue-layouts.json",
+    "venue-layout-enrichment-tasks.csv",
+    "venue-layout-coverage.json"
+  ]
+}

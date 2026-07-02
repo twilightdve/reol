@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_21_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 21,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 21,
+    "type": "event",
+    "title": "COUNTDOWN JAPAN 19/20",
+    "artistName": "Reol",
+    "dateRange": "2019-12-29",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2019-12-29",
+    "place": "幕張メッセ",
+    "placeSite": "https://www.m-messe.co.jp/",
+    "address": "〒261-8550 千葉県千葉市美浜区中瀬２丁目１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2176167764596!2d140.03443489999998!3d35.647009700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1697822592475!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "COUNTDOWN JAPAN 19/20",
+  "liveTitle": "COUNTDOWN JAPAN 19/20",
+  "date": "2019-12-29",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_665aaace30",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_1",
+      "order": 1,
+      "trackId": "song_44",
+      "displayTitle": "LUVORATORRRRRY!",
+      "rawTitle": "LUVORATORRRRRY!",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_2",
+      "order": 2,
+      "trackId": "song_82",
+      "displayTitle": "HYPE MODE",
+      "rawTitle": "HYPE MODE",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_3",
+      "order": 3,
+      "trackId": "song_83",
+      "displayTitle": "ゆーれいずみー",
+      "rawTitle": "ゆーれいずみー",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_4",
+      "order": 4,
+      "trackId": "song_54",
+      "displayTitle": "サイサキ",
+      "rawTitle": "サイサキ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_5",
+      "order": 5,
+      "trackId": "song_86",
+      "displayTitle": "un, deux, trois",
+      "rawTitle": "un, deux, trois",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_6",
+      "order": 6,
+      "trackId": "song_65",
+      "displayTitle": "ウテナ",
+      "rawTitle": "ウテナ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_21_item_1_song_7",
+      "order": 7,
+      "trackId": "song_55",
+      "displayTitle": "激白",
+      "rawTitle": "激白",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

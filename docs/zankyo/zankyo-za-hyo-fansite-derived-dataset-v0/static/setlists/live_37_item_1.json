@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_37_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 37,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 37,
+    "type": "event",
+    "title": "ARABAKI ROCK FEST. 2023",
+    "artistName": "Reol",
+    "dateRange": "2023-04-30",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-04-30",
+    "place": "みちのく公園 北地区",
+    "placeSite": "",
+    "address": "〒989-1503 宮城県柴田郡川崎町川内藤折",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6271.317943941707!2d140.6559058!3d38.194595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a317c6299b841%3A0x43b8ce9c8ecdd241!2z44G_44Gh44Gu44GP5YWs5ZySIOWMl-WcsOWMug!5e0!3m2!1sja!2sjp!4v1697823135168!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "ARABAKI ROCK FEST. 2023",
+  "liveTitle": "ARABAKI ROCK FEST. 2023",
+  "date": "2023-04-30",
+  "venueName": "みちのく公園 北地区",
+  "venueId": "venue_7a52beb00e",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_1",
+      "order": 1,
+      "trackId": "song_64",
+      "displayTitle": "劣等上等",
+      "rawTitle": "劣等上等",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_2",
+      "order": 2,
+      "trackId": "song_120",
+      "displayTitle": "SCORPION",
+      "rawTitle": "SCORPION",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_3",
+      "order": 3,
+      "trackId": "song_57",
+      "displayTitle": "煩悩遊戯",
+      "rawTitle": "煩悩遊戯",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_4",
+      "order": 4,
+      "trackId": "song_102",
+      "displayTitle": "Boy",
+      "rawTitle": "Boy",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_5",
+      "order": 5,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_6",
+      "order": 6,
+      "trackId": "song_117",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_7",
+      "order": 7,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_37_item_1_song_8",
+      "order": 8,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

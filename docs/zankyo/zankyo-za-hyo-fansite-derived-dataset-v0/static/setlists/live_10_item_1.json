@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_10_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 10,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 10,
+    "type": "event",
+    "title": "HYPER JAPAN Festival 2017 ",
+    "artistName": "REOL",
+    "dateRange": "2017-07-14〜2017-07-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2017-07-16",
+    "place": "Tobacco Dock",
+    "placeSite": "",
+    "address": "",
+    "googleMapsUrl": "",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "HYPER JAPAN Festival 2017 ",
+  "liveTitle": "HYPER JAPAN Festival 2017 ",
+  "date": "2017-07-16",
+  "venueName": "Tobacco Dock",
+  "venueId": "venue_4664798aa4",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_1",
+      "order": 1,
+      "trackId": "song_44",
+      "displayTitle": "LUVORATORRRRRY!",
+      "rawTitle": "LUVORATORRRRRY!",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_2",
+      "order": 2,
+      "trackId": "song_41",
+      "displayTitle": "ニュータイプトーキョー",
+      "rawTitle": "ニュータイプトーキョー",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_3",
+      "order": 3,
+      "trackId": null,
+      "displayTitle": "03. Re:",
+      "rawTitle": "03. Re:",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_4",
+      "order": 4,
+      "trackId": "song_35",
+      "displayTitle": "ちるちる",
+      "rawTitle": "ちるちる",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_5",
+      "order": 5,
+      "trackId": null,
+      "displayTitle": "MASH UP",
+      "rawTitle": "MASH UP",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_6",
+      "order": 6,
+      "trackId": "song_30",
+      "displayTitle": "宵々古今",
+      "rawTitle": "宵々古今",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_10_item_1_song_7",
+      "order": 7,
+      "trackId": "song_29",
+      "displayTitle": "ギミアブレスタッナウ",
+      "rawTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

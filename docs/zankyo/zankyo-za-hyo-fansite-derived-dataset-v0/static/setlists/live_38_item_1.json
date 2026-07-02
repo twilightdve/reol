@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_38_item_1",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 38,
+    "liveItemNo": 1,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 38,
+    "type": "event",
+    "title": "さよなら中野サンプラザ音楽祭",
+    "artistName": "Reol",
+    "dateRange": "2023-05-13",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 1,
+    "name": "",
+    "date": "2023-05-13",
+    "place": "中野サンプラザ",
+    "placeSite": "",
+    "address": "〒164-8512 東京都中野区中野４丁目１−１",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3239.7505778649!2d139.6601168!3d35.707755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f290dc9d39cf%3A0xde9cfca35472a9ed!2z5Lit6YeO44K144Oz44OX44Op44K2!5e0!3m2!1sja!2sjp!4v1697823149440!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "さよなら中野サンプラザ音楽祭",
+  "liveTitle": "さよなら中野サンプラザ音楽祭",
+  "date": "2023-05-13",
+  "venueName": "中野サンプラザ",
+  "venueId": "venue_f2477dc884",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_1",
+      "order": 1,
+      "trackId": "song_55",
+      "displayTitle": "激白",
+      "rawTitle": "激白",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_2",
+      "order": 2,
+      "trackId": "song_120",
+      "displayTitle": "SCORPION",
+      "rawTitle": "SCORPION",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_3",
+      "order": 3,
+      "trackId": "song_56",
+      "displayTitle": "十中八九",
+      "rawTitle": "十中八九",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_4",
+      "order": 4,
+      "trackId": "song_128",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_5",
+      "order": 5,
+      "trackId": "song_97",
+      "displayTitle": "Q?",
+      "rawTitle": "Q?",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_6",
+      "order": 6,
+      "trackId": "song_129",
+      "displayTitle": "赤裸裸(NAKED)",
+      "rawTitle": "赤裸裸(NAKED)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_7",
+      "order": 7,
+      "trackId": "song_47",
+      "displayTitle": "平面鏡",
+      "rawTitle": "平面鏡",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_8",
+      "order": 8,
+      "trackId": "song_99",
+      "displayTitle": "白夜(White Midnight)",
+      "rawTitle": "白夜(White Midnight)",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_9",
+      "order": 9,
+      "trackId": "song_65",
+      "displayTitle": "ウテナ",
+      "rawTitle": "ウテナ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_10",
+      "order": 10,
+      "trackId": "song_88",
+      "displayTitle": "ダリ",
+      "rawTitle": "ダリ",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_11",
+      "order": 11,
+      "trackId": "song_96",
+      "displayTitle": "第六感",
+      "rawTitle": "第六感",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_38_item_1_song_12",
+      "order": 12,
+      "trackId": "song_81",
+      "displayTitle": "金字塔",
+      "rawTitle": "金字塔",
+      "policy": "required",
+      "expectedDurationSec": null,
+      "afterglowTailSec": 8,
+      "parsedChildren": []
+    }
+  ]
+}

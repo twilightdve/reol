@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_5",
+  "source": {
+    "type": "fansite-live-json",
+    "liveId": 22,
+    "liveItemNo": 5,
+    "sourceJson": "live.json"
+  },
+  "live": {
+    "liveId": 22,
+    "type": "oneman",
+    "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+    "artistName": "Reol",
+    "dateRange": "2020-02-08〜2020-08-16",
+    "siteUrl": null,
+    "spotifyPlaylistId": null
+  },
+  "item": {
+    "liveItemNo": 5,
+    "name": "愛知 ※中止",
+    "date": "2020-02-29",
+    "place": "名古屋ダイアモンドホール",
+    "placeSite": "http://diamond.sflag.co.jp/",
+    "address": "〒460-0007 愛知県名古屋市中区新栄２丁目１−９ 雲竜フレックスビル西館5F",
+    "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.4905691723843!2d136.9204545!3d35.1693237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370c2ec5eec45%3A0x2d3b9ed7ab878e2f!2z44OA44Kk44Ki44Oi44Oz44OJ44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1697822671940!5m2!1sja!2sjp",
+    "spotifyPlaylistId": ""
+  },
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "date": "2020-02-29",
+  "venueName": "名古屋ダイアモンドホール",
+  "venueId": "venue_58ac964678",
+  "entries": []
+}
