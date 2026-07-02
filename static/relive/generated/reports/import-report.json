@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-02T04:11:34.924Z",
+  "generatedAt": "2026-07-02T18:34:28.618Z",
   "counts": {
     "sourceLives": 75,
     "sourceLiveItems": 167,
     "sourceSetlistEntries": 2107,
-    "sourceDiscographies": 92,
-    "sourceSongs": 222,
-    "generatedTracks": 222,
+    "sourceDiscographies": 93,
+    "sourceSongs": 250,
+    "generatedTracks": 250,
     "generatedSetlists": 167,
     "generatedVenues": 115,
     "verifiedVenueCapacities": 22,
     "venueCapacitiesNeedingVerification": 93,
-    "matchedEntries": 1823,
+    "matchedEntries": 1826,
     "candidateEntries": 12,
     "specialEntries": 124,
-    "unmatchedEntries": 148
+    "unmatchedEntries": 145
   },
   "unmatchedRawTitles": [
     {
@@ -102,16 +102,6 @@
       "exampleSetlistIds": [
         "live_item_019e8284-9819-73ae-8333-0afd8dcf0783",
         "live_item_019e8284-9640-7f73-b4b4-2231cb92f105"
-      ],
-      "reason": "no_discography_match"
-    },
-    {
-      "rawTitle": "アストロノーツ",
-      "normalizedTitle": "アストロノーツ",
-      "count": 2,
-      "exampleSetlistIds": [
-        "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89",
-        "live_item_019e8284-9998-73ba-9d7c-ecb64e09dc3a"
       ],
       "reason": "no_discography_match"
     },
@@ -405,15 +395,6 @@
       "count": 1,
       "exampleSetlistIds": [
         "live_item_019e8284-9640-7f73-b4b4-2231cb92f105"
-      ],
-      "reason": "no_discography_match"
-    },
-    {
-      "rawTitle": "アストロノーツ（れをる）",
-      "normalizedTitle": "アストロノーツれをる",
-      "count": 1,
-      "exampleSetlistIds": [
-        "live_item_019e8284-9896-7155-836a-98d540826296"
       ],
       "reason": "no_discography_match"
     },

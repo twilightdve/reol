@@ -4794,8 +4794,8 @@
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
             "liveItemSongName": "-序章-",
             "type": "song",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-b06d-7199-8cbc-fb84689a07c0",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a9-f35d-71a6-91ce-60f56b6dfe45",
@@ -4850,8 +4850,8 @@
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
             "liveItemSongName": "アストロノーツ",
             "type": "cover",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-b39b-7e06-83c9-ea363755f78f",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-0055-7307-952e-74e13cac643f",
@@ -4946,8 +4946,8 @@
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
             "liveItemSongName": "Digression of Reol",
             "type": "segment",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-bac9-7a97-be1b-f17a855cc928",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82aa-06fb-78b5-9eb4-240e5ef05dbb",
@@ -5010,8 +5010,8 @@
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
             "liveItemSongName": "-終章-",
             "type": "segment",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-be40-794f-a6da-7cff31b7490f",
+            "matchSource": "sheet"
           }
         ],
         "posts": []
@@ -24456,8 +24456,8 @@
             "liveItemUuid": "019e8284-9998-73ba-9d7c-ecb64e09dc3a",
             "liveItemSongName": "アストロノーツ",
             "type": "cover",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-b39b-7e06-83c9-ea363755f78f",
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019e82a6-3fec-7aad-b19a-f2511ec9f597",
@@ -24936,8 +24936,8 @@
             "liveItemUuid": "019e8284-9896-7155-836a-98d540826296",
             "liveItemSongName": "アストロノーツ（れをる）",
             "type": "cover",
-            "songUuid": null,
-            "matchSource": "none"
+            "songUuid": "019f2411-b39b-7e06-83c9-ea363755f78f",
+            "matchSource": "stripped"
           },
           {
             "liveItemSongUuid": "019e82a6-2f55-732a-a01f-264e31bd7ab7",
