@@ -1,5 +1,6 @@
 import type { GatsbyNode, SourceNodesArgs } from "gatsby";
 import { promises as fs } from "fs";
+import path from "path";
 import { SheetService } from "./src/services/SpreadsheetService";
 import { DiscographyWithSongs } from "./src/types/discography";
 import {
@@ -13,6 +14,39 @@ import {
 } from "./src/types/live";
 import { Recommend } from "./src/types/recommend";
 import { Place, PlaceItem } from "./src/types/places";
+import { buildSongIndex, matchSongId } from "./src/utils/songMatcher";
+import { generateReliveData } from "./src/features/relive/data-transform";
+import {
+  MusicBrainzService,
+  Record as MbRecord,
+} from "./src/services/MusicBrainzService";
+
+const fileExists = async (filepath: string) => {
+  try {
+    return !!(await fs.lstat(filepath));
+  } catch {
+    return false;
+  }
+};
+
+const writeDataJson = async (
+  fileName: string,
+  value: unknown,
+  options: { mirrorToStatic?: boolean } = {}
+) => {
+  const json = JSON.stringify(value, null, 2);
+  const targets = [`./public/static/data/${fileName}`];
+  if (options.mirrorToStatic) {
+    targets.push(`./static/data/${fileName}`);
+  }
+
+  await Promise.all(
+    targets.map(async (target) => {
+      await fs.mkdir(path.dirname(target), { recursive: true });
+      await fs.writeFile(target, json);
+    })
+  );
+};
 
 const createVideoNodes = async (
   sheet: SheetService,
@@ -30,11 +64,7 @@ const createVideoNodes = async (
       contentDigest: createContentDigest(list),
     },
   });
-  await fs.mkdir("./public/static/data/", { recursive: true });
-  await fs.writeFile(
-    `./public/static/data/mv.json`,
-    JSON.stringify(list, null, 2)
-  );
+  await writeDataJson("mv.json", list);
 };
 
 const createDiscographyNodes = async (
@@ -62,17 +92,26 @@ const createDiscographyNodes = async (
       return {
         ...item,
         reports: reports
-          .filter((song) => item.discographyId === song.discographyId)
-          .sort((a, b) => a.discographyRepoNo - b.discographyRepoNo),
+          .filter((song) => item.discographyUuid === song.discographyUuid)
+          .sort((a, b) =>
+            a.discographyRepoUuid.localeCompare(b.discographyRepoUuid)
+          ),
         posts: posts
-          .filter((song) => item.discographyId === song.discographyId)
-          .sort((a, b) => a.discographyPostNo - b.discographyPostNo),
+          .filter((song) => item.discographyUuid === song.discographyUuid)
+          .sort((a, b) =>
+            a.discographyPostUuid.localeCompare(b.discographyPostUuid)
+          ),
         songs: songs
-          .filter((song) => item.discographyId === song.discographyId)
+          .filter((song) => item.discographyUuid === song.discographyUuid)
           .sort((a, b) => a.songNo - b.songNo),
       };
     })
-    .sort((a, b) => b.discographyId - a.discographyId);
+    // リリース日の新しい順（降順）。日付が同じ場合は UUID で安定化
+    .sort(
+      (a, b) =>
+        (b.releaseDate || "").localeCompare(a.releaseDate || "") ||
+        b.discographyUuid.localeCompare(a.discographyUuid)
+    );
 
   createNode({
     id: createNodeId("Discography"),
@@ -83,36 +122,14 @@ const createDiscographyNodes = async (
       contentDigest: createContentDigest(discographyWithSongs),
     },
   });
-  await fs.mkdir("./public/static/data/", { recursive: true });
-  await fs.writeFile(
-    `./public/static/data/discography.json`,
-    JSON.stringify(discographyWithSongs, null, 2)
-  );
-};
-
-const createNewsNodes = async (
-  sheet: SheetService,
-  { actions, createNodeId, createContentDigest }: SourceNodesArgs
-) => {
-  const { createNode } = actions;
-
-  const news = await sheet.getNews();
-
-  createNode({
-    id: createNodeId("News"),
-    news,
-    internal: {
-      type: "News",
-      content: JSON.stringify(news),
-      contentDigest: createContentDigest(news),
-    },
+  await writeDataJson("discography.json", discographyWithSongs, {
+    mirrorToStatic: true,
   });
-  await fs.mkdir("./public/static/data/", { recursive: true });
-  await fs.writeFile(
-    `./public/static/data/news.json`,
-    JSON.stringify(news, null, 2)
-  );
 };
+
+// ライブ開催日のソート用キー。"2026-03-14〜2026-07-18" のような範囲は開始日を使う
+const liveStartDate = (date: string | null | undefined): string =>
+  (date || "").split("〜")[0].trim();
 
 const createLiveNodes = async (
   sheet: SheetService,
@@ -123,47 +140,57 @@ const createLiveNodes = async (
   const live: Live[] = await sheet.getLives();
   const liveItems: LiveItem[] = await sheet.getLiveItems();
   const livePosts: LivePost[] = await sheet.getLivePosts();
-  const liveItemSongs: LiveItemSong[] = await sheet.getLiveItemSongs();
+  const liveItemSongsRaw: LiveItemSong[] = await sheet.getLiveItemSongs();
   const liveItemPosts: LiveItemPost[] = await sheet.getLiveItemPosts();
   const liveReports: LiveReport[] = await sheet.getLiveReports();
+
+  // セトリの曲名を Discography の songUuid に解決して埋め込む
+  // シート側 (live_item_song.songUuid) が埋まっていればそれを優先、無ければ matcher で fallback
+  const songsForIndex = await sheet.getSongs();
+  const liveSongIndex = buildSongIndex(songsForIndex);
+  const liveItemSongs: LiveItemSong[] = liveItemSongsRaw.map((s) => {
+    if (s.songUuid) {
+      return { ...s, matchSource: "sheet" };
+    }
+    const r = matchSongId(s.liveItemSongName, liveSongIndex);
+    return { ...s, songUuid: r.songUuid, matchSource: r.source };
+  });
   const liveInfos: LiveInfo[] = live
     .map((item) => {
       return {
         ...item,
         posts: livePosts
-          .filter((post) => item.liveId === post.liveId)
-          .sort((a, b) => (a.livePostNo ?? 0) - (b.livePostNo ?? 0)),
+          .filter((post) => item.liveUuid === post.liveUuid)
+          .sort((a, b) => a.livePostUuid.localeCompare(b.livePostUuid)),
         items: liveItems
+          .filter((liveItem) => item.liveUuid === liveItem.liveUuid)
           .map((liveItem) => {
             return {
               ...liveItem,
               setList: liveItemSongs
-                .filter(
-                  (song) =>
-                    liveItem.liveId === song.liveId &&
-                    liveItem.liveItemNo === song.liveItemNo
-                )
-                .sort(
-                  (a, b) => (a.liveItemSongNo ?? 0) - (b.liveItemSongNo ?? 0)
+                .filter((song) => liveItem.liveItemUuid === song.liveItemUuid)
+                .sort((a, b) =>
+                  a.liveItemSongUuid.localeCompare(b.liveItemSongUuid)
                 ),
               posts: liveItemPosts
-                .filter(
-                  (post) =>
-                    liveItem.liveId === post.liveId &&
-                    liveItem.liveItemNo === post.liveItemNo
-                )
-                .sort(
-                  (a, b) => (a.liveItemPostNo ?? 0) - (b.liveItemPostNo ?? 0)
+                .filter((post) => liveItem.liveItemUuid === post.liveItemUuid)
+                .sort((a, b) =>
+                  a.liveItemPostUuid.localeCompare(b.liveItemPostUuid)
                 ),
             };
           })
-          .filter((liveItem) => item.liveId === liveItem.liveId)
-          .sort((a, b) => a.liveItemNo - b.liveItemNo),
-        reports: liveReports.filter((report) => item.liveId === report.liveId),
+          .sort((a, b) => a.liveItemUuid.localeCompare(b.liveItemUuid)),
+        reports: liveReports.filter(
+          (report) => item.liveUuid === report.liveUuid
+        ),
       };
     })
-    .sort((a, b) => b.liveId - a.liveId);
-
+    // 開催日（範囲の場合は開始日）の新しい順（降順）。日付が同じ場合は UUID で安定化
+    .sort(
+      (a, b) =>
+        liveStartDate(b.date).localeCompare(liveStartDate(a.date)) ||
+        b.liveUuid.localeCompare(a.liveUuid)
+    );
   createNode({
     id: createNodeId("Live"),
     liveInfos,
@@ -173,11 +200,9 @@ const createLiveNodes = async (
       contentDigest: createContentDigest(liveInfos),
     },
   });
-  await fs.mkdir("./public/static/data/", { recursive: true });
-  await fs.writeFile(
-    `./public/static/data/live.json`,
-    JSON.stringify(liveInfos, null, 2)
-  );
+  await writeDataJson("live.json", liveInfos, {
+    mirrorToStatic: true,
+  });
 };
 
 const createRecommendNodes = async (
@@ -195,11 +220,7 @@ const createRecommendNodes = async (
       contentDigest: createContentDigest(recommend),
     },
   });
-  await fs.mkdir("./public/static/data/", { recursive: true });
-  await fs.writeFile(
-    `./public/static/data/recommend.json`,
-    JSON.stringify(recommend, null, 2)
-  );
+  await writeDataJson("recommend.json", recommend);
 };
 
 const createPlaceNodes = async (
@@ -211,9 +232,9 @@ const createPlaceNodes = async (
   const places: Place[] = (await sheet.getPlaces())
     .map((place) => ({
       ...place,
-      items: placeItems.filter((item) => item.placeId === place.placeId),
+      items: placeItems.filter((item) => item.placeUuid === place.placeUuid),
     }))
-    .sort((a, b) => b.placeId - a.placeId);
+    .sort((a, b) => b.placeUuid.localeCompare(a.placeUuid));
 
   createNode({
     id: createNodeId("Place"),
@@ -231,6 +252,372 @@ const createPlaceNodes = async (
   );
 };
 
+/**
+ * 楽曲 × ライブ の相互参照インデックスを生成する。
+ * songStats.json: songId をキーに、演奏回数・履歴・初出/最終演奏日を持つ。
+ * unmatchedSetlist.json: songId に紐付かなかったセトリ表記の一覧（運用調整用）。
+ */
+const createSongStatsNodes = async (
+  sheet: SheetService,
+  { actions, createNodeId, createContentDigest }: SourceNodesArgs
+) => {
+  const { createNode } = actions;
+  const [songs, lives, liveItems, liveItemSongs, discographies] =
+    await Promise.all([
+      sheet.getSongs(),
+      sheet.getLives(),
+      sheet.getLiveItems(),
+      sheet.getLiveItemSongs(),
+      sheet.getDiscography(),
+    ]);
+  const liveByUuid = new Map(lives.map((l) => [l.liveUuid, l]));
+  // discographyUuid → slug (ディスコグラフィのディープリンク用)
+  const discSlugByUuid = new Map(
+    discographies.map((d) => [d.discographyUuid, d.slug])
+  );
+  const itemMap = new Map(liveItems.map((it) => [it.liveItemUuid, it]));
+  // liveItemUuid → liveUuid の逆引き
+  const liveUuidByItemUuid = new Map(
+    liveItems.map((it) => [it.liveItemUuid, it.liveUuid])
+  );
+
+  const songIndex = buildSongIndex(songs);
+
+  type Play = {
+    liveUuid: string;
+    liveSlug: string;
+    liveItemUuid: string;
+    liveItemSlug: string;
+    liveItemSongUuid: string;
+    date: string;
+    place: string | null;
+    liveItemName: string | null;
+    liveTitle: string;
+    rawName: string;
+    type: LiveItemSong["type"];
+    matchSource: string;
+  };
+  const playsBySong = new Map<string, Play[]>();
+  const unmatched: {
+    name: string;
+    count: number;
+    type: LiveItemSong["type"];
+    samples: { date: string; liveTitle: string; liveItemName: string | null }[];
+  }[] = [];
+  const unmatchedAgg = new Map<
+    string,
+    {
+      count: number;
+      type: LiveItemSong["type"];
+      samples: { date: string; liveTitle: string; liveItemName: string | null }[];
+    }
+  >();
+
+  for (const s of liveItemSongs) {
+    const item = itemMap.get(s.liveItemUuid);
+    if (!item) continue;
+    const live = liveByUuid.get(item.liveUuid);
+    if (!live) continue;
+
+    // segment 系は曲ではないのでスキップ
+    if (s.type === "segment") continue;
+
+    // シート由来の songUuid があればそれを優先、無ければ matcher
+    const resolvedUuid = s.songUuid
+      ? s.songUuid
+      : matchSongId(s.liveItemSongName, songIndex).songUuid;
+    const matchSource = s.songUuid
+      ? "sheet"
+      : matchSongId(s.liveItemSongName, songIndex).source;
+
+    if (resolvedUuid) {
+      const list = playsBySong.get(resolvedUuid) ?? [];
+      list.push({
+        liveUuid: item.liveUuid,
+        liveSlug: live.slug,
+        liveItemUuid: s.liveItemUuid,
+        liveItemSlug: item.slug,
+        liveItemSongUuid: s.liveItemSongUuid,
+        date: item.date,
+        place: item.place,
+        liveItemName: item.liveItemName,
+        liveTitle: live.title,
+        rawName: s.liveItemSongName,
+        type: s.type ?? null,
+        matchSource,
+      });
+      playsBySong.set(resolvedUuid, list);
+    } else {
+      const cur = unmatchedAgg.get(s.liveItemSongName) ?? {
+        count: 0,
+        type: s.type ?? null,
+        samples: [],
+      };
+      cur.count += 1;
+      if (cur.samples.length < 3) {
+        cur.samples.push({
+          date: item.date,
+          liveTitle: live.title,
+          liveItemName: item.liveItemName,
+        });
+      }
+      unmatchedAgg.set(s.liveItemSongName, cur);
+    }
+  }
+
+  // 代表 songUuid: songMatcher の解決結果が自分自身と一致する楽曲のみ stats に出力
+  const representativeUuidOf = (song: typeof songs[number]): string => {
+    const r = matchSongId(song.songName, songIndex);
+    return r.songUuid ?? song.songUuid;
+  };
+  const songStats = songs
+    .filter(
+      (song) =>
+        !!song.songName && representativeUuidOf(song) === song.songUuid
+    )
+    .filter((song) => !/instrumental/i.test(song.songName ?? ""))
+    .map((song) => {
+      const plays = playsBySong.get(song.songUuid) ?? [];
+      const sorted = [...plays].sort((a, b) => a.date.localeCompare(b.date));
+      return {
+        songUuid: song.songUuid,
+        slug: song.slug,
+        songName: song.songName ?? "",
+        discographyUuid: song.discographyUuid ?? null,
+        discographySlug: song.discographyUuid
+          ? discSlugByUuid.get(song.discographyUuid) ?? null
+          : null,
+        totalPlays: plays.length,
+        firstPlayedDate: sorted[0]?.date ?? null,
+        lastPlayedDate: sorted[sorted.length - 1]?.date ?? null,
+        plays: sorted,
+      };
+    })
+    .sort((a, b) => b.totalPlays - a.totalPlays);
+
+  for (const [name, info] of unmatchedAgg) {
+    unmatched.push({ name, ...info });
+  }
+  unmatched.sort((a, b) => b.count - a.count);
+
+  const summary = {
+    totalSetlistInstances: liveItemSongs.length,
+    matchedInstances: songStats.reduce((sum, s) => sum + s.totalPlays, 0),
+    unmatchedInstances: unmatched.reduce((sum, u) => sum + u.count, 0),
+    uniqueSongsPlayed: songStats.filter((s) => s.totalPlays > 0).length,
+    uniqueUnmatched: unmatched.length,
+  };
+
+  createNode({
+    id: createNodeId("SongStats"),
+    songStats,
+    summary,
+    internal: {
+      type: "SongStats",
+      content: JSON.stringify(songStats),
+      contentDigest: createContentDigest(songStats),
+    },
+  });
+
+  await fs.mkdir("./public/static/data/", { recursive: true });
+  await fs.writeFile(
+    `./public/static/data/songStats.json`,
+    JSON.stringify({ summary, songStats }, null, 2)
+  );
+  await fs.writeFile(
+    `./public/static/data/unmatchedSetlist.json`,
+    JSON.stringify({ summary, unmatched }, null, 2)
+  );
+
+  // ----- ライブ類似度（Jaccard係数）の事前計算 -----
+  // songUuid のセットを liveUuid 単位で構築
+  const songSetByLive = new Map<string, Set<string>>();
+  for (const stat of songStats) {
+    for (const p of stat.plays) {
+      const set = songSetByLive.get(p.liveUuid) ?? new Set<string>();
+      set.add(stat.songUuid);
+      songSetByLive.set(p.liveUuid, set);
+    }
+  }
+  const liveUuids = Array.from(songSetByLive.keys());
+  const similarityByLive: Record<
+    string,
+    {
+      liveUuid: string;
+      liveSlug: string;
+      title: string;
+      date: string;
+      sharedCount: number;
+      score: number;
+      sharedSongUuids: string[];
+    }[]
+  > = {};
+  for (const aId of liveUuids) {
+    const a = songSetByLive.get(aId)!;
+    const liveA = liveByUuid.get(aId);
+    if (!liveA || a.size === 0) continue;
+    const cands: {
+      liveUuid: string;
+      liveSlug: string;
+      title: string;
+      date: string;
+      sharedCount: number;
+      score: number;
+      sharedSongUuids: string[];
+    }[] = [];
+    for (const bId of liveUuids) {
+      if (bId === aId) continue;
+      const b = songSetByLive.get(bId)!;
+      if (b.size === 0) continue;
+      const shared: string[] = [];
+      for (const id of a) if (b.has(id)) shared.push(id);
+      if (shared.length === 0) continue;
+      const union = new Set<string>([...a, ...b]).size;
+      const score = shared.length / union; // Jaccard
+      const liveB = liveByUuid.get(bId);
+      if (!liveB) continue;
+      cands.push({
+        liveUuid: bId,
+        liveSlug: liveB.slug,
+        title: liveB.title,
+        date: liveB.date,
+        sharedCount: shared.length,
+        score: Math.round(score * 1000) / 1000,
+        sharedSongUuids: shared,
+      });
+    }
+    cands.sort((x, y) => y.score - x.score || y.sharedCount - x.sharedCount);
+    similarityByLive[aId] = cands.slice(0, 5);
+  }
+
+  await fs.writeFile(
+    `./public/static/data/liveSimilarity.json`,
+    JSON.stringify(similarityByLive, null, 2)
+  );
+
+  console.log(
+    `[songStats] matched=${summary.matchedInstances}/${summary.totalSetlistInstances} ` +
+      `(${((summary.matchedInstances / summary.totalSetlistInstances) * 100).toFixed(1)}%) ` +
+      `unique songs played=${summary.uniqueSongsPlayed}, unmatched=${summary.uniqueUnmatched}`
+  );
+  console.log(
+    `[liveSimilarity] ${liveUuids.length} lives indexed, top5 each`
+  );
+};
+
+/**
+ * Reol を中心とした関係者の MusicBrainz リレーション情報を集約し、
+ * `static/data/relations.json` および `public/static/data/relations.json` に書き出す。
+ *
+ * - `master/relations.json` があればそれを利用（手動編集 / キャッシュ）
+ * - 無い場合のみ MusicBrainz API を 32 人ぶん並列で叩いて取得
+ */
+const RELATIONS_ARTIST_IDS: Record<string, string> = {
+  Reol: "aea6ccea-deb0-44bb-886e-d91aa4c358bf",
+  Giga: "fc7a99ac-32f0-4e2a-a2eb-03670470003d",
+  "L.Petty": "cbd6676a-3dbe-4ada-a3c7-086d880820b0",
+  かめりあ: "151bb385-1af0-40b6-9269-bf2ed982311f",
+  niki: "2b6c2118-2eaa-42bf-9bab-82a83516bcd0",
+  "monaca:factory": "15754432-7e9b-46a5-84c3-201b3ae1eeaa",
+  EZFG: "81437e75-e52f-4d7d-bc9b-44da4d6b15b3",
+  takamatt: "dd32b71a-83bb-4661-807d-969e55e8f97b",
+  梅とら: "3b4c42b2-ee06-4e16-a512-93c834ee11c0",
+  nqrse: "d6402d9b-652f-4f93-9e04-1c0d43bfd707",
+  ミト: "cd8fcaa2-7217-483b-8b63-4f7e5b0689d7",
+  瀬恒啓: "b624cc31-5949-450a-9605-f8272be5b091",
+  NARASAKI: "71a707de-a665-4ad5-917b-7735e73c465d",
+  ケンモチヒデフミ: "13ab45e0-ec9c-4b81-941c-1f6af00ad881",
+  "Masayoshi Iimori": "aa401904-de90-4d24-9bb5-ee61a5a63e2b",
+  KOTONOHOUSE: "c4e45a3c-aaa5-4ca8-9311-0e7aa161c9c8",
+  "Al Swettenham": "e8e3bf28-64da-4985-95b1-6cddba9b9c20",
+  ツミキ: "31ee7f64-3057-4eb5-93a4-7e8e7bc2f4d5",
+  MONJOE: "d2ea484b-0c68-4d3a-a052-498e436ffce0",
+  "LDN Noise": "9bd7b6a6-d0b6-47f5-a62b-04dade95f5d1",
+  板井直樹: "a385aba2-6068-441a-969c-3f7e16608d98",
+  "FAKE TYPE.": "e959608b-e13f-42a9-8fa3-4977d44c77f2",
+  "Geek Boy": "eafa05df-9294-48f2-87eb-327a9f1744a3",
+  HONNWAKA88: "84b354fa-416c-479c-9c3d-86d0e4591097",
+  "Ivan Kwong": "220a03ac-c156-432d-a879-b8cf7cd08498",
+  ピエール中野: "64229378-b6d2-4523-9216-5b39551dc4c9",
+  "Yoshi Warashina": "5bf4c377-f932-492c-8ac4-83e65e6b46c1",
+  藤浪潤一郎: "758ed564-be5a-4861-b725-f00825079568",
+  八反田亮太: "50881902-fe69-425e-903a-5ec58f2a2bf7",
+  北澤聖士: "439c99ae-be7b-43de-a575-0a7c7d694372",
+  MAQUMA: "035a0d14-2fc0-48e1-bece-f408c9b4986f",
+  "(sic)boy": "c88171c1-d78a-4c19-a603-58192b17151f",
+};
+
+const createRelationsNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}: SourceNodesArgs) => {
+  const { createNode } = actions;
+  let relations: { name: string; releases: MbRecord[] }[] = [];
+  const masterPath = "./master/relations.json";
+  if (await fileExists(masterPath)) {
+    relations = JSON.parse((await fs.readFile(masterPath)).toString());
+    console.log(
+      `[relations] using cached ${masterPath} (${relations.length} artists)`
+    );
+  } else {
+    console.log(
+      `[relations] fetching from MusicBrainz API for ${
+        Object.keys(RELATIONS_ARTIST_IDS).length
+      } artists (this may take several minutes)…`
+    );
+    const service = new MusicBrainzService();
+    const fetched = await Promise.all(
+      Object.entries(RELATIONS_ARTIST_IDS).map(([name, id]) =>
+        service.getArtistInfosRecursive(name, id)
+      )
+    );
+    relations = fetched
+      .map((artist) =>
+        Object.entries(artist).map(([name, artistData]) => ({
+          name,
+          releases: artistData.sort(
+            (a, b) =>
+              +(a.date ?? "").replaceAll("-", "") -
+              +(b.date ?? "").replaceAll("-", "")
+          ),
+        }))
+      )
+      .flat();
+    // 取得結果を master にもキャッシュ
+    await fs.mkdir("./master", { recursive: true });
+    await fs.writeFile(masterPath, JSON.stringify(relations, null, 2));
+  }
+
+  createNode({
+    id: createNodeId("Relations"),
+    relations,
+    internal: {
+      type: "Relations",
+      content: JSON.stringify(relations),
+      contentDigest: createContentDigest(relations),
+    },
+  });
+
+  await writeDataJson("relations.json", relations, { mirrorToStatic: true });
+};
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type DiscographyDiscographyWithSongs {
+      themeColorPrimary: String
+      themeColorSecondary: String
+    }
+    
+    type LiveLiveInfos {
+      themeColorPrimary: String
+      themeColorSecondary: String
+    }
+  `;
+  createTypes(typeDefs);
+};
+
 export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
   try {
     const sheet = new SheetService();
@@ -238,12 +625,97 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
     await Promise.all([
       createVideoNodes(sheet, args),
       createDiscographyNodes(sheet, args),
-      createNewsNodes(sheet, args),
       createLiveNodes(sheet, args),
       createRecommendNodes(sheet, args),
       createPlaceNodes(sheet, args),
+      createRelationsNodes(args),
     ]);
+    // disc/live のロード後に楽曲×ライブのインデックスを作る
+    await createSongStatsNodes(sheet, args);
+    const relive = await generateReliveData({
+      liveJsonPath: "static/data/live.json",
+      discographyJsonPath: "static/data/discography.json",
+      venueLayoutOverridesPath: "src/data/relive/venue-layout-overrides.json",
+      outputDir: "static/relive/generated",
+      mirrorOutputDir: "public/relive/generated",
+    });
+    console.log(
+      `[relive] generated=${relive.manifest.counts.setlists} setlists, ` +
+        `tracks=${relive.manifest.counts.tracks}, venues=${relive.manifest.counts.venues}`
+    );
   } catch (error) {
     console.error(error);
   }
+};
+
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
+  actions,
+  stage,
+  loaders,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.md$/,
+          type: "asset/source",
+        },
+        // Leaflet / react-leaflet は window を参照するため SSR ビルドでは null 化
+        ...(stage === "build-html" || stage === "develop-html"
+          ? [
+              {
+                test: /node_modules\/(leaflet|@react-leaflet|react-leaflet)\//,
+                use: loaders.null(),
+              },
+            ]
+          : []),
+      ],
+    },
+  });
+};
+
+// ----- 記事 & 会場の静的ページを生成 -----
+export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
+  const { createPage } = actions;
+
+  // 記事ページ — slugは記事データと同期が必要（markdownインポートを含むため直接import不可）
+  const articleSlugs = [
+    "live-tips-first-timer",
+    "venue-guide-overview",
+  ];
+  const articleTemplate = path.resolve("./src/templates/article.tsx");
+  articleSlugs.forEach((slug) => {
+    createPage({
+      path: `/bijigaku-navi/articles/${slug}/`,
+      component: articleTemplate,
+      context: { slug },
+    });
+  });
+
+  // 会場ページ
+  const { VENUES_2026 } = require("./src/data/venues");
+  const venueTemplate = path.resolve("./src/templates/venue.tsx");
+  VENUES_2026.forEach((venue: { id: string }) => {
+    createPage({
+      path: `/bijigaku-navi/venue/${venue.id}/`,
+      component: venueTemplate,
+      context: { venueId: venue.id },
+    });
+  });
+
+  // Reolファンタイプ診断 — 全16タイプの詳細ページ
+  const typeCodes = [
+    'FGSA', 'FGSI', 'FGQA', 'FGQI',
+    'FESA', 'FESI', 'FEQA', 'FEQI',
+    'BGSA', 'BGSI', 'BGQA', 'BGQI',
+    'BESA', 'BESI', 'BEQA', 'BEQI',
+  ];
+  const typeDetailTemplate = path.resolve("./src/templates/reol-type-detail.tsx");
+  typeCodes.forEach((code) => {
+    createPage({
+      path: `/quiz/reol-type/types/${code.toLowerCase()}/`,
+      component: typeDetailTemplate,
+      context: { typeCode: code },
+    });
+  });
 };

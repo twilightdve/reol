@@ -22,6 +22,11 @@ const config = {
   ],
   theme: {
     colors: {
+      // デフォルトのTailwind色を維持
+      ...colors,
+      // カスタム色を追加
+      // 背景に空グラデーション (青) を敷くため、UI のテーマカラーは
+      // 補色側のゴールドを採用し、その上に載せる文字色は青 (letter) にする。
       theme: "#D2AF57",
       letter: "#27489b",
       // CSS変数を使用した動的カラー
@@ -44,28 +49,55 @@ const config = {
       "2xl": "1536px",
     },
     fontFamily: {
+      sans: [
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        '"Noto Sans JP"',
+        '"Hiragino Sans"',
+        '"Hiragino Kaku Gothic ProN"',
+        '"Yu Gothic"',
+        "Meiryo",
+        "sans-serif",
+      ],
       display: [
-        "Noto Serif JP",
-        "YuMincho",
-        "Hiragino Mincho ProN",
-        "MS PMincho",
-        "serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        '"Noto Sans JP"',
+        '"Hiragino Sans"',
+        '"Hiragino Kaku Gothic ProN"',
+        '"Yu Gothic"',
+        "Meiryo",
+        "sans-serif",
       ],
       body: [
-        "Noto Serif JP",
-        "YuMincho",
-        "Hiragino Mincho ProN",
-        "MS PMincho",
-        "serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        '"Noto Sans JP"',
+        '"Hiragino Sans"',
+        '"Hiragino Kaku Gothic ProN"',
+        '"Yu Gothic"',
+        "Meiryo",
+        "sans-serif",
       ],
       icon: ["Cormorant", "serif"],
       tegaki: ["Klee One", "serif"],
       tegakifr: ["Niconne", "serif"],
-      system: ["system-ui", "serif"],
+      system: ["system-ui", "sans-serif"],
     },
     extend: {
       colors: {
         ...colors,
+        // 美辞学ナビ用カラー
+        bijigaku: {
+          header: '#977c30',
+          card: 'rgba(216, 217, 195, 0.9)',
+        },
       },
       spacing: {
         112: "28rem",
@@ -95,7 +127,7 @@ const config = {
         turnAround: "turnAround 12s linear 0s infinite normal none running",
         fadeIn: "fadeIn 1.5s ease-in-out forwards",
         fadeInFast: "fadeIn 0.2s ease-in-out forwards",
-        fadeOut: "fadeOut 3s ease-in-out 1s forwards",
+        fadeOut: "fadeOut 1.5s ease-in-out 0.5s forwards",
         fadeInOut1: "fadeInOut 10s ease-in-out 0s forwards",
         fadeInOut2: "fadeInOut 10s ease-in-out 10s forwards",
         fadeInOut3: "fadeInOut 10s ease-in-out 20s forwards",
@@ -305,6 +337,20 @@ const config = {
         },
         ".text-shadow-none": {
           textShadow: "none",
+        },
+        /* 美辞学ナビ: 会場ページ用テキストシャドウ */
+        ".text-shadow-venue": {
+          textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
+        },
+        ".text-shadow-venue-strong": {
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+        },
+        ".text-shadow-venue-light": {
+          textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)",
+        },
+        /* 美辞学ナビ: アイコン用ドロップシャドウ */
+        ".icon-shadow": {
+          filter: "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5))",
         },
       };
 

@@ -1,8 +1,17 @@
 {
 	"folders": [
 		{
+			"name": "reol",
 			"path": "."
+		},
+		{
+			"name": "src.bk",
+			"path": "../../../../../../Volumes/Share/sources/github.com/twilightdve/reol/src.bk"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"npx tsc": true
+		}
+	}
 }

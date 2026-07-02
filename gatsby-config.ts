@@ -8,12 +8,29 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: "!Legit｜Reol Unofficial Fansite",
     description:
-      "当サイトは、アーティスト「Reol(REOL/あにょすぺにょすゃゃ/れをる)」の非公式ファンサイトです。自己満足的な推し活の一環として独自にReolに関する情報を発信していきますので、内容に偏りや間違いなどあるかもしれませんが、もしご興味あればご覧ください。",
+      "Reol(れをる)の非公式ファンサイト。全楽曲のライブ演奏統計、歴代ライブのセットリスト、MVロケ地(聖地)マップ、ファンタイプ診断まで。10年分の活動を横断検索できます。",
     siteUrl,
   },
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Cormorant",
+              variants: ["400", "500"]
+            },
+            {
+              family: "Noto Serif JP",
+              variants: ["400", "500"]
+            }
+          ]
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
@@ -30,7 +47,8 @@ const config: GatsbyConfig = {
       options: {
         host: siteUrl,
         sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: "*", allow: "/" }],
+        // /relive/ はローカル音源前提の私的再生室なのでクロール対象から外す。
+        policy: [{ userAgent: "*", allow: "/", disallow: ["/relive/", "/relive"] }],
       },
     },
     {
@@ -42,13 +60,27 @@ const config: GatsbyConfig = {
         },
       },
     },
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        // /relive/ は noindex なのでサイトマップにも載せない。
+        excludes: ["/relive/", "/relive"],
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "!Legit｜Reol Unofficial Fansite",
+        short_name: "!Legit",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#27489b",
+        display: "standalone",
         icon: "src/images/favicon.png",
       },
     },
+    // PWA: オフライン対応（manifest の後に置く必要あり）
+    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-react-redux",
       options: {

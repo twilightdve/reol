@@ -8,7 +8,7 @@
     "jsx": "react" /* Specify what JSX code is generated. */,
     "module": "esnext" /* Specify what module code is generated. */,
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
-    "types": ["gapi", "gapi.auth2", "jest", "node"],
+    "types": ["gapi", "gapi.auth2", "google.maps", "jest", "node"],
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
     "strict": true /* Enable all strict type-checking options. */,
@@ -20,7 +20,6 @@
     "./gatsby-browser.tsx",
     "./gatsby-node.ts",
     "./gatsby-config.ts",
-    "./plugins/**/*",
-    "bk/fs"
+    "./plugins/**/*"
   ]
 }
