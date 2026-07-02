@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 import { reolTypes, getLocalizedType, typeGroups, getLocalizedTypeGroup, type TypeCode, type GroupCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
 import jaCommon from "../../../i18n/locales/ja/common.json";
+import LoadingSkeleton from "../../../components/common/LoadingSkeleton";
+import ErrorRetry from "../../../components/common/ErrorRetry";
+import { trackEvent } from "../../../utils/analytics";
 
 // === タイプ分布マトリクス ===
 const TYPE_MATRIX: { group: GroupCode; codes: TypeCode[] }[] = [
@@ -18,17 +21,28 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
   const [distribution, setDistribution] = useState<Record<string, number>>({});
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+  // 再試行用カウンタ
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    setLoading(true);
+    setLoadError(false);
+    const onError = () => {
+      setLoadError(true);
+      setLoading(false);
+      trackEvent('data_load_error', { category: 'data', label: 'reol_type_distribution' });
+    };
     import('../../../lib/supabase').then(({ supabase }) => {
+      // supabase 未設定時はエラーではなくマトリクス自体を非表示にする
       if (!supabase) { setLoading(false); return; }
-      supabase
+      return supabase
         .from('profiles')
         .select('reol_type')
         .not('reol_type', 'is', null)
         .then(({ data, error }) => {
-          if (error || !data) { setLoading(false); return; }
+          if (error || !data) { onError(); return; }
           const counts: Record<string, number> = {};
           let count = 0;
           for (const row of data) {
@@ -41,14 +55,29 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
           setTotal(count);
           setLoading(false);
         });
-    });
-  }, []);
+    }).catch(onError);
+  }, [attempt]);
 
   if (loading) {
     return (
-      <div className="bg-white/5 rounded-xl p-5 border border-white/10 text-center">
-        <div className="animate-pulse text-gray-500 text-sm">{t('reolType.loadingDistribution')}</div>
+      <div className="bg-white/5 rounded-xl p-5 border border-white/10">
+        <LoadingSkeleton
+          rows={4}
+          rowHeightClassName="h-10"
+          rowClassName="border border-white/10 bg-white/5"
+          label={t('reolType.loadingDistribution')}
+        />
       </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <ErrorRetry
+        tone="dark"
+        title={t('venueSelector.generalError')}
+        onRetry={() => setAttempt((v) => v + 1)}
+      />
     );
   }
 

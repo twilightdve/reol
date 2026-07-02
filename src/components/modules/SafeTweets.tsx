@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ColorPalette } from "../../utils/colorExtractor";
+import LoadingSkeleton from "../common/LoadingSkeleton";
+import { trackEvent } from "../../utils/analytics";
 
 // Twitter Widget の型定義
 declare global {
@@ -42,10 +44,12 @@ const SafeTweets: React.FC<SafeTweetsProps> = ({
         } else {
           // Twitter script が利用できない場合はフォールバック
           setHasError(true);
+          trackEvent("data_load_error", { category: "data", label: "twitter_widget" });
         }
       } catch (error) {
         console.warn("Twitter widgets loading failed, using fallback:", error);
         setHasError(true);
+        trackEvent("data_load_error", { category: "data", label: "twitter_widget" });
       }
     };
 
@@ -92,12 +96,12 @@ const SafeTweets: React.FC<SafeTweetsProps> = ({
         />
       ))}
       {!isLoaded && (
-        <div className="text-center py-4">
-          <div
-            className="inline-block animate-spin rounded-full h-6 w-6 border-b-2"
-            style={{ borderColor: colorPalette.primary }}
-          ></div>
-          <p className="text-sm text-gray-600 mt-2">ポストを読み込み中...</p>
+        <div className="py-2">
+          <LoadingSkeleton
+            rows={2}
+            rowHeightClassName="h-20"
+            label="ポストを読み込み中..."
+          />
         </div>
       )}
     </div>

@@ -11,6 +11,8 @@ interface ErrorRetryProps {
   onRetry: () => void;
   /** 装飾用の絵文字 / アイコン (省略可) */
   icon?: React.ReactNode;
+  /** 配置先テーマに合わせた色調（SectionSkeleton と同様） */
+  tone?: "light" | "dark";
 }
 
 /**
@@ -23,18 +25,26 @@ const ErrorRetry: React.FC<ErrorRetryProps> = ({
   actionLabel = "再試行",
   onRetry,
   icon = "⚠️",
+  tone = "light",
 }) => {
+  const containerClass =
+    tone === "light"
+      ? "border-red-300 bg-white/90"
+      : "border-red-500/40 bg-white/5";
+  const titleClass = tone === "light" ? "text-red-700" : "text-red-300";
+  const descriptionClass = tone === "light" ? "text-gray-700" : "text-gray-300";
+
   return (
     <div
       role="alert"
-      className="rounded-lg border border-red-300 bg-white/90 py-6 px-4 text-center shadow-sm"
+      className={`rounded-lg border ${containerClass} py-6 px-4 text-center shadow-sm`}
     >
       <div className="text-3xl mb-2" aria-hidden="true">
         {icon}
       </div>
-      <p className="text-sm font-bold text-red-700">{title}</p>
+      <p className={`text-sm font-bold ${titleClass}`}>{title}</p>
       {description && (
-        <p className="mt-1 text-xs text-gray-700 break-all leading-relaxed">
+        <p className={`mt-1 text-xs ${descriptionClass} break-all leading-relaxed`}>
           {description}
         </p>
       )}

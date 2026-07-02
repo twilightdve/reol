@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect, lazy, Suspense } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { TbMapPinHeart } from "react-icons/tb";
 import { GoLinkExternal, GoChevronUp, GoChevronDown } from "react-icons/go";
 import { Badge } from "flowbite-react";
@@ -6,13 +6,20 @@ import YouTube from "react-youtube";
 import LazyComponent from "../../modules/LazyComponent";
 import UtilityService from "../../../services/UtilityService";
 import { Place, PlaceItem } from "../../../types/places";
-import SectionSkeleton from "../../common/SectionSkeleton";
+import type { PlaceMarker } from "./PlaceMap";
+import LoadingSkeleton from "../../common/LoadingSkeleton";
+import ErrorRetry from "../../common/ErrorRetry";
 import EmptyState from "../../common/EmptyState";
 import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
-import { trackFilterChange } from "../../../utils/analytics";
+import { trackFilterChange, trackEvent } from "../../../utils/analytics";
 
 // Leaflet は SSR で動かないので動的読み込み
-const PlaceMap = lazy(() => import("./PlaceMap"));
+// React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
+// import() を手動で行い、失敗時は ErrorRetry から明示的に再試行できるようにする
+type PlaceMapComponent = React.ComponentType<{
+  markers: PlaceMarker[];
+  heightClassName?: string;
+}>;
 
 interface PlaceSectionProps {
   places: Place[];
@@ -141,6 +148,34 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // マップコンポーネントの動的読み込み（失敗時は ErrorRetry から再試行できるよう手動管理）
+  const [MapComponent, setMapComponent] = useState<PlaceMapComponent | null>(null);
+  const [mapLoadError, setMapLoadError] = useState(false);
+  const [mapLoadAttempt, setMapLoadAttempt] = useState(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let cancelled = false;
+    setMapLoadError(false);
+    import("./PlaceMap")
+      .then((mod) => {
+        if (!cancelled) setMapComponent(() => mod.default);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setMapLoadError(true);
+          trackEvent("data_load_error", { category: "data", label: "place_map" });
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [mapLoadAttempt]);
+
+  const retryMapLoad = useCallback(() => {
+    setMapLoadAttempt((v) => v + 1);
   }, []);
 
   const toggleExpand = useCallback((placeUuid: string) => {
@@ -311,19 +346,23 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             actionLabel="条件をクリア"
             onAction={clearFilters}
           />
+        ) : mapLoadError ? (
+          <ErrorRetry
+            title="マップの読み込みに失敗しました"
+            description="通信状況をご確認のうえ、再試行してください。"
+            onRetry={retryMapLoad}
+          />
+        ) : !MapComponent ? (
+          <LoadingSkeleton
+            rows={1}
+            rowHeightClassName="h-48 sm:h-56"
+            gapClassName=""
+            label="マップを読み込み中..."
+          />
         ) : (
-          <Suspense
-            fallback={
-              <SectionSkeleton
-                label="マップを読み込み中..."
-                heightClassName="h-48 sm:h-56"
-              />
-            }
-          >
-            <div className="rounded-lg overflow-hidden">
-              <PlaceMap markers={markers} heightClassName="h-48 sm:h-56" />
-            </div>
-          </Suspense>
+          <div className="rounded-lg overflow-hidden">
+            <MapComponent markers={markers} heightClassName="h-48 sm:h-56" />
+          </div>
         )}
         <p className="mt-1 text-[10px] text-gray-600 text-right">
           © OpenStreetMap contributors

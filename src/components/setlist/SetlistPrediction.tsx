@@ -5,6 +5,13 @@ import { addVote, removeVote, getVoteCounts, getUserVotes, getVotersBySong, Vote
 import LoginButton from '../reolmap/auth/LoginButton'
 import { Music, ThumbsUp, Users, ChevronDown, ChevronUp, Disc, X } from 'lucide-react'
 import toast from 'react-hot-toast'
+import LoadingSkeleton from '../common/LoadingSkeleton'
+import ErrorRetry from '../common/ErrorRetry'
+import { trackEvent } from '../../utils/analytics'
+
+// ライト/ダーク両対応のスケルトン行スタイル（和紙上のカードに合わせる）
+const SKELETON_ROW_CLASS =
+  'border border-gray-200 dark:border-gray-600 bg-white/70 dark:bg-gray-700/50'
 
 interface DiscographyGroup {
   discographyUuid: string
@@ -36,6 +43,8 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
   const [votersModalSong, setVotersModalSong] = useState<{ songUuid: string; songName: string } | null>(null)
   const [voters, setVoters] = useState<Voter[]>([])
   const [loadingVoters, setLoadingVoters] = useState(false)
+  const [loadError, setLoadError] = useState(false)
+  const [votersError, setVotersError] = useState(false)
 
   // 投票データを読み込み
   useEffect(() => {
@@ -44,6 +53,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
 
   const loadVoteData = async () => {
     setLoading(true)
+    setLoadError(false)
     try {
       const counts = await getVoteCounts()
       setVoteCounts(counts)
@@ -54,6 +64,8 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
       }
     } catch (error) {
       console.error('Error loading vote data:', error)
+      setLoadError(true)
+      trackEvent('data_load_error', { category: 'data', label: 'setlist_votes' })
     } finally {
       setLoading(false)
     }
@@ -177,12 +189,15 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
   const openVotersModal = async (songUuid: string, songName: string) => {
     setVotersModalSong({ songUuid, songName })
     setLoadingVoters(true)
+    setVotersError(false)
     try {
       const votersData = await getVotersBySong(songUuid)
       setVoters(votersData)
     } catch (error) {
       console.error('Error loading voters:', error)
-      toast.error(t('setlist.votersLoadFailed'))
+      // モーダル内に再試行つきエラーを表示するため、トーストは出さない
+      setVotersError(true)
+      trackEvent('data_load_error', { category: 'data', label: 'setlist_voters' })
     } finally {
       setLoadingVoters(false)
     }
@@ -213,8 +228,25 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-12">
-        <div className="text-gray-600 dark:text-gray-400">{t('setlist.loading')}</div>
+      <div className="py-6">
+        <LoadingSkeleton
+          rows={4}
+          rowHeightClassName="h-20"
+          gapClassName="space-y-3"
+          rowClassName={SKELETON_ROW_CLASS}
+          label={t('setlist.loading')}
+        />
+      </div>
+    )
+  }
+
+  if (loadError) {
+    return (
+      <div className="py-6">
+        <ErrorRetry
+          title={t('venueSelector.generalError')}
+          onRetry={loadVoteData}
+        />
       </div>
     )
   }
@@ -756,9 +788,22 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
             {/* モーダルボディ */}
             <div className="p-4 overflow-y-auto max-h-[calc(80vh-120px)]">
               {loadingVoters ? (
-                <div className="flex items-center justify-center py-8">
-                  <div className="text-gray-600 dark:text-gray-400">{t('setlist.loading')}</div>
+                <div className="py-2">
+                  <LoadingSkeleton
+                    rows={3}
+                    rowHeightClassName="h-16"
+                    rowClassName={SKELETON_ROW_CLASS}
+                    label={t('setlist.loadingVoters')}
+                  />
                 </div>
+              ) : votersError ? (
+                <ErrorRetry
+                  title={t('setlist.votersLoadFailed')}
+                  onRetry={() =>
+                    votersModalSong &&
+                    openVotersModal(votersModalSong.songUuid, votersModalSong.songName)
+                  }
+                />
               ) : voters.length === 0 ? (
                 <div className="text-center py-8 text-gray-600 dark:text-gray-400">
                   {t('setlist.noVoters')}

@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "gatsby";
+import LoadingSkeleton from "../../common/LoadingSkeleton";
+import ErrorRetry from "../../common/ErrorRetry";
+import { trackEvent } from "../../../utils/analytics";
 
 type Play = {
   liveUuid: string;
@@ -67,10 +70,15 @@ type Props = {
 
 const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
   const [entry, setEntry] = useState<SongStatEntry | null | undefined>(undefined);
+  const [loadError, setLoadError] = useState(false);
+  // 再試行用カウンタ（失敗時はキャッシュ未設定のため再フェッチされる）
+  const [attempt, setAttempt] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    setLoadError(false);
+    setEntry(undefined);
     fetchSongStats()
       .then((data) => {
         if (cancelled) return;
@@ -78,17 +86,40 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
         setEntry(found);
       })
       .catch(() => {
-        if (!cancelled) setEntry(null);
+        if (cancelled) return;
+        setLoadError(true);
+        trackEvent("data_load_error", { category: "data", label: "song_stats" });
       });
     return () => {
       cancelled = true;
     };
-  }, [songUuid]);
+  }, [songUuid, attempt]);
+
+  const retryLoad = useCallback(() => {
+    setAttempt((v) => v + 1);
+  }, []);
+
+  if (loadError) {
+    return (
+      <div className="mx-4 my-3">
+        <ErrorRetry
+          tone="dark"
+          title="演奏履歴の読み込みに失敗しました"
+          onRetry={retryLoad}
+        />
+      </div>
+    );
+  }
 
   if (entry === undefined) {
     return (
-      <div className="mx-4 my-3 text-xs text-gray-400">
-        演奏履歴を読み込み中…
+      <div className="mx-4 my-3">
+        <LoadingSkeleton
+          rows={3}
+          rowHeightClassName="h-5"
+          rowClassName="border border-gray-700 bg-white/10"
+          label="演奏履歴を読み込み中…"
+        />
       </div>
     );
   }

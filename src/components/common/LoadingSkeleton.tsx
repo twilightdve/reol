@@ -7,6 +7,8 @@ interface LoadingSkeletonProps {
   rowHeightClassName?: string;
   /** 行間のギャップ調整用 Tailwind クラス */
   gapClassName?: string;
+  /** 行の背景/枠線調整用 Tailwind クラス（ダークテーマ等で上書き） */
+  rowClassName?: string;
   /** スクリーンリーダー向けの読み上げラベル */
   label?: string;
 }
@@ -19,6 +21,7 @@ const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
   rows = 3,
   rowHeightClassName = "h-16",
   gapClassName = "space-y-2",
+  rowClassName = "border border-gray-200 bg-white/70",
   label = "読み込み中...",
 }) => {
   return (
@@ -26,7 +29,7 @@ const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
       {Array.from({ length: rows }).map((_, i) => (
         <div
           key={i}
-          className={`rounded-lg border border-gray-200 bg-white/70 ${rowHeightClassName} animate-pulse motion-reduce:animate-none`}
+          className={`rounded-lg ${rowClassName} ${rowHeightClassName} animate-pulse motion-reduce:animate-none`}
         />
       ))}
       <span className="sr-only">{label}</span>
