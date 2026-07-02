@@ -1,8 +1,8 @@
 # 11. 実装計画書: 第2バッチ(Issue 4 / 10 / 8 / 12)
 
 作成日: 2026-07-02
-ステータス: **保留** — 着手前にリポジトリの未コミット差分の精査・整理を最優先で実施(ユーザー指示)。整理完了後、featureブランチを切って本バッチを開始する。
-体制: 設計/検証: Fable 5、実装: Sonnet 5 サブエージェント×3(並列)
+ステータス: **実装・検証完了(2026-07-02)** — ブランチ `feature/batch-02-stats-jsonld-ogp`。レビュー後のマージはユーザーが実施。
+体制: 設計/検証: Fable 5、実装: Sonnet 5 サブエージェント×3(並列)+ Issue 12はFable 5直接
 
 ## スコープ
 
@@ -46,6 +46,40 @@
 - ビルド成果物: statsページのHTMLに曲名が含まれること、JSON-LDのスキーマ妥当性、OG画像16枚の生成とHTML参照、リグレッション(タイトル/lang/フッター)
 - OG画像はRead(画像表示)で目視確認
 
-## 実装結果
+## 実装結果(2026-07-02)
 
-(完了後に追記)
+Sonnet 5×3体が並列実装(セッションリミットで一時中断→SendMessageで再開)、Fable 5がdiffレビュー・typecheck・build・成果物検証を実施。
+
+### 検証結果(すべて✅)
+
+| 項目 | 結果 |
+|---|---|
+| `npm run typecheck` / `npm run build` | ✅ ともに成功 |
+| 統計ページ: 曲名がビルドHTMLに焼き込み | ✅(「読み込み中」表示は0件に) |
+| JSON-LD | ✅ トップ=WebSite+SearchAction、/live/=BreadcrumbList+ItemList(**MusicEvent 165件**、日付が範囲表記の2件は正しくスキップ)、discography/place/photos/search=BreadcrumbList。全ブロックJSONパース成功 |
+| タイプ別OG画像 | ✅ 16枚生成(1200x630、各150〜208KB)、タイプページのog:imageに反映、目視で日本語描画・非公式表記を確認 |
+| bbq2025 | ✅ 4ページにtitle/description+noindex |
+| リグレッション | ✅ トップtitle・lang=ja・OFFICIAL LINKS・i18nキー露出0件 |
+
+### Issue 4(楽曲統計)実装メモ
+
+- クライアントfetch→`SongStats`ノードへのGatsbyページクエリに置換。**playsはクエリから除外**しpage-data肥大を回避
+- 演奏履歴は初回行展開時に `songStats.json` を一度だけ遅延fetchしMapにキャッシュ。ロード中=LoadingSkeleton、失敗=ErrorRetry(再試行ボタン)
+- 共通コンポーネント新設: `src/components/common/LoadingSkeleton.tsx` / `ErrorRetry.tsx`(第3バッチのIssue 13で他ページへ展開予定)
+- 検索stateを `query`→`keyword` に改名(ページクエリ `export const query` との衝突回避)
+
+### Issue 10(JSON-LD)実装メモ
+
+- `SEO.tsx` に `jsonLd` prop、ヘルパーは `src/utils/jsonLd.ts`(`REOL_PERFORMER` はMusicGroup+sameAsのみ — 非公式サイト制約を遵守)
+- MusicEventは公演(liveItem)単位で生成。親ライブのdate(範囲表記あり)は不使用、`isValidIsoDate` で厳密チェック
+- 未対応(将来検討): 未来イベントの `eventStatus`/`offers`、WebSiteのname定数がSEO.tsxと二重管理
+
+### Issue 8(OG画像)実装メモ
+
+- `scripts/generate-reol-type-og.ts`(canvas使用、冪等、単体実行可)を `sourceNodes` から呼び出し(reliveの先例に準拠)。`static/reol-type-og/` + `public/reol-type-og/` に出力
+- 絵文字グリフ不使用・タイプカラーのYIQ輝度補正で視認性確保。**macOSビルド前提**(Hiragino Sans。他環境ではフォールバック)
+- 共有URL変更: result.tsxの共有先を診断トップ→**タイプ詳細ページ**+`?utm_source=share_x` に(タイプ別OGカードを出すため。流入先が変わるトレードオフあり)
+
+### コミット(feature/batch-02-stats-jsonld-ogp)
+
+Issue単位で4コミット+docs(下記git log参照)。マージ判断はユーザー。

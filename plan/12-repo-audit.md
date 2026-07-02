@@ -1,7 +1,32 @@
 # 12. リポジトリ未コミット差分 監査報告
 
 作成日: 2026-07-02
-ステータス: **精査完了・ユーザー判断待ち**(この整理完了後、第2バッチからfeatureブランチ運用を開始)
+ステータス: **整理実行済み(2026-07-02)** — 提案C(テーマ別)で10コミットに整理完了。ワーキングツリーはクリーン。
+
+## 実行結果
+
+- `825fe3c` chore: token.jsonをGit管理から除外しgitignoreを整備
+- `98c1ed4` chore: 依存関係・ビルド設定・データパイプラインの更新
+- `be2b56c` refactor: セクション独立ページ化とUI基盤の再構築
+- `723939f` feat: 美辞学ナビ(168ファイル)
+- `6e91d3c` feat: Reolファンタイプ診断
+- `e892f66` feat: Relive Player
+- `37064c1` feat: 横断検索・楽曲統計・相関図・年表ジェネレーター
+- `1716eb9` data: 静的データ・マスターデータ・運用スクリプト
+- `9d12092` feat: SEO/OGP共通基盤(第1バッチ)
+- `5c20894` docs: 設計ドキュメント・改善計画・CLAUDE.md
+
+採用した判断(ユーザー不在のため推奨案で実施、いずれも可逆):
+- `.memo/` は ignore(ローカル保持)、`master/*.bak*`・`yarn-error.log` も ignore
+- **push は未実施**(ユーザー判断待ち)
+- **履歴書き換えは未実施**
+
+### ⚠️ ユーザーの対応が必要な残件
+
+1. **【必須】Google Cloud Console で token.json のOAuthクライアントシークレットをローテーション**(公開リポジトリの履歴に残存しているため。ローテーション後は新しい token.json を再取得すればビルドは従来どおり動作)
+2. `origin/main` への push 判断(現在 ahead 11)
+3. (任意)`git filter-repo` による履歴からの token.json 除去
+4. (低リスク注記)`src/services/bbq2025/common.js` にFirebase系APIキーがハードコード済み(HEADで公開済み。Firebase Webキーは公開前提の設計だが、Google Cloud Console でAPIキー制限がかかっているか確認推奨)
 
 ## 現状サマリ
 
