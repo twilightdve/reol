@@ -391,6 +391,9 @@ const createSongStatsNodes = async (
         totalPlays: plays.length,
         firstPlayedDate: sorted[0]?.date ?? null,
         lastPlayedDate: sorted[sorted.length - 1]?.date ?? null,
+        // 公式送客用リンク(統計ページの行展開から公式MV/配信へ誘導する)
+        musicVideoUrl: song.musicVideoUrl ?? null,
+        downloadUrl: song.downloadUrl ?? null,
         plays: sorted,
       };
     })

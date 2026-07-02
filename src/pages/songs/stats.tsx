@@ -4,6 +4,7 @@ import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 import ErrorRetry from "../../components/common/ErrorRetry";
+import { trackOfficialLinkClick } from "../../utils/analytics";
 
 type Play = {
   liveUuid: string;
@@ -29,6 +30,8 @@ type SongStatRow = {
   totalPlays: number;
   firstPlayedDate: string | null;
   lastPlayedDate: string | null;
+  musicVideoUrl: string | null;
+  downloadUrl: string | null;
 };
 
 type SongStatsPageData = {
@@ -67,6 +70,8 @@ export const query = graphql`
         totalPlays
         firstPlayedDate
         lastPlayedDate
+        musicVideoUrl
+        downloadUrl
       }
       summary {
         matchedInstances
@@ -335,6 +340,33 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                         </Link>
                       )}
                     </div>
+                    {/* 公式送客: 統計から「聴く」への導線(公式MV/公式配信リンクのみ) */}
+                    {(s.musicVideoUrl || s.downloadUrl) && (
+                      <div className="mb-3 flex flex-wrap gap-2">
+                        {s.musicVideoUrl && (
+                          <a
+                            href={s.musicVideoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackOfficialLinkClick("youtube_mv")}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-600 text-white text-[11px] font-medium hover:bg-red-700 transition-colors"
+                          >
+                            ▶ 公式MVを見る
+                          </a>
+                        )}
+                        {s.downloadUrl && (
+                          <a
+                            href={s.downloadUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackOfficialLinkClick("streaming")}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-medium hover:bg-emerald-700 transition-colors"
+                          >
+                            ♪ 配信で聴く
+                          </a>
+                        )}
+                      </div>
+                    )}
                     <div className="font-semibold text-gray-700 mb-2 flex items-center gap-2">
                       <span className="inline-block w-1 h-4 bg-amber-500 rounded" />
                       演奏履歴
