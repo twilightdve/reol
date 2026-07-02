@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC, Link } from "gatsby";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
+import { buildBreadcrumbList } from "../utils/jsonLd";
 import { normalizeSongName } from "../utils/songMatcher";
 import { trackEvent } from "../utils/analytics";
 
@@ -440,5 +441,9 @@ export const Head: HeadFC = () => (
     title="検索"
     description="Reolの楽曲・アルバム・LIVE・ロケ地を横断検索。曲名・公演名・会場名・年号からReolの活動を探せます。"
     path="/search/"
+    jsonLd={buildBreadcrumbList([
+      { name: "ホーム", path: "/" },
+      { name: "検索", path: "/search/" },
+    ])}
   />
 );

@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import IndexContents from "../components/index/contents";
 import SEO from '../components/SEO'
+import { buildWebSite } from "../utils/jsonLd";
 import { Recommend } from "../types/recommend";
 
 type siteMetadata = {
@@ -63,6 +64,7 @@ export const Head: HeadFC<any> = ({ data }) => {
       description={siteMetadata.description}
       path="/"
       section={section}
+      jsonLd={buildWebSite()}
     />
   );
 };

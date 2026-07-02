@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
+import { buildBreadcrumbList } from "../../utils/jsonLd";
 import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { PhotosSection } from "../../components/index/sections";
@@ -50,5 +51,9 @@ export const Head: HeadFC<PhotosPageData> = () => (
     title="PHOTOGRAPHY"
     description="Reol 関連のライヴや聖地巡礼で撮影した写真・動画を掲載しています。"
     path="/photos/"
+    jsonLd={buildBreadcrumbList([
+      { name: "ホーム", path: "/" },
+      { name: "PHOTOGRAPHY", path: "/photos/" },
+    ])}
   />
 );

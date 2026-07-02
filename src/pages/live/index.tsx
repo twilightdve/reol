@@ -2,6 +2,12 @@ import React, { FC, useEffect } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
+import {
+  buildBreadcrumbList,
+  buildMusicEvent,
+  buildMusicEventItemList,
+  isValidIsoDate,
+} from "../../utils/jsonLd";
 import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { LiveSection } from "../../components/index/sections";
@@ -105,10 +111,34 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<LivePageData> = () => (
-  <SEO
-    title="LIVE"
-    description="Reol が過去に出演したワンマンライヴ・ツアー・フェスなどの情報。各ライヴごとのセトリ、レポート、関連ポストを掲載しています。"
-    path="/live/"
-  />
-);
+export const Head: HeadFC<LivePageData> = ({ data }) => {
+  // 各公演(liveItem)単位で MusicEvent を組み立てる。
+  // ライブ(親)側の date はツアーの場合「2026-03-14〜2026-07-18」のような
+  // 範囲表記になるため使わず、公演ごとの単一日付のみ採用し、不正/欠損はスキップ。
+  const events = data.live.liveInfos.flatMap((live) =>
+    (live.items ?? [])
+      .filter((item) => isValidIsoDate(item.date))
+      .map((item) =>
+        buildMusicEvent({
+          name: item.liveItemName ? `${live.title} / ${item.liveItemName}` : live.title,
+          startDate: item.date,
+          place: item.place,
+        })
+      )
+  );
+
+  return (
+    <SEO
+      title="LIVE"
+      description="Reol が過去に出演したワンマンライヴ・ツアー・フェスなどの情報。各ライヴごとのセトリ、レポート、関連ポストを掲載しています。"
+      path="/live/"
+      jsonLd={[
+        buildBreadcrumbList([
+          { name: "ホーム", path: "/" },
+          { name: "LIVE", path: "/live/" },
+        ]),
+        buildMusicEventItemList(events),
+      ]}
+    />
+  );
+};

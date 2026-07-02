@@ -58,6 +58,8 @@ interface SEOProps {
   twitterCard?: 'summary' | 'summary_large_image'
   /** ?section=xxx を渡すと title/description にセクション名を反映 */
   section?: string
+  /** JSON-LD 構造化データ。オブジェクト単体でも配列でも可(配列は script タグを複数出力) */
+  jsonLd?: object | object[]
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -68,6 +70,7 @@ const SEO: React.FC<SEOProps> = ({
   image,
   twitterCard = 'summary_large_image',
   section,
+  jsonLd,
 }) => {
   const sectionMeta = section ? SECTION_META[section.toLowerCase()] : undefined
   const pageTitle = sectionMeta?.title ?? title
@@ -75,6 +78,8 @@ const SEO: React.FC<SEOProps> = ({
   const resolvedDescription = sectionMeta?.description ?? description
   const url = `${SITE_URL}${path}${section ? `?section=${section}` : ''}`
   const ogImage = image || OG_IMAGE
+  // jsonLd は単体/配列どちらでも受け取れるようにし、script タグを1つずつ出力する
+  const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []
 
   return (
     <>
@@ -102,6 +107,15 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="manifest" href="/manifest.webmanifest" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+      {/* JSON-LD 構造化データ */}
+      {jsonLdList.map((schema, i) => (
+        <script
+          key={`jsonld-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
     </>
   )
 }

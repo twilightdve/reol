@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
+import { buildBreadcrumbList } from "../../utils/jsonLd";
 import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { DiscographySection } from "../../components/index/sections";
@@ -120,5 +121,9 @@ export const Head: HeadFC<DiscographyPageData> = () => (
     title="DISCOGRAPHY"
     description="Reol のこれまでのリリース情報や歌ってみた動画などを時間軸で掲載。各楽曲のリンクや楽曲解析情報も確認できます。"
     path="/discography/"
+    jsonLd={buildBreadcrumbList([
+      { name: "ホーム", path: "/" },
+      { name: "DISCOGRAPHY", path: "/discography/" },
+    ])}
   />
 );

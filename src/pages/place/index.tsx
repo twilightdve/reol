@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
+import { buildBreadcrumbList } from "../../utils/jsonLd";
 import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { PlaceSection } from "../../components/index/sections";
@@ -83,5 +84,9 @@ export const Head: HeadFC<PlacePageData> = () => (
     title="PLACE(聖地)"
     description="Reol の MV / CM / TV ロケ地や聖地などを地図とリストで紹介します。"
     path="/place/"
+    jsonLd={buildBreadcrumbList([
+      { name: "ホーム", path: "/" },
+      { name: "PLACE(聖地)", path: "/place/" },
+    ])}
   />
 );
