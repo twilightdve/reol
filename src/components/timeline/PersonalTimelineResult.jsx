@@ -38,8 +38,8 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                 songName: song.songName,
                 releaseDate: disc.releaseDate,
                 albumTitle: disc.title,
-                discographyId: disc.discographyId,
-                songId: song.songId
+                discographyUuid: disc.discographyUuid,
+                songUuid: song.songUuid
               });
             }
           }
@@ -71,9 +71,9 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
   // 楽曲を選択
   const toggleSongSelection = (song) => {
     setSelectedSongs(prev => {
-      const exists = prev.find(s => s.songId === song.songId);
+      const exists = prev.find(s => s.songUuid === song.songUuid);
       if (exists) {
-        return prev.filter(s => s.songId !== song.songId);
+        return prev.filter(s => s.songUuid !== song.songUuid);
       } else {
         return [...prev, { ...song, addedDate: new Date().toISOString(), comment: '' }];
       }
@@ -83,9 +83,9 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
   // ライブを選択
   const toggleLiveSelection = (live) => {
     setSelectedLives(prev => {
-      const exists = prev.find(l => l.liveId === live.liveId);
+      const exists = prev.find(l => l.liveUuid === live.liveUuid);
       if (exists) {
-        return prev.filter(l => l.liveId !== live.liveId);
+        return prev.filter(l => l.liveUuid !== live.liveUuid);
       } else {
         return [...prev, { ...live, addedDate: new Date().toISOString(), comment: '' }];
       }
@@ -93,19 +93,19 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
   };
 
   // 楽曲のコメントを更新
-  const updateSongComment = (songId, comment) => {
+  const updateSongComment = (songUuid, comment) => {
     setSelectedSongs(prev => 
       prev.map(song => 
-        song.songId === songId ? { ...song, comment } : song
+        song.songUuid === songUuid ? { ...song, comment } : song
       )
     );
   };
 
   // ライブのコメントを更新
-  const updateLiveComment = (liveId, comment) => {
+  const updateLiveComment = (liveUuid, comment) => {
     setSelectedLives(prev => 
       prev.map(live => 
-        live.liveId === liveId ? { ...live, comment } : live
+        live.liveUuid === liveUuid ? { ...live, comment } : live
       )
     );
   };
@@ -273,10 +273,10 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                 <div className="max-h-56 overflow-y-auto space-y-0.5">
                   {viewMode === 'songs' ? (
                     filteredSongs.map(song => {
-                      const isSelected = selectedSongs.find(s => s.songId === song.songId);
+                      const isSelected = selectedSongs.find(s => s.songUuid === song.songUuid);
                       return (
                         <div
-                          key={song.songId}
+                          key={song.songUuid}
                           onClick={() => toggleSongSelection(song)}
                           className={`p-0.5 rounded border cursor-pointer transition-all ${
                             isSelected 
@@ -305,10 +305,10 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                     })
                   ) : (
                     filteredLives.map(live => {
-                      const isSelected = selectedLives.find(l => l.liveId === live.liveId);
+                      const isSelected = selectedLives.find(l => l.liveUuid === live.liveUuid);
                       return (
                         <div
-                          key={live.liveId}
+                          key={live.liveUuid}
                           onClick={() => toggleLiveSelection(live)}
                           className={`p-0.5 rounded border cursor-pointer transition-all ${
                             isSelected 
@@ -376,7 +376,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                           <div className="ml-20 space-y-3">
                             {/* 楽曲カード */}
                             {yearData.songs.map((song, songIndex) => (
-                              <div key={song.songId} className="relative">
+                              <div key={song.songUuid} className="relative">
                                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-400 p-3 rounded-r-lg shadow-md hover:shadow-lg transition-shadow">
                                   <div className="flex items-center justify-between mb-2">
                                     <div className="flex items-center space-x-3">
@@ -402,7 +402,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                                     <textarea
                                       placeholder="この楽曲への思い入れやエピソードを書いてみましょう..."
                                       value={song.comment || ''}
-                                      onChange={(e) => updateSongComment(song.songId, e.target.value)}
+                                      onChange={(e) => updateSongComment(song.songUuid, e.target.value)}
                                       className="w-full p-2 text-xs border border-purple-200 rounded bg-white/70 focus:bg-white focus:border-purple-400 focus:ring-1 focus:ring-purple-400 resize-none transition-all"
                                       rows="2"
                                     />
@@ -420,7 +420,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
 
                             {/* ライブカード */}
                             {yearData.lives.map((live, liveIndex) => (
-                              <div key={live.liveId} className="relative">
+                              <div key={live.liveUuid} className="relative">
                                 <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-400 p-3 rounded-r-lg shadow-md hover:shadow-lg transition-shadow">
                                   <div className="flex items-center justify-between mb-2">
                                     <div className="flex items-center space-x-3">
@@ -446,7 +446,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                                     <textarea
                                       placeholder="このライブの思い出や感想を書いてみましょう..."
                                       value={live.comment || ''}
-                                      onChange={(e) => updateLiveComment(live.liveId, e.target.value)}
+                                      onChange={(e) => updateLiveComment(live.liveUuid, e.target.value)}
                                       className="w-full p-2 text-xs border border-blue-200 rounded bg-white/70 focus:bg-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400 resize-none transition-all"
                                       rows="2"
                                     />
@@ -598,7 +598,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                       <div key={year} className="bg-white bg-opacity-10 rounded-lg p-4">
                         <h3 className="text-xl font-bold mb-2">{year}年</h3>
                         {yearData.songs.slice(0, 2).map(song => (
-                          <div key={song.songId} className="text-sm mb-2">
+                          <div key={song.songUuid} className="text-sm mb-2">
                             <div className="font-medium">🎵 {song.songName}</div>
                             {song.comment && (
                               <div className="text-xs mt-1 italic opacity-80">"{song.comment.slice(0, 40)}{song.comment.length > 40 ? '...' : ''}"</div>
@@ -606,7 +606,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                           </div>
                         ))}
                         {yearData.lives.slice(0, 2).map(live => (
-                          <div key={live.liveId} className="text-sm mb-2">
+                          <div key={live.liveUuid} className="text-sm mb-2">
                             <div className="font-medium">🎤 {live.title}</div>
                             {live.comment && (
                               <div className="text-xs mt-1 italic opacity-80">"{live.comment.slice(0, 40)}{live.comment.length > 40 ? '...' : ''}"</div>

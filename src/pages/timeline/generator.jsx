@@ -3,6 +3,7 @@ import { navigate } from "gatsby";
 import { graphql } from "gatsby";
 import { v4 as uuidv4 } from "uuid";
 import PersonalTimelineResult from "../../components/timeline/PersonalTimelineResult";
+import SEO from "../../components/SEO";
 
 const TimelineGeneratorPage = ({ data }) => {
   const [step, setStep] = useState(1);
@@ -28,24 +29,24 @@ const TimelineGeneratorPage = ({ data }) => {
     discographies.forEach(disc => {
       if (disc.songs) {
         disc.songs.forEach(song => {
-          if (song.songName && 
-              !song.songName.includes('Instrumental') &&
-              !song.songName.includes('(Anime Size)') &&
-              !song.songName.includes('Remix') &&
-              !song.songName.includes('-Opening-') &&
-              !song.songName.includes('-Ending-') &&
-              !song.songName.includes('-Interlude-') &&
-              !song.songName.includes('-BWW SCREAM-') &&
-              !song.songName.includes('-#000000-') &&
-              !song.songName.includes('-Neo Nostalgia-') &&
-              !song.songName.includes('edit') &&
-              !allSongs.includes(song.songName)) {
+          if (song.songName &&
+            !song.songName.includes('Instrumental') &&
+            !song.songName.includes('(Anime Size)') &&
+            !song.songName.includes('Remix') &&
+            !song.songName.includes('-Opening-') &&
+            !song.songName.includes('-Ending-') &&
+            !song.songName.includes('-Interlude-') &&
+            !song.songName.includes('-BWW SCREAM-') &&
+            !song.songName.includes('-#000000-') &&
+            !song.songName.includes('-Neo Nostalgia-') &&
+            !song.songName.includes('edit') &&
+            !allSongs.includes(song.songName)) {
             allSongs.push(song.songName);
           }
         });
       }
     });
-    
+
     // アルファベット・あいうえお順でソート（日本語とアルファベットを適切に処理）
     return allSongs.sort((a, b) => {
       return a.localeCompare(b, 'ja', { numeric: true, sensitivity: 'base' });
@@ -56,7 +57,7 @@ const TimelineGeneratorPage = ({ data }) => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    
+
     const savedData = localStorage.getItem("reol_timeline_data");
     if (savedData) {
       const parsed = JSON.parse(savedData);
@@ -72,10 +73,10 @@ const TimelineGeneratorPage = ({ data }) => {
   const generateTimeline = () => {
     const startYear = parseInt(userInfo.startYear);
     const currentYear = new Date().getFullYear();
-    
+
     // 年表データを生成
     const timeline = [];
-    
+
     for (let year = startYear; year <= currentYear; year++) {
       const yearData = {
         year,
@@ -89,7 +90,7 @@ const TimelineGeneratorPage = ({ data }) => {
         }),
         userEvents: getUserEventsForYear(year, userInfo)
       };
-      
+
       if (yearData.releases.length > 0 || yearData.lives.length > 0 || yearData.userEvents.length > 0) {
         timeline.push(yearData);
       }
@@ -108,7 +109,7 @@ const TimelineGeneratorPage = ({ data }) => {
 
   const getUserEventsForYear = (year, userInfo) => {
     const events = [];
-    
+
     if (year === parseInt(userInfo.startYear)) {
       let description = `${userInfo.discoverySource}でReolを知る`;
       if (userInfo.favoriteSong) {
@@ -175,7 +176,7 @@ const TimelineGeneratorPage = ({ data }) => {
         description: `${userInfo.discoverySource}での出会いから3年。すっかりReolの虜に`
       });
     }
-    
+
     if (yearsSinceStart === 5) {
       events.push({
         type: "personal",
@@ -206,7 +207,7 @@ const TimelineGeneratorPage = ({ data }) => {
 
   if (step === 3 && timelineData) {
     return (
-      <PersonalTimelineResult 
+      <PersonalTimelineResult
         timelineData={timelineData}
         discographies={discographies}
         liveInfos={liveInfos}
@@ -227,7 +228,7 @@ const TimelineGeneratorPage = ({ data }) => {
             あなたとReolとの特別な歩みを美しい年表で表現しましょう
           </p>
         </div>
-        
+
         <div className="mb-8">
           <div className="flex justify-center mb-6">
             <div className="flex items-center space-x-4">
@@ -244,7 +245,7 @@ const TimelineGeneratorPage = ({ data }) => {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center text-sm text-gray-600">
             <span className={step === 1 ? 'font-semibold text-purple-600' : ''}>基本情報</span>
             <span className="mx-2">→</span>
@@ -257,7 +258,7 @@ const TimelineGeneratorPage = ({ data }) => {
         {step === 1 && (
           <div className="space-y-6">
             <h2 className="text-xl font-semibold mb-4">基本情報を入力してください</h2>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 ニックネーム
@@ -333,7 +334,7 @@ const TimelineGeneratorPage = ({ data }) => {
                 基本情報の入力が完了しました。次の画面で思い出深い楽曲や参戦ライブを選択して、あなただけの特別な年表を作成できます。
               </p>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 好きな時代
@@ -459,31 +460,25 @@ const TimelineGeneratorPage = ({ data }) => {
 };
 
 export const Head = () => (
-  <>
-    <title>🎵 Reol年表ジェネレーター | あなただけの音楽年表を作成</title>
-    <meta name="description" content="あなたとReolとの歩みを美しい年表で表現。出会いから現在まで、思い出深い瞬間を振り返り、シェアできる特別な年表を作成しましょう。" />
-    <meta name="keywords" content="Reol,年表,ファン,音楽,タイムライン,思い出,アーティスト" />
-    <meta property="og:title" content="🎵 Reol年表ジェネレーター" />
-    <meta property="og:description" content="あなたとReolとの歩みを美しい年表で表現。思い出深い瞬間を振り返り、シェアできる特別な年表を作成しましょう。" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🎵 Reol年表ジェネレーター" />
-    <meta name="twitter:description" content="あなたとReolとの歩みを美しい年表で表現" />
-  </>
+  <SEO
+    title="Reol年表ジェネレーター(作成)"
+    description="あなたとReolとの歩みを美しい年表で表現。出会いから現在まで、思い出深い瞬間を振り返り、シェアできる特別な年表を作成しましょう。"
+    path="/timeline/generator/"
+  />
 );
 
 export const query = graphql`
   query TimelineGeneratorPage {
     discography {
       discographyWithSongs {
-        discographyId
+        discographyUuid
         title
         releaseDate
         name
         format
         siteUrl
         songs {
-          songId
+          songUuid
           songName
           musicVideoUrl
           spotifyTrackId
@@ -492,7 +487,7 @@ export const query = graphql`
     }
     live {
       liveInfos {
-        liveId
+        liveUuid
         type
         title
         name

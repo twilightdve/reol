@@ -2,6 +2,7 @@ import React from "react";
 import { navigate } from "gatsby";
 import { FaCalendarAlt, FaMusic, FaMicrophone, FaHeart, FaArrowRight } from "react-icons/fa";
 import { HeadFC } from "gatsby";
+import SEO from "../../components/SEO";
 
 const TimelineIntroPage = () => {
   const handleStart = () => {
@@ -164,14 +165,11 @@ const TimelineIntroPage = () => {
 };
 
 export const Head = () => (
-  <>
-    <title>Reol年表ジェネレーター | !Legit</title>
-    <meta name="description" content="あなたがReolと歩んできた軌跡を美しい年表として可視化。出会いから現在まで、すべての瞬間を振り返ろう。" />
-    <meta property="og:title" content="Reol年表ジェネレーター" />
-    <meta property="og:description" content="あなただけのReol年表を作成して、思い出を振り返ろう" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-  </>
+  <SEO
+    title="Reol年表ジェネレーター"
+    description="あなたがReolと歩んできた軌跡を美しい年表として可視化。出会いから現在まで、すべての瞬間を振り返ろう。"
+    path="/timeline/"
+  />
 );
 
 export default TimelineIntroPage;

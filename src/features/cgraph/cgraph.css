@@ -1,0 +1,652 @@
+.cgraph-root {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: #fafaf5;
+  color: #111827;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",
+    sans-serif;
+  overflow: hidden;
+}
+
+.cgraph-header {
+  flex-shrink: 0;
+  padding: 12px 16px 8px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.cgraph-header-toggle {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  cursor: pointer;
+  display: none;
+}
+
+.cgraph-header-toggle:hover {
+  background: #e5e7eb;
+}
+
+.cgraph-header--collapsed .cgraph-title p,
+.cgraph-header--collapsed .cgraph-controls,
+.cgraph-header--collapsed .cgraph-roles,
+.cgraph-header--collapsed .cgraph-presets {
+  display: none;
+}
+
+.cgraph-header--collapsed {
+  padding-bottom: 4px;
+}
+
+.cgraph-title h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 2px;
+}
+
+.cgraph-title p {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.cgraph-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.cgraph-search {
+  flex: 1 1 200px;
+  min-width: 180px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+}
+
+.cgraph-search:focus {
+  outline: none;
+  border-color: #d946ef;
+  background: #ffffff;
+}
+
+.cgraph-year {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #374151;
+}
+
+.cgraph-year input[type="range"] {
+  width: 100px;
+}
+
+.cgraph-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.cgraph-chip {
+  font-size: 0.7rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.2;
+}
+
+.cgraph-chip-on {
+  color: #ffffff;
+}
+
+.cgraph-release-toggle {
+  font-size: 0.7rem;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.cgraph-main {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.cgraph-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.cgraph-loading,
+.cgraph-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.cgraph-error {
+  color: #b91c1c;
+}
+
+.cgraph-error {
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.cgraph-error-detail {
+  color: #6b7280;
+  font-size: 0.75rem;
+  word-break: break-all;
+  max-width: 480px;
+}
+
+.cgraph-error-retry {
+  padding: 6px 16px;
+  border: 1px solid #b91c1c;
+  background: #fff;
+  color: #b91c1c;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cgraph-error-retry:hover {
+  background: #fef2f2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cgraph-error-retry {
+    transition: none;
+  }
+}
+
+.cgraph-inspector {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 260px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+}
+
+/* 最小化時はヘッダ (ノード名 + ボタン) だけ表示してグラフ領域を広く取る。 */
+.cgraph-inspector--mini {
+  width: auto;
+  max-width: 240px;
+  padding: 6px 8px;
+}
+
+.cgraph-inspector--mini header {
+  margin-bottom: 0;
+}
+
+.cgraph-inspector-toggle {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cgraph-inspector-toggle:hover {
+  background: #e5e7eb;
+}
+
+.cgraph-inspector header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.cgraph-inspector header strong {
+  font-size: 0.9rem;
+  flex: 1 1 80px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cgraph-inspector dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 8px;
+  row-gap: 2px;
+  margin: 0 0 8px;
+}
+
+.cgraph-inspector dt {
+  color: #9ca3af;
+  font-size: 0.7rem;
+}
+
+.cgraph-inspector dd {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.cgraph-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #d946ef;
+  text-decoration: underline;
+}
+
+.cgraph-relations {
+  margin: 4px 0 10px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 8px;
+}
+
+.cgraph-relations-title {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.cgraph-relations-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cgraph-relations-list li {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 6px;
+  row-gap: 2px;
+  align-items: start;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.cgraph-role-chip {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.cgraph-rel-desc {
+  color: #4b5563;
+  font-size: 0.72rem;
+}
+
+.cgraph-rel-names {
+  grid-column: 2 / 3;
+  color: #111827;
+  word-break: break-word;
+}
+
+/* --- アーティスト詳細セクション (楽曲 / 参加リリース / 関連タイアップ) --- */
+.cgraph-detail-section {
+  margin: 4px 0 10px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 8px;
+}
+
+.cgraph-detail-title {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.cgraph-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cgraph-detail-list li {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.cgraph-detail-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.cgraph-detail-name {
+  color: #111827;
+  word-break: break-word;
+}
+
+.cgraph-detail-year {
+  margin-left: 4px;
+  color: #9ca3af;
+  font-size: 0.7rem;
+}
+
+.cgraph-detail-sub {
+  display: block;
+  color: #6b7280;
+  font-size: 0.7rem;
+  margin-top: 1px;
+  word-break: break-word;
+}
+
+/* Reol との関係パネル (最優先表示) */
+.cgraph-detail-section--reol {
+  border-top: none;
+  background: linear-gradient(135deg,
+      rgba(125, 211, 252, 0.18),
+      rgba(236, 72, 153, 0.12));
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 0 0 10px;
+}
+
+.cgraph-detail-section--reol .cgraph-detail-title {
+  color: #0369a1;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cgraph-detail-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.cgraph-detail-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.cgraph-detail-stat-num {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cgraph-detail-stat-label {
+  font-size: 0.65rem;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.cgraph-detail-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cgraph-role-chip--count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cgraph-role-chip-num {
+  background: rgba(255, 255, 255, 0.85);
+  color: #111827;
+  border-radius: 8px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cgraph-detail-item--reol {
+  position: relative;
+  padding-left: 8px;
+  border-left: 2px solid #ec4899;
+}
+
+/* Reol セクション内の入れ子サブセクション (例: Reol 共演曲リスト) */
+.cgraph-detail-subsection {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(15, 23, 42, 0.15);
+}
+
+.cgraph-detail-subtitle {
+  font-size: 0.7rem;
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* その他の情報 (折りたたみ可能) */
+.cgraph-detail-other {
+  margin-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+}
+
+.cgraph-detail-other>summary {
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 6px;
+  user-select: none;
+  list-style: revert;
+}
+
+.cgraph-detail-other>summary:hover {
+  color: #111827;
+}
+
+.cgraph-mini-btn {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cgraph-mini-btn:hover {
+  background: #f3f4f6;
+}
+
+.cgraph-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 0 0;
+}
+
+.cgraph-preset {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.cgraph-preset:hover {
+  background: #f1f5f9;
+}
+
+.cgraph-preset--on {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #f8fafc;
+}
+
+.cgraph-preset-count {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-left: 4px;
+}
+
+@media (max-width: 640px) {
+  .cgraph-header-toggle {
+    display: inline-block;
+  }
+
+  .cgraph-title p {
+    display: none;
+  }
+
+  .cgraph-title h1 {
+    font-size: 1rem;
+  }
+
+  .cgraph-inspector {
+    /* 画面下部に固定、画面の最大 50% を占める。背景タップで focus 解除しやすく。 */
+    top: auto;
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    width: auto;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .cgraph-inspector--mini {
+    max-height: 64px;
+    max-width: none;
+  }
+
+  .cgraph-controls {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .cgraph-search {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+.cgraph-footer {
+  padding: 8px 12px;
+  text-align: right;
+  color: #888;
+  font-size: 11px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.cgraph-sr-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cgraph-onboarding {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.cgraph-onboarding-card {
+  background: #fff;
+  color: #222;
+  padding: 20px 24px;
+  border-radius: 8px;
+  max-width: 420px;
+  width: calc(100% - 32px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cgraph-onboarding-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.cgraph-onboarding-card ul {
+  margin: 0 0 16px;
+  padding-left: 1.2em;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.cgraph-back-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border: 1px solid rgba(234, 179, 8, 0.7);
+  border-radius: 999px;
+  background: rgba(234, 179, 8, 0.12);
+  color: #b45309;
+  font-size: 0.75rem;
+  cursor: pointer;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cgraph-back-btn:hover {
+  background: rgba(234, 179, 8, 0.25);
+}
