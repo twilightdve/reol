@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_3",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 宮城",
+  "date": "2020-02-15",
+  "venueName": "仙台 Rensa",
+  "venueId": "venue_仙台_rensa",
+  "source": {
+    "type": "site_db",
+    "liveId": 22,
+    "liveItemNo": 3,
+    "sourceId": "live_22_item_3"
+  },
+  "entries": []
+}

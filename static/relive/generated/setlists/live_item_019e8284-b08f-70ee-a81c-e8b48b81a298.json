@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b08f-70ee-a81c-e8b48b81a298",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 福岡",
+  "date": "2020-02-09",
+  "venueName": "DRUM LOGOS",
+  "venueId": "venue_drum_logos",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b08f-70ee-a81c-e8b48b81a298",
+    "sourceId": "live_item_019e8284-b08f-70ee-a81c-e8b48b81a298"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b08f-70ee-a81c-e8b48b81a298_entry_019e82a6-eb9f-79c3-9731-e1ac4d9a8915",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

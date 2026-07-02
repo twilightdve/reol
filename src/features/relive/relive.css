@@ -1,0 +1,1308 @@
+.relive-shell {
+  min-height: 100vh;
+  /* 長いファイル名を含む <select> 等が grid セルを押し広げて横スクロールが
+     発生するのを防ぐ。子要素側でも min-width: 0 を併用する。 */
+  overflow-x: hidden;
+  color: #f3efe7;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(133, 29, 28, 0.28), transparent 34rem),
+    linear-gradient(180deg, #020305 0%, #080a0d 48%, #050506 100%);
+  text-shadow: none;
+}
+
+.relive-room {
+  width: min(100%, 720px);
+  /* iOSのSafe Areaやスクロールバー差で意図せず溢れることがあるため明示。 */
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 16px 40px;
+}
+
+.relive-hero {
+  padding: 12px 2px 20px;
+}
+
+.relive-kicker {
+  margin: 0 0 12px;
+  color: rgba(243, 239, 231, 0.48);
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.relive-hero h1 {
+  margin: 0 0 16px;
+  color: #fff6dd;
+  /* "Relive Player" は "残響座標" より文字数が多いので 16vw だと巨大になる。
+     上限と vw 係数を抑え、英字フォントとして自然な大きさにする。 */
+  font-size: clamp(1.8rem, 7.5vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.relive-hero p {
+  margin: 0;
+  color: rgba(243, 239, 231, 0.86);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.relive-hero .relive-disclaimer {
+  margin-top: 14px;
+  color: rgba(243, 239, 231, 0.5);
+  font-size: 0.78rem;
+}
+
+.relive-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.relive-actions button,
+.relive-transport button,
+.relive-segments button {
+  appearance: none;
+  border: 1px solid rgba(255, 244, 206, 0.2);
+  color: #fff4ce;
+  background: rgba(255, 255, 255, 0.055);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.relive-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 16px;
+  font-weight: 600;
+}
+
+.relive-actions button:active,
+.relive-transport button:active,
+.relive-segments button:active {
+  transform: translateY(1px);
+}
+
+.relive-actions button:disabled,
+.relive-transport button:disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+}
+
+.relive-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 46vh;
+  border: 1px solid rgba(255, 244, 206, 0.12);
+  border-radius: 8px;
+  background: #020305;
+}
+
+.relive-canvas {
+  display: block;
+  width: 100%;
+  height: 46vh;
+  min-height: 340px;
+}
+
+.relive-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.relive-canvas-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 244, 206, 0.28);
+  border-radius: 4px;
+  background: rgba(3, 4, 7, 0.62);
+  color: rgba(243, 239, 231, 0.92);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.relive-canvas-toggle:hover,
+.relive-canvas-toggle:focus-visible {
+  background: rgba(217, 55, 51, 0.32);
+  border-color: rgba(255, 244, 206, 0.6);
+  outline: none;
+}
+
+.relive-canvas-tags {
+  position: absolute;
+  top: 48px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  gap: 8px;
+  width: min(260px, calc(100% - 20px));
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 244, 206, 0.22);
+  border-radius: 6px;
+  background: rgba(3, 4, 7, 0.78);
+  color: rgba(243, 239, 231, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+.relive-canvas-tag {
+  display: grid;
+  gap: 4px;
+  font-size: 0.74rem;
+}
+
+.relive-canvas-tag-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(243, 239, 231, 0.82);
+  letter-spacing: 0.04em;
+}
+
+.relive-canvas-tag-value {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 236, 178, 0.85);
+}
+
+.relive-canvas-tag input[type="range"] {
+  width: 100%;
+}
+
+.relive-now {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: grid;
+  gap: 4px;
+  padding: 12px 0 0;
+  pointer-events: none;
+}
+
+.relive-now span,
+.relive-now small {
+  color: rgba(243, 239, 231, 0.54);
+  font-size: 0.72rem;
+}
+
+.relive-now strong {
+  overflow: hidden;
+  color: #fff8e9;
+  font-size: 0.94rem;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relive-effects-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.relive-effects-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 244, 206, 0.28);
+  border-radius: 999px;
+  background: rgba(20, 18, 12, 0.55);
+  color: #fff8e9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.relive-effects-toggle-button:hover {
+  background: rgba(40, 36, 22, 0.75);
+  border-color: rgba(255, 244, 206, 0.5);
+}
+
+.relive-effects-toggle-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f6c560;
+  box-shadow: 0 0 8px rgba(246, 197, 96, 0.7);
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.relive-effects-toggle-button.is-bypassed {
+  background: rgba(60, 24, 24, 0.72);
+  border-color: rgba(255, 168, 168, 0.55);
+  color: #ffe2d8;
+}
+
+.relive-effects-toggle-button.is-bypassed .relive-effects-toggle-led {
+  background: #ff6b6b;
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.8);
+}
+
+.relive-controls,
+.relive-panel {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 244, 206, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.relive-setlist-picker {
+  margin-top: 4px;
+  border-color: rgba(255, 244, 206, 0.28);
+  background: linear-gradient(135deg,
+      rgba(199, 43, 40, 0.18) 0%,
+      rgba(255, 244, 206, 0.05) 100%);
+}
+
+.relive-setlist-picker .relive-panel-title h2 {
+  font-size: 1.05rem;
+}
+
+.relive-setlist-picker-field {
+  display: block;
+  margin-top: 10px;
+}
+
+.relive-setlist-picker-field select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 244, 206, 0.28);
+  background: rgba(20, 18, 16, 0.6);
+  color: rgba(243, 239, 231, 0.96);
+}
+
+.relive-setlist-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.relive-setlist-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 244, 206, 0.28);
+  background: rgba(20, 18, 16, 0.4);
+  color: rgba(243, 239, 231, 0.85);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.relive-setlist-filter-chip:hover:not(:disabled) {
+  background: rgba(199, 43, 40, 0.25);
+  border-color: rgba(255, 244, 206, 0.5);
+}
+
+.relive-setlist-filter-chip.is-active {
+  background: rgba(199, 43, 40, 0.55);
+  border-color: rgba(255, 244, 206, 0.7);
+  color: #fff4ce;
+}
+
+.relive-setlist-filter-chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.relive-setlist-filter-count {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.relive-transport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.relive-transport button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+}
+
+.relive-transport .relive-play {
+  width: 58px;
+  height: 58px;
+  border-color: rgba(255, 244, 206, 0.36);
+  background: rgba(199, 43, 40, 0.32);
+}
+
+.relive-seek,
+.relive-intensity {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: rgba(243, 239, 231, 0.62);
+  font-size: 0.74rem;
+}
+
+.relive-intensity {
+  grid-template-columns: 42px 1fr;
+}
+
+.relive-seek input,
+.relive-intensity input {
+  width: 100%;
+  accent-color: #d94a3f;
+}
+
+.relive-error {
+  margin: 12px 0 0;
+  color: #ffb5aa;
+  font-size: 0.82rem;
+}
+
+.relive-note {
+  margin: 12px 0 0;
+  color: rgba(243, 239, 231, 0.58);
+  font-size: 0.78rem;
+}
+
+.relive-panel-title,
+.relive-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.relive-panel-title {
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  color: rgba(255, 244, 206, 0.76);
+}
+
+.relive-panel h2 {
+  margin: 0;
+  color: #fff4ce;
+  font-size: 0.96rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.relive-panel p {
+  margin: 4px 0 0;
+  color: rgba(243, 239, 231, 0.5);
+  font-size: 0.78rem;
+}
+
+.relive-segments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* segments + ? \u30dc\u30bf\u30f3\u3092\u6a2a\u4e26\u3073\u3067\u914d\u7f6e\u3059\u308b\u30ed\u30a6\u3002 */
+.relive-segments-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.relive-segments-row .relive-segments {
+  flex: 1;
+  min-width: 0;
+}
+
+/* \u30d8\u30eb\u30d7 (?) \u30dc\u30bf\u30f3 \u3068 \u30dd\u30c3\u30d7\u30aa\u30fc\u30d0\u30fc\u3002 */
+.relive-help {
+  position: relative;
+  display: inline-flex;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.relive-help-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid rgba(255, 244, 206, 0.32);
+  border-radius: 50%;
+  background: rgba(255, 244, 206, 0.08);
+  color: rgba(255, 244, 206, 0.78);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.relive-help-button:hover,
+.relive-help-button[aria-expanded="true"] {
+  border-color: rgba(255, 244, 206, 0.7);
+  background: rgba(255, 244, 206, 0.18);
+  color: #fff4ce;
+}
+
+.relive-help-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 40;
+  width: max-content;
+  max-width: min(260px, 80vw);
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 244, 206, 0.22);
+  border-radius: 6px;
+  background: rgba(8, 10, 16, 0.96);
+  color: #fff4ce;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.relive-segments button {
+  min-height: 36px;
+  padding: 0 8px;
+  color: rgba(243, 239, 231, 0.72);
+  font-size: 0.78rem;
+}
+
+.relive-segments button.is-active {
+  border-color: rgba(255, 244, 206, 0.48);
+  color: #fff4ce;
+  background: rgba(255, 244, 206, 0.14);
+}
+
+.relive-field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.relive-field-grid label,
+.relive-memory-tags label {
+  display: grid;
+  gap: 6px;
+  color: rgba(243, 239, 231, 0.58);
+  font-size: 0.72rem;
+}
+
+.relive-field-grid select,
+.relive-mapping-select select {
+  /* width:100% + max-width:100% + min-width:0 で、長い option があっても
+     親幅を超えないよう抑制する。 */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  border: 1px solid rgba(255, 244, 206, 0.14);
+  border-radius: 8px;
+  color: #fff4ce;
+  background: rgba(3, 4, 7, 0.92);
+}
+
+.relive-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  color: rgba(243, 239, 231, 0.66);
+  font-size: 0.76rem;
+}
+
+.relive-toggle-row label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* グラフィック EQ パネル。8 本のスライダを縦向きに並べる。 */
+.relive-eq {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 244, 206, 0.1);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.relive-eq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: rgba(243, 239, 231, 0.78);
+  font-size: 0.78rem;
+}
+
+.relive-eq-reset {
+  padding: 3px 10px;
+  border: 1px solid rgba(255, 244, 206, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(243, 239, 231, 0.7);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.relive-eq-reset:hover {
+  background: rgba(255, 244, 206, 0.08);
+}
+
+.relive-eq-reset:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.relive-eq-presets {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.relive-eq-presets select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 244, 206, 0.18);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(243, 239, 231, 0.85);
+  font-size: 0.78rem;
+}
+
+.relive-eq-bands {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+  align-items: end;
+}
+
+.relive-eq-band {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.62rem;
+  color: rgba(243, 239, 231, 0.7);
+}
+
+/* スライダ背面の目盛り。範囲 -12..+12 (24dB) を 98px の可視範囲全域に対応。 *
+ * 主目盛: 2dB ごと、横幅いっぱい (28px) の太め線。
+ * 補助目盛: 1dB ごと、中央寄せの短め (18px) 線。 */
+.relive-eq-band::before {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 28px;
+  height: 98px;
+  margin-left: -14px;
+  background-image:
+    /* 主目盛 2dB ごと: 横28pxの長い線 */
+    linear-gradient(to bottom, rgba(255, 244, 206, 0.7) 0 1px, transparent 1px 100%),
+    /* 補助目盛 1dB ごと: 横18pxの短めの線 (中央寄せ) */
+    linear-gradient(to bottom, rgba(255, 244, 206, 0.32) 0 1px, transparent 1px 100%);
+  background-size:
+    28px calc(100% / 12),
+    18px calc(100% / 24);
+  background-position:
+    0 0,
+    center 0;
+  background-repeat: repeat-y;
+  pointer-events: none;
+  content: "";
+}
+
+/* 中央 0dB ライン (やや太く・暖色寄り)。 */
+.relive-eq-band::after {
+  position: absolute;
+  top: calc(6px + 49px);
+  /* 上 6px インセット + 半分 49px */
+  left: 50%;
+  width: 34px;
+  height: 1px;
+  margin-left: -17px;
+  background: rgba(217, 167, 55, 0.55);
+  pointer-events: none;
+  content: "";
+}
+
+/* 縦向きスライダ。各ブラウザの appearance を slider-vertical / writing-mode で。 */
+.relive-eq-band input[type="range"] {
+  position: relative;
+  z-index: 1;
+  -webkit-appearance: slider-vertical;
+  appearance: slider-vertical;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  /* 上=+, 下=- */
+  width: 18px;
+  height: 110px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.relive-eq-band-value {
+  min-height: 12px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 244, 206, 0.85);
+}
+
+.relive-eq-band-label {
+  color: rgba(243, 239, 231, 0.55);
+}
+
+/*
+ * リバーブ (反響) パネルは EQ の直下に置かれる。
+ * 視覚的に分離されないと「同じセクションの続き」に見えるので、
+ * 上に余白を多めに取り、薄い区切り線を入れて別パネルだと分かるようにする。
+ */
+.relive-reverb {
+  margin-top: 28px;
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(255, 244, 206, 0.1);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.relive-reverb::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 244, 206, 0.18),
+      transparent);
+}
+
+.relive-position-map-hint {
+  margin: 10px 0 0;
+  color: rgba(243, 239, 231, 0.62);
+  font-size: 0.74rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.relive-position-map {
+  position: relative;
+  /* 正方形固定 (会場のステージ縦横比を反映したい場合は --map-ratio を 1 以上の値で指定)。 */
+  width: 100%;
+  max-width: 360px;
+  margin: 12px auto 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(255, 244, 206, 0.12);
+  border-radius: 8px;
+  /* タップで位置指定。スクロールに奪われないよう touch-action を抑制。 */
+  cursor: crosshair;
+  touch-action: none;
+  background:
+    linear-gradient(180deg, rgba(217, 55, 51, 0.12), transparent 30%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 14px),
+    rgba(0, 0, 0, 0.2);
+}
+
+.relive-position-map::before {
+  position: absolute;
+  top: 4%;
+  right: 16px;
+  left: 16px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 244, 206, 0.28);
+  content: "";
+}
+
+/* ============================================================
+ *  スピーカー波形オーバーレイ
+ *  各 SPK 位置から音響特性 (代表周波数・EQ強度) を反映した同心円波を放射。
+ * ============================================================ */
+.relive-speaker-wave-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* ポジションマップ内に閉じ込め、SPK / リスナーマーカー (z-index 上位) より下に描画 */
+  z-index: 0;
+  overflow: hidden;
+}
+
+.relive-wave-emitter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  /* CSS 変数のデフォルト (SPK 個別に上書きされる) */
+  --wave-hue: 200;
+  --wave-sat: 78%;
+  --wave-dur: 2s;
+  --wave-stroke: 1.5px;
+  --wave-scale: 0.5;
+  --wave-alpha: 0.5;
+  /* 音量同期係数 (0..1)。SpeakerWaveOverlay が rAF で更新。
+     opacity のみに使う。 emitter に transform: scale() を乗せると、
+     keyframe で広がるリングのスケールに音量脈動が掛け算され、
+     「拡大収縮を繰り返しながら広がる」不快な見た目になる。 */
+  --wave-amp: 1;
+  opacity: var(--wave-amp);
+  /* スムージング: AnalyserNode の smoothingTimeConstant と併せて
+   * ピクピクした見た目を避ける。 */
+  transition: opacity 90ms linear;
+}
+
+.relive-wave-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: var(--wave-stroke) solid hsla(var(--wave-hue), var(--wave-sat), 62%, var(--wave-alpha));
+  transform: translate(-50%, -50%) scale(0.35);
+  opacity: 0;
+  /* 静止時は最初のリングのみ薄く見せる (animation-play-state で制御) */
+  animation: relive-wave-ring var(--wave-dur) linear infinite;
+  animation-play-state: paused;
+  will-change: transform, opacity;
+}
+
+/* 静止時の見え方: 最初のリングだけ薄く表示し、それ以外は非表示。 */
+.relive-speaker-wave-overlay:not(.is-playing) .relive-wave-ring {
+  opacity: 0;
+}
+
+.relive-speaker-wave-overlay:not(.is-playing) .relive-wave-emitter .relive-wave-ring:first-child {
+  opacity: calc(var(--wave-alpha) * 0.45);
+  transform: translate(-50%, -50%) scale(0.45);
+}
+
+/* 再生中: アニメーション開始 */
+.relive-speaker-wave-overlay.is-playing .relive-wave-ring {
+  animation-play-state: running;
+}
+
+@keyframes relive-wave-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+    border-width: var(--wave-stroke);
+  }
+
+  18% {
+    opacity: var(--wave-alpha);
+  }
+
+  100% {
+    /* min(...) でマップを大きく超えないようクランプ。短辺の最大 ~65% まで。 */
+    transform: translate(-50%, -50%) scale(calc(var(--wave-scale) * 24));
+    opacity: 0;
+    border-width: calc(var(--wave-stroke) * 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relive-speaker-wave-overlay.is-playing .relive-wave-ring {
+    animation-play-state: paused;
+  }
+
+  .relive-speaker-wave-overlay.is-playing .relive-wave-emitter .relive-wave-ring:first-child {
+    opacity: calc(var(--wave-alpha) * 0.45);
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+}
+
+.relive-speaker-sources {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 244, 206, 0.12);
+  border-radius: 6px;
+  background: rgba(255, 244, 206, 0.04);
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 244, 206, 0.82);
+}
+
+.relive-speaker-sources-title {
+  margin: 0 0 4px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 244, 206, 0.92);
+}
+
+.relive-speaker-sources ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.relive-speaker-sources li {
+  margin-bottom: 2px;
+}
+
+.relive-speaker-sources a {
+  color: #ffc4c2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.relive-speaker-sources-note {
+  color: rgba(255, 244, 206, 0.6);
+}
+
+.relive-speaker-sources-fallback {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border: 1px dashed rgba(255, 244, 206, 0.18);
+  border-radius: 6px;
+  background: rgba(255, 244, 206, 0.02);
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(255, 244, 206, 0.62);
+}
+
+.relive-speaker-sources-fallback strong {
+  color: #ffc4c2;
+}
+
+.relive-position-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid #fff4ce;
+  border-radius: 50%;
+  background: #d93733;
+  box-shadow: 0 0 18px rgba(217, 55, 51, 0.72);
+  pointer-events: none;
+}
+
+/* スピーカーマーカー: L/R は四角、C は菱、S は丸でサブを示す。 */
+.relive-speaker-marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border: 1px solid rgba(255, 244, 206, 0.6);
+  border-radius: 3px;
+  background: rgba(30, 95, 138, 0.55);
+  color: #fff4ce;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 再生中: スピーカーから音波が広がる波状エフェクト。
+ * ::before / ::after で 2 重のリングが交互に膨らみながらフェードアウトする。 */
+.relive-speaker-marker.is-playing::before,
+.relive-speaker-marker.is-playing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid rgba(255, 244, 206, 0.7);
+  pointer-events: none;
+  animation: relive-speaker-wave 1.8s ease-out infinite;
+  animation-delay: var(--wave-delay, 0s);
+}
+
+.relive-speaker-marker.is-playing::after {
+  animation-delay: calc(var(--wave-delay, 0s) + 0.9s);
+  border-color: rgba(255, 244, 206, 0.45);
+}
+
+@keyframes relive-speaker-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .relive-speaker-marker.is-playing::before,
+  .relive-speaker-marker.is-playing::after {
+    animation: none;
+  }
+}
+
+.relive-speaker-marker.relive-speaker-c {
+  border-radius: 2px;
+  background: rgba(217, 167, 55, 0.55);
+}
+
+.relive-speaker-marker.relive-speaker-s {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: rgba(217, 55, 51, 0.45);
+  font-size: 8px;
+}
+
+/* フロントフィル (FL/FR): メイン PA より小さく、内側に配置。 */
+.relive-speaker-marker.relive-speaker-fl,
+.relive-speaker-marker.relive-speaker-fr {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 3px;
+  background: rgba(86, 167, 198, 0.5);
+  font-size: 8px;
+}
+
+/* ディレイクラスター (DL/DR): 後方席向け補強。少し暗めの色。 */
+.relive-speaker-marker.relive-speaker-dl,
+.relive-speaker-marker.relive-speaker-dr {
+  width: 15px;
+  height: 15px;
+  margin: -7.5px 0 0 -7.5px;
+  border-radius: 3px;
+  background: rgba(120, 132, 168, 0.55);
+  font-size: 8px;
+}
+
+/* サイドフィル (SL/SR): 両翼席向け側方補強。緑寄りの色で差別化。 */
+.relive-speaker-marker.relive-speaker-sl,
+.relive-speaker-marker.relive-speaker-sr {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 3px;
+  background: rgba(120, 180, 140, 0.55);
+  font-size: 8px;
+}
+
+/* リアディレイ (RL/RR): 後方/スタンド向け遠距離補強。紫寄り＋やや薄く。 */
+.relive-speaker-marker.relive-speaker-rl,
+.relive-speaker-marker.relive-speaker-rr {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 3px;
+  background: rgba(160, 130, 190, 0.5);
+  font-size: 8px;
+}
+
+.relive-memory-tags {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 12px;
+  margin-top: 12px;
+}
+
+.relive-wide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 244, 206, 0.22);
+  border-radius: 8px;
+  color: #fff4ce;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+
+.relive-mapping-select {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  /* 親が grid セルの場合に縮められるようにする。 */
+  min-width: 0;
+}
+
+.relive-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(54px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.relive-summary div {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+}
+
+.relive-summary dt {
+  color: rgba(243, 239, 231, 0.45);
+  font-size: 0.62rem;
+}
+
+.relive-summary dd {
+  margin: 0;
+  color: #fff4ce;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.relive-setlist {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relive-setlist li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+/* 中央カラム(<div>): 中の <select> の最長 option で押し広げられないよう、
+   intrinsic min-width をリセットして縮められるようにする。 */
+.relive-setlist li>div {
+  min-width: 0;
+}
+
+.relive-setlist li>span {
+  color: rgba(243, 239, 231, 0.42);
+  font-variant-numeric: tabular-nums;
+}
+
+.relive-setlist strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: rgba(243, 239, 231, 0.94);
+  font-size: 0.9rem;
+}
+
+/* セトリ各曲の左に置く「この曲を再生」ボタン。タイトル行に inline-flex で並べる。 */
+.relive-setlist-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.relive-setlist-play-button {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 239, 231, 0.35);
+  background: rgba(243, 239, 231, 0.06);
+  color: rgba(243, 239, 231, 0.85);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.relive-setlist-play-button:hover {
+  background: rgba(243, 239, 231, 0.18);
+  border-color: rgba(243, 239, 231, 0.7);
+}
+
+.relive-setlist-play-button:active {
+  transform: scale(0.92);
+}
+
+.relive-setlist-play-button:focus-visible {
+  outline: 2px solid rgba(180, 220, 255, 0.85);
+  outline-offset: 2px;
+}
+
+.relive-setlist small {
+  display: block;
+  margin-top: 2px;
+  color: rgba(243, 239, 231, 0.46);
+  font-size: 0.72rem;
+}
+
+.relive-setlist em {
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-style: normal;
+}
+
+.relive-setlist .status-matched em {
+  color: #d8fff0;
+  background: rgba(31, 153, 103, 0.22);
+}
+
+.relive-setlist .status-candidate em,
+.relive-setlist .status-manual_required em {
+  color: #fff4ce;
+  background: rgba(204, 155, 56, 0.22);
+}
+
+.relive-setlist .status-missing em {
+  color: #ffbeb6;
+  background: rgba(199, 43, 40, 0.22);
+}
+
+.relive-setlist .status-special em {
+  color: #d8e7ff;
+  background: rgba(55, 98, 157, 0.28);
+}
+
+.relive-sr {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (min-width: 680px) {
+  .relive-room {
+    padding-top: 40px;
+  }
+
+  .relive-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .relive-stage,
+  .relive-canvas {
+    min-height: 420px;
+  }
+
+  .relive-summary {
+    grid-template-columns: repeat(4, minmax(54px, 1fr));
+  }
+}
+
+/* 音源マッチ折りたたみパネル。普段は閉じておき、要調整時だけバッジを出す。 */
+.relive-matching {
+  padding: 0;
+}
+
+.relive-matching>.relive-matching-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  color: rgba(255, 244, 206, 0.82);
+  font-size: 0.85rem;
+}
+
+.relive-matching>.relive-matching-summary::-webkit-details-marker {
+  display: none;
+}
+
+.relive-matching>.relive-matching-summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 0.8em;
+  transition: transform 0.15s ease;
+  color: rgba(255, 244, 206, 0.55);
+}
+
+.relive-matching[open]>.relive-matching-summary::before {
+  transform: rotate(90deg);
+}
+
+.relive-matching-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.relive-matching-counts {
+  flex: 1;
+  text-align: right;
+  font-size: 0.74rem;
+  color: rgba(243, 239, 231, 0.6);
+  font-variant-numeric: tabular-nums;
+}
+
+.relive-matching-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(217, 88, 55, 0.78);
+  color: #fff4ce;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.relive-matching-attention>.relive-matching-summary {
+  color: rgba(255, 220, 200, 0.95);
+}
+
+.relive-matching[open]>.relive-panel-heading,
+.relive-matching[open]>.relive-wide-button,
+.relive-matching[open]>.relive-setlist,
+.relive-matching[open]>.relive-note {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.relive-matching[open]>.relive-panel-heading {
+  margin-top: 6px;
+}
+
+.relive-matching[open]>.relive-setlist:last-child {
+  margin-bottom: 16px;
+}

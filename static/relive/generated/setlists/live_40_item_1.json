@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_40_item_1",
+  "tourName": "LuckyFes'23",
+  "liveTitle": "LuckyFes'23",
+  "date": "2023-07-16",
+  "venueName": "国営ひたち海浜公園",
+  "venueId": "venue_国営ひたち海浜公園",
+  "source": {
+    "type": "site_db",
+    "liveId": 40,
+    "liveItemNo": 1,
+    "sourceId": "live_40_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "-Opening-",
+      "displayTitle": "-Opening-",
+      "normalizedTitle": "opening",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_44",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_56",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_57",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_6",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_110",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "煽げや尊し(Agitate)",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "normalizedTitle": "煽げや尊しagitate",
+      "policy": "required",
+      "trackId": "song_104",
+      "aliases": [
+        "煽げや尊し"
+      ],
+      "expectedDurationSec": 217.1,
+      "afterglowTailSec": 15.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_40_item_1_entry_8",
+      "order": 8,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_92",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

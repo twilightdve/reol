@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-aeaf-712a-9927-2e2feb5ec614",
+  "tourName": "YouTube FanFest Japan 2019",
+  "liveTitle": "YouTube FanFest Japan 2019",
+  "date": "2019-12-04",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_幕張メッセ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7566-707f-a39f-740c8fb977eb",
+    "liveItemUuid": "019e8284-aeaf-712a-9927-2e2feb5ec614",
+    "sourceId": "live_item_019e8284-aeaf-712a-9927-2e2feb5ec614"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aeaf-712a-9927-2e2feb5ec614_entry_019e82a6-e7ae-703a-a944-4a94de5e1646",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

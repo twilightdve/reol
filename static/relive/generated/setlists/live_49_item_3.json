@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_3",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" 上海",
+  "date": "2024-03-06",
+  "venueName": "蜚声 PHASE LIVE HOUSE",
+  "venueId": "venue_蜚声_phase_live_house",
+  "source": {
+    "type": "site_db",
+    "liveId": 49,
+    "liveItemNo": 3,
+    "sourceId": "live_49_item_3"
+  },
+  "entries": []
+}

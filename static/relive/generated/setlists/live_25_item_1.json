@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_25_item_1",
+  "tourName": "YOUTUBE MUSIC WEEKEND",
+  "liveTitle": "YOUTUBE MUSIC WEEKEND YouTube",
+  "date": "2020-12-06",
+  "source": {
+    "type": "site_db",
+    "liveId": 25,
+    "liveItemNo": 1,
+    "sourceId": "live_25_item_1"
+  },
+  "entries": []
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_72_item_21",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 東京",
+  "date": "2026-07-10",
+  "venueName": "LINE CUBE SHIBUYA",
+  "venueId": "venue_line_cube_shibuya",
+  "source": {
+    "type": "site_db",
+    "liveId": 72,
+    "liveItemNo": 21,
+    "sourceId": "live_72_item_21"
+  },
+  "entries": []
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-aa7a-7493-9934-11e7e79d9956",
+  "tourName": "Reol Secret Live 2019「文明ココロミー」",
+  "liveTitle": "Reol Secret Live 2019「文明ココロミー」 -央の塔-",
+  "date": "2019-07-19",
+  "venueName": "名古屋 E.L.L.",
+  "venueId": "venue_名古屋_e_l_l",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
+    "liveItemUuid": "019e8284-aa7a-7493-9934-11e7e79d9956",
+    "sourceId": "live_item_019e8284-aa7a-7493-9934-11e7e79d9956"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-aa7a-7493-9934-11e7e79d9956_entry_019e82a6-ba27-715a-9f5d-151d618b6499",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

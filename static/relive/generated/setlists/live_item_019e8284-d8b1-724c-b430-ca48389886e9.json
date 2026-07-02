@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9",
+  "tourName": "Reol Secret Live  \"極秘LEGIT\"",
+  "liveTitle": "Reol Secret Live  \"極秘LEGIT\" 西の宴",
+  "date": "2024-04-06",
+  "venueName": "BIG CAT",
+  "venueId": "venue_big_cat",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
+    "liveItemUuid": "019e8284-d8b1-724c-b430-ca48389886e9",
+    "sourceId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1c87-78da-bccd-329000680205",
+      "order": 1,
+      "rawTitle": "VIORA",
+      "displayTitle": "VIORA",
+      "normalizedTitle": "viora",
+      "policy": "required",
+      "trackId": "song_019e8282-98ec-78d4-a7e5-1429844e87a6",
+      "aliases": [],
+      "expectedDurationSec": 222.8,
+      "afterglowTailSec": 11.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1d2d-73ad-b30a-d5a7c85c77ec",
+      "order": 2,
+      "rawTitle": "ダリ",
+      "displayTitle": "ダリ",
+      "normalizedTitle": "ダリ",
+      "policy": "required",
+      "trackId": "song_019e8282-b080-7b80-b17b-5b31ddfbe416",
+      "aliases": [],
+      "expectedDurationSec": 191.2,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1d98-79f0-a920-1b5cf0ebe358",
+      "order": 3,
+      "rawTitle": "Nd60",
+      "displayTitle": "Nd60",
+      "normalizedTitle": "nd60",
+      "policy": "required",
+      "trackId": "song_019e8282-b65d-763b-bc27-2fbe2ae62a8a",
+      "aliases": [],
+      "expectedDurationSec": 241.1,
+      "afterglowTailSec": 11.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1e00-7756-9c86-28ba804c07fb",
+      "order": 4,
+      "rawTitle": "Winners",
+      "displayTitle": "Winners",
+      "normalizedTitle": "winners",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1e69-7535-b497-078bb34bf16d",
+      "order": 5,
+      "rawTitle": "TAKE OFF",
+      "displayTitle": "TAKE OFF",
+      "normalizedTitle": "takeoff",
+      "policy": "required",
+      "trackId": "song_019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+      "aliases": [],
+      "expectedDurationSec": 236,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1edb-7c35-af50-ca7c4d3611a6",
+      "order": 6,
+      "rawTitle": "Lunatic",
+      "displayTitle": "Lunatic",
+      "normalizedTitle": "lunatic",
+      "policy": "required",
+      "trackId": "song_019e8282-95b3-75bc-93fa-724ccbce939f",
+      "aliases": [],
+      "expectedDurationSec": 197.8,
+      "afterglowTailSec": 10.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1f4a-7316-9253-556dcd9e6991",
+      "order": 7,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_019e8282-b9f9-7865-84a7-e9853fda1749",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-1fad-7f73-93de-944c07adad00",
+      "order": 8,
+      "rawTitle": "激白",
+      "displayTitle": "激白",
+      "normalizedTitle": "激白",
+      "policy": "required",
+      "trackId": "song_019e8282-a043-72e8-a2e5-fe78da7ab58c",
+      "aliases": [],
+      "expectedDurationSec": 206.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2021-7f07-ac7c-2b042143b9d7",
+      "order": 9,
+      "rawTitle": "mede:mede",
+      "displayTitle": "mede:mede",
+      "normalizedTitle": "medemede",
+      "policy": "required",
+      "trackId": "song_019e8282-8ba5-7d40-902b-e994975bf05a",
+      "aliases": [],
+      "expectedDurationSec": 215.1,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2090-7463-9cd8-8793e5699651",
+      "order": 10,
+      "rawTitle": "ミュータント",
+      "displayTitle": "ミュータント",
+      "normalizedTitle": "ミュータント",
+      "policy": "required",
+      "trackId": "song_019e8282-b605-7246-8348-d347270aa7e6",
+      "aliases": [],
+      "expectedDurationSec": 248.1,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2309-7e37-9bbf-1fd5e85d45dd",
+      "order": 11,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-237d-76b9-985b-925e6f9f0f2f",
+      "order": 12,
+      "rawTitle": "ゆーれいずみー",
+      "displayTitle": "ゆーれいずみー",
+      "normalizedTitle": "ゆーれいずみー",
+      "policy": "required",
+      "trackId": "song_019e8282-acdf-79e4-b6be-f1de4e78e657",
+      "aliases": [],
+      "expectedDurationSec": 231.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-23e6-7de7-bc31-2b63dc5f6be6",
+      "order": 13,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2445-7d92-bafe-72b240567f62",
+      "order": 14,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-24c2-728a-947f-b6a5f966c2ab",
+      "order": 15,
+      "rawTitle": "-nil-",
+      "displayTitle": "-nil-",
+      "normalizedTitle": "nil",
+      "policy": "required",
+      "trackId": "song_019e8282-88dd-71bc-a94d-9cdd721917e3",
+      "aliases": [],
+      "expectedDurationSec": 36.9,
+      "afterglowTailSec": 9.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2524-7945-8639-6abdfc9aae8f",
+      "order": 16,
+      "rawTitle": "極彩色",
+      "displayTitle": "極彩色",
+      "normalizedTitle": "極彩色",
+      "policy": "required",
+      "trackId": "song_019e8282-8933-7d04-8788-b26cdc9183a6",
+      "aliases": [],
+      "expectedDurationSec": 250.5,
+      "afterglowTailSec": 12.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-2588-7b96-8afb-acff5cf2f71d",
+      "order": 17,
+      "rawTitle": "質問コーナー",
+      "displayTitle": "質問コーナー",
+      "normalizedTitle": "質問コーナー",
+      "policy": "medley",
+      "afterglowTailSec": 4,
+      "note": "medley_keyword",
+      "match": {
+        "status": "special",
+        "reason": "medley_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d8b1-724c-b430-ca48389886e9_entry_019e82a9-25ef-73ae-b0fb-647376b563d6",
+      "order": 18,
+      "rawTitle": "抽選会",
+      "displayTitle": "抽選会",
+      "normalizedTitle": "抽選会",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    }
+  ]
+}

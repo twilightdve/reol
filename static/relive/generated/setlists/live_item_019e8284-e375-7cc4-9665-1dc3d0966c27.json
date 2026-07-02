@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27",
+  "tourName": "須田景凪 presents \"MINGLE -三面鏡-“",
+  "liveTitle": "須田景凪 presents \"MINGLE -三面鏡-“ 大阪",
+  "date": "2025-07-26",
+  "venueName": "Zeep Namba",
+  "venueId": "venue_zeep_namba",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
+    "liveItemUuid": "019e8284-e375-7cc4-9665-1dc3d0966c27",
+    "sourceId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-d874-7b7a-970e-0b7ccecd637b",
+      "order": 1,
+      "rawTitle": "レディーレ Fall apart arr.",
+      "displayTitle": "レディーレ Fall apart arr.",
+      "normalizedTitle": "レディーレfallapartarr",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-da55-7c20-a902-afca2d8bd1fe",
+      "order": 2,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dab7-79ec-9d7b-ba1a0d37056e",
+      "order": 3,
+      "rawTitle": "ヒビカセ",
+      "displayTitle": "ヒビカセ",
+      "normalizedTitle": "ヒビカセ",
+      "policy": "required",
+      "trackId": "song_019e8282-801f-7552-a1a6-fa5a912a47f8",
+      "aliases": [],
+      "expectedDurationSec": 250.6,
+      "afterglowTailSec": 11,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-db18-74b8-840a-ac45a81c99e4",
+      "order": 4,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_019e8282-b9f9-7865-84a7-e9853fda1749",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dbea-7399-a74e-e66ba614dcfb",
+      "order": 5,
+      "rawTitle": "失楽園",
+      "displayTitle": "失楽園",
+      "normalizedTitle": "失楽園",
+      "policy": "required",
+      "trackId": "song_019e8282-a7d9-7308-98f9-05fe78d54b53",
+      "aliases": [],
+      "expectedDurationSec": 254.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dcb4-7baa-affe-e211e6c1dd9a",
+      "order": 6,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dd19-736b-b64e-824dcc5d6fc6",
+      "order": 7,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dd82-7184-b92e-b2df13948e66",
+      "order": 8,
+      "rawTitle": "劣等上等",
+      "displayTitle": "劣等上等",
+      "normalizedTitle": "劣等上等",
+      "policy": "required",
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27_entry_019e82a9-dde4-707c-949e-68c4e040a3a6",
+      "order": 9,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

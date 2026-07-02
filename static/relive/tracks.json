@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T12:00:00+09:00",
+  "tracks": [
+    {
+      "schemaVersion": 1,
+      "trackId": "track_dairokkan",
+      "canonicalTitle": "第六感",
+      "aliases": [
+        "Dairokkan",
+        "THE SIXTH SENSE",
+        "6th sense",
+        "第6感"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 206,
+      "matchHints": [
+        "第六感",
+        "dairokkan",
+        "sixth"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_404",
+      "canonicalTitle": "404 not found",
+      "aliases": [
+        "404",
+        "404 NOT FOUND",
+        "404notfound"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 244,
+      "matchHints": [
+        "404"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_end",
+      "canonicalTitle": "エンド",
+      "aliases": [
+        "END",
+        "end"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 238,
+      "matchHints": [
+        "エンド",
+        "end"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_syrup",
+      "canonicalTitle": "syrup",
+      "aliases": [
+        "Syrup",
+        "シロップ"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 222,
+      "matchHints": [
+        "syrup",
+        "シロップ"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_yukyo_waltz",
+      "canonicalTitle": "幽居のワルツ",
+      "aliases": [
+        "幽居のワルツ",
+        "Yuukyo no Waltz",
+        "Yukyo no Waltz"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 251,
+      "matchHints": [
+        "幽居",
+        "ワルツ",
+        "waltz"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_missing",
+      "canonicalTitle": "ミッシング",
+      "aliases": [
+        "Missing",
+        "MISSING"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 233,
+      "matchHints": [
+        "ミッシング",
+        "missing"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_no_title",
+      "canonicalTitle": "No title",
+      "aliases": [
+        "No Title",
+        "no title",
+        "NOTITLE"
+      ],
+      "artistNames": [
+        "れをる",
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 266,
+      "matchHints": [
+        "notitle",
+        "no title"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "track_luvoratorrrrry",
+      "canonicalTitle": "LUVORATORRRRRY!",
+      "aliases": [
+        "LUVORATORRRRRY",
+        "LUVORATORRRRRY!",
+        "ルヴォレーター"
+      ],
+      "artistNames": [
+        "Reol",
+        "REOL"
+      ],
+      "kind": "original",
+      "expectedDurationSec": 209,
+      "matchHints": [
+        "luvorator"
+      ]
+    }
+  ]
+}

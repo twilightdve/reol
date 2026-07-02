@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_60_item_5",
+  "tourName": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+  "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム Guangzhou",
+  "date": "2025-06-06",
+  "source": {
+    "type": "site_db",
+    "liveId": 60,
+    "liveItemNo": 5,
+    "sourceId": "live_60_item_5"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_60_item_5_entry_1",
+      "order": 1,
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

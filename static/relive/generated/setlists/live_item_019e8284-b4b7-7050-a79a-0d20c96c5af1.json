@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1",
+  "tourName": "JAPAN ONLINE FESTIVAL 2020",
+  "liveTitle": "JAPAN ONLINE FESTIVAL 2020 オンライン",
+  "date": "2020-11-07",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-775f-7687-aa9a-96d8800107b6",
+    "liveItemUuid": "019e8284-b4b7-7050-a79a-0d20c96c5af1",
+    "sourceId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a6-fff4-7f16-9d01-711a3efd8d5d",
+      "order": 1,
+      "rawTitle": "Q?",
+      "displayTitle": "Q?",
+      "normalizedTitle": "q",
+      "policy": "required",
+      "trackId": "song_019e8282-b2ad-7dd6-9931-f352016f0f37",
+      "aliases": [],
+      "expectedDurationSec": 194,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-0063-74ca-999a-c856503a87f1",
+      "order": 2,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-00cc-7fc8-a0b2-17e7d1ab696e",
+      "order": 3,
+      "rawTitle": "insider",
+      "displayTitle": "insider",
+      "normalizedTitle": "insider",
+      "policy": "required",
+      "trackId": "song_019e8282-b012-7b78-8e55-fa91bc320dd8",
+      "aliases": [],
+      "expectedDurationSec": 221.9,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-0130-7ef2-907d-10b411e193d0",
+      "order": 4,
+      "rawTitle": "ミラージュ",
+      "displayTitle": "ミラージュ",
+      "normalizedTitle": "ミラージュ",
+      "policy": "required",
+      "trackId": "song_019e8282-a484-7754-947a-b329bcd014cd",
+      "aliases": [],
+      "expectedDurationSec": 222.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-019c-7d6b-8610-e181b6c44415",
+      "order": 5,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_019e8282-adad-7bc0-9325-9fe96e85c651",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-01ff-7204-8726-2444ce6d4bb3",
+      "order": 6,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-0271-7067-8c52-77fe83c5bb6b",
+      "order": 7,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 15.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b4b7-7050-a79a-0d20c96c5af1_entry_019e82a7-0307-7b0b-8bbc-825d9cf52118",
+      "order": 8,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

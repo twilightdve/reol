@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a5a7-7ea4-8fe6-5e952d216409",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 大阪",
+  "date": "2018-10-26",
+  "venueName": "なんばHatch",
+  "venueId": "venue_なんばhatch",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+    "liveItemUuid": "019e8284-a5a7-7ea4-8fe6-5e952d216409",
+    "sourceId": "live_item_019e8284-a5a7-7ea4-8fe6-5e952d216409"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a5a7-7ea4-8fe6-5e952d216409_entry_019e82a6-81e9-77fa-a949-c0426fefba0f",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

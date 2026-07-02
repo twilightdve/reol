@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_12_item_1",
+  "tourName": "ビクターロック祭り 2018",
+  "liveTitle": "ビクターロック祭り 2018",
+  "date": "2018-03-17",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_幕張メッセ",
+  "source": {
+    "type": "site_db",
+    "liveId": 12,
+    "liveItemNo": 1,
+    "sourceId": "live_12_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "エンド",
+      "displayTitle": "エンド",
+      "normalizedTitle": "エンド",
+      "policy": "required",
+      "trackId": "song_46",
+      "aliases": [],
+      "expectedDurationSec": 297.7,
+      "afterglowTailSec": 13.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "ミッシング",
+      "displayTitle": "ミッシング",
+      "normalizedTitle": "ミッシング",
+      "policy": "required",
+      "trackId": "song_48",
+      "aliases": [],
+      "expectedDurationSec": 287.3,
+      "afterglowTailSec": 17.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_12_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_45",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 15.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

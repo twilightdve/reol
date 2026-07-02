@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_4",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 愛知",
+  "date": "2018-11-17",
+  "venueName": "ReNY limited",
+  "venueId": "venue_reny_limited",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 4,
+    "sourceId": "live_14_item_4"
+  },
+  "entries": []
+}

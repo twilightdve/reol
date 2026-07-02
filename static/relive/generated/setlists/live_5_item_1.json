@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_5_item_1",
+  "tourName": "れをる単独公演「極彩色HighFidelity」",
+  "liveTitle": "れをる単独公演「極彩色HighFidelity」 東の宴",
+  "date": "2015-10-23",
+  "venueName": "TSUTAYA O-EAST",
+  "venueId": "venue_tsutaya_o_east",
+  "source": {
+    "type": "site_db",
+    "liveId": 5,
+    "liveItemNo": 1,
+    "sourceId": "live_5_item_1"
+  },
+  "entries": []
+}

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_24_item_1",
+  "tourName": "JAPAN ONLINE FESTIVAL 2020",
+  "liveTitle": "JAPAN ONLINE FESTIVAL 2020 オンライン",
+  "date": "2020-11-07",
+  "source": {
+    "type": "site_db",
+    "liveId": 24,
+    "liveItemNo": 1,
+    "sourceId": "live_24_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "Q?",
+      "displayTitle": "Q?",
+      "normalizedTitle": "q",
+      "policy": "required",
+      "trackId": "song_93",
+      "aliases": [],
+      "expectedDurationSec": 194,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_45",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "insider",
+      "displayTitle": "insider",
+      "normalizedTitle": "insider",
+      "policy": "required",
+      "trackId": "song_87",
+      "aliases": [],
+      "expectedDurationSec": 221.9,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "ミラージュ",
+      "displayTitle": "ミラージュ",
+      "normalizedTitle": "ミラージュ",
+      "policy": "required",
+      "trackId": "song_60",
+      "aliases": [],
+      "expectedDurationSec": 222.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_81",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_66",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_56",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 15.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_24_item_1_entry_8",
+      "order": 8,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_92",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

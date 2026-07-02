@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-d7df-7be2-a435-262dac645f01",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" TAIPEI",
+  "date": "2024-03-16",
+  "venueName": "Zepp New Taipei",
+  "venueId": "venue_zepp_new_taipei",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+    "liveItemUuid": "019e8284-d7df-7be2-a435-262dac645f01",
+    "sourceId": "live_item_019e8284-d7df-7be2-a435-262dac645f01"
+  },
+  "entries": []
+}

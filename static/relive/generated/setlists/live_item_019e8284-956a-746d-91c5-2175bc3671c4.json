@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-956a-746d-91c5-2175bc3671c4",
+  "tourName": "amphead nico nico singer music live vol.03",
+  "liveTitle": "amphead nico nico singer music live vol.03",
+  "date": "2014-02-01",
+  "venueName": "原宿 ASTRO HALL",
+  "venueId": "venue_原宿_astro_hall",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6d3e-7f46-89f0-1461daae9eeb",
+    "liveItemUuid": "019e8284-956a-746d-91c5-2175bc3671c4",
+    "sourceId": "live_item_019e8284-956a-746d-91c5-2175bc3671c4"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-956a-746d-91c5-2175bc3671c4_entry_019e82a6-1d52-785d-aca3-5794b077f25d",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

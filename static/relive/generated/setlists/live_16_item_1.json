@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_16_item_1",
+  "tourName": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+  "liveTitle": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+  "date": "2019-08-03",
+  "venueName": "国営ひたち海浜公園",
+  "venueId": "venue_国営ひたち海浜公園",
+  "source": {
+    "type": "site_db",
+    "liveId": 16,
+    "liveItemNo": 1,
+    "sourceId": "live_16_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "宵々古今",
+      "displayTitle": "宵々古今",
+      "normalizedTitle": "宵々古今",
+      "policy": "required",
+      "trackId": "song_30",
+      "aliases": [],
+      "expectedDurationSec": 257.7,
+      "afterglowTailSec": 13,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "サイサキ",
+      "displayTitle": "サイサキ",
+      "normalizedTitle": "サイサキ",
+      "policy": "required",
+      "trackId": "song_51",
+      "aliases": [],
+      "expectedDurationSec": 217.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_45",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "ゆーれいずみー",
+      "displayTitle": "ゆーれいずみー",
+      "normalizedTitle": "ゆーれいずみー",
+      "policy": "required",
+      "trackId": "song_79",
+      "aliases": [],
+      "expectedDurationSec": 231.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_6",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_66",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 15.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_16_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_44",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

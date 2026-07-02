@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b648-7830-b110-8a8f621d156c",
+  "tourName": "Reol Installation Concert 2021「音沙汰」",
+  "liveTitle": "Reol Installation Concert 2021「音沙汰」 東京",
+  "date": "2021-06-26",
+  "venueName": "LINE CUBE SHIBUYA",
+  "venueId": "venue_line_cube_shibuya",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-78f9-7151-851e-dab821f871cf",
+    "liveItemUuid": "019e8284-b648-7830-b110-8a8f621d156c",
+    "sourceId": "live_item_019e8284-b648-7830-b110-8a8f621d156c"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-09c2-73db-9e8c-5cb57e02c596",
+      "order": 1,
+      "rawTitle": "un, deux, trois",
+      "displayTitle": "un, deux, trois",
+      "normalizedTitle": "undeuxtrois",
+      "policy": "required",
+      "trackId": "song_019e8282-afa5-7e91-9c36-59164936111c",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0a2a-7e85-9c14-bd6d4ad4aea4",
+      "order": 2,
+      "rawTitle": "カルト",
+      "displayTitle": "カルト",
+      "normalizedTitle": "カルト",
+      "policy": "required",
+      "trackId": "song_019e8282-9db9-780c-8bac-8a5af7dc20a4",
+      "aliases": [],
+      "expectedDurationSec": 271.2,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0aaa-7efd-90ee-c17eab35a180",
+      "order": 3,
+      "rawTitle": "SAIREN",
+      "displayTitle": "SAIREN",
+      "normalizedTitle": "sairen",
+      "policy": "required",
+      "trackId": "song_019e8282-9eea-7677-822b-93f7cf6fbc6a",
+      "aliases": [],
+      "expectedDurationSec": 231.9,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0b1d-7d24-bad3-39e4df9010f9",
+      "order": 4,
+      "rawTitle": "激白",
+      "displayTitle": "激白",
+      "normalizedTitle": "激白",
+      "policy": "required",
+      "trackId": "song_019e8282-a043-72e8-a2e5-fe78da7ab58c",
+      "aliases": [],
+      "expectedDurationSec": 206.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0b95-757e-a1a2-b18b5409bb75",
+      "order": 5,
+      "rawTitle": "秋映",
+      "displayTitle": "秋映",
+      "normalizedTitle": "秋映",
+      "policy": "required",
+      "trackId": "song_019e8282-a55e-7762-a9ca-0995bc06f57f",
+      "aliases": [],
+      "expectedDurationSec": 182.1,
+      "afterglowTailSec": 10.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0c02-7c96-9f1c-4a0fb1b1562e",
+      "order": 6,
+      "rawTitle": "1LDK",
+      "displayTitle": "1LDK",
+      "normalizedTitle": "1ldk",
+      "policy": "required",
+      "trackId": "song_019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+      "aliases": [],
+      "expectedDurationSec": 234.5,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0c6f-7883-b706-aa18e555eb6e",
+      "order": 7,
+      "rawTitle": "真空オールドローズ",
+      "displayTitle": "真空オールドローズ",
+      "normalizedTitle": "真空オールドローズ",
+      "policy": "required",
+      "trackId": "song_019e8282-a3bf-78da-920a-67daf07accf9",
+      "aliases": [],
+      "expectedDurationSec": 249,
+      "afterglowTailSec": 12.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0e64-74bf-9101-7d7dea840a39",
+      "order": 8,
+      "rawTitle": "ちるちる",
+      "displayTitle": "ちるちる",
+      "normalizedTitle": "ちるちる",
+      "policy": "required",
+      "trackId": "song_019e8282-9677-71ba-834f-526dbc3b7b50",
+      "aliases": [],
+      "expectedDurationSec": 197.1,
+      "afterglowTailSec": 11,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-0fe2-7987-8c36-8d6d954a200c",
+      "order": 9,
+      "rawTitle": "ハーメルン",
+      "displayTitle": "ハーメルン",
+      "normalizedTitle": "ハーメルン",
+      "policy": "required",
+      "trackId": "song_019e8282-af43-7216-898c-3e8d77c87b12",
+      "aliases": [],
+      "expectedDurationSec": 199.3,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-1054-7fac-bb9c-e9e7d364eb04",
+      "order": 10,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_019e8282-8424-7cc7-a286-7bf3738631d1",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 12.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-10c3-735a-af09-3a1ee8739d8c",
+      "order": 11,
+      "rawTitle": "白夜(White Midnight)",
+      "displayTitle": "白夜(White Midnight)",
+      "normalizedTitle": "白夜whitemidnight",
+      "policy": "required",
+      "trackId": "song_019e8282-b315-798d-b991-c7fc740b5dc5",
+      "aliases": [
+        "白夜"
+      ],
+      "expectedDurationSec": 251.2,
+      "afterglowTailSec": 12.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-1131-77ad-9e94-ffa49f39befb",
+      "order": 12,
+      "rawTitle": "Behind The Night",
+      "displayTitle": "Behind The Night",
+      "normalizedTitle": "behindthenight",
+      "policy": "required",
+      "trackId": "song_019e8282-8ee8-73ac-ac5f-6c399eac0fd3",
+      "aliases": [],
+      "expectedDurationSec": 289.4,
+      "afterglowTailSec": 12.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-11a1-7c47-bd88-848a68b7ac0c",
+      "order": 13,
+      "rawTitle": "ミラージュ",
+      "displayTitle": "ミラージュ",
+      "normalizedTitle": "ミラージュ",
+      "policy": "required",
+      "trackId": "song_019e8282-a484-7754-947a-b329bcd014cd",
+      "aliases": [],
+      "expectedDurationSec": 222.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-1209-75ff-8144-ef6af04408ec",
+      "order": 14,
+      "rawTitle": "GRIMOIRE",
+      "displayTitle": "GRIMOIRE",
+      "normalizedTitle": "grimoire",
+      "policy": "required",
+      "trackId": "song_019e8282-b15a-78b5-aba8-2ec6c1deb7cf",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-1279-7c82-b14e-0d2d61e6beb8",
+      "order": 15,
+      "rawTitle": "ラ・タタン",
+      "displayTitle": "ラ・タタン",
+      "normalizedTitle": "ラタタン",
+      "policy": "required",
+      "trackId": "song_019e8282-8d1b-7746-a03c-6168be0b3d0e",
+      "aliases": [],
+      "expectedDurationSec": 214.5,
+      "afterglowTailSec": 10.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-12f3-71d0-91fb-dc2ab9bba626",
+      "order": 16,
+      "rawTitle": "神様になった日",
+      "displayTitle": "神様になった日",
+      "normalizedTitle": "神様になった日",
+      "policy": "required",
+      "trackId": "song_019e8282-9618-718f-b19f-8707fc5f04d3",
+      "aliases": [],
+      "expectedDurationSec": 245.1,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-135c-75a9-93bf-b7254b716938",
+      "order": 17,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_019e8282-908f-7915-a305-74f7c9d6efcc",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-13d4-70f6-b166-9e945f6cf85d",
+      "order": 18,
+      "rawTitle": "失楽園",
+      "displayTitle": "失楽園",
+      "normalizedTitle": "失楽園",
+      "policy": "required",
+      "trackId": "song_019e8282-a7d9-7308-98f9-05fe78d54b53",
+      "aliases": [],
+      "expectedDurationSec": 254.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-144b-7aff-a999-6bf6c2df6530",
+      "order": 19,
+      "rawTitle": "Q?",
+      "displayTitle": "Q?",
+      "normalizedTitle": "q",
+      "policy": "required",
+      "trackId": "song_019e8282-b2ad-7dd6-9931-f352016f0f37",
+      "aliases": [],
+      "expectedDurationSec": 194,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-14be-7424-83cf-761fd41f71ce",
+      "order": 20,
+      "rawTitle": "MONSTER",
+      "displayTitle": "MONSTER",
+      "normalizedTitle": "monster",
+      "policy": "required",
+      "trackId": "song_019e8282-9020-7457-9b15-125dc38bee15",
+      "aliases": [],
+      "expectedDurationSec": 201.9,
+      "afterglowTailSec": 12.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-152a-729c-8465-a85450d30f2a",
+      "order": 21,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_019e8282-adad-7bc0-9325-9fe96e85c651",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-159d-7d55-84db-77b02a4d05ff",
+      "order": 22,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 15.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b648-7830-b110-8a8f621d156c_entry_019e82a7-1613-7e97-916a-2ad0812496e2",
+      "order": 23,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

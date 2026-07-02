@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-d643-71d2-aceb-15d61dba4622",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" 深圳",
+  "date": "2024-03-02",
+  "venueName": "NUBOND LIVE HOUSE",
+  "venueId": "venue_nubond_live_house",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+    "liveItemUuid": "019e8284-d643-71d2-aceb-15d61dba4622",
+    "sourceId": "live_item_019e8284-d643-71d2-aceb-15d61dba4622"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d643-71d2-aceb-15d61dba4622_entry_019e82a9-1a70-7013-91c7-051c6875e222",
+      "order": 1,
+      "rawTitle": "-",
+      "displayTitle": "-",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_8_item_4",
+  "tourName": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+  "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』 KOREA",
+  "date": "2017-03-12",
+  "venueName": "HONGDAE V-HALL",
+  "venueId": "venue_hongdae_v_hall",
+  "source": {
+    "type": "site_db",
+    "liveId": 8,
+    "liveItemNo": 4,
+    "sourceId": "live_8_item_4"
+  },
+  "entries": []
+}

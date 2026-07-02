@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b588-74d5-99f6-8cb4ee707858",
+  "tourName": "COUNTDOWN JAPAN 20/21　※中止",
+  "liveTitle": "COUNTDOWN JAPAN 20/21　※中止",
+  "date": "2020-12-30",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7836-736b-be31-ed5a2dda7959",
+    "liveItemUuid": "019e8284-b588-74d5-99f6-8cb4ee707858",
+    "sourceId": "live_item_019e8284-b588-74d5-99f6-8cb4ee707858"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b588-74d5-99f6-8cb4ee707858_entry_019e82a7-03e6-772e-a793-bca254c6ea39",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

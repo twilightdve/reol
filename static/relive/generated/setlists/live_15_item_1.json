@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_15_item_1",
+  "tourName": "Reol Secret Live 2019「文明ココロミー」",
+  "liveTitle": "Reol Secret Live 2019「文明ココロミー」 -東の塔-",
+  "date": "2019-07-13",
+  "venueName": "渋谷ストリームホール",
+  "venueId": "venue_渋谷ストリ_ムホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveId": 15,
+    "liveItemNo": 1,
+    "sourceId": "live_15_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "ギミアブレスタッナウ",
+      "displayTitle": "ギミアブレスタッナウ",
+      "normalizedTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "trackId": "song_29",
+      "aliases": [],
+      "expectedDurationSec": 222,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "DetaramE KiddinG",
+      "displayTitle": "DetaramE KiddinG",
+      "normalizedTitle": "detaramekidding",
+      "policy": "required",
+      "trackId": "song_37",
+      "aliases": [],
+      "expectedDurationSec": 197.2,
+      "afterglowTailSec": 11.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_57",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "シンカロン",
+      "displayTitle": "シンカロン",
+      "normalizedTitle": "シンカロン",
+      "policy": "required",
+      "trackId": "song_67",
+      "aliases": [],
+      "expectedDurationSec": 222.3,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "失楽園",
+      "displayTitle": "失楽園",
+      "normalizedTitle": "失楽園",
+      "policy": "required",
+      "trackId": "song_68",
+      "aliases": [],
+      "expectedDurationSec": 254.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "ミラージュ",
+      "displayTitle": "ミラージュ",
+      "normalizedTitle": "ミラージュ",
+      "policy": "required",
+      "trackId": "song_60",
+      "aliases": [],
+      "expectedDurationSec": 222.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "-BWW SCREAM-",
+      "displayTitle": "-BWW SCREAM-",
+      "normalizedTitle": "bwwscream",
+      "policy": "required",
+      "trackId": "song_8",
+      "aliases": [],
+      "expectedDurationSec": 81.9,
+      "afterglowTailSec": 12.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_8",
+      "order": 8,
+      "rawTitle": "Winners feat. Reol & Giga",
+      "displayTitle": "Winners feat. Reol & Giga",
+      "normalizedTitle": "winnersfeatgiga",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_9",
+      "order": 9,
+      "rawTitle": "テトロドトキサイザ2号",
+      "displayTitle": "テトロドトキサイザ2号",
+      "normalizedTitle": "テトロドトキサイザ2号",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_10",
+      "order": 10,
+      "rawTitle": "ニュータイプトーキョー",
+      "displayTitle": "ニュータイプトーキョー",
+      "normalizedTitle": "ニュータイプトーキョー",
+      "policy": "required",
+      "trackId": "song_41",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_11",
+      "order": 11,
+      "rawTitle": "サマーホラーパーティ",
+      "displayTitle": "サマーホラーパーティ",
+      "normalizedTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "trackId": "song_38",
+      "aliases": [],
+      "expectedDurationSec": 254.6,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_12",
+      "order": 12,
+      "rawTitle": "21世紀難民",
+      "displayTitle": "21世紀難民",
+      "normalizedTitle": "21世紀難民",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_13",
+      "order": 13,
+      "rawTitle": "ゆーれいずみー",
+      "displayTitle": "ゆーれいずみー",
+      "normalizedTitle": "ゆーれいずみー",
+      "policy": "required",
+      "trackId": "song_79",
+      "aliases": [],
+      "expectedDurationSec": 231.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_14",
+      "order": 14,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_56",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_15",
+      "order": 15,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_45",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_16",
+      "order": 16,
+      "rawTitle": "ウテナ",
+      "displayTitle": "ウテナ",
+      "normalizedTitle": "ウテナ",
+      "policy": "required",
+      "trackId": "song_65",
+      "aliases": [],
+      "expectedDurationSec": 198.7,
+      "afterglowTailSec": 16.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_15_item_1_entry_17",
+      "order": 17,
+      "rawTitle": "たい",
+      "displayTitle": "たい",
+      "normalizedTitle": "たい",
+      "policy": "required",
+      "trackId": "song_66",
+      "aliases": [],
+      "expectedDurationSec": 224.7,
+      "afterglowTailSec": 15.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

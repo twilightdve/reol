@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_20_item_1",
+  "tourName": "YouTube FanFest Japan 2019",
+  "liveTitle": "YouTube FanFest Japan 2019",
+  "date": "2019-12-04",
+  "venueName": "幕張メッセ",
+  "venueId": "venue_幕張メッセ",
+  "source": {
+    "type": "site_db",
+    "liveId": 20,
+    "liveItemNo": 1,
+    "sourceId": "live_20_item_1"
+  },
+  "entries": []
+}

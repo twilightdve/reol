@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e002-701d-a4b3-25a4a95a582b",
+  "tourName": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+  "liveTitle": "Reol Oneman Live 2025 カルチュア・カリキュラム Hong Kong",
+  "date": "2025-06-03",
+  "venueName": "PORTAL",
+  "venueId": "venue_portal",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+    "liveItemUuid": "019e8284-e002-701d-a4b3-25a4a95a582b",
+    "sourceId": "live_item_019e8284-e002-701d-a4b3-25a4a95a582b"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e002-701d-a4b3-25a4a95a582b_entry_019e82a9-a67c-7300-8a73-c9ade343e3de",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

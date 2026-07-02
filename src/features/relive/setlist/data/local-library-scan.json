@@ -1,0 +1,5 @@
+{
+  "note": "v0 reference only. Real File objects are never persisted and must be selected by the user each session.",
+  "supportedExtensions": [".flac", ".mp3", ".m4a", ".aac", ".wav"],
+  "fileKey": "relativePath or file.name + size + lastModified"
+}

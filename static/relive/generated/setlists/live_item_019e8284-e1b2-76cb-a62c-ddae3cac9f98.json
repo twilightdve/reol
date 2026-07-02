@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+  "tourName": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+  "liveTitle": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL 横浜",
+  "date": "2025-04-05",
+  "venueName": "KT Zepp Yokohama",
+  "venueId": "venue_kt_zepp_yokohama",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-8a60-7ab0-b760-4ee7014359a6",
+    "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+    "sourceId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-b83e-77e8-9d5c-a4ed7b30f40f",
+      "order": 1,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-b8a6-7710-b408-f9c3bf0f1a36",
+      "order": 2,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-be81-7c4d-a6e9-c68ec1d934f7",
+      "order": 3,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-beef-7a33-b6ef-323487971e44",
+      "order": 4,
+      "rawTitle": "Boy with ゼップへお集まりの皆様",
+      "displayTitle": "Boy with ゼップへお集まりの皆様",
+      "normalizedTitle": "boywithゼップへお集まりの皆様",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-bf5f-73c8-b207-0f80e02c9261",
+      "order": 5,
+      "rawTitle": "シンカロン",
+      "displayTitle": "シンカロン",
+      "normalizedTitle": "シンカロン",
+      "policy": "required",
+      "trackId": "song_019e8282-a763-7a98-ab53-31b9a3d16b68",
+      "aliases": [],
+      "expectedDurationSec": 222.3,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-bfcd-7ddd-8979-00a1b2069310",
+      "order": 6,
+      "rawTitle": "ヒビカセ feat. 初音ミク",
+      "displayTitle": "ヒビカセ feat. 初音ミク",
+      "normalizedTitle": "ヒビカセfeat初音ミク",
+      "policy": "required",
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "candidate",
+        "score": 0.6,
+        "candidates": [
+          "song_019e8282-801f-7552-a1a6-fa5a912a47f8",
+          "song_019e8282-c5b6-7e2d-8a31-7086d0f67f48",
+          "song_019e8282-cbf4-7669-902e-dc0db9590020",
+          "song_019e8282-de9c-7b90-bf1d-b7ef1f6069dd",
+          "song_019e8282-e6a4-709c-ba2b-a538865e833c"
+        ],
+        "reason": "partial_title_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e1b2-76cb-a62c-ddae3cac9f98_entry_019e82a9-c030-7bb9-8527-af81e7f14881",
+      "order": 7,
+      "rawTitle": "劣等上等",
+      "displayTitle": "劣等上等",
+      "normalizedTitle": "劣等上等",
+      "policy": "required",
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

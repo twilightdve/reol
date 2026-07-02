@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89",
+  "tourName": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+  "liveTitle": "Reol Oneman Live in YOKOHAMA ARENA「無題」 神奈川",
+  "date": "2025-11-09",
+  "venueName": "横浜アリーナ",
+  "venueId": "venue_横浜アリ_ナ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+    "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
+    "sourceId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-f2ea-7788-be95-d0f738811b05",
+      "order": 1,
+      "rawTitle": "-序章-",
+      "displayTitle": "-序章-",
+      "normalizedTitle": "序章",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-f35d-71a6-91ce-60f56b6dfe45",
+      "order": 2,
+      "rawTitle": "美辞目録 (Rhetoric Index)",
+      "displayTitle": "美辞目録 (Rhetoric Index)",
+      "normalizedTitle": "美辞目録rhetoricindex",
+      "policy": "required",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
+      "aliases": [
+        "美辞目録"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-f986-7a6b-b199-169fd7062285",
+      "order": 3,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-f9ed-72fb-9953-7840c3136fcd",
+      "order": 4,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-fea4-7727-ae40-4f4ea090a326",
+      "order": 5,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-ff0f-79ec-a658-d2cfa05fb87c",
+      "order": 6,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-ff7b-7489-8517-f47f2ce5870a",
+      "order": 7,
+      "rawTitle": "No title - Seaside Remix",
+      "displayTitle": "No title - Seaside Remix",
+      "normalizedTitle": "notitleseasideremix",
+      "policy": "required",
+      "trackId": "song_019e8282-b7e3-730d-a541-f5b4804e1631",
+      "aliases": [],
+      "expectedDurationSec": 252.1,
+      "afterglowTailSec": 11.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82a9-ffe2-7778-a1ed-ca31a15d740d",
+      "order": 8,
+      "rawTitle": "アストロノーツ",
+      "displayTitle": "アストロノーツ",
+      "normalizedTitle": "アストロノーツ",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0055-7307-952e-74e13cac643f",
+      "order": 9,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-00a9-7231-ae9e-45fa25b712e3",
+      "order": 10,
+      "rawTitle": "ウテナ",
+      "displayTitle": "ウテナ",
+      "normalizedTitle": "ウテナ",
+      "policy": "required",
+      "trackId": "song_019e8282-a69c-7448-bfb1-ae2273ccc08c",
+      "aliases": [],
+      "expectedDurationSec": 198.7,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-012a-7b4a-937b-e7be4546c85b",
+      "order": 11,
+      "rawTitle": "SCORPION",
+      "displayTitle": "SCORPION",
+      "normalizedTitle": "scorpion",
+      "policy": "required",
+      "trackId": "song_019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+      "aliases": [],
+      "expectedDurationSec": 176.9,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-018c-749c-9804-bfda29001973",
+      "order": 12,
+      "rawTitle": "ギミアブレスタッナウ",
+      "displayTitle": "ギミアブレスタッナウ",
+      "normalizedTitle": "ギミアブレスタッナウ",
+      "policy": "required",
+      "trackId": "song_019e8282-916c-7afe-ad65-19e75b32b017",
+      "aliases": [],
+      "expectedDurationSec": 222,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0273-7f94-a0c6-85e3f1fef3cf",
+      "order": 13,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-02e8-73ec-b49d-a236d29d9d14",
+      "order": 14,
+      "rawTitle": "おとめの肖像 (Portrait of Her)",
+      "displayTitle": "おとめの肖像 (Portrait of Her)",
+      "normalizedTitle": "おとめの肖像portraitofher",
+      "policy": "required",
+      "trackId": "song_019e8282-ee94-77a8-b274-270d4d301d22",
+      "aliases": [
+        "おとめの肖像"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0354-77f7-a723-994bf58ddff4",
+      "order": 15,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-03ba-7f78-8eef-1d287cd00d6f",
+      "order": 16,
+      "rawTitle": "ディア",
+      "displayTitle": "ディア",
+      "normalizedTitle": "ディア",
+      "policy": "required",
+      "trackId": "song_019e8282-d2de-7503-a017-b8b32643a99d",
+      "aliases": [],
+      "expectedDurationSec": 174.6,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0425-7f2a-91f4-266ffe1c4c94",
+      "order": 17,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_019e8282-908f-7915-a305-74f7c9d6efcc",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0493-7217-9ac7-5b539076ed44",
+      "order": 18,
+      "rawTitle": "真空オールドローズ",
+      "displayTitle": "真空オールドローズ",
+      "normalizedTitle": "真空オールドローズ",
+      "policy": "required",
+      "trackId": "song_019e8282-a3bf-78da-920a-67daf07accf9",
+      "aliases": [],
+      "expectedDurationSec": 249,
+      "afterglowTailSec": 12.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0629-7d78-8201-1ea1e31bfa8f",
+      "order": 19,
+      "rawTitle": "あ可よろし",
+      "displayTitle": "あ可よろし",
+      "normalizedTitle": "あ可よろし",
+      "policy": "required",
+      "trackId": "song_019e8282-9e1a-7177-9501-7ac3e24ed303",
+      "aliases": [],
+      "expectedDurationSec": 303.6,
+      "afterglowTailSec": 12.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0692-761c-81ab-c7bfc13ac63c",
+      "order": 20,
+      "rawTitle": "Digression of Reol",
+      "displayTitle": "Digression of Reol",
+      "normalizedTitle": "digressionof",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-06fb-78b5-9eb4-240e5ef05dbb",
+      "order": 21,
+      "rawTitle": "激白",
+      "displayTitle": "激白",
+      "normalizedTitle": "激白",
+      "policy": "required",
+      "trackId": "song_019e8282-a043-72e8-a2e5-fe78da7ab58c",
+      "aliases": [],
+      "expectedDurationSec": 206.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-075b-7434-8c56-37e9c06b5eef",
+      "order": 22,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-07c2-7207-adc6-02d31ed234a4",
+      "order": 23,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0827-7da1-bea9-90d635a4aa19",
+      "order": 24,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0aad-7eff-8e9d-6db9cc97a314",
+      "order": 25,
+      "rawTitle": "劣等上等",
+      "displayTitle": "劣等上等",
+      "normalizedTitle": "劣等上等",
+      "policy": "required",
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0b10-7515-9e1b-75c96fa876d9",
+      "order": 26,
+      "rawTitle": "サイサキ",
+      "displayTitle": "サイサキ",
+      "normalizedTitle": "サイサキ",
+      "policy": "required",
+      "trackId": "song_019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+      "aliases": [],
+      "expectedDurationSec": 217.7,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0b79-7ca0-ae29-5792764f7dc4",
+      "order": 27,
+      "rawTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "displayTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "normalizedTitle": "うつくしじごくutsukushijigoku",
+      "policy": "required",
+      "trackId": "song_019e8282-ee36-7d02-919b-36babd0173f5",
+      "aliases": [
+        "うつくしじごく"
+      ],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-e5f0-7f59-83aa-58e3ca28cc89_entry_019e82aa-0cae-7bf0-acb9-7d716e0f7789",
+      "order": 28,
+      "rawTitle": "-終章-",
+      "displayTitle": "-終章-",
+      "normalizedTitle": "終章",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "source_segment",
+      "match": {
+        "status": "special",
+        "reason": "source_segment"
+      }
+    }
+  ]
+}

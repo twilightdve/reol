@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_8",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 上海",
+  "date": "2019-01-12",
+  "venueName": "Modernsky Lab",
+  "venueId": "venue_modernsky_lab",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 8,
+    "sourceId": "live_14_item_8"
+  },
+  "entries": []
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b0fd-7243-b17e-17da81ebcf81",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 宮城",
+  "date": "2020-02-15",
+  "venueName": "仙台 Rensa",
+  "venueId": "venue_仙台_rensa",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b0fd-7243-b17e-17da81ebcf81",
+    "sourceId": "live_item_019e8284-b0fd-7243-b17e-17da81ebcf81"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b0fd-7243-b17e-17da81ebcf81_entry_019e82a6-ec06-7ecb-91b8-c2f6dde39110",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

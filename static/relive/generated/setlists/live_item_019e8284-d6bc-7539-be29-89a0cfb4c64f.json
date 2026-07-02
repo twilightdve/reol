@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-d6bc-7539-be29-89a0cfb4c64f",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" 広州",
+  "date": "2024-03-03",
+  "venueName": "太空间 LIVE HOUSE",
+  "venueId": "venue_太空间_live_house",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+    "liveItemUuid": "019e8284-d6bc-7539-be29-89a0cfb4c64f",
+    "sourceId": "live_item_019e8284-d6bc-7539-be29-89a0cfb4c64f"
+  },
+  "entries": []
+}

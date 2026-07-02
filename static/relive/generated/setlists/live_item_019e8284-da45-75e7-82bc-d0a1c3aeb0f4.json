@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-da45-75e7-82bc-d0a1c3aeb0f4",
+  "tourName": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+  "liveTitle": "FZMZ 1st LIVE \"DEEP:DAWN\" VRChat",
+  "date": "2024-07-20",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-840a-76af-887b-5bce93eb19d8",
+    "liveItemUuid": "019e8284-da45-75e7-82bc-d0a1c3aeb0f4",
+    "sourceId": "live_item_019e8284-da45-75e7-82bc-d0a1c3aeb0f4"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-da45-75e7-82bc-d0a1c3aeb0f4_entry_019e82a9-459e-7754-a535-4d748d894d6e",
+      "order": 1,
+      "rawTitle": "BROKEN GAMES",
+      "displayTitle": "BROKEN GAMES",
+      "normalizedTitle": "brokengames",
+      "policy": "required",
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-da45-75e7-82bc-d0a1c3aeb0f4_entry_019e82a9-45fb-7e38-996a-4f81e42ffc67",
+      "order": 2,
+      "rawTitle": "Danger Danger",
+      "displayTitle": "Danger Danger",
+      "normalizedTitle": "dangerdanger",
+      "policy": "required",
+      "trackId": "song_019e8282-c3ab-7db6-84aa-58238944db54",
+      "aliases": [],
+      "expectedDurationSec": 221,
+      "afterglowTailSec": 16.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

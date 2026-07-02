@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_9",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 北京",
+  "date": "2019-01-13",
+  "venueName": "Tango live",
+  "venueId": "venue_tango_live",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 9,
+    "sourceId": "live_14_item_9"
+  },
+  "entries": []
+}

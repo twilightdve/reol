@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T12:00:00+09:00",
+  "venuePresets": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_livehouse_default",
+      "name": "Live House Default",
+      "type": "live_house",
+      "acoustic": {
+        "eq": { "bands": [] },
+        "reverb": { "amount": 0.22, "decaySec": 0.6, "preDelayMs": 8, "damping": 0.7 },
+        "reflections": { "earlyReflectionAmount": 0.35, "slapDelayMs": 28, "sideReflectionMs": 42 },
+        "spatial": {
+          "stageWidth": 7,
+          "depth": 18,
+          "height": 3,
+          "leftPaPosition": { "x": -3.2, "y": 2.1, "z": 0 },
+          "rightPaPosition": { "x": 3.2, "y": 2.1, "z": 0 },
+          "defaultListenerPosition": { "x": -0.8, "y": 1.5, "z": 6.5 },
+          "paSpread": 5.5
+        },
+        "dynamics": {
+          "limiterEnabled": true,
+          "compressorEnabled": true,
+          "outputGainDb": -3
+        }
+      },
+      "visualBias": {
+        "darkness": 0.76,
+        "particleDensity": 0.82,
+        "afterglowDecay": 0.86,
+        "bloomBias": 0.58,
+        "fractureBias": 0.7,
+        "pressureBias": 0.9
+      }
+    }
+  ]
+}

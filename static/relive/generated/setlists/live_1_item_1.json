@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_1_item_1",
+  "tourName": "amphead nico nico singer music live vol.03",
+  "liveTitle": "amphead nico nico singer music live vol.03",
+  "date": "2014-02-01",
+  "venueName": "原宿 ASTRO HALL",
+  "venueId": "venue_原宿_astro_hall",
+  "source": {
+    "type": "site_db",
+    "liveId": 1,
+    "liveItemNo": 1,
+    "sourceId": "live_1_item_1"
+  },
+  "entries": []
+}

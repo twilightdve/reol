@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_56_item_1",
+  "tourName": "軌道共鳴2024",
+  "liveTitle": "軌道共鳴2024 大阪",
+  "date": "2024-09-20",
+  "venueName": "なんばHatch",
+  "venueId": "venue_なんばhatch",
+  "source": {
+    "type": "site_db",
+    "liveId": 56,
+    "liveItemNo": 1,
+    "sourceId": "live_56_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "Final Call",
+      "displayTitle": "Final Call",
+      "normalizedTitle": "finalcall",
+      "policy": "required",
+      "trackId": "song_118",
+      "aliases": [],
+      "expectedDurationSec": 199.5,
+      "afterglowTailSec": 11.2,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_110",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_111",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_160",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_134",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:normalized"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_192",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "春を告げる",
+      "displayTitle": "春を告げる",
+      "normalizedTitle": "春を告げる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_8",
+      "order": 8,
+      "rawTitle": "染",
+      "displayTitle": "染",
+      "normalizedTitle": "染",
+      "policy": "required",
+      "trackId": "song_27",
+      "aliases": [],
+      "expectedDurationSec": 284,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_9",
+      "order": 9,
+      "rawTitle": "ミュータント",
+      "displayTitle": "ミュータント",
+      "normalizedTitle": "ミュータント",
+      "policy": "required",
+      "trackId": "song_100",
+      "aliases": [],
+      "expectedDurationSec": 248.1,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_10",
+      "order": 10,
+      "rawTitle": "SCORPION",
+      "displayTitle": "SCORPION",
+      "normalizedTitle": "scorpion",
+      "policy": "required",
+      "trackId": "song_106",
+      "aliases": [],
+      "expectedDurationSec": 176.9,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_11",
+      "order": 11,
+      "rawTitle": "TAKE OFF",
+      "displayTitle": "TAKE OFF",
+      "normalizedTitle": "takeoff",
+      "policy": "required",
+      "trackId": "song_119",
+      "aliases": [],
+      "expectedDurationSec": 236,
+      "afterglowTailSec": 11.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_12",
+      "order": 12,
+      "rawTitle": "ディア",
+      "displayTitle": "ディア",
+      "normalizedTitle": "ディア",
+      "policy": "required",
+      "trackId": "song_157",
+      "aliases": [],
+      "expectedDurationSec": 174.6,
+      "afterglowTailSec": 16.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_56_item_1_entry_13",
+      "order": 13,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_92",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

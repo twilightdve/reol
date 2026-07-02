@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a8c0-77d1-be32-c1ab1b630350",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 上海",
+  "date": "2019-01-12",
+  "venueName": "Modernsky Lab",
+  "venueId": "venue_modernsky_lab",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+    "liveItemUuid": "019e8284-a8c0-77d1-be32-c1ab1b630350",
+    "sourceId": "live_item_019e8284-a8c0-77d1-be32-c1ab1b630350"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a8c0-77d1-be32-c1ab1b630350_entry_019e82a6-a2bb-7519-98f8-50b2cb09d9a6",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

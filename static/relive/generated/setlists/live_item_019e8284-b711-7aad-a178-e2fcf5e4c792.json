@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b711-7aad-a178-e2fcf5e4c792",
+  "tourName": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+  "liveTitle": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+  "date": "2021-08-07",
+  "venueName": "ぴあアリーナMM",
+  "venueId": "venue_ぴあアリ_ナmm",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7951-7809-92bc-6a9fadc897fb",
+    "liveItemUuid": "019e8284-b711-7aad-a178-e2fcf5e4c792",
+    "sourceId": "live_item_019e8284-b711-7aad-a178-e2fcf5e4c792"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b711-7aad-a178-e2fcf5e4c792_entry_019e82a7-28bc-7efa-81c6-a1790339107f",
+      "order": 1,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b711-7aad-a178-e2fcf5e4c792_entry_019e82a7-2bda-7f51-afed-c15bf7a3f924",
+      "order": 2,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 15.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_30_item_4",
+  "tourName": "Reol Oneman Live 2022「激情アラート」",
+  "liveTitle": "Reol Oneman Live 2022「激情アラート」 宮城",
+  "date": "2022-05-08",
+  "venueName": "仙台PIT",
+  "venueId": "venue_仙台pit",
+  "source": {
+    "type": "site_db",
+    "liveId": 30,
+    "liveItemNo": 4,
+    "sourceId": "live_30_item_4"
+  },
+  "entries": []
+}

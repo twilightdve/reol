@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_6_item_1",
+  "tourName": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "liveTitle": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "date": "2016-07-02",
+  "venueName": "赤坂BLITZ",
+  "venueId": "venue_赤坂blitz",
+  "source": {
+    "type": "site_db",
+    "liveId": 6,
+    "liveItemNo": 1,
+    "sourceId": "live_6_item_1"
+  },
+  "entries": []
+}

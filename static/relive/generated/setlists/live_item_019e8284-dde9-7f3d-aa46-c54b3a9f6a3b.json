@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+  "tourName": "XIHU MUSIC FESTIVAL",
+  "liveTitle": "XIHU MUSIC FESTIVAL 中国",
+  "date": "2024-11-02",
+  "venueName": "中杭州太子湾公園（中国）",
+  "venueId": "venue_中杭州太子湾公園_中国",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
+    "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+    "sourceId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-68e6-7e78-9c12-71c26ec6901b",
+      "order": 1,
+      "rawTitle": "-nil-",
+      "displayTitle": "-nil-",
+      "normalizedTitle": "nil",
+      "policy": "required",
+      "trackId": "song_019e8282-88dd-71bc-a94d-9cdd721917e3",
+      "aliases": [],
+      "expectedDurationSec": 36.9,
+      "afterglowTailSec": 9.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-6942-7d54-8ecb-9071dcfcd530",
+      "order": 2,
+      "rawTitle": "極彩色",
+      "displayTitle": "極彩色",
+      "normalizedTitle": "極彩色",
+      "policy": "required",
+      "trackId": "song_019e8282-8933-7d04-8788-b26cdc9183a6",
+      "aliases": [],
+      "expectedDurationSec": 250.5,
+      "afterglowTailSec": 12.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-69ae-7e8f-ac01-c9f0715b3200",
+      "order": 3,
+      "rawTitle": "感情御中 -WANT U LUV IT-",
+      "displayTitle": "感情御中 -WANT U LUV IT-",
+      "normalizedTitle": "感情御中wantuluvit",
+      "policy": "required",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
+      "aliases": [
+        "感情御中 - WANT U LUV IT"
+      ],
+      "expectedDurationSec": 175.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-6b00-7cb8-866e-6e0a40d120f8",
+      "order": 4,
+      "rawTitle": "（MC）",
+      "displayTitle": "（MC）",
+      "normalizedTitle": "mc",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-7113-7cba-bba6-001b763d45af",
+      "order": 5,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-723b-7112-9e2f-a83676944124",
+      "order": 6,
+      "rawTitle": "SCORPION",
+      "displayTitle": "SCORPION",
+      "normalizedTitle": "scorpion",
+      "policy": "required",
+      "trackId": "song_019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+      "aliases": [],
+      "expectedDurationSec": 176.9,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-73b1-7c49-9603-f71350cddd8e",
+      "order": 7,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-743e-7acd-acc4-31a43ff062bc",
+      "order": 8,
+      "rawTitle": "煽げや尊し",
+      "displayTitle": "煽げや尊し",
+      "normalizedTitle": "煽げや尊し",
+      "policy": "required",
+      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-74a9-7127-a9a7-e4a85e7140a9",
+      "order": 9,
+      "rawTitle": "白夜",
+      "displayTitle": "白夜",
+      "normalizedTitle": "白夜",
+      "policy": "required",
+      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-751a-7262-acb5-983e12ec7983",
+      "order": 10,
+      "rawTitle": "RE RESCUE",
+      "displayTitle": "RE RESCUE",
+      "normalizedTitle": "rerescue",
+      "policy": "required",
+      "trackId": "song_019e8282-d426-7101-a7ef-56ed1f7c439b",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-7584-790a-80c1-314b3a88e815",
+      "order": 11,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-dde9-7f3d-aa46-c54b3a9f6a3b_entry_019e82a9-75e8-792d-aaaa-25e470578bd4",
+      "order": 12,
+      "rawTitle": "No title",
+      "displayTitle": "No title",
+      "normalizedTitle": "notitle",
+      "policy": "required",
+      "trackId": "song_019e8282-8424-7cc7-a286-7bf3738631d1",
+      "aliases": [],
+      "expectedDurationSec": 243.9,
+      "afterglowTailSec": 16.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

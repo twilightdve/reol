@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-d5df-70ab-84d1-89141895c04c",
+  "tourName": "ANIPLEX 20th Anniversary Event -THANX-",
+  "liveTitle": "ANIPLEX 20th Anniversary Event -THANX-",
+  "date": "2024-01-07",
+  "venueName": "Zepp DiverCity",
+  "venueId": "venue_zepp_divercity",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-81fd-70ec-b1ce-109ea8bc6939",
+    "liveItemUuid": "019e8284-d5df-70ab-84d1-89141895c04c",
+    "sourceId": "live_item_019e8284-d5df-70ab-84d1-89141895c04c"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-d5df-70ab-84d1-89141895c04c_entry_019e82a9-191b-788b-b141-9a1d5a8dc1fc",
+      "order": 1,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

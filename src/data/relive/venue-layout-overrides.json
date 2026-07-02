@@ -1,0 +1,635 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-17T00:00:00+09:00",
+  "layouts": [
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_横浜アリ_ナ",
+      "venueName": "横浜アリーナ",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "arena_bowl",
+      "dimensions": {
+        "widthM": 114,
+        "depthM": 78,
+        "heightM": null,
+        "status": "partially_verified"
+      },
+      "floors": {
+        "count": 3,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "partially_verified"
+      },
+      "stage": {
+        "position": "end_stage",
+        "widthM": null,
+        "depthM": null,
+        "heightM": null,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "arena_bowl",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "arena_floor_center",
+          "name": "センター席中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.42 },
+          "acousticBias": { "bassBoostDb": 0.8, "crowdDensityBias": 0.12 }
+        },
+        {
+          "zoneId": "arena_stand_center",
+          "name": "アリーナ席中央",
+          "type": "reserved_seat",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.62, "y": 0.35 },
+          "acousticBias": { "reverbAmountBias": 0.08, "reflectionDelayBiasMs": 10 }
+        },
+        {
+          "zoneId": "stand_rear",
+          "name": "スタンド後方",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.82, "y": 1 },
+          "acousticBias": { "highDamping": 0.2, "reverbAmountBias": 0.16, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "概略 | 主な設備のご案内 | 横浜アリーナ",
+          "url": "https://www.yokohama-arena.co.jp/organizer/equipment/",
+          "checkedAt": "2026-05-17",
+          "note": "Main arena area 8,000m2, ellipse 114m x 78m, maximum capacity 17,000."
+        }
+      ],
+      "notes": "Official page verifies main arena dimensions and max capacity. Concert stage position remains event-dependent and is treated as estimated.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ぴあアリ_ナmm",
+      "venueName": "ぴあアリーナMM",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "arena_bowl",
+      "dimensions": {
+        "widthM": null,
+        "depthM": null,
+        "heightM": 32.74,
+        "status": "partially_verified"
+      },
+      "floors": {
+        "count": 4,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "end_stage",
+        "widthM": null,
+        "depthM": null,
+        "heightM": null,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "partially_verified"
+      },
+      "audienceArea": {
+        "shape": "arena_bowl",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "arena_floor",
+          "name": "アリーナ",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.44 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.1 }
+        },
+        {
+          "zoneId": "stand_2f",
+          "name": "2Fスタンド",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.58, "y": 1 },
+          "acousticBias": { "reflectionDelayBiasMs": 10, "reverbAmountBias": 0.08 }
+        },
+        {
+          "zoneId": "stand_3f_4f",
+          "name": "3F/4Fスタンド",
+          "type": "balcony",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.76, "y": 1.6 },
+          "acousticBias": { "highDamping": 0.16, "reverbAmountBias": 0.14, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "ぴあアリーナMM 施設概要",
+          "url": "https://pia-arena-mm.jp/assets/images/facility_summary.pdf",
+          "checkedAt": "2026-05-17",
+          "note": "Facility summary lists B1F/1F-4F structure, arena area, stand floors, seated/standing capacities, and basic end-stage pattern."
+        }
+      ],
+      "notes": "Official PDF verifies floor structure and capacity. Width/depth are intentionally left null.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_line_cube_shibuya",
+      "venueName": "LINE CUBE SHIBUYA",
+      "aliases": ["渋谷公会堂"],
+      "layoutStatus": "partially_verified",
+      "audienceMode": "seated",
+      "layoutShape": "fan",
+      "dimensions": {
+        "widthM": null,
+        "depthM": null,
+        "heightM": 31.95,
+        "status": "partially_verified"
+      },
+      "floors": {
+        "count": 3,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "widthM": 19.1,
+        "depthM": 13.3,
+        "heightM": 12,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "verified"
+      },
+      "audienceArea": {
+        "shape": "fan",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "seat_1f_center",
+          "name": "1階席中央",
+          "type": "reserved_seat",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.46 },
+          "acousticBias": { "reverbAmountBias": 0.04 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2階席中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.62, "y": 1 },
+          "acousticBias": { "reflectionDelayBiasMs": 10, "reverbAmountBias": 0.1 }
+        },
+        {
+          "zoneId": "seat_3f_center",
+          "name": "3階席中央",
+          "type": "balcony",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.78, "y": 1.5 },
+          "acousticBias": { "highDamping": 0.18, "reverbAmountBias": 0.14, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "施設概要 - LINE CUBE SHIBUYA",
+          "url": "https://linecubeshibuya.com/facility",
+          "checkedAt": "2026-05-17",
+          "note": "Official facility page lists structure, stage opening/depth, seat count, and 1F/2F/3F seats."
+        }
+      ],
+      "notes": "Building height is stored as a partial dimension. Audience width/depth remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_オリックス劇場",
+      "venueName": "オリックス劇場",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "seated",
+      "layoutShape": "fan",
+      "dimensions": {
+        "widthM": 39,
+        "depthM": 43.3,
+        "heightM": 18.3,
+        "status": "verified"
+      },
+      "floors": {
+        "count": 3,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "widthM": 21.6,
+        "depthM": 18,
+        "heightM": 12,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "verified"
+      },
+      "audienceArea": {
+        "shape": "fan",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "seat_1f_center",
+          "name": "1階席中央",
+          "type": "reserved_seat",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.46 },
+          "acousticBias": { "reverbAmountBias": 0.04 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2階席中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.62, "y": 1 },
+          "acousticBias": { "reflectionDelayBiasMs": 10, "reverbAmountBias": 0.12 }
+        },
+        {
+          "zoneId": "seat_3f_center",
+          "name": "3階席中央",
+          "type": "balcony",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.8, "y": 1.5 },
+          "acousticBias": { "highDamping": 0.18, "reverbAmountBias": 0.16, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "施設案内 | オリックス劇場",
+          "url": "https://www.orixtheater.jp/information/guide/",
+          "checkedAt": "2026-05-17",
+          "note": "Official guide lists 3-layer balcony seating, capacity, audience width/depth/height, stage dimensions, and reverberation time."
+        }
+      ],
+      "notes": "Official dimensions are suitable for the v0 acoustic approximation.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_フェスティバルホ_ル",
+      "venueName": "フェスティバルホール",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "seated",
+      "layoutShape": "fan",
+      "dimensions": {
+        "widthM": null,
+        "depthM": null,
+        "heightM": 31,
+        "status": "partially_verified"
+      },
+      "floors": {
+        "count": null,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "partially_verified"
+      },
+      "stage": {
+        "position": "front",
+        "widthM": 30,
+        "depthM": 22.5,
+        "heightM": null,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "partially_verified"
+      },
+      "audienceArea": {
+        "shape": "fan",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "seat_main_center",
+          "name": "客席中央",
+          "type": "reserved_seat",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.52 },
+          "acousticBias": { "reverbAmountBias": 0.08 }
+        },
+        {
+          "zoneId": "seat_upper_center",
+          "name": "上層席中央",
+          "type": "balcony",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.72, "y": 1.2 },
+          "acousticBias": { "highDamping": 0.12, "reverbAmountBias": 0.14 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "フェスティバルホールについて",
+          "url": "https://www.festivalhall.jp/about/",
+          "checkedAt": "2026-05-17",
+          "note": "Official page states 2,700 capacity, stage opening about 30m, stage depth 22.5m, and 31m height context."
+        }
+      ],
+      "notes": "Stage and capacity are verified from official text. Detailed seating floor count remains partially verified.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_tokyo_dome_city_hall",
+      "venueName": "TOKYO DOME CITY HALL",
+      "aliases": ["Kanadevia Hall", "カナデビアホール"],
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "fan",
+      "floors": {
+        "count": null,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "partially_verified"
+      },
+      "stage": {
+        "position": "front",
+        "widthM": null,
+        "depthM": null,
+        "heightM": null,
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "fan",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "arena_floor",
+          "name": "アリーナ",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.42 },
+          "acousticBias": { "bassBoostDb": 0.6, "crowdDensityBias": 0.1 }
+        },
+        {
+          "zoneId": "balcony_center",
+          "name": "バルコニー中央",
+          "type": "balcony",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.68, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.12, "reflectionDelayBiasMs": 10 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "貸し会場 | 東京ドームシティ",
+          "url": "https://www.tokyo-dome.co.jp/business/event-space/",
+          "checkedAt": "2026-05-17",
+          "note": "Official business page lists Kanadevia Hall seated and standing event capacities."
+        }
+      ],
+      "notes": "Capacity is verified. Detailed dimensions and stage measurements remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_kt_zepp_yokohama",
+      "venueName": "KT Zepp Yokohama",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "rectangle",
+      "floors": {
+        "count": 2,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "floor_1f_center",
+          "name": "1F中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.45 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.14 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2F中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.66, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.1, "reflectionDelayBiasMs": 10, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "KT Zepp Yokohama FLOOR GUIDE",
+          "url": "https://www.zepp.co.jp/hall/yokohama/",
+          "checkedAt": "2026-05-17",
+          "note": "Official floor guide lists 1F/2F and standing/seated capacities."
+        }
+      ],
+      "notes": "Floor structure and capacity are verified. Physical dimensions remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_haneda",
+      "venueName": "Zepp Haneda (TOKYO)",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "rectangle",
+      "floors": {
+        "count": 2,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "floor_1f_center",
+          "name": "1F中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.45 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.14 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2F中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.66, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.1, "reflectionDelayBiasMs": 10, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "Zepp Haneda (TOKYO) FLOOR GUIDE",
+          "url": "https://www.zepp.co.jp/hall/haneda/",
+          "checkedAt": "2026-05-17",
+          "note": "Official floor guide lists 1F/2F and standing/seated capacities."
+        }
+      ],
+      "notes": "Floor structure and capacity are verified. Physical dimensions remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_nagoya",
+      "venueName": "Zepp Nagoya",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "rectangle",
+      "floors": {
+        "count": 2,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "floor_1f_center",
+          "name": "1F中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.45 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.14 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2F中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.66, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.1, "reflectionDelayBiasMs": 10, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "Zepp Nagoya FLOOR GUIDE",
+          "url": "https://www.zepp.co.jp/hall/nagoya/",
+          "checkedAt": "2026-05-17",
+          "note": "Official floor guide lists 1F/2F and standing/seated capacities."
+        }
+      ],
+      "notes": "Floor structure and capacity are verified. Physical dimensions remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_osaka_bayside",
+      "venueName": "Zepp Osaka Bayside",
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "rectangle",
+      "floors": {
+        "count": 2,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "floor_1f_center",
+          "name": "1F中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.45 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.14 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2F中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.66, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.1, "reflectionDelayBiasMs": 10, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "Zepp Osaka Bayside FLOOR GUIDE",
+          "url": "https://www.zepp.co.jp/hall/osakabayside/",
+          "checkedAt": "2026-05-17",
+          "note": "Official floor guide lists 1F/2F and standing/seated capacities."
+        }
+      ],
+      "notes": "Floor structure and capacity are verified. Physical dimensions remain unknown.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_zepp_namba",
+      "venueName": "Zepp Namba (OSAKA)",
+      "aliases": ["Zeep Namba", "Zepp Namba"],
+      "layoutStatus": "partially_verified",
+      "audienceMode": "mixed",
+      "layoutShape": "rectangle",
+      "floors": {
+        "count": 2,
+        "hasBalcony": true,
+        "hasSecondFloor": true,
+        "status": "verified"
+      },
+      "stage": {
+        "position": "front",
+        "normalizedCenter": { "x": 0, "z": 0 },
+        "status": "estimated"
+      },
+      "audienceArea": {
+        "shape": "rectangle",
+        "status": "partially_verified"
+      },
+      "additionalZones": [
+        {
+          "zoneId": "floor_1f_center",
+          "name": "1F中央",
+          "type": "standing_area",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.45 },
+          "acousticBias": { "bassBoostDb": 0.7, "crowdDensityBias": 0.14 }
+        },
+        {
+          "zoneId": "seat_2f_center",
+          "name": "2F中央",
+          "type": "second_floor",
+          "listenerPreset": { "normalizedX": 0, "normalizedZ": 0.66, "y": 1 },
+          "acousticBias": { "reverbAmountBias": 0.1, "reflectionDelayBiasMs": 10, "bassBoostDb": -0.4 }
+        }
+      ],
+      "sourceUrls": [
+        {
+          "sourceType": "official_venue_page",
+          "title": "Zepp Namba(OSAKA) FLOOR GUIDE",
+          "url": "https://www.zepp.co.jp/hall/namba/",
+          "checkedAt": "2026-05-17",
+          "note": "Official floor guide lists 1F/2F and standing/seated capacities."
+        }
+      ],
+      "notes": "Floor structure and capacity are verified. Physical dimensions remain unknown. This override also matches the historical Zeep typo alias.",
+      "updatedAt": "2026-05-17T00:00:00+09:00"
+    }
+  ]
+}

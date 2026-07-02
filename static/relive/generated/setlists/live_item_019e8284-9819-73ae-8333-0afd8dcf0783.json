@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783",
+  "tourName": "Stars on Planet 2015 大宮",
+  "liveTitle": "Stars on Planet 2015 大宮 昼の部",
+  "date": "2015-07-11",
+  "venueName": "大宮ソニックシティ",
+  "venueId": "venue_大宮ソニックシティ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
+    "liveItemUuid": "019e8284-9819-73ae-8333-0afd8dcf0783",
+    "sourceId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2afe-72aa-a3e1-c13c08c11114",
+      "order": 1,
+      "rawTitle": "スターライトパレード（天月）",
+      "displayTitle": "スターライトパレード（天月）",
+      "normalizedTitle": "スターライトパレード天月",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2b37-7b89-937a-7dc02cfd27cd",
+      "order": 2,
+      "rawTitle": "月に負け犬（れをる）",
+      "displayTitle": "月に負け犬（れをる）",
+      "normalizedTitle": "月に負け犬れをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2b6a-79d2-8f08-8011e7a4458d",
+      "order": 3,
+      "rawTitle": "星が瞬くこんな夜に（佐香智久）",
+      "displayTitle": "星が瞬くこんな夜に（佐香智久）",
+      "normalizedTitle": "星が瞬くこんな夜に佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2b9f-7707-b940-c425c7819b67",
+      "order": 4,
+      "rawTitle": "帚星（夏代孝明）",
+      "displayTitle": "帚星（夏代孝明）",
+      "normalizedTitle": "帚星夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2bdc-79b3-bf1d-b8922061087a",
+      "order": 5,
+      "rawTitle": "星に願いを（そらる）",
+      "displayTitle": "星に願いを（そらる）",
+      "normalizedTitle": "星に願いをそらる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2c13-73c0-84d1-0a09410dbb11",
+      "order": 6,
+      "rawTitle": "星の唄（天月&佐香智久）",
+      "displayTitle": "星の唄（天月&佐香智久）",
+      "normalizedTitle": "星の唄天月佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2c47-7a67-98d6-ddfc657377db",
+      "order": 7,
+      "rawTitle": "ray（そらる&夏代孝明）",
+      "displayTitle": "ray（そらる&夏代孝明）",
+      "normalizedTitle": "rayそらる夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2c7c-7f82-b468-cb439c46f307",
+      "order": 8,
+      "rawTitle": "ジェミニ（96猫&れをる）",
+      "displayTitle": "ジェミニ（96猫&れをる）",
+      "normalizedTitle": "ジェミニ96猫れをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2caf-7a04-a8eb-ae70f952deda",
+      "order": 9,
+      "rawTitle": "下弦の月（96猫）",
+      "displayTitle": "下弦の月（96猫）",
+      "normalizedTitle": "下弦の月96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2ceb-75cf-bbcc-9d79793d0c05",
+      "order": 10,
+      "rawTitle": "小さな恋のうた（佐香智久）",
+      "displayTitle": "小さな恋のうた（佐香智久）",
+      "normalizedTitle": "小さな恋のうた佐香智久",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2d22-7e55-8434-c32ad2bb5879",
+      "order": 11,
+      "rawTitle": "月のワルツ（れをる）",
+      "displayTitle": "月のワルツ（れをる）",
+      "normalizedTitle": "月のワルツれをる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2d4f-7666-b72d-780ed9f18426",
+      "order": 12,
+      "rawTitle": "月のしずく（96猫）",
+      "displayTitle": "月のしずく（96猫）",
+      "normalizedTitle": "月のしずく96猫",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2d7d-793f-a5ec-b1120606cb4a",
+      "order": 13,
+      "rawTitle": "サクラミツツキ（天月）",
+      "displayTitle": "サクラミツツキ（天月）",
+      "normalizedTitle": "サクラミツツキ天月",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2daf-7538-a763-39e2f4fc511c",
+      "order": 14,
+      "rawTitle": "Starduster（そらる）",
+      "displayTitle": "Starduster（そらる）",
+      "normalizedTitle": "stardusterそらる",
+      "policy": "cover",
+      "afterglowTailSec": 8,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2de7-7f14-8be6-3968da37e333",
+      "order": 15,
+      "rawTitle": "ホシトリアミ（夏代孝明）",
+      "displayTitle": "ホシトリアミ（夏代孝明）",
+      "normalizedTitle": "ホシトリアミ夏代孝明",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9819-73ae-8333-0afd8dcf0783_entry_019e82a6-2e1a-798a-8439-3cd2a24d33ed",
+      "order": 16,
+      "rawTitle": "光るなら（全員）",
+      "displayTitle": "光るなら（全員）",
+      "normalizedTitle": "光るなら全員",
+      "policy": "cover",
+      "afterglowTailSec": 12,
+      "note": "source_cover",
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

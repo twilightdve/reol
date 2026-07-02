@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-abf6-7eed-be01-8b053a8f7927",
+  "tourName": "Reol Oneman Live 2019「侵攻アップグレード」",
+  "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」 大阪",
+  "date": "2019-10-06",
+  "venueName": "松下IMPホール",
+  "venueId": "venue_松下impホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
+    "liveItemUuid": "019e8284-abf6-7eed-be01-8b053a8f7927",
+    "sourceId": "live_item_019e8284-abf6-7eed-be01-8b053a8f7927"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-abf6-7eed-be01-8b053a8f7927_entry_019e82a6-bdec-795d-8590-8a0770f12631",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

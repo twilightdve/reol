@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "sample_bijigaku_2026_asahikawa",
+  "tourName": "美辞学",
+  "liveTitle": "美辞学 Sample Night",
+  "date": "2026-05-09",
+  "venueName": "旭川 CASINO DRIVE",
+  "venueId": "venue_livehouse_default",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_001",
+      "order": 1,
+      "trackId": "track_dairokkan",
+      "displayTitle": "第六感",
+      "aliases": ["Dairokkan", "THE SIXTH SENSE"],
+      "policy": "required",
+      "expectedDurationSec": 206,
+      "afterglowTailSec": 8
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_002",
+      "order": 2,
+      "trackId": "track_404",
+      "displayTitle": "404 not found",
+      "aliases": ["404"],
+      "policy": "required",
+      "expectedDurationSec": 244,
+      "afterglowTailSec": 10
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_003",
+      "order": 3,
+      "trackId": "track_syrup",
+      "displayTitle": "syrup",
+      "aliases": ["シロップ"],
+      "policy": "substitutable",
+      "expectedDurationSec": 222,
+      "afterglowTailSec": 12
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_004",
+      "order": 4,
+      "trackId": "track_end",
+      "displayTitle": "エンド",
+      "aliases": ["END"],
+      "policy": "required",
+      "expectedDurationSec": 238,
+      "afterglowTailSec": 14
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_005",
+      "order": 5,
+      "displayTitle": "津軽海峡冬景色",
+      "aliases": ["Tsugaru Kaikyo Fuyugeshiki"],
+      "policy": "cover",
+      "afterglowTailSec": 6
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "entry_006",
+      "order": 6,
+      "displayTitle": "Opening SE",
+      "policy": "se",
+      "afterglowTailSec": 5
+    }
+  ],
+  "source": {
+    "type": "manual",
+    "sourceId": "sample",
+    "updatedAt": "2026-05-17T12:00:00+09:00"
+  }
+}

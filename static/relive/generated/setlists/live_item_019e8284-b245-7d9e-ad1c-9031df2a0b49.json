@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b245-7d9e-ad1c-9031df2a0b49",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 大阪 ※中止",
+  "date": "2020-03-07",
+  "venueName": "なんばHatch",
+  "venueId": "venue_なんばhatch",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+    "liveItemUuid": "019e8284-b245-7d9e-ad1c-9031df2a0b49",
+    "sourceId": "live_item_019e8284-b245-7d9e-ad1c-9031df2a0b49"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b245-7d9e-ad1c-9031df2a0b49_entry_019e82a6-ed51-7345-9854-62ae22993bdc",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

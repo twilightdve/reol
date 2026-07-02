@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-b450-7304-88a4-ef4a5d9b8cdc",
+  "tourName": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+  "liveTitle": "YouTube FanFest Japan 2020 オープニングパフォーマンス YouTube",
+  "date": "2020-10-11",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7703-7330-9415-c4d4bb6e4cd0",
+    "liveItemUuid": "019e8284-b450-7304-88a4-ef4a5d9b8cdc",
+    "sourceId": "live_item_019e8284-b450-7304-88a4-ef4a5d9b8cdc"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-b450-7304-88a4-ef4a5d9b8cdc_entry_019e82a6-ff8d-7a6a-b598-50fc647776f9",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

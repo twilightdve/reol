@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9a9f-78e0-a56d-a42756093efb",
+  "tourName": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "liveTitle": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+  "date": "2016-07-02",
+  "venueName": "赤坂BLITZ",
+  "venueId": "venue_赤坂blitz",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-6f4f-7c25-b6cc-8640050428b8",
+    "liveItemUuid": "019e8284-9a9f-78e0-a56d-a42756093efb",
+    "sourceId": "live_item_019e8284-9a9f-78e0-a56d-a42756093efb"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9a9f-78e0-a56d-a42756093efb_entry_019e82a6-48bb-7b70-912e-5558819ad231",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

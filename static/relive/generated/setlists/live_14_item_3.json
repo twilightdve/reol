@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_14_item_3",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 福岡",
+  "date": "2018-11-11",
+  "venueName": "DRUM LOGOS",
+  "venueId": "venue_drum_logos",
+  "source": {
+    "type": "site_db",
+    "liveId": 14,
+    "liveItemNo": 3,
+    "sourceId": "live_14_item_3"
+  },
+  "entries": []
+}

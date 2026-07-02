@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-a800-7d6c-94ec-e88dd02b3f74",
+  "tourName": "Reol Japan Tour 2018「MADE IN FACTION」",
+  "liveTitle": "Reol Japan Tour 2018「MADE IN FACTION」 韓国",
+  "date": "2018-12-15",
+  "venueName": "HONDAE MUVHALL",
+  "venueId": "venue_hondae_muvhall",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
+    "liveItemUuid": "019e8284-a800-7d6c-94ec-e88dd02b3f74",
+    "sourceId": "live_item_019e8284-a800-7d6c-94ec-e88dd02b3f74"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-a800-7d6c-94ec-e88dd02b3f74_entry_019e82a6-a1ec-7c7f-bcc2-3a0049704c40",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

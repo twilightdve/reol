@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_2",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 福岡",
+  "date": "2020-02-09",
+  "venueName": "DRUM LOGOS",
+  "venueId": "venue_drum_logos",
+  "source": {
+    "type": "site_db",
+    "liveId": 22,
+    "liveItemNo": 2,
+    "sourceId": "live_22_item_2"
+  },
+  "entries": []
+}

@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-c793-7d38-804e-ee0da3207283",
+  "tourName": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+  "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+  "date": "2023-07-22",
+  "venueName": "舞洲スポーツアイランド",
+  "venueId": "venue_舞洲スポ_ツアイランド",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7e7f-7b86-95f0-fe75d00dbf0a",
+    "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+    "sourceId": "live_item_019e8284-c793-7d38-804e-ee0da3207283"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-16dc-7741-bdf2-f4f80f66a542",
+      "order": 1,
+      "rawTitle": "-Opening-",
+      "displayTitle": "-Opening-",
+      "normalizedTitle": "opening",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "se_keyword",
+      "match": {
+        "status": "special",
+        "reason": "se_keyword"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-173f-7161-8858-faa486477804",
+      "order": 2,
+      "rawTitle": "LUVORATORRRRRY!",
+      "displayTitle": "LUVORATORRRRRY!",
+      "normalizedTitle": "luvoratorrrrry",
+      "policy": "required",
+      "trackId": "song_019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
+      "aliases": [],
+      "expectedDurationSec": 204.2,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-17b7-7ade-9ae3-8c2ec2dca2dd",
+      "order": 3,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_019e8282-a0ad-7f0c-8601-1254a08351e9",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-1819-72d7-b303-0109ec4d0a7b",
+      "order": 4,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_019e8282-a112-7a3a-9938-28cc87cc9f00",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-1884-76b0-9b44-ab180fda9c93",
+      "order": 5,
+      "rawTitle": "サマーホラーパーティ",
+      "displayTitle": "サマーホラーパーティ",
+      "normalizedTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "trackId": "song_019e8282-980c-7897-af8d-f29a00eea377",
+      "aliases": [],
+      "expectedDurationSec": 254.6,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-18fc-7483-848e-5716122ceadb",
+      "order": 6,
+      "rawTitle": "綺羅綺羅(Glitter)",
+      "displayTitle": "綺羅綺羅(Glitter)",
+      "normalizedTitle": "綺羅綺羅glitter",
+      "policy": "required",
+      "trackId": "song_019e8282-b9f9-7865-84a7-e9853fda1749",
+      "aliases": [
+        "綺羅綺羅"
+      ],
+      "expectedDurationSec": 193.3,
+      "afterglowTailSec": 11.6,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-195d-7655-b7b2-043e67c74dc3",
+      "order": 7,
+      "rawTitle": "煽げや尊し(Agitate)",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "normalizedTitle": "煽げや尊しagitate",
+      "policy": "required",
+      "trackId": "song_019e8282-b788-7d1d-a5f7-c81d27df50ac",
+      "aliases": [
+        "煽げや尊し"
+      ],
+      "expectedDurationSec": 217.1,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-19c8-7683-aeab-a6a8ee891af2",
+      "order": 8,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-c793-7d38-804e-ee0da3207283_entry_019e82a8-1a32-7788-b049-61cd801e2cbe",
+      "order": 9,
+      "rawTitle": "切っ先(Edge)",
+      "displayTitle": "切っ先(Edge)",
+      "normalizedTitle": "切っ先edge",
+      "policy": "required",
+      "trackId": "song_019e8282-ba7d-7c73-a3f2-34f7120314c8",
+      "aliases": [
+        "切っ先"
+      ],
+      "expectedDurationSec": 210.1,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

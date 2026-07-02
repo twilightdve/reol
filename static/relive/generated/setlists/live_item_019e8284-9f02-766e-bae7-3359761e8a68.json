@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-9f02-766e-bae7-3359761e8a68",
+  "tourName": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+  "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』 KOREA",
+  "date": "2017-03-11",
+  "venueName": "HONGDAE V-HALL",
+  "venueId": "venue_hongdae_v_hall",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7017-73c9-b0e6-5b6e10dc165d",
+    "liveItemUuid": "019e8284-9f02-766e-bae7-3359761e8a68",
+    "sourceId": "live_item_019e8284-9f02-766e-bae7-3359761e8a68"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-9f02-766e-bae7-3359761e8a68_entry_019e82a6-551f-7ef6-94d9-d55318611efe",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

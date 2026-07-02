@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6",
+  "tourName": "Reol Oneman Live 2026 美辞学",
+  "liveTitle": "Reol Oneman Live 2026 美辞学 東京",
+  "date": "2026-07-10",
+  "venueName": "LINE CUBE SHIBUYA",
+  "venueId": "venue_line_cube_shibuya",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+    "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
+    "sourceId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6_entry_019f1dd5-0a80-744f-a109-f6f9bbe65188",
+      "order": 1,
+      "rawTitle": "",
+      "displayTitle": "",
+      "normalizedTitle": "",
+      "policy": "se",
+      "afterglowTailSec": 4,
+      "note": "placeholder",
+      "match": {
+        "status": "special",
+        "reason": "placeholder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_31_item_1",
+  "tourName": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+  "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+  "date": "2022-07-23",
+  "venueName": "舞洲スポーツアイランド",
+  "venueId": "venue_舞洲スポ_ツアイランド",
+  "source": {
+    "type": "site_db",
+    "liveId": 31,
+    "liveItemNo": 1,
+    "sourceId": "live_31_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_31_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "体調不良のため出演キャンセル",
+      "displayTitle": "体調不良のため出演キャンセル",
+      "normalizedTitle": "体調不良のため出演キャンセル",
+      "policy": "required",
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_62_item_1",
+  "tourName": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+  "liveTitle": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL 横浜",
+  "date": "2025-04-05",
+  "venueName": "KT Zepp Yokohama",
+  "venueId": "venue_kt_zepp_yokohama",
+  "source": {
+    "type": "site_db",
+    "liveId": 62,
+    "liveItemNo": 1,
+    "sourceId": "live_62_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_92",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "煩悩遊戯",
+      "displayTitle": "煩悩遊戯",
+      "normalizedTitle": "煩悩遊戯",
+      "policy": "required",
+      "trackId": "song_57",
+      "aliases": [],
+      "expectedDurationSec": 192.5,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_56",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "Boy with ゼップへお集まりの皆様",
+      "displayTitle": "Boy with ゼップへお集まりの皆様",
+      "normalizedTitle": "boywithゼップへお集まりの皆様",
+      "policy": "required",
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "missing",
+        "reason": "no_discography_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "シンカロン",
+      "displayTitle": "シンカロン",
+      "normalizedTitle": "シンカロン",
+      "policy": "required",
+      "trackId": "song_67",
+      "aliases": [],
+      "expectedDurationSec": 222.3,
+      "afterglowTailSec": 12.5,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_6",
+      "order": 6,
+      "rawTitle": "ヒビカセ feat. 初音ミク",
+      "displayTitle": "ヒビカセ feat. 初音ミク",
+      "normalizedTitle": "ヒビカセfeat初音ミク",
+      "policy": "required",
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "candidate",
+        "score": 0.6,
+        "candidates": [
+          "song_136",
+          "song_147",
+          "song_184",
+          "song_199",
+          "song_2"
+        ],
+        "reason": "partial_title_match"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_62_item_1_entry_7",
+      "order": 7,
+      "rawTitle": "劣等上等",
+      "displayTitle": "劣等上等",
+      "normalizedTitle": "劣等上等",
+      "policy": "required",
+      "trackId": "song_185",
+      "aliases": [],
+      "afterglowTailSec": 12,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

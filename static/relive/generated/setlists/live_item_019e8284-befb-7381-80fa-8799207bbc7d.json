@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019e8284-befb-7381-80fa-8799207bbc7d",
+  "tourName": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+  "liveTitle": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+  "date": "2022-12-23",
+  "venueName": "横浜アリーナ",
+  "venueId": "venue_横浜アリ_ナ",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019e8284-7bab-79d4-ac3d-b6ec794328db",
+    "liveItemUuid": "019e8284-befb-7381-80fa-8799207bbc7d",
+    "sourceId": "live_item_019e8284-befb-7381-80fa-8799207bbc7d"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-befb-7381-80fa-8799207bbc7d_entry_019e82a7-670a-7ce3-ab5c-d72ef5fb9552",
+      "order": 1,
+      "rawTitle": "SCORPION",
+      "displayTitle": "SCORPION",
+      "normalizedTitle": "scorpion",
+      "policy": "required",
+      "trackId": "song_019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+      "aliases": [],
+      "expectedDurationSec": 176.9,
+      "afterglowTailSec": 15.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
+}

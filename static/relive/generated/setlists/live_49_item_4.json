@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_49_item_4",
+  "tourName": "Reol ASIA TOUR \"UNBOX\"",
+  "liveTitle": "Reol ASIA TOUR \"UNBOX\" 北京",
+  "date": "2024-03-08",
+  "venueName": "东郎EAST LIVE",
+  "venueId": "venue_东郎east_live",
+  "source": {
+    "type": "site_db",
+    "liveId": 49,
+    "liveItemNo": 4,
+    "sourceId": "live_49_item_4"
+  },
+  "entries": []
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_27_item_1",
+  "tourName": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+  "liveTitle": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~ オンライン",
+  "date": "2021-03-04",
+  "source": {
+    "type": "site_db",
+    "liveId": 27,
+    "liveItemNo": 1,
+    "sourceId": "live_27_item_1"
+  },
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_entry_1",
+      "order": 1,
+      "rawTitle": "HYPE MODE",
+      "displayTitle": "HYPE MODE",
+      "normalizedTitle": "hypemode",
+      "policy": "required",
+      "trackId": "song_80",
+      "aliases": [],
+      "expectedDurationSec": 211.1,
+      "afterglowTailSec": 12.3,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_entry_2",
+      "order": 2,
+      "rawTitle": "十中八九",
+      "displayTitle": "十中八九",
+      "normalizedTitle": "十中八九",
+      "policy": "required",
+      "trackId": "song_56",
+      "aliases": [],
+      "expectedDurationSec": 225.6,
+      "afterglowTailSec": 11.7,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_entry_3",
+      "order": 3,
+      "rawTitle": "平面鏡",
+      "displayTitle": "平面鏡",
+      "normalizedTitle": "平面鏡",
+      "policy": "required",
+      "trackId": "song_45",
+      "aliases": [],
+      "expectedDurationSec": 194.4,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_entry_4",
+      "order": 4,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_81",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
+      "afterglowTailSec": 15.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_27_item_1_entry_5",
+      "order": 5,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_92",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_id:exact"
+      }
+    }
+  ]
+}

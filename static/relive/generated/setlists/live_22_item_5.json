@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_22_item_5",
+  "tourName": "Reol Oneman Live 2020「ハーメルンの大号令」",
+  "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」 愛知 ※中止",
+  "date": "2020-02-29",
+  "venueName": "名古屋ダイアモンドホール",
+  "venueId": "venue_名古屋ダイアモンドホ_ル",
+  "source": {
+    "type": "site_db",
+    "liveId": 22,
+    "liveItemNo": 5,
+    "sourceId": "live_22_item_5"
+  },
+  "entries": []
+}
