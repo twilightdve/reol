@@ -286,7 +286,7 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
       name: localTypeInfo.name,
       song: localTypeInfo.songLabel,
       summary: localTypeInfo.summary.slice(0, 60) + '…',
-      url: `${SITE_URL}/quiz/reol-type/types/${typeCode.toLowerCase()}/`,
+      url: `${SITE_URL}/quiz/reol-type/types/${typeCode.toLowerCase()}/?utm_source=share_x`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -530,6 +530,7 @@ export const Head = ({ pageContext }: PageProps<object, PageContext>) => {
       title={`${typeInfo.emoji} ${typeInfo.name}「${typeInfo.songLabel}」— Reolファンタイプ診断`}
       description={typeInfo.summary}
       path={`/quiz/reol-type/types/${typeCode.toLowerCase()}/`}
+      image={`https://reol.twilightea.com/reol-type-og/${typeCode.toLowerCase()}.png`}
     />
   );
 };

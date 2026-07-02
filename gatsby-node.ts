@@ -16,6 +16,7 @@ import { Recommend } from "./src/types/recommend";
 import { Place, PlaceItem } from "./src/types/places";
 import { buildSongIndex, matchSongId } from "./src/utils/songMatcher";
 import { generateReliveData } from "./src/features/relive/data-transform";
+import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import {
   MusicBrainzService,
   Record as MbRecord,
@@ -643,6 +644,12 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
       `[relive] generated=${relive.manifest.counts.setlists} setlists, ` +
         `tracks=${relive.manifest.counts.tracks}, venues=${relive.manifest.counts.venues}`
     );
+    // ファンタイプ診断のタイプ別OG画像(16枚)を static/public の両方へ生成する
+    const og = await generateReolTypeOgImages({
+      outputDir: "static/reol-type-og",
+      mirrorOutputDir: "public/reol-type-og",
+    });
+    console.log(`[reol-type-og] generated=${og.generated}, skipped=${og.skipped}`);
   } catch (error) {
     console.error(error);
   }

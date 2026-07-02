@@ -279,7 +279,8 @@ const ResultPage = () => {
       sqR: 100 - percentages.SQ,
       ai: percentages.AI,
       aiR: 100 - percentages.AI,
-      url: `${SITE_URL}/quiz/reol-type/`,
+      // タイプ別OG画像が出るようタイプ詳細ページのURLを共有する
+      url: `${SITE_URL}/quiz/reol-type/types/${result.typeCode.toLowerCase()}/?utm_source=share_x`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
