@@ -220,6 +220,80 @@ function regenerateDerived() {
 }
 
 /**
+ * uuid 末尾12文字のフォールバック slug **だけ** を再生成する。
+ * - 手動編集済み・可読な slug は一切触らない(regenerateDerived と違い安全)
+ * - 改善された makeSlugFromName_(括弧英題/かな→ローマ字)で再挑戦し、
+ *   それでも生成できない曲(漢字のみ等)はフォールバックのまま残して
+ *   「手動整備リスト」としてレポート表示する
+ * 使い方: Apps Script エディタからこの関数を直接実行(またはメニューに追加)
+ */
+function regenerateFallbackSlugs() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const lines = [];
+  SHEET_DEFS.forEach((def) => {
+    if (!def.addCols.includes('slug')) return;
+    const sh = ss.getSheetByName(def.name);
+    if (!sh) return;
+    const slugIdx = findColIndex_(sh, 'slug');
+    const uuidIdx = findColIndex_(sh, 'uuid');
+    if (slugIdx < 0 || uuidIdx < 0) return;
+    const lastRow = sh.getLastRow();
+    if (lastRow < 2) return;
+
+    const allValues = sh.getRange(2, 1, lastRow - 1, sh.getLastColumn()).getValues();
+    // 既存slug一覧(重複防止)。フォールバックslugは再生成対象なので除外して構築
+    const usedSlugs = new Set();
+    const isFallback = (slug, uuid) =>
+      slug !== '' && uuid !== '' && slug === uuid.replace(/-/g, '').slice(-12);
+    allValues.forEach((row) => {
+      const slug = normCell_(row[slugIdx]);
+      const uuid = normCell_(row[uuidIdx]);
+      if (slug && !isFallback(slug, uuid)) usedSlugs.add(slug);
+    });
+
+    const out = [];
+    let regenerated = 0;
+    const remaining = [];
+    for (let i = 0; i < allValues.length; i++) {
+      const slug = normCell_(allValues[i][slugIdx]);
+      const uuid = normCell_(allValues[i][uuidIdx]);
+      if (!rowHasContent_(allValues[i]) || !isFallback(slug, uuid)) {
+        out.push([slug]);
+        continue;
+      }
+      const name = normCell_(allValues[i][def.nameCol]);
+      let base = makeSlugFromName_(name);
+      if (!base) {
+        // 依然として生成不可 → フォールバック温存し、手動整備リストへ
+        out.push([slug]);
+        remaining.push('  row ' + (i + 2) + ': ' + name);
+        continue;
+      }
+      let candidate = base;
+      let n = 2;
+      while (usedSlugs.has(candidate)) {
+        candidate = base + '-' + n;
+        n += 1;
+      }
+      usedSlugs.add(candidate);
+      out.push([candidate]);
+      regenerated += 1;
+    }
+    sh.getRange(2, slugIdx + 1, lastRow - 1, 1).setValues(out);
+    lines.push(
+      '[' + def.name + '] 再生成 ' + regenerated + ' 件 / 要手動 ' + remaining.length + ' 件' +
+        (remaining.length ? '\n' + remaining.join('\n') : '')
+    );
+  });
+  const report = lines.join('\n');
+  Logger.log('=== regenerateFallbackSlugs ===\n' + report);
+  SpreadsheetApp.getUi().alert(
+    'フォールバックslugの再生成が完了しました\n\n' + report +
+      '\n\n※「要手動」の行は slug セルに公式ローマ字を直接入力してください(次回実行時も上書きされません)'
+  );
+}
+
+/**
  * uuid を含む全 ID/slug 列を全クリアして完全再生成する。
  * ⚠ 既存 uuid がすべて新規発行され、Supabase 等の外部参照は壊れる。
  */
@@ -486,10 +560,11 @@ function fillSlugColumn_(sh, headerName, nameCol /* 0-index */) {
       continue;
     }
     const name = normCell_(allValues[i][nameCol]);
-    let base = slugify_(name);
+    let base = makeSlugFromName_(name);
     if (!base) {
-      // 名前が空 or ASCII 化で残らない（例: 日本語のみで slugify_ が空）
+      // 名前が空 or 変換パイプラインで残らない（例: 漢字のみで読みが不明）
       // → uuid 末尾 12 文字を fallback slug にして必ず埋める
+      // (後から regenerateFallbackSlugs() で再生成 or 手動編集で置き換え可能)
       const uuid = uuidIdx >= 0 ? normCell_(allValues[i][uuidIdx]) : '';
       if (uuid) {
         base = uuid.replace(/-/g, '').slice(-12);
@@ -512,7 +587,129 @@ function fillSlugColumn_(sh, headerName, nameCol /* 0-index */) {
 }
 
 /**
- * 名前 → slug 変換
+ * 名前 → slug 変換パイプライン（優先順）
+ *   1. 括弧内に英字の公式英題があればそれを使う（例: 「うつくしじごく (Utsukushi Jigoku)」→ utsukushi-jigoku）
+ *   2. 名前全体を ASCII slug 化して残ればそれ（英数タイトル）
+ *   3. かな のみのタイトルはヘボン式ローマ字に変換（例: 「ヒビカセ」→ hibikase）
+ *   4. どれも不可（漢字のみ等）なら空を返す → 呼び出し側で uuid フォールバック
+ * 漢字の読みは機械推測しない（誤読を恒久URLにしないため。手動編集 or 括弧英題の追記で対応）
+ */
+function makeSlugFromName_(name) {
+  const raw = String(name);
+  // 1. 括弧内の英題（最初に英字を含む括弧を採用）
+  const parenMatches = raw.match(/[(（][^)）]*[)）]/g) || [];
+  for (let i = 0; i < parenMatches.length; i++) {
+    const inner = parenMatches[i].replace(/^[(（]|[)）]$/g, '');
+    if (/[a-zA-Z]/.test(inner)) {
+      const s = slugify_(inner);
+      if (s) return s;
+    }
+  }
+  // 2. 全体を ASCII slug 化（括弧は除いた本体で試す）
+  const body = raw.replace(/[(（][^)）]*[)）]/g, '').trim();
+  const ascii = slugify_(body || raw);
+  if (ascii) return ascii;
+  // 3. かな のみならローマ字化
+  const target = body || raw;
+  if (isKanaOnly_(target)) {
+    const s = slugify_(kanaToRomaji_(target));
+    if (s) return s;
+  }
+  return '';
+}
+
+/** かな（ひらがな/カタカナ/長音/記号・空白のみ）で構成されているか */
+function isKanaOnly_(s) {
+  const stripped = String(s).replace(/[\s　・、。，．,.!?！？~〜…「」『』ー]/g, '');
+  if (!stripped) return false;
+  return /^[ぁ-ゖァ-ヺ]+$/.test(stripped);
+}
+
+/**
+ * かな → ヘボン式ローマ字（slug 用の簡易版）
+ * - カタカナはひらがなへ寄せてから変換
+ * - 拗音（きゃ等）・促音（っ→次の子音を重ねる）・ん(n) に対応
+ * - 長音「ー」は無視（例: トーキョー → tokyo）
+ */
+function kanaToRomaji_(s) {
+  // カタカナ → ひらがな
+  let kana = String(s).replace(/[ァ-ヶ]/g, function (ch) {
+    return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+  });
+  const DIGRAPHS = {
+    'きゃ': 'kya', 'きゅ': 'kyu', 'きょ': 'kyo',
+    'しゃ': 'sha', 'しゅ': 'shu', 'しょ': 'sho',
+    'ちゃ': 'cha', 'ちゅ': 'chu', 'ちょ': 'cho',
+    'にゃ': 'nya', 'にゅ': 'nyu', 'にょ': 'nyo',
+    'ひゃ': 'hya', 'ひゅ': 'hyu', 'ひょ': 'hyo',
+    'みゃ': 'mya', 'みゅ': 'myu', 'みょ': 'myo',
+    'りゃ': 'rya', 'りゅ': 'ryu', 'りょ': 'ryo',
+    'ぎゃ': 'gya', 'ぎゅ': 'gyu', 'ぎょ': 'gyo',
+    'じゃ': 'ja', 'じゅ': 'ju', 'じょ': 'jo',
+    'ぢゃ': 'ja', 'ぢゅ': 'ju', 'ぢょ': 'jo',
+    'びゃ': 'bya', 'びゅ': 'byu', 'びょ': 'byo',
+    'ぴゃ': 'pya', 'ぴゅ': 'pyu', 'ぴょ': 'pyo',
+    'ふぁ': 'fa', 'ふぃ': 'fi', 'ふぇ': 'fe', 'ふぉ': 'fo',
+    'てぃ': 'ti', 'でぃ': 'di', 'とぅ': 'tu', 'どぅ': 'du',
+    'うぃ': 'wi', 'うぇ': 'we', 'うぉ': 'wo',
+    'ちぇ': 'che', 'しぇ': 'she', 'じぇ': 'je',
+  };
+  const SINGLES = {
+    'あ': 'a', 'い': 'i', 'う': 'u', 'え': 'e', 'お': 'o',
+    'か': 'ka', 'き': 'ki', 'く': 'ku', 'け': 'ke', 'こ': 'ko',
+    'さ': 'sa', 'し': 'shi', 'す': 'su', 'せ': 'se', 'そ': 'so',
+    'た': 'ta', 'ち': 'chi', 'つ': 'tsu', 'て': 'te', 'と': 'to',
+    'な': 'na', 'に': 'ni', 'ぬ': 'nu', 'ね': 'ne', 'の': 'no',
+    'は': 'ha', 'ひ': 'hi', 'ふ': 'fu', 'へ': 'he', 'ほ': 'ho',
+    'ま': 'ma', 'み': 'mi', 'む': 'mu', 'め': 'me', 'も': 'mo',
+    'や': 'ya', 'ゆ': 'yu', 'よ': 'yo',
+    'ら': 'ra', 'り': 'ri', 'る': 'ru', 'れ': 're', 'ろ': 'ro',
+    'わ': 'wa', 'ゐ': 'i', 'ゑ': 'e', 'を': 'o', 'ん': 'n',
+    'が': 'ga', 'ぎ': 'gi', 'ぐ': 'gu', 'げ': 'ge', 'ご': 'go',
+    'ざ': 'za', 'じ': 'ji', 'ず': 'zu', 'ぜ': 'ze', 'ぞ': 'zo',
+    'だ': 'da', 'ぢ': 'ji', 'づ': 'zu', 'で': 'de', 'ど': 'do',
+    'ば': 'ba', 'び': 'bi', 'ぶ': 'bu', 'べ': 'be', 'ぼ': 'bo',
+    'ぱ': 'pa', 'ぴ': 'pi', 'ぷ': 'pu', 'ぺ': 'pe', 'ぽ': 'po',
+    'ぁ': 'a', 'ぃ': 'i', 'ぅ': 'u', 'ぇ': 'e', 'ぉ': 'o',
+    'ゃ': 'ya', 'ゅ': 'yu', 'ょ': 'yo', 'ゎ': 'wa',
+    'ゔ': 'vu',
+  };
+  let out = '';
+  let sokuon = false;
+  for (let i = 0; i < kana.length; i++) {
+    const two = kana.substr(i, 2);
+    const one = kana[i];
+    if (one === 'っ') {
+      sokuon = true;
+      continue;
+    }
+    if (one === 'ー') {
+      continue; // 長音は無視
+    }
+    let roma = '';
+    if (DIGRAPHS[two]) {
+      roma = DIGRAPHS[two];
+      i += 1;
+    } else if (SINGLES[one]) {
+      roma = SINGLES[one];
+    } else {
+      // かな以外（空白・記号）は区切りとして残す
+      out += one;
+      sokuon = false;
+      continue;
+    }
+    if (sokuon && roma) {
+      // 促音: 次の子音を重ねる（chi 系は t を付ける慣例）
+      out += roma.charAt(0) === 'c' ? 't' : roma.charAt(0);
+      sokuon = false;
+    }
+    out += roma;
+  }
+  return out;
+}
+
+/**
+ * 名前 → slug 変換（ASCII 化の最終工程）
  * - 日本語/全角/フリガナ記号を除去
  * - 英数とハイフンのみ残す
  * - lowercase
