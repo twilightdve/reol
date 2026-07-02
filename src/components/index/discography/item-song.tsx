@@ -125,9 +125,10 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
         label: song.downloadUrl ?? "",
       });
 
+      // 配信リンクは外部遷移のみ。以前は handleDialogOpen のコピペで
+      // showModal() まで呼んでおり、リンククリックで無関係の詳細
+      // ダイアログが開いてしまっていた
       event.stopPropagation();
-      document.body.classList.add("overflow-hidden");
-      dialogRef.current?.showModal();
     },
     [song.downloadUrl]
   );
