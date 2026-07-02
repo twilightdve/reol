@@ -15,6 +15,7 @@ import {
   timelinePointTheme,
   timelineContentTheme,
 } from "./enhanced-discography";
+import { trackOfficialLinkClick } from "../../../utils/analytics";
 
 // iOS判定（共通化）
 const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -229,6 +230,46 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
               </p>
             )}
           </div>
+
+          {/* 歌詞(歌ネット)・公式配信リンク。旧 item-song.tsx にあった歌詞リンクの移植 */}
+          {(song.lyricUrl || song.downloadUrl) && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {song.lyricUrl && (
+                <a
+                  href={song.lyricUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium border transition-opacity hover:opacity-80"
+                  style={{
+                    color: "#1F2937",
+                    borderColor: "#9CA3AF",
+                    backgroundColor: "rgba(255, 255, 255, 0.7)",
+                  }}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <BiCommentDetail />
+                  歌詞を見る(歌ネット)
+                  <GoLinkExternal className="text-[10px]" />
+                </a>
+              )}
+              {song.downloadUrl && (
+                <a
+                  href={song.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-80"
+                  style={{ backgroundColor: "#059669" }}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    trackOfficialLinkClick("streaming");
+                  }}
+                >
+                  ♪ 配信で聴く
+                  <GoLinkExternal className="text-[10px]" />
+                </a>
+              )}
+            </div>
+          )}
 
           {/* 動画埋め込み（MV、歌詞動画、ライブ動画 / YouTube・bilibili対応） */}
           {renderVideo("Music Video", musicVideoId, musicBilibili)}
