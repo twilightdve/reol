@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "backToTop": "トップに戻る",
+    "viewAllVenues": "すべての会場を見る",
+    "viewAllAttendees": "全参加者を見る"
+  },
+  "sections": {
+    "basicInfo": "基本情報",
+    "attendees": "参加者",
+    "access": "アクセス",
+    "lockers": "ロッカー",
+    "parking": "駐車場",
+    "cafes": "カフェ",
+    "restaurants": "飲食店",
+    "attractions": "観光",
+    "holyPlaces": "聖地",
+    "accommodations": "宿泊"
+  },
+  "buttons": {
+    "officialSite": "会場公式サイト",
+    "details": "詳細情報",
+    "detailsReservation": "詳細・予約",
+    "map": "地図",
+    "website": "公式サイト"
+  },
+  "messages": {
+    "venueNotFound": "会場が見つかりません",
+    "accuracyDisclaimer": "情報の正確性について",
+    "accuracyNote": "このページに掲載されている会場周辺の情報は、AIによって生成された内容を含んでいます。情報の正確性については保証いたしかねますので、ご利用の際は必ず公式サイト等で最新情報をご確認ください。",
+    "noDataRegistered": "情報が登録されていません"
+  },
+  "labels": {
+    "recommended": "おすすめ"
+  },
+  "accessInfo": {
+    "title": "遠征組向けアクセス情報",
+    "longDistanceTitle": "遠征組向けアクセス情報",
+    "subtitle": "会場周辺のアクセス",
+    "fromAirport": "空港からのアクセス",
+    "byShinkansen": "新幹線でのアクセス",
+    "byHighwayBus": "高速バスでのアクセス",
+    "byCar": "車でのアクセス"
+  },
+  "lockerInfo": {
+    "title": "コインロッカー情報"
+  },
+  "parkingInfo": {
+    "title": "駐車場情報",
+    "official": "会場公式駐車場情報",
+    "nearby": "周辺の駐車場"
+  },
+  "cafeInfo": {
+    "title": "開場前の時間潰しスポット"
+  },
+  "restaurantInfo": {
+    "title": "近隣のグルメ"
+  },
+  "attractionInfo": {
+    "title": "近隣の観光スポット"
+  },
+  "holyPlaceInfo": {
+    "title": "れをる聖地"
+  },
+  "accommodationInfo": {
+    "title": "会場近くの宿泊施設"
+  },
+  "otherVenues": {
+    "title": "他の開催予定会場"
+  },
+  "badges": {
+    "recommended": "おすすめ",
+    "price": "料金",
+    "distance": "距離"
+  },
+  "labels": {
+    "address": "住所",
+    "fromVenue": "会場から"
+  },
+  "times": {
+    "open": "開場",
+    "start": "開演"
+  },
+  "location": {
+    "prefecture": "都道府県",
+    "city": "市区町村",
+    "address": "住所",
+    "nearestStation": "最寄り駅"
+  }
+}

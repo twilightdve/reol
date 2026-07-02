@@ -1,0 +1,77 @@
+import { Venue } from '../types'
+
+export const aomori_quarter: Venue = {
+    id: 'aomori_quarter',
+    name: '青森Quarter',
+    date: '2026-04-11T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '青森県', 
+      city: '青森市',
+      address: '青森県青森市古川1-11-16',
+      nearestStation: 'JR青森駅 徒歩7分'
+    },
+    capacity: 300,
+    access: 'JR青森駅から徒歩7分。駅前の繁華街エリア内。',
+    nearbyAttractions: [
+      {
+        name: 'ねぶたの家 ワ・ラッセ',
+        description: '青森ねぶた祭の博物館',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '盛岡・八戸',
+          method: '高速バス',
+          time: '約2〜3時間',
+          description: '東北各地から青森行きの高速バスが運行。青森駅到着後、徒歩で会場へ。',
+          cost: '片道2,500円〜4,000円',
+          notes: '東北北部の移動に便利'
+        }
+      ],
+      recommendations: '青森空港からバス35分とアクセス良好。新幹線は新青森駅からJRで接続。東北北部の中心都市。'
+    parkingOptions: [
+      {
+        name: '青森駅前駐車場',
+        description: '青森駅前駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P02-aomori/C201/park-detail-BUK0078339/',
+        mapsUrl: 'https://www.google.com/maps/search/青森駅前駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR青森駅構内',
+        description: 'JR青森駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/25.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR青森駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 青森駅前店',
+        description: 'スターバックス 青森駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-4395/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+青森駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '青森魚菜センター（のっけ丼）',
+        description: '青森魚菜センター（のっけ丼）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nokkedon.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/青森魚菜センター',
+      },
+    ],
+
+    }
+
+export default aomori_quarter

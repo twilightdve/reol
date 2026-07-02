@@ -1,0 +1,34 @@
+import { Venue } from '../types'
+
+export const yamaguchi_rising_hall: Venue = {
+    id: 'yamaguchi_rising_hall',
+    name: '周南RISING HALL',
+    date: '2026-03-22T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '山口県', 
+      city: '周南市',
+      address: '山口県周南市本町2-15',
+      nearestStation: 'JR徳山駅 徒歩10分'
+    },
+    capacity: 500,
+    access: 'JR徳山駅から徒歩10分。駅前から商店街を抜けてすぐ。',
+    nearbyAttractions: [
+      {
+        name: '周南市美術博物館',
+        description: '周南市の歴史と美術品を展示。コンビナートの写真展示も',
+        distance: '徒歩15分'
+      },
+      {
+        name: '徳山動物園',
+        description: 'ペンギンやゾウなど多彩な動物が見られる動物園',
+        distance: '車で約10分'
+      },
+      {
+        name: '周南工場夜景',
+        description: '日本有数の石油化学コンビナートの夜景スポット',
+        distance: '車で約15分（晴海親水公園展望台）'
+      }
+    ],  },
+
+export default yamaguchi_rising_hall

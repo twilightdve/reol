@@ -1,0 +1,24 @@
+import { Venue } from '../types'
+
+export const niigata_lots: Venue = {
+    id: 'niigata_lots',
+    name: '新潟LOTS',
+    date: '2026-05-24T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '新潟県', 
+      city: '新潟市',
+      address: '新潟県新潟市中央区古町通6-953-1',
+      nearestStation: 'JR新潟駅 バス15分'
+    },
+    capacity: 450,
+    access: 'JR新潟駅からバスで15分、古町バス停下車徒歩3分。',
+    nearbyAttractions: [
+      {
+        name: '古町通商店街',
+        description: '新潟の繁華街',
+        distance: '徒歩1分'
+      }
+    ],  },
+
+export default niigata_lots

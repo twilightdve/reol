@@ -1,0 +1,293 @@
+import { Venue } from '../types'
+
+export const tochigi_heavens_rock: Venue = {
+    id: 'tochigi_heavens_rock',
+    name: "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+    date: '2026-03-14T18:00:00+09:00',
+    times: { open: '17:00', start: '18:00' },
+    location: { 
+      prefecture: '栃木県', 
+      city: '宇都宮市',
+      address: '栃木県宇都宮市駅前通り1-4-6 宇都宮パセオ6F',
+      nearestStation: 'JR宇都宮駅 徒歩3分'
+    },
+    capacity: 400,
+    access: 'JR宇都宮駅西口から徒歩3分。東武宇都宮駅からは徒歩7分。宇都宮パセオビルの6階です。',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7923519298633!2d139.87766411744383!3d36.55911940000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f67b953b5b7c3%3A0x8242cb57adeed091!2zSEVBVkVOJ1MgUk9DSyDlrofpg73lrq4gVkotMg!5e0!3m2!1sja!2sjp!4v1763452827581!5m2!1sja!2sjp',
+    venueWebsite: 'https://www.heavensrock.com/hall/utsunomiya/',
+    parkingInfo: '宇都宮パセオ駐車場利用可（有料・コンサート利用者割引あり）',
+    longDistanceAccess: {
+      fromAirport: [
+        {
+          from: '羽田空港',
+          method: 'リムジンバス',
+          time: '約2時間30分',
+          description: '羽田空港から宇都宮駅西口行きのリムジンバスが運行。1日4〜5本程度。JR宇都宮駅西口下車後、徒歩3分で会場到着。',
+          cost: '片道3,000円前後',
+          notes: '事前予約推奨。満席の場合は電車ルートへ'
+        },        {
+          from: '羽田空港',
+          method: '電車（東京駅経由）',
+          time: '約2時間30分',
+          description: '羽田空港→（京急・山手線）→東京駅→（東北新幹線）→宇都宮駅。新幹線利用で快適・確実。',
+          cost: '片道5,500円前後（新幹線自由席）',
+          notes: '新幹線なやまびこ・なすのが停車。1時間に2〜3本'
+        },
+      ],
+    },
+    parkingOptions: [
+      {
+        name: '宇都宮パセオ駐車場',
+        description: '宇都宮パセオ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.utsunomiya-sk.com/paseo/access/',
+      },
+      {
+        name: 'JR宇都宮駅西口地下駐車場',
+        description: 'JR宇都宮駅西口地下駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.n-parking.com/park/park007.php',
+        mapsUrl: 'https://www.google.com/maps/search/JR宇都宮駅西口地下駐車場',
+      },
+      {
+        name: 'トナリエ宇都宮駐車場',
+        description: 'トナリエ宇都宮駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://tonarie.jp/utsunomiya/access.php',
+        mapsUrl: 'https://www.google.com/maps/search/ララスクエア宇都宮+駐車場',
+      },
+      {
+        name: 'タイムズ宇都宮駅前',
+        description: 'タイムズ宇都宮駅前の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P09-tochigi/line/L4900/S1639/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+宇都宮駅前',
+      },
+      {
+        name: '宇都宮市営中央駐車場',
+        description: '宇都宮市営中央駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.utsunomiya.lg.jp/kurashi/kotsu/chushajo/1006138.html',
+        mapsUrl: 'https://www.google.com/maps/search/宇都宮市営中央駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR宇都宮駅構内（改札内）',
+        description: 'JR宇都宮駅構内（改札内）のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/248.html',
+      },
+      {
+        location: 'JR宇都宮駅構内（改札外）',
+        description: 'JR宇都宮駅構内（改札外）のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/248.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR宇都宮駅+コインロッカー',
+      },
+      {
+        location: '宇都宮パセオ館内',
+        description: '宇都宮パセオ館内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.utsunomiya-sk.com/paseo/floor/',
+      },
+      {
+        location: 'トナリエ宇都宮',
+        description: 'トナリエ宇都宮のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://tonarie.jp/utsunomiya/',
+        mapsUrl: 'https://www.google.com/maps/search/ララスクエア宇都宮',
+      },
+      {
+        location: '東武宇都宮駅構内',
+        description: '東武宇都宮駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.tobu.co.jp/railway/guide/station/insidemap/4112/',
+        mapsUrl: 'https://www.google.com/maps/search/東武宇都宮駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス パセオ宇都宮店',
+        description: 'スターバックス パセオ宇都宮店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-522/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+宇都宮パセオ',
+      },
+      {
+        name: 'コメダ珈琲店 宇都宮駅東店',
+        description: 'コメダ珈琲店 宇都宮駅東店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1053',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+宇都宮駅東',
+      },
+      {
+        name: 'タリーズコーヒー 宇都宮店',
+        description: 'タリーズコーヒー 宇都宮店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://shop.tullys.co.jp/detail/1920773',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+宇都宮',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '餃子の正嗣 宮島本店',
+        description: '餃子の正嗣 宮島本店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000046/',
+        mapsUrl: 'https://www.google.com/maps/search/餃子の正嗣+宮島本店+宇都宮',
+      },
+      {
+        name: 'みんみん 本店',
+        description: 'みんみん 本店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000045/',
+        mapsUrl: 'https://www.google.com/maps/search/みんみん+本店+宇都宮',
+      },
+      {
+        name: 'ガスト 宇都宮駅前店',
+        description: 'ガスト 宇都宮駅前店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store-info.skylark.co.jp/gusto/map/011940/',
+        mapsUrl: 'https://www.google.com/maps/search/ガスト+宇都宮駅前',
+      },
+    ],
+        {
+          from: '成田空港',
+          method: '電車（東京駅経由）',
+          time: '約3時間',
+          description: '成田空港→（成田エクスプレス）→東京駅→（東北新幹線）→宇都宮駅',
+          cost: '片道6,500円前後',
+          notes: '成田エクスプレスと新幹線の乗り継ぎ時間に注意'
+        }
+      ],
+      fromShinkansen: [
+        {
+          from: '東京駅',
+          method: '東北新幹線',
+          time: '約50分',
+          description: '東京駅から東北新幹線「なすの」または「やまびこ」で宇都宮駅へ。宇都宮駅西口から徒歩3分。',
+          cost: '片道4,000円前後（自由席）',
+          notes: '1時間に2〜3本運行。指定席の場合+530円'
+        },
+        {
+          from: '大宮駅',
+          method: '東北新幹線',
+          time: '約30分',
+          description: '大宮駅から東北新幹線で宇都宮駅へ。埼玉方面からのアクセスに便利。',
+          cost: '片道2,500円前後（自由席）',
+          notes: '東京発の新幹線はすべて大宮駅に停車'
+        }
+      ],
+      fromExpressBus: [
+        {
+          from: '新宿・池袋',
+          method: '高速バス',
+          time: '約2時間30分',
+          description: '新宿・池袋から宇都宮駅行きの高速バスが頻発。JRバス関東・東野交通が運行。',
+          cost: '片道2,000円前後',
+          notes: '渋滞の影響を受ける可能性あり。時間に余裕を持って'
+        }
+      ],
+      recommendations: '関東圏からは新幹線が最速で確実。遠方からは羽田空港経由がおすすめ。バスは経済的だが渋滞リスクあり。'
+    },    nearbyAttractions: [
+      {
+        name: '宇都宮餅子通り',
+        description: '全国的に有名な宇都宮餅子の名店が集まる通り。地元グルメの聖地',
+        distance: '徒歩5分'
+      },
+      {
+        name: '宇都宮城址公園',
+        description: '宇都宮城の本丸跡地に整備された歴史公園。桜の名所としても有名',
+        distance: '徒歩15分',
+        website: 'https://www.city.utsunomiya.tochigi.jp/shisetsu/kouen/1007909.html'
+      },
+      {
+        name: '宇都宮美術館',
+        description: '現代アートから古典まで幅広いコレクション。静かな時間を過ごせる',
+        distance: 'バス20分'
+      },
+      {
+        name: '大谷資料館',
+        description: '大谷石の採掘跡地を利用した神秘的な地下空間',
+        distance: 'バス30分',
+        website: 'https://www.oya909.co.jp/'
+      }
+    ],
+    nearbyRestaurants: [
+      {
+        name: '餃子の正嗣 宮島本店',
+        cuisine: '餃子',
+        description: '宇都宮餃子の老舗。焼餃子と水餃子のみというシンプルなメニューが人気',
+        distance: '徒歩8分',
+        openTime: '11:30-19:30',
+        price: '餃子1皿240円～',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000046/',
+        mapsUrl: 'https://www.google.com/maps/search/餃子の正嗣+宮島本店+宇都宮',
+        recommended: true,
+        recommendComment: '宇都宮に来たら絶対食べたい！シンプルで美味しい老舗餃子'
+      },
+      {
+        name: 'みんみん 本店',
+        cuisine: '餃子',
+        description: '宇都宮餃子の代表格。もっちりとした皮が特徴',
+        distance: '徒歩10分',
+        openTime: '11:30-20:00',
+        price: '餃子1皿250円～',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000045/',
+        mapsUrl: 'https://www.google.com/maps/search/みんみん+本店+宇都宮',
+        recommended: true,
+        recommendComment: '行列必至の人気店！もちもち皮がやみつきになる'
+      },
+      {
+        name: 'ガスト 宇都宮駅前店',
+        cuisine: 'ファミレス',
+        description: 'リーズナブルで長時間滞在可能。コンサート前後の食事に便利',
+        distance: '徒歩5分',
+        openTime: '24時間営業',
+        price: '1,000円～2,000円',
+        website: 'https://store-info.skylark.co.jp/gusto/map/011940/',
+        mapsUrl: 'https://www.google.com/maps/search/ガスト+宇都宮駅前'
+      },
+      {
+        name: '麺や 遊大',
+        cuisine: 'ラーメン',
+        description: '地元で人気のラーメン店。あっさり系から濃厚系まで',
+        distance: '徒歩6分',
+        openTime: '11:00-23:00',
+        price: '800円～1,500円',
+        mapsUrl: 'https://www.google.com/maps/search/麺や遊大+宇都宮'
+      },
+      {
+        name: '宇都宮 炭火焼肉 牛角',
+        cuisine: '焼肉',
+        description: 'コンサート後の打ち上げに最適。栃木県産和牛が自慢',
+        distance: '徒歩7分',
+        openTime: '17:00-24:00',
+        price: '2,000円～4,000円',
+        website: 'https://www.gyukaku.ne.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/牛角+宇都宮駅前'
+      }
+    ]
+  },
+
+export default tochigi_heavens_rock

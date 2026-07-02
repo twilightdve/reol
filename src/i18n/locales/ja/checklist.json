@@ -1,0 +1,57 @@
+{
+  "title": "旅行計画チェックリスト",
+  "progress": "準備進捗",
+  "items": {
+    "ticket": "チケット確保済み",
+    "transportation": "交通手段確保済み",
+    "accommodation": "宿泊先確保済み",
+    "schedule": "スケジュール確認済み",
+    "companion": "同行者確認済み",
+    "merchandise": "物販・グッズ確認済み",
+    "luggage": "持ち物準備完了",
+    "dayBefore": "前日確認完了",
+    "budget": "予算確認済み",
+    "sightseeing": "周辺観光計画",
+    "weather": "天気確認済み"
+  },
+  "luggageList": {
+    "title": "持ち物リスト",
+    "ticket": "チケット（電子/紙）",
+    "id": "身分証明書",
+    "wallet": "財布・現金",
+    "phone": "スマートフォン・充電器",
+    "penlight": "ペンライト・電池",
+    "goods": "購入予定グッズリスト",
+    "towel": "タオル・ハンカチ",
+    "drink": "飲み物",
+    "mask": "マスク・消毒液",
+    "medicine": "常備薬",
+    "rainwear": "雨具",
+    "baggage": "荷物預け用バッグ",
+    "camera": "カメラ（会場外用）",
+    "schedule": "スケジュール表"
+  },
+  "dayBeforeList": {
+    "title": "前日確認リスト",
+    "ticketCheck": "チケット確認",
+    "transportCheck": "交通機関の時刻確認",
+    "weatherCheck": "天気予報確認",
+    "venueCheck": "会場までの道順確認",
+    "luggageCheck": "持ち物最終確認",
+    "phoneCharge": "スマホ充電",
+    "cashCheck": "現金準備",
+    "clothingCheck": "服装準備",
+    "accommodationCheck": "宿泊施設の確認",
+    "alarmSet": "アラーム設定",
+    "sleepEarly": "早めの就寝"
+  },
+  "memo": {
+    "title": "メモ",
+    "placeholder": "持ち物、集合場所、注意事項など...",
+    "save": "チェックリストを保存",
+    "saving": "保存中...",
+    "saved": "保存済み",
+    "warning": "個人を特定できる情報（氏名、連絡先、住所など）や機密情報は入力しないでください",
+    "characters": "文字"
+  }
+}

@@ -1,0 +1,102 @@
+import { Venue } from '../types'
+
+export const nagano_junk_box: Venue = {
+    id: 'nagano_junk_box',
+    name: 'NAGANO CLUB JUNK BOX',
+    date: '2026-05-23T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '長野県', 
+      city: '長野市',
+      address: '長野県長野市鶴賀権堂町2258',
+      nearestStation: '長野電鉄 権堂駅 徒歩3分'
+    },
+    capacity: 450,
+    access: '長野電鉄権堂駅から徒歩3分。JR長野駅から徒歩15分。',
+    nearbyAttractions: [
+      {
+        name: '善光寺',
+        description: '信州を代表する古刹',
+        distance: '徒歩15分'
+      }
+    ],      recommendations: '北陸新幹線で東京から直通1時間30分。信州まつもと空港からバス60分。善光寺やアルプス観光も楽しめる。'
+    parkingOptions: [
+      {
+        name: '長野駅東口駐車場',
+        description: '長野駅東口駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.nagano.nagano.jp/n180500/contents/p001180.html',
+        mapsUrl: 'https://www.google.com/maps/search/長野駅東口駐車場',
+      },
+      {
+        name: '権堂パーキング',
+        description: '権堂パーキングの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/group/parking/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/権堂パーキング+長野',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR長野駅構内',
+        description: 'JR長野駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/1105.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR長野駅',
+      },
+      {
+        location: '長野電鉄権堂駅',
+        description: '長野電鉄権堂駅のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/info/station/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/長野電鉄権堂駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 長野駅店',
+        description: 'スターバックス 長野駅店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-497/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+長野駅',
+      },
+      {
+        name: 'コメダ珈琲店 長野駅東口公園店',
+        description: 'コメダ珈琲店 長野駅東口公園店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1145',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+長野権堂',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '権堂商店街',
+        description: '権堂商店街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nagano-gondo.com/',
+        mapsUrl: 'https://www.google.com/maps/search/権堂商店街+長野',
+      },
+    ],
+    holyPlaces: [
+      {
+        name: '信州蕎麦の草笛 MIDORI店',
+        description: 'れをる関連の聖地: 信州蕎麦の草笛 MIDORI店',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://kusabue-nagano.owst.jp/',
+        mapsUrl: 'https://www.google.com/maps/place/%E4%BF%A1%E5%B7%9E%E8%95%8E%E9%BA%A6%E3%81%AE%E8%8D%89%E7%AC%9B/',
+      },
+    ],
+
+    }
+
+export default nagano_junk_box

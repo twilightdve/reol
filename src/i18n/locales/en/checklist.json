@@ -1,0 +1,57 @@
+{
+  "title": "Travel Planning Checklist",
+  "progress": "Preparation Progress",
+  "items": {
+    "ticket": "Ticket secured",
+    "transportation": "Transportation secured",
+    "accommodation": "Accommodation secured",
+    "schedule": "Schedule confirmed",
+    "companion": "Companion confirmed",
+    "merchandise": "Merchandise/goods confirmed",
+    "luggage": "Luggage prepared",
+    "dayBefore": "Day before check completed",
+    "budget": "Budget confirmed",
+    "sightseeing": "Sightseeing planned",
+    "weather": "Weather checked"
+  },
+  "luggageList": {
+    "title": "Luggage List",
+    "ticket": "Ticket (digital/paper)",
+    "id": "ID card",
+    "wallet": "Wallet/cash",
+    "phone": "Smartphone/charger",
+    "penlight": "Penlight/batteries",
+    "goods": "Goods purchase list",
+    "towel": "Towel/handkerchief",
+    "drink": "Drinks",
+    "mask": "Mask/sanitizer",
+    "medicine": "Medicine",
+    "rainwear": "Rain gear",
+    "baggage": "Storage bag",
+    "camera": "Camera (outside venue)",
+    "schedule": "Schedule"
+  },
+  "dayBeforeList": {
+    "title": "Day Before Checklist",
+    "ticketCheck": "Ticket check",
+    "transportCheck": "Transport schedule check",
+    "weatherCheck": "Weather forecast check",
+    "venueCheck": "Route to venue check",
+    "luggageCheck": "Final luggage check",
+    "phoneCharge": "Phone charging",
+    "cashCheck": "Cash preparation",
+    "clothingCheck": "Clothing preparation",
+    "accommodationCheck": "Accommodation confirmation",
+    "alarmSet": "Alarm set",
+    "sleepEarly": "Early sleep"
+  },
+  "memo": {
+    "title": "Memo",
+    "placeholder": "Luggage, meeting place, notes...",
+    "save": "Save Checklist",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "warning": "Do not enter personally identifiable information (name, contact details, address, etc.) or confidential information",
+    "characters": "characters"
+  }
+}

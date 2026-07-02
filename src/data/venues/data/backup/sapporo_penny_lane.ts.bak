@@ -1,0 +1,116 @@
+import { Venue } from '../types'
+
+export const sapporo_penny_lane: Venue = {
+    id: 'sapporo_penny_lane',
+    name: '札幌 PENNY LANE 24',
+    date: '2026-05-10T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '北海道', 
+      city: '札幌市',
+      address: '北海道札幌市中央区南4条西5丁目',
+      nearestStation: '地下鉄すすきの駅 徒歩3分'
+    },
+    capacity: 400,
+    access: '地下鉄南北線すすきの駅3番出口から徒歩3分。すすきの繁華街の中心部。',
+    venueWebsite: 'https://pennylane24.com/',
+    nearbyAttractions: [
+      {
+        name: '大通公園',
+        description: '札幌の中心部を貫く大規模な公園',
+        distance: '徒歩8分'
+      },
+      {
+        name: 'さっぽろテレビ塔',
+        description: '札幌のランドマークタワー',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '旭川・釧路・函館',
+          method: '高速バス',
+          time: '約2〜5時間',
+          description: '北海道内各地から札幌行きの高速バスが多数運行。札幌駅またはすすきの付近で下車。',
+          cost: '片道2,000円〜5,000円',
+          notes: '冬季は雪の影響で遅延する可能性あり'
+        }
+      ],
+      recommendations: '札幌へのアクセスは空路が基本。新千歳空港からJRエアポートが速くて確実。北海道内からは高速バスも便利。'
+    parkingOptions: [
+      {
+        name: 'タイムズ すすきの',
+        description: 'タイムズ すすきのの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+すすきの',
+      },
+      {
+        name: 'ノルベサ駐車場',
+        description: 'ノルベサ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄すすきの駅構内',
+        description: '地下鉄すすきの駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sapporo.jp/st/subway/ekikonaizu/documents/n08sususkino20240202.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄すすきの駅',
+      },
+      {
+        location: 'ノルベサ',
+        description: 'ノルベサのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+すすきの',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス すすきの店',
+        description: 'スターバックス すすきの店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+すすきの',
+      },
+      {
+        name: 'コメダ珈琲店 大通ビッセ店',
+        description: 'コメダ珈琲店 大通ビッセ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+大通ビッセ',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '元祖さっぽろラーメン横丁',
+        description: '元祖さっぽろラーメン横丁で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ganso-yokocho.com/',
+        mapsUrl: 'https://www.google.com/maps/search/すすきのラーメン横丁',
+      },
+      {
+        name: 'ジンギスカン だるま',
+        description: 'ジンギスカン だるまで地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.sapporo-jingisukan.info/',
+        mapsUrl: 'https://www.google.com/maps/search/ジンギスカンだるま+すすきの',
+      },
+    ],
+
+    }
+
+export default sapporo_penny_lane

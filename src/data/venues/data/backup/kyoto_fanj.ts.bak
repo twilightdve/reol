@@ -1,0 +1,87 @@
+import { Venue } from '../types'
+
+export const kyoto_fanj: Venue = {
+    id: 'kyoto_fanj',
+    name: '京都FANJ',
+    date: '2026-05-30T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '京都府', 
+      city: '京都市',
+      address: '京都府京都市下京区西木屋町通四条下る船頭町190',
+      nearestStation: '阪急 河原町駅 徒歩5分'
+    },
+    capacity: 300,
+    access: '阪急河原町駅から徒歩5分。木屋町通沿い。',
+    nearbyAttractions: [
+      {
+        name: '鴨川',
+        description: '京都を代表する川。河川敷で休憩可能',
+        distance: '徒歩3分'
+      },
+      {
+        name: '祇園',
+        description: '京都の花街。伝統的な街並み',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・横浜・名古屋',
+          method: '夜行高速バス',
+          time: '約7〜9時間',
+          description: '関東・中部地方から京都行きの夜行バスが多数運行。京都駅到着後、地下鉄で河原町へ。',
+          cost: '片道4,000円〜7,000円',
+          notes: '前日夜発・当日朝着。経済的'
+        }
+      ],
+      recommendations: '新幹線で京都駅から地下鉄わずか10分。関西空港・伊丹空港どちらからも1〜1.5時間でアクセス良好。京都は交通のハブで全国からアクセスしやすい。'
+    parkingOptions: [
+      {
+        name: '京都マルイ駐車場',
+        description: '京都マルイ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/京都マルイ+駐車場',
+      },
+      {
+        name: 'タイムズ河原町',
+        description: 'タイムズ河原町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+河原町+京都',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '阪急河原町駅構内',
+        description: '阪急河原町駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/阪急河原町駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 京都河原町店',
+        description: 'スターバックス 京都河原町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+京都河原町',
+      },
+      {
+        name: 'コメダ珈琲店 河原町三条店',
+        description: 'コメダ珈琲店 河原町三条店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+河原町三条',
+      },
+    ],
+
+    }
+
+export default kyoto_fanj

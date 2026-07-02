@@ -1,0 +1,68 @@
+import { Venue } from '../types'
+
+export const tokushima_grindhouse: Venue = {
+    id: 'tokushima_grindhouse',
+    name: '徳島club GRINDHOUSE',
+    date: '2026-03-20T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '徳島県', 
+      city: '徳島市',
+      address: '徳島県徳島市寺島本町西1-7-1',
+      nearestStation: 'JR徳島駅 徒歩5分'
+    },
+    capacity: 300,
+    access: 'JR徳島駅から徒歩5分。駅前の大通りを南下してすぐ。',
+    venueWebsite: 'https://grindhouse.jp/',
+    nearbyAttractions: [
+      {
+        name: '阿波おどり会館',
+        description: '阿波踊りの歴史と魅力を体験できる施設',
+        distance: '徒歩8分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: 'タイムズ徳島駅前',
+        description: 'タイムズ徳島駅前の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P36-tokushima/line/L40900/S7218/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+徳島駅前',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR徳島駅構内',
+        description: 'JR徳島駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jr-shikoku.co.jp/01_trainbus/kakueki/tokushima/kounai_map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR徳島駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 徳島駅前店',
+        description: 'スターバックス 徳島駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-976/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+徳島駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '徳島ラーメン ふく利',
+        description: '徳島ラーメン ふく利で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tokushima/A3601/A360102/36000024/',
+        mapsUrl: 'https://www.google.com/maps/search/徳島ラーメンふく利+徳島市',
+      },
+    ],
+
+  },
+
+export default tokushima_grindhouse

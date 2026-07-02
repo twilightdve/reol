@@ -1,0 +1,116 @@
+import { Venue } from '../types'
+
+export const yokohama_bayhall: Venue = {
+    id: 'yokohama_bayhall',
+    name: 'YOKOHAMA BayHall',
+    date: '2026-05-16T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '神奈川県', 
+      city: '横浜市',
+      address: '神奈川県横浜市西区みなとみらい2-3-4',
+      nearestStation: 'みなとみらい駅 徒歩5分'
+    },
+    capacity: 800,
+    access: 'みなとみらい線みなとみらい駅から徒歩5分。JR桜木町駅から徒歩12分。',
+    venueWebsite: 'https://bayhall.jp/',
+    nearbyAttractions: [
+      {
+        name: '横浜赤レンガ倉庫',
+        description: 'ショッピングやイベントが楽しめる歴史的建造物',
+        distance: '徒歩10分'
+      },
+      {
+        name: 'よこはまコスモワールド',
+        description: '観覧車「コスモクロック21」がシンボルの遊園地',
+        distance: '徒歩8分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '大阪・京都・名古屋',
+          method: '夜行高速バス',
+          time: '約7〜9時間',
+          description: '関西・中部地方から横浜・東京行きの夜行バスが多数運行。横浜駅到着後、みなとみらい線で会場へ。',
+          cost: '片道4,000円〜7,000円',
+          notes: '前日夜発・当日朝着。経済的'
+        }
+      ],
+      recommendations: '新幹線で新横浜駅からJRで約15分とアクセス良好。羽田空港からも約50分で到達可能。横浜は都心部からのアクセスが非常に便利。'
+    parkingOptions: [
+      {
+        name: 'ぴあアリーナMM駐車場',
+        description: 'ぴあアリーナMM駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.pia-arena-mm.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ぴあアリーナMM',
+      },
+      {
+        name: 'クイーンズスクエア横浜駐車場',
+        description: 'クイーンズスクエア横浜駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'みなとみらい駅構内',
+        description: 'みなとみらい駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.mm21railway.co.jp/station/minatomirai/stationmap.html',
+        mapsUrl: 'https://www.google.com/maps/search/みなとみらい駅',
+      },
+      {
+        location: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス みなとみらい店',
+        description: 'スターバックス みなとみらい店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+みなとみらい',
+      },
+      {
+        name: 'コメダ珈琲店 クイーンズスクエア店',
+        description: 'コメダ珈琲店 クイーンズスクエア店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+クイーンズスクエア',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+      {
+        name: '横浜中華街',
+        description: '横浜中華街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.chinatown.or.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/横浜中華街',
+      },
+    ],
+
+    }
+
+export default yokohama_bayhall

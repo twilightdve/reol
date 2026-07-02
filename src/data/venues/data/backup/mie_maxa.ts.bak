@@ -1,0 +1,24 @@
+import { Venue } from '../types'
+
+export const mie_maxa: Venue = {
+    id: 'mie_maxa',
+    name: "松阪M'AXA",
+    date: '2026-04-04T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '三重県', 
+      city: '松阪市',
+      address: '三重県松阪市日野町788',
+      nearestStation: 'JR・近鉄松阪駅 徒歩5分'
+    },
+    capacity: 350,
+    access: 'JR・近鉄松阪駅から徒歩5分。駅前から商店街方面へ。',
+    nearbyAttractions: [
+      {
+        name: '松阪城跡',
+        description: '蒲生氏郷が築いた城跡。桜の名所',
+        distance: '徒歩15分'
+      }
+    ],  },
+
+export default mie_maxa

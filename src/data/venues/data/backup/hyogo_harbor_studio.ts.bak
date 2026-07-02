@@ -1,0 +1,106 @@
+import { Venue } from '../types'
+
+export const hyogo_harbor_studio: Venue = {
+    id: 'hyogo_harbor_studio',
+    name: '神戸ハーバースタジオ',
+    date: '2026-03-28T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '兵庫県', 
+      city: '神戸市',
+      address: '兵庫県神戸市中央区新港町5-2',
+      nearestStation: 'JR神戸駅 徒歩15分、地下鉄みなと元町駅 徒歩8分'
+    },
+    capacity: 700,
+    access: 'JR神戸駅から徒歩15分。地下鉄海岸線みなと元町駅から徒歩8分。ハーバーランドエリア内。',
+    venueWebsite: 'https://harborstudio.jp/',
+    nearbyAttractions: [
+      {
+        name: 'メリケンパーク',
+        description: '神戸港を一望できる海辺の公園',
+        distance: '徒歩5分'
+      },
+      {
+        name: '神戸ポートタワー',
+        description: '神戸のシンボルタワー',
+        distance: '徒歩7分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: 'umie駐車場',
+        description: 'umie駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://harborland.co.jp/parking/',
+        mapsUrl: 'https://www.google.com/maps/search/umie+駐車場',
+      },
+      {
+        name: 'メリケンパーク駐車場',
+        description: 'メリケンパーク駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P28-hyogo/C110/park-detail-BUK0017660/',
+        mapsUrl: 'https://www.google.com/maps/search/メリケンパーク+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR神戸駅構内',
+        description: 'JR神戸駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://eki.jr-odekake.net/premises?id=0610145',
+        mapsUrl: 'https://www.google.com/maps/search/JR神戸駅',
+      },
+      {
+        location: '地下鉄みなと元町駅構内',
+        description: '地下鉄みなと元町駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://coinlocker.click/minatomotomachi-kobe-subway-station.php',
+        mapsUrl: 'https://www.google.com/maps/search/みなと元町駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス umie店',
+        description: 'スターバックス umie店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-1146/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+umie',
+      },
+      {
+        name: 'タリーズコーヒー メリケンパーク店',
+        description: 'タリーズコーヒー メリケンパーク店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://shop.tullys.co.jp/detail/1680287',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+メリケンパーク',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'ハーバーランド umie',
+        description: 'ハーバーランド umieで地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://umie.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/umie+神戸ハーバーランド',
+      },
+      {
+        name: '神戸牛ステーキ 鉄板焼 桜',
+        description: '神戸牛ステーキ 鉄板焼 桜で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.saidining.com/sakura/',
+        mapsUrl: 'https://www.google.com/maps/search/神戸牛鉄板焼+神戸ハーバーランド',
+      },
+    ],
+
+  },
+
+export default hyogo_harbor_studio

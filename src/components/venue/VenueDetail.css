@@ -1,0 +1,9 @@
+.gourmet-gradient {
+  background: linear-gradient(to bottom, #fdba74 0%, #fb923c 100%);
+}
+
+@media (min-width: 768px) {
+  body .gourmet-gradient {
+    background: #fff !important;
+  }
+}

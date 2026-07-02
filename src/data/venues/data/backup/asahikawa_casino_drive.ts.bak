@@ -1,0 +1,67 @@
+import { Venue } from '../types'
+
+export const asahikawa_casino_drive: Venue = {
+    id: 'asahikawa_casino_drive',
+    name: '旭川CASINO DRIVE',
+    date: '2026-05-09T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '北海道', 
+      city: '旭川市',
+      address: '北海道旭川市3条通8丁目',
+      nearestStation: 'JR旭川駅 徒歩10分'
+    },
+    capacity: 250,
+    access: 'JR旭川駅から徒歩10分。繁華街3条通り沿い。',
+    nearbyAttractions: [
+      {
+        name: '旭川市旭山動物園',
+        description: '日本最北の動物園。行動展示で有名',
+        distance: 'バスで40分'
+      }
+    ],      recommendations: '旭川空港からバス35分とアクセス良好。札幌からはJR特急または高速バス。北海道第2の都市で札幌からのアクセスも充実。'
+    parkingOptions: [
+      {
+        name: '旭川駅前広場駐車場',
+        description: '旭川駅前広場駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.asahikawa.hokkaido.jp/kurashi/440/443/444/p004266.html',
+        mapsUrl: 'https://www.google.com/maps/search/旭川駅+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR旭川駅構内',
+        description: 'JR旭川駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.coinlocker-navi.com/hokkaido/eki/11103/1110342/',
+        mapsUrl: 'https://www.google.com/maps/search/JR旭川駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス イオンモール旭川駅前店',
+        description: 'スターバックス イオンモール旭川駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-1266/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+旭川駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '旭川ラーメン村',
+        description: '旭川ラーメン村で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ramenmura.com/',
+        mapsUrl: 'https://www.google.com/maps/search/旭川ラーメン村',
+      },
+    ],
+
+    }
+
+export default asahikawa_casino_drive

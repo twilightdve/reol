@@ -1,0 +1,108 @@
+import { Venue } from '../types'
+
+export const sendai_talknet_hall: Venue = {
+    id: 'sendai_talknet_hall',
+    name: 'トークネットホール仙台',
+    date: '2026-06-12T18:30:00+09:00',
+    times: { open: '17:30', start: '18:30' },
+    location: { 
+      prefecture: '宮城県', 
+      city: '仙台市',
+      address: '宮城県仙台市青葉区国分町3-3-7',
+      nearestStation: '地下鉄勾当台公園駅 徒歩5分'
+    },
+    capacity: 2000,
+    access: '地下鉄南北線勾当台公園駅から徒歩5分。JR仙台駅から徒歩15分。',
+    venueWebsite: 'https://tohoku-gekijo.jp/',
+    nearbyAttractions: [
+      {
+        name: '瑞鳳殿',
+        description: '伊達政宗の霊廟',
+        distance: 'バスで15分'
+      },
+      {
+        name: '仙台城跡（青葉城址）',
+        description: '伊達政宗の居城跡。市街を一望',
+        distance: 'バスで20分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・新潟',
+          method: '高速バス',
+          time: '約5〜6時間',
+          description: '東京・新潟から仙台行きの高速バスが頻発。仙台駅到着後、地下鉄または徒歩で会場へ。',
+          cost: '片道3,000円〜5,000円',
+          notes: '夜行便もあり。予約推奨'
+        }
+      ],
+      recommendations: '新幹線で仙台駅から地下鉄が最も便利。空路も仙台空港からアクセス良好。東北各地からは高速バスも充実。'
+    parkingOptions: [
+      {
+        name: '勾当台公園地下駐車場',
+        description: '勾当台公園地下駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sendai.jp/somu-chose/kurashi/machi/kotsu/chushajo/annai/chushajo/',
+        mapsUrl: 'https://www.google.com/maps/search/勾当台公園地下駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄勾当台公園駅構内',
+        description: '地下鉄勾当台公園駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.kotsu.city.sendai.jp/subway/station/pdf/gb05.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄勾当台公園駅',
+      },
+      {
+        location: 'JR仙台駅構内',
+        description: 'JR仙台駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/913.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR仙台駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 仙台国分町店',
+        description: 'スターバックス 仙台国分町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+仙台国分町',
+      },
+      {
+        name: 'タリーズコーヒー 仙台一番町店',
+        description: 'タリーズコーヒー 仙台一番町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+仙台一番町',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '牛タン 利久',
+        description: '牛タン 利久で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/miyagi/A0401/A040101/4022012/',
+        mapsUrl: 'https://www.google.com/maps/search/牛タン利久+仙台',
+      },
+      {
+        name: '国分町飲み屋街',
+        description: '国分町飲み屋街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://1000bero.net/town_miyagi/',
+        mapsUrl: 'https://www.google.com/maps/search/国分町+仙台+飲み屋',
+      },
+    ],
+
+    }
+
+export default sendai_talknet_hall

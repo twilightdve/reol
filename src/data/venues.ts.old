@@ -1,0 +1,2946 @@
+// Reol 美辞学ツアー 2026 会場データ型
+export interface VenueLocation {
+  prefecture: string
+  city: string
+  address?: string
+  nearestStation?: string
+}
+
+export interface VenueTimes {
+  open: string
+  start: string
+}
+
+export interface NearbyAttraction {
+  name: string
+  description: string
+  distance?: string
+  website?: string
+}
+
+export interface NearbyRestaurant {
+  name: string
+  cuisine: string
+  description: string
+  distance?: string
+  openTime?: string
+  price?: string
+  website?: string
+  mapsUrl?: string
+  recommended?: boolean // おすすめフラグ
+  recommendComment?: string // おすすめコメント
+}
+
+export interface CoinLocker {
+  location: string
+  description: string
+  price?: string
+  distance?: string
+  website?: string
+  mapsUrl?: string
+  recommended?: boolean // おすすめフラグ
+  recommendComment?: string // おすすめコメント
+}
+
+export interface Cafe {
+  name: string
+  description: string
+  distance?: string
+  openTime?: string
+  wifi?: boolean
+  website?: string
+  mapsUrl?: string
+  recommended?: boolean // おすすめフラグ
+  recommendComment?: string // おすすめコメント
+}
+
+export interface ParkingInfo {
+  name: string
+  description: string
+  price?: string
+  distance?: string
+  website?: string
+  address?: string
+  mapsUrl?: string
+  recommended?: boolean // おすすめフラグ
+  recommendComment?: string // おすすめコメント
+}
+
+export interface HolyPlace {
+  name: string
+  description: string
+  address?: string
+  distance?: string
+  type?: string // MV, TV, Event, etc.
+  title?: string // 作品タイトル
+  needsCost?: boolean
+  needsPermission?: boolean
+  website?: string
+  mapsUrl?: string
+}
+
+export interface AccessRoute {
+  from: string // 出発地（空港名、新幹線駅名など）
+  method: string // 交通手段
+  time: string // 所要時間
+  description: string // 詳細説明
+  cost?: string // 料金目安
+  notes?: string // 注意事項
+}
+
+export interface LongDistanceAccess {
+  fromAirport?: AccessRoute[] // 空港からのアクセス
+  fromShinkansen?: AccessRoute[] // 新幹線からのアクセス
+  fromExpressBus?: AccessRoute[] // 高速バスからのアクセス
+  recommendations?: string // おすすめの来場方法
+}
+
+export interface VenueImage {
+  url: string // 画像URL
+  thumbnail?: string // サムネイル画像URL
+  source: 'unsplash' | 'pixabay' | 'find47' | 'other' // 画像ソース
+  photographer?: string // 撮影者名
+  photographerUrl?: string // 撮影者プロフィールURL
+  alt: string // 代替テキスト
+  description?: string // 画像の説明
+}
+
+export interface Venue {
+  id: string
+  name: string
+  date: string
+  times: VenueTimes
+  location: VenueLocation
+  capacity: number
+  access?: string
+  mapEmbedUrl?: string
+  venueImage?: VenueImage // 会場のメインビジュアル
+  coinLockers?: CoinLocker[]
+  cafes?: Cafe[]
+  parkingOptions?: ParkingInfo[]
+  nearbyAttractions?: NearbyAttraction[]
+  holyPlaces?: HolyPlace[]
+  nearbyRestaurants?: NearbyRestaurant[]
+  venueWebsite?: string
+  parkingInfo?: string
+  longDistanceAccess?: LongDistanceAccess // 遠征組向けアクセス情報
+}
+
+// Reol 美辞学ツアー 2026 会場データ（budget_plan_2026.md準拠）
+export const VENUES_2026: Venue[] = [
+  // 3月
+  {
+    id: 'tochigi_heavens_rock',
+    name: "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+    date: '2026-03-14T18:00:00+09:00',
+    times: { open: '17:00', start: '18:00' },
+    location: { 
+      prefecture: '栃木県', 
+      city: '宇都宮市',
+      address: '栃木県宇都宮市駅前通り1-4-6 宇都宮パセオ6F',
+      nearestStation: 'JR宇都宮駅 徒歩3分'
+    },
+    capacity: 400,
+    access: 'JR宇都宮駅西口から徒歩3分。東武宇都宮駅からは徒歩7分。宇都宮パセオビルの6階です。',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.7923519298633!2d139.87766411744383!3d36.55911940000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f67b953b5b7c3%3A0x8242cb57adeed091!2zSEVBVkVOJ1MgUk9DSyDlrofpg73lrq4gVkotMg!5e0!3m2!1sja!2sjp!4v1763452827581!5m2!1sja!2sjp',
+    venueWebsite: 'https://www.heavensrock.com/hall/utsunomiya/',
+    parkingInfo: '宇都宮パセオ駐車場利用可（有料・コンサート利用者割引あり）',
+    longDistanceAccess: {
+      fromAirport: [
+        {
+          from: '羽田空港',
+          method: 'リムジンバス',
+          time: '約2時間30分',
+          description: '羽田空港から宇都宮駅西口行きのリムジンバスが運行。1日4〜5本程度。JR宇都宮駅西口下車後、徒歩3分で会場到着。',
+          cost: '片道3,000円前後',
+          notes: '事前予約推奨。満席の場合は電車ルートへ'
+        },        {
+          from: '羽田空港',
+          method: '電車（東京駅経由）',
+          time: '約2時間30分',
+          description: '羽田空港→（京急・山手線）→東京駅→（東北新幹線）→宇都宮駅。新幹線利用で快適・確実。',
+          cost: '片道5,500円前後（新幹線自由席）',
+          notes: '新幹線なやまびこ・なすのが停車。1時間に2〜3本'
+        },
+    parkingOptions: [
+      {
+        name: '宇都宮パセオ駐車場',
+        description: '宇都宮パセオ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.utsunomiya-sk.com/paseo/access/',
+      },
+      {
+        name: 'JR宇都宮駅西口地下駐車場',
+        description: 'JR宇都宮駅西口地下駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.n-parking.com/park/park007.php',
+        mapsUrl: 'https://www.google.com/maps/search/JR宇都宮駅西口地下駐車場',
+      },
+      {
+        name: 'トナリエ宇都宮駐車場',
+        description: 'トナリエ宇都宮駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://tonarie.jp/utsunomiya/access.php',
+        mapsUrl: 'https://www.google.com/maps/search/ララスクエア宇都宮+駐車場',
+      },
+      {
+        name: 'タイムズ宇都宮駅前',
+        description: 'タイムズ宇都宮駅前の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P09-tochigi/line/L4900/S1639/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+宇都宮駅前',
+      },
+      {
+        name: '宇都宮市営中央駐車場',
+        description: '宇都宮市営中央駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.utsunomiya.lg.jp/kurashi/kotsu/chushajo/1006138.html',
+        mapsUrl: 'https://www.google.com/maps/search/宇都宮市営中央駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR宇都宮駅構内（改札内）',
+        description: 'JR宇都宮駅構内（改札内）のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/248.html',
+      },
+      {
+        location: 'JR宇都宮駅構内（改札外）',
+        description: 'JR宇都宮駅構内（改札外）のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/248.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR宇都宮駅+コインロッカー',
+      },
+      {
+        location: '宇都宮パセオ館内',
+        description: '宇都宮パセオ館内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.utsunomiya-sk.com/paseo/floor/',
+      },
+      {
+        location: 'トナリエ宇都宮',
+        description: 'トナリエ宇都宮のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://tonarie.jp/utsunomiya/',
+        mapsUrl: 'https://www.google.com/maps/search/ララスクエア宇都宮',
+      },
+      {
+        location: '東武宇都宮駅構内',
+        description: '東武宇都宮駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.tobu.co.jp/railway/guide/station/insidemap/4112/',
+        mapsUrl: 'https://www.google.com/maps/search/東武宇都宮駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス パセオ宇都宮店',
+        description: 'スターバックス パセオ宇都宮店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-522/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+宇都宮パセオ',
+      },
+      {
+        name: 'コメダ珈琲店 宇都宮駅東店',
+        description: 'コメダ珈琲店 宇都宮駅東店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1053',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+宇都宮駅東',
+      },
+      {
+        name: 'タリーズコーヒー 宇都宮店',
+        description: 'タリーズコーヒー 宇都宮店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://shop.tullys.co.jp/detail/1920773',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+宇都宮',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '餃子の正嗣 宮島本店',
+        description: '餃子の正嗣 宮島本店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000046/',
+        mapsUrl: 'https://www.google.com/maps/search/餃子の正嗣+宮島本店+宇都宮',
+      },
+      {
+        name: 'みんみん 本店',
+        description: 'みんみん 本店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000045/',
+        mapsUrl: 'https://www.google.com/maps/search/みんみん+本店+宇都宮',
+      },
+      {
+        name: 'ガスト 宇都宮駅前店',
+        description: 'ガスト 宇都宮駅前店で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store-info.skylark.co.jp/gusto/map/011940/',
+        mapsUrl: 'https://www.google.com/maps/search/ガスト+宇都宮駅前',
+      },
+    ],
+        {
+          from: '成田空港',
+          method: '電車（東京駅経由）',
+          time: '約3時間',
+          description: '成田空港→（成田エクスプレス）→東京駅→（東北新幹線）→宇都宮駅',
+          cost: '片道6,500円前後',
+          notes: '成田エクスプレスと新幹線の乗り継ぎ時間に注意'
+        }
+      ],
+      fromShinkansen: [
+        {
+          from: '東京駅',
+          method: '東北新幹線',
+          time: '約50分',
+          description: '東京駅から東北新幹線「なすの」または「やまびこ」で宇都宮駅へ。宇都宮駅西口から徒歩3分。',
+          cost: '片道4,000円前後（自由席）',
+          notes: '1時間に2〜3本運行。指定席の場合+530円'
+        },
+        {
+          from: '大宮駅',
+          method: '東北新幹線',
+          time: '約30分',
+          description: '大宮駅から東北新幹線で宇都宮駅へ。埼玉方面からのアクセスに便利。',
+          cost: '片道2,500円前後（自由席）',
+          notes: '東京発の新幹線はすべて大宮駅に停車'
+        }
+      ],
+      fromExpressBus: [
+        {
+          from: '新宿・池袋',
+          method: '高速バス',
+          time: '約2時間30分',
+          description: '新宿・池袋から宇都宮駅行きの高速バスが頻発。JRバス関東・東野交通が運行。',
+          cost: '片道2,000円前後',
+          notes: '渋滞の影響を受ける可能性あり。時間に余裕を持って'
+        }
+      ],
+      recommendations: '関東圏からは新幹線が最速で確実。遠方からは羽田空港経由がおすすめ。バスは経済的だが渋滞リスクあり。'
+    },    nearbyAttractions: [
+      {
+        name: '宇都宮餅子通り',
+        description: '全国的に有名な宇都宮餅子の名店が集まる通り。地元グルメの聖地',
+        distance: '徒歩5分'
+      },
+      {
+        name: '宇都宮城址公園',
+        description: '宇都宮城の本丸跡地に整備された歴史公園。桜の名所としても有名',
+        distance: '徒歩15分',
+        website: 'https://www.city.utsunomiya.tochigi.jp/shisetsu/kouen/1007909.html'
+      },
+      {
+        name: '宇都宮美術館',
+        description: '現代アートから古典まで幅広いコレクション。静かな時間を過ごせる',
+        distance: 'バス20分'
+      },
+      {
+        name: '大谷資料館',
+        description: '大谷石の採掘跡地を利用した神秘的な地下空間',
+        distance: 'バス30分',
+        website: 'https://www.oya909.co.jp/'
+      }
+    ],
+    nearbyRestaurants: [
+      {
+        name: '餃子の正嗣 宮島本店',
+        cuisine: '餃子',
+        description: '宇都宮餃子の老舗。焼餃子と水餃子のみというシンプルなメニューが人気',
+        distance: '徒歩8分',
+        openTime: '11:30-19:30',
+        price: '餃子1皿240円～',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000046/',
+        mapsUrl: 'https://www.google.com/maps/search/餃子の正嗣+宮島本店+宇都宮',
+        recommended: true,
+        recommendComment: '宇都宮に来たら絶対食べたい！シンプルで美味しい老舗餃子'
+      },
+      {
+        name: 'みんみん 本店',
+        cuisine: '餃子',
+        description: '宇都宮餃子の代表格。もっちりとした皮が特徴',
+        distance: '徒歩10分',
+        openTime: '11:30-20:00',
+        price: '餃子1皿250円～',
+        website: 'https://tabelog.com/tochigi/A0901/A090101/9000045/',
+        mapsUrl: 'https://www.google.com/maps/search/みんみん+本店+宇都宮',
+        recommended: true,
+        recommendComment: '行列必至の人気店！もちもち皮がやみつきになる'
+      },
+      {
+        name: 'ガスト 宇都宮駅前店',
+        cuisine: 'ファミレス',
+        description: 'リーズナブルで長時間滞在可能。コンサート前後の食事に便利',
+        distance: '徒歩5分',
+        openTime: '24時間営業',
+        price: '1,000円～2,000円',
+        website: 'https://store-info.skylark.co.jp/gusto/map/011940/',
+        mapsUrl: 'https://www.google.com/maps/search/ガスト+宇都宮駅前'
+      },
+      {
+        name: '麺や 遊大',
+        cuisine: 'ラーメン',
+        description: '地元で人気のラーメン店。あっさり系から濃厚系まで',
+        distance: '徒歩6分',
+        openTime: '11:00-23:00',
+        price: '800円～1,500円',
+        mapsUrl: 'https://www.google.com/maps/search/麺や遊大+宇都宮'
+      },
+      {
+        name: '宇都宮 炭火焼肉 牛角',
+        cuisine: '焼肉',
+        description: 'コンサート後の打ち上げに最適。栃木県産和牛が自慢',
+        distance: '徒歩7分',
+        openTime: '17:00-24:00',
+        price: '2,000円～4,000円',
+        website: 'https://www.gyukaku.ne.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/牛角+宇都宮駅前'
+      }
+    ]
+  },
+  {
+    id: 'tokushima_grindhouse',
+    name: '徳島club GRINDHOUSE',
+    date: '2026-03-20T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '徳島県', 
+      city: '徳島市',
+      address: '徳島県徳島市寺島本町西1-7-1',
+      nearestStation: 'JR徳島駅 徒歩5分'
+    },
+    capacity: 300,
+    access: 'JR徳島駅から徒歩5分。駅前の大通りを南下してすぐ。',
+    venueWebsite: 'https://grindhouse.jp/',
+    nearbyAttractions: [
+      {
+        name: '阿波おどり会館',
+        description: '阿波踊りの歴史と魅力を体験できる施設',
+        distance: '徒歩8分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: 'タイムズ徳島駅前',
+        description: 'タイムズ徳島駅前の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P36-tokushima/line/L40900/S7218/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+徳島駅前',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR徳島駅構内',
+        description: 'JR徳島駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jr-shikoku.co.jp/01_trainbus/kakueki/tokushima/kounai_map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR徳島駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 徳島駅前店',
+        description: 'スターバックス 徳島駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-976/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+徳島駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '徳島ラーメン ふく利',
+        description: '徳島ラーメン ふく利で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/tokushima/A3601/A360102/36000024/',
+        mapsUrl: 'https://www.google.com/maps/search/徳島ラーメンふく利+徳島市',
+      },
+    ],
+
+  },
+  {
+    id: 'yamaguchi_rising_hall',
+    name: '周南RISING HALL',
+    date: '2026-03-22T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '山口県', 
+      city: '周南市',
+      address: '山口県周南市本町2-15',
+      nearestStation: 'JR徳山駅 徒歩10分'
+    },
+    capacity: 500,
+    access: 'JR徳山駅から徒歩10分。駅前から商店街を抜けてすぐ。',
+    nearbyAttractions: [
+      {
+        name: '周南市美術博物館',
+        description: '周南市の歴史と美術品を展示。コンビナートの写真展示も',
+        distance: '徒歩15分'
+      },
+      {
+        name: '徳山動物園',
+        description: 'ペンギンやゾウなど多彩な動物が見られる動物園',
+        distance: '車で約10分'
+      },
+      {
+        name: '周南工場夜景',
+        description: '日本有数の石油化学コンビナートの夜景スポット',
+        distance: '車で約15分（晴海親水公園展望台）'
+      }
+    ],  },
+  {
+    id: 'hyogo_harbor_studio',
+    name: '神戸ハーバースタジオ',
+    date: '2026-03-28T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '兵庫県', 
+      city: '神戸市',
+      address: '兵庫県神戸市中央区新港町5-2',
+      nearestStation: 'JR神戸駅 徒歩15分、地下鉄みなと元町駅 徒歩8分'
+    },
+    capacity: 700,
+    access: 'JR神戸駅から徒歩15分。地下鉄海岸線みなと元町駅から徒歩8分。ハーバーランドエリア内。',
+    venueWebsite: 'https://harborstudio.jp/',
+    nearbyAttractions: [
+      {
+        name: 'メリケンパーク',
+        description: '神戸港を一望できる海辺の公園',
+        distance: '徒歩5分'
+      },
+      {
+        name: '神戸ポートタワー',
+        description: '神戸のシンボルタワー',
+        distance: '徒歩7分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: 'umie駐車場',
+        description: 'umie駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://harborland.co.jp/parking/',
+        mapsUrl: 'https://www.google.com/maps/search/umie+駐車場',
+      },
+      {
+        name: 'メリケンパーク駐車場',
+        description: 'メリケンパーク駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P28-hyogo/C110/park-detail-BUK0017660/',
+        mapsUrl: 'https://www.google.com/maps/search/メリケンパーク+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR神戸駅構内',
+        description: 'JR神戸駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://eki.jr-odekake.net/premises?id=0610145',
+        mapsUrl: 'https://www.google.com/maps/search/JR神戸駅',
+      },
+      {
+        location: '地下鉄みなと元町駅構内',
+        description: '地下鉄みなと元町駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://coinlocker.click/minatomotomachi-kobe-subway-station.php',
+        mapsUrl: 'https://www.google.com/maps/search/みなと元町駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス umie店',
+        description: 'スターバックス umie店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-1146/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+umie',
+      },
+      {
+        name: 'タリーズコーヒー メリケンパーク店',
+        description: 'タリーズコーヒー メリケンパーク店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://shop.tullys.co.jp/detail/1680287',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+メリケンパーク',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'ハーバーランド umie',
+        description: 'ハーバーランド umieで地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://umie.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/umie+神戸ハーバーランド',
+      },
+      {
+        name: '神戸牛ステーキ 鉄板焼 桜',
+        description: '神戸牛ステーキ 鉄板焼 桜で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.saidining.com/sakura/',
+        mapsUrl: 'https://www.google.com/maps/search/神戸牛鉄板焼+神戸ハーバーランド',
+      },
+    ],
+
+  },
+  // 4月
+  {
+    id: 'mie_maxa',
+    name: "松阪M'AXA",
+    date: '2026-04-04T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '三重県', 
+      city: '松阪市',
+      address: '三重県松阪市日野町788',
+      nearestStation: 'JR・近鉄松阪駅 徒歩5分'
+    },
+    capacity: 350,
+    access: 'JR・近鉄松阪駅から徒歩5分。駅前から商店街方面へ。',
+    nearbyAttractions: [
+      {
+        name: '松阪城跡',
+        description: '蒲生氏郷が築いた城跡。桜の名所',
+        distance: '徒歩15分'
+      }
+    ],  },
+  {
+    id: 'aomori_quarter',
+    name: '青森Quarter',
+    date: '2026-04-11T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '青森県', 
+      city: '青森市',
+      address: '青森県青森市古川1-11-16',
+      nearestStation: 'JR青森駅 徒歩7分'
+    },
+    capacity: 300,
+    access: 'JR青森駅から徒歩7分。駅前の繁華街エリア内。',
+    nearbyAttractions: [
+      {
+        name: 'ねぶたの家 ワ・ラッセ',
+        description: '青森ねぶた祭の博物館',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '盛岡・八戸',
+          method: '高速バス',
+          time: '約2〜3時間',
+          description: '東北各地から青森行きの高速バスが運行。青森駅到着後、徒歩で会場へ。',
+          cost: '片道2,500円〜4,000円',
+          notes: '東北北部の移動に便利'
+        }
+      ],
+      recommendations: '青森空港からバス35分とアクセス良好。新幹線は新青森駅からJRで接続。東北北部の中心都市。'
+    parkingOptions: [
+      {
+        name: '青森駅前駐車場',
+        description: '青森駅前駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P02-aomori/C201/park-detail-BUK0078339/',
+        mapsUrl: 'https://www.google.com/maps/search/青森駅前駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR青森駅構内',
+        description: 'JR青森駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/25.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR青森駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 青森駅前店',
+        description: 'スターバックス 青森駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-4395/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+青森駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '青森魚菜センター（のっけ丼）',
+        description: '青森魚菜センター（のっけ丼）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nokkedon.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/青森魚菜センター',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '青森駅前駐車場',
+        description: '青森駅前駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P02-aomori/C201/park-detail-BUK0078339/',
+        mapsUrl: 'https://www.google.com/maps/search/青森駅前駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR青森駅構内',
+        description: 'JR青森駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/25.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR青森駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 青森駅前店',
+        description: 'スターバックス 青森駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-4395/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+青森駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '青森魚菜センター（のっけ丼）',
+        description: '青森魚菜センター（のっけ丼）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nokkedon.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/青森魚菜センター',
+      },
+    ],
+
+  },
+  {
+    id: 'nagasaki_drum_be7',
+    name: 'DRUM Be-7',
+    date: '2026-04-18T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '長崎県', 
+      city: '長崎市',
+      address: '長崎県長崎市築町3-18',
+      nearestStation: '長崎電気軌道 築町電停 徒歩1分'
+    },
+    capacity: 350,
+    access: '長崎電気軌道築町電停から徒歩1分。繁華街の中心部。',
+    nearbyAttractions: [
+      {
+        name: 'グラバー園',
+        description: '長崎港を見下ろす洋館群',
+        distance: '電車で10分'
+      },
+      {
+        name: '眼鏡橋',
+        description: '日本最古のアーチ型石橋',
+        distance: '徒歩5分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '福岡・熊本・佐賀',
+          method: '高速バス',
+          time: '約2〜3時間',
+          description: '九州各地から長崎行きの高速バスが頻発。長崎駅到着後、徒歩で会場へ。',
+          cost: '片道2,500円〜4,000円',
+          notes: '九州内の移動は高速バスが便利で経済的'
+        }
+      ],
+      recommendations: '長崎空港からバス45分とアクセス良好。九州内からは高速バスが充実。異国情緒漂う長崎の街並みも楽しめる。'
+    parkingOptions: [
+      {
+        name: 'タイムズ長崎浜町',
+        description: 'タイムズ長崎浜町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P42-nagasaki/C201/park-detail-BUK0025371/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+長崎浜町',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '長崎電気軌道 築町電停',
+        description: '長崎電気軌道 築町電停のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://coinlocker-navi.com/nagasaki/eki/99916/',
+        mapsUrl: 'https://www.google.com/maps/search/築町電停',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '吉宗（よっそう）',
+        description: '吉宗（よっそう）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://yossou.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/吉宗+長崎',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: 'タイムズ長崎浜町',
+        description: 'タイムズ長崎浜町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P42-nagasaki/C201/park-detail-BUK0025371/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+長崎浜町',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '長崎電気軌道 築町電停',
+        description: '長崎電気軌道 築町電停のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://coinlocker-navi.com/nagasaki/eki/99916/',
+        mapsUrl: 'https://www.google.com/maps/search/築町電停',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '吉宗（よっそう）',
+        description: '吉宗（よっそう）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://yossou.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/吉宗+長崎',
+      },
+    ],
+
+  },
+  {
+    id: 'kumamoto_b9',
+    name: '熊本B.9 V1',
+    date: '2026-04-19T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '熊本県', 
+      city: '熊本市',
+      address: '熊本県熊本市中央区下通1-12-27',
+      nearestStation: '熊本市電 通町筋電停 徒歩3分'
+    },
+    capacity: 400,
+    access: '熊本市電通町筋電停から徒歩3分。JR熊本駅から市電で15分。',
+    venueWebsite: 'https://kumamoto-b9.com/',
+    nearbyAttractions: [
+      {
+        name: '熊本城',
+        description: '日本三名城のひとつ。復興工事が進む',
+        distance: '徒歩15分'
+      },
+      {
+        name: '水前寺成趣園',
+        description: '熊本藩細川家の大名庭園',
+        distance: '市電で10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '福岡・長崎・鹿児島',
+          method: '高速バス',
+          time: '約2〜4時間',
+          description: '九州各地から熊本行きの高速バスが頻発。熊本駅または交通センター到着後、徒歩で会場へ。',
+          cost: '片道2,000円〜4,000円',
+          notes: '九州内の移動は高速バスが経済的'
+        }
+      ],
+      recommendations: '熊本空港からバス60分。九州新幹線で博多から40分とアクセス良好。九州内からは高速バスも充実。市電乗車も熊本観光の魅力。'
+    parkingOptions: [
+      {
+        name: 'タイムズ通町筋',
+        description: 'タイムズ通町筋の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P43-kumamoto/line/L54200/S9408/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+通町筋+熊本',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '熊本市電・通町筋電停',
+        description: '熊本市電・通町筋電停のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://cloak.ecbo.io/ja/jpn/city/kumamoto/497',
+        mapsUrl: 'https://www.google.com/maps/search/熊本市電+通町筋電停',
+      },
+      {
+        location: '下通りアーケード',
+        description: '下通りアーケードのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://cloak.ecbo.io/ja/jpn/city/kumamoto/1171',
+        mapsUrl: 'https://www.google.com/maps/search/下通りアーケード+熊本',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 熊本Ｎｅｗ－Ｓ店',
+        description: 'スターバックス 熊本Ｎｅｗ－Ｓ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-340/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+熊本下通',
+      },
+      {
+        name: 'コメダ珈琲店 通町筋店',
+        description: 'コメダ珈琲店 通町筋店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1169',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+通町筋',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '勝烈亭',
+        description: '勝烈亭で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://hayashi-sangyo.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/勝烈亭+熊本',
+      },
+      {
+        name: '黒亭',
+        description: '黒亭で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.kokutei.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/黒亭+熊本',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: 'タイムズ通町筋',
+        description: 'タイムズ通町筋の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P43-kumamoto/line/L54200/S9408/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+通町筋+熊本',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '熊本市電・通町筋電停',
+        description: '熊本市電・通町筋電停のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://cloak.ecbo.io/ja/jpn/city/kumamoto/497',
+        mapsUrl: 'https://www.google.com/maps/search/熊本市電+通町筋電停',
+      },
+      {
+        location: '下通りアーケード',
+        description: '下通りアーケードのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://cloak.ecbo.io/ja/jpn/city/kumamoto/1171',
+        mapsUrl: 'https://www.google.com/maps/search/下通りアーケード+熊本',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 熊本Ｎｅｗ－Ｓ店',
+        description: 'スターバックス 熊本Ｎｅｗ－Ｓ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-340/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+熊本下通',
+      },
+      {
+        name: 'コメダ珈琲店 通町筋店',
+        description: 'コメダ珈琲店 通町筋店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1169',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+通町筋',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '勝烈亭',
+        description: '勝烈亭で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://hayashi-sangyo.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/勝烈亭+熊本',
+      },
+      {
+        name: '黒亭',
+        description: '黒亭で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.kokutei.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/黒亭+熊本',
+      },
+    ],
+
+  },
+  {
+    id: 'okinawa_sakurazaka',
+    name: '桜坂セントラル',
+    date: '2026-04-29T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '沖縄県', 
+      city: '那覇市',
+      address: '沖縄県那覇市牧志3-9-26',
+      nearestStation: 'ゆいレール 牧志駅 徒歩8分'
+    },
+    capacity: 500,
+    access: 'ゆいレール牧志駅から徒歩8分。国際通りから桜坂方面へ。',
+    nearbyAttractions: [
+      {
+        name: '国際通り',
+        description: '那覇のメインストリート。土産物店や飲食店が並ぶ',
+        distance: '徒歩5分'
+      },
+      {
+        name: '第一牧志公設市場',
+        description: '沖縄の食材が集まる市場',
+        distance: '徒歩7分'
+      }
+    ],      recommendations: '沖縄へは空路一括。那覇空港からゆいレールで約20分とアクセス抜群。沖縄観光を兼ねるならレンタカーがおすすめ。本州からのフライトは2.5〜3時間。'
+    parkingOptions: [
+      {
+        name: 'タイムズ桜坂',
+        description: 'タイムズ桜坂の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P40-fukuoka/C133/park-detail-BUK0031920/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+桜坂+那覇',
+      },
+      {
+        name: 'パレット久茂地駐車場',
+        description: 'パレット久茂地駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.palette-kumoji.co.jp/accessparking',
+        mapsUrl: 'https://www.google.com/maps/search/パレット久茂地',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'ゆいレール牧志駅構内',
+        description: 'ゆいレール牧志駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.yui-rail.co.jp/routemap/makishi/',
+        mapsUrl: 'https://www.google.com/maps/search/ゆいレール牧志駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'ステーキハウス88',
+        description: 'ステーキハウス88で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://s88.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ステーキハウス88+那覇',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: 'タイムズ桜坂',
+        description: 'タイムズ桜坂の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P40-fukuoka/C133/park-detail-BUK0031920/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+桜坂+那覇',
+      },
+      {
+        name: 'パレット久茂地駐車場',
+        description: 'パレット久茂地駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.palette-kumoji.co.jp/accessparking',
+        mapsUrl: 'https://www.google.com/maps/search/パレット久茂地',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'ゆいレール牧志駅構内',
+        description: 'ゆいレール牧志駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.yui-rail.co.jp/routemap/makishi/',
+        mapsUrl: 'https://www.google.com/maps/search/ゆいレール牧志駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'ステーキハウス88',
+        description: 'ステーキハウス88で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://s88.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ステーキハウス88+那覇',
+      },
+    ],
+
+  },
+  // 5月
+  {
+    id: 'asahikawa_casino_drive',
+    name: '旭川CASINO DRIVE',
+    date: '2026-05-09T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '北海道', 
+      city: '旭川市',
+      address: '北海道旭川市3条通8丁目',
+      nearestStation: 'JR旭川駅 徒歩10分'
+    },
+    capacity: 250,
+    access: 'JR旭川駅から徒歩10分。繁華街3条通り沿い。',
+    nearbyAttractions: [
+      {
+        name: '旭川市旭山動物園',
+        description: '日本最北の動物園。行動展示で有名',
+        distance: 'バスで40分'
+      }
+    ],      recommendations: '旭川空港からバス35分とアクセス良好。札幌からはJR特急または高速バス。北海道第2の都市で札幌からのアクセスも充実。'
+    parkingOptions: [
+      {
+        name: '旭川駅前広場駐車場',
+        description: '旭川駅前広場駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.asahikawa.hokkaido.jp/kurashi/440/443/444/p004266.html',
+        mapsUrl: 'https://www.google.com/maps/search/旭川駅+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR旭川駅構内',
+        description: 'JR旭川駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.coinlocker-navi.com/hokkaido/eki/11103/1110342/',
+        mapsUrl: 'https://www.google.com/maps/search/JR旭川駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス イオンモール旭川駅前店',
+        description: 'スターバックス イオンモール旭川駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-1266/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+旭川駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '旭川ラーメン村',
+        description: '旭川ラーメン村で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ramenmura.com/',
+        mapsUrl: 'https://www.google.com/maps/search/旭川ラーメン村',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '旭川駅前広場駐車場',
+        description: '旭川駅前広場駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.asahikawa.hokkaido.jp/kurashi/440/443/444/p004266.html',
+        mapsUrl: 'https://www.google.com/maps/search/旭川駅+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR旭川駅構内',
+        description: 'JR旭川駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.coinlocker-navi.com/hokkaido/eki/11103/1110342/',
+        mapsUrl: 'https://www.google.com/maps/search/JR旭川駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス イオンモール旭川駅前店',
+        description: 'スターバックス イオンモール旭川駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-1266/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+旭川駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '旭川ラーメン村',
+        description: '旭川ラーメン村で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ramenmura.com/',
+        mapsUrl: 'https://www.google.com/maps/search/旭川ラーメン村',
+      },
+    ],
+
+  },
+  {
+    id: 'sapporo_penny_lane',
+    name: '札幌 PENNY LANE 24',
+    date: '2026-05-10T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '北海道', 
+      city: '札幌市',
+      address: '北海道札幌市中央区南4条西5丁目',
+      nearestStation: '地下鉄すすきの駅 徒歩3分'
+    },
+    capacity: 400,
+    access: '地下鉄南北線すすきの駅3番出口から徒歩3分。すすきの繁華街の中心部。',
+    venueWebsite: 'https://pennylane24.com/',
+    nearbyAttractions: [
+      {
+        name: '大通公園',
+        description: '札幌の中心部を貫く大規模な公園',
+        distance: '徒歩8分'
+      },
+      {
+        name: 'さっぽろテレビ塔',
+        description: '札幌のランドマークタワー',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '旭川・釧路・函館',
+          method: '高速バス',
+          time: '約2〜5時間',
+          description: '北海道内各地から札幌行きの高速バスが多数運行。札幌駅またはすすきの付近で下車。',
+          cost: '片道2,000円〜5,000円',
+          notes: '冬季は雪の影響で遅延する可能性あり'
+        }
+      ],
+      recommendations: '札幌へのアクセスは空路が基本。新千歳空港からJRエアポートが速くて確実。北海道内からは高速バスも便利。'
+    parkingOptions: [
+      {
+        name: 'タイムズ すすきの',
+        description: 'タイムズ すすきのの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+すすきの',
+      },
+      {
+        name: 'ノルベサ駐車場',
+        description: 'ノルベサ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄すすきの駅構内',
+        description: '地下鉄すすきの駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sapporo.jp/st/subway/ekikonaizu/documents/n08sususkino20240202.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄すすきの駅',
+      },
+      {
+        location: 'ノルベサ',
+        description: 'ノルベサのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+すすきの',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス すすきの店',
+        description: 'スターバックス すすきの店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+すすきの',
+      },
+      {
+        name: 'コメダ珈琲店 大通ビッセ店',
+        description: 'コメダ珈琲店 大通ビッセ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+大通ビッセ',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '元祖さっぽろラーメン横丁',
+        description: '元祖さっぽろラーメン横丁で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ganso-yokocho.com/',
+        mapsUrl: 'https://www.google.com/maps/search/すすきのラーメン横丁',
+      },
+      {
+        name: 'ジンギスカン だるま',
+        description: 'ジンギスカン だるまで地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.sapporo-jingisukan.info/',
+        mapsUrl: 'https://www.google.com/maps/search/ジンギスカンだるま+すすきの',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: 'タイムズ すすきの',
+        description: 'タイムズ すすきのの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+すすきの',
+      },
+      {
+        name: 'ノルベサ駐車場',
+        description: 'ノルベサ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄すすきの駅構内',
+        description: '地下鉄すすきの駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sapporo.jp/st/subway/ekikonaizu/documents/n08sususkino20240202.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄すすきの駅',
+      },
+      {
+        location: 'ノルベサ',
+        description: 'ノルベサのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.norbesa.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ノルベサ+すすきの',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス すすきの店',
+        description: 'スターバックス すすきの店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+すすきの',
+      },
+      {
+        name: 'コメダ珈琲店 大通ビッセ店',
+        description: 'コメダ珈琲店 大通ビッセ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+大通ビッセ',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '元祖さっぽろラーメン横丁',
+        description: '元祖さっぽろラーメン横丁で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.ganso-yokocho.com/',
+        mapsUrl: 'https://www.google.com/maps/search/すすきのラーメン横丁',
+      },
+      {
+        name: 'ジンギスカン だるま',
+        description: 'ジンギスカン だるまで地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.sapporo-jingisukan.info/',
+        mapsUrl: 'https://www.google.com/maps/search/ジンギスカンだるま+すすきの',
+      },
+    ],
+
+  },
+  {
+    id: 'yokohama_bayhall',
+    name: 'YOKOHAMA BayHall',
+    date: '2026-05-16T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '神奈川県', 
+      city: '横浜市',
+      address: '神奈川県横浜市西区みなとみらい2-3-4',
+      nearestStation: 'みなとみらい駅 徒歩5分'
+    },
+    capacity: 800,
+    access: 'みなとみらい線みなとみらい駅から徒歩5分。JR桜木町駅から徒歩12分。',
+    venueWebsite: 'https://bayhall.jp/',
+    nearbyAttractions: [
+      {
+        name: '横浜赤レンガ倉庫',
+        description: 'ショッピングやイベントが楽しめる歴史的建造物',
+        distance: '徒歩10分'
+      },
+      {
+        name: 'よこはまコスモワールド',
+        description: '観覧車「コスモクロック21」がシンボルの遊園地',
+        distance: '徒歩8分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '大阪・京都・名古屋',
+          method: '夜行高速バス',
+          time: '約7〜9時間',
+          description: '関西・中部地方から横浜・東京行きの夜行バスが多数運行。横浜駅到着後、みなとみらい線で会場へ。',
+          cost: '片道4,000円〜7,000円',
+          notes: '前日夜発・当日朝着。経済的'
+        }
+      ],
+      recommendations: '新幹線で新横浜駅からJRで約15分とアクセス良好。羽田空港からも約50分で到達可能。横浜は都心部からのアクセスが非常に便利。'
+    parkingOptions: [
+      {
+        name: 'ぴあアリーナMM駐車場',
+        description: 'ぴあアリーナMM駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.pia-arena-mm.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ぴあアリーナMM',
+      },
+      {
+        name: 'クイーンズスクエア横浜駐車場',
+        description: 'クイーンズスクエア横浜駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'みなとみらい駅構内',
+        description: 'みなとみらい駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.mm21railway.co.jp/station/minatomirai/stationmap.html',
+        mapsUrl: 'https://www.google.com/maps/search/みなとみらい駅',
+      },
+      {
+        location: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス みなとみらい店',
+        description: 'スターバックス みなとみらい店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+みなとみらい',
+      },
+      {
+        name: 'コメダ珈琲店 クイーンズスクエア店',
+        description: 'コメダ珈琲店 クイーンズスクエア店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+クイーンズスクエア',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+      {
+        name: '横浜中華街',
+        description: '横浜中華街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.chinatown.or.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/横浜中華街',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: 'ぴあアリーナMM駐車場',
+        description: 'ぴあアリーナMM駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.pia-arena-mm.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/ぴあアリーナMM',
+      },
+      {
+        name: 'クイーンズスクエア横浜駐車場',
+        description: 'クイーンズスクエア横浜駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'みなとみらい駅構内',
+        description: 'みなとみらい駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.mm21railway.co.jp/station/minatomirai/stationmap.html',
+        mapsUrl: 'https://www.google.com/maps/search/みなとみらい駅',
+      },
+      {
+        location: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス みなとみらい店',
+        description: 'スターバックス みなとみらい店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+みなとみらい',
+      },
+      {
+        name: 'コメダ珈琲店 クイーンズスクエア店',
+        description: 'コメダ珈琲店 クイーンズスクエア店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+クイーンズスクエア',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'クイーンズスクエア横浜',
+        description: 'クイーンズスクエア横浜で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.qsy-tqc.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クイーンズスクエア横浜',
+      },
+      {
+        name: '横浜中華街',
+        description: '横浜中華街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.chinatown.or.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/横浜中華街',
+      },
+    ],
+
+  },
+  {
+    id: 'nagano_junk_box',
+    name: 'NAGANO CLUB JUNK BOX',
+    date: '2026-05-23T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '長野県', 
+      city: '長野市',
+      address: '長野県長野市鶴賀権堂町2258',
+      nearestStation: '長野電鉄 権堂駅 徒歩3分'
+    },
+    capacity: 450,
+    access: '長野電鉄権堂駅から徒歩3分。JR長野駅から徒歩15分。',
+    nearbyAttractions: [
+      {
+        name: '善光寺',
+        description: '信州を代表する古刹',
+        distance: '徒歩15分'
+      }
+    ],      recommendations: '北陸新幹線で東京から直通1時間30分。信州まつもと空港からバス60分。善光寺やアルプス観光も楽しめる。'
+    parkingOptions: [
+      {
+        name: '長野駅東口駐車場',
+        description: '長野駅東口駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.nagano.nagano.jp/n180500/contents/p001180.html',
+        mapsUrl: 'https://www.google.com/maps/search/長野駅東口駐車場',
+      },
+      {
+        name: '権堂パーキング',
+        description: '権堂パーキングの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/group/parking/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/権堂パーキング+長野',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR長野駅構内',
+        description: 'JR長野駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/1105.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR長野駅',
+      },
+      {
+        location: '長野電鉄権堂駅',
+        description: '長野電鉄権堂駅のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/info/station/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/長野電鉄権堂駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 長野駅店',
+        description: 'スターバックス 長野駅店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-497/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+長野駅',
+      },
+      {
+        name: 'コメダ珈琲店 長野駅東口公園店',
+        description: 'コメダ珈琲店 長野駅東口公園店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1145',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+長野権堂',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '権堂商店街',
+        description: '権堂商店街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nagano-gondo.com/',
+        mapsUrl: 'https://www.google.com/maps/search/権堂商店街+長野',
+      },
+    ],
+    holyPlaces: [
+      {
+        name: '信州蕎麦の草笛 MIDORI店',
+        description: 'れをる関連の聖地: 信州蕎麦の草笛 MIDORI店',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://kusabue-nagano.owst.jp/',
+        mapsUrl: 'https://www.google.com/maps/place/%E4%BF%A1%E5%B7%9E%E8%95%8E%E9%BA%A6%E3%81%AE%E8%8D%89%E7%AC%9B/',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '長野駅東口駐車場',
+        description: '長野駅東口駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.nagano.nagano.jp/n180500/contents/p001180.html',
+        mapsUrl: 'https://www.google.com/maps/search/長野駅東口駐車場',
+      },
+      {
+        name: '権堂パーキング',
+        description: '権堂パーキングの駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/group/parking/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/権堂パーキング+長野',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR長野駅構内',
+        description: 'JR長野駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/1105.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR長野駅',
+      },
+      {
+        location: '長野電鉄権堂駅',
+        description: '長野電鉄権堂駅のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.nagaden-net.co.jp/info/station/gondo',
+        mapsUrl: 'https://www.google.com/maps/search/長野電鉄権堂駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 長野駅店',
+        description: 'スターバックス 長野駅店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-497/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+長野駅',
+      },
+      {
+        name: 'コメダ珈琲店 長野駅東口公園店',
+        description: 'コメダ珈琲店 長野駅東口公園店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.komeda.co.jp/shop/detail.html?id=1145',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+長野権堂',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '権堂商店街',
+        description: '権堂商店街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://nagano-gondo.com/',
+        mapsUrl: 'https://www.google.com/maps/search/権堂商店街+長野',
+      },
+    ],
+    holyPlaces: [
+      {
+        name: '信州蕎麦の草笛 MIDORI店',
+        description: 'れをる関連の聖地: 信州蕎麦の草笛 MIDORI店',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://kusabue-nagano.owst.jp/',
+        mapsUrl: 'https://www.google.com/maps/place/%E4%BF%A1%E5%B7%9E%E8%95%8E%E9%BA%A6%E3%81%AE%E8%8D%89%E7%AC%9B/',
+      },
+    ],
+
+  },
+  {
+    id: 'niigata_lots',
+    name: '新潟LOTS',
+    date: '2026-05-24T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '新潟県', 
+      city: '新潟市',
+      address: '新潟県新潟市中央区古町通6-953-1',
+      nearestStation: 'JR新潟駅 バス15分'
+    },
+    capacity: 450,
+    access: 'JR新潟駅からバスで15分、古町バス停下車徒歩3分。',
+    nearbyAttractions: [
+      {
+        name: '古町通商店街',
+        description: '新潟の繁華街',
+        distance: '徒歩1分'
+      }
+    ],  },
+  {
+    id: 'kyoto_fanj',
+    name: '京都FANJ',
+    date: '2026-05-30T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '京都府', 
+      city: '京都市',
+      address: '京都府京都市下京区西木屋町通四条下る船頭町190',
+      nearestStation: '阪急 河原町駅 徒歩5分'
+    },
+    capacity: 300,
+    access: '阪急河原町駅から徒歩5分。木屋町通沿い。',
+    nearbyAttractions: [
+      {
+        name: '鴨川',
+        description: '京都を代表する川。河川敷で休憩可能',
+        distance: '徒歩3分'
+      },
+      {
+        name: '祇園',
+        description: '京都の花街。伝統的な街並み',
+        distance: '徒歩10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・横浜・名古屋',
+          method: '夜行高速バス',
+          time: '約7〜9時間',
+          description: '関東・中部地方から京都行きの夜行バスが多数運行。京都駅到着後、地下鉄で河原町へ。',
+          cost: '片道4,000円〜7,000円',
+          notes: '前日夜発・当日朝着。経済的'
+        }
+      ],
+      recommendations: '新幹線で京都駅から地下鉄わずか10分。関西空港・伊丹空港どちらからも1〜1.5時間でアクセス良好。京都は交通のハブで全国からアクセスしやすい。'
+    parkingOptions: [
+      {
+        name: '京都マルイ駐車場',
+        description: '京都マルイ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/京都マルイ+駐車場',
+      },
+      {
+        name: 'タイムズ河原町',
+        description: 'タイムズ河原町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+河原町+京都',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '阪急河原町駅構内',
+        description: '阪急河原町駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/阪急河原町駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 京都河原町店',
+        description: 'スターバックス 京都河原町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+京都河原町',
+      },
+      {
+        name: 'コメダ珈琲店 河原町三条店',
+        description: 'コメダ珈琲店 河原町三条店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+河原町三条',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '京都マルイ駐車場',
+        description: '京都マルイ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/京都マルイ+駐車場',
+      },
+      {
+        name: 'タイムズ河原町',
+        description: 'タイムズ河原町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+河原町+京都',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '阪急河原町駅構内',
+        description: '阪急河原町駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/阪急河原町駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 京都河原町店',
+        description: 'スターバックス 京都河原町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+京都河原町',
+      },
+      {
+        name: 'コメダ珈琲店 河原町三条店',
+        description: 'コメダ珈琲店 河原町三条店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+河原町三条',
+      },
+    ],
+
+  },
+  {
+    id: 'gifu_club_g',
+    name: '岐阜Club-G',
+    date: '2026-05-31T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '岐阜県', 
+      city: '岐阜市',
+      address: '岐阜県岐阜市玉宮町2-5',
+      nearestStation: 'JR岐阜駅・名鉄岐阜駅 徒歩10分'
+    },
+    capacity: 350,
+    access: 'JR岐阜駅・名鉄岐阜駅から徒歩10分。駅前から繁華街方面へ。',
+    nearbyAttractions: [
+      {
+        name: '岐阜城',
+        description: '金華山山頂にそびえる城。ロープウェイでアクセス',
+        distance: 'バス＋ロープウェイで30分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: '岐阜駅前駐車場',
+        description: '岐阜駅前駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.google.com/maps/search/岐阜駅前駐車場',
+        mapsUrl: 'https://www.google.com/maps/search/岐阜駅前駐車場',
+      },
+      {
+        name: 'タイムズ柳ヶ瀬',
+        description: 'タイムズ柳ヶ瀬の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+柳ヶ瀬+岐阜',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR岐阜駅構内',
+        description: 'JR岐阜駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://railway.jr-central.co.jp/station-guide/tokai/gifu/map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR岐阜駅',
+      },
+      {
+        location: '名鉄岐阜駅構内',
+        description: '名鉄岐阜駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.meitetsu.co.jp/train/station_info/line01/station/1253.html',
+        mapsUrl: 'https://www.google.com/maps/search/名鉄岐阜駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス ASTY岐阜店',
+        description: 'スターバックス ASTY岐阜店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+岐阜駅',
+      },
+      {
+        name: 'コメダ珈琲店 柳ヶ瀬店',
+        description: 'コメダ珈琲店 柳ヶ瀬店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+柳ヶ瀬',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '柳ヶ瀬商店街',
+        description: '柳ヶ瀬商店街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://yanagase-gifu.com/',
+        mapsUrl: 'https://www.google.com/maps/search/柳ヶ瀬商店街+岐阜',
+      },
+    ],
+
+  },
+  // 6月
+  {
+    id: 'sendai_talknet_hall',
+    name: 'トークネットホール仙台',
+    date: '2026-06-12T18:30:00+09:00',
+    times: { open: '17:30', start: '18:30' },
+    location: { 
+      prefecture: '宮城県', 
+      city: '仙台市',
+      address: '宮城県仙台市青葉区国分町3-3-7',
+      nearestStation: '地下鉄勾当台公園駅 徒歩5分'
+    },
+    capacity: 2000,
+    access: '地下鉄南北線勾当台公園駅から徒歩5分。JR仙台駅から徒歩15分。',
+    venueWebsite: 'https://tohoku-gekijo.jp/',
+    nearbyAttractions: [
+      {
+        name: '瑞鳳殿',
+        description: '伊達政宗の霊廟',
+        distance: 'バスで15分'
+      },
+      {
+        name: '仙台城跡（青葉城址）',
+        description: '伊達政宗の居城跡。市街を一望',
+        distance: 'バスで20分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・新潟',
+          method: '高速バス',
+          time: '約5〜6時間',
+          description: '東京・新潟から仙台行きの高速バスが頻発。仙台駅到着後、地下鉄または徒歩で会場へ。',
+          cost: '片道3,000円〜5,000円',
+          notes: '夜行便もあり。予約推奨'
+        }
+      ],
+      recommendations: '新幹線で仙台駅から地下鉄が最も便利。空路も仙台空港からアクセス良好。東北各地からは高速バスも充実。'
+    parkingOptions: [
+      {
+        name: '勾当台公園地下駐車場',
+        description: '勾当台公園地下駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sendai.jp/somu-chose/kurashi/machi/kotsu/chushajo/annai/chushajo/',
+        mapsUrl: 'https://www.google.com/maps/search/勾当台公園地下駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄勾当台公園駅構内',
+        description: '地下鉄勾当台公園駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.kotsu.city.sendai.jp/subway/station/pdf/gb05.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄勾当台公園駅',
+      },
+      {
+        location: 'JR仙台駅構内',
+        description: 'JR仙台駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/913.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR仙台駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 仙台国分町店',
+        description: 'スターバックス 仙台国分町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+仙台国分町',
+      },
+      {
+        name: 'タリーズコーヒー 仙台一番町店',
+        description: 'タリーズコーヒー 仙台一番町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+仙台一番町',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '牛タン 利久',
+        description: '牛タン 利久で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/miyagi/A0401/A040101/4022012/',
+        mapsUrl: 'https://www.google.com/maps/search/牛タン利久+仙台',
+      },
+      {
+        name: '国分町飲み屋街',
+        description: '国分町飲み屋街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://1000bero.net/town_miyagi/',
+        mapsUrl: 'https://www.google.com/maps/search/国分町+仙台+飲み屋',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '勾当台公園地下駐車場',
+        description: '勾当台公園地下駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.city.sendai.jp/somu-chose/kurashi/machi/kotsu/chushajo/annai/chushajo/',
+        mapsUrl: 'https://www.google.com/maps/search/勾当台公園地下駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '地下鉄勾当台公園駅構内',
+        description: '地下鉄勾当台公園駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.kotsu.city.sendai.jp/subway/station/pdf/gb05.pdf',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄勾当台公園駅',
+      },
+      {
+        location: 'JR仙台駅構内',
+        description: 'JR仙台駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/913.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR仙台駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 仙台国分町店',
+        description: 'スターバックス 仙台国分町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+仙台国分町',
+      },
+      {
+        name: 'タリーズコーヒー 仙台一番町店',
+        description: 'タリーズコーヒー 仙台一番町店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+仙台一番町',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '牛タン 利久',
+        description: '牛タン 利久で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://tabelog.com/miyagi/A0401/A040101/4022012/',
+        mapsUrl: 'https://www.google.com/maps/search/牛タン利久+仙台',
+      },
+      {
+        name: '国分町飲み屋街',
+        description: '国分町飲み屋街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://1000bero.net/town_miyagi/',
+        mapsUrl: 'https://www.google.com/maps/search/国分町+仙台+飲み屋',
+      },
+    ],
+
+  },
+  {
+    id: 'osaka_orix_theater',
+    name: 'オリックス劇場',
+    date: '2026-06-19T18:30:00+09:00',
+    times: { open: '17:30', start: '18:30' },
+    location: { 
+      prefecture: '大阪府', 
+      city: '大阪市',
+      address: '大阪府大阪市西区新町1-14-15',
+      nearestStation: '地下鉄四ツ橋駅 徒歩3分'
+    },
+    capacity: 2400,
+    access: '地下鉄四ツ橋線四ツ橋駅1-A出口から徒歩3分。御堂筋線心斎橋駅から徒歩7分。',
+    venueWebsite: 'https://www.orix-theater.jp/',
+    nearbyAttractions: [
+      {
+        name: '道頓堀',
+        description: '大阪を代表する繁華街',
+        distance: '徒歩10分'
+      },
+      {
+        name: 'アメリカ村',
+        description: '若者文化の発信地',
+        distance: '徒歩5分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・横浜',
+          method: '夜行高速バス',
+          time: '約8〜9時間',
+          description: '東京・横浜から大阪（梅田・なんば）行きの夜行バスが多数運行。なんば到着後、地下鉄で会場へ。',
+          cost: '片道4,000円〜8,000円',
+          notes: '前日夜発・当日朝着。予約必須。格安便から快適便まで多様'
+        }
+      ],
+      recommendations: '関西圏の主要空港2つからアクセス良好。新幹線は新大阪から地下鉄直通が便利。遠方からは飛行機がおすすめ。'
+    coinLockers: [
+      {
+        location: '地下鉄四ツ橋駅構内',
+        description: '地下鉄四ツ橋駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://subway.osakametro.co.jp/station_guide/Y/Y14/index.php',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄四ツ橋駅',
+      },
+      {
+        location: 'クリスタ長堀',
+        description: 'クリスタ長堀のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.crystanagahori.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クリスタ長堀',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 四ツ橋店',
+        description: 'スターバックス 四ツ橋店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-248/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+四ツ橋',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'すき家・松屋',
+        description: 'すき家・松屋で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'ありふれすぎているためNG',
+        mapsUrl: 'https://www.google.com/maps/search/すき家+大阪四ツ橋',
+      },
+    ],
+
+    }
+    coinLockers: [
+      {
+        location: '地下鉄四ツ橋駅構内',
+        description: '地下鉄四ツ橋駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://subway.osakametro.co.jp/station_guide/Y/Y14/index.php',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄四ツ橋駅',
+      },
+      {
+        location: 'クリスタ長堀',
+        description: 'クリスタ長堀のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.crystanagahori.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/クリスタ長堀',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 四ツ橋店',
+        description: 'スターバックス 四ツ橋店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-248/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+四ツ橋',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'すき家・松屋',
+        description: 'すき家・松屋で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'ありふれすぎているためNG',
+        mapsUrl: 'https://www.google.com/maps/search/すき家+大阪四ツ橋',
+      },
+    ],
+
+  },
+  {
+    id: 'fukuoka_convention_center',
+    name: '福岡国際会議場メインホール',
+    date: '2026-06-27T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '福岡県', 
+      city: '福岡市',
+      address: '福岡県福岡市博多区石城町2-1',
+      nearestStation: '地下鉄呉服町駅 徒歩5分'
+    },
+    capacity: 1500,
+    access: '地下鉄箱崎線呉服町駅から徒歩5分。JR博多駅からバスで10分。',
+    venueWebsite: 'https://www.marinemesse.or.jp/congress/',
+    longDistanceAccess: {
+      fromAirport: [
+        {
+          from: '福岡空港',
+          method: '地下鉄空港線',
+          time: '約15分',
+          description: '福岡空港→（地下鉄空港線）→中洲川端駅→（地下鉄箱崎線）→呉服町駅。会場まで徒歩5分。',
+          cost: '片道260円',
+          notes: '福岡空港は市内に近く超便利！空港から地下鉄直結'
+        },        {
+          from: '福岡空港',
+          method: '地下鉄（博多経由）',
+          time: '約20分',
+          description: '福岡空港→（地下鉄）→博多駅→（徒歩/バス）→会場。博多駅で乗り換え。',
+          cost: '片道260円〜',
+          notes: '博多駅周辺で買い物や食事をする場合はこのルート'
+        }
+      ],
+      fromShinkansen: [
+        {
+          from: '博多駅',
+          method: '地下鉄・バス',
+          time: '約10〜15分',
+          description: '博多駅から地下鉄またはバスで会場へ。地下鉄は博多駅→中洲川端→呉服町。バスは直通便あり。',
+          cost: '片道200〜260円',
+          notes: '地下鉄が確実。バスは渋滞に注意'
+        },
+    parkingOptions: [
+      {
+        name: '福岡国際会議場周辺駐車場',
+        description: '福岡国際会議場周辺駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://unlocks.jp/w/?id=w8516215a36dba648&cids=266,278&catalog=false',
+        mapsUrl: 'https://www.google.com/maps/search/福岡国際会議場',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '博多一風堂',
+        description: '博多一風堂で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'ありふれすぎているためNG',
+        mapsUrl: 'https://www.google.com/maps/search/一風堂+博多',
+      },
+    ],
+        {
+          from: '博多駅',
+          method: 'タクシー',
+          time: '約10分',
+          description: '博多駅から会場までタクシーで直行。荷物が多い場合や複数人で便利。',
+          cost: '約1,000円〜1,500円',
+          notes: '朝夕の渋滞時は時間に余裕を'
+        }
+      ],
+      fromExpressBus: [
+        {
+          from: '熊本・長崎・鹿児島',
+          method: '高速バス',
+          time: '約1.5〜4時間',
+          description: '九州各地から福岡（博多・天神）行きの高速バスが頻発。博多バスターミナルまたは天神到着後、地下鉄で会場へ。',
+          cost: '片道2,000円〜4,000円',
+          notes: '九州内の移動は高速バスが便利で経済的'
+        }
+      ],
+      recommendations: '福岡空港は国内屈指の都心近さ。空港から地下鉄15分は超便利。九州内からは高速バスも充実。新幹線も博多駅からすぐ。'
+    },
+    nearbyAttractions: [
+      {
+        name: 'キャナルシティ博多',
+        description: '大型商業施設。ショッピングとエンターテインメント',
+        distance: '徒歩15分'
+      },
+      {
+        name: '博多駅周辺',
+        description: 'JR博多シティなど大型商業施設が集まる',
+        distance: 'バスで10分'
+      }
+    ],
+    nearbyRestaurants: [
+      {
+        name: '博多一風堂',
+        cuisine: 'ラーメン',
+        description: '博多とんこつラーメンの人気店',
+        distance: '徒歩10分（博多駅）',
+        price: '800円～1,200円',
+        website: 'https://www.ippudo.com/',
+        mapsUrl: 'https://www.google.com/maps/search/一風堂+博多'
+      },
+      {
+        name: '中洲屋台街',
+        cuisine: '各種',
+        description: '福岡名物の屋台が軒を連ねる',
+        distance: '徒歩8分',
+        price: '2,000円～4,000円'
+      }
+    ],    parkingOptions: [
+      {
+        name: '福岡国際会議場駐車場',
+        description: '会場直結の駐車場',
+        price: '30分200円（最大1,500円/日）',
+        distance: '会場直結',
+        address: '福岡県福岡市博多区石城町2-1',
+        website: 'https://www.marinemesse.or.jp/congress/access/',
+        mapsUrl: 'https://www.google.com/maps/search/福岡国際会議場'
+      },
+      {
+        name: 'マリンメッセ福岡駐車場',
+        description: '大型施設の駐車場',
+        price: '1時間300円（最大1,800円/日）',
+        distance: '徒歩7分',
+        website: 'https://www.marinemesse.or.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/マリンメッセ福岡'
+      }
+    ]
+  },
+  // 7月
+  {
+    id: 'nagoya_kokaido',
+    name: '岡谷鋼機名古屋公会堂',
+    date: '2026-07-04T17:00:00+09:00',
+    times: { open: '16:00', start: '17:00' },
+    location: { 
+      prefecture: '愛知県', 
+      city: '名古屋市',
+      address: '愛知県名古屋市昭和区鶴舞1-1-3',
+      nearestStation: 'JR鶴舞駅 徒歩3分'
+    },
+    capacity: 2000,
+    access: 'JR中央線鶴舞駅から徒歩3分。地下鉄鶴舞線鶴舞駅4番出口すぐ。',
+    venueWebsite: 'https://nagoya-kokaido.jp/',
+    nearbyAttractions: [
+      {
+        name: '鶴舞公園',
+        description: '桜の名所として有名な広大な公園',
+        distance: '徒歩1分（会場前）'
+      },
+      {
+        name: '名古屋城',
+        description: '金のシャチホコで有名な名古屋のシンボル',
+        distance: '地下鉄で10分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '東京・大阪',
+          method: '夜行高速バス',
+          time: '約6〜8時間',
+          description: '東京・大阪から名古屋行きの夜行バスが多数運行。名古屋駅到着後、JRで鶴舞へ。',
+          cost: '片道3,000円〜6,000円',
+          notes: '前日夜発・当日朝着。経済的だが時間はかかる'
+        }
+      ],
+      recommendations: '新幹線が最も便利。名古屋駅からJRでわずか5分。中部空港からも約50分でアクセス良好。名古屋は新幹線のハブであり交通の便が非常に良い。'
+    parkingOptions: [
+      {
+        name: '鶴舞公園南駐車場',
+        description: '鶴舞公園南駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://ssparking.co.jp/detail/%E9%B6%B4%E8%88%9E%E5%85%AC%E5%9C%92%E5%8D%97%E9%A7%90%E8%BB%8A%E5%A0%B4/',
+        mapsUrl: 'https://www.google.com/maps/search/鶴舞公園地下駐車場',
+      },
+      {
+        name: '名鉄協商パーキング 鶴舞',
+        description: '名鉄協商パーキング 鶴舞の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://mkp.jp/search/detail/004575-0/?utm_source=gbp&utm_medium=profile&utm_campaign=4575',
+        mapsUrl: 'https://www.google.com/maps/search/名鉄協商パーキング+鶴舞',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR鶴舞駅構内',
+        description: 'JR鶴舞駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://railway.jr-central.co.jp/station-guide/tokai/tsurumai/map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR鶴舞駅',
+      },
+      {
+        location: '地下鉄鶴舞駅構内',
+        description: '地下鉄鶴舞駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.kotsu.city.nagoya.jp/jp/pc/subway/station_top.html?name=%E9%B6%B4%E8%88%9E',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄鶴舞駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス イオンタウン千種店',
+        description: 'スターバックス イオンタウン千種店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-615/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+鶴舞駅',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '鶴舞公園南駐車場',
+        description: '鶴舞公園南駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://ssparking.co.jp/detail/%E9%B6%B4%E8%88%9E%E5%85%AC%E5%9C%92%E5%8D%97%E9%A7%90%E8%BB%8A%E5%A0%B4/',
+        mapsUrl: 'https://www.google.com/maps/search/鶴舞公園地下駐車場',
+      },
+      {
+        name: '名鉄協商パーキング 鶴舞',
+        description: '名鉄協商パーキング 鶴舞の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://mkp.jp/search/detail/004575-0/?utm_source=gbp&utm_medium=profile&utm_campaign=4575',
+        mapsUrl: 'https://www.google.com/maps/search/名鉄協商パーキング+鶴舞',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR鶴舞駅構内',
+        description: 'JR鶴舞駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://railway.jr-central.co.jp/station-guide/tokai/tsurumai/map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR鶴舞駅',
+      },
+      {
+        location: '地下鉄鶴舞駅構内',
+        description: '地下鉄鶴舞駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.kotsu.city.nagoya.jp/jp/pc/subway/station_top.html?name=%E9%B6%B4%E8%88%9E',
+        mapsUrl: 'https://www.google.com/maps/search/地下鉄鶴舞駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス イオンタウン千種店',
+        description: 'スターバックス イオンタウン千種店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://store.starbucks.co.jp/detail-615/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+鶴舞駅',
+      },
+    ],
+
+  },
+  {
+    id: 'tokyo_line_cube',
+    name: 'LINE CUBE SHIBUYA',
+    date: '2026-07-10T18:30:00+09:00',
+    times: { open: '17:30', start: '18:30' },
+    location: { 
+      prefecture: '東京都', 
+      city: '渋谷区',
+      address: '東京都渋谷区道玄坂2-3-1',
+      nearestStation: 'JR渋谷駅 徒歩5分'
+    },
+    capacity: 2000,
+    access: 'JR渋谷駅ハチ公口から徒歩5分。東急東横線・田園都市線、東京メトロ半蔵門線・銀座線・副都心線からもアクセス可能。',    nearbyAttractions: [
+      {
+        name: '渋谷スクランブル交差点',
+        description: '世界で最も有名な交差点のひとつ',
+        distance: '徒歩3分'
+      },
+      {
+        name: '渋谷スカイ',
+        description: '渋谷の街を一望できる展望施設',
+        distance: '徒歩2分'
+      },
+      {
+        name: 'ハチ公像',
+        description: '忠犬ハチ公の銅像。待ち合わせスポットとして有名',
+        distance: '徒歩4分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '全国主要都市',
+          method: '夜行高速バス',
+          time: '6〜12時間',
+          description: '全国主要都市から東京（新宿・渋谷）行きの夜行バスが多数運行。渋谷駅・新宿駅到着後、会場へ。',
+          cost: '片道3,000円〜10,000円',
+          notes: '前日夜発・当日朝着。最も経済的な選択肢'
+        }
+      ],
+      recommendations: '首都東京へのアクセスは全国から容易。羽田空港からは電車40分、成田空港からも成田エクスプレスで直通。新幹線利用の場合は東京駅・品川駅から山手線で。'
+    parkingOptions: [
+      {
+        name: '渋谷マークシティ駐車場',
+        description: '渋谷マークシティ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.shibuya-mark-city.com/access/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷マークシティ+駐車場',
+      },
+      {
+        name: '渋谷ヒカリエ駐車場',
+        description: '渋谷ヒカリエ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.hikarie.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷ヒカリエ+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR渋谷駅構内',
+        description: 'JR渋谷駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/866.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR渋谷駅',
+      },
+      {
+        location: '渋谷マークシティ',
+        description: '渋谷マークシティのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.shibuya-mark-city.com/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷マークシティ',
+      },
+      {
+        location: '渋谷ヒカリエ',
+        description: '渋谷ヒカリエのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.hikarie.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷ヒカリエ',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 渋谷マークシティ店',
+        description: 'スターバックス 渋谷マークシティ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+渋谷マークシティ',
+      },
+      {
+        name: 'タリーズコーヒー 道玄坂店',
+        description: 'タリーズコーヒー 道玄坂店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.tullys.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+道玄坂',
+      },
+      {
+        name: 'ドトールコーヒー 渋谷駅前店',
+        description: 'ドトールコーヒー 渋谷駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.doutor.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ドトールコーヒー+渋谷駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '渋谷食堂街',
+        description: '渋谷食堂街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.google.com/maps/search/渋谷+飲食店',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷+飲食店',
+      },
+      {
+        name: '道玄坂 鳥心',
+        description: '道玄坂 鳥心で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.google.com/maps/search/鳥心+道玄坂+渋谷',
+        mapsUrl: 'https://www.google.com/maps/search/鳥心+道玄坂+渋谷',
+      },
+      {
+        name: 'ひもの屋',
+        description: 'ひもの屋で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.shimonya.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ひもの屋+渋谷',
+      },
+    ],
+    holyPlaces: [
+      {
+        name: 'スタジオ Booty 5Fサイバーエリア',
+        description: 'れをる関連の聖地: スタジオ Booty 5Fサイバーエリア',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'http://bootyjapan.jp/tokyo/gallery/floor_05',
+        mapsUrl: 'https://www.google.com/maps/place/Booty%E6%9D%B1%E4%BA%AC/',
+      },
+      {
+        name: 'ローズガーデン新宿',
+        description: 'れをる関連の聖地: ローズガーデン新宿',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        mapsUrl: 'https://www.google.com/maps/',
+      },
+      {
+        name: '浄土宗 梅窓院',
+        description: 'れをる関連の聖地: 浄土宗 梅窓院',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.baisouin.or.jp/',
+        mapsUrl: 'https://www.google.com/maps/place/%E6%B5%84%E5%9C%9F%E5%AE%97+%E6%A2%85%E7%AA%93%E9%99%A2/',
+      },
+      {
+        name: 'THE GARAGE (Little TAO)',
+        description: 'れをる関連の聖地: THE GARAGE (Little TAO)',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        mapsUrl: 'https://www.google.com/maps/place/THE+GARAGE/',
+      },
+    ],
+
+    }
+    parkingOptions: [
+      {
+        name: '渋谷マークシティ駐車場',
+        description: '渋谷マークシティ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.shibuya-mark-city.com/access/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷マークシティ+駐車場',
+      },
+      {
+        name: '渋谷ヒカリエ駐車場',
+        description: '渋谷ヒカリエ駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.hikarie.jp/access/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷ヒカリエ+駐車場',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR渋谷駅構内',
+        description: 'JR渋谷駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.jreast.co.jp/estation/stations/866.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR渋谷駅',
+      },
+      {
+        location: '渋谷マークシティ',
+        description: '渋谷マークシティのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.shibuya-mark-city.com/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷マークシティ',
+      },
+      {
+        location: '渋谷ヒカリエ',
+        description: '渋谷ヒカリエのコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.hikarie.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷ヒカリエ',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス 渋谷マークシティ店',
+        description: 'スターバックス 渋谷マークシティ店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.starbucks.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+渋谷マークシティ',
+      },
+      {
+        name: 'タリーズコーヒー 道玄坂店',
+        description: 'タリーズコーヒー 道玄坂店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.tullys.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/タリーズコーヒー+道玄坂',
+      },
+      {
+        name: 'ドトールコーヒー 渋谷駅前店',
+        description: 'ドトールコーヒー 渋谷駅前店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.doutor.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ドトールコーヒー+渋谷駅前',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '渋谷食堂街',
+        description: '渋谷食堂街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.google.com/maps/search/渋谷+飲食店',
+        mapsUrl: 'https://www.google.com/maps/search/渋谷+飲食店',
+      },
+      {
+        name: '道玄坂 鳥心',
+        description: '道玄坂 鳥心で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.google.com/maps/search/鳥心+道玄坂+渋谷',
+        mapsUrl: 'https://www.google.com/maps/search/鳥心+道玄坂+渋谷',
+      },
+      {
+        name: 'ひもの屋',
+        description: 'ひもの屋で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.shimonya.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ひもの屋+渋谷',
+      },
+    ],
+    holyPlaces: [
+      {
+        name: 'スタジオ Booty 5Fサイバーエリア',
+        description: 'れをる関連の聖地: スタジオ Booty 5Fサイバーエリア',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'http://bootyjapan.jp/tokyo/gallery/floor_05',
+        mapsUrl: 'https://www.google.com/maps/place/Booty%E6%9D%B1%E4%BA%AC/',
+      },
+      {
+        name: 'ローズガーデン新宿',
+        description: 'れをる関連の聖地: ローズガーデン新宿',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        mapsUrl: 'https://www.google.com/maps/',
+      },
+      {
+        name: '浄土宗 梅窓院',
+        description: 'れをる関連の聖地: 浄土宗 梅窓院',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://www.baisouin.or.jp/',
+        mapsUrl: 'https://www.google.com/maps/place/%E6%B5%84%E5%9C%9F%E5%AE%97+%E6%A2%85%E7%AA%93%E9%99%A2/',
+      },
+      {
+        name: 'THE GARAGE (Little TAO)',
+        description: 'れをる関連の聖地: THE GARAGE (Little TAO)',
+        type: 'MV/作品関連',
+        distance: '距離要確認',
+        address: '住所要確認',
+        mapsUrl: 'https://www.google.com/maps/place/THE+GARAGE/',
+      },
+    ],
+
+  },
+]
+
+/**
+ * IDから会場情報を取得
+ */
+export const getVenueById = (venueId: string): Venue | undefined => {
+  console.log('getVenueById Debug:', {
+    searchingFor: venueId,
+    availableIds: VENUES_2026.map(v => v.id),
+    totalVenues: VENUES_2026.length
+  })
+  
+  const venue = VENUES_2026.find(venue => venue.id === venueId)
+  console.log('Found venue:', venue)
+  
+  return venue
+}
+
+/**
+ * 都道府県から会場リストを取得
+ */
+export const getVenuesByPrefecture = (prefecture: string): Venue[] => {
+  return VENUES_2026.filter(venue => venue.location.prefecture === prefecture)
+}
+
+/**
+ * 日付でソートされた全会場リストを取得
+ */
+export const getAllVenuesSorted = (): Venue[] => {
+  return [...VENUES_2026].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+}
+
+/**
+ * 次回開催予定の会場を取得
+ */
+export const getUpcomingVenue = (): Venue | undefined => {
+  const now = new Date()
+  return VENUES_2026
+    .filter(venue => new Date(venue.date) > now)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0]
+}
+
+/**
+ * 都道府県一覧を取得
+ */
+export const getPrefectureList = (): string[] => {
+  const prefectures = new Set(VENUES_2026.map(venue => venue.location.prefecture))
+  return Array.from(prefectures).sort()
+}

@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "backToTop": "Back to Top",
+    "viewAllVenues": "View All Venues",
+    "viewAllAttendees": "View All Attendees"
+  },
+  "sections": {
+    "basicInfo": "Basic Information",
+    "attendees": "Attendees",
+    "access": "Access",
+    "lockers": "Lockers",
+    "parking": "Parking",
+    "cafes": "Cafes",
+    "restaurants": "Restaurants",
+    "attractions": "Attractions",
+    "holyPlaces": "Holy Places",
+    "accommodations": "Accommodations"
+  },
+  "buttons": {
+    "officialSite": "Official Venue Site",
+    "details": "Details",
+    "detailsReservation": "Details & Reservations",
+    "map": "Map",
+    "website": "Official Website"
+  },
+  "messages": {
+    "venueNotFound": "Venue not found",
+    "accuracyDisclaimer": "About Information Accuracy",
+    "accuracyNote": "Some of the information on this page has been generated or compiled by AI and may contain inaccuracies. Due to the large volume of information, verification takes time, but we will make corrections as errors are discovered. Please always verify important information on official websites for the latest details.",
+    "noDataRegistered": "No information registered"
+  },
+  "labels": {
+    "recommended": "Recommended"
+  },
+  "accessInfo": {
+    "title": "Access Information for Travelers",
+    "longDistanceTitle": "Long-Distance Access Information",
+    "subtitle": "Access Around the Venue",
+    "fromAirport": "From Airport",
+    "byShinkansen": "By Shinkansen",
+    "byHighwayBus": "By Highway Bus",
+    "byCar": "By Car"
+  },
+  "lockerInfo": {
+    "title": "Coin Locker Information"
+  },
+  "parkingInfo": {
+    "title": "Parking Information",
+    "official": "Official Venue Parking",
+    "nearby": "Nearby Parking Lots"
+  },
+  "cafeInfo": {
+    "title": "Time-Killing Spots Before Opening"
+  },
+  "restaurantInfo": {
+    "title": "Nearby Restaurants"
+  },
+  "attractionInfo": {
+    "title": "Nearby Tourist Attractions"
+  },
+  "holyPlaceInfo": {
+    "title": "Reol Holy Places"
+  },
+  "accommodationInfo": {
+    "title": "Accommodations Near Venue"
+  },
+  "otherVenues": {
+    "title": "Other Scheduled Venues"
+  },
+  "badges": {
+    "recommended": "Recommended",
+    "price": "Price",
+    "distance": "Distance"
+  },
+  "labels": {
+    "address": "Address",
+    "fromVenue": "From venue"
+  },
+  "times": {
+    "open": "Doors Open",
+    "start": "Show Start"
+  },
+  "location": {
+    "prefecture": "Prefecture",
+    "city": "City",
+    "address": "Address",
+    "nearestStation": "Nearest Station"
+  }
+}

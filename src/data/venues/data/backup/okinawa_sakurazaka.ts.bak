@@ -1,0 +1,70 @@
+import { Venue } from '../types'
+
+export const okinawa_sakurazaka: Venue = {
+    id: 'okinawa_sakurazaka',
+    name: '桜坂セントラル',
+    date: '2026-04-29T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '沖縄県', 
+      city: '那覇市',
+      address: '沖縄県那覇市牧志3-9-26',
+      nearestStation: 'ゆいレール 牧志駅 徒歩8分'
+    },
+    capacity: 500,
+    access: 'ゆいレール牧志駅から徒歩8分。国際通りから桜坂方面へ。',
+    nearbyAttractions: [
+      {
+        name: '国際通り',
+        description: '那覇のメインストリート。土産物店や飲食店が並ぶ',
+        distance: '徒歩5分'
+      },
+      {
+        name: '第一牧志公設市場',
+        description: '沖縄の食材が集まる市場',
+        distance: '徒歩7分'
+      }
+    ],      recommendations: '沖縄へは空路一括。那覇空港からゆいレールで約20分とアクセス抜群。沖縄観光を兼ねるならレンタカーがおすすめ。本州からのフライトは2.5〜3時間。'
+    parkingOptions: [
+      {
+        name: 'タイムズ桜坂',
+        description: 'タイムズ桜坂の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P40-fukuoka/C133/park-detail-BUK0031920/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+桜坂+那覇',
+      },
+      {
+        name: 'パレット久茂地駐車場',
+        description: 'パレット久茂地駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.palette-kumoji.co.jp/accessparking',
+        mapsUrl: 'https://www.google.com/maps/search/パレット久茂地',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'ゆいレール牧志駅構内',
+        description: 'ゆいレール牧志駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.yui-rail.co.jp/routemap/makishi/',
+        mapsUrl: 'https://www.google.com/maps/search/ゆいレール牧志駅',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: 'ステーキハウス88',
+        description: 'ステーキハウス88で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://s88.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/ステーキハウス88+那覇',
+      },
+    ],
+
+    }
+
+export default okinawa_sakurazaka

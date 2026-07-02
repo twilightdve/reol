@@ -1,0 +1,91 @@
+import { Venue } from '../types'
+
+export const gifu_club_g: Venue = {
+    id: 'gifu_club_g',
+    name: '岐阜Club-G',
+    date: '2026-05-31T17:00:00+09:00',
+    times: { open: '16:15', start: '17:00' },
+    location: { 
+      prefecture: '岐阜県', 
+      city: '岐阜市',
+      address: '岐阜県岐阜市玉宮町2-5',
+      nearestStation: 'JR岐阜駅・名鉄岐阜駅 徒歩10分'
+    },
+    capacity: 350,
+    access: 'JR岐阜駅・名鉄岐阜駅から徒歩10分。駅前から繁華街方面へ。',
+    nearbyAttractions: [
+      {
+        name: '岐阜城',
+        description: '金華山山頂にそびえる城。ロープウェイでアクセス',
+        distance: 'バス＋ロープウェイで30分'
+      }
+    ],
+    parkingOptions: [
+      {
+        name: '岐阜駅前駐車場',
+        description: '岐阜駅前駐車場の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.google.com/maps/search/岐阜駅前駐車場',
+        mapsUrl: 'https://www.google.com/maps/search/岐阜駅前駐車場',
+      },
+      {
+        name: 'タイムズ柳ヶ瀬',
+        description: 'タイムズ柳ヶ瀬の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+柳ヶ瀬+岐阜',
+      },
+    ],
+    coinLockers: [
+      {
+        location: 'JR岐阜駅構内',
+        description: 'JR岐阜駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://railway.jr-central.co.jp/station-guide/tokai/gifu/map.html',
+        mapsUrl: 'https://www.google.com/maps/search/JR岐阜駅',
+      },
+      {
+        location: '名鉄岐阜駅構内',
+        description: '名鉄岐阜駅構内のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://www.meitetsu.co.jp/train/station_info/line01/station/1253.html',
+        mapsUrl: 'https://www.google.com/maps/search/名鉄岐阜駅',
+      },
+    ],
+    cafes: [
+      {
+        name: 'スターバックス ASTY岐阜店',
+        description: 'スターバックス ASTY岐阜店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/スターバックス+岐阜駅',
+      },
+      {
+        name: 'コメダ珈琲店 柳ヶ瀬店',
+        description: 'コメダ珈琲店 柳ヶ瀬店でライブ前後の休憩に最適',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: '会場から遠いので対象外',
+        mapsUrl: 'https://www.google.com/maps/search/コメダ珈琲店+柳ヶ瀬',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '柳ヶ瀬商店街',
+        description: '柳ヶ瀬商店街で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://yanagase-gifu.com/',
+        mapsUrl: 'https://www.google.com/maps/search/柳ヶ瀬商店街+岐阜',
+      },
+    ],
+
+  },
+
+export default gifu_club_g

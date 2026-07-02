@@ -1,0 +1,72 @@
+import { Venue } from '../types'
+
+export const nagasaki_drum_be7: Venue = {
+    id: 'nagasaki_drum_be7',
+    name: 'DRUM Be-7',
+    date: '2026-04-18T17:00:00+09:00',
+    times: { open: '16:30', start: '17:00' },
+    location: { 
+      prefecture: '長崎県', 
+      city: '長崎市',
+      address: '長崎県長崎市築町3-18',
+      nearestStation: '長崎電気軌道 築町電停 徒歩1分'
+    },
+    capacity: 350,
+    access: '長崎電気軌道築町電停から徒歩1分。繁華街の中心部。',
+    nearbyAttractions: [
+      {
+        name: 'グラバー園',
+        description: '長崎港を見下ろす洋館群',
+        distance: '電車で10分'
+      },
+      {
+        name: '眼鏡橋',
+        description: '日本最古のアーチ型石橋',
+        distance: '徒歩5分'
+      }
+    ],      fromExpressBus: [
+        {
+          from: '福岡・熊本・佐賀',
+          method: '高速バス',
+          time: '約2〜3時間',
+          description: '九州各地から長崎行きの高速バスが頻発。長崎駅到着後、徒歩で会場へ。',
+          cost: '片道2,500円〜4,000円',
+          notes: '九州内の移動は高速バスが便利で経済的'
+        }
+      ],
+      recommendations: '長崎空港からバス45分とアクセス良好。九州内からは高速バスが充実。異国情緒漂う長崎の街並みも楽しめる。'
+    parkingOptions: [
+      {
+        name: 'タイムズ長崎浜町',
+        description: 'タイムズ長崎浜町の駐車場情報',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://times-info.net/P42-nagasaki/C201/park-detail-BUK0025371/',
+        mapsUrl: 'https://www.google.com/maps/search/タイムズ+長崎浜町',
+      },
+    ],
+    coinLockers: [
+      {
+        location: '長崎電気軌道 築町電停',
+        description: '長崎電気軌道 築町電停のコインロッカー',
+        price: '料金要確認',
+        distance: '距離要確認',
+        website: 'https://coinlocker-navi.com/nagasaki/eki/99916/',
+        mapsUrl: 'https://www.google.com/maps/search/築町電停',
+      },
+    ],
+    nearbyRestaurants: [
+      {
+        name: '吉宗（よっそう）',
+        description: '吉宗（よっそう）で地元のグルメを楽しめます',
+        cuisine: '地元料理',
+        distance: '距離要確認',
+        address: '住所要確認',
+        website: 'https://yossou.co.jp/',
+        mapsUrl: 'https://www.google.com/maps/search/吉宗+長崎',
+      },
+    ],
+
+    }
+
+export default nagasaki_drum_be7
