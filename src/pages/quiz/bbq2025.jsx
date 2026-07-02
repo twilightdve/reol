@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { navigate } from "gatsby";
+import SEO from "../../components/SEO";
 
 import { useLocation } from "@reach/router";
 import { v4 as uuidv4 } from "uuid";
@@ -104,3 +105,15 @@ const QuizPage = () => {
 };
 
 export default QuizPage;
+
+// 2025/5/3 開催の限定イベント用クイズ(終了済み)のため noindex
+export const Head = () => (
+  <>
+    <SEO
+      title="BBQ2025 クイズ"
+      description="2025年5月開催のファンイベント限定クイズです(イベントは終了しました)。"
+      path="/quiz/bbq2025/"
+    />
+    <meta name="robots" content="noindex" />
+  </>
+);

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { navigate } from "gatsby";
+import SEO from "../../../components/SEO";
 
 import { getDoc, doc } from "firebase/firestore";
 import db from "../../../services/bbq2025/common";
@@ -35,3 +36,15 @@ const ResultWaitingPage = () => {
 };
 
 export default ResultWaitingPage;
+
+// 2025/5/3 開催の限定イベント用クイズ(終了済み)のため noindex
+export const Head = () => (
+  <>
+    <SEO
+      title="BBQ2025 クイズ(結果発表待ち)"
+      description="2025年5月開催のファンイベント限定クイズの結果発表待ちページです(イベントは終了しました)。"
+      path="/quiz/bbq2025/result-waiting/"
+    />
+    <meta name="robots" content="noindex" />
+  </>
+);

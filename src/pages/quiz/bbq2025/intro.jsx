@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { navigate } from "gatsby";
 import { v4 as uuidv4 } from "uuid";
+import SEO from "../../../components/SEO";
 import { default as introImage } from "../../../images/event/20250503_BBQ/IMG_2314.webp";
 import { default as stampImage } from "../../../images/event/20250503_BBQ/IMG_2328.webp";
 
@@ -60,4 +61,16 @@ const IntroPage = () => {
 };
 
 export default IntroPage;
+
+// 2025/5/3 開催の限定イベント用クイズ(終了済み)のため noindex
+export const Head = () => (
+  <>
+    <SEO
+      title="BBQ2025 クイズ(はじめに)"
+      description="2025年5月開催のファンイベント限定クイズです(イベントは終了しました)。"
+      path="/quiz/bbq2025/intro/"
+    />
+    <meta name="robots" content="noindex" />
+  </>
+);
 

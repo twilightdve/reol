@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { quizData } from "../../../services/bbq2025/common";
+import SEO from "../../../components/SEO";
 import { FaCheck } from "react-icons/fa";
 import { navigate } from "gatsby";
 import { default as resultImage } from "../../../images/event/20250503_BBQ/IMG_2316.webp";
@@ -63,5 +64,17 @@ const ResultPage = () => {
 };
 
 export default ResultPage;
+
+// 2025/5/3 開催の限定イベント用クイズ(終了済み)のため noindex
+export const Head = () => (
+  <>
+    <SEO
+      title="BBQ2025 クイズ(結果)"
+      description="2025年5月開催のファンイベント限定クイズの結果ページです(イベントは終了しました)。"
+      path="/quiz/bbq2025/result/"
+    />
+    <meta name="robots" content="noindex" />
+  </>
+);
 
 
