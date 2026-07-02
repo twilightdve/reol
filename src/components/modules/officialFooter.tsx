@@ -32,7 +32,7 @@ const OFFICIAL_LINKS: OfficialLink[] = [
   {
     type: "youtube",
     label: "YouTube",
-    href: "https://www.youtube.com/@reolofficial1587",
+    href: "https://www.youtube.com/@reolch",
     icon: <FaYoutube />,
   },
   {
