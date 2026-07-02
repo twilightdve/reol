@@ -1,5 +1,6 @@
 export type Place = {
-  placeId: number;
+  placeUuid: string;
+  slug: string;
   type: string;
   title: string;
   url: string;
@@ -8,8 +9,9 @@ export type Place = {
 };
 
 export type PlaceItem = {
-  placeId: number;
-  placeItemId: number;
+  placeItemUuid: string;
+  slug: string;
+  placeUuid: string;
   name: string;
   memo: string;
   needsCost: boolean;

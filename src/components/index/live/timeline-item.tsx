@@ -165,7 +165,7 @@ class TimelineItem extends Component<Props, State> {
                       {live.reports.map((report) => {
                         return (
                           <li
-                            key={`report-${report.liveId}-${report.liveReportNo}`}
+                            key={`report-${report.liveUuid}-${report.liveReportUuid}`}
                           >
                             <a
                               className="leading-loose"
@@ -217,7 +217,7 @@ class TimelineItem extends Component<Props, State> {
                   <>
                     {1 === live.items.length ? (
                       <div
-                        key={`live-item-${live.items[0].liveId}-${live.items[0].liveItemNo}`}
+                        key={`live-item-${live.items[0].liveItemUuid}`}
                       >
                         <LiveItem live={live} liveItem={live.items[0]} />
                       </div>
@@ -231,7 +231,7 @@ class TimelineItem extends Component<Props, State> {
                           {live.items.map((liveItem, j, items) => {
                             return (
                               <LiveItem
-                                key={`liveitem-${liveItem.liveId}-${liveItem.liveItemNo}`}
+                                key={`liveitem-${liveItem.liveItemUuid}`}
                                 live={live}
                                 liveItem={liveItem}
                                 withDialog
@@ -241,7 +241,7 @@ class TimelineItem extends Component<Props, State> {
                         </div>
                         {live.posts.length > 0 && (
                           <div
-                            key={`posts-live-${live.liveId}`}
+                            key={`posts-live-${live.liveUuid}`}
                             className={`relative w-full sm:h-full sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden ${(() => {
                               const rowNum = live.items.length;
                               if (0 < rowNum && rowNum < 4) {
@@ -259,7 +259,7 @@ class TimelineItem extends Component<Props, State> {
                               関連ポスト
                             </h4>
                             <Tweets
-                              parentId={`${live.liveId}`}
+                              parentId={`${live.liveUuid}`}
                               posts={live.posts.reverse().map((post) => ({
                                 id: post.livePostId,
                                 html: post.livePostHTML,

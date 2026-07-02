@@ -2,6 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================================================
+ * 美辞学ナビ 共通ユーティリティクラス
+ * ================================================ */
+@layer components {
+
+  /* --- セクションカード構造 --- */
+  .section-header {
+    padding: 1.25rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: inherit;
+  }
+
+  .section-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* --- 和紙風カード背景 --- */
+  .venue-card-bg {
+    background-color: rgba(216, 217, 195, 0.9);
+  }
+
+  .venue-list-card {
+    background-color: rgba(216, 217, 195, 0.9);
+  }
+
+
+  /* --- ヘッダー背景 --- */
+  .bijigaku-header-bg {
+    background-color: #977c30;
+  }
+
+  /* --- 美辞学ナビ タイトル --- */
+  .bijigaku-title {
+    color: #ffffff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    font-family: "HiraMinProN-W6", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .bijigaku-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.08em;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* --- トースト通知 --- */
+  .toast-notification {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* --- 宿泊施設セクション専用の背景色 --- */
+  .accommodation-section-bg {
+    background-color: rgba(243, 244, 246, 0.95) !important;
+    border-color: rgba(209, 213, 219, 1) !important;
+  }
+
+  .dark .accommodation-section-bg {
+    background-color: rgba(3, 7, 18, 0.95) !important;
+    border-color: rgba(75, 85, 99, 1) !important;
+  }
+
+  .accommodation-section-border {
+    border-color: rgba(209, 213, 219, 1) !important;
+  }
+
+  .dark .accommodation-section-border {
+    border-color: rgba(75, 85, 99, 1) !important;
+  }
+}
+
 :root {
   /* デフォルトのカラーパレット */
   --color-primary: #D2AF57;
@@ -11,7 +89,7 @@
   --color-text: #333333;
   --gradient-primary: linear-gradient(135deg, #D2AF57, #27489b);
   --gradient-background: linear-gradient(135deg, #FAFAFA, #F5F5F5);
-  
+
   /* 一時的なカラーパレット用 */
   --temp-color-primary: var(--color-primary);
   --temp-color-secondary: var(--color-secondary);
@@ -23,11 +101,52 @@
 }
 
 body {
-  font-family: "Noto Serif JP",
-    "YuMincho",
-    "Hiragino Mincho ProN",
-    "MS PMincho",
-    serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+
+  /* 和紙背景に合わせた文字色調整 */
+  color: #2d2d2d;
+  /* 純黒より少し柔らかく */
+
+  /*
+    サイト全体の背景は Body コンポーネント内の fixed レイヤー
+    (空グラデーション + animate-cloud で流れる雲) が担当するため、
+    ここでは透過にする。和紙テクスチャは廃止。
+  */
+  background-color: transparent;
+}
+
+/* デスクトップ環境のみfixed背景 (空レイヤーが既に fixed なのでここでは何もしない) */
+body:not(.is-ios) {
+  background-attachment: scroll;
+}
+
+/* 和紙背景に合うタイポグラフィ設定 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 日本語の文字に対する特別なスタイリング */
+.japanese-text {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-feature-settings: "palt" 1;
+  /* プロポーショナル文字詰め */
+  line-height: 1.8;
+}
+
+/* 英数字の文字に対する特別なスタイリング */
+.english-text {
+  font-family: "Cormorant", serif;
+  font-feature-settings: "liga" 1;
+  /* 合字 */
 }
 
 @keyframes shake {
@@ -48,6 +167,7 @@ body {
   0% {
     transform: translateY(0px);
   }
+
   100% {
     transform: translateY(-600px);
     opacity: 0;
@@ -59,6 +179,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -66,9 +187,12 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(147, 51, 234, 0.5);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
   }
@@ -104,4 +228,33 @@ body {
   max-height: -webkit-fill-available;
   max-height: -moz-available;
   max-height: fill-available;
+}
+
+/* iOS環境でbackdrop-filterを完全に無効化 - 最も強力なアプローチ */
+html.is-ios,
+html.is-ios body,
+html.is-ios #___gatsby,
+html.is-ios #gatsby-focus-wrapper,
+html.is-ios main,
+html.is-ios div,
+html.is-ios section,
+html.is-ios article,
+html.is-ios *[style*="backdrop"],
+html.is-ios *[class*="backdrop"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* さらに全ての子孫要素に適用 */
+.is-ios * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* iOS環境での和紙背景の最適化 */
+body.is-ios {
+  /* iOS Safariはbackground-attachment: fixedで背景をぼかすため、強制的にscrollに */
+  background-attachment: local !important;
+  /* 背景サイズをより鮮明に */
+  background-size: 100% auto !important;
 }

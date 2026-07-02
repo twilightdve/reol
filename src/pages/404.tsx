@@ -1,5 +1,6 @@
 import * as React from "react";
 import { HeadFC } from "gatsby";
+import SEO from "../components/SEO";
 
 const NotFoundPage = () => {
   return (
@@ -11,4 +12,10 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>404 Not found</title>;
+export const Head: HeadFC = () => (
+  <SEO
+    title="404 Not Found"
+    description="お探しのページが見つかりませんでした。"
+    path="/404/"
+  />
+);

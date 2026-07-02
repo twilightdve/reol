@@ -2,14 +2,14 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useAppSelector } from "../../redux/hooks";
 import { FaCirclePlay } from "react-icons/fa6";
 import UtilityService from "../../services/UtilityService";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 import "../../styles/opening.scss";
 import CloudImage from "../../images/cloud.png";
-import YouTube from "react-youtube";
 
 type Props = Record<string, never>;
 
 const Opening: React.FC<Props> = () => {
-  const { isLoaded, currentVideoId, isShrinked, playerRef } = useAppSelector(
+  const { isLoaded, playerRef } = useAppSelector(
     (state) => state.player
   );
 
@@ -17,13 +17,98 @@ const Opening: React.FC<Props> = () => {
   const [introEnd, setIntroEnd] = useState(false);
   const [unbox, setUnbox] = useState(false);
   const [onend, setOnend] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState<number>(0);
+  const reducedMotion = useReducedMotion();
+
+  // prefers-reduced-motion \u304c\u6709\u52b9\u306a\u3089\u30aa\u30fc\u30d7\u30cb\u30f3\u30b0\u3092\u5168\u30b9\u30ad\u30c3\u30d7
+  useEffect(() => {
+    if (!reducedMotion) return;
+    setIsSkip(true);
+    document.body.classList.remove("overflow-hidden");
+    document.documentElement.style.overflow = "";
+  }, [reducedMotion]);
 
   useEffect(() => {
     const queries = UtilityService.getObjectQueries();
-    if ("op" in queries && queries.op === "0") {
-      setIsSkip(true);
+    // セッション中に一度オープニングを見たら以降スキップ
+    let alreadyShown = false;
+    try {
+      alreadyShown = sessionStorage.getItem("openingShown") === "1";
+    } catch (_) {
+      // sessionStorage 利用不可な環境では無視
     }
+    if (("op" in queries && queries.op === "0") || alreadyShown) {
+      setIsSkip(true);
+    } else {
+      // オープニング表示中はスクロール禁止
+      document.body.classList.add("overflow-hidden");
+      document.documentElement.style.overflow = "hidden";
+      try {
+        sessionStorage.setItem("openingShown", "1");
+      } catch (_) {
+        /* ignore */
+      }
+    }
+
+    // visualViewportを使って正確な表示領域を取得
+    const updateHeight = () => {
+      const height = window.visualViewport 
+        ? window.visualViewport.height 
+        : window.innerHeight;
+      setViewportHeight(height);
+      
+      // CSS変数としても設定
+      document.documentElement.style.setProperty('--viewport-height', `${height}px`);
+    };
+    
+    updateHeight();
+    
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", updateHeight);
+    }
+    window.addEventListener("resize", updateHeight);
+    
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", updateHeight);
+      }
+      window.removeEventListener("resize", updateHeight);
+    };
   }, []);
+
+  useEffect(() => {
+    // オープニング終了時にスクロール禁止を解除
+    if (onend || isSkip) {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.style.overflow = "";
+    }
+  }, [onend, isSkip]);
+
+  // アンマウント時（別ページへの遷移時など）に必ずスクロールロックを解除
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
+
+  // 自動フェードアウト: 0.5秒後にOpeningを自動で閉じ、同時に動画をミュート自動再生
+  useEffect(() => {
+    if (isSkip || unbox || onend) return;
+    const timer = setTimeout(() => {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.style.overflow = "";
+      setUnbox(true);
+      try {
+        const player = playerRef?.current?.internalPlayer;
+        if (player) {
+          player.mute();
+          player.playVideo();
+        }
+      } catch (_) { /* ignore */ }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [isSkip, unbox, onend, playerRef]);
 
   const renderUnboxCubeSide = useCallback(() => {
     return (
@@ -43,7 +128,6 @@ const Opening: React.FC<Props> = () => {
   }, [isLoaded, unbox]);
 
   const handleUnboxClick = useCallback(() => {
-    if (!isLoaded) return;
     if (!unbox) {
       UtilityService.gtag({
         category: "click",
@@ -51,14 +135,18 @@ const Opening: React.FC<Props> = () => {
         label: "unbox",
       });
 
-      if (playerRef?.current) {
-        playerRef.current.internalPlayer?.playVideo();
-      }
-
       document.body.classList.remove("overflow-hidden");
+      document.documentElement.style.overflow = "";
       setUnbox(true);
+      try {
+        const player = playerRef?.current?.internalPlayer;
+        if (player) {
+          player.mute();
+          player.playVideo();
+        }
+      } catch (_) { /* ignore */ }
     }
-  }, [isLoaded, unbox, playerRef]);
+  }, [unbox, playerRef]);
 
   const handleIntroEnd = useCallback(() => {
     setIntroEnd(true);
@@ -68,13 +156,9 @@ const Opening: React.FC<Props> = () => {
     setOnend(true);
   }, []);
 
-  const handleSkipClick = useCallback(() => {
-    document.body.classList.remove("overflow-hidden");
-    setIsSkip(true);
-  }, []);
-
   const handleSilentUnboxClick = useCallback(() => {
     document.body.classList.remove("overflow-hidden");
+    document.documentElement.style.overflow = "";
     setUnbox(true);
   }, []);
 
@@ -86,17 +170,19 @@ const Opening: React.FC<Props> = () => {
       return (
         <>
           <div
-            className={`fixed top-0 left-0 w-full h-full bg-white${
+            style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }}
+            className={`fixed top-0 left-0 w-full bg-white${
               introEnd ? " hidden" : " z-[80]"
             }`}
           />
           {!introEnd && (
             <>
               <div
-                className="fixed top-0 left-0 z-[90] w-full h-full animate-intro will-change-auto transform-gpu"
+                style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }}
+                className="fixed top-0 left-0 z-[90] w-full animate-intro will-change-auto transform-gpu"
                 onAnimationEnd={handleIntroEnd}
               >
-                <div className="flex flex-col justify-center items-center w-full h-full bg-white text-black text-3xl sm:text-5xl tracking-widest">
+                <div style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }} className="flex flex-col justify-center items-center w-full bg-white text-black text-3xl sm:text-5xl tracking-widest">
                   <span className="font-bold text-theme leading-relaxed">
                     Reol
                   </span>
@@ -110,7 +196,8 @@ const Opening: React.FC<Props> = () => {
             </>
           )}
           <div
-            className={`fixed inset-0 w-full h-full bg-black before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:m-auto before:bg-[#ea6000] before:z-50 before:w-0 before:h-px will-change-auto transform-gpu transition-all${
+            style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }}
+            className={`fixed inset-0 w-full bg-black before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:m-auto before:bg-[#ea6000] before:z-50 before:w-0 before:h-px will-change-auto transform-gpu transition-all${
               introEnd ? " z-50" : " z-30"
             }${
               introEnd && unbox
@@ -186,7 +273,7 @@ const Opening: React.FC<Props> = () => {
               introEnd ? " z-50" : " z-30"
             }${introEnd && unbox ? " animate-fadeOut" : ""}`}
           >
-            <span>※&nbsp;箱を開くと音声が流れますのでご注意ください</span>
+            <span>※&nbsp;箱を開くと音声のミュートが解除されます</span>
             <br />
             <span>
               ※&nbsp;音声なしで箱を開きたい方は
@@ -198,14 +285,6 @@ const Opening: React.FC<Props> = () => {
               </button>
             </span>
           </div>
-          {!introEnd && (
-            <span
-              className="fixed bottom-3 right-4 z-[300] text-lg text-blue-500 pointer-events-auto"
-              onClick={handleSkipClick}
-            >
-              SKIP&nbsp;&gt;&gt;
-            </span>
-          )}
         </>
       );
     } else {
@@ -222,7 +301,6 @@ const Opening: React.FC<Props> = () => {
     handleIntroEnd,
     handleAnimationEnd,
     handleUnboxClick,
-    handleSkipClick,
     handleSilentUnboxClick,
   ]);
 
@@ -322,13 +400,12 @@ const Opening: React.FC<Props> = () => {
     (event: React.AnimationEvent) => {
       event.stopPropagation();
       if ("fadeOut" === event.animationName) {
-        if (!isLoaded) return;
         if (unbox) {
           setIntroEnd(true);
         }
       }
     },
-    [isLoaded, unbox]
+    [unbox]
   );
 
   if (!onend && !isSkip) {
@@ -338,21 +415,24 @@ const Opening: React.FC<Props> = () => {
           <>
             <div>
               <div
-                className={`fixed top-0 left-0 z-[90] w-full h-full will-change-auto transform-gpu bg-gradient-to-br from-letter from-20% via-sky-600 via-50% to-white${
+                style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }}
+                className={`fixed top-0 left-0 z-[90] w-full will-change-auto transform-gpu bg-gradient-to-br from-letter from-20% via-sky-600 via-50% to-white${
                   unbox ? " animate-fadeOut" : ""
                 }`}
                 onAnimationEnd={handleFadeOutEnd}
               >
                 <div
-                  className="fixed top-0 left-0 z-[100] w-full h-full bg-cover animate-cloud"
-                  style={{
-                    backgroundImage: `url(${CloudImage})`,
+                  style={{ 
+                    height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh',
+                    backgroundImage: `url(${CloudImage})` 
                   }}
+                  className="fixed top-0 left-0 z-[100] w-full bg-cover animate-cloud"
                 />
                 {renderNoTitleBox()}
-                <div className="absolute top-0 left-0 w-full h-full z-[200]">
+                <div style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }} className="absolute top-0 left-0 w-full z-[200]">
                   <div
-                    className="flex flex-col justify-center items-center w-full h-full text-black text-3xl sm:text-5xl tracking-widest"
+                    style={{ height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh' }}
+                    className="flex flex-col justify-center items-center w-full text-black text-3xl sm:text-5xl tracking-widest"
                     onClick={handleUnboxClick}
                   >
                     <span className="font-extrabold leading-relaxed text-theme">
@@ -372,12 +452,6 @@ const Opening: React.FC<Props> = () => {
                 {unbox && renderBubbles()}
               </div>
             </div>
-            <span
-              className="fixed bottom-3 right-4 z-[300] text-lg text-black pointer-events-auto tracking-wide"
-              onClick={handleSkipClick}
-            >
-              SKIP&nbsp;&gt;&gt;
-            </span>
           </>
         )}
       </>

@@ -1,0 +1,679 @@
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { Timeline } from "flowbite-react";
+import { DiscographyWithSongs, Song } from "../../../types/discography";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { FaMusic } from "react-icons/fa6";
+import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { BiCommentDetail } from "react-icons/bi";
+import { useColorPalette } from "../../../hooks/useColorPalette";
+import { getContrastTextColor } from "../../../utils/colorContrast";
+import { addAlpha } from "../../../utils/colorExtractor";
+import YouTube from "react-youtube";
+import Tweets from "../../modules/tweets";
+import {
+  timelineItemTheme,
+  timelinePointTheme,
+  timelineContentTheme,
+} from "./enhanced-discography";
+
+// iOS判定（共通化）
+const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+type Props = {
+  item: DiscographyWithSongs;
+};
+
+// YouTubeのビデオIDを抽出する共通関数
+const getYouTubeVideoId = (url: string | null | undefined): string | null => {
+  if (!url) return null;
+  
+  // youtu.be形式
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) return shortMatch[1];
+  
+  // youtube.com形式
+  const longMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (longMatch) return longMatch[1];
+  
+  return null;
+};
+
+// bilibiliのBV ID（bvid）を抽出する共通関数
+const getBilibiliBvid = (url: string | null | undefined): string | null => {
+  if (!url) return null;
+
+  // https://www.bilibili.com/video/BV1tt421p7jt 形式
+  const pathMatch = url.match(/bilibili\.com\/video\/(BV[0-9A-Za-z]+)/);
+  if (pathMatch) return pathMatch[1];
+
+  // player.bilibili.com/player.html?bvid=BV... クエリ形式
+  const queryMatch = url.match(/[?&]bvid=(BV[0-9A-Za-z]+)/);
+  if (queryMatch) return queryMatch[1];
+
+  return null;
+};
+
+// YouTube埋め込みコンポーネント
+const YouTubeEmbed: React.FC<{ videoId: string }> = ({ videoId }) => (
+  <div
+    className="mb-3 transition-all duration-300"
+    style={{
+      backgroundColor: "rgba(243, 244, 246, 0.5)",
+      borderRadius: "8px",
+      border: "1px solid rgba(209, 213, 219, 0.5)",
+      overflow: "hidden",
+      position: "relative",
+      paddingBottom: "56.25%", // 16:9アスペクト比
+      height: 0,
+    }}
+  >
+    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+      <YouTube
+        videoId={videoId}
+        opts={{
+          width: "100%",
+          height: "100%",
+          playerVars: {
+            autoplay: 0,
+          },
+        }}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  </div>
+);
+
+// bilibili埋め込みコンポーネント
+const BilibiliEmbed: React.FC<{ bvid: string }> = ({ bvid }) => (
+  <div
+    className="mb-3 transition-all duration-300"
+    style={{
+      backgroundColor: "rgba(243, 244, 246, 0.5)",
+      borderRadius: "8px",
+      border: "1px solid rgba(209, 213, 219, 0.5)",
+      overflow: "hidden",
+      position: "relative",
+      paddingBottom: "56.25%", // 16:9アスペクト比
+      height: 0,
+    }}
+  >
+    <iframe
+      src={`https://player.bilibili.com/player.html?bvid=${bvid}&page=1&autoplay=0`}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        border: 0,
+      }}
+      scrolling="no"
+      frameBorder="0"
+      allowFullScreen
+      loading="lazy"
+      title={`bilibili ${bvid}`}
+    />
+  </div>
+);
+
+// 楽曲カードコンポーネント
+type SongCardProps = {
+  song: Song;
+  index: number;
+  isSongExpanded: boolean;
+  onToggleExpand: (e: React.MouseEvent) => void;
+};
+
+const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onToggleExpand }) => {
+  const musicVideoId = getYouTubeVideoId(song.musicVideoUrl);
+  const lyricVideoId = getYouTubeVideoId(song.lyricVideoUrl);
+  const liveVideoId = getYouTubeVideoId(song.liveVideoUrl);
+  const musicBilibili = getBilibiliBvid(song.musicVideoUrl);
+  const lyricBilibili = getBilibiliBvid(song.lyricVideoUrl);
+  const liveBilibili = getBilibiliBvid(song.liveVideoUrl);
+
+  // YouTube / bilibili を自動で出し分ける
+  const renderVideo = (
+    label: string,
+    youTubeId: string | null,
+    bvid: string | null
+  ) => {
+    if (!youTubeId && !bvid) return null;
+    return (
+      <div className="mb-2">
+        <p className="text-xs font-medium mb-1" style={{ color: "#6B7280" }}>
+          {label}
+        </p>
+        {youTubeId ? (
+          <YouTubeEmbed videoId={youTubeId} />
+        ) : (
+          <BilibiliEmbed bvid={bvid!} />
+        )}
+      </div>
+    );
+  };
+
+  return (    <li
+      className="rounded-lg transition-all duration-200 overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 242, 235, 0.95) 100%)",
+        border: "1px solid rgba(209, 213, 219, 0.5)",
+      }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* 曲ヘッダー（クリック可能） */}
+      <div
+        className="flex items-start gap-3 text-sm p-3 cursor-pointer group"
+        onClick={onToggleExpand}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "rgba(243, 244, 246, 0.8)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}
+      >
+        <span
+          className="font-bold min-w-[2rem] text-center px-2 py-1"
+          style={{
+            backgroundColor: "rgba(156, 163, 175, 0.6)",
+            color: "#1F2937",
+            borderRadius: "6px",
+          }}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span
+          className="flex-1 font-medium group-hover:text-opacity-90 transition-opacity"
+          style={{ color: "#1F2937" }}
+        >
+          {song.songName}
+        </span>
+        <span
+          className="text-xs font-medium flex items-center gap-1"
+          style={{ color: "#6B7280" }}
+        >
+          {isSongExpanded ? (
+            <GoChevronUp className="w-4 h-4" />
+          ) : (
+            <BiCommentDetail className="w-4 h-4" />
+          )}
+        </span>
+      </div>
+
+      {/* 曲詳細（展開時） */}
+      {isSongExpanded && (
+        <div
+          className="px-4 pb-4 pt-2"
+          style={{
+            backgroundColor: "rgba(243, 244, 246, 0.5)",
+          }}
+        >
+          {/* クレジット情報 */}
+          <div className="text-xs space-y-1 mb-3" style={{ color: "#1F2937", whiteSpace: "pre-line" }}>
+            {song.lyricMember && (
+              <p>
+                <span style={{ color: "#6B7280" }}>作詞：</span>
+                {song.lyricMember.replace(/<br\s*\/?>/gi, '\n')}
+              </p>
+            )}
+            {song.musicMember && (
+              <p>
+                <span style={{ color: "#6B7280" }}>作曲：</span>
+                {song.musicMember.replace(/<br\s*\/?>/gi, '\n')}
+              </p>
+            )}
+            {song.produceMember && (
+              <p>
+                <span style={{ color: "#6B7280" }}>編曲：</span>
+                {song.produceMember.replace(/<br\s*\/?>/gi, '\n')}
+              </p>
+            )}
+          </div>
+
+          {/* 動画埋め込み（MV、歌詞動画、ライブ動画 / YouTube・bilibili対応） */}
+          {renderVideo("Music Video", musicVideoId, musicBilibili)}
+          {renderVideo("Lyric Video", lyricVideoId, lyricBilibili)}
+          {renderVideo("Live Video", liveVideoId, liveBilibili)}
+          
+          {/* Spotify埋め込み */}
+          {song.spotifyTrackId && (
+            <div className="mb-3">
+              <p className="text-xs font-medium mb-1" style={{ color: "#6B7280" }}>Spotify</p>
+              <iframe
+                className="rounded-lg w-full"
+                src={`https://open.spotify.com/embed/track/${song.spotifyTrackId}?utm_source=generator`}
+                height="152"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+          )}
+          
+          <div className="text-xs" style={{ color: "#1F2937", whiteSpace: "pre-line" }}>
+            {!musicVideoId && !lyricVideoId && !liveVideoId && !musicBilibili && !lyricBilibili && !liveBilibili && !song.spotifyTrackId && !song.lyricMember && !song.musicMember && !song.produceMember && (
+              <p style={{ color: "#6B7280" }}>
+                詳細情報は現在登録されていません
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+    </li>
+  );
+};
+
+SongCard.displayName = 'SongCard';
+
+const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
+  const dispatch = useAppDispatch();
+  const { isLoaded, currentVideoId, isShrinked, playerRef } = useAppSelector(
+    (state) => state.player
+  );
+
+  const [isExpand, setIsExpand] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [expandedSongs, setExpandedSongs] = useState<Set<number>>(new Set());
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // ディープリンク (#disc-<slug>) の対象カードを自動展開する。
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const syncExpandedByHash = () => {
+      const raw = window.location.hash.replace("#", "");
+      if (!raw) return;
+      if (raw === `disc-${item.slug}`) {
+        setIsExpand(true);
+      }
+    };
+
+    syncExpandedByHash();
+    window.addEventListener("hashchange", syncExpandedByHash);
+    return () => {
+      window.removeEventListener("hashchange", syncExpandedByHash);
+    };
+  }, [item.slug]);
+
+  // カラーパレットフック
+  const { colorPalette, isLoading } = useColorPalette({
+    title: item.title,
+    autoApply: true,
+    prefix: `disco-${item.discographyUuid}`,
+    themeColorPrimary: item.themeColorPrimary,
+    themeColorSecondary: item.themeColorSecondary,
+  });
+
+  // 背景色に対して適切なテキストカラーを計算（メモ化）
+  const textColors = React.useMemo(
+    () => getContrastTextColor(colorPalette.primary),
+    [colorPalette.primary]
+  );
+
+  // 動的なテーマ（メモ化）
+  const dynamicTimelineItemTheme = React.useMemo(
+    () => ({
+      root: {
+        horizontal: "relative mb-1 sm:mb-0",
+        vertical: "mb-1 ml-6",
+      },
+      content: {
+        root: timelineContentTheme.root,
+        body: timelineContentTheme.body,
+        time: timelineContentTheme.time,
+        title: timelineContentTheme.title,
+      },
+      point: timelinePointTheme,
+    }),
+    []
+  );
+
+  const handleCardHover = useCallback(() => {
+    if (!isHovered) {
+      setIsHovered(true);
+
+      if (cardRef.current) {
+        const card = cardRef.current;
+        const primaryColor = colorPalette.primary || "#6366f1";
+        const secondaryColor = colorPalette.secondary || "#8b5cf6";
+
+        // ホバー時：より鮮やかでグロー効果のある背景 + Glassmorphism強化
+        card.style.background = `linear-gradient(135deg, 
+          ${primaryColor} 0%, 
+          ${secondaryColor} 100%)`;
+        // iOSではbackdrop-filterを無効化
+        if (!isIOS) {
+          card.style.backdropFilter = "blur(6px)";
+          (card.style as any).webkitBackdropFilter = "blur(6px)";
+        }
+        card.style.transform = "translateY(0)";
+        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
+      }
+    }
+  }, [isHovered, colorPalette]);
+
+  const handleCardLeave = useCallback(() => {
+    setIsHovered(false);
+
+    if (cardRef.current) {
+      const card = cardRef.current;
+      const primaryColor = colorPalette.primary || "#6366f1";
+      const secondaryColor = colorPalette.secondary || "#8b5cf6";
+
+      // 通常時:完全な色 + Glassmorphism
+      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+      // iOSではbackdrop-filterを無効化
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (!isIOS) {
+        card.style.backdropFilter = "blur(4px)";
+        (card.style as any).webkitBackdropFilter = "blur(4px)";
+      }
+      card.style.transform = "translateY(0)";
+      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
+      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
+    }
+  }, [colorPalette]);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const card = cardRef.current;
+      const primaryColor = colorPalette.primary || "#6366f1";
+      const secondaryColor = colorPalette.secondary || "#8b5cf6";
+
+      // 初期表示時:完全な色 + Glassmorphism
+      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+      // iOSではbackdrop-filterを無効化
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (!isIOS) {
+        card.style.backdropFilter = "blur(4px)";
+        (card.style as any).webkitBackdropFilter = "blur(4px)";
+      }
+      card.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
+      card.style.borderRadius = "12px";
+      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
+    }
+  }, [colorPalette]);
+
+  // 展開時にもカラーパレットを適用
+  useEffect(() => {
+    if (cardRef.current) {
+      const card = cardRef.current;
+      const primaryColor = colorPalette.primary || "#6366f1";
+      const secondaryColor = colorPalette.secondary || "#8b5cf6";
+
+      if (isExpand) {
+        // 展開時：ホバー時と同じスタイルを適用 + 横幅拡大
+        card.style.background = `linear-gradient(135deg, 
+          ${primaryColor} 0%, 
+          ${secondaryColor} 100%)`;
+        // iOSではbackdrop-filterを無効化
+        if (!isIOS) {
+          card.style.backdropFilter = "blur(6px)";
+          (card.style as any).webkitBackdropFilter = "blur(6px)";
+        }
+        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
+        card.style.width = 'calc(100% + 0.5rem)';
+        card.style.marginLeft = '-0.25rem';
+      } else {
+        // 非展開時：展開時と同じ色、通常サイズ
+        card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+        if (!isIOS) {
+          card.style.backdropFilter = "blur(4px)";
+          (card.style as any).webkitBackdropFilter = "blur(4px)";
+        }
+        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
+        card.style.width = '100%';
+        card.style.marginLeft = '0';
+      }
+    }
+  }, [isExpand, colorPalette]);
+
+  const handleTitleClick = useCallback(() => {
+    setIsExpand(!isExpand);
+  }, [isExpand]);
+
+  const handlePlayClick = useCallback(() => {
+    // Play処理は将来実装予定
+  }, [item.title]);
+
+  const youtubeVideoId = getYouTubeVideoId(item.xfdUrl);
+
+  return (
+    <div className="mb-2">
+      {/* カード本体 */}
+      <div
+        ref={cardRef}
+        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full"
+        style={{
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          borderRadius: "12px",
+          background: `linear-gradient(135deg, ${colorPalette.primary} 0%, ${colorPalette.secondary} 100%)`,
+          border: `1px solid ${addAlpha(colorPalette.primary, 0.9)}`,
+        }}
+        onClick={handleTitleClick}
+        onMouseEnter={handleCardHover}
+        onMouseLeave={handleCardLeave}
+      >
+          {/* コンテンツ情報 */}
+          <div className="w-full">
+            {!isExpand ? (
+              // 非展開時：コンパクトな2行レイアウト
+              <div className="space-y-1">
+                {/* 1行目：日付　タグ */}
+                <div className="flex items-center justify-between gap-2">
+                  <span
+                    className="text-xs font-medium"
+                    style={{ color: textColors.secondary }}
+                  >
+                    {item.releaseDate?.replaceAll("-", "/")}
+                  </span>
+                  <div className="flex gap-1">
+                    {item?.format && (
+                      <span
+                        className="px-2 py-0.5 text-xs font-semibold"
+                        style={{
+                          backgroundColor: `${colorPalette.secondary}40`,
+                          color: textColors.primary,
+                          borderRadius: "6px",
+                          border: `1px solid ${colorPalette.secondary}60`,
+                        }}
+                      >
+                        {item.format}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* 2行目：タイトル　展開ボタン */}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1 flex-1 min-w-0">
+                    <FaMusic
+                      className="w-3 h-3 flex-shrink-0"
+                      style={{ color: textColors.secondary }}
+                    />
+                    <h3
+                      className="text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate"
+                      style={{ color: textColors.primary }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // 展開時：従来のレイアウト
+              <>
+                <div
+                  className="mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider"
+                  style={{ color: textColors.secondary }}
+                >
+                  {item.releaseDate?.replaceAll("-", "/")}
+                </div>
+
+                <div className="flex flex-col font-semibold">
+                  <div className="flex items-center gap-1 mb-0">
+                    <FaMusic
+                      className="w-4 h-4 flex-shrink-0"
+                      style={{ color: textColors.secondary }}
+                    />
+                    <h3
+                      className="text-base sm:text-lg font-bold leading-tight"
+                      style={{ color: textColors.primary }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  {/* メタデータ */}
+                  <div className="flex flex-wrap gap-2 text-xs mt-3">
+                    {item?.name && (
+                      <span
+                        className="px-3 py-1.5 text-xs font-semibold"
+                        style={{
+                          backgroundColor: `${colorPalette.primary}40`,
+                          color: textColors.primary,
+                          borderRadius: "8px",
+                          border: `1px solid ${colorPalette.primary}60`,
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                    )}
+                    {item?.format && (
+                      <span
+                        className="px-3 py-1.5 text-xs font-semibold"
+                        style={{
+                          backgroundColor: `${colorPalette.secondary}40`,
+                          color: textColors.primary,
+                          borderRadius: "8px",
+                          border: `1px solid ${colorPalette.secondary}60`,
+                        }}
+                      >
+                        {item.format}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+
+              {/* 展開コンテンツ */}
+              {isExpand && (
+                <>
+                  {youtubeVideoId && (
+                    <div
+                      className="mt-4 transition-all duration-300"
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.15)",
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255, 255, 255, 0.25)",
+                        overflow: "hidden",
+                        position: "relative",
+                        paddingBottom: "56.25%", // 16:9アスペクト比
+                        height: 0,
+                      }}
+                    >
+                      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+                        <YouTube
+                          videoId={youtubeVideoId}
+                          opts={{
+                            width: "100%",
+                            height: "100%",
+                            playerVars: {
+                              autoplay: 0,
+                            },
+                          }}
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                  {item.songs.length > 0 && (
+                    <div className="mt-4 transition-all duration-300">
+                      <ul className="space-y-2">
+                        {item.songs.map((song, index) => {
+                          const isSongExpanded = expandedSongs.has(index);
+                          return (
+                            <SongCard
+                              key={song.songUuid}
+                              song={song}
+                              index={index}
+                              isSongExpanded={isSongExpanded}
+                              onToggleExpand={(e) => {
+                                e.stopPropagation();
+                                setExpandedSongs((prev) => {
+                                  const newSet = new Set(prev);
+                                  if (newSet.has(index)) {
+                                    newSet.delete(index);
+                                  } else {
+                                    newSet.add(index);
+                                  }
+                                  return newSet;
+                                });
+                              }}
+                            />
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* インタビュー・レポート */}
+                  {item.reports && item.reports.length > 0 && (
+                    <div className="mt-4 transition-all duration-300">
+                      <h4 
+                        className="text-sm font-bold pb-3"
+                        style={{ color: textColors.primary }}
+                      >
+                        インタビュー
+                      </h4>
+                      <ul className="list-disc pl-5 text-xs space-y-1">
+                        {item.reports.map((report) => (
+                          <li
+                            key={`report-${report.discographyUuid}-${report.discographyRepoUuid}`}
+                            className="leading-relaxed"
+                          >
+                            <a
+                              href={report.discographyReportUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:opacity-80 transition-opacity inline-flex items-center gap-1"
+                              style={{ color: textColors.primary }}
+                            >
+                              {report.discographyReportName}
+                              <GoLinkExternal className="w-3 h-3" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  {/* 関連ポスト */}
+                  {item.posts && item.posts.length > 0 && (
+                    <div className="mt-4 transition-all duration-300">
+                      <h4 
+                        className="text-sm font-bold pb-3"
+                        style={{ color: textColors.primary }}
+                      >
+                        関連ポスト
+                      </h4>
+                      <Tweets
+                        parentId={`${item.discographyUuid}`}
+                        posts={item.posts.reverse().map((post) => ({
+                          id: post.discographyPostId,
+                          html: post.discographyPostHTML,
+                        }))}
+                      />
+                    </div>
+                  )}
+                </>
+              )}
+          </div>
+      </div>
+    </div>
+  );
+});
+
+export default EnhancedTimelineItem;

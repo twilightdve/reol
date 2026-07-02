@@ -1,0 +1,324 @@
+/* 動的カラーパレット用のCSS変数とスタイル - 純色対応版 */
+
+:root {
+  /* デフォルトカラーパレット */
+  --color-primary: #8B5CF6;
+  --color-primary-light: #A78BFA;
+  --color-primary-dark: #7C3AED;
+  --color-secondary: #EC4899;
+  --color-background: #F8FAFC;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #E5E7EB;
+  --color-accent: #F59E0B;
+}
+
+/* 純色背景でのbody要素の調整 */
+body {
+  transition: background 0.6s ease-in-out, color 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+/* 全体のスペース調整 */
+.container {
+  padding: 0.5rem !important;
+}
+
+/* コンパクトなスペーシング */
+.space-compact>*+* {
+  margin-top: 0.75rem !important;
+}
+
+.gap-compact {
+  gap: 0.5rem !important;
+}
+
+/* 全体のテキストカラーは継承 */
+* {
+  color: inherit;
+}
+
+/* DISCOGRAPHYセクションのol要素のborder-leftを強制削除 */
+#DISCOGRAPHY ol {
+  border-left: none !important;
+}
+
+/* LIVEセクションのol要素のborder-leftを強制削除 */
+#LIVE ol {
+  border-left: none !important;
+}
+
+/* デモページのヘッダーのみ白色 */
+.demo-header h1,
+.demo-header h2,
+.demo-header p {
+  color: #FFFFFF;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Spotify風の動的背景カラーパレット適用クラス - 超濃い純色版 */
+.dynamic-color-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  /* backdrop-filter: blur(10px); */
+  transition: all 0.4s ease-in-out;
+  color: #FFFFFF;
+  /* 白いテキスト */
+}
+
+.dynamic-color-card:hover {
+  background: linear-gradient(135deg, var(--color-primary)99, var(--color-secondary)98);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px var(--color-primary)60;
+  color: #FFFFFF;
+  /* ホバー時も白いテキスト */
+}
+
+/* 背景全体のテーマカラー適用 - 完全純色版 */
+.body-theme-background {
+  background: linear-gradient(135deg, var(--color-primary)99, var(--color-secondary)98);
+  transition: background 0.6s ease-in-out;
+  color: #FFFFFF;
+  /* ページ全体のテキストを白に */
+}
+
+/* コンテンツ領域の半透明背景 */
+.content-overlay {
+  background: rgba(255, 255, 255, 0.05);
+  /* backdrop-filter: blur(15px); */
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 20px var(--color-primary)60;
+  color: #FFFFFF;
+  /* オーバーレイテキストも白に */
+}
+
+/* 純色背景に対応した読みやすいテキスト */
+.readable-text-primary {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  /* 文字の影で読みやすく */
+}
+
+.readable-text-secondary {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンやアクセント要素のみテーマカラー使用 */
+.theme-button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.theme-button-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+.theme-button-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.theme-accent {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Spotify風のグラデーション背景パターン */
+.spotify-gradient-bg {
+  background: linear-gradient(135deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 50%,
+      var(--color-accent) 100%);
+  transition: all 0.8s ease-in-out;
+}
+
+/* 音楽視覚化エフェクト - テーマカラー版 */
+.music-visualizer {
+  display: flex;
+  align-items: flex-end;
+  height: 20px;
+  gap: 2px;
+}
+
+.music-bar {
+  width: 3px;
+  background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+  border-radius: 1px;
+  animation: musicBounce 1.5s ease-in-out infinite;
+}
+
+.music-bar:nth-child(1) {
+  animation-delay: 0ms;
+  height: 60%;
+}
+
+.music-bar:nth-child(2) {
+  animation-delay: 200ms;
+  height: 80%;
+}
+
+.music-bar:nth-child(3) {
+  animation-delay: 400ms;
+  height: 100%;
+}
+
+.music-bar:nth-child(4) {
+  animation-delay: 600ms;
+  height: 70%;
+}
+
+.music-bar:nth-child(5) {
+  animation-delay: 800ms;
+  height: 90%;
+}
+
+@keyframes musicBounce {
+
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* カード用のグラスモーフィズム効果 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  /* backdrop-filter: blur(15px); */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 背景色変化アニメーション */
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-background {
+  background: linear-gradient(-45deg,
+      var(--color-primary)10,
+      var(--color-secondary)10,
+      var(--color-accent)10,
+      var(--color-primary)10);
+  background-size: 400% 400%;
+  animation: backgroundShift 15s ease infinite;
+}
+
+/* プリセットカラーによる特別なスタイル */
+.reol-ultra-high {
+  --color-primary: #FF6B35;
+  --color-secondary: #FFD54F;
+  --color-background: #FFF8E1;
+  --color-text: #BF360C;
+  --color-accent: #FF5722;
+}
+
+.reol-syncopation {
+  --color-primary: #E91E63;
+  --color-secondary: #9C27B0;
+  --color-background: #FCE4EC;
+  --color-text: #880E4F;
+  --color-accent: #FF4081;
+}
+
+.reol-rainbow-story {
+  --color-primary: #2196F3;
+  --color-secondary: #00BCD4;
+  --color-background: #E3F2FD;
+  --color-text: #0D47A1;
+  --color-accent: #03A9F4;
+}
+
+.reol-monster {
+  --color-primary: #795548;
+  --color-secondary: #FF5722;
+  --color-background: #EFEBE9;
+  --color-text: #3E2723;
+  --color-accent: #8D6E63;
+}
+
+.reol-fact {
+  --color-primary: #607D8B;
+  --color-secondary: #00BCD4;
+  --color-background: #ECEFF1;
+  --color-text: #263238;
+  --color-accent: #26C6DA;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .dynamic-color-card {
+    padding: 1rem;
+  }
+
+  .music-visualizer {
+    height: 16px;
+  }
+
+  /* .glass-card {
+    backdrop-filter: blur(10px);
+  } */
+}
+
+/* ダークモード対応（オプション） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1F2937;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #9CA3AF;
+  }
+
+  .glass-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .content-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* アクセシビリティ対応 */
+@media (prefers-reduced-motion: reduce) {
+
+  .dynamic-color-card,
+  .music-bar,
+  .animated-background {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 印刷時の対応 */
+@media print {
+
+  .dynamic-color-card,
+  .glass-card,
+  .content-overlay {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+  }
+}

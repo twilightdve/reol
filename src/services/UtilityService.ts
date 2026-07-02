@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    gtag: (key: string, trackingId: string, config: object) => void;
+    gtag?: (...args: any[]) => void;
   }
 }
 
@@ -96,11 +96,20 @@ class UtilityService {
 
   /**
    * 許可されたHTMLタグのみを保持する簡易サニタイゼーション
+   * SSR (document が無い) 環境では正規表現で許可タグ以外を取り除く。
    */
   static sanitizeHTMLWithAllowedTags = (
     input: string,
-    allowedTags: string[] = ["b", "i", "em", "strong", "br"]
+    allowedTags: string[] = ["b", "i", "em", "strong", "br", "a", "span", "p", "ul", "ol", "li"]
   ): string => {
+    if (typeof document === "undefined") {
+      // SSR フォールバック: 許可タグ以外の開閉タグを除去する。
+      const allow = new Set(allowedTags.map((t) => t.toLowerCase()));
+      return input.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>/g, (m, tag) =>
+        allow.has(String(tag).toLowerCase()) ? m : ""
+      );
+    }
+
     const temp = document.createElement("div");
     temp.innerHTML = input;
 

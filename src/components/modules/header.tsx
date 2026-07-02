@@ -3,6 +3,8 @@ import UtilityService from "../../services/UtilityService";
 import { Link } from "gatsby";
 import { FaQuestion, FaQuestionCircle, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FiSearch } from "react-icons/fi";
+import { BsBarChartLine } from "react-icons/bs";
 
 type Props = {
   title: string;
@@ -24,22 +26,52 @@ const TopHeader: React.FC<Props> = ({ title }) => {
   }, []);
 
   return (
-    <header className="z-40 h-16">
+    <header className="relative z-40 h-16">
       <nav className="bg-theme border-gray-200">
-        <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link to="/" className="block">
-            <span className="self-center text-3xl font-icon font-medium whitespace-nowrap text-letter text-shadow">
+        <div className="w-full flex items-center justify-between mx-auto p-4">
+          <Link to="/" className="block flex-shrink min-w-0">
+            <span className="self-center text-2xl sm:text-3xl font-icon font-medium whitespace-nowrap text-letter text-shadow">
               !Legit
             </span>
-            <span className="pl-3 font-bold text-xs tracking-widest">
+            <span className="pl-2 sm:pl-3 font-bold text-xs tracking-widest hidden sm:inline">
               Reol Unofficial Fansite
             </span>
           </Link>
-          <FaQuestionCircle className="text-xl" onClick={handleDialogOpen} />
+          
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            {/* 統合検索 */}
+            <Link
+              to="/search/"
+              className="flex items-center px-2 sm:px-3 py-1 text-xs bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors whitespace-nowrap font-medium"
+              title="楽曲・LIVE・ロケ地を横断検索"
+              aria-label="検索"
+            >
+              <FiSearch className="text-sm sm:mr-1" />
+              <span className="hidden sm:inline">検索</span>
+            </Link>
+            {/* 楽曲統計 */}
+            <Link
+              to="/songs/stats/"
+              className="flex items-center px-2 sm:px-3 py-1 text-xs bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors whitespace-nowrap font-medium"
+              title="楽曲ごとの演奏履歴・統計"
+              aria-label="楽曲統計"
+            >
+              <BsBarChartLine className="text-sm sm:mr-1" />
+              <span className="hidden sm:inline">楽曲統計</span>
+            </Link>
+            {/* 美辞学ナビへのリンク */}
+            <a 
+              href="/bijigaku-navi/"
+              className="px-2 sm:px-3 py-1 text-xs bg-emerald-500 text-white rounded-full hover:bg-emerald-600 transition-colors whitespace-nowrap font-medium"
+            >
+              美辞学ﾅﾋﾞ
+            </a>
+            <FaQuestionCircle className="text-xl flex-shrink-0" onClick={handleDialogOpen} />
+          </div>
           <dialog
-            ref={dialogRef}
-            className="w-11/12 max-h-208 bg-gray-200 sm:backdrop-opacity-20 sm:backdrop-blur-xl rounded-lg border border-theme sm:m-auto sm:p-3"
+            className="w-11/12 max-h-208 bg-gray-200 sm:backdrop-opacity-20 rounded-lg border border-theme sm:m-auto sm:p-3"
             onClick={handleDialogClose}
+            ref={dialogRef}
           >
             <div className="pt-2 px-2 sm:pt-12">
               <h1 className="font-bold text-xl text-shadow">

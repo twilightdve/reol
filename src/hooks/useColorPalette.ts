@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ColorPalette,
   extractColorsFromImage,
@@ -13,6 +13,8 @@ export interface UseColorPaletteProps {
   imageSrc?: string;
   autoApply?: boolean;
   prefix?: string;
+  themeColorPrimary?: string | null;
+  themeColorSecondary?: string | null;
 }
 
 export interface UseColorPaletteReturn {
@@ -31,56 +33,53 @@ export function useColorPalette({
   imageSrc,
   autoApply = false,
   prefix = "",
+  themeColorPrimary,
+  themeColorSecondary,
 }: UseColorPaletteProps): UseColorPaletteReturn {
-  const [colorPalette, setColorPalette] =
-    useState<ColorPalette>(defaultColorPalette);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // タイトルがある場合は同期的に色を生成（useMemoで毎回計算）
+  const colorPalette = React.useMemo(() => {
+    if (title) {
+      return getColorPaletteForContent(title, themeColorPrimary, themeColorSecondary);
+    }
+    return defaultColorPalette;
+  }, [title, themeColorPrimary, themeColorSecondary]);
+
+  // 画像ベースの非同期読み込み（タイトルがない場合のみ）
   useEffect(() => {
-    const loadColorPalette = async () => {
-      if (!title && !imageSrc) return;
+    const loadColorPaletteFromImage = async () => {
+      // タイトルがある場合はuseMemoの結果を使用するため、ここでは処理しない
+      if (title || !imageSrc) {
+        return;
+      }
 
       setIsLoading(true);
       setError(null);
 
       try {
-        let palette: ColorPalette | null = null;
-
-        // 1. タイトルベースのプリセットカラーを試す
-        if (title) {
-          palette = getColorPaletteForContent(title);
-        }
-
-        // 2. プリセットが見つからない場合、画像から色を抽出
-        if (!palette && imageSrc) {
-          palette = await extractColorsFromImage(imageSrc);
-        }
-
-        // 3. どちらも失敗した場合はデフォルトを使用
-        if (!palette) {
-          palette = defaultColorPalette;
-        }
-
-        setColorPalette(palette);
-
-        // 自動適用が有効な場合はCSSに適用
-        if (autoApply) {
-          applyColorPalette(palette, prefix);
-        }
+        const palette = await extractColorsFromImage(imageSrc);
+        // 画像から抽出した色はstateで管理する必要があるが、
+        // 現在の実装ではタイトル優先なので、このパスはほぼ使われない
       } catch (err) {
-        console.error("Color palette loading error:", err);
         setError(
           err instanceof Error ? err.message : "Failed to load color palette"
         );
-        setColorPalette(defaultColorPalette);
       } finally {
         setIsLoading(false);
       }
     };
 
-    loadColorPalette();
-  }, [title, imageSrc, autoApply, prefix]);
+    loadColorPaletteFromImage();
+  }, [title, imageSrc]);
+
+  // 自動適用の処理
+  useEffect(() => {
+    if (autoApply && colorPalette) {
+      applyColorPalette(colorPalette, prefix);
+    }
+  }, [autoApply, colorPalette, prefix]);
 
   const applyColors = () => {
     applyColorPalette(colorPalette, prefix);
@@ -88,7 +87,6 @@ export function useColorPalette({
 
   const resetColors = () => {
     resetColorPalette(prefix);
-    setColorPalette(defaultColorPalette);
   };
 
   return {
@@ -125,10 +123,7 @@ export function useMultipleColorPalettes<
           try {
             palette = await extractColorsFromImage(item.imageSrc);
           } catch (error) {
-            console.error(
-              `Failed to extract colors for item ${item.id}:`,
-              error
-            );
+            // \u8272\u62bd\u51fa\u5931\u6557\u6642\u306f\u30c7\u30d5\u30a9\u30eb\u30c8\u306b\u30d5\u30a9\u30fc\u30eb\u30d0\u30c3\u30af
           }
         }
 

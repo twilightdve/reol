@@ -4,7 +4,7 @@ import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Ti
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
 import { LiveInfo } from "../../../types/live";
-import TimelineItem from "./timeline-item";
+import EnhancedLiveTimelineItem from "./enhanced-timeline-item";
 
 interface LiveProps {
   data: LiveInfo[];
@@ -195,13 +195,15 @@ const Live: React.FC<LiveProps> = ({ data }) => {
         })}
       </div>
       <p className="text-xs text-right">{currentList.length}件</p>
-      <Timeline theme={timelineRootTheme}>
-        {currentList.map((live) => {
-          return (
-            <TimelineItem key={`timeline-item-${live.liveId}`} live={live} />
-          );
-        })}
-      </Timeline>
+      <div style={{ isolation: "isolate" }}>
+        <Timeline theme={timelineRootTheme}>
+          {currentList.map((live) => {
+            return (
+              <EnhancedLiveTimelineItem key={`timeline-item-${live.liveUuid}`} live={live} />
+            );
+          })}
+        </Timeline>
+      </div>
     </div>
   );
 };

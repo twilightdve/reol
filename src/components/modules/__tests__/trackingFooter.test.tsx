@@ -6,6 +6,13 @@ import TrackingFooter from "../trackingFooter";
 import routeReducer from "../../../redux/slices/routeSlice";
 import { ROUTE_NAMES } from "../../../types/common";
 
+// Gatsby navigate をモック化（ROUTE_PATHS のルートで利用される）
+const mockNavigate = jest.fn();
+jest.mock("gatsby", () => ({
+  __esModule: true,
+  navigate: (...args: unknown[]) => mockNavigate(...args),
+}));
+
 // モックストアの作成
 const createMockStore = (initialState = {}) => {
   return configureStore({
@@ -86,11 +93,8 @@ describe("TrackingFooter", () => {
       top: 0,
       behavior: "smooth",
     });
-    expect(mockPushState).toHaveBeenCalledWith(
-      null,
-      "!Legit｜Reol Unofficial Fansite",
-      "/#DISCOGRAPHY"
-    );
+    // DISCOGRAPHY は /discography/ ページに切り出されたので Gatsby navigate が呼ばれる
+    expect(mockNavigate).toHaveBeenCalledWith("/discography/");
   });
 
   test("handles keyboard navigation", () => {

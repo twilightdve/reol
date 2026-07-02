@@ -1,96 +1,292 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo, useEffect, lazy, Suspense } from "react";
 import { TbMapPinHeart } from "react-icons/tb";
-import { GoLinkExternal } from "react-icons/go";
-import { Accordion, Badge } from "flowbite-react";
+import { GoLinkExternal, GoChevronUp, GoChevronDown } from "react-icons/go";
+import { Badge } from "flowbite-react";
 import YouTube from "react-youtube";
 import LazyComponent from "../../modules/LazyComponent";
 import UtilityService from "../../../services/UtilityService";
 import { Place, PlaceItem } from "../../../types/places";
+import SectionSkeleton from "../../common/SectionSkeleton";
+import EmptyState from "../../common/EmptyState";
+import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
+import { trackFilterChange } from "../../../utils/analytics";
+
+// Leaflet は SSR で動かないので動的読み込み
+const PlaceMap = lazy(() => import("./PlaceMap"));
 
 interface PlaceSectionProps {
   places: Place[];
 }
 
-interface LatLngLiteral {
-  lat: number;
-  lng: number;
-}
+type TypeFilter = "ALL" | "MV" | "CM" | "TV" | "XFD" | "OTHER";
+type ViewMode = "type" | "prefecture";
 
-interface MarkerInfo extends Place, PlaceItem {
-  position: LatLngLiteral;
-  visible: boolean;
-}
+const TYPE_FILTERS: { key: TypeFilter; label: string }[] = [
+  { key: "ALL", label: "ALL" },
+  { key: "MV", label: "MV" },
+  { key: "CM", label: "CM" },
+  { key: "TV", label: "TV" },
+  { key: "XFD", label: "XFD" },
+  { key: "OTHER", label: "その他" },
+];
+
+const VIEW_MODES: { key: ViewMode; label: string }[] = [
+  { key: "type", label: "タイプ別" },
+  { key: "prefecture", label: "都道府県別" },
+];
+
+const getBadgeColor = (type: string) => {
+  if (type === "MV") return "warning";
+  if (type === "CM") return "purple";
+  if (type === "TV") return "pink";
+  if (type === "XFD") return "info";
+  return "gray";
+};
+
+// 住所から都道府県名を抽出
+const extractPrefecture = (address: string): string | null => {
+  if (!address) return null;
+  const stripped = address.replace(/^〒\s*\d{3}-?\d{4}\s*/, "");
+  const m = stripped.match(/^(.+?[都道府県])/);
+  return m ? m[1] : null;
+};
+
+// YouTube URL → サムネイル URL
+const getYoutubeThumb = (url: string): string | null => {
+  if (!url) return null;
+  const m = url.match(/youtu\.be\/([\w-]+)/) || url.match(/v=([\w-]+)/);
+  return m ? `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg` : null;
+};
+
+// 都道府県の並び順（北から南へ）
+const PREFECTURE_ORDER = [
+  "北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
+  "茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
+  "新潟県","富山県","石川県","福井県","山梨県","長野県",
+  "岐阜県","静岡県","愛知県","三重県",
+  "滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県",
+  "鳥取県","島根県","岡山県","広島県","山口県",
+  "徳島県","香川県","愛媛県","高知県",
+  "福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県",
+];
+
+// iOS フォーカス時の自動ズーム抑制（フォントサイズを 16px に固定）
+const NO_ZOOM_STYLE: React.CSSProperties = { fontSize: 16 };
+
+const TYPE_KEYS = ["ALL", "MV", "CM", "TV", "XFD", "OTHER"] as const;
+const VIEW_KEYS = ["type", "prefecture"] as const;
 
 const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
-  const calculateCenter = useCallback(
-    (items: PlaceItem[] | LatLngLiteral[]): LatLngLiteral => {
-      let center: LatLngLiteral = {
-        lat: 0,
-        lng: 0,
-      };
-      if (items.length === 1) {
-        center = {
-          lat: items[0].lat,
-          lng: items[0].lng,
-        };
-      } else if (items.length > 1) {
-        center = items.reduce((previous, current) => {
-          previous.lat += current.lat;
-          previous.lng += current.lng;
-          return previous;
-        }, center);
-        center.lat = center.lat / items.length;
-        center.lng = center.lng / items.length;
-      }
-      return center;
+  const [expandedPlaceIds, setExpandedPlaceIds] = useState<Set<string>>(
+    new Set()
+  );
+  // URLクエリと同期: ?type=MV&view=prefecture&q=武道館
+  const [typeFilter, setTypeFilterRaw] = useUrlQueryState<TypeFilter>(
+    "type",
+    "ALL",
+    TYPE_KEYS
+  );
+  const [viewMode, setViewModeRaw] = useUrlQueryState<ViewMode>(
+    "view",
+    "type",
+    VIEW_KEYS
+  );
+  // 検索クエリは任意文字列
+  const [query, setQueryRaw] = useUrlQueryState<string>("q", "");
+
+  const setTypeFilter = useCallback(
+    (v: TypeFilter) => {
+      setTypeFilterRaw(v);
+      trackFilterChange("place", "type", v);
     },
-    []
+    [setTypeFilterRaw]
+  );
+  const setViewMode = useCallback(
+    (v: ViewMode) => {
+      setViewModeRaw(v);
+      trackFilterChange("place", "view", v);
+    },
+    [setViewModeRaw]
+  );
+  const setQuery = useCallback(
+    (v: string) => {
+      setQueryRaw(v);
+    },
+    [setQueryRaw]
   );
 
-  const initialLatLngList = places
-    .map((place) =>
-      (place.items ?? []).map((item) => ({
-        ...place,
-        ...item,
-        position: { lat: item.lat, lng: item.lng },
-        visible: true,
-      }))
-    )
-    .flat();
+  const clearFilters = useCallback(() => {
+    setTypeFilter("ALL");
+    setQuery("");
+  }, [setTypeFilter, setQuery]);
 
-  const [state, setState] = useState({
-    latLngList: initialLatLngList,
-    center: calculateCenter(initialLatLngList),
-    zoom: 5,
-  });
+  // スクロール下方向で sticky バーをコンパクト化
+  const [compactBar, setCompactBar] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const dy = y - lastY;
+        if (y < 80) setCompactBar(false);
+        else if (dy > 6) setCompactBar(true);
+        else if (dy < -6) setCompactBar(false);
+        lastY = y;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const handlePlaceClick = useCallback(
+  const toggleExpand = useCallback((placeUuid: string) => {
+    setExpandedPlaceIds((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(placeUuid)) {
+        newSet.delete(placeUuid);
+      } else {
+        newSet.add(placeUuid);
+      }
+      return newSet;
+    });
+  }, []);
+
+  const matchTypeAndQuery = useCallback(
     (place: Place) => {
-      if (place.items) {
-        const center = calculateCenter(place.items);
-        setState((prevState) => ({
-          ...prevState,
-          latLngList: prevState.latLngList.map((listItem) => ({
-            ...listItem,
-            visible: listItem.placeId === place.placeId,
-          })),
-          center,
-          zoom: place.zoom,
-        }));
+      if (typeFilter !== "ALL") {
+        if (typeFilter === "OTHER") {
+          if (
+            place.type === "MV" ||
+            place.type === "CM" ||
+            place.type === "TV" ||
+            place.type === "XFD"
+          )
+            return false;
+        } else if (place.type !== typeFilter) {
+          return false;
+        }
       }
+      const q = query.trim().toLowerCase();
+      if (q) {
+        const hay = [
+          place.title,
+          ...(place.items ?? []).flatMap((it) => [it.name, it.address, it.memo]),
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
     },
-    [calculateCenter]
+    [typeFilter, query]
   );
 
-  const getBadgeColor = (type: string) => {
-    if (type === "MV") return "warning";
-    if (type === "CM") return "purple";
-    if (type === "TV") return "pink";
-    return "gray";
-  };
+  const filteredPlaces = useMemo(
+    () => places.filter(matchTypeAndQuery),
+    [places, matchTypeAndQuery]
+  );
+
+  // 都道府県別グルーピング: 各 item を都道府県ごとに集める
+  const prefectureGroups = useMemo(() => {
+    const groups = new Map<
+      string,
+      { place: Place; item: PlaceItem }[]
+    >();
+    for (const place of filteredPlaces) {
+      for (const item of place.items ?? []) {
+        const pref = extractPrefecture(item.address) ?? "その他";
+        if (!groups.has(pref)) groups.set(pref, []);
+        groups.get(pref)!.push({ place, item });
+      }
+    }
+    // 並び順: 北→南、未収録は末尾
+    const sorted = Array.from(groups.entries()).sort(([a], [b]) => {
+      const ai = PREFECTURE_ORDER.indexOf(a);
+      const bi = PREFECTURE_ORDER.indexOf(b);
+      if (ai === -1 && bi === -1) return a.localeCompare(b);
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+    return sorted;
+  }, [filteredPlaces]);
+
+  // マップ用マーカー（フィルタ適用後の全アイテム）
+  const markers = useMemo(
+    () =>
+      filteredPlaces.flatMap((place) =>
+        (place.items ?? [])
+          .filter((it) => typeof it.lat === "number" && typeof it.lng === "number")
+          .map((item) => ({ place, item }))
+      ),
+    [filteredPlaces]
+  );
+
+  // 都道府県別ビューの 1 アイテム
+  const renderPrefectureItem = (place: Place, item: PlaceItem) => (
+    <li
+      key={`pref-item-${place.placeUuid}-${item.placeItemUuid}`}
+      className="bg-white/60 backdrop-blur rounded-md border border-gray-200 p-3"
+    >
+      <div className="flex items-center gap-2 mb-1 flex-wrap">
+        {place.type && (
+          <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
+            {place.type}
+          </Badge>
+        )}
+        <span className="text-xs text-gray-700">{place.title}</span>
+      </div>
+      <div className="flex items-start justify-between gap-2">
+        {item.placeUrl ? (
+          <a
+            href={item.placeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-bold tracking-wide hover:underline inline-flex items-center min-h-[44px]"
+          >
+            {item.name}
+            <GoLinkExternal className="ml-1 text-xs" aria-hidden="true" />
+          </a>
+        ) : (
+          <span className="text-sm font-bold tracking-wide">{item.name}</span>
+        )}
+        <div className="flex gap-1 flex-shrink-0">
+          {item.needsCost && (
+            <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-100 text-amber-800 border border-amber-200">
+              要費用
+            </span>
+          )}
+          {item.needsPermission && (
+            <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-100 text-rose-800 border border-rose-200">
+              要許可
+            </span>
+          )}
+        </div>
+      </div>
+      {item.address && (
+        <p className="text-xs text-gray-700 mt-1">{item.address}</p>
+      )}
+      {item.mapsUrl && (
+        <a
+          href={item.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center mt-1 text-xs text-blue-700 hover:underline min-h-[36px]"
+        >
+          Google Maps で開く
+          <GoLinkExternal className="ml-1" aria-hidden="true" />
+        </a>
+      )}
+    </li>
+  );
 
   return (
-    <section id="PLACE" style={{ contentVisibility: "auto" }}>
+    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-white/70 backdrop-blur-sm rounded-xl shadow-sm mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
         <h2 className="flex items-center font-bold text-lg text-shadow">
           <TbMapPinHeart className="text-lg mr-2" />
@@ -104,103 +300,347 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           聖地巡礼の参考情報としてご覧ください（掲載されていない情報があればぜひ教えていただけますと幸いです）。
         </div>
       </div>
-      <div>
-        <div className="relative container mx-auto w-full bg-white">
-          <Accordion collapseAll>
-            {places.map((place) => (
-              <Accordion.Panel key={`place-${place.placeId}`}>
-                <Accordion.Title className="relative text-sm">
-                  <div
-                    className="absolute top-0 left-0 w-full h-full"
-                    onClick={() => handlePlaceClick(place)}
-                  >
-                    <div className="flex items-center tracking-widest w-full h-full pl-2">
-                      {place.type && (
-                        <Badge
-                          color={getBadgeColor(place.type)}
-                          className="py-1"
-                        >
-                          {place.type}
-                        </Badge>
-                      )}
-                      <span className="ml-2">{place.title}</span>
-                    </div>
-                  </div>
-                </Accordion.Title>
-                <Accordion.Content
-                  theme={{
-                    base: "last:rounded-b-lg first:rounded-t-lg",
-                  }}
+
+      {/* マップ: 見出し直下に横長で常時表示 */}
+      <div className="px-2 pb-3" aria-label="聖地マップ">
+        {typeof window === "undefined" ? null : markers.length === 0 ? (
+          <EmptyState
+            icon="📍"
+            title="表示できるマーカーがありません"
+            description="タイプ・検索条件をクリアしてもう一度お試しください。"
+            actionLabel="条件をクリア"
+            onAction={clearFilters}
+          />
+        ) : (
+          <Suspense
+            fallback={
+              <SectionSkeleton
+                label="マップを読み込み中..."
+                heightClassName="h-48 sm:h-56"
+              />
+            }
+          >
+            <div className="rounded-lg overflow-hidden">
+              <PlaceMap markers={markers} heightClassName="h-48 sm:h-56" />
+            </div>
+          </Suspense>
+        )}
+        <p className="mt-1 text-[10px] text-gray-600 text-right">
+          © OpenStreetMap contributors
+        </p>
+      </div>
+
+      {/* 絞り込みバー（sticky / 下方向スクロールでコンパクト化） */}
+      <div
+        role="region"
+        aria-label="聖地の絞り込み"
+        className="sticky top-0 z-30 -mx-2 px-2 py-2 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-200 space-y-2 transition-[padding] duration-200 motion-reduce:transition-none"
+      >
+        {/* 1行目: ビューモード（コンパクト時は隠す） */}
+        {!compactBar && (
+          <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="表示モード">
+            {VIEW_MODES.map((m) => {
+              const active = viewMode === m.key;
+              return (
+                <button
+                  key={m.key}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => setViewMode(m.key)}
+                  className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 ${
+                    active
+                      ? "bg-letter text-white border-letter"
+                      : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
+                  }`}
                 >
-                  {place.url && place.url.indexOf("youtu.be") && (
-                    <LazyComponent>
-                      <YouTube
-                        videoId={place.url.replace("https://youtu.be/", "")}
-                        opts={{
-                          height: "180",
-                          width: "320",
-                          playerVars: {
-                            autoplay: 0,
-                            enablejsapi: 1,
-                            playsinline: 1,
-                            loop: 1,
-                            rel: 0,
-                            color: "white",
-                          },
-                        }}
-                        className="pb-3"
-                        iframeClassName="w-full h-48"
-                      />
-                    </LazyComponent>
-                  )}
-                  {place.items?.map((item) => (
-                    <div
-                      key={`place-${item.placeId}-${item.placeItemId}`}
-                      className="pb-5"
-                    >
-                      {item.placeUrl ? (
-                        <a
-                          href={item.placeUrl}
-                          className="w-full h-full"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <h3 className="flex items-center text-sm mb-2 p-2 bg-theme text-white font-bold rounded-sm tracking-widest">
-                            {item.placeItemId}.&nbsp;{item.name}
-                            <GoLinkExternal className="ml-1 text-xs sm:text-sm" />
-                          </h3>
-                        </a>
-                      ) : (
-                        <h3 className="text-sm mb-2 px-2 py-1 bg-theme text-white font-bold rounded-sm">
-                          {item.placeItemId}.&nbsp;{item.name}
-                        </h3>
-                      )}
-                      {item.memo && (
-                        <p
-                          className="text-sm pl-2 pb-2"
-                          dangerouslySetInnerHTML={{
-                            __html: UtilityService.sanitizeHTML(item.memo),
-                          }}
-                        />
-                      )}
-                      <iframe
-                        src={item.mapsEmbedUrl}
-                        className="w-full h-48 pointer-events-none"
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title={`Map for ${item.name}`}
-                      />
-                      <p className="text-xs py-1">{item.address}</p>
-                    </div>
-                  ))}
-                </Accordion.Content>
-              </Accordion.Panel>
-            ))}
-          </Accordion>
-          <p className="text-xs py-2">
-            ※ここに載っていない聖地情報いつでもお待ちしております
-          </p>
+                  {m.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* 2行目: タイプフィルタ（常に表示） */}
+        <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="タイプで絞り込み">
+          {TYPE_FILTERS.map((f) => {
+            const active = typeFilter === f.key;
+            return (
+              <button
+                key={f.key}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => setTypeFilter(f.key)}
+                className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 ${
+                  active
+                    ? "bg-black text-white border-black"
+                    : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
+                }`}
+              >
+                {f.label}
+              </button>
+            );
+          })}
         </div>
+
+        {/* 3行目: 検索入力（コンパクト時は隠す） */}
+        {!compactBar && (
+          <label className="block">
+            <span className="sr-only">聖地を検索</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="例: 武道館 / 東京 / 第六感"
+              style={NO_ZOOM_STYLE}
+              className="block w-full min-h-[44px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1"
+            />
+          </label>
+        )}
+
+        <div className="flex items-center justify-between text-[11px] text-gray-700">
+          <span>
+            {filteredPlaces.length} / {places.length} 件
+          </span>
+          {(typeFilter !== "ALL" || query.length > 0) && (
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-gray-300 bg-white hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+            >
+              条件をクリア
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="space-y-8 px-2">
+        <div className="pt-2">
+          {/* ===== タイプ別ビュー（既存） ===== */}
+          {viewMode === "type" && (
+            <div className="space-y-2">
+              {filteredPlaces.length === 0 ? (
+                <EmptyState
+                  title="該当する聖地が見つかりませんでした"
+                  description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
+                  actionLabel="条件をクリア"
+                  onAction={clearFilters}
+                />
+              ) : (
+                filteredPlaces.map((place) => {
+                  const isExpanded = expandedPlaceIds.has(place.placeUuid);
+                  const itemCount = place.items?.length ?? 0;
+                  const prefectures = Array.from(
+                    new Set(
+                      (place.items ?? [])
+                        .map((it) => extractPrefecture(it.address))
+                        .filter((p): p is string => !!p)
+                    )
+                  );
+                  const thumb = getYoutubeThumb(place.url);
+
+                  return (
+                    <div
+                      key={`place-${place.placeUuid}`}
+                      id={`place-${place.slug}`}
+                      className="mb-2 scroll-mt-24"
+                    >
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => toggleExpand(place.placeUuid)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            toggleExpand(place.placeUuid);
+                          }
+                        }}
+                        aria-expanded={isExpanded}
+                        aria-controls={`place-panel-${place.slug}`}
+                        className={`relative w-full text-left cursor-pointer rounded-lg transition-all duration-300 motion-reduce:transition-none overflow-hidden text-black bg-gradient-to-br from-white to-gray-100 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
+                          isExpanded ? "shadow-md" : "shadow-sm"
+                        }`}
+                      >
+                        {!isExpanded && (
+                          <div className="min-h-[64px] p-3 flex items-center gap-3">
+                            {thumb ? (
+                              <img
+                                src={thumb}
+                                alt=""
+                                loading="lazy"
+                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-gray-100"
+                              />
+                            ) : (
+                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-gray-100 flex items-center justify-center text-gray-500">
+                                <TbMapPinHeart className="text-xl" aria-hidden="true" />
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                {place.type && (
+                                  <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
+                                    {place.type}
+                                  </Badge>
+                                )}
+                                <span className="text-sm font-medium tracking-wide truncate">
+                                  {place.title}
+                                </span>
+                              </div>
+                              <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[11px] text-gray-700">
+                                <span>{itemCount} スポット</span>
+                                {prefectures.length > 0 && (
+                                  <span className="truncate">
+                                    {prefectures.slice(0, 3).join("・")}
+                                    {prefectures.length > 3 ? ` 他${prefectures.length - 3}` : ""}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <GoChevronDown className="flex-shrink-0 ml-1 text-gray-600" aria-hidden="true" />
+                          </div>
+                        )}
+
+                        {isExpanded && (
+                          <div id={`place-panel-${place.slug}`} className="p-4">
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                {place.type && (
+                                  <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
+                                    {place.type}
+                                  </Badge>
+                                )}
+                                <span className="text-base font-bold tracking-wide">
+                                  {place.title}
+                                </span>
+                                <span className="text-[11px] text-gray-700 flex-shrink-0">
+                                  {itemCount} スポット
+                                </span>
+                              </div>
+                              <GoChevronUp className="flex-shrink-0 ml-2 text-gray-600" aria-hidden="true" />
+                            </div>
+
+                            {place.url && place.url.indexOf("youtu.be") !== -1 && (
+                              <div className="mb-4" onClick={(e) => e.stopPropagation()}>
+                                <LazyComponent>
+                                  <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                                    <YouTube
+                                      videoId={place.url.replace("https://youtu.be/", "")}
+                                      opts={{
+                                        playerVars: {
+                                          autoplay: 0,
+                                          enablejsapi: 1,
+                                          playsinline: 1,
+                                          loop: 1,
+                                          rel: 0,
+                                          color: "white",
+                                        },
+                                      }}
+                                      className="absolute top-0 left-0 w-full h-full"
+                                      iframeClassName="w-full h-full rounded"
+                                    />
+                                  </div>
+                                </LazyComponent>
+                              </div>
+                            )}
+
+                            {place.items?.map((item, itemIdx) => (
+                              <div
+                                key={`place-${place.placeUuid}-${item.placeItemUuid}`}
+                                className="mb-3 last:mb-0 bg-white/60 backdrop-blur border border-gray-200 rounded-lg p-4"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <div className="flex items-start justify-between gap-2 mb-2">
+                                  {item.placeUrl ? (
+                                    <a
+                                      href={item.placeUrl}
+                                      className="block min-h-[44px]"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <h3 className="flex items-center text-sm font-bold tracking-wide hover:underline">
+                                        {itemIdx + 1}.&nbsp;{item.name}
+                                        <GoLinkExternal className="ml-1 text-xs" aria-hidden="true" />
+                                      </h3>
+                                    </a>
+                                  ) : (
+                                    <h3 className="text-sm font-bold tracking-wide">
+                                      {itemIdx + 1}.&nbsp;{item.name}
+                                    </h3>
+                                  )}
+                                  <div className="flex flex-wrap gap-1 flex-shrink-0">
+                                    {item.needsCost && (
+                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-100 text-amber-800 border border-amber-200">
+                                        要費用
+                                      </span>
+                                    )}
+                                    {item.needsPermission && (
+                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-100 text-rose-800 border border-rose-200">
+                                        要許可
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                                {item.memo && (
+                                  <p
+                                    className="text-sm mb-2"
+                                    dangerouslySetInnerHTML={{
+                                      __html: UtilityService.sanitizeHTMLWithAllowedTags(item.memo),
+                                    }}
+                                  />
+                                )}
+                                <iframe
+                                  src={item.mapsEmbedUrl}
+                                  className="w-full h-48 rounded mb-2"
+                                  loading="lazy"
+                                  referrerPolicy="no-referrer-when-downgrade"
+                                  title={`Map for ${item.name}`}
+                                />
+                                <p className="text-xs text-gray-700">{item.address}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          )}
+
+          {/* ===== 都道府県別ビュー ===== */}
+          {viewMode === "prefecture" && (
+            <div className="space-y-4">
+              {prefectureGroups.length === 0 ? (
+                <EmptyState
+                  title="該当する聖地が見つかりませんでした"
+                  description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
+                  actionLabel="条件をクリア"
+                  onAction={clearFilters}
+                />
+              ) : (
+                prefectureGroups.map(([pref, list]) => (
+                  <div key={`pref-${pref}`} className="space-y-2">
+                    <h3 className="sticky top-[136px] z-10 bg-gradient-to-r from-letter to-letter/80 text-white px-3 py-1 rounded-md font-bold text-sm tracking-wider">
+                      {pref}{" "}
+                      <span className="text-xs font-normal opacity-80">
+                        ({list.length})
+                      </span>
+                    </h3>
+                    <ul className="space-y-2">
+                      {list.map(({ place, item }) => renderPrefectureItem(place, item))}
+                    </ul>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+        </div>
+
+        <p className="text-xs py-2">
+          ※ここに載っていない聖地情報いつでもお待ちしております
+        </p>
       </div>
     </section>
   );

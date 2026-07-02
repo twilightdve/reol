@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "gatsby";
 import { FaCompactDisc, FaCirclePlay } from "react-icons/fa6";
-import { GoListUnordered } from "react-icons/go";
+import { GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import Discography from "../discography/discography";
 import { DiscographyWithSongs } from "../../../types/discography";
@@ -13,7 +14,7 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
   discographies,
 }) => {
   return (
-    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }}>
+    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="bg-white/70 backdrop-blur-sm rounded-xl shadow-sm mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
         <h2 className="flex items-center font-bold text-lg text-shadow">
           <FaCompactDisc className="text-lg mr-2" />
@@ -23,6 +24,15 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
         </h2>
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest">
           DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。
+        </div>
+        <div className="pt-2">
+          <Link
+            to="/cgraph"
+            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-fuchsia-500 text-fuchsia-600 hover:bg-fuchsia-500 hover:text-white transition-colors"
+          >
+            相関図を見る
+            <GoLinkExternal className="inline" />
+          </Link>
         </div>
       </div>
       <Discography data={discographies} />

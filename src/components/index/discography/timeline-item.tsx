@@ -167,7 +167,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
                   {item.songs.map((song, i) => {
                     return (
                       <ItemSong
-                        key={`songs-${item.discographyId}-${i}`}
+                        key={`songs-${item.discographyUuid}-${i}`}
                         song={song}
                       />
                     );
@@ -182,7 +182,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
                       {item.reports.map((report) => {
                         return (
                           <li
-                            key={`report-${report.discographyId}-${report.discographyRepoNo}`}
+                            key={`report-${report.discographyUuid}-${report.discographyRepoUuid}`}
                           >
                             <a
                               className="leading-loose"
@@ -215,7 +215,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
                     関連ポスト
                   </h4>
                   <Tweets
-                    parentId={`${item.discographyId}`}
+                    parentId={`${item.discographyUuid}`}
                     posts={item.posts.reverse().map((post) => ({
                       id: post.discographyPostId,
                       html: post.discographyPostHTML,

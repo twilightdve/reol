@@ -1,36 +1,39 @@
-import { discovery_v1 } from "googleapis";
-
 type Merge<T> = {
   [K in keyof T]: T[K];
 };
 
 export type Discography = {
-  discographyId: number;
+  discographyUuid: string;
+  slug: string;
   title: string;
   releaseDate?: string;
   name?: string;
   format?: string;
   siteUrl?: string;
   xfdUrl?: string | null;
+  artworkUrl?: string | null;
+  themeColorPrimary?: string | null;
+  themeColorSecondary?: string | null;
 };
 
 export type DiscographyRepo = {
-  discographyId: number;
-  discographyRepoNo: number;
+  discographyRepoUuid: string;
+  discographyUuid: string;
   discographyReportName: string;
   discographyReportUrl: string;
 };
 
 export type DiscographyPost = {
-  discographyId: number;
-  discographyPostNo: number;
+  discographyPostUuid: string;
+  discographyUuid: string;
   discographyPostId: string;
   discographyPostHTML: string;
 };
 
 export type Song = {
-  songId: number;
-  discographyId: number;
+  songUuid: string;
+  slug: string;
+  discographyUuid: string;
   discographyTitle: string;
   songNo: number;
   songName: string;

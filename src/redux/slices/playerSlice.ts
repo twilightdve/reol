@@ -8,6 +8,7 @@ export interface PlayerState {
   isLoaded: boolean;
   currentVideoId: string;
   isShrinked: boolean;
+  isPlayerHidden: boolean;
   playerRef: React.RefObject<YouTube> | null;
 }
 
@@ -15,6 +16,7 @@ export const initialState: PlayerState = {
   isLoaded: false,
   currentVideoId: "",
   isShrinked: false,
+  isPlayerHidden: false,
   playerRef: null,
 };
 
@@ -35,9 +37,12 @@ export const playerSlice = createSlice({
     setIsShrinked: (state, action) => {
       state.isShrinked = action.payload;
     },
+    setIsPlayerHidden: (state, action) => {
+      state.isPlayerHidden = action.payload;
+    },
   },
 });
 
-export const { setNextVideo, setIsLoaded, setIsShrinked } = playerSlice.actions;
+export const { setNextVideo, setIsLoaded, setIsShrinked, setIsPlayerHidden } = playerSlice.actions;
 
 export default playerSlice.reducer;

@@ -15,23 +15,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import LazyComponent from "../../modules/LazyComponent";
-
-// 簡易的なColorPalette型定義（colorExtractorが見つからないため）
-interface ColorPalette {
-  primary: string;
-  secondary: string;
-  accent: string;
-  background: string;
-  surface: string;
-}
-
-const defaultColorPalette: ColorPalette = {
-  primary: "#007bff",
-  secondary: "#6c757d",
-  accent: "#28a745",
-  background: "#ffffff",
-  surface: "#f8f9fa",
-};
+import SongLiveHistory from "./song-live-history";
+import {
+  ColorPalette,
+  defaultColorPalette,
+} from "../../../utils/colorExtractor";
 
 const PITCH_CLASS_LIST = [
   "C",
@@ -228,7 +216,7 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
       )}
       <dialog
         ref={dialogRef}
-        className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-gray-900 sm:backdrop-opacity-20 sm:backdrop-blur-xl rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
+        className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-gray-900 sm:backdrop-opacity-20 rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
         onClick={handleDialogClose}
       >
         <div className="container w-full h-full text-white">
@@ -319,6 +307,9 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
               </RadarChart>
             </ResponsiveContainer>
           </div>
+          {song.songUuid !== undefined && song.songUuid !== null && (
+            <SongLiveHistory songUuid={song.songUuid} />
+          )}
         </div>
       </dialog>
     </li>

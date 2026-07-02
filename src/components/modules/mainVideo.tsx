@@ -7,10 +7,13 @@ import {
   setNextVideo,
   setIsLoaded,
   setIsShrinked,
+  setIsPlayerHidden,
 } from "../../redux/slices/playerSlice";
 import { DiscographyWithSongs } from "../../types/discography";
 import { Spinner } from "flowbite-react";
+import { IoClose, IoVolumeHigh, IoVolumeMute } from "react-icons/io5";
 import UtilityService from "../../services/UtilityService";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 const defaultOpts: Options = {
   height: "180",
@@ -18,6 +21,7 @@ const defaultOpts: Options = {
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 0,
+    mute: 1,
     // controls: 0,
     // disablekb: 1,
     enablejsapi: 1,
@@ -27,7 +31,7 @@ const defaultOpts: Options = {
     color: "white",
     origin: "https://reol.twilightea.com/",
     widget_referrer: "https://reol.twilightea.com/",
-  },
+  } as Options["playerVars"],
 };
 
 type Props = {
@@ -46,30 +50,110 @@ const MainVideo: React.FC<Props> = ({
   onError,
 }) => {
   const dispatch = useAppDispatch();
-  const { currentVideoId, isLoaded, isShrinked, playerRef } = useAppSelector(
+  const { currentVideoId, isLoaded, isShrinked, isPlayerHidden, playerRef } = useAppSelector(
     (state) => state.player
   );
 
   const isBrowser = typeof window !== "undefined";
   const ref = useRef<YouTube>(null);
+  const playerWrapperRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(
     isBrowser && window.scrollY > 200
   );
   const [onPlaying, setOnPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  // ユーザーが一度ミュート解除した意志を保持する。
+  // playerVars.mute=1 のため videoId 切り替え時にプレイヤー側がミュートに戻るので、
+  // このフラグを見て onPlay 時に再度 unMute() を呼び直す。
+  const hasUserUnmutedRef = useRef(false);
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (isBrowser && window.scrollY > 200) {
-        dispatch(setIsShrinked(true));
+    if (!isBrowser) return;
+    // 「視覚効果を減らす」設定時はスクロール連動の拡大/縮小を無効化
+    if (reducedMotion) {
+      dispatch(setIsShrinked(false));
+      return;
+    }
+
+    // プレイヤーが画面外に出る位置を閾値に。
+    // ヒステリシス: 縮小は到達時、展開は閾値 - HYSTERESIS で行うことで往復ちらつきを防ぐ。
+    const HYSTERESIS = 60;
+    let threshold = 200;
+    let ticking = false;
+    let currentShrinked = false;
+
+    const computeThreshold = () => {
+      // プレイヤーの本来位置の bottom を閾値とする（fixed 化前のレイアウト位置）
+      const el = playerWrapperRef.current;
+      if (el && !currentShrinked) {
+        const rect = el.getBoundingClientRect();
+        // 画面上端 + ヘッダー余白(48px) を越えたら縮小したい
+        threshold = Math.max(rect.bottom + window.scrollY - 48, 80);
       } else {
-        dispatch(setIsShrinked(false));
+        // shrink 中はプレイヤー自体が fixed なので画面幅から推定
+        const w = window.innerWidth;
+        const estimated = Math.min((w * 9) / 16, 320);
+        threshold = Math.max(estimated - 48, 80);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isBrowser, dispatch]);
+    const update = () => {
+      const y = window.scrollY;
+      const shouldShrink = currentShrinked
+        ? y > threshold - HYSTERESIS
+        : y > threshold;
+      if (shouldShrink !== currentShrinked) {
+        currentShrinked = shouldShrink;
+        dispatch(setIsShrinked(shouldShrink));
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    const handleResize = () => {
+      computeThreshold();
+      handleScroll();
+    };
+
+    computeThreshold();
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isBrowser, dispatch, reducedMotion]);
+
+  const handleClosePlayer = useCallback(() => {
+    dispatch(setIsPlayerHidden(true));
+  }, [dispatch]);
+
+  const handleToggleMute = useCallback(() => {
+    try {
+      const player = ref.current?.internalPlayer;
+      if (player) {
+        if (isMuted) {
+          player.unMute();
+          setIsMuted(false);
+          hasUserUnmutedRef.current = true;
+        } else {
+          player.mute();
+          setIsMuted(true);
+          // ユーザーが明示的にミュートし直した場合は意志をリセット
+          hasUserUnmutedRef.current = false;
+        }
+      }
+    } catch (_) { /* ignore */ }
+  }, [isMuted]);
 
   const handleReady = useCallback(
     async (event: YouTubeEvent) => {
@@ -87,6 +171,13 @@ const MainVideo: React.FC<Props> = ({
     async (event: YouTubeEvent) => {
       try {
         if (onPlay) await onPlay(event);
+        // 一度ユーザーがミュート解除していた場合、次以降の動画でも自動で解除
+        if (hasUserUnmutedRef.current) {
+          try {
+            await event.target.unMute();
+            setIsMuted(false);
+          } catch (_) { /* ignore */ }
+        }
         UtilityService.gtag({
           category: "youtube",
           action: "play",
@@ -141,12 +232,36 @@ const MainVideo: React.FC<Props> = ({
       <div
         id="PlayerContainer"
         className={`z-20 top-0 overflow-hidden transition-all ease-in-out duration-200 delay-300 origin-top-right ${
-          isShrinked
+          isShrinked && !isPlayerHidden
             ? "fixed w-52 top-1 right-1 -translate-x-1 rounded-lg"
             : "w-full top-0 right-0 left-full translate-x-0 rounded-none"
         }`}
       >
-        <div className={`relative w-full sm:max-h-80`}>
+        {isShrinked && !isPlayerHidden && (
+          <button
+            onClick={handleClosePlayer}
+            className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
+            aria-label="動画を非表示"
+          >
+            <IoClose className="text-white text-xl" />
+          </button>
+        )}
+        {isLoaded && onPlaying && (
+          <button
+            onClick={handleToggleMute}
+            className={`absolute z-30 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-all ${
+              isShrinked && !isPlayerHidden ? "bottom-1 left-1" : "bottom-2 left-2"
+            }`}
+            aria-label={isMuted ? "ミュート解除" : "ミュート"}
+          >
+            {isMuted ? (
+              <IoVolumeMute className="text-white text-lg" />
+            ) : (
+              <IoVolumeHigh className="text-white text-lg" />
+            )}
+          </button>
+        )}
+        <div ref={playerWrapperRef} className={`relative w-full sm:max-h-80`}>
           <div
             className={
               isLoaded

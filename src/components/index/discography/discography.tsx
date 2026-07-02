@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
-import TimelineItem from "./timeline-item";
+import EnhancedTimelineItem from "./enhanced-timeline-item";
 
 type Props = {
   data: DiscographyWithSongs[];
@@ -98,6 +98,7 @@ const tags = {
     "DVD/BD",
     "MV",
     "歌ってみた",
+    "LP"
   ],
 };
 
@@ -236,16 +237,21 @@ class Discography extends Component<Props, State> {
           })}
         </div>
         <p className="text-xs text-right pt-2">{list.length}件</p>
-        <Timeline theme={timelineRootTheme}>
-          {list.map((item, i) => {
-            return (
-              <TimelineItem
-                item={item}
-                key={`disco-timeline-${item.discographyId}`}
-              />
-            );
-          })}
-        </Timeline>
+        <div style={{ isolation: "isolate" }}>
+          <Timeline theme={timelineRootTheme}>
+            {list.map((item, i) => {
+              return (
+                <div
+                  key={`disco-timeline-${item.discographyUuid}`}
+                  id={item.slug ? `disc-${item.slug}` : undefined}
+                  className="scroll-mt-24"
+                >
+                  <EnhancedTimelineItem item={item} />
+                </div>
+              );
+            })}
+          </Timeline>
+        </div>
       </div>
     );
   }

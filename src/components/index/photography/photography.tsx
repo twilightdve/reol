@@ -231,7 +231,7 @@ const Photography: React.FC<PhotographyProps> = ({ posts }) => {
   );
 
   return (
-    <section className="py-4">
+    <section className="py-4" style={{ isolation: "isolate" }}>
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-full gap-1">
         {posts.map((post, postIndex) => {
           return (
@@ -264,7 +264,7 @@ const Photography: React.FC<PhotographyProps> = ({ posts }) => {
       <div>
         <dialog
           ref={dialogRef}
-          className={`w-full h-[90dvh] max-w-112 sm:max-w-208 md:max-w-256 lg:max-w-480 bg-transparent text-white backdrop:backdrop-opacity-60 backdrop:backdrop-blur-sm m-auto open:animate-fadeInFast font-system z-10 overflow-y-hidden`}
+          className={`w-full h-[90dvh] max-w-112 sm:max-w-208 md:max-w-256 lg:max-w-480 bg-transparent text-white backdrop:backdrop-opacity-60 m-auto open:animate-fadeInFast font-system z-10 overflow-y-hidden`}
           onClick={(event) => {
             event.stopPropagation();
             handleDialogClose();

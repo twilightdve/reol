@@ -3,10 +3,12 @@ import { Badge } from "flowbite-react";
 import { GoLinkExternal } from "react-icons/go";
 import { BsArrowsAngleExpand, BsCalendarCheck } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "gatsby";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import Tweets from "../../modules/tweets";
 import UtilityService from "../../../services/UtilityService";
 import LazyComponent from "../../modules/LazyComponent";
+import RelatedLives from "./related-lives";
 
 interface LiveItemProps {
   live: LiveInfo;
@@ -167,7 +169,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
             )}
           </>
           <div className="relative w-full sm:h-full px-2">
-            <div key={`setlist-${liveItem.liveId}-${liveItem.liveItemNo}`}>
+            <div key={`setlist-${liveItem.liveItemUuid}`}>
               <h5
                 className={`underline underline-offset-4 decoration-dashed decoration-1 pt-3 pb-2 text-sm tracking-widest text-gray-800`}
               >
@@ -175,21 +177,36 @@ const LiveItem: React.FC<LiveItemProps> = ({
               </h5>
               {liveItem.setList.length > 0 ? (
                 <ol className={`list-decimal max-h-full`}>
-                  {liveItem.setList.map((song) => (
-                    <li
-                      className={`leading-relaxed text-xs ml-6`}
-                      key={`setlist-${song.liveId}-${song.liveItemNo}-${song.liveItemSongNo}`}
-                    >
-                      <span
-                        className={`underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-gray-800`}
-                        dangerouslySetInnerHTML={{
-                          __html: UtilityService.sanitizeHTML(
-                            song.liveItemSongName
-                          ),
-                        }}
-                      />
-                    </li>
-                  ))}
+                  {liveItem.setList.map((song) => {
+                    const sanitized = UtilityService.sanitizeHTML(
+                      song.liveItemSongName
+                    );
+                    const linkable =
+                      song.songUuid !== undefined && song.songUuid !== null;
+                    return (
+                      <li
+                        className={`leading-relaxed text-xs ml-6`}
+                        key={song.liveItemSongUuid}
+                      >
+                        {linkable ? (
+                          <Link
+                            to={`/songs/stats/?songUuid=${song.songUuid}#song-${song.songUuid}`}
+                            className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-gray-800 hover:opacity-80"
+                            title="楽曲統計ページで演奏履歴を見る"
+                          >
+                            <span
+                              dangerouslySetInnerHTML={{ __html: sanitized }}
+                            />
+                          </Link>
+                        ) : (
+                          <span
+                            className={`underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-gray-800`}
+                            dangerouslySetInnerHTML={{ __html: sanitized }}
+                          />
+                        )}
+                      </li>
+                    );
+                  })}
                 </ol>
               ) : (
                 <div>
@@ -197,6 +214,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
                 </div>
               )}
             </div>
+            <RelatedLives liveUuid={live.liveUuid} />
           </div>
         </div>
         {!withDialog && live.posts.length > 0 && (
@@ -205,7 +223,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
             <h4 className="text-base pt-1 pb-2 pl-2 text-black">関連ポスト</h4>
             <div className="pb-3">
               <Tweets
-                parentId={`${live.liveId}-${liveItem.liveItemNo}`}
+                parentId={`${live.liveUuid}-${liveItem.liveItemUuid}`}
                 posts={live.posts.reverse().map((post) => ({
                   id: post.livePostId,
                   html: post.livePostHTML,
@@ -220,7 +238,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
             <h4 className="text-base pt-1 pb-2 pl-2 text-black">関連ポスト</h4>
             <div className="pb-3">
               <Tweets
-                parentId={`${live.liveId}-${liveItem.liveItemNo}`}
+                parentId={`${live.liveUuid}-${liveItem.liveItemUuid}`}
                 posts={liveItem.posts.reverse().map((post) => ({
                   id: post.liveItemPostId,
                   html: post.liveItemPostHTML,
@@ -236,9 +254,9 @@ const LiveItem: React.FC<LiveItemProps> = ({
 
   if (withDialog) {
     return (
-      <div key={`live-item-dialog-${liveItem.liveId}-${liveItem.liveItemNo}`}>
+      <div key={`live-item-dialog-${liveItem.liveItemUuid}`}>
         <div
-          key={`card-live-${liveItem.liveId}-${liveItem.liveItemNo}`}
+          key={`card-live-${liveItem.liveItemUuid}`}
           className="w-80 bg-white border border-gray-200 rounded-lg shadow"
           onClick={handleDialogShow}
         >
@@ -275,9 +293,9 @@ const LiveItem: React.FC<LiveItemProps> = ({
           </div>
         </div>
         <dialog
-          key={`dialog-${liveItem.liveId}-${liveItem.liveItemNo}`}
+          key={`dialog-${liveItem.liveItemUuid}`}
           ref={dialogRef}
-          className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-white sm:backdrop-opacity-20 sm:backdrop-blur-xl rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
+          className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-white sm:backdrop-opacity-20 rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
           onClick={handleDialogClose}
         >
           {renderContent()}

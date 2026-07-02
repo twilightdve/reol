@@ -3,25 +3,30 @@ type Merge<T> = {
 };
 
 export type Live = {
-  liveId: number;
+  liveUuid: string;
+  slug: string;
   type: string;
   title: string;
   name: string;
   date: string;
   siteUrl: string | null;
   spotifyPlaylistId: string | null;
+  imageUrl?: string | null;
+  themeColorPrimary?: string | null;
+  themeColorSecondary?: string | null;
 };
 
 export type LivePost = {
-  liveId: number;
-  livePostNo: number;
+  livePostUuid: string;
+  liveUuid: string;
   livePostId: string;
   livePostHTML: string;
 };
 
 export type LiveItem = {
-  liveId: number;
-  liveItemNo: number;
+  liveItemUuid: string;
+  slug: string;
+  liveUuid: string;
   liveItemName: string | null;
   date: string;
   place: string | null;
@@ -31,24 +36,35 @@ export type LiveItem = {
   spotifyPlaylistId: string | null;
 };
 
+export type LiveItemSongType =
+  | "song"
+  | "inst"
+  | "cover"
+  | "medley"
+  | "segment"
+  | "live_only";
+
 export type LiveItemSong = {
-  liveId: number;
-  liveItemNo: number;
-  liveItemSongNo: number;
+  liveItemSongUuid: string;
+  liveItemUuid: string;
   liveItemSongName: string;
+  type?: LiveItemSongType | null;
+  /** songMatcher で解決された Discography 上の楽曲 UUID。未解決時は null */
+  songUuid?: string | null;
+  /** 解決経路 (sheet / exact / alias / stripped / normalized / stripped+normalized / none) */
+  matchSource?: string | null;
 };
 
 export type LiveItemPost = {
-  liveId: number;
-  liveItemNo: number;
-  liveItemPostNo: number;
+  liveItemPostUuid: string;
+  liveItemUuid: string;
   liveItemPostId: string;
   liveItemPostHTML: string;
 };
 
 export type LiveReport = {
-  liveId: number;
-  liveReportNo: number;
+  liveReportUuid: string;
+  liveUuid: string;
   liveReportName: string;
   liveReportUrl: string;
 };

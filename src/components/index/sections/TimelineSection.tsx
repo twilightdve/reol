@@ -3,7 +3,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 const TimelineSection: React.FC = () => {
   return (
-    <section id="TIMELINE" style={{ contentVisibility: "auto" }}>
+    <section id="TIMELINE" style={{ contentVisibility: "auto" }} className="bg-white/70 backdrop-blur-sm rounded-xl shadow-sm mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
         <h2 className="flex items-center font-bold text-lg text-shadow">
           <FaCalendarAlt className="text-lg mr-2" />
