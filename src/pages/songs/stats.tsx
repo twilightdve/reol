@@ -1,7 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { HeadFC, Link } from "gatsby";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
+import LoadingSkeleton from "../../components/common/LoadingSkeleton";
+import ErrorRetry from "../../components/common/ErrorRetry";
 
 type Play = {
   liveUuid: string;
@@ -18,30 +20,35 @@ type Play = {
   matchSource: string;
 };
 
-type SongStatEntry = {
+// ページクエリで取得する一覧表示用の行データ（plays は含めない）
+type SongStatRow = {
   songUuid: string;
   slug: string;
   songName: string;
-  discographyUuid: string | null;
   discographySlug: string | null;
   totalPlays: number;
   firstPlayedDate: string | null;
   lastPlayedDate: string | null;
-  plays: Play[];
 };
 
-type SongStatsPayload = {
-  summary: {
-    totalSetlistInstances: number;
-    matchedInstances: number;
-    unmatchedInstances: number;
-    uniqueSongsPlayed: number;
-    uniqueUnmatched: number;
+type SongStatsPageData = {
+  songStats: {
+    songStats: SongStatRow[];
+    summary: {
+      matchedInstances: number;
+      uniqueSongsPlayed: number;
+    };
   };
-  songStats: SongStatEntry[];
+};
+
+// 遅延fetchする /static/data/songStats.json のペイロード（plays 取得用）
+type SongStatsPayload = {
+  songStats: { songUuid: string; plays: Play[] }[];
 };
 
 type SortKey = "plays" | "first" | "last" | "name";
+
+type PlaysFetchStatus = "idle" | "loading" | "loaded" | "error";
 
 type InitialSongTarget = {
   slug: string | null;
@@ -49,22 +56,61 @@ type InitialSongTarget = {
   hash: string | null;
 };
 
-const SongStatsPage: React.FC = () => {
-  const [data, setData] = useState<SongStatsPayload | null>(null);
-  const [loadError, setLoadError] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
+export const query = graphql`
+  query SongStatsPage {
+    songStats {
+      songStats {
+        songUuid
+        slug
+        songName
+        discographySlug
+        totalPlays
+        firstPlayedDate
+        lastPlayedDate
+      }
+      summary {
+        matchedInstances
+        uniqueSongsPlayed
+      }
+    }
+  }
+`;
+
+const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
+  const songStats = data.songStats.songStats;
+  const summary = data.songStats.summary;
+
+  const [keyword, setKeyword] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("plays");
   const [openSongSlug, setOpenSongSlug] = useState<string | null>(null);
 
-  useEffect(() => {
+  // 演奏履歴（plays）は初回展開時に一度だけ遅延fetchしてキャッシュする
+  const [playsMap, setPlaysMap] = useState<Map<string, Play[]> | null>(null);
+  const [playsStatus, setPlaysStatus] = useState<PlaysFetchStatus>("idle");
+  const [playsError, setPlaysError] = useState<string | null>(null);
+
+  const loadPlays = useCallback(() => {
+    setPlaysStatus("loading");
+    setPlaysError(null);
     fetch("/static/data/songStats.json")
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json() as Promise<SongStatsPayload>;
       })
-      .then(setData)
-      .catch((e) => setLoadError(String(e)));
+      .then((payload) => {
+        setPlaysMap(new Map(payload.songStats.map((s) => [s.songUuid, s.plays])));
+        setPlaysStatus("loaded");
+      })
+      .catch((e) => {
+        setPlaysError(String(e));
+        setPlaysStatus("error");
+      });
   }, []);
+
+  // 行が開かれたタイミングで一度だけ取得（エラー時は再試行ボタンから）
+  useEffect(() => {
+    if (openSongSlug && playsStatus === "idle") loadPlays();
+  }, [openSongSlug, playsStatus, loadPlays]);
 
   // オープニングが付与したスクロールロックを解除（クライアントナビ時の保険）
   useEffect(() => {
@@ -90,11 +136,8 @@ const SongStatsPage: React.FC = () => {
       uuid: sp.get("songUuid"),
       hash: hashValue,
     };
-  }, []);
 
-  // URL 由来の初期オープンのみ自動スクロール（クリックでの展開時はスクロールしない）
-  useEffect(() => {
-    if (!data) return;
+    // データはビルド時に焼き込み済みのため、マウント直後に解決できる
     const initialTarget = initialSongTargetRef.current;
     if (!initialTarget.slug && !initialTarget.uuid && !initialTarget.hash) return;
 
@@ -102,37 +145,33 @@ const SongStatsPage: React.FC = () => {
     let targetSlug: string | null = initialTarget.slug;
     if (!targetSlug && initialTarget.uuid) {
       targetSlug =
-        data.songStats.find((s) => s.songUuid === initialTarget.uuid)?.slug ?? null;
+        songStats.find((s) => s.songUuid === initialTarget.uuid)?.slug ?? null;
     }
     if (!targetSlug && initialTarget.hash) {
-      const bySlug = data.songStats.find((s) => s.slug === initialTarget.hash);
+      const bySlug = songStats.find((s) => s.slug === initialTarget.hash);
       if (bySlug) {
         targetSlug = bySlug.slug;
       } else {
         targetSlug =
-          data.songStats.find((s) => s.songUuid === initialTarget.hash)?.slug ?? null;
+          songStats.find((s) => s.songUuid === initialTarget.hash)?.slug ?? null;
       }
     }
-    if (!targetSlug) {
-      initialSongTargetRef.current = { slug: null, uuid: null, hash: null };
-      return;
-    }
+    initialSongTargetRef.current = { slug: null, uuid: null, hash: null };
+    if (!targetSlug) return;
 
+    // URL 由来の初期オープンのみ自動スクロール（クリックでの展開時はスクロールしない）
     setOpenSongSlug(targetSlug);
     const el = document.getElementById(`song-${targetSlug}`);
     if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
-    initialSongTargetRef.current = { slug: null, uuid: null, hash: null };
-  }, [data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const filteredSorted = useMemo(() => {
-    if (!data) return [];
-    const q = query.trim().toLowerCase();
+    const q = keyword.trim().toLowerCase();
     const list = q
-      ? data.songStats.filter((s) =>
-          s.songName.toLowerCase().includes(q)
-        )
-      : [...data.songStats];
-    const cmp: Record<SortKey, (a: SongStatEntry, b: SongStatEntry) => number> = {
+      ? songStats.filter((s) => s.songName.toLowerCase().includes(q))
+      : [...songStats];
+    const cmp: Record<SortKey, (a: SongStatRow, b: SongStatRow) => number> = {
       plays: (a, b) => b.totalPlays - a.totalPlays,
       first: (a, b) =>
         (a.firstPlayedDate ?? "").localeCompare(b.firstPlayedDate ?? ""),
@@ -141,62 +180,12 @@ const SongStatsPage: React.FC = () => {
       name: (a, b) => a.songName.localeCompare(b.songName, "ja"),
     };
     return list.sort(cmp[sortKey]);
-  }, [data, query, sortKey]);
+  }, [songStats, keyword, sortKey]);
 
-  if (loadError) {
-    return (
-      <Layout title="楽曲統計">
-        <main className="container mx-auto p-4 max-w-4xl">
-          <div className="rounded-lg bg-white/90 border border-red-300 p-4 shadow-md">
-            <h1 className="text-lg font-bold text-red-700 mb-2">データの読み込みに失敗しました</h1>
-            <p className="text-sm text-gray-700 break-all">{loadError}</p>
-            <p className="text-xs text-gray-500 mt-2">
-              ビルド後に生成される /static/data/songStats.json が見つかりません。`gatsby build` を実行してください。
-            </p>
-          </div>
-        </main>
-      </Layout>
-    );
-  }
-  if (!data) {
-    return (
-      <Layout title="楽曲統計">
-        <main className="container mx-auto px-3 sm:px-4 py-4 max-w-4xl text-gray-800">
-          <header className="mb-5">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-gray-900">
-              楽曲統計
-            </h1>
-            <p className="text-xs text-gray-600">
-              LIVEで演奏された楽曲の通算演奏回数・初出 / 最終演奏日を一覧します。
-            </p>
-          </header>
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-5">
-            {[0, 1].map((i) => (
-              <div
-                key={i}
-                className="rounded-lg bg-white/85 border border-gray-300 shadow-sm h-20 animate-pulse"
-              />
-            ))}
-          </div>
-          <ul className="space-y-2">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <li
-                key={i}
-                className="rounded-lg border border-gray-300 bg-white/80 h-16 animate-pulse"
-              />
-            ))}
-          </ul>
-          <p className="text-center text-gray-600 text-sm mt-4">読み込み中…</p>
-        </main>
-      </Layout>
-    );
-  }
-
-  const { summary } = data;
   const maxPlays = Math.max(1, ...filteredSorted.map((s) => s.totalPlays));
 
   const rankBadge = (rank: number): { bg: string; text: string; label: string } | null => {
-    if (sortKey !== "plays" || query) return null;
+    if (sortKey !== "plays" || keyword) return null;
     if (rank === 0) return { bg: "bg-yellow-400", text: "text-yellow-900", label: "1" };
     if (rank === 1) return { bg: "bg-gray-300", text: "text-gray-800", label: "2" };
     if (rank === 2) return { bg: "bg-amber-700", text: "text-amber-50", label: "3" };
@@ -232,8 +221,8 @@ const SongStatsPage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2">
             <input
               type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
               placeholder="🔍 曲名で検索"
               className="flex-1 min-w-[160px] px-3 py-1.5 text-base sm:text-sm rounded-md bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-300"
             />
@@ -282,7 +271,7 @@ const SongStatsPage: React.FC = () => {
                       </span>
                     ) : (
                       <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-gray-500 text-[11px] font-semibold border border-gray-200">
-                        {sortKey === "plays" && !query ? idx + 1 : "♪"}
+                        {sortKey === "plays" && !keyword ? idx + 1 : "♪"}
                       </span>
                     )}
 
@@ -350,64 +339,16 @@ const SongStatsPage: React.FC = () => {
                       <span className="inline-block w-1 h-4 bg-amber-500 rounded" />
                       演奏履歴
                       <span className="text-[10px] font-normal text-gray-500">
-                        ({s.plays.length}件)
+                        ({s.totalPlays}件)
                       </span>
                     </div>
-                    <ol className="space-y-2">
-                      {[...s.plays]
-                        .sort((a, b) => b.date.localeCompare(a.date))
-                        .map((p) => {
-                          const dateParts = p.date.split("-");
-                          const yyyy = dateParts[0] ?? "";
-                          const mmdd =
-                            dateParts.length >= 3
-                              ? `${dateParts[1]}/${dateParts[2]}`
-                              : p.date;
-                          return (
-                            <li
-                              key={p.liveItemSongUuid}
-                            >
-                              <Link
-                                to={`/live/#live-item-${p.liveItemSlug}`}
-                                className="group flex items-stretch gap-2 sm:gap-3 rounded-md border border-gray-200 bg-white/90 hover:bg-amber-50 hover:border-amber-400 hover:shadow-sm transition-all overflow-hidden"
-                              >
-                                {/* 日付ブロック */}
-                                <div className="flex flex-col items-center justify-center bg-gradient-to-b from-amber-50 to-amber-100 px-2 sm:px-3 py-2 min-w-[58px] sm:min-w-[68px] border-r border-amber-200">
-                                  <span className="text-[10px] text-amber-700 font-medium leading-none">
-                                    {yyyy}
-                                  </span>
-                                  <span className="text-sm sm:text-base font-bold text-amber-800 font-mono leading-tight mt-0.5">
-                                    {mmdd}
-                                  </span>
-                                </div>
-                                {/* 情報ブロック */}
-                                <div className="flex-1 min-w-0 py-2 pr-2 sm:pr-3">
-                                  <div className="text-sm font-medium text-gray-900 truncate group-hover:text-amber-900">
-                                    {p.liveTitle}
-                                  </div>
-                                  <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-0.5">
-                                    {p.liveItemName && (
-                                      <span className="inline-flex items-center text-[11px] text-gray-700">
-                                        <span className="text-gray-400 mr-0.5">／</span>
-                                        {p.liveItemName}
-                                      </span>
-                                    )}
-                                    {p.place && (
-                                      <span className="inline-flex items-center text-[11px] text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded">
-                                        <span className="mr-0.5">📍</span>
-                                        {p.place}
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                                <div className="flex items-center pr-2 text-gray-300 group-hover:text-amber-500">
-                                  →
-                                </div>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                    </ol>
+                    <PlayHistory
+                      songUuid={s.songUuid}
+                      status={playsStatus}
+                      playsMap={playsMap}
+                      error={playsError}
+                      onRetry={loadPlays}
+                    />
                   </div>
                 )}
               </li>
@@ -426,6 +367,92 @@ const SongStatsPage: React.FC = () => {
         </div>
       </main>
     </Layout>
+  );
+};
+
+/**
+ * 行展開時の演奏履歴表示。
+ * plays は遅延fetchのため、取得状況に応じてスケルトン / 再試行 / 履歴リストを出し分ける。
+ */
+const PlayHistory: React.FC<{
+  songUuid: string;
+  status: PlaysFetchStatus;
+  playsMap: Map<string, Play[]> | null;
+  error: string | null;
+  onRetry: () => void;
+}> = ({ songUuid, status, playsMap, error, onRetry }) => {
+  if (status === "error") {
+    return (
+      <ErrorRetry
+        title="演奏履歴の読み込みに失敗しました"
+        description={error ?? undefined}
+        onRetry={onRetry}
+      />
+    );
+  }
+  if (status !== "loaded" || !playsMap) {
+    return (
+      <LoadingSkeleton rows={3} rowHeightClassName="h-14" label="演奏履歴を読み込み中..." />
+    );
+  }
+
+  const plays = playsMap.get(songUuid) ?? [];
+  if (plays.length === 0) {
+    return <p className="text-gray-500">演奏履歴がありません</p>;
+  }
+
+  return (
+    <ol className="space-y-2">
+      {[...plays]
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .map((p) => {
+          const dateParts = p.date.split("-");
+          const yyyy = dateParts[0] ?? "";
+          const mmdd =
+            dateParts.length >= 3 ? `${dateParts[1]}/${dateParts[2]}` : p.date;
+          return (
+            <li key={p.liveItemSongUuid}>
+              <Link
+                to={`/live/#live-item-${p.liveItemSlug}`}
+                className="group flex items-stretch gap-2 sm:gap-3 rounded-md border border-gray-200 bg-white/90 hover:bg-amber-50 hover:border-amber-400 hover:shadow-sm transition-all overflow-hidden"
+              >
+                {/* 日付ブロック */}
+                <div className="flex flex-col items-center justify-center bg-gradient-to-b from-amber-50 to-amber-100 px-2 sm:px-3 py-2 min-w-[58px] sm:min-w-[68px] border-r border-amber-200">
+                  <span className="text-[10px] text-amber-700 font-medium leading-none">
+                    {yyyy}
+                  </span>
+                  <span className="text-sm sm:text-base font-bold text-amber-800 font-mono leading-tight mt-0.5">
+                    {mmdd}
+                  </span>
+                </div>
+                {/* 情報ブロック */}
+                <div className="flex-1 min-w-0 py-2 pr-2 sm:pr-3">
+                  <div className="text-sm font-medium text-gray-900 truncate group-hover:text-amber-900">
+                    {p.liveTitle}
+                  </div>
+                  <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-0.5">
+                    {p.liveItemName && (
+                      <span className="inline-flex items-center text-[11px] text-gray-700">
+                        <span className="text-gray-400 mr-0.5">／</span>
+                        {p.liveItemName}
+                      </span>
+                    )}
+                    {p.place && (
+                      <span className="inline-flex items-center text-[11px] text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded">
+                        <span className="mr-0.5">📍</span>
+                        {p.place}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="flex items-center pr-2 text-gray-300 group-hover:text-amber-500">
+                  →
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+    </ol>
   );
 };
 
