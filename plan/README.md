@@ -17,7 +17,10 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [07-roadmap.md](./07-roadmap.md) | 実装ロードマップ(1日/1週間/1か月/3か月) |
 | [08-metrics.md](./08-metrics.md) | 計測設計(GA4イベント・指標) |
 | [09-top10.md](./09-top10.md) | 最終提案(最重要改善トップ10) |
-| [10-implementation-batch-01.md](./10-implementation-batch-01.md) | 実行計画書: 第1バッチ(P0/P1から5件・コード照合済み) |
+| [10-implementation-batch-01.md](./10-implementation-batch-01.md) | 実行計画書: 第1バッチ(P0/P1から5件・実装済み) |
+| [11-implementation-batch-02.md](./11-implementation-batch-02.md) | 実行計画書: 第2バッチ(Issue 4/10/8/12・実装済み) |
+| [12-repo-audit.md](./12-repo-audit.md) | リポジトリ未コミット差分の監査報告(整理実行済み) |
+| [13-implementation-batch-03.md](./13-implementation-batch-03.md) | 実行計画書: 第3バッチ選定(Issue 11/7/13+α・承認待ち) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
 ## インフラ前提

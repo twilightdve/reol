@@ -160,7 +160,7 @@
 ## 採用した公式リンク(実確認済み)
 
 - 公式サイト: `https://reol.jp/`
-- YouTube: `https://www.youtube.com/@reolofficial1587`(サイト使用中の公式動画のoEmbedで確認)
+- YouTube: `https://www.youtube.com/@reolch`(当初oEmbedから `@reolofficial1587` を採用したが、2026-07-03にユーザー指摘で公式チャンネル `@reolch` に訂正)
 - X: `https://twitter.com/RRReol`(reol.jp掲載)
 - Instagram: `https://www.instagram.com/rrreol999/`(reol.jp掲載)
 - グッズ: `https://reol.ec-front.jp/`(reol.jp掲載)
