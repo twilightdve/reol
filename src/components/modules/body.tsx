@@ -66,6 +66,18 @@ const isRelivePath = (pathname: string): boolean => {
   return pathname === "/relive" || pathname.startsWith("/relive/");
 };
 
+/**
+ * デザインプレビュー (/design-preview 配下) はリデザインA/B案(plan/15)の
+ * モックページで、ページ側が完全に独自のヘッダー・背景を持つため
+ * ファンサイト側のテーマを被せない。
+ */
+const isDesignPreviewPath = (pathname: string): boolean => {
+  if (!pathname) return false;
+  return (
+    pathname === "/design-preview" || pathname.startsWith("/design-preview/")
+  );
+};
+
 const getInitialPathname = (): string => {
   if (typeof window !== "undefined" && window.location) {
     return window.location.pathname;
@@ -103,6 +115,7 @@ const Body: FC<Props> = ({ children }) => {
   const isCGraph = isCGraphPath(pathname);
   const isLiveHeatmap = isLiveHeatmapPath(pathname);
   const isRelive = isRelivePath(pathname);
+  const isDesignPreview = isDesignPreviewPath(pathname);
 
   if (isBijigakuNavi) {
     // 美辞学ナビは独自のテーマ・ヘッダーを ReolMapLayout 側で持っているので
@@ -121,7 +134,7 @@ const Body: FC<Props> = ({ children }) => {
     );
   }
 
-  if (isReolTypeQuiz || isCGraph || isLiveHeatmap || isRelive) {
+  if (isReolTypeQuiz || isCGraph || isLiveHeatmap || isRelive || isDesignPreview) {
     // ファンタイプ診断 / 相関図 / 参戦地マップ / Relive Player はページ内で独自の背景・レイアウトを持つため
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
     return <Layout title={data.site.siteMetadata.title} children={children} />;

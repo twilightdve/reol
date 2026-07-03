@@ -7,8 +7,13 @@
 対象: サイト全体のビジュアルデザインと情報設計。特にトップページ(ファーストビュー)を中心に、
 **A案 = 現状の延長線でクオリティを上げる案** / **B案 = 現状にとらわれず訴求力第一で再設計する案** の2方向を提示する。
 
-**ビジュアルモックアップ**: 両案のトップページを実際のHTML/CSSで再現したモックを Artifact として作成済み(A/B切り替え比較可)。本書と併せて確認のこと。
-→ https://claude.ai/code/artifact/d48cbdd9-52d1-40f5-8410-77b228321848
+**ビジュアルモックアップ**(2種類):
+
+1. Artifact(HTML・A/B切り替え比較): https://claude.ai/code/artifact/d48cbdd9-52d1-40f5-8410-77b228321848
+2. **サイト内プレビューページ**(ブランチ `feature/design-preview-ab`): `gatsby develop` 起動後に
+   - A案: `/design-preview/a/`
+   - B案: `/design-preview/b/`
+   実環境(Tailwind・実リンク・実データ数値)での見え方を確認できる。noindex・既存導線には未接続。不採用ならブランチごと破棄可
 
 ---
 
