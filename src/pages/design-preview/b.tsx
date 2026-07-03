@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, HeadFC } from "gatsby";
 import SEO from "../../components/SEO";
-import { activityYears } from "../../constants/artist";
 
 /**
  * デザインプレビュー: B案「BLACKBOX / CHRONICLE」(plan/15-uiux-redesign-ab.md)
@@ -219,9 +218,9 @@ const DesignPreviewB: React.FC = () => {
           />
         </p>
         <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-[1.22]">
-          Reolの{activityYears()}年を、
+          Reolのこれまでを、
           <br />
-          <span style={{ color: YELLOW }}>ぜんぶ</span>遡れる。
+          <span style={{ color: YELLOW }}>まるっと</span>遡れる。
         </h1>
         <p
           className="mt-4 text-sm max-w-lg leading-relaxed"

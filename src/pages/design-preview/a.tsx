@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, HeadFC } from "gatsby";
 import SEO from "../../components/SEO";
-import { activityYears } from "../../constants/artist";
 import { FiSearch, FiStar, FiMapPin, FiClock } from "react-icons/fi";
 import { LuMic2, LuBarChart2 } from "react-icons/lu";
 
@@ -108,7 +107,7 @@ const DesignPreviewA: React.FC = () => {
 
         <div className="relative z-10 text-center pt-14 px-6">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-wide text-[#27489b] leading-normal">
-            Reolの{activityYears()}年を、ぜんぶ遡れる。
+            Reolのこれまでを、まるっと遡れる。
           </h1>
           <p className="mt-2 text-sm text-[#5a6070]">
             楽曲・ライブ・セトリ・ロケ地まで。非公式ファンサイト !Legit
