@@ -5,11 +5,21 @@ import { activityYears } from "../../constants/artist";
 
 /**
  * デザインプレビュー: B案「BLACKBOX / CHRONICLE」(plan/15-uiux-redesign-ab.md)
- * 旧オープニングのBLACKBOX意匠(黒×オレンジ #ea6000)を本編まで貫通させる
- * リデザイン案を実環境で確認するためのモック。既存導線には未接続・noindex。
+ * 黒背景×公式カラーセット(青 #27489b / 黄 #e2bf57、reol.jpより)のリデザイン案を
+ * 実環境で確認するためのモック。既存導線には未接続・noindex。
  * 統計値は実データのスナップショット(2026-07-03: 130曲/167公演/総演奏2,107回)。
  * 本実装ではビルド時にGraphQLから焼き込む。
  */
+
+// 公式カラーセット(reol.jp): 青 #27489b・黄 #e2bf57・白。
+// 黒背景では #27489b が沈むため、アクセント用に明度を上げた青を併用する。
+const YELLOW = "#e2bf57"; // 公式イエロー: CTA・ハイライト・「現在」
+const BLUE = "#6b8ce0"; // 公式ブルーの明度調整版: 構造・リンク・見出し
+const BLUE_DEEP = "#27489b"; // 公式ブルー原色: グロー・面
+const BLUE_LIGHT = "#a8c0ff"; // 淡青: 第3のアクセント
+const INK = "#f2f0eb";
+const INK2 = "#8f8e96";
+const LINE = "#26262e";
 
 const STATS = [
   { value: 130, label: "SONGS" },
@@ -17,21 +27,49 @@ const STATS = [
   { value: 2107, label: "PERFORMANCES" },
 ];
 
+/** 主要セクションへの導線タイル(EXPLORE) */
+const SECTIONS = [
+  {
+    label: "DISCOGRAPHY",
+    jp: "リリースと全曲情報",
+    to: "/discography/",
+    accent: BLUE,
+  },
+  {
+    label: "LIVE",
+    jp: "公演情報・セトリ",
+    to: "/live/",
+    accent: YELLOW,
+  },
+  {
+    label: "PLACE",
+    jp: "ロケ地マップ",
+    to: "/place/",
+    accent: BLUE_LIGHT,
+  },
+  {
+    label: "PHOTO",
+    jp: "フォトギャラリー",
+    to: "/photos/",
+    accent: INK,
+  },
+];
+
 const ERAS = [
   {
-    color: "#7fd1c0",
+    color: BLUE,
     years: "2012–2014",
     name: "れをる時代",
     desc: "ニコニコ動画・歌ってみた",
   },
   {
-    color: "#e4c15a",
+    color: YELLOW,
     years: "2015–2016",
     name: "REOL",
     desc: "ユニット期・ΣMPATHY〜Σ",
   },
   {
-    color: "#ea6000",
+    color: INK,
     years: "2017–NOW",
     name: "Reol",
     desc: "ソロ期・事変〜BLACK BOX〜現在",
@@ -40,21 +78,21 @@ const ERAS = [
 
 const ENTRY_CARDS = [
   {
-    accent: "#ea6000",
+    accent: YELLOW,
     kicker: "START HERE",
     title: "はじめてのReol",
     body: "代表曲と年代別ガイド。どのeraから入っても迷わない。",
     to: "/welcome/",
   },
   {
-    accent: "#e4c15a",
+    accent: BLUE,
     kicker: "LIVE & SETLIST",
     title: "ライブに行く",
     body: "167公演のセトリアーカイブと初参加ガイド。",
     to: "/live/",
   },
   {
-    accent: "#7fd1c0",
+    accent: BLUE_LIGHT,
     kicker: "DATA",
     title: "データを掘る",
     body: "130曲の演奏回数・初披露・最終演奏を全曲収録。",
@@ -75,6 +113,7 @@ const NAV_ITEMS = [
   { label: "DISCOGRAPHY", to: "/discography/" },
   { label: "LIVE", to: "/live/" },
   { label: "PLACE", to: "/place/" },
+  { label: "PHOTO", to: "/photos/" },
   { label: "TIMELINE", to: "/timeline/" },
 ];
 
@@ -111,24 +150,30 @@ const CountUp: React.FC<{ value: number }> = ({ value }) => {
 const DesignPreviewB: React.FC = () => {
   return (
     <div
-      className="min-h-screen text-[#f2f0eb]"
+      className="min-h-screen"
       style={{
-        background:
-          "radial-gradient(70rem 30rem at 50% -14rem, rgba(234,96,0,0.13), transparent 65%), #0b0b10",
+        color: INK,
+        background: `radial-gradient(70rem 30rem at 50% -14rem, rgba(39,72,155,0.35), transparent 65%), #0b0b10`,
         fontFeatureSettings: '"palt"',
       }}
     >
       {/* プレビュー注記 */}
-      <div className="bg-[#ea6000] text-[#0b0b10] text-center text-[11px] font-bold tracking-wider py-1.5 px-3">
-        DESIGN PREVIEW — B案「BLACKBOX / CHRONICLE」(plan/15)。本番導線には未接続です
+      <div
+        className="text-center text-[11px] font-bold tracking-wider py-1.5 px-3"
+        style={{ backgroundColor: YELLOW, color: "#0b0b10" }}
+      >
+        DESIGN PREVIEW — B案「BLACKBOX / CHRONICLE」青×黄版(plan/15)。本番導線には未接続です
       </div>
 
       {/* ヘッダー */}
-      <header className="border-b border-[#26262e]">
+      <header style={{ borderBottom: `1px solid ${LINE}` }}>
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-4 px-6 py-4">
           <Link to="/" className="flex items-baseline gap-2.5 min-w-0">
             <span className="font-icon text-xl font-semibold">!Legit</span>
-            <span className="hidden sm:inline text-[9.5px] font-bold tracking-[0.24em] text-[#8f8e96]">
+            <span
+              className="hidden sm:inline text-[9.5px] font-bold tracking-[0.24em]"
+              style={{ color: INK2 }}
+            >
               REOL UNOFFICIAL ARCHIVE
             </span>
           </Link>
@@ -137,14 +182,22 @@ const DesignPreviewB: React.FC = () => {
               <Link
                 key={item.label}
                 to={item.to}
-                className="hidden md:inline text-[11.5px] font-bold tracking-widest text-[#8f8e96] hover:text-[#f2f0eb] whitespace-nowrap"
+                className="hidden md:inline text-[11.5px] font-bold tracking-widest whitespace-nowrap transition-colors"
+                style={{ color: INK2 }}
+                onMouseEnter={(e) =>
+                  ((e.currentTarget as HTMLElement).style.color = BLUE)
+                }
+                onMouseLeave={(e) =>
+                  ((e.currentTarget as HTMLElement).style.color = INK2)
+                }
               >
                 {item.label}
               </Link>
             ))}
             <Link
               to="/search/"
-              className="text-[11.5px] font-bold tracking-widest bg-[#ea6000] text-[#0b0b10] rounded-full px-4 py-1.5 whitespace-nowrap"
+              className="text-[11.5px] font-bold tracking-widest rounded-full px-4 py-1.5 whitespace-nowrap"
+              style={{ backgroundColor: YELLOW, color: "#0b0b10" }}
             >
               検索
             </Link>
@@ -154,27 +207,38 @@ const DesignPreviewB: React.FC = () => {
 
       {/* ヒーロー: 巨大タイポ+動くデータ(計画3.3) */}
       <section className="max-w-5xl mx-auto px-6 pt-16 pb-8">
-        <p className="flex items-center gap-2.5 text-[11px] font-extrabold tracking-[0.3em] text-[#ea6000]">
+        <p
+          className="flex items-center gap-2.5 text-[11px] font-extrabold tracking-[0.3em]"
+          style={{ color: BLUE }}
+        >
           UNBOXED — SINCE 2012
-          <span aria-hidden className="inline-block h-px w-16 bg-[#ea6000]/60" />
+          <span
+            aria-hidden
+            className="inline-block h-px w-16"
+            style={{ backgroundColor: BLUE, opacity: 0.6 }}
+          />
         </p>
         <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-[1.22]">
           Reolの{activityYears()}年を、
           <br />
-          <span className="text-[#ea6000]">ぜんぶ</span>遡れる。
+          <span style={{ color: YELLOW }}>ぜんぶ</span>遡れる。
         </h1>
-        <p className="mt-4 text-sm text-[#8f8e96] max-w-lg leading-relaxed">
+        <p
+          className="mt-4 text-sm max-w-lg leading-relaxed"
+          style={{ color: INK2 }}
+        >
           楽曲・ライブ・セトリ・ロケ地。れをる時代から現在まで、
           公式コンテンツへの案内板を兼ねた非公式アーカイブ。
         </p>
 
-        <div className="flex mt-10 border-y border-[#26262e]">
+        <div className="flex mt-10" style={{ borderTop: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }}>
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className={`flex-1 px-4 sm:px-6 py-5 ${
-                i < STATS.length - 1 ? "border-r border-[#26262e]" : ""
-              }`}
+              className="flex-1 px-4 sm:px-6 py-5"
+              style={
+                i < STATS.length - 1 ? { borderRight: `1px solid ${LINE}` } : undefined
+              }
             >
               <div
                 className="text-3xl sm:text-5xl font-extrabold leading-none"
@@ -182,36 +246,100 @@ const DesignPreviewB: React.FC = () => {
               >
                 <CountUp value={stat.value} />
               </div>
-              <div className="mt-2 text-[10px] font-extrabold tracking-[0.26em] text-[#8f8e96]">
+              <div
+                className="mt-2 text-[10px] font-extrabold tracking-[0.26em]"
+                style={{ color: INK2 }}
+              >
                 {stat.label}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center flex-wrap gap-3 mt-5 text-xs text-[#8f8e96]">
+        <div
+          className="flex items-center flex-wrap gap-3 mt-5 text-xs"
+          style={{ color: INK2 }}
+        >
           <span
             aria-hidden
-            className="w-1.5 h-1.5 rounded-full bg-[#ea6000] shadow-[0_0_10px_#ea6000] flex-shrink-0"
+            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+            style={{ backgroundColor: YELLOW, boxShadow: `0 0 10px ${YELLOW}` }}
           />
           <span>
-            <b className="text-[#f2f0eb] font-bold">NEXT LIVE:</b>{" "}
+            <b className="font-bold" style={{ color: INK }}>
+              NEXT LIVE:
+            </b>{" "}
             Reol Oneman Live 2026「美辞学」FINAL — 07.10 LINE CUBE SHIBUYA
           </span>
           <a
             href="https://reol.jp/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-auto text-[#ea6000] font-extrabold tracking-wide border border-[#ea6000] rounded-full px-4 py-1.5"
+            className="ml-auto font-extrabold tracking-wide rounded-full px-4 py-1.5"
+            style={{ color: YELLOW, border: `1px solid ${YELLOW}` }}
           >
             公式サイトでチケット →
           </a>
         </div>
       </section>
 
+      {/* EXPLORE: 主要セクションへの大タイル導線(モバイルでも常時表示) */}
+      <section className="max-w-5xl mx-auto px-6 pt-6">
+        <p
+          className="text-[10.5px] font-extrabold tracking-[0.3em] mb-3.5"
+          style={{ color: INK2 }}
+        >
+          EXPLORE — 主要コンテンツ
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {SECTIONS.map((section) => (
+            <Link
+              key={section.label}
+              to={section.to}
+              className="group relative block rounded-xl p-5 transition-colors"
+              style={{
+                border: `1px solid ${LINE}`,
+                backgroundColor: "rgba(255,255,255,0.035)",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor =
+                  section.accent)
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor = LINE)
+              }
+            >
+              <span
+                aria-hidden
+                className="block w-6 h-1 rounded-full mb-3"
+                style={{ backgroundColor: section.accent }}
+              />
+              <span className="block text-base sm:text-lg font-extrabold tracking-[0.08em]">
+                {section.label}
+              </span>
+              <span
+                className="block mt-1 text-[11px] leading-relaxed"
+                style={{ color: INK2 }}
+              >
+                {section.jp}
+              </span>
+              <span
+                className="absolute right-4 bottom-4 font-extrabold"
+                style={{ color: section.accent }}
+              >
+                →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* クロニクルナビ(計画3.3) */}
-      <section className="max-w-5xl mx-auto px-6 pt-8">
-        <p className="text-[10.5px] font-extrabold tracking-[0.3em] text-[#8f8e96] mb-3.5">
+      <section className="max-w-5xl mx-auto px-6 pt-12">
+        <p
+          className="text-[10.5px] font-extrabold tracking-[0.3em] mb-3.5"
+          style={{ color: INK2 }}
+        >
           CHRONICLE — 年代から遡る
         </p>
         <div className="flex gap-2.5 overflow-x-auto pb-1.5">
@@ -219,7 +347,17 @@ const DesignPreviewB: React.FC = () => {
             <Link
               key={era.name}
               to="/timeline/"
-              className="flex-shrink-0 min-w-[168px] border border-[#26262e] rounded-lg bg-white/[0.035] px-4 py-3 hover:border-[#8f8e96] transition-colors"
+              className="flex-shrink-0 min-w-[168px] rounded-lg px-4 py-3 transition-colors"
+              style={{
+                border: `1px solid ${LINE}`,
+                backgroundColor: "rgba(255,255,255,0.035)",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor = era.color)
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor = LINE)
+              }
             >
               <p
                 className="text-[10.5px] font-extrabold tracking-[0.14em]"
@@ -228,25 +366,35 @@ const DesignPreviewB: React.FC = () => {
                 {era.years}
               </p>
               <p className="mt-1 text-sm font-bold">{era.name}</p>
-              <p className="text-[11px] text-[#8f8e96]">{era.desc}</p>
+              <p className="text-[11px]" style={{ color: INK2 }}>
+                {era.desc}
+              </p>
             </Link>
           ))}
         </div>
         <div aria-hidden className="relative h-7 mt-3.5">
-          <span className="absolute left-0 right-0 top-3 h-px bg-[#26262e]" />
+          <span
+            className="absolute left-0 right-0 top-3 h-px"
+            style={{ backgroundColor: LINE }}
+          />
           {YEAR_TICKS.map((tick) => (
             <span
               key={tick.year}
               className={`absolute top-0 -translate-x-1/2 text-[9px] tracking-wider ${
-                tick.now ? "text-[#ea6000] font-extrabold" : "text-[#8f8e96]"
+                tick.now ? "font-extrabold" : ""
               }`}
-              style={{ left: tick.left, fontVariantNumeric: "tabular-nums" }}
+              style={{
+                left: tick.left,
+                fontVariantNumeric: "tabular-nums",
+                color: tick.now ? YELLOW : INK2,
+              }}
             >
               {tick.year}
               <span
-                className={`absolute left-1/2 top-[14px] w-px ${
-                  tick.now ? "h-2 w-0.5 bg-[#ea6000]" : "h-[5px] bg-[#8f8e96]"
+                className={`absolute left-1/2 top-[14px] ${
+                  tick.now ? "h-2 w-0.5" : "h-[5px] w-px"
                 }`}
+                style={{ backgroundColor: tick.now ? YELLOW : INK2 }}
               />
             </span>
           ))}
@@ -259,12 +407,16 @@ const DesignPreviewB: React.FC = () => {
           <Link
             key={card.title}
             to={card.to}
-            className="block border border-[#26262e] rounded-xl bg-white/[0.035] p-4 transition-colors"
+            className="block rounded-xl p-4 transition-colors"
+            style={{
+              border: `1px solid ${LINE}`,
+              backgroundColor: "rgba(255,255,255,0.035)",
+            }}
             onMouseEnter={(e) =>
               ((e.currentTarget as HTMLElement).style.borderColor = card.accent)
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.borderColor = "#26262e")
+              ((e.currentTarget as HTMLElement).style.borderColor = LINE)
             }
           >
             <p
@@ -274,7 +426,10 @@ const DesignPreviewB: React.FC = () => {
               {card.kicker}
             </p>
             <h2 className="mt-2 text-[15px] font-bold">{card.title}</h2>
-            <p className="mt-1 text-[11.5px] text-[#8f8e96] leading-relaxed">
+            <p
+              className="mt-1 text-[11.5px] leading-relaxed"
+              style={{ color: INK2 }}
+            >
               {card.body}
             </p>
           </Link>
@@ -285,37 +440,47 @@ const DesignPreviewB: React.FC = () => {
       <section className="max-w-5xl mx-auto px-6 pt-10 pb-12">
         <p className="flex items-baseline gap-3 mb-3">
           <span className="text-[13px] font-bold tracking-wider">THEATER</span>
-          <span className="text-[10.5px] tracking-wider text-[#8f8e96]">
+          <span
+            className="text-[10.5px] tracking-wider"
+            style={{ color: INK2 }}
+          >
             OFFICIAL VIDEO ONLY — YouTube @reolch
           </span>
         </p>
         <div
-          className="relative rounded-xl border border-[#26262e] grid place-items-center overflow-hidden"
+          className="relative rounded-xl grid place-items-center overflow-hidden"
           style={{
             aspectRatio: "21 / 9",
-            background:
-              "radial-gradient(40rem 16rem at 50% 110%, rgba(234,96,0,0.16), transparent 70%), #000",
+            border: `1px solid ${LINE}`,
+            background: `radial-gradient(40rem 16rem at 50% 110%, rgba(39,72,155,0.4), transparent 70%), #000`,
           }}
         >
-          <span className="grid place-items-center w-14 h-14 rounded-full border-2 border-[#ea6000] text-[#ea6000]">
+          <span
+            className="grid place-items-center w-14 h-14 rounded-full"
+            style={{ border: `2px solid ${YELLOW}`, color: YELLOW }}
+          >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5l12 7-12 7z" />
             </svg>
           </span>
-          <span className="absolute right-3.5 bottom-3 text-[10px] font-bold tracking-widest text-[#f2f0eb]/60">
+          <span
+            className="absolute right-3.5 bottom-3 text-[10px] font-bold tracking-widest"
+            style={{ color: "rgba(242,240,235,0.6)" }}
+          >
             YouTube — @reolch
           </span>
         </div>
       </section>
 
       {/* フッター: 公式送客CTAが最強調(計画3.1) */}
-      <footer className="border-t border-[#26262e]">
+      <footer style={{ borderTop: `1px solid ${LINE}` }}>
         <div className="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-3.5 px-6 py-4">
           <div className="flex flex-wrap gap-2">
             {OFFICIAL_LINKS.map((label) => (
               <span
                 key={label}
-                className="text-[10.5px] font-semibold tracking-wide text-[#8f8e96] border border-[#26262e] rounded-full px-3.5 py-1"
+                className="text-[10.5px] font-semibold tracking-wide rounded-full px-3.5 py-1"
+                style={{ color: INK2, border: `1px solid ${LINE}` }}
               >
                 {label}
               </span>
@@ -325,7 +490,8 @@ const DesignPreviewB: React.FC = () => {
             href="https://reol.jp/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11.5px] font-extrabold tracking-wider bg-[#ea6000] text-[#0b0b10] rounded-full px-4 py-1.5"
+            className="text-[11.5px] font-extrabold tracking-wider rounded-full px-4 py-1.5"
+            style={{ backgroundColor: YELLOW, color: "#0b0b10" }}
           >
             REOL.JP →
           </a>
