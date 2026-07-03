@@ -21,7 +21,8 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [11-implementation-batch-02.md](./11-implementation-batch-02.md) | 実行計画書: 第2バッチ(Issue 4/10/8/12・実装済み) |
 | [12-repo-audit.md](./12-repo-audit.md) | リポジトリ未コミット差分の監査報告(整理実行済み) |
 | [13-implementation-batch-03.md](./13-implementation-batch-03.md) | 実行計画書: 第3バッチ(Issue 11/7/13+α・実装済み) |
-| [14-implementation-batch-04.md](./14-implementation-batch-04.md) | 実行計画書: 第4バッチ選定(曲詳細ハブ+小物・承認待ち) |
+| [14-implementation-batch-04.md](./14-implementation-batch-04.md) | 実行計画書: 第4バッチ選定(曲詳細ハブ+小物・実装済み) |
+| [15-uiux-redesign-ab.md](./15-uiux-redesign-ab.md) | デザイン提案: UI/UX評価とリデザインA/B案(モックアップ付き・選択待ち) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
 ## インフラ前提
