@@ -20,7 +20,7 @@ function onOpen() {
     .addItem('⚠ 全列を再発行（uuid 含め全クリア→完全再生成）', 'regenerateAll')
     .addSeparator()
     .addItem('slug: フォールバックのみ再生成（かな→ローマ字等）', 'regenerateFallbackSlugs')
-    .addItem('slug: 候補を生成（英訳/公式MV題 → slug_suggestions）', 'suggestSongSlugCandidates')
+    .addItem('slug: 候補を生成（ローマ字読み/公式MV題 → slug_suggestions）', 'suggestSongSlugCandidates')
     .addItem('slug: 採用slugを反映（slug_suggestions → song）', 'applySongSlugSuggestions')
     .addSeparator()
     .addItem('診断: 空セルを集計して表示', 'diagnoseEmptyCells')

@@ -887,7 +887,7 @@ function fillSongUuidInLiveItemSong() {
 }
 
 // =====================================================
-// slug候補の自動生成(英訳/公式MVタイトル) → 人が選んで確定
+// slug候補の自動生成(ローマ字読み/公式MVタイトル) → 人が選んで確定
 // =====================================================
 /**
  * 背景: 漢字を含む曲名は読みを機械推測できず、フォールバックslugが残る。
@@ -899,13 +899,14 @@ function fillSongUuidInLiveItemSong() {
  * 使い方:
  *   1. suggestSongSlugCandidates() を実行
  *      → slug_suggestions シートにフォールバック曲の候補一覧が出る
- *        候補1: 曲名の英訳(LanguageApp、APIキー不要)
+ *        候補1: 曲名のローマ字読み(Google翻訳の翻字。誤読あり得るため要確認。
+ *                翻字が返らない曲は空欄になるので手動入力)
  *        候補2: 公式MVタイトルの英字部分(musicVideoUrl がある曲のみ、YouTube oEmbed)
  *   2. 「採用slug」列に確定値を入力(候補のコピーでも自由入力でもよい)
  *   3. applySongSlugSuggestions() を実行 → song シートの slug に反映
  */
 const SLUG_SUGGESTION_SHEET = 'slug_suggestions';
-const SLUG_SUGGESTION_HEADERS = ['songRow', '曲名', '現slug', '候補1: 英訳', '候補2: 公式MV英題', '採用slug(ここに入力)', '結果'];
+const SLUG_SUGGESTION_HEADERS = ['songRow', '曲名', '現slug', '候補1: ローマ字読み', '候補2: 公式MV英題', '採用slug(ここに入力)', '結果'];
 
 function suggestSongSlugCandidates() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -931,17 +932,17 @@ function suggestSongSlugCandidates() {
     const uuid = normCell_(values[i][uuidIdx]);
     if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
     const name = normCell_(values[i][nameCol]);
-    const trCandidate = tryTranslateToEn_(name);
+    const romajiCandidate = tryRomanizeJa_(name);
     let mvCandidate = '';
     if (mvIdx >= 0) {
       const mvUrl = normCell_(values[i][mvIdx]);
       if (mvUrl) {
         mvCandidate = fetchMvTitleCandidate_(mvUrl);
         if (mvCandidate) mvHit += 1;
-        Utilities.sleep(300); // oEmbed 連続アクセスの抑制
       }
     }
-    rows.push([i + 2, name, slug, trCandidate, mvCandidate, '', '']);
+    Utilities.sleep(250); // 外部アクセスの連続実行を抑制
+    rows.push([i + 2, name, slug, romajiCandidate, mvCandidate, '', '']);
   }
 
   // 候補シートを作り直す(前回の「採用slug」入力は消えるので反映後に実行し直すこと)
@@ -1007,15 +1008,40 @@ function applySongSlugSuggestions() {
   ui.alert('採用slugを反映しました: ' + applied + ' 件(未入力スキップ ' + skipped + ' 件)\n結果列を確認してください');
 }
 
-/** 曲名を英訳して slug 候補にする(失敗時は空)。LanguageApp は Apps Script 組み込みでAPIキー不要 */
-function tryTranslateToEn_(name) {
+/**
+ * 曲名をローマ字読みにして slug 候補にする(取得できない曲は空)。
+ * Google翻訳の翻字(dt=rm)を利用。読みは機械推定なので誤読があり得る
+ * (例: 極彩色→gokusaishoku。公式は Gokusaishiki)。必ず人が確認して採用する。
+ * マクロン(ō/ū)は公式表記の慣例(RETTOU JOUTOU 等)に合わせ ou/uu に展開する。
+ * ※「おお」系(大江戸→oo)は ou になってしまうため該当曲は手修正すること。
+ */
+function tryRomanizeJa_(name) {
   try {
-    const tr = LanguageApp.translate(String(name), 'ja', 'en');
-    return slugify_(tr);
+    const endpoint =
+      'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=t&dt=rm&q=' +
+      encodeURIComponent(String(name));
+    const res = UrlFetchApp.fetch(endpoint, { muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) return '';
+    const j = JSON.parse(res.getContentText());
+    let translit = '';
+    (j[0] || []).forEach(function (seg) {
+      if (seg && seg[3]) translit += seg[3] + ' ';
+    });
+    return slugify_(expandMacrons_(translit));
   } catch (e) {
-    Logger.log('translate failed for "' + name + '": ' + e);
+    Logger.log('romanize failed for "' + name + '": ' + e);
     return '';
   }
+}
+
+/** ヘボン式マクロンを ou/uu 等の綴りに展開する(slug用) */
+function expandMacrons_(s) {
+  return String(s)
+    .replace(/[āĀ]/g, 'aa')
+    .replace(/[īĪ]/g, 'ii')
+    .replace(/[ūŪ]/g, 'uu')
+    .replace(/[ēĒ]/g, 'ee')
+    .replace(/[ōŌ]/g, 'ou');
 }
 
 /**
@@ -1042,7 +1068,9 @@ function fetchMvTitleCandidate_(mvUrl) {
  *     'Reol - 極彩色 GOKUSAISHIKI Music Video'    → 'gokusaishiki'
  */
 function extractLatinFromTitle_(title) {
-  let t = String(title || '').replace(/Music Video|Official Video|Lyric Video|MV|M\/V/gi, ' ');
+  let t = String(title || '')
+    .replace(/\[[^\]]*\]/g, ' ') // [MV] / [Live at ...] 等の角括弧ブロックは曲名でないため除去
+    .replace(/Music Video|Official Video|Lyric Video|MV|M\/V/gi, ' ');
   const clean = function (seg) {
     seg = seg.replace(/^Reol\b[\s:\-–—]*/i, '').replace(/["“”'’「」『』]/g, '');
     const s = slugify_(seg);
