@@ -33,6 +33,10 @@ const ErrorRetry: React.FC<ErrorRetryProps> = ({
       : "border-red-500/40 bg-white/5";
   const titleClass = tone === "light" ? "text-red-700" : "text-red-300";
   const descriptionClass = tone === "light" ? "text-gray-700" : "text-gray-300";
+  const buttonClass =
+    tone === "light"
+      ? "bg-theme text-white focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+      : "bg-bx-yellow text-bx-bg focus-visible:ring-bx-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-bx-bg";
 
   return (
     <div
@@ -51,7 +55,7 @@ const ErrorRetry: React.FC<ErrorRetryProps> = ({
       <button
         type="button"
         onClick={onRetry}
-        className="mt-3 inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full text-xs font-bold bg-theme text-white hover:opacity-90 active:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 transition-opacity motion-reduce:transition-none"
+        className={`mt-3 inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full text-xs font-bold ${buttonClass} hover:opacity-90 active:opacity-75 focus:outline-none focus-visible:ring-2 transition-opacity motion-reduce:transition-none`}
       >
         {actionLabel}
       </button>
