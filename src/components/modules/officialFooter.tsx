@@ -57,8 +57,8 @@ const OFFICIAL_LINKS: OfficialLink[] = [
 
 const OfficialFooter: React.FC = () => {
   return (
-    <footer className="relative bg-theme text-white pt-6 pb-4 px-4">
-      <h2 className="text-center text-xs font-bold tracking-[0.3em] text-letter mb-3">
+    <footer className="relative bg-bx-bg border-t border-bx-line text-bx-ink pt-6 pb-4 px-4">
+      <h2 className="text-center text-xs font-bold tracking-[0.3em] text-bx-ink2 mb-3">
         OFFICIAL LINKS
       </h2>
       <ul className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
@@ -68,7 +68,7 @@ const OfficialFooter: React.FC = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-full border border-white/30 hover:border-white/70 hover:bg-white/10 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-full border border-bx-line text-bx-ink3 hover:border-bx-blue hover:text-bx-ink transition-colors"
               onClick={() => trackOfficialLinkClick(link.type)}
             >
               <span className="text-sm">{link.icon}</span>
@@ -77,17 +77,28 @@ const OfficialFooter: React.FC = () => {
             </a>
           </li>
         ))}
+        <li>
+          <a
+            href="https://reol.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-extrabold tracking-wide rounded-full bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
+            onClick={() => trackOfficialLinkClick("site")}
+          >
+            <span>REOL.JP →</span>
+          </a>
+        </li>
       </ul>
-      <p className="text-center text-[11px] leading-relaxed text-white/70 max-w-xl mx-auto mb-3">
+      <p className="text-center text-[11px] leading-relaxed text-bx-ink3 max-w-xl mx-auto mb-3">
         本サイトはReol公式とは関係のない非公式ファンサイトです。
         楽曲・映像は公式の埋め込み/リンクのみ使用しています。
       </p>
-      <div className="flex justify-center items-center gap-2 text-[11px] text-white/60">
+      <div className="flex justify-center items-center gap-2 text-[11px] text-bx-ink3">
         <a
           href="https://twitter.com/twilightplc"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 hover:text-white/90 transition-colors"
+          className="flex items-center gap-1 hover:text-bx-ink transition-colors"
         >
           <FaXTwitter />
           <span>運営(非公式ファンサイト)</span>

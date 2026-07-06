@@ -10,13 +10,16 @@ import { ROUTE_NAMES } from "../../types/common";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { trackSectionView } from "../../utils/analytics";
 import { HomeSection, TimelineSection } from "./sections";
+import { SiteStats } from "./sections/HomeSection";
 
 interface IndexContentsProps {
   recommend: Recommend[];
+  siteStats: SiteStats;
 }
 
 const IndexContents: React.FC<IndexContentsProps> = ({
   recommend,
+  siteStats,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { currentRoute } = useSelector((state: RouteState) => state.route);
@@ -72,7 +75,7 @@ const IndexContents: React.FC<IndexContentsProps> = ({
   const renderCurrentContents = (route: string) => {
     switch (route) {
       case ROUTE_NAMES[0]:
-        return <HomeSection recommend={recommend} />;
+        return <HomeSection recommend={recommend} siteStats={siteStats} />;
       case ROUTE_NAMES[5]:
         return <TimelineSection />;
       // DISCOGRAPHY / LIVE / PLACE / PHOTO は独立ページに切り出し済み。

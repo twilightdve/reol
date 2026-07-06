@@ -54,7 +54,7 @@ const TrackingFooter: React.FC = () => {
   try {
     return (
       <nav
-        className="fixed bottom-0 z-[50] w-full bg-white shadow-[0px_-1px_6px_0px_rgba(0,0,0,0.3)]"
+        className="fixed bottom-0 z-[50] w-full bg-bx-bg/95 border-t border-bx-line backdrop-blur"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -81,10 +81,10 @@ const TrackingFooter: React.FC = () => {
                   handleNavigation(nextRoute)();
                 }
               }}
-              className={`flex flex-col items-center justify-center text-center m-auto py-2 sm:py-3 px-1 sm:px-2 w-1/6 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset ${
+              className={`relative flex flex-col items-center justify-center text-center m-auto py-2 sm:py-3 px-1 sm:px-2 w-1/6 cursor-pointer transition-all duration-200 hover:bg-white/5 active:bg-white/10 focus:outline-none focus:ring-2 focus:ring-bx-blue focus:ring-inset ${
                 currentRoute === route
-                  ? "bg-theme text-white shadow-inner"
-                  : "bg-white text-gray-800"
+                  ? "text-bx-yellow before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-0.5 before:bg-bx-yellow"
+                  : "text-bx-ink2"
               }`}
             >
               {renderIcon(route)}

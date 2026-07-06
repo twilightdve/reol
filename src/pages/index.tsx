@@ -4,6 +4,7 @@ import IndexContents from "../components/index/contents";
 import SEO from '../components/SEO'
 import { buildWebSite } from "../utils/jsonLd";
 import { Recommend } from "../types/recommend";
+import { SiteStats } from "../components/index/sections/HomeSection";
 
 type siteMetadata = {
   title: string;
@@ -26,17 +27,32 @@ export const query = graphql`
         id
       }
     }
+    siteStats {
+      siteStats {
+        songCount
+        liveItemCount
+        performanceCount
+        nextLive {
+          title
+          itemName
+          date
+          place
+        }
+      }
+    }
   }
 `;
 
 const IndexPage: FC<PageProps<any>> = ({ data }) => {
   const recommend: Recommend[] = data.recommend.recommend;
+  const siteStats: SiteStats = data.siteStats.siteStats;
 
   return (
     <>
       <main className="relative bg-transparent mx-auto inset-auto w-screen">
         <IndexContents
           recommend={recommend}
+          siteStats={siteStats}
         />
       </main>
       {/* フッター(公式リンク・運営情報)は Body 共通の OfficialFooter に統合 */}
