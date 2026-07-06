@@ -885,3 +885,180 @@ function fillSongUuidInLiveItemSong() {
   sh.getRange(2, songUuidIdx + 1, last - 1, 1).setValues(out);
   Logger.log('songUuid in live_item_song: byName=' + filledByName + ', cleared=' + cleared + ', missing=' + missing);
 }
+
+// =====================================================
+// slug候補の自動生成(英訳/公式MVタイトル) → 人が選んで確定
+// =====================================================
+/**
+ * 背景: 漢字を含む曲名は読みを機械推測できず、フォールバックslugが残る。
+ * 一方で Reol 曲の公式表記は「英訳型(第六感→THE SIXTH SENSE)」と
+ * 「読みローマ字型(劣等上等→RETTOU JOUTOU)」が混在しており、
+ * どちらが正かは機械では判定できない。
+ * → 候補を自動生成して人が選ぶ2段階方式にする(誤った恒久URLを防ぐ)。
+ *
+ * 使い方:
+ *   1. suggestSongSlugCandidates() を実行
+ *      → slug_suggestions シートにフォールバック曲の候補一覧が出る
+ *        候補1: 曲名の英訳(LanguageApp、APIキー不要)
+ *        候補2: 公式MVタイトルの英字部分(musicVideoUrl がある曲のみ、YouTube oEmbed)
+ *   2. 「採用slug」列に確定値を入力(候補のコピーでも自由入力でもよい)
+ *   3. applySongSlugSuggestions() を実行 → song シートの slug に反映
+ */
+const SLUG_SUGGESTION_SHEET = 'slug_suggestions';
+const SLUG_SUGGESTION_HEADERS = ['songRow', '曲名', '現slug', '候補1: 英訳', '候補2: 公式MV英題', '採用slug(ここに入力)', '結果'];
+
+function suggestSongSlugCandidates() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ui = SpreadsheetApp.getUi();
+  const sh = ss.getSheetByName('song');
+  if (!sh) { ui.alert('song シートがありません'); return; }
+  const slugIdx = findColIndex_(sh, 'slug');
+  const uuidIdx = findColIndex_(sh, 'uuid');
+  const mvIdx = findColIndex_(sh, 'musicVideoUrl');
+  const nameCol = 4; // E: songName
+  if (slugIdx < 0 || uuidIdx < 0) { ui.alert('song シートに slug/uuid 列がありません'); return; }
+  const lastRow = sh.getLastRow();
+  if (lastRow < 2) return;
+
+  const values = sh.getRange(2, 1, lastRow - 1, sh.getLastColumn()).getValues();
+  const isFallback = (slug, uuid) =>
+    slug !== '' && uuid !== '' && slug === uuid.replace(/-/g, '').slice(-12);
+
+  const rows = [];
+  let mvHit = 0;
+  for (let i = 0; i < values.length; i++) {
+    const slug = normCell_(values[i][slugIdx]);
+    const uuid = normCell_(values[i][uuidIdx]);
+    if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
+    const name = normCell_(values[i][nameCol]);
+    const trCandidate = tryTranslateToEn_(name);
+    let mvCandidate = '';
+    if (mvIdx >= 0) {
+      const mvUrl = normCell_(values[i][mvIdx]);
+      if (mvUrl) {
+        mvCandidate = fetchMvTitleCandidate_(mvUrl);
+        if (mvCandidate) mvHit += 1;
+        Utilities.sleep(300); // oEmbed 連続アクセスの抑制
+      }
+    }
+    rows.push([i + 2, name, slug, trCandidate, mvCandidate, '', '']);
+  }
+
+  // 候補シートを作り直す(前回の「採用slug」入力は消えるので反映後に実行し直すこと)
+  let out = ss.getSheetByName(SLUG_SUGGESTION_SHEET);
+  if (out) out.clear();
+  else out = ss.insertSheet(SLUG_SUGGESTION_SHEET);
+  out.getRange(1, 1, 1, SLUG_SUGGESTION_HEADERS.length).setValues([SLUG_SUGGESTION_HEADERS]);
+  if (rows.length) {
+    out.getRange(2, 1, rows.length, SLUG_SUGGESTION_HEADERS.length).setValues(rows);
+  }
+  ui.alert(
+    'slug候補を生成しました: ' + rows.length + ' 曲(うち公式MV題候補あり ' + mvHit + ' 曲)\n\n' +
+      '「' + SLUG_SUGGESTION_SHEET + '」シートの採用slug列に確定値を入力し、\n' +
+      'applySongSlugSuggestions() で反映してください。\n' +
+      '※候補は機械生成です。公式表記(MV題・配信表記)と照合してから採用してください'
+  );
+}
+
+/** slug_suggestions の「採用slug」入力を song シートに反映する */
+function applySongSlugSuggestions() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ui = SpreadsheetApp.getUi();
+  const sug = ss.getSheetByName(SLUG_SUGGESTION_SHEET);
+  const sh = ss.getSheetByName('song');
+  if (!sug || !sh) { ui.alert(SLUG_SUGGESTION_SHEET + ' または song シートがありません'); return; }
+  const slugIdx = findColIndex_(sh, 'slug');
+  if (slugIdx < 0) return;
+  const lastRow = sh.getLastRow();
+  const songSlugs = sh.getRange(2, slugIdx + 1, lastRow - 1, 1).getValues();
+
+  const sugLast = sug.getLastRow();
+  if (sugLast < 2) { ui.alert('候補行がありません'); return; }
+  const sugValues = sug.getRange(2, 1, sugLast - 1, SLUG_SUGGESTION_HEADERS.length).getValues();
+
+  // 既存slug全体(重複防止)。反映対象行の現slugは置き換わるので除外はしない
+  // (フォールバックslugと衝突する新slugは実質あり得ないため単純化)
+  const usedSlugs = new Set();
+  songSlugs.forEach((r) => { const v = normCell_(r[0]); if (v) usedSlugs.add(v); });
+
+  let applied = 0;
+  let skipped = 0;
+  const results = [];
+  for (let i = 0; i < sugValues.length; i++) {
+    const songRow = Number(sugValues[i][0]);
+    const adopted = normCell_(sugValues[i][5]);
+    if (!adopted) { results.push(['']); skipped += 1; continue; }
+    const normalized = slugify_(adopted);
+    if (!normalized) { results.push(['無効(英数になりません)']); continue; }
+    if (!(songRow >= 2 && songRow <= lastRow)) { results.push(['行番号不正']); continue; }
+    // 同一曲の複数収録行などで重複する場合は既存規約どおり -2, -3… を自動連番
+    let candidate = normalized;
+    let n = 2;
+    while (usedSlugs.has(candidate)) {
+      candidate = normalized + '-' + n;
+      n += 1;
+    }
+    sh.getRange(songRow, slugIdx + 1).setValue(candidate);
+    usedSlugs.add(candidate);
+    applied += 1;
+    results.push(['反映済み → ' + candidate + (candidate !== normalized ? ' (自動連番)' : '')]);
+  }
+  sug.getRange(2, SLUG_SUGGESTION_HEADERS.length, sugValues.length, 1).setValues(results);
+  ui.alert('採用slugを反映しました: ' + applied + ' 件(未入力スキップ ' + skipped + ' 件)\n結果列を確認してください');
+}
+
+/** 曲名を英訳して slug 候補にする(失敗時は空)。LanguageApp は Apps Script 組み込みでAPIキー不要 */
+function tryTranslateToEn_(name) {
+  try {
+    const tr = LanguageApp.translate(String(name), 'ja', 'en');
+    return slugify_(tr);
+  } catch (e) {
+    Logger.log('translate failed for "' + name + '": ' + e);
+    return '';
+  }
+}
+
+/**
+ * 公式MVのタイトルから英字部分の slug 候補を作る(取得失敗・英字なしは空)。
+ * ※取得するのは動画タイトル文字列のみ。チャンネルの同定等には使わない
+ *   (公式リンクは oEmbed から推定しない方針のため)。
+ */
+function fetchMvTitleCandidate_(mvUrl) {
+  try {
+    const endpoint = 'https://www.youtube.com/oembed?url=' + encodeURIComponent(mvUrl) + '&format=json';
+    const res = UrlFetchApp.fetch(endpoint, { muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) return '';
+    const title = JSON.parse(res.getContentText()).title;
+    return extractLatinFromTitle_(title);
+  } catch (e) {
+    Logger.log('oEmbed fetch failed for ' + mvUrl + ': ' + e);
+    return '';
+  }
+}
+
+/**
+ * MVタイトル文字列から公式英題らしき部分を抽出して slug 化する。
+ * 例: 'Reol - 宵々古今 / YoiYoi Kokon Music Video' → 'yoiyoi-kokon'
+ *     'Reol - 極彩色 GOKUSAISHIKI Music Video'    → 'gokusaishiki'
+ */
+function extractLatinFromTitle_(title) {
+  let t = String(title || '').replace(/Music Video|Official Video|Lyric Video|MV|M\/V/gi, ' ');
+  const clean = function (seg) {
+    seg = seg.replace(/^Reol\b[\s:\-–—]*/i, '').replace(/["“”'’「」『』]/g, '');
+    const s = slugify_(seg);
+    return (!s || s === 'reol') ? '' : s;
+  };
+  // 1. '/'区切りで日本語を含まない英字セグメント(最後を優先)
+  const segs = t.split(/[\/|｜]/).map(function (s) { return s.trim(); });
+  let best = '';
+  for (let i = 0; i < segs.length; i++) {
+    if (/[a-zA-Z]/.test(segs[i]) && !/[぀-ヿ一-鿿]/.test(segs[i])) best = segs[i];
+  }
+  if (best) {
+    const s = clean(best);
+    if (s) return s;
+  }
+  // 2. フォールバック: タイトル全体からかな/漢字を除去して残る英字
+  const latinOnly = t.replace(/[぀-ヿ一-鿿]+/g, ' ');
+  return clean(latinOnly);
+}
