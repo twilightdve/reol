@@ -887,65 +887,68 @@ function fillSongUuidInLiveItemSong() {
 }
 
 // =====================================================
-// slug候補の自動生成(ローマ字読み/公式MVタイトル) → 人が選んで確定
+// slug候補の自動生成(ローマ字読み/公式MVタイトル) → 人が確認して確定
 // =====================================================
 /**
- * 背景: 漢字を含む曲名は読みを機械推測できず、フォールバックslugが残る。
- * 一方で Reol 曲の公式表記は「英訳型(第六感→THE SIXTH SENSE)」と
- * 「読みローマ字型(劣等上等→RETTOU JOUTOU)」が混在しており、
- * どちらが正かは機械では判定できない。
- * → 候補を自動生成して人が選ぶ2段階方式にする(誤った恒久URLを防ぐ)。
+ * 背景: 漢字を含む名前(曲名・公演地名など)は読みを機械推測できず、
+ * フォールバックslugが残る(song 46行のほか live_item 127行など)。
+ * 公式表記は「英訳型(第六感→THE SIXTH SENSE)」「読みローマ字型(劣等上等→RETTOU JOUTOU)」が
+ * 混在しており機械では確定できないため、候補を自動生成して人が確認する2段階方式にする。
  *
  * 使い方:
- *   1. suggestSongSlugCandidates() を実行
- *      → slug_suggestions シートにフォールバック曲の候補一覧が出る
- *        候補1: 曲名のローマ字読み(Google翻訳の翻字。誤読あり得るため要確認。
- *                翻字が返らない曲は空欄になるので手動入力)
- *        候補2: 公式MVタイトルの英字部分(musicVideoUrl がある曲のみ、YouTube oEmbed)
- *   2. 「採用slug」列に確定値を入力(候補のコピーでも自由入力でもよい)
- *   3. applySongSlugSuggestions() を実行 → song シートの slug に反映
+ *   1. suggestSlugCandidates() を実行
+ *      → slug_suggestions シートに slug 列を持つ全シートのフォールバック行が出る
+ *        候補1: 名前のローマ字読み(Google翻訳の翻字。誤読あり得る。返らない場合は空)
+ *        候補2: 公式MVタイトルの英字部分(songシートで musicVideoUrl がある行のみ)
+ *        採用slug列には最良候補(MV題 > ローマ字)を事前入力する — **必ず確認・修正すること**
+ *   2. 「採用slug」列を確認・修正(不採用行は空にすればスキップされる)
+ *   3. applySlugSuggestions() を実行 → 各シートの slug に反映
  */
 const SLUG_SUGGESTION_SHEET = 'slug_suggestions';
-const SLUG_SUGGESTION_HEADERS = ['songRow', '曲名', '現slug', '候補1: ローマ字読み', '候補2: 公式MV英題', '採用slug(ここに入力)', '結果'];
+const SLUG_SUGGESTION_HEADERS = ['sheet', 'row', '名前', '現slug', '候補1: ローマ字読み', '候補2: 公式MV英題', '採用slug(要確認・修正)', '結果'];
 
-function suggestSongSlugCandidates() {
+function suggestSlugCandidates() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const ui = SpreadsheetApp.getUi();
-  const sh = ss.getSheetByName('song');
-  if (!sh) { ui.alert('song シートがありません'); return; }
-  const slugIdx = findColIndex_(sh, 'slug');
-  const uuidIdx = findColIndex_(sh, 'uuid');
-  const mvIdx = findColIndex_(sh, 'musicVideoUrl');
-  const nameCol = 4; // E: songName
-  if (slugIdx < 0 || uuidIdx < 0) { ui.alert('song シートに slug/uuid 列がありません'); return; }
-  const lastRow = sh.getLastRow();
-  if (lastRow < 2) return;
-
-  const values = sh.getRange(2, 1, lastRow - 1, sh.getLastColumn()).getValues();
   const isFallback = (slug, uuid) =>
     slug !== '' && uuid !== '' && slug === uuid.replace(/-/g, '').slice(-12);
 
   const rows = [];
   let mvHit = 0;
-  for (let i = 0; i < values.length; i++) {
-    const slug = normCell_(values[i][slugIdx]);
-    const uuid = normCell_(values[i][uuidIdx]);
-    if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
-    const name = normCell_(values[i][nameCol]);
-    const romajiCandidate = tryRomanizeJa_(name);
-    let mvCandidate = '';
-    if (mvIdx >= 0) {
-      const mvUrl = normCell_(values[i][mvIdx]);
-      if (mvUrl) {
-        mvCandidate = fetchMvTitleCandidate_(mvUrl);
-        if (mvCandidate) mvHit += 1;
-      }
-    }
-    Utilities.sleep(250); // 外部アクセスの連続実行を抑制
-    rows.push([i + 2, name, slug, romajiCandidate, mvCandidate, '', '']);
-  }
+  SHEET_DEFS.forEach((def) => {
+    if (!def.addCols.includes('slug')) return;
+    const sh = ss.getSheetByName(def.name);
+    if (!sh) return;
+    const slugIdx = findColIndex_(sh, 'slug');
+    const uuidIdx = findColIndex_(sh, 'uuid');
+    const mvIdx = findColIndex_(sh, 'musicVideoUrl'); // song シート以外は -1
+    if (slugIdx < 0 || uuidIdx < 0) return;
+    const lastRow = sh.getLastRow();
+    if (lastRow < 2) return;
 
-  // 候補シートを作り直す(前回の「採用slug」入力は消えるので反映後に実行し直すこと)
+    const values = sh.getRange(2, 1, lastRow - 1, sh.getLastColumn()).getValues();
+    for (let i = 0; i < values.length; i++) {
+      const slug = normCell_(values[i][slugIdx]);
+      const uuid = normCell_(values[i][uuidIdx]);
+      if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
+      const name = normCell_(values[i][def.nameCol]);
+      const romajiCandidate = name ? tryRomanizeJa_(name) : '';
+      let mvCandidate = '';
+      if (mvIdx >= 0) {
+        const mvUrl = normCell_(values[i][mvIdx]);
+        if (mvUrl) {
+          mvCandidate = fetchMvTitleCandidate_(mvUrl);
+          if (mvCandidate) mvHit += 1;
+        }
+      }
+      if (name) Utilities.sleep(200); // 外部アクセスの連続実行を抑制
+      // 採用列は最良候補(公式MV題 > ローマ字)を事前入力。人が確認・修正する前提
+      const prefill = mvCandidate || romajiCandidate || '';
+      rows.push([def.name, i + 2, name, slug, romajiCandidate, mvCandidate, prefill, '']);
+    }
+  });
+
+  // 候補シートを作り直す(前回の「採用slug」入力は消えるので、反映してから再実行すること)
   let out = ss.getSheetByName(SLUG_SUGGESTION_SHEET);
   if (out) out.clear();
   else out = ss.insertSheet(SLUG_SUGGESTION_SHEET);
@@ -954,53 +957,70 @@ function suggestSongSlugCandidates() {
     out.getRange(2, 1, rows.length, SLUG_SUGGESTION_HEADERS.length).setValues(rows);
   }
   ui.alert(
-    'slug候補を生成しました: ' + rows.length + ' 曲(うち公式MV題候補あり ' + mvHit + ' 曲)\n\n' +
-      '「' + SLUG_SUGGESTION_SHEET + '」シートの採用slug列に確定値を入力し、\n' +
-      'applySongSlugSuggestions() で反映してください。\n' +
-      '※候補は機械生成です。公式表記(MV題・配信表記)と照合してから採用してください'
+    'slug候補を生成しました: ' + rows.length + ' 行(うち公式MV題候補あり ' + mvHit + ' 行)\n\n' +
+      '「' + SLUG_SUGGESTION_SHEET + '」シートの採用slug列は候補で事前入力してあります。\n' +
+      '必ず内容を確認・修正してから applySlugSuggestions() で反映してください。\n' +
+      '(不採用にする行は採用slugを空にすればスキップされます)\n' +
+      '※候補は機械生成です。公式表記(MV題・配信表記)と照合してください'
   );
 }
 
-/** slug_suggestions の「採用slug」入力を song シートに反映する */
-function applySongSlugSuggestions() {
+/** slug_suggestions の「採用slug」入力を各シートに反映する */
+function applySlugSuggestions() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const ui = SpreadsheetApp.getUi();
   const sug = ss.getSheetByName(SLUG_SUGGESTION_SHEET);
-  const sh = ss.getSheetByName('song');
-  if (!sug || !sh) { ui.alert(SLUG_SUGGESTION_SHEET + ' または song シートがありません'); return; }
-  const slugIdx = findColIndex_(sh, 'slug');
-  if (slugIdx < 0) return;
-  const lastRow = sh.getLastRow();
-  const songSlugs = sh.getRange(2, slugIdx + 1, lastRow - 1, 1).getValues();
-
+  if (!sug) { ui.alert(SLUG_SUGGESTION_SHEET + ' シートがありません(先に候補を生成してください)'); return; }
   const sugLast = sug.getLastRow();
   if (sugLast < 2) { ui.alert('候補行がありません'); return; }
   const sugValues = sug.getRange(2, 1, sugLast - 1, SLUG_SUGGESTION_HEADERS.length).getValues();
 
-  // 既存slug全体(重複防止)。反映対象行の現slugは置き換わるので除外はしない
-  // (フォールバックslugと衝突する新slugは実質あり得ないため単純化)
-  const usedSlugs = new Set();
-  songSlugs.forEach((r) => { const v = normCell_(r[0]); if (v) usedSlugs.add(v); });
+  // シートごとの状態(遅延ロード): { sh, slugIdx, lastRow, usedSlugs }
+  const sheetStates = new Map();
+  const getState = (sheetName) => {
+    if (sheetStates.has(sheetName)) return sheetStates.get(sheetName);
+    const sh = ss.getSheetByName(sheetName);
+    let state = null;
+    if (sh) {
+      const slugIdx = findColIndex_(sh, 'slug');
+      if (slugIdx >= 0) {
+        const lastRow = sh.getLastRow();
+        const usedSlugs = new Set();
+        if (lastRow >= 2) {
+          sh.getRange(2, slugIdx + 1, lastRow - 1, 1).getValues().forEach((r) => {
+            const v = normCell_(r[0]);
+            if (v) usedSlugs.add(v);
+          });
+        }
+        state = { sh: sh, slugIdx: slugIdx, lastRow: lastRow, usedSlugs: usedSlugs };
+      }
+    }
+    sheetStates.set(sheetName, state);
+    return state;
+  };
 
   let applied = 0;
   let skipped = 0;
   const results = [];
   for (let i = 0; i < sugValues.length; i++) {
-    const songRow = Number(sugValues[i][0]);
-    const adopted = normCell_(sugValues[i][5]);
+    const sheetName = normCell_(sugValues[i][0]);
+    const row = Number(sugValues[i][1]);
+    const adopted = normCell_(sugValues[i][6]);
     if (!adopted) { results.push(['']); skipped += 1; continue; }
+    const state = getState(sheetName);
+    if (!state) { results.push(['シート不明: ' + sheetName]); continue; }
     const normalized = slugify_(adopted);
     if (!normalized) { results.push(['無効(英数になりません)']); continue; }
-    if (!(songRow >= 2 && songRow <= lastRow)) { results.push(['行番号不正']); continue; }
-    // 同一曲の複数収録行などで重複する場合は既存規約どおり -2, -3… を自動連番
+    if (!(row >= 2 && row <= state.lastRow)) { results.push(['行番号不正']); continue; }
+    // 同一名の複数行(同曲の複数収録・同名公演)は既存規約どおり -2, -3… を自動連番
     let candidate = normalized;
     let n = 2;
-    while (usedSlugs.has(candidate)) {
+    while (state.usedSlugs.has(candidate)) {
       candidate = normalized + '-' + n;
       n += 1;
     }
-    sh.getRange(songRow, slugIdx + 1).setValue(candidate);
-    usedSlugs.add(candidate);
+    state.sh.getRange(row, state.slugIdx + 1).setValue(candidate);
+    state.usedSlugs.add(candidate);
     applied += 1;
     results.push(['反映済み → ' + candidate + (candidate !== normalized ? ' (自動連番)' : '')]);
   }
