@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { HeadFC, Link } from "gatsby";
+import { HeadFC } from "gatsby";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { normalizeSongName } from "../utils/songMatcher";
 import { trackEvent } from "../utils/analytics";
+import { GlassCard, Kicker, GlassCardAccent } from "../components/redesign";
 
 /** 空状態で提示するサンプルクエリ(placeholderの例と揃える) */
 const SAMPLE_QUERIES = ["第六感", "文明ココロミー", "武道館", "2024"];
@@ -65,6 +66,49 @@ type Hit =
   | { kind: "album"; albumSlug: string; name: string; subtitle: string; score: number }
   | { kind: "live"; liveSlug: string; liveItemSlug?: string; name: string; subtitle: string; score: number }
   | { kind: "place"; placeSlug: string; name: string; subtitle: string; score: number };
+
+/** カテゴリごとの見出しラベル・GlassCardのhoverアクセント・バッジ配色(bx-blue/bx-yellow/bx-blueLight系) */
+const KIND_META: Record<
+  Hit["kind"],
+  {
+    label: string;
+    badge: string;
+    accent: GlassCardAccent;
+    badgeClass: string;
+    kickerClass: string;
+  }
+> = {
+  song: {
+    label: "楽曲",
+    badge: "曲",
+    accent: "blue",
+    badgeClass: "border-bx-blue text-bx-blue",
+    kickerClass: "text-bx-blue",
+  },
+  album: {
+    label: "アルバム",
+    badge: "盤",
+    accent: "blueLight",
+    badgeClass: "border-bx-blueLight text-bx-blueLight",
+    kickerClass: "text-bx-blueLight",
+  },
+  live: {
+    label: "LIVE",
+    badge: "L",
+    accent: "yellow",
+    badgeClass: "border-bx-yellow text-bx-yellow",
+    kickerClass: "text-bx-yellow",
+  },
+  place: {
+    label: "ロケ地",
+    badge: "地",
+    accent: "blueDeep",
+    badgeClass: "border-bx-blueDeep text-bx-blueDeep",
+    kickerClass: "text-bx-blueDeep",
+  },
+};
+
+const GROUP_ORDER: Hit["kind"][] = ["song", "album", "live", "place"];
 
 const fetchJson = async <T,>(url: string): Promise<T> => {
   const r = await fetch(url);
@@ -257,14 +301,21 @@ const SearchPage: React.FC = () => {
     return () => clearTimeout(timer);
   }, [query, isLoaded, hits.length]);
 
+  // 表示上限200件はカテゴリ見出しでグルーピングする前のフラットな件数に対して適用する
+  const limited = filtered.slice(0, 200);
+  const groupedLimited = GROUP_ORDER.map((kind) => ({
+    kind,
+    items: limited.filter((h) => h.kind === kind),
+  })).filter((g) => g.items.length > 0);
+
   return (
     <Layout title="検索">
-      <main className="container mx-auto px-3 sm:px-4 py-4 max-w-4xl text-gray-800">
+      <main className="container mx-auto px-3 sm:px-4 py-4 max-w-4xl text-bx-ink">
         <header className="mb-3">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-gray-900">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
             検索
           </h1>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-bx-ink3">
             楽曲・アルバム・LIVE・ロケ地を横断検索します
           </p>
         </header>
@@ -275,11 +326,11 @@ const SearchPage: React.FC = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="例: 第六感 / 文明ココロミー / 武道館 / 2024"
-          className="w-full px-3 py-2 mb-3 text-base sm:text-sm rounded bg-white border border-gray-400 text-gray-900 shadow-sm"
+          className="w-full px-3 py-2 mb-3 text-base sm:text-sm rounded bg-white/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
         />
 
         {error && (
-          <p className="text-red-600 text-xs mb-2">読み込みエラー: {error}</p>
+          <p className="text-red-400 text-xs mb-2">読み込みエラー: {error}</p>
         )}
 
         <nav className="flex gap-1 mb-3 text-xs">
@@ -295,10 +346,10 @@ const SearchPage: React.FC = () => {
             <button
               key={k}
               type="button"
-              className={`px-2 py-1 rounded border ${
+              className={`px-2 py-1 rounded border transition-colors ${
                 tab === k
-                  ? "border-amber-500 text-amber-700 bg-amber-50"
-                  : "border-gray-300 text-gray-700 bg-white hover:border-gray-500"
+                  ? "border-bx-yellow text-bx-yellow bg-white/5"
+                  : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
               }`}
               onClick={() => setTab(k)}
             >
@@ -308,16 +359,16 @@ const SearchPage: React.FC = () => {
         </nav>
 
         {!isLoaded && !error && (
-          <div className="rounded-lg border border-gray-300 bg-white/80 p-6 text-center">
-            <div className="inline-block w-6 h-6 border-2 border-gray-300 border-t-amber-500 rounded-full animate-spin mb-2" />
-            <p className="text-gray-700 text-sm">データを読み込み中…</p>
+          <div className="rounded-lg border border-bx-line bg-white/5 p-6 text-center">
+            <div className="inline-block w-6 h-6 border-2 border-bx-line border-t-bx-yellow rounded-full animate-spin mb-2" />
+            <p className="text-bx-ink2 text-sm">データを読み込み中…</p>
           </div>
         )}
 
         {/* 空状態: サンプルクエリで検索の使い方を提示する */}
         {isLoaded && !query.trim() && (
-          <div className="rounded-lg border border-gray-300 bg-white/80 p-4">
-            <p className="text-xs text-gray-600 mb-2">
+          <div className="rounded-lg border border-bx-line bg-white/5 p-4">
+            <p className="text-xs text-bx-ink3 mb-2">
               曲名・アルバム名・公演名・会場名・年号などで検索できます。例:
             </p>
             <div className="flex flex-wrap gap-2">
@@ -325,7 +376,7 @@ const SearchPage: React.FC = () => {
                 <button
                   key={q}
                   type="button"
-                  className="px-3 py-1 text-xs rounded-full border border-amber-400 text-amber-700 bg-amber-50 hover:bg-amber-100 transition-colors"
+                  className="px-3 py-1 text-xs rounded-full border border-bx-line bg-white/5 text-bx-ink3 hover:border-bx-blue transition-colors"
                   onClick={() => setQuery(q)}
                 >
                   {q}
@@ -335,22 +386,28 @@ const SearchPage: React.FC = () => {
           </div>
         )}
 
-        <ul className="space-y-1">
-          {filtered.slice(0, 200).map((h, i) => (
-            <li
-              key={`${h.kind}-${i}`}
-              className="rounded border border-gray-300 bg-white hover:border-gray-500 shadow-sm"
-            >
-              <ResultLink hit={h} />
-            </li>
+        <div className="space-y-5">
+          {groupedLimited.map(({ kind, items }) => (
+            <section key={kind}>
+              <Kicker color={KIND_META[kind].kickerClass} className="mb-2">
+                {KIND_META[kind].label}
+              </Kicker>
+              <ul className="space-y-2">
+                {items.map((h, i) => (
+                  <li key={`${h.kind}-${i}`}>
+                    <ResultLink hit={h} />
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
 
         {query && filtered.length === 0 && discography && (
-          <p className="text-gray-600 text-xs mt-3">該当なし</p>
+          <p className="text-bx-ink3 text-xs mt-3">該当なし</p>
         )}
         {filtered.length > 200 && (
-          <p className="text-gray-600 text-xs mt-3">
+          <p className="text-bx-ink3 text-xs mt-3">
             上位 200 件のみ表示中（全 {filtered.length} 件）
           </p>
         )}
@@ -360,23 +417,12 @@ const SearchPage: React.FC = () => {
 };
 
 const KindBadge: React.FC<{ kind: Hit["kind"] }> = ({ kind }) => {
-  const labels: Record<Hit["kind"], string> = {
-    song: "曲",
-    album: "盤",
-    live: "L",
-    place: "地",
-  };
-  const colors: Record<Hit["kind"], string> = {
-    song: "bg-emerald-600 text-white",
-    album: "bg-purple-600 text-white",
-    live: "bg-amber-600 text-white",
-    place: "bg-sky-600 text-white",
-  };
+  const meta = KIND_META[kind];
   return (
     <span
-      className={`inline-block w-6 text-center text-[10px] py-0.5 rounded mr-2 ${colors[kind]}`}
+      className={`inline-block w-6 text-center text-[10px] py-0.5 rounded-full border mr-2 ${meta.badgeClass}`}
     >
-      {labels[kind]}
+      {meta.badge}
     </span>
   );
 };
@@ -386,18 +432,19 @@ const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
     <div className="flex items-center px-2 py-1.5 text-xs">
       <KindBadge kind={hit.kind} />
       <span className="truncate">
-        <span className="text-gray-900">{hit.name}</span>
+        <span className="text-bx-ink">{hit.name}</span>
         {hit.subtitle && (
-          <span className="ml-2 text-gray-500">{hit.subtitle}</span>
+          <span className="ml-2 text-bx-ink3">{hit.subtitle}</span>
         )}
       </span>
     </div>
   );
+  const accent = KIND_META[hit.kind].accent;
   if (hit.kind === "song") {
     return (
-      <Link to={`/songs/${hit.songSlug}/`} className="block hover:bg-amber-50/70">
+      <GlassCard to={`/songs/${hit.songSlug}/`} accent={accent} className="block">
         {inner}
-      </Link>
+      </GlassCard>
     );
   }
   if (hit.kind === "live") {
@@ -405,29 +452,23 @@ const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
       ? `live-item-${hit.liveItemSlug}`
       : `live-${hit.liveSlug}`;
     return (
-      <Link to={`/live/#${anchor}`} className="block hover:bg-amber-50/70">
+      <GlassCard to={`/live/#${anchor}`} accent={accent} className="block">
         {inner}
-      </Link>
+      </GlassCard>
     );
   }
   if (hit.kind === "album") {
     return (
-      <Link
-        to={`/discography/#disc-${hit.albumSlug}`}
-        className="block hover:bg-amber-50/70"
-      >
+      <GlassCard to={`/discography/#disc-${hit.albumSlug}`} accent={accent} className="block">
         {inner}
-      </Link>
+      </GlassCard>
     );
   }
   // place
   return (
-    <Link
-      to={`/place/#place-${hit.placeSlug}`}
-      className="block hover:bg-amber-50/70"
-    >
+    <GlassCard to={`/place/#place-${hit.placeSlug}`} accent={accent} className="block">
       {inner}
-    </Link>
+    </GlassCard>
   );
 };
 
