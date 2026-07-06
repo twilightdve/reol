@@ -84,6 +84,8 @@ A=Sonnet 5、B/C/D=Fable 5直接。typecheck・build成功。
 
 **残作業(ユーザー操作)**: ①改修版GASをApps Scriptへ反映 → ②`regenerateFallbackSlugs()` 実行(かな26曲が自動修正、漢字含み約24曲がレポートに残る)→ ③残件のslugをシートに手動入力(公式ローマ字)→ ④報告を受けてFableが再ビルド検証。**デプロイ後のslug変更はURL切れになるため、初回デプロイ前に完了させること**
 
+※②は実行済み(2026-07-03のシート取得で確認)。③の支援として **slug候補の自動生成機能を追加(2026-07-06)**: メニュー[UUID 移行]→「slug: 候補を生成」で `slug_suggestions` シートに候補が出る(候補1=英訳 LanguageApp、候補2=公式MVタイトルの英字部分 oEmbed。実MVで gokusaishiki / yoiyoi-kokon / the-sixth-sense / lost-paradise と公式表記どおり取れることを確認済み)。「採用slug」列に確定値を入力→「slug: 採用slugを反映」で song シートへ反映(slugify正規化+重複は-2連番)。候補を直接自動採用しないのは、公式表記が英訳型(第六感→THE SIXTH SENSE)と読みローマ字型(劣等上等→RETTOU JOUTOU)で混在し、機械では判定できないため
+
 ### 第5バッチ候補メモ
 
 - ツアーナビ常設化+美辞学アーカイブ(**7/10のツアーファイナル後に着手**)
