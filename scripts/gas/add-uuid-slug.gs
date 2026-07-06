@@ -915,6 +915,10 @@ function suggestSlugCandidates() {
 
   const rows = [];
   let mvHit = 0;
+  let romajiFail = 0;
+  // 同名(「栃木」等は複数ツアーに登場)のリクエスト重複を避けるキャッシュ。
+  // レート制限(=live_item以降だけ候補が空になる症状)の主対策
+  const romajiCache = new Map();
   SHEET_DEFS.forEach((def) => {
     if (!def.addCols.includes('slug')) return;
     const sh = ss.getSheetByName(def.name);
@@ -952,7 +956,21 @@ function suggestSlugCandidates() {
         const liveTitle = liveTitleById.get(normCell_(values[i][1])) || ''; // B: liveId
         if (liveTitle) displayName = liveTitle + ' / ' + name;
       }
-      const romajiCandidate = name ? tryRomanizeJa_(name) : '';
+      let romajiCandidate = '';
+      if (name) {
+        if (romajiCache.has(name)) {
+          romajiCandidate = romajiCache.get(name);
+        } else {
+          const r = tryRomanizeJa_(name); // null=通信失敗 / ''=翻字なし
+          if (r === null) {
+            romajiFail += 1; // 失敗はキャッシュしない(再実行で埋まる余地を残す)
+          } else {
+            romajiCandidate = r;
+            romajiCache.set(name, r);
+          }
+          Utilities.sleep(350); // 外部アクセスの連続実行を抑制(キャッシュヒット時は待たない)
+        }
+      }
       let mvCandidate = '';
       if (mvIdx >= 0) {
         const mvUrl = normCell_(values[i][mvIdx]);
@@ -961,7 +979,6 @@ function suggestSlugCandidates() {
           if (mvCandidate) mvHit += 1;
         }
       }
-      if (name) Utilities.sleep(200); // 外部アクセスの連続実行を抑制
       // 採用列は最良候補(公式MV題 > ローマ字)を事前入力。人が確認・修正する前提
       const prefill = mvCandidate || romajiCandidate || '';
       rows.push([def.name, i + 2, displayName, slug, romajiCandidate, mvCandidate, prefill, '']);
@@ -977,8 +994,12 @@ function suggestSlugCandidates() {
     out.getRange(2, 1, rows.length, SLUG_SUGGESTION_HEADERS.length).setValues(rows);
   }
   ui.alert(
-    'slug候補を生成しました: ' + rows.length + ' 行(うち公式MV題候補あり ' + mvHit + ' 行)\n\n' +
-      '「' + SLUG_SUGGESTION_SHEET + '」シートの採用slug列は候補で事前入力してあります。\n' +
+    'slug候補を生成しました: ' + rows.length + ' 行(うち公式MV題候補あり ' + mvHit + ' 行)\n' +
+      (romajiFail > 0
+        ? '⚠ ローマ字候補の取得失敗: ' + romajiFail + ' 件(レート制限の可能性。時間をおいて再実行すると埋まります。\n' +
+          '  ただし再実行は採用slug列を作り直すので、入力済みなら先に反映してください)\n'
+        : '') +
+      '\n「' + SLUG_SUGGESTION_SHEET + '」シートの採用slug列は候補で事前入力してあります。\n' +
       '必ず内容を確認・修正してから applySlugSuggestions() で反映してください。\n' +
       '(不採用にする行は採用slugを空にすればスキップされます)\n' +
       '※候補は機械生成です。公式表記(MV題・配信表記)と照合してください'
@@ -1056,22 +1077,30 @@ function applySlugSuggestions() {
  * ※「おお」系(大江戸→oo)は ou になってしまうため該当曲は手修正すること。
  */
 function tryRomanizeJa_(name) {
-  try {
-    const endpoint =
-      'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=t&dt=rm&q=' +
-      encodeURIComponent(String(name));
-    const res = UrlFetchApp.fetch(endpoint, { muteHttpExceptions: true });
-    if (res.getResponseCode() !== 200) return '';
-    const j = JSON.parse(res.getContentText());
-    let translit = '';
-    (j[0] || []).forEach(function (seg) {
-      if (seg && seg[3]) translit += seg[3] + ' ';
-    });
-    return slugify_(expandMacrons_(translit));
-  } catch (e) {
-    Logger.log('romanize failed for "' + name + '": ' + e);
-    return '';
+  const endpoint =
+    'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=t&dt=rm&q=' +
+    encodeURIComponent(String(name));
+  // レート制限(429等)は一度バックオフしてリトライする
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const res = UrlFetchApp.fetch(endpoint, { muteHttpExceptions: true });
+      const code = res.getResponseCode();
+      if (code === 200) {
+        const j = JSON.parse(res.getContentText());
+        let translit = '';
+        (j[0] || []).forEach(function (seg) {
+          if (seg && seg[3]) translit += seg[3] + ' ';
+        });
+        return slugify_(expandMacrons_(translit)); // ''=この名前には翻字が返らない
+      }
+      Logger.log('romanize HTTP ' + code + ' for "' + name + '" (attempt ' + attempt + ')');
+      if (attempt === 1) Utilities.sleep(2000);
+    } catch (e) {
+      Logger.log('romanize failed for "' + name + '": ' + e);
+      if (attempt === 1) Utilities.sleep(2000);
+    }
   }
+  return null; // 通信失敗(呼び出し側で失敗件数として集計)
 }
 
 /** ヘボン式マクロンを ou/uu 等の綴りに展開する(slug用) */
