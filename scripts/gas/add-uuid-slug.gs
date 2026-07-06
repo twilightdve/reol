@@ -950,25 +950,36 @@ function suggestSlugCandidates() {
       const uuid = normCell_(values[i][uuidIdx]);
       if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
       const name = normCell_(values[i][def.nameCol]);
-      // 表示名(名前列)のみ親タイトルを連結。slug候補は公演名(E列)から生成する
+      // live_item は「liveタイトル(C) + 公演名(E)」を表示・翻訳ソースの両方に使う。
+      // E列が空の行(単発イベント等37行)もタイトルから候補を出せるようにするため
       let displayName = name;
+      let sourceName = name;
       if (liveTitleById) {
         const liveTitle = liveTitleById.get(normCell_(values[i][1])) || ''; // B: liveId
-        if (liveTitle) displayName = liveTitle + ' / ' + name;
+        if (liveTitle) {
+          displayName = name ? liveTitle + ' / ' + name : liveTitle;
+          sourceName = (liveTitle + ' ' + name).trim();
+        }
       }
       let romajiCandidate = '';
-      if (name) {
-        if (romajiCache.has(name)) {
-          romajiCandidate = romajiCache.get(name);
+      if (sourceName) {
+        if (romajiCache.has(sourceName)) {
+          romajiCandidate = romajiCache.get(sourceName);
         } else {
-          const r = tryRomanizeJa_(name); // null=通信失敗 / ''=翻字なし
+          const r = tryRomanizeJa_(sourceName); // null=通信失敗 / ''=翻字なし
           if (r === null) {
             romajiFail += 1; // 失敗はキャッシュしない(再実行で埋まる余地を残す)
           } else {
             romajiCandidate = r;
-            romajiCache.set(name, r);
+            romajiCache.set(sourceName, r);
           }
           Utilities.sleep(350); // 外部アクセスの連続実行を抑制(キャッシュヒット時は待たない)
+        }
+        // ほぼASCIIの名前(例: Reol Oneman Live「No title」)は翻字が返らないため、
+        // 原文のslug化にフォールバック(括弧はスペースに置換して語をつなげない)
+        if (romajiCandidate === '') {
+          const asciiFallback = slugify_(sourceName.replace(/[「」『』()（）\[\]]/g, ' '));
+          if (asciiFallback) romajiCandidate = asciiFallback;
         }
       }
       let mvCandidate = '';
