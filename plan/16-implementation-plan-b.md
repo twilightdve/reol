@@ -90,4 +90,6 @@ typecheck → develop停止確認(lsof -i :8000)→ build → 生成HTML検証(�
 | リファレンス実装(/design-preview/b/) | ✅ 青×黄版・EXPLORE入り(`4b8c29a`)+タグライン(`54d07cd`) |
 | サブページのB案プレビュー(曲詳細/stats)+ハブ(/design-preview/) | ✅ 2026-07-03(`ecef89f`、実データ・noindex・build検証済み) |
 | タグライン「Reolのこれまでを、まるっと遡れる。」本番HomeSectionへ適用 | ✅ `54d07cd` |
-| バッチ5以降 | 着手条件待ち(§1) |
+| **バッチ5(基盤+トップ刷新+クローム)** | ✅ **実装・検証完了(2026-07-07)** — `feature/batch-05-redesign-foundation`(`b1d21a2`+`6eb5591`)。bxトークン/SiteStatsノード/黒背景/redesignコンポーネント/HomeSection刷新(統計130・167・2,069焼き込み+NEXT LIVE)/ヘッダーナビ常設/フッター黄CTA/下部タブダーク化。typecheck・build・生成HTML検証済み |
+| バッチ5の既知残: opening演出は空と雲のまま(バッチ8で青×黄化)、THEATER統合(PersistentMainVideoは現状維持)、self-hostフォント未導入 | バッチ6以降で対応 |
+| バッチ6(曲詳細+stats+検索のダーク化) | 次 |
