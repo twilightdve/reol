@@ -919,6 +919,18 @@ function suggestSlugCandidates() {
   // 同名(「栃木」等は複数ツアーに登場)のリクエスト重複を避けるキャッシュ。
   // レート制限(=live_item以降だけ候補が空になる症状)の主対策
   const romajiCache = new Map();
+  const fetchRomaji = (text) => {
+    if (!text) return '';
+    if (romajiCache.has(text)) return romajiCache.get(text);
+    const r = tryRomanizeJa_(text); // null=通信失敗 / ''=翻字なし
+    Utilities.sleep(250); // 外部アクセスの連続実行を抑制(キャッシュヒット時は待たない)
+    if (r === null) {
+      romajiFail += 1; // 失敗はキャッシュしない(再実行で埋まる余地を残す)
+      return '';
+    }
+    romajiCache.set(text, r);
+    return r;
+  };
   SHEET_DEFS.forEach((def) => {
     if (!def.addCols.includes('slug')) return;
     const sh = ss.getSheetByName(def.name);
@@ -961,26 +973,12 @@ function suggestSlugCandidates() {
           sourceName = (liveTitle + ' ' + name).trim();
         }
       }
-      let romajiCandidate = '';
-      if (sourceName) {
-        if (romajiCache.has(sourceName)) {
-          romajiCandidate = romajiCache.get(sourceName);
-        } else {
-          const r = tryRomanizeJa_(sourceName); // null=通信失敗 / ''=翻字なし
-          if (r === null) {
-            romajiFail += 1; // 失敗はキャッシュしない(再実行で埋まる余地を残す)
-          } else {
-            romajiCandidate = r;
-            romajiCache.set(sourceName, r);
-          }
-          Utilities.sleep(350); // 外部アクセスの連続実行を抑制(キャッシュヒット時は待たない)
-        }
-        // ほぼASCIIの名前(例: Reol Oneman Live「No title」)は翻字が返らないため、
-        // 原文のslug化にフォールバック(括弧はスペースに置換して語をつなげない)
-        if (romajiCandidate === '') {
-          const asciiFallback = slugify_(sourceName.replace(/[「」『』()（）\[\]]/g, ' '));
-          if (asciiFallback) romajiCandidate = asciiFallback;
-        }
+      let romajiCandidate = fetchRomaji(sourceName);
+      // ほぼASCIIの名前(例: Reol Oneman Live「No title」)は翻字が返らないため、
+      // 原文のslug化にフォールバック(括弧はスペースに置換して語をつなげない)
+      if (romajiCandidate === '' && sourceName) {
+        const asciiFallback = slugify_(sourceName.replace(/[「」『』()（）\[\]]/g, ' '));
+        if (asciiFallback) romajiCandidate = asciiFallback;
       }
       let mvCandidate = '';
       if (mvIdx >= 0) {
@@ -990,8 +988,12 @@ function suggestSlugCandidates() {
           if (mvCandidate) mvHit += 1;
         }
       }
-      // 採用列は最良候補(公式MV題 > ローマ字)を事前入力。人が確認・修正する前提
-      const prefill = mvCandidate || romajiCandidate || '';
+      // 採用列の事前入力 = 最良候補を15文字以内の省略形に。
+      // live_item で公演名(E列)がある行は公演名単独のローマ字(tochigi 等)が最短で
+      // 識別的なのでそれを優先(地名はキャッシュが効くため追加リクエストは僅か)
+      let shortBase = '';
+      if (liveTitleById && name) shortBase = fetchRomaji(name);
+      const prefill = shortenSlugCandidate_(mvCandidate || shortBase || romajiCandidate || '');
       rows.push([def.name, i + 2, displayName, slug, romajiCandidate, mvCandidate, prefill, '']);
     }
   });
@@ -1122,6 +1124,31 @@ function expandMacrons_(s) {
     .replace(/[ūŪ]/g, 'uu')
     .replace(/[ēĒ]/g, 'ee')
     .replace(/[ōŌ]/g, 'ou');
+}
+
+/**
+ * 採用slugの事前入力用に、15文字を超える候補を省略形にする。
+ *   1. ノイズ語(reol/oneman/live/raibu/tour/in等)と年号(19xx/20xx)を除去
+ *   2. まだ超える場合は先頭からトークンを収まる分だけ残す
+ *   3. 先頭トークン単体でも超える場合は15文字で切る
+ * あくまで下書き。反映前に人が確認・修正する前提(15字超を手入力しても反映は通る)
+ */
+const SLUG_MAX_LEN = 15;
+function shortenSlugCandidate_(slug) {
+  const s = String(slug || '');
+  if (s.length <= SLUG_MAX_LEN) return s;
+  const NOISE = new Set(['reol', 'oneman', 'live', 'raibu', 'tour', 'in', 'at', 'of', 'the', 'and', 'feat']);
+  let tokens = s.split('-').filter(function (t) {
+    return t && !NOISE.has(t) && !/^(19|20)\d{2}$/.test(t);
+  });
+  if (!tokens.length) tokens = s.split('-').filter(Boolean);
+  if (tokens.join('-').length <= SLUG_MAX_LEN) return tokens.join('-');
+  const kept = [];
+  for (let i = 0; i < tokens.length; i++) {
+    if (kept.concat([tokens[i]]).join('-').length > SLUG_MAX_LEN) break;
+    kept.push(tokens[i]);
+  }
+  return kept.length ? kept.join('-') : tokens[0].slice(0, SLUG_MAX_LEN);
 }
 
 /**
