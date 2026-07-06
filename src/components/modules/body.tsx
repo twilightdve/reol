@@ -9,7 +9,6 @@ import Layout from "./layout";
 import TopHeader from "./header";
 import PersistentMainVideo from "./persistentMainVideo";
 import OfficialFooter from "./officialFooter";
-import CloudImage from "../../images/cloud.png";
 import WashiBackgroundImage from "../../images/washi-background.png";
 
 type Props = {
@@ -143,19 +142,21 @@ const Body: FC<Props> = ({ children }) => {
   return (
     <>
       {/*
-        サイト全体の固定背景。オープニング (opening.tsx) と同じ
-        「letter (ゴールド) → sky-600 → white」のグラデーション上に
-        cloud.png を animate-cloud でゆっくり横方向にパンさせる。
+        サイト全体の固定背景(B案リデザイン: plan/16)。
+        ほぼ黒 bx-bg の上に、公式ブルー(#27489b)のラジアルグローを上部に敷く。
         ページ遷移しても再描画されないよう wrapRootElement に乗せた Body 内に置く。
       */}
       <div
         aria-hidden
-        className="fixed inset-0 -z-20 bg-gradient-to-br from-letter from-20% via-sky-600 via-50% to-white pointer-events-none"
+        className="fixed inset-0 -z-20 bg-bx-bg pointer-events-none"
       />
       <div
         aria-hidden
-        style={{ backgroundImage: `url(${CloudImage})` }}
-        className="fixed inset-0 -z-10 bg-cover animate-cloud opacity-70 pointer-events-none"
+        className="fixed inset-0 -z-10 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(70rem 30rem at 50% -14rem, rgba(39,72,155,0.35), transparent 65%)",
+        }}
       />
       {/*
         ヘッダーと永続 MainVideo はページ遷移をまたいで位置/状態を保ちたいため

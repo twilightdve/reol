@@ -435,6 +435,39 @@ const createSongStatsNodes = async (
     },
   });
 
+  // ----- トップページのヒーロー統計・NEXT LIVE(B案リデザイン)用のビルド時集計 -----
+  // カウントアップ演出の最終値をビルド時に焼き込む(クライアントでの再計算はしない)
+  const today = new Date().toISOString().slice(0, 10);
+  const upcomingItems = liveItems
+    .filter((it) => (it.date ?? "") >= today)
+    .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+  const nextItem = upcomingItems[0] ?? null;
+  const nextLiveParent = nextItem ? liveByUuid.get(nextItem.liveUuid) : null;
+  const siteStats = {
+    songCount: songStats.length,
+    liveItemCount: liveItems.length,
+    // セトリ登録済みの演奏数(曲DBに未マッチの表記も演奏としてカウント)
+    performanceCount: liveItemSongs.filter((s) => !!s.liveItemSongName).length,
+    nextLive: nextItem
+      ? {
+          title: nextLiveParent?.title ?? null,
+          itemName: nextItem.liveItemName ?? null,
+          date: nextItem.date ?? null,
+          place: nextItem.place ?? null,
+          liveSlug: nextLiveParent?.slug ?? null,
+        }
+      : null,
+  };
+  createNode({
+    id: createNodeId("SiteStats"),
+    siteStats,
+    internal: {
+      type: "SiteStats",
+      content: JSON.stringify(siteStats),
+      contentDigest: createContentDigest(siteStats),
+    },
+  });
+
   await fs.mkdir("./public/static/data/", { recursive: true });
   await fs.writeFile(
     `./public/static/data/songStats.json`,
@@ -625,10 +658,28 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       themeColorPrimary: String
       themeColorSecondary: String
     }
-    
+
     type LiveLiveInfos {
       themeColorPrimary: String
       themeColorSecondary: String
+    }
+
+    # トップページ用のビルド時統計(nextLive が null でもクエリできるよう明示定義)
+    type SiteStats implements Node {
+      siteStats: SiteStatsData
+    }
+    type SiteStatsData {
+      songCount: Int!
+      liveItemCount: Int!
+      performanceCount: Int!
+      nextLive: SiteStatsNextLive
+    }
+    type SiteStatsNextLive {
+      title: String
+      itemName: String
+      date: String
+      place: String
+      liveSlug: String
     }
   `;
   createTypes(typeDefs);

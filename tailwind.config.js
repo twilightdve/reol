@@ -29,6 +29,19 @@ const config = {
       // 補色側のゴールドを採用し、その上に載せる文字色は青 (letter) にする。
       theme: "#D2AF57",
       letter: "#27489b",
+      // B案リデザイン(plan/16)の確定トークン。公式カラーセット(reol.jp)由来:
+      // 黄 #e2bf57 / 青 #27489b(黒背景ではアクセント用に明度調整版 #6b8ce0 を使う)
+      bx: {
+        bg: "#0b0b10", // ベース(ほぼ黒)
+        ink: "#f2f0eb", // 文字(純白でなく僅かに温度)
+        ink2: "#8f8e96", // 弱い文字(大きめ専用)。小さい文字は bx-ink3 を使う
+        ink3: "#a5a4ac", // 小さめ文字用(コントラスト確保)
+        line: "#26262e", // 罫線・カード枠
+        blue: "#6b8ce0", // 公式ブルー明度調整版: 構造・リンク・見出し
+        blueDeep: "#27489b", // 公式ブルー原色: グロー・面
+        blueLight: "#a8c0ff", // 第3アクセント
+        yellow: "#e2bf57", // 公式イエロー: CTA・ハイライト・「現在」
+      },
       // CSS変数を使用した動的カラー
       "dynamic-primary": "var(--color-primary)",
       "dynamic-secondary": "var(--color-secondary)",
