@@ -5868,7 +5868,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
-        "slug": "529cdbb8896c",
+        "slug": "bosuton",
         "liveUuid": "019e8284-8df4-78ef-b518-cc18e3fd346f",
         "liveItemName": "ボストン",
         "date": "2025-05-23-2025-05-25",
@@ -6024,7 +6024,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
-        "slug": "1d70e433ad82",
+        "slug": "shiatoru",
         "liveUuid": "019e8284-8d78-79c0-9801-bcfa308eca6c",
         "liveItemName": "シアトル",
         "date": "2025-04-18〜2025-04-20",
@@ -18936,7 +18936,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b5ee-7bd0-9205-4618262b06af",
-        "slug": "4618262b06af",
+        "slug": "onrain-2",
         "liveUuid": "019e8284-789b-7daa-949b-e502ca399bc8",
         "liveItemName": "オンライン",
         "date": "2021-03-04",
@@ -19160,7 +19160,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b4b7-7050-a79a-0d20c96c5af1",
-        "slug": "0d20c96c5af1",
+        "slug": "onrain",
         "liveUuid": "019e8284-775f-7687-aa9a-96d8800107b6",
         "liveItemName": "オンライン",
         "date": "2020-11-07",
@@ -25595,7 +25595,7 @@
   },
   {
     "liveUuid": "019e8284-6cd6-7138-99cc-22a335d06b80",
-    "slug": "22a335d06b80",
+    "slug": "gigabanana-za-besuto-shikurettoraibu",
     "type": "event",
     "title": "ぎがばなな ざ べすと シークレットライブ",
     "name": "れをる",
