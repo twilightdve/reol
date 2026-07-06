@@ -58,7 +58,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
-        "slug": "9a34bdf355fe",
+        "slug": "jaiga-ousaka-3",
         "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
         "liveItemName": null,
         "date": "2026-08-01",
@@ -125,7 +125,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e742-712a-b02a-6f4969cdb7e6",
-        "slug": "6f4969cdb7e6",
+        "slug": "tochigi",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "栃木",
         "date": "2026-03-14",
@@ -355,7 +355,7 @@
       },
       {
         "liveItemUuid": "019e8284-ea47-7700-b47f-ce07cf0cf38d",
-        "slug": "ce07cf0cf38d",
+        "slug": "tokushima",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "徳島",
         "date": "2026-03-20",
@@ -573,7 +573,7 @@
       },
       {
         "liveItemUuid": "019e8284-eaa8-7608-bcf7-a21340afa42d",
-        "slug": "a21340afa42d",
+        "slug": "yamaguchi",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "山口",
         "date": "2026-03-22",
@@ -797,7 +797,7 @@
       },
       {
         "liveItemUuid": "019e8284-eb96-7f88-882d-79cf86a6d621",
-        "slug": "79cf86a6d621",
+        "slug": "koube",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "神戸",
         "date": "2026-03-28",
@@ -1015,7 +1015,7 @@
       },
       {
         "liveItemUuid": "019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
-        "slug": "b2f7d742e3db",
+        "slug": "mie",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "三重",
         "date": "2026-04-04",
@@ -1227,7 +1227,7 @@
       },
       {
         "liveItemUuid": "019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
-        "slug": "7b46f4ddcd9b",
+        "slug": "aomori",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "青森",
         "date": "2026-04-11",
@@ -1459,7 +1459,7 @@
       },
       {
         "liveItemUuid": "019e8284-ecc7-72d8-892d-6b5849778f8e",
-        "slug": "6b5849778f8e",
+        "slug": "nagasaki",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "長崎",
         "date": "2026-04-18",
@@ -1679,7 +1679,7 @@
       },
       {
         "liveItemUuid": "019e8284-ed23-7141-92cc-06d8f958f7c5",
-        "slug": "06d8f958f7c5",
+        "slug": "kumamoto",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "熊本",
         "date": "2026-04-19",
@@ -1905,7 +1905,7 @@
       },
       {
         "liveItemUuid": "019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
-        "slug": "a1ebbe3d7f09",
+        "slug": "okinawa",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "沖縄",
         "date": "2026-04-29",
@@ -2129,7 +2129,7 @@
       },
       {
         "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
-        "slug": "183a50e8776a",
+        "slug": "asahikawa",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "旭川",
         "date": "2026-05-09",
@@ -2353,7 +2353,7 @@
       },
       {
         "liveItemUuid": "019e8284-ee54-7b7c-a2aa-205a32069d45",
-        "slug": "205a32069d45",
+        "slug": "sapporo-2",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "札幌",
         "date": "2026-05-10",
@@ -2571,7 +2571,7 @@
       },
       {
         "liveItemUuid": "019e8284-eebd-7c61-baa5-d69014b33336",
-        "slug": "d69014b33336",
+        "slug": "yokohama-2",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "横浜",
         "date": "2026-05-16",
@@ -2783,7 +2783,7 @@
       },
       {
         "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
-        "slug": "1ebc13374624",
+        "slug": "nagano-2",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "長野",
         "date": "2026-05-23",
@@ -3015,7 +3015,7 @@
       },
       {
         "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
-        "slug": "bbde3ec71efa",
+        "slug": "niigata",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "新潟",
         "date": "2026-05-24",
@@ -3214,7 +3214,7 @@
       },
       {
         "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
-        "slug": "22bb8786a7cb",
+        "slug": "kyouto",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "京都",
         "date": "2026-05-30",
@@ -3428,7 +3428,7 @@
       },
       {
         "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
-        "slug": "51966ceb2597",
+        "slug": "gifu",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "岐阜",
         "date": "2026-05-31",
@@ -3662,7 +3662,7 @@
       },
       {
         "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
-        "slug": "efb128b466db",
+        "slug": "miyagi-4",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "宮城",
         "date": "2026-06-12",
@@ -3882,7 +3882,7 @@
       },
       {
         "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
-        "slug": "134032da24f1",
+        "slug": "ousaka-11",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "大阪",
         "date": "2026-06-19",
@@ -4089,7 +4089,7 @@
       },
       {
         "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
-        "slug": "0c2f7f9259fd",
+        "slug": "fukuoka-6",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "福岡",
         "date": "2026-06-27",
@@ -4296,7 +4296,7 @@
       },
       {
         "liveItemUuid": "019e8284-f1e4-7eb6-afe7-88639d68c221",
-        "slug": "88639d68c221",
+        "slug": "aichi-6",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "愛知",
         "date": "2026-07-04",
@@ -4319,7 +4319,7 @@
       },
       {
         "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
-        "slug": "574ac6f9b6f6",
+        "slug": "toukyou-9",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "東京",
         "date": "2026-07-10",
@@ -4342,7 +4342,7 @@
       },
       {
         "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
-        "slug": "4756bc3a8a38",
+        "slug": "taipei-2",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "台北",
         "date": "2026-07-26",
@@ -4356,7 +4356,7 @@
       },
       {
         "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
-        "slug": "f8a90b94113c",
+        "slug": "kankoku-3",
         "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
         "liveItemName": "韓国",
         "date": "2026-07-18",
@@ -4417,7 +4417,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
-        "slug": "30ae6d8d5b49",
+        "slug": "countdown-japan-4",
         "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
         "liveItemName": null,
         "date": "2025-12-28",
@@ -4541,7 +4541,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e654-7d1d-9a67-1a419c63a86e",
-        "slug": "1a419c63a86e",
+        "slug": "taiwan",
         "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
         "liveItemName": "台湾",
         "date": "2025-12-06",
@@ -4779,7 +4779,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
-        "slug": "58e3ca28cc89",
+        "slug": "kanagawa-2",
         "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
         "liveItemName": "神奈川",
         "date": "2025-11-09",
@@ -5096,7 +5096,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e456-75bb-aea4-a4de231dca9a",
-        "slug": "a4de231dca9a",
+        "slug": "shanhai-3",
         "liveUuid": "019e8284-8f91-78df-b109-b0d9a80b235c",
         "liveItemName": "上海",
         "date": "2025-08-17",
@@ -5415,7 +5415,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
-        "slug": "2ea12d1841a8",
+        "slug": "chiba",
         "liveUuid": "019e8284-8f1f-7d9d-85bb-a47e9600de25",
         "liveItemName": "千葉",
         "date": "2025-08-02",
@@ -5586,7 +5586,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e375-7cc4-9665-1dc3d0966c27",
-        "slug": "1dc3d0966c27",
+        "slug": "ousaka-10",
         "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
         "liveItemName": "大阪",
         "date": "2025-07-26",
@@ -5752,7 +5752,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e310-7509-9ed2-1faafc189aae",
-        "slug": "1faafc189aae",
+        "slug": "kawasaki",
         "liveUuid": "019e8284-8e53-75a8-a4e0-e148b54fd0eb",
         "liveItemName": "川崎",
         "date": "2025-06-28",
@@ -6240,7 +6240,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
-        "slug": "ddae3cac9f98",
+        "slug": "yokohama",
         "liveUuid": "019e8284-8a60-7ab0-b760-4ee7014359a6",
         "liveItemName": "横浜",
         "date": "2025-04-05",
@@ -6384,7 +6384,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-e14b-719b-909a-5f7132db573e",
-        "slug": "5f7132db573e",
+        "slug": "fukuoka-5",
         "liveUuid": "019e8284-89f1-7259-9f8c-d861048a59e6",
         "liveItemName": "福岡",
         "date": "2025-02-16",
@@ -6562,7 +6562,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
-        "slug": "27fec072c212",
+        "slug": "kankoku-2",
         "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
         "liveItemName": "韓国",
         "date": "2024-11-10",
@@ -6712,7 +6712,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
-        "slug": "c54b3a9f6a3b",
+        "slug": "chuugoku",
         "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
         "liveItemName": "中国",
         "date": "2024-11-02",
@@ -6878,7 +6878,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
-        "slug": "892a0ff78b01",
+        "slug": "ousaka-8",
         "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
         "liveItemName": "大阪",
         "date": "2024-10-26",
@@ -7073,7 +7073,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-db67-7983-b404-0dff42e5887c",
-        "slug": "0dff42e5887c",
+        "slug": "ousaka-7",
         "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
         "liveItemName": "大阪",
         "date": "2024-09-20",
@@ -7253,7 +7253,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
-        "slug": "3176f8b63fb0",
+        "slug": "no-title",
         "liveUuid": "019e8284-8535-7303-acd8-712a29fea774",
         "liveItemName": null,
         "date": "2024-08-17",
@@ -7739,7 +7739,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
-        "slug": "337a29b66f3d",
+        "slug": "furederikku",
         "liveUuid": "019e8284-83a3-7078-a347-a1dd9298e757",
         "liveItemName": null,
         "date": "2024-06-22",
@@ -7871,7 +7871,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d978-7444-bec2-7ce4b9e8cba0",
-        "slug": "7ce4b9e8cba0",
+        "slug": "chou-ongaku-sai",
         "liveUuid": "019e8284-8332-795c-8108-36792fad7e31",
         "liveItemName": null,
         "date": "2024-04-27",
@@ -8023,7 +8023,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d8b1-724c-b430-ca48389886e9",
-        "slug": "ca48389886e9",
+        "slug": "nishi-no-utage-2",
         "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
         "liveItemName": "西の宴",
         "date": "2024-04-06",
@@ -8201,7 +8201,7 @@
       },
       {
         "liveItemUuid": "019e8284-d90e-715d-8ca3-5bb5c3855258",
-        "slug": "5bb5c3855258",
+        "slug": "azuma-no-utage-2",
         "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
         "liveItemName": "東の宴",
         "date": "2024-04-17",
@@ -8397,7 +8397,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d643-71d2-aceb-15d61dba4622",
-        "slug": "15d61dba4622",
+        "slug": "sheen-zhn",
         "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
         "liveItemName": "深圳",
         "date": "2024-03-02",
@@ -8427,7 +8427,7 @@
       },
       {
         "liveItemUuid": "019e8284-d6bc-7539-be29-89a0cfb4c64f",
-        "slug": "89a0cfb4c64f",
+        "slug": "koushuu-2",
         "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
         "liveItemName": "広州",
         "date": "2024-03-03",
@@ -8441,7 +8441,7 @@
       },
       {
         "liveItemUuid": "019e8284-d723-76c0-9e37-051edda5a343",
-        "slug": "051edda5a343",
+        "slug": "shanhai-2",
         "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
         "liveItemName": "上海",
         "date": "2024-03-06",
@@ -8455,7 +8455,7 @@
       },
       {
         "liveItemUuid": "019e8284-d782-7066-80d0-30752536a677",
-        "slug": "30752536a677",
+        "slug": "pekin-2",
         "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
         "liveItemName": "北京",
         "date": "2024-03-08",
@@ -8605,7 +8605,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-        "slug": "c5845b9552e4",
+        "slug": "ousaka-9",
         "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
         "liveItemName": "大阪",
         "date": "2025-01-19",
@@ -8833,7 +8833,7 @@
       },
       {
         "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-        "slug": "a575664f8694",
+        "slug": "aichi-5",
         "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
         "liveItemName": "愛知",
         "date": "2025-01-24",
@@ -9045,7 +9045,7 @@
       },
       {
         "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-        "slug": "3ff96d8ff44d",
+        "slug": "toukyou-8",
         "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
         "liveItemName": "東京",
         "date": "2025-02-02",
@@ -9368,7 +9368,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d5df-70ab-84d1-89141895c04c",
-        "slug": "89141895c04c",
+        "slug": "aniplex-20th",
         "liveUuid": "019e8284-81fd-70ec-b1ce-109ea8bc6939",
         "liveItemName": null,
         "date": "2024-01-07",
@@ -9428,7 +9428,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-d57d-78b7-948b-c1fb96e15a7e",
-        "slug": "c1fb96e15a7e",
+        "slug": "countdown-japan-3",
         "liveUuid": "019e8284-819d-7fed-936d-a92751a327d7",
         "liveItemName": null,
         "date": "2023-12-29",
@@ -13204,7 +13204,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c91b-7a1b-af1e-40bda47b0c1c",
-        "slug": "40bda47b0c1c",
+        "slug": "shinpururaifu",
         "liveUuid": "019e8284-80c6-756b-8ed3-a4241a1c7978",
         "liveItemName": null,
         "date": "2023-10-05",
@@ -13352,7 +13352,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
-        "slug": "991e29f13957",
+        "slug": "mirrorball",
         "liveUuid": "019e8284-8058-7ca9-9450-058b657d4a33",
         "liveItemName": null,
         "date": "2023-09-10",
@@ -13502,7 +13502,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c84c-7b17-b592-fc88201ab426",
-        "slug": "fc88201ab426",
+        "slug": "summer-sonic",
         "liveUuid": "019e8284-7fed-78ad-ad9d-20795e2f7383",
         "liveItemName": null,
         "date": "2023-08-19",
@@ -13622,7 +13622,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c7fa-7f44-859b-c2c844e5fe35",
-        "slug": "c2c844e5fe35",
+        "slug": "impactnation",
         "liveUuid": "019e8284-7ee4-7dd4-9e91-d496d0794669",
         "liveItemName": null,
         "date": "2023-07-30",
@@ -13810,7 +13810,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
-        "slug": "ee0da3207283",
+        "slug": "jaiga-ousaka-2",
         "liveUuid": "019e8284-7e7f-7b86-95f0-fe75d00dbf0a",
         "liveItemName": null,
         "date": "2023-07-22",
@@ -13946,7 +13946,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
-        "slug": "2978c04ea33f",
+        "slug": "luckyfes23",
         "liveUuid": "019e8284-7e16-73b5-b644-5b0db5adb6c1",
         "liveItemName": null,
         "date": "2023-07-16",
@@ -14068,7 +14068,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
-        "slug": "a7a4977b1503",
+        "slug": "osaka-3",
         "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
         "liveItemName": null,
         "date": "2023-05-14",
@@ -14186,7 +14186,7 @@
   },
   {
     "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-    "slug": "9fb2c90aaf78",
+    "slug": "sayonara-nakanosanpuraza-ongaku-sai",
     "type": "event",
     "title": "さよなら中野サンプラザ音楽祭",
     "name": "Reol",
@@ -14206,7 +14206,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c643-7436-9215-0964d65d0908",
-        "slug": "0964d65d0908",
+        "slug": "sayonara",
         "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
         "liveItemName": null,
         "date": "2023-05-13",
@@ -14390,7 +14390,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
-        "slug": "dd2b973f0b77",
+        "slug": "arabaki-rock",
         "liveUuid": "019e8284-7ce5-76df-ae95-dd262899a483",
         "liveItemName": null,
         "date": "2023-04-30",
@@ -14572,7 +14572,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-bfd4-72b5-adf2-d41e0cf0b883",
-        "slug": "d41e0cf0b883",
+        "slug": "aichi-4",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "愛知",
         "date": "2023-01-26",
@@ -14832,7 +14832,7 @@
       },
       {
         "liveItemUuid": "019e8284-c0e9-7551-aec4-a75ac40dfd28",
-        "slug": "a75ac40dfd28",
+        "slug": "toukyou-7",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "東京",
         "date": "2023-01-29",
@@ -15080,7 +15080,7 @@
       },
       {
         "liveItemUuid": "019e8284-c1e0-770a-a065-f7898b03c036",
-        "slug": "f7898b03c036",
+        "slug": "miyagi-3",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "宮城",
         "date": "2023-02-05",
@@ -15316,7 +15316,7 @@
       },
       {
         "liveItemUuid": "019e8284-c246-7903-bb46-b41acb18f4f3",
-        "slug": "b41acb18f4f3",
+        "slug": "kanagawa",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "神奈川",
         "date": "2023-02-11",
@@ -15552,7 +15552,7 @@
       },
       {
         "liveItemUuid": "019e8284-c3e3-79b5-bbe7-36fc1e5ff9d4",
-        "slug": "36fc1e5ff9d4",
+        "slug": "fukuoka-4",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "福岡",
         "date": "2023-02-18",
@@ -15788,7 +15788,7 @@
       },
       {
         "liveItemUuid": "019e8284-c441-7fbe-b556-d41a75b30cf2",
-        "slug": "d41a75b30cf2",
+        "slug": "hiroshima-2",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "広島",
         "date": "2023-02-23",
@@ -16024,7 +16024,7 @@
       },
       {
         "liveItemUuid": "019e8284-c4a8-7d1a-95c9-fea5b06ac38e",
-        "slug": "fea5b06ac38e",
+        "slug": "ousaka-6",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "大阪",
         "date": "2023-02-25",
@@ -16260,7 +16260,7 @@
       },
       {
         "liveItemUuid": "019e8284-c510-753a-a7ec-4103bcd81648",
-        "slug": "4103bcd81648",
+        "slug": "kagawa",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "香川",
         "date": "2023-02-26",
@@ -16496,7 +16496,7 @@
       },
       {
         "liveItemUuid": "019e8284-c56f-750c-8925-8de26e1151b8",
-        "slug": "8de26e1151b8",
+        "slug": "nagano",
         "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
         "liveItemName": "長野",
         "date": "2023-03-05",
@@ -16832,7 +16832,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-bf63-7355-aae9-2f580cb39a14",
-        "slug": "2f580cb39a14",
+        "slug": "countdown-japan-2",
         "liveUuid": "019e8284-7c09-7e10-b969-8ef960700248",
         "liveItemName": null,
         "date": "2022-12-29",
@@ -16964,7 +16964,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-befb-7381-80fa-8799207bbc7d",
-        "slug": "8799207bbc7d",
+        "slug": "raiotto-geemusu",
         "liveUuid": "019e8284-7bab-79d4-ac3d-b6ec794328db",
         "liveItemName": null,
         "date": "2022-12-23",
@@ -17102,7 +17102,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-be85-772d-b969-a3665639b344",
-        "slug": "a3665639b344",
+        "slug": "ousakajou",
         "liveUuid": "019e8284-7b28-76c8-8215-aed344698f6f",
         "liveItemName": null,
         "date": "2022-10-15",
@@ -17250,7 +17250,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-be0d-7313-9126-280dce017540",
-        "slug": "280dce017540",
+        "slug": "rock-japan-2",
         "liveUuid": "019e8284-7aab-752e-926c-e7c32e2ace07",
         "liveItemName": null,
         "date": "2022-08-06",
@@ -17420,7 +17420,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-bda7-7685-a591-5a5345dd93bc",
-        "slug": "5a5345dd93bc",
+        "slug": "jaiga-ousaka",
         "liveUuid": "019e8284-7a4b-7c49-be49-2ae9cd6bbd08",
         "liveItemName": null,
         "date": "2022-07-23",
@@ -17480,7 +17480,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b773-7e30-bbfe-256d8dd37b44",
-        "slug": "256d8dd37b44",
+        "slug": "aichi-3",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "愛知",
         "date": "2022-04-27",
@@ -17694,7 +17694,7 @@
       },
       {
         "liveItemUuid": "019e8284-b901-7484-8cf4-5a234f4fc725",
-        "slug": "5a234f4fc725",
+        "slug": "ousaka-5",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "大阪",
         "date": "2022-04-28",
@@ -17884,7 +17884,7 @@
       },
       {
         "liveItemUuid": "019e8284-bc20-7763-bc08-90bcab6c5a75",
-        "slug": "90bcab6c5a75",
+        "slug": "fukuoka-3",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "福岡",
         "date": "2022-05-02",
@@ -17920,7 +17920,7 @@
       },
       {
         "liveItemUuid": "019e8284-bc7a-7981-b946-495d68c449ab",
-        "slug": "495d68c449ab",
+        "slug": "miyagi-2",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "宮城",
         "date": "2022-05-08",
@@ -17974,7 +17974,7 @@
       },
       {
         "liveItemUuid": "019e8284-bcdb-782a-9b24-39c6b22953bb",
-        "slug": "39c6b22953bb",
+        "slug": "toukyou-5",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "東京",
         "date": "2022-05-12",
@@ -18040,7 +18040,7 @@
       },
       {
         "liveItemUuid": "019e8284-bd47-779e-b8cb-8fa5e03aaf66",
-        "slug": "8fa5e03aaf66",
+        "slug": "toukyou-6",
         "liveUuid": "019e8284-79b9-797b-b7ab-5f3f80d0db18",
         "liveItemName": "東京",
         "date": "2022-05-13",
@@ -18342,7 +18342,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b711-7aad-a178-e2fcf5e4c792",
-        "slug": "e2fcf5e4c792",
+        "slug": "hipunoshisumaik",
         "liveUuid": "019e8284-7951-7809-92bc-6a9fadc897fb",
         "liveItemName": null,
         "date": "2021-08-07",
@@ -18476,7 +18476,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b648-7830-b110-8a8f621d156c",
-        "slug": "8a8f621d156c",
+        "slug": "toukyou-4",
         "liveUuid": "019e8284-78f9-7151-851e-dab821f871cf",
         "liveItemName": "東京",
         "date": "2021-06-26",
@@ -18694,7 +18694,7 @@
       },
       {
         "liveItemUuid": "019e8284-b6b4-7db4-b2f1-7085dc28f432",
-        "slug": "7085dc28f432",
+        "slug": "ousaka-4",
         "liveUuid": "019e8284-78f9-7151-851e-dab821f871cf",
         "liveItemName": "大阪",
         "date": "2021-06-27",
@@ -19040,7 +19040,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b588-74d5-99f6-8cb4ee707858",
-        "slug": "8cb4ee707858",
+        "slug": "kauntodaunjapan",
         "liveUuid": "019e8284-7836-736b-be31-ed5a2dda7959",
         "liveItemName": null,
         "date": "2020-12-30",
@@ -19378,7 +19378,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-b024-73db-8803-5b71bac578f7",
-        "slug": "5b71bac578f7",
+        "slug": "hiroshima",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "広島",
         "date": "2020-02-08",
@@ -19414,7 +19414,7 @@
       },
       {
         "liveItemUuid": "019e8284-b08f-70ee-a81c-e8b48b81a298",
-        "slug": "e8b48b81a298",
+        "slug": "fukuoka-2",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "福岡",
         "date": "2020-02-09",
@@ -19444,7 +19444,7 @@
       },
       {
         "liveItemUuid": "019e8284-b0fd-7243-b17e-17da81ebcf81",
-        "slug": "17da81ebcf81",
+        "slug": "miyagi",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "宮城",
         "date": "2020-02-15",
@@ -19474,7 +19474,7 @@
       },
       {
         "liveItemUuid": "019e8284-b179-7b31-9b41-f89775761f42",
-        "slug": "f89775761f42",
+        "slug": "hokkaidou",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "北海道",
         "date": "2020-02-22",
@@ -19522,7 +19522,7 @@
       },
       {
         "liveItemUuid": "019e8284-b1d8-78a1-bcdd-bfd09c5bd1bd",
-        "slug": "bfd09c5bd1bd",
+        "slug": "aichi-chuushi",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "愛知 ※中止",
         "date": "2020-02-29",
@@ -19552,7 +19552,7 @@
       },
       {
         "liveItemUuid": "019e8284-b245-7d9e-ad1c-9031df2a0b49",
-        "slug": "9031df2a0b49",
+        "slug": "ousaka-chuushi",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "大阪 ※中止",
         "date": "2020-03-07",
@@ -19582,7 +19582,7 @@
       },
       {
         "liveItemUuid": "019e8284-b30e-77c0-a14b-5f56f1432819",
-        "slug": "5f56f1432819",
+        "slug": "toukyou-chuushi",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "東京 ※中止",
         "date": "2020-03-21",
@@ -19612,7 +19612,7 @@
       },
       {
         "liveItemUuid": "019e8284-b386-7d2f-b420-14b147d91f9f",
-        "slug": "14b147d91f9f",
+        "slug": "shukkou-hen-kanagawa-chuushi",
         "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
         "liveItemName": "出港編（神奈川） ※中止",
         "date": "2020-04-04",
@@ -19936,7 +19936,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-af9f-74a2-a6b0-fe9eac4e09f2",
-        "slug": "fe9eac4e09f2",
+        "slug": "countdown-japan",
         "liveUuid": "019e8284-75cf-7efc-b07c-aa9eed16fc5c",
         "liveItemName": null,
         "date": "2019-12-29",
@@ -20068,7 +20068,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-aeaf-712a-9927-2e2feb5ec614",
-        "slug": "2e2feb5ec614",
+        "slug": "youtube-fanfest",
         "liveUuid": "019e8284-7566-707f-a39f-740c8fb977eb",
         "liveItemName": null,
         "date": "2019-12-04",
@@ -20140,7 +20140,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-ad1d-7ff6-b55c-0ece6825592d",
-        "slug": "0ece6825592d",
+        "slug": "dai-16-kai",
         "liveUuid": "019e8284-74e0-70ed-a033-6668f1643f26",
         "liveItemName": null,
         "date": "2019-10-28",
@@ -20230,7 +20230,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-abf6-7eed-be01-8b053a8f7927",
-        "slug": "8b053a8f7927",
+        "slug": "ousaka-3",
         "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
         "liveItemName": "大阪",
         "date": "2019-10-06",
@@ -20278,7 +20278,7 @@
       },
       {
         "liveItemUuid": "019e8284-ac60-7813-98eb-70bbaa71b61a",
-        "slug": "70bbaa71b61a",
+        "slug": "aichi-2",
         "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
         "liveItemName": "愛知",
         "date": "2019-10-11",
@@ -20484,7 +20484,7 @@
       },
       {
         "liveItemUuid": "019e8284-acc2-7e20-8699-e0223343a086",
-        "slug": "e0223343a086",
+        "slug": "toukyou-3",
         "liveUuid": "019e8284-7468-7f47-be00-07706aa1fbb7",
         "liveItemName": "東京",
         "date": "2019-10-19",
@@ -20744,7 +20744,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-ab71-7292-b058-481464da9ac5",
-        "slug": "481464da9ac5",
+        "slug": "munakata-fesu",
         "liveUuid": "019e8284-7401-7fdb-a8b3-6ad9c08e61eb",
         "liveItemName": null,
         "date": "2019-09-22",
@@ -20804,7 +20804,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-aafc-7167-a183-6bf1990d28e5",
-        "slug": "6bf1990d28e5",
+        "slug": "rock-japan",
         "liveUuid": "019e8284-7398-7161-8232-c0f7f40a58b0",
         "liveItemName": null,
         "date": "2019-08-03",
@@ -21002,7 +21002,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a9ab-73bb-a2f5-5dcab3612283",
-        "slug": "5dcab3612283",
+        "slug": "azuma-no-tou",
         "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
         "liveItemName": "-東の塔-",
         "date": "2019-07-13",
@@ -21172,7 +21172,7 @@
       },
       {
         "liveItemUuid": "019e8284-aa1a-7693-9934-f043910ff12e",
-        "slug": "f043910ff12e",
+        "slug": "nishi-no-tou",
         "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
         "liveItemName": "-西の塔-",
         "date": "2019-07-14",
@@ -21346,7 +21346,7 @@
       },
       {
         "liveItemUuid": "019e8284-aa7a-7493-9934-11e7e79d9956",
-        "slug": "11e7e79d9956",
+        "slug": "hisashi-no-tou",
         "liveUuid": "019e8284-72c7-775a-99b2-f53a45b873a3",
         "liveItemName": "-央の塔-",
         "date": "2019-07-19",
@@ -21532,7 +21532,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a5a7-7ea4-8fe6-5e952d216409",
-        "slug": "5e952d216409",
+        "slug": "ousaka-2",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "大阪",
         "date": "2018-10-26",
@@ -21574,7 +21574,7 @@
       },
       {
         "liveItemUuid": "019e8284-a664-7242-93a4-8f27649c332a",
-        "slug": "8f27649c332a",
+        "slug": "sapporo",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "札幌",
         "date": "2018-11-03",
@@ -21616,7 +21616,7 @@
       },
       {
         "liveItemUuid": "019e8284-a6c7-795c-8c06-e825d8986a10",
-        "slug": "e825d8986a10",
+        "slug": "fukuoka",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "福岡",
         "date": "2018-11-11",
@@ -21652,7 +21652,7 @@
       },
       {
         "liveItemUuid": "019e8284-a735-740d-8851-826e4a1bc770",
-        "slug": "826e4a1bc770",
+        "slug": "aichi",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "愛知",
         "date": "2018-11-17",
@@ -21688,7 +21688,7 @@
       },
       {
         "liveItemUuid": "019e8284-a79f-7f1d-aa5b-1217419bf9be",
-        "slug": "1217419bf9be",
+        "slug": "toukyou-2",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "東京",
         "date": "2018-11-30",
@@ -21924,7 +21924,7 @@
       },
       {
         "liveItemUuid": "019e8284-a800-7d6c-94ec-e88dd02b3f74",
-        "slug": "e88dd02b3f74",
+        "slug": "kankoku",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "韓国",
         "date": "2018-12-15",
@@ -21966,7 +21966,7 @@
       },
       {
         "liveItemUuid": "019e8284-a862-7b80-986e-1434d04549db",
-        "slug": "1434d04549db",
+        "slug": "koushuu",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "広州",
         "date": "2019-01-10",
@@ -21996,7 +21996,7 @@
       },
       {
         "liveItemUuid": "019e8284-a8c0-77d1-be32-c1ab1b630350",
-        "slug": "c1ab1b630350",
+        "slug": "shanhai",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "上海",
         "date": "2019-01-12",
@@ -22026,7 +22026,7 @@
       },
       {
         "liveItemUuid": "019e8284-a943-774f-8ea1-89d72f2bd5c1",
-        "slug": "89d72f2bd5c1",
+        "slug": "pekin",
         "liveUuid": "019e8284-7266-7fd4-94bb-b58bf6cef96b",
         "liveItemName": "北京",
         "date": "2019-01-13",
@@ -22182,7 +22182,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a3e5-708f-a9b3-30be6dc3e62f",
-        "slug": "30be6dc3e62f",
+        "slug": "toukyou",
         "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
         "liveItemName": "東京",
         "date": "2018-06-01",
@@ -22372,7 +22372,7 @@
       },
       {
         "liveItemUuid": "019e8284-a44f-7dd5-a05f-d8c850c7e6d4",
-        "slug": "d8c850c7e6d4",
+        "slug": "ousaka",
         "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
         "liveItemName": "大阪",
         "date": "2018-06-08",
@@ -22598,7 +22598,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a333-7756-b5da-740b4cfddb36",
-        "slug": "740b4cfddb36",
+        "slug": "bikutaarokku",
         "liveUuid": "019e8284-7196-75bd-8b5d-ddadb0486814",
         "liveItemName": null,
         "date": "2018-03-17",
@@ -23280,7 +23280,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a19f-7cae-95a8-9799ae0e0c6e",
-        "slug": "9799ae0e0c6e",
+        "slug": "hyper-japan",
         "liveUuid": "019e8284-70d8-7923-9e26-90d49fe34214",
         "liveItemName": null,
         "date": "2017-07-16",
@@ -23388,7 +23388,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-a138-7d20-914e-b4ddee02d581",
-        "slug": "b4ddee02d581",
+        "slug": "air-g-35th",
         "liveUuid": "019e8284-7079-7afe-9ce9-a931cde94292",
         "liveItemName": null,
         "date": "2017-04-28",
@@ -24109,7 +24109,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-9b0b-7f45-899a-ac47ee172c60",
-        "slug": "ac47ee172c60",
+        "slug": "big-forest-live",
         "liveUuid": "019e8284-6fb3-7eff-9d85-01c4e051436a",
         "liveItemName": null,
         "date": "2016-08-28",
@@ -24187,7 +24187,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-9a9f-78e0-a56d-a42756093efb",
-        "slug": "a42756093efb",
+        "slug": "nihonkougakuin",
         "liveUuid": "019e8284-6f4f-7c25-b6cc-8640050428b8",
         "liveItemName": null,
         "date": "2016-07-02",
@@ -24283,7 +24283,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-98f1-7e5d-89a7-0f5786ec0141",
-        "slug": "0f5786ec0141",
+        "slug": "azuma-no-utage",
         "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
         "liveItemName": "東の宴",
         "date": "2015-10-23",
@@ -24313,7 +24313,7 @@
       },
       {
         "liveItemUuid": "019e8284-9998-73ba-9d7c-ecb64e09dc3a",
-        "slug": "ecb64e09dc3a",
+        "slug": "nishi-no-utage",
         "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
         "liveItemName": "西の宴",
         "date": "2015-11-26",
@@ -24747,7 +24747,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-9819-73ae-8333-0afd8dcf0783",
-        "slug": "0afd8dcf0783",
+        "slug": "hiru-no-bu",
         "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
         "liveItemName": "昼の部",
         "date": "2015-07-11",
@@ -24897,7 +24897,7 @@
       },
       {
         "liveItemUuid": "019e8284-9896-7155-836a-98d540826296",
-        "slug": "98d540826296",
+        "slug": "yoru-no-bu",
         "liveUuid": "019e8284-6e8a-7abc-a342-ff382f76b9da",
         "liveItemName": "夜の部",
         "date": "2015-07-11",
@@ -25083,7 +25083,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-9640-7f73-b4b4-2231cb92f105",
-        "slug": "2231cb92f105",
+        "slug": "utakatsu",
         "liveUuid": "019e8284-6e21-705d-b925-9c8d28cbe073",
         "liveItemName": null,
         "date": "2015-03-22",
@@ -25495,7 +25495,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-95dd-7e5d-9579-6754d29cd09c",
-        "slug": "6754d29cd09c",
+        "slug": "nico-nico",
         "liveUuid": "019e8284-6da9-7a15-94df-245b2aa9df62",
         "liveItemName": null,
         "date": "2015-02-01",
@@ -25555,7 +25555,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-956a-746d-91c5-2175bc3671c4",
-        "slug": "2175bc3671c4",
+        "slug": "amphead-nico",
         "liveUuid": "019e8284-6d3e-7f46-89f0-1461daae9eeb",
         "liveItemName": null,
         "date": "2014-02-01",
@@ -25615,7 +25615,7 @@
     "items": [
       {
         "liveItemUuid": "019e8284-94b3-73df-bc42-de6fd1bfd63c",
-        "slug": "de6fd1bfd63c",
+        "slug": "gigaba-na-na-za",
         "liveUuid": "019e8284-6cd6-7138-99cc-22a335d06b80",
         "liveItemName": null,
         "date": "2013-09-23",
