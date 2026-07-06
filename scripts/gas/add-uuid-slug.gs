@@ -926,12 +926,32 @@ function suggestSlugCandidates() {
     const lastRow = sh.getLastRow();
     if (lastRow < 2) return;
 
+    // live_item は公演名(E列)だけでは識別しづらいため、
+    // B列 liveId から親 live のタイトル(C列)を引いて表示名に付ける
+    let liveTitleById = null;
+    if (def.name === 'live_item') {
+      liveTitleById = new Map();
+      const liveSh = ss.getSheetByName('live');
+      if (liveSh && liveSh.getLastRow() >= 2) {
+        liveSh.getRange(2, 1, liveSh.getLastRow() - 1, 3).getValues().forEach((r) => {
+          const id = normCell_(r[0]); // A: liveId
+          if (id !== '' && !liveTitleById.has(id)) liveTitleById.set(id, normCell_(r[2])); // C: title
+        });
+      }
+    }
+
     const values = sh.getRange(2, 1, lastRow - 1, sh.getLastColumn()).getValues();
     for (let i = 0; i < values.length; i++) {
       const slug = normCell_(values[i][slugIdx]);
       const uuid = normCell_(values[i][uuidIdx]);
       if (!rowHasContent_(values[i]) || !isFallback(slug, uuid)) continue;
       const name = normCell_(values[i][def.nameCol]);
+      // 表示名(名前列)のみ親タイトルを連結。slug候補は公演名(E列)から生成する
+      let displayName = name;
+      if (liveTitleById) {
+        const liveTitle = liveTitleById.get(normCell_(values[i][1])) || ''; // B: liveId
+        if (liveTitle) displayName = liveTitle + ' / ' + name;
+      }
       const romajiCandidate = name ? tryRomanizeJa_(name) : '';
       let mvCandidate = '';
       if (mvIdx >= 0) {
@@ -944,7 +964,7 @@ function suggestSlugCandidates() {
       if (name) Utilities.sleep(200); // 外部アクセスの連続実行を抑制
       // 採用列は最良候補(公式MV題 > ローマ字)を事前入力。人が確認・修正する前提
       const prefill = mvCandidate || romajiCandidate || '';
-      rows.push([def.name, i + 2, name, slug, romajiCandidate, mvCandidate, prefill, '']);
+      rows.push([def.name, i + 2, displayName, slug, romajiCandidate, mvCandidate, prefill, '']);
     }
   });
 
