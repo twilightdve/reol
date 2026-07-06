@@ -92,4 +92,5 @@ typecheck → develop停止確認(lsof -i :8000)→ build → 生成HTML検証(�
 | タグライン「Reolのこれまでを、まるっと遡れる。」本番HomeSectionへ適用 | ✅ `54d07cd` |
 | **バッチ5(基盤+トップ刷新+クローム)** | ✅ **実装・検証完了(2026-07-07)** — `feature/batch-05-redesign-foundation`(`b1d21a2`+`6eb5591`)。bxトークン/SiteStatsノード/黒背景/redesignコンポーネント/HomeSection刷新(統計130・167・2,069焼き込み+NEXT LIVE)/ヘッダーナビ常設/フッター黄CTA/下部タブダーク化。typecheck・build・生成HTML検証済み |
 | バッチ5の既知残: opening演出は空と雲のまま(バッチ8で青×黄化)、THEATER統合(PersistentMainVideoは現状維持)、self-hostフォント未導入 | バッチ6以降で対応 |
-| バッチ6(曲詳細+stats+検索のダーク化) | 次 |
+| **バッチ6(曲詳細+stats+検索のダーク化)** | ✅ **実装・検証完了(2026-07-07)** — `feature/batch-06-redesign-pages`(`f71d8de`+`c715ef0`)。状態系tone対応/曲詳細130ページ/統計ダークテーブル/検索カテゴリ別グルーピング。typecheck・build・生成HTML検証済み。※検索結果はフラット関連度順→カテゴリ別グルーピングに変更(要ユーザー確認) |
+| バッチ7(discography/live/place/photos/timeline/welcome展開+白前提スタイル一掃+下部タブ全ページ常設) | 次 |
