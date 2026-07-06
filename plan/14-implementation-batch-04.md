@@ -82,7 +82,7 @@ A=Sonnet 5、B/C/D=Fable 5直接。typecheck・build成功。
 - `makeSlugFromName_`: ①括弧内の公式英題(例: `おとめの肖像 (Portrait of Her)`→`portrait-of-her`)→ ②ASCII → ③**かな→ヘボン式ローマ字**(`ヒビカセ`→`hibikase`)→ ④uuidフォールバック。漢字の読みは誤読防止のため機械推測しない
 - `regenerateFallbackSlugs()`: **フォールバックslugのみ**安全に再生成(手動編集slugは温存)、残件をレポート
 
-**残作業(ユーザー操作)**: ①改修版GASをApps Scriptへ反映 → ②`regenerateFallbackSlugs()` 実行(かな26曲が自動修正、漢字含み約24曲がレポートに残る)→ ③残件のslugをシートに手動入力(公式ローマ字)→ ④報告を受けてFableが再ビルド検証。**デプロイ後のslug変更はURL切れになるため、初回デプロイ前に完了させること**
+**残作業(ユーザー操作)**: ~~①改修版GASをApps Scriptへ反映 → ②`regenerateFallbackSlugs()` 実行 → ③残件のslugをシートに手動入力 → ④報告を受けてFableが再ビルド検証~~ → **✅ 全工程完了(2026-07-07)**。再ビルド検証結果: disc/song/live/live_item すべてハッシュslug 0件・重複0件・空0件。曲ページ130件が可読slug(`/songs/dairokkan/` 等)で生成、美辞学公演は `tochigi`/`koube` 等の地名slugに(スナップショット: `c540ddc`)
 
 ※②は実行済み(2026-07-03のシート取得で確認)。③の支援として **slug候補の自動生成機能を追加(2026-07-06)**: メニュー[UUID 移行]→「slug: 候補を生成」で `slug_suggestions` シートに候補が出る。「採用slug」列に確定値を入力→「slug: 採用slugを反映」で song シートへ反映(slugify正規化+重複は-2連番)。候補を直接自動採用しないのは誤読・誤訳を恒久URLにしないため。
 
