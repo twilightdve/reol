@@ -50,7 +50,7 @@ const BackToTopButton: React.FC<BackToTopButtonProps> = ({
       type="button"
       onClick={handleClick}
       aria-label="ページの先頭へ戻る"
-      className={`fixed right-3 bottom-20 z-[55] min-h-[44px] min-w-[44px] w-11 h-11 rounded-full shadow-lg bg-theme text-white flex items-center justify-center transition-opacity duration-300 motion-reduce:transition-none hover:opacity-90 active:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
+      className={`fixed right-3 bottom-20 z-[55] min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-bx-yellow text-bx-bg flex items-center justify-center transition-opacity duration-300 motion-reduce:transition-none hover:opacity-90 active:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2 ${
         visible
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"

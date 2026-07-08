@@ -50,7 +50,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
     : [36.2048, 138.2529];
 
   return (
-    <div className={`rounded-lg overflow-hidden border border-gray-200 ${heightClassName ?? "h-[420px]"}`}>
+    <div className={`rounded-lg overflow-hidden border border-bx-line ${heightClassName ?? "h-[420px]"}`}>
       <MapContainer
         center={center}
         zoom={5}
@@ -76,7 +76,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
                 </div>
                 <div className="mb-1">{m.item.name}</div>
                 {m.item.address && (
-                  <div className="text-gray-600 mb-1">{m.item.address}</div>
+                  <div className="text-gray-500 mb-1">{m.item.address}</div>
                 )}
                 {m.item.mapsUrl && (
                   <a

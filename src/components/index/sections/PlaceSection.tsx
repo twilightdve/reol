@@ -12,6 +12,7 @@ import ErrorRetry from "../../common/ErrorRetry";
 import EmptyState from "../../common/EmptyState";
 import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
+import { Kicker } from "../../redesign";
 
 // Leaflet は SSR で動かないので動的読み込み
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -266,7 +267,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   const renderPrefectureItem = (place: Place, item: PlaceItem) => (
     <li
       key={`pref-item-${place.placeUuid}-${item.placeItemUuid}`}
-      className="bg-white/60 backdrop-blur rounded-md border border-gray-200 p-3"
+      className="bg-white/5 rounded-md border border-bx-line p-3"
     >
       <div className="flex items-center gap-2 mb-1 flex-wrap">
         {place.type && (
@@ -274,7 +275,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             {place.type}
           </Badge>
         )}
-        <span className="text-xs text-gray-700">{place.title}</span>
+        <span className="text-xs text-bx-ink2">{place.title}</span>
       </div>
       <div className="flex items-start justify-between gap-2">
         {item.placeUrl ? (
@@ -282,36 +283,36 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             href={item.placeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-bold tracking-wide hover:underline inline-flex items-center min-h-[44px]"
+            className="text-sm font-bold tracking-wide text-bx-ink hover:text-bx-blue hover:underline inline-flex items-center min-h-[44px]"
           >
             {item.name}
             <GoLinkExternal className="ml-1 text-xs" aria-hidden="true" />
           </a>
         ) : (
-          <span className="text-sm font-bold tracking-wide">{item.name}</span>
+          <span className="text-sm font-bold tracking-wide text-bx-ink">{item.name}</span>
         )}
         <div className="flex gap-1 flex-shrink-0">
           {item.needsCost && (
-            <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-100 text-amber-800 border border-amber-200">
+            <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
               要費用
             </span>
           )}
           {item.needsPermission && (
-            <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-100 text-rose-800 border border-rose-200">
+            <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
               要許可
             </span>
           )}
         </div>
       </div>
       {item.address && (
-        <p className="text-xs text-gray-700 mt-1">{item.address}</p>
+        <p className="text-xs text-bx-ink2 mt-1">{item.address}</p>
       )}
       {item.mapsUrl && (
         <a
           href={item.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center mt-1 text-xs text-blue-700 hover:underline min-h-[36px]"
+          className="inline-flex items-center mt-1 text-xs text-bx-blue hover:underline min-h-[36px]"
         >
           Google Maps で開く
           <GoLinkExternal className="ml-1" aria-hidden="true" />
@@ -321,15 +322,14 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   );
 
   return (
-    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-white/70 backdrop-blur-sm rounded-xl shadow-sm mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
+    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-white/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
-        <h2 className="flex items-center font-bold text-lg text-shadow">
+        <Kicker color="text-bx-blue" className="mb-1">PLACE</Kicker>
+        <h2 className="flex items-center font-bold text-lg text-bx-ink">
           <TbMapPinHeart className="text-lg mr-2" />
-          <span className="underline underline-offset-4 decoration-dashed decoration-1">
-            PLACE(聖地)
-          </span>
+          <span>聖地</span>
         </h2>
-        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest">
+        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
           PLACEではReolが過去にMV撮影やTV番組の収録等で訪れたことのあるいわゆる「聖地」の情報を掲載しております。
           <br />
           聖地巡礼の参考情報としてご覧ください（掲載されていない情報があればぜひ教えていただけますと幸いです）。
@@ -364,7 +364,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <MapComponent markers={markers} heightClassName="h-48 sm:h-56" />
           </div>
         )}
-        <p className="mt-1 text-[10px] text-gray-600 text-right">
+        <p className="mt-1 text-[10px] text-bx-ink3 text-right">
           © OpenStreetMap contributors
         </p>
       </div>
@@ -373,7 +373,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
       <div
         role="region"
         aria-label="聖地の絞り込み"
-        className="sticky top-0 z-30 -mx-2 px-2 py-2 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-200 space-y-2 transition-[padding] duration-200 motion-reduce:transition-none"
+        className="sticky top-0 z-30 -mx-2 px-2 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line space-y-2 transition-[padding] duration-200 motion-reduce:transition-none"
       >
         {/* 1行目: ビューモード（コンパクト時は隠す） */}
         {!compactBar && (
@@ -387,10 +387,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   role="radio"
                   aria-checked={active}
                   onClick={() => setViewMode(m.key)}
-                  className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 ${
+                  className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
                     active
-                      ? "bg-letter text-white border-letter"
-                      : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
+                      ? "bg-bx-blue text-bx-bg border-bx-blue"
+                      : "bg-white/5 text-bx-ink border-bx-line hover:border-bx-blue"
                   }`}
                 >
                   {m.label}
@@ -411,10 +411,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 role="radio"
                 aria-checked={active}
                 onClick={() => setTypeFilter(f.key)}
-                className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1 ${
+                className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
                   active
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
+                    ? "bg-bx-yellow text-bx-bg border-bx-yellow"
+                    : "bg-white/5 text-bx-ink border-bx-line hover:border-bx-blue"
                 }`}
               >
                 {f.label}
@@ -433,12 +433,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="例: 武道館 / 東京 / 第六感"
               style={NO_ZOOM_STYLE}
-              className="block w-full min-h-[44px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1"
+              className="block w-full min-h-[44px] px-3 py-2 bg-white/5 border border-bx-line text-bx-ink rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1"
             />
           </label>
         )}
 
-        <div className="flex items-center justify-between text-[11px] text-gray-700">
+        <div className="flex items-center justify-between text-[11px] text-bx-ink2">
           <span>
             {filteredPlaces.length} / {places.length} 件
           </span>
@@ -446,7 +446,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <button
               type="button"
               onClick={clearFilters}
-              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-gray-300 bg-white hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-bx-line bg-white/5 hover:border-bx-blue transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
             >
               条件をクリア
             </button>
@@ -497,9 +497,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                         }}
                         aria-expanded={isExpanded}
                         aria-controls={`place-panel-${place.slug}`}
-                        className={`relative w-full text-left cursor-pointer rounded-lg transition-all duration-300 motion-reduce:transition-none overflow-hidden text-black bg-gradient-to-br from-white to-gray-100 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
-                          isExpanded ? "shadow-md" : "shadow-sm"
-                        }`}
+                        className={`relative w-full text-left cursor-pointer rounded-lg transition-colors motion-reduce:transition-none overflow-hidden text-bx-ink bg-white/5 border border-bx-line hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2`}
                       >
                         {!isExpanded && (
                           <div className="min-h-[64px] p-3 flex items-center gap-3">
@@ -508,10 +506,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                 src={thumb}
                                 alt=""
                                 loading="lazy"
-                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-gray-100"
+                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-white/5"
                               />
                             ) : (
-                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-gray-100 flex items-center justify-center text-gray-500">
+                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-white/5 flex items-center justify-center text-bx-ink3">
                                 <TbMapPinHeart className="text-xl" aria-hidden="true" />
                               </div>
                             )}
@@ -526,7 +524,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   {place.title}
                                 </span>
                               </div>
-                              <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[11px] text-gray-700">
+                              <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[11px] text-bx-ink2">
                                 <span>{itemCount} スポット</span>
                                 {prefectures.length > 0 && (
                                   <span className="truncate">
@@ -536,7 +534,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                 )}
                               </div>
                             </div>
-                            <GoChevronDown className="flex-shrink-0 ml-1 text-gray-600" aria-hidden="true" />
+                            <GoChevronDown className="flex-shrink-0 ml-1 text-bx-ink3" aria-hidden="true" />
                           </div>
                         )}
 
@@ -552,11 +550,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                 <span className="text-base font-bold tracking-wide">
                                   {place.title}
                                 </span>
-                                <span className="text-[11px] text-gray-700 flex-shrink-0">
+                                <span className="text-[11px] text-bx-ink2 flex-shrink-0">
                                   {itemCount} スポット
                                 </span>
                               </div>
-                              <GoChevronUp className="flex-shrink-0 ml-2 text-gray-600" aria-hidden="true" />
+                              <GoChevronUp className="flex-shrink-0 ml-2 text-bx-ink3" aria-hidden="true" />
                             </div>
 
                             {place.url && place.url.indexOf("youtu.be") !== -1 && (
@@ -586,7 +584,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                             {place.items?.map((item, itemIdx) => (
                               <div
                                 key={`place-${place.placeUuid}-${item.placeItemUuid}`}
-                                className="mb-3 last:mb-0 bg-white/60 backdrop-blur border border-gray-200 rounded-lg p-4"
+                                className="mb-3 last:mb-0 bg-white/5 border border-bx-line rounded-lg p-4"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 <div className="flex items-start justify-between gap-2 mb-2">
@@ -609,12 +607,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   )}
                                   <div className="flex flex-wrap gap-1 flex-shrink-0">
                                     {item.needsCost && (
-                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-100 text-amber-800 border border-amber-200">
+                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
                                         要費用
                                       </span>
                                     )}
                                     {item.needsPermission && (
-                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-100 text-rose-800 border border-rose-200">
+                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
                                         要許可
                                       </span>
                                     )}
@@ -635,7 +633,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   referrerPolicy="no-referrer-when-downgrade"
                                   title={`Map for ${item.name}`}
                                 />
-                                <p className="text-xs text-gray-700">{item.address}</p>
+                                <p className="text-xs text-bx-ink2">{item.address}</p>
                               </div>
                             ))}
                           </div>
@@ -661,7 +659,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               ) : (
                 prefectureGroups.map(([pref, list]) => (
                   <div key={`pref-${pref}`} className="space-y-2">
-                    <h3 className="sticky top-[136px] z-10 bg-gradient-to-r from-letter to-letter/80 text-white px-3 py-1 rounded-md font-bold text-sm tracking-wider">
+                    <h3 className="sticky top-[136px] z-10 bg-bx-blue text-bx-bg px-3 py-1 rounded-md font-bold text-sm tracking-wider">
                       {pref}{" "}
                       <span className="text-xs font-normal opacity-80">
                         ({list.length})
@@ -677,7 +675,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           )}
         </div>
 
-        <p className="text-xs py-2">
+        <p className="text-xs py-2 text-bx-ink3">
           ※ここに載っていない聖地情報いつでもお待ちしております
         </p>
       </div>
