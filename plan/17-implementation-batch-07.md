@@ -1,0 +1,91 @@
+# 17. 実行計画書: バッチ7 — B案リデザインの全ページ展開
+
+作成日: 2026-07-08
+ステータス: **未着手(この計画書はSonnet 5メインセッションがコールドスタートで実行できるように書かれている)**
+体制: **Sonnet 5メイン**(必要なら自身のサブエージェントに分割委譲)。Fable 5は相談役(下記エスカレーション基準)
+
+## 0. 最初に読むもの
+
+1. `plan/16-implementation-plan-b.md` — B案全体計画とバッチ5・6の完了内容
+2. `tailwind.config.js` の `bx` トークン(色はこれ以外使わない。hex直書き禁止、rgba()グローのみ例外)
+3. **完成済みリファレンス**(見た目とコードパターンの正):
+   - トップ: `src/components/index/sections/HomeSection.tsx` + `src/components/redesign/`(GlassCard/Kicker/StatCounter/ExploreGrid/EraChips)
+   - 曲詳細: `src/templates/song.tsx` / 統計: `src/pages/songs/stats.tsx` / 検索: `src/pages/search.tsx`
+   - クローム: `header.tsx` / `officialFooter.tsx` / `trackingFooter.tsx`(ダーク済み)
+4. CLAUDE.md(effort方針: 通常medium)
+
+## 1. スタイル変換ルール(機械的に適用)
+
+| 旧(ライト) | 新(B案ダーク) |
+|---|---|
+| `bg-white/60〜95` のカード | `bg-white/5` + `border border-bx-line` + `rounded-xl`(または `GlassCard`) |
+| `text-shadow` / `text-shadow-venue` | 削除(ダーク背景では不要) |
+| 本文 `text-gray-700〜900` | `text-bx-ink` |
+| 弱文字 `text-gray-500〜600` | 12px以上=`text-bx-ink2`、12px未満=`text-bx-ink3` |
+| `border-gray-200〜300` | `border-bx-line` |
+| `bg-theme`(金)のボタン/帯 | CTA=`bg-bx-yellow text-bx-bg`、非CTA=枠線ピル(`border-bx-line text-bx-ink`) |
+| `text-letter`(青) | `text-bx-blue` |
+| 紫/青緑/虹色などのグラデ装飾 | 撤去し単色アクセント(blue/yellow/blueLight)に |
+| セクション見出し | `Kicker`(英字トラッキング見出し)+ `text-bx-ink` のh2 |
+| 絵文字アイコン | react-icons v4 の線画系に置換 or 削除 |
+| ホバー | `hover:border-bx-blue` / `hover:bg-white/5` に統一 |
+
+**挙動不変の大原則**: GA4計測(trackEvent/trackOfficialLinkClick)・リンク先URL・SEO/JSON-LD・i18n・ダイアログ/展開/ソートのロジック・データ取得は一切変更しない。色とレイアウトのみ。
+
+## 2. サブバッチ分割(この順で。各サブバッチごとに typecheck→コミット)
+
+### 7a: welcome + timeline + photos(軽め・ウォームアップ)
+- `src/pages/welcome.tsx`(553行。ERAS紹介・埋め込み枠は `border-bx-line rounded-xl` 化。youtube-nocookie埋め込み自体は不変)
+- `src/components/index/sections/TimelineSection.tsx` + `src/components/modules/xtimeline.tsx`(text-shadow-venue除去)
+- `src/components/index/sections/PhotosSection.tsx` + `src/components/index/photography/photography.tsx`
+
+### 7b: discography(最大ボリューム)
+- `src/components/index/sections/DiscographySection.tsx`
+- `src/components/index/discography/`: discography.tsx / enhanced-discography.tsx / enhanced-timeline-item.tsx / timeline-item.tsx / item-song.tsx / song-live-history.tsx
+- 注意: 作品ごとの `themeColorPrimary/Secondary` を使う動的色があれば**残す**(バッチ8のダイナミックアクセントの布石)。dialog(実物大表示等)の開閉挙動は不変
+
+### 7c: live
+- `src/components/index/sections/LiveSection.tsx`
+- `src/components/index/live/`: live.tsx / enhanced-live.tsx / enhanced-live-item.tsx / enhanced-timeline-item.tsx / timeline-item.tsx / live-item.tsx / related-lives.tsx
+- セトリ表示・`#live-item-<slug>` アンカー・SetlistPrediction への導線は挙動不変
+
+### 7d: place + 共通小物
+- `src/components/index/sections/PlaceSection.tsx` + `PlaceMap.tsx` の周辺UI(**地図タイル・マーカー画像は不変**。infoWindowの吹き出しは可能な範囲で)
+- `src/components/common/`: SectionCard.tsx / SectionSkeleton.tsx / BackToTopButton.tsx をダーク対応(tone方式=ErrorRetry/EmptyState参照、または全面ダークでよいか使用箇所をgrepして判断)
+
+### 7e: 下部タブ全ページ常設(P2-1)+白スタイル一掃+最終検証
+- `TrackingFooter` を各ページ(index/discography/live/place/photos)のレンダリングから外し、`body.tsx` の非除外パスで常設に移す。**除外パス(bijigaku-navi/quiz/cgraph/heatmap/relive/design-preview)には出さない**。固定フッター分の `pb-14` 程度を本文側に確保
+- ROUTE_NAMESベースのタブは現状維持でよい(welcome/songsタブ追加はやらない。回遊はEXPLORE/ヘッダーが担う)
+- 仕上げに `grep -rn "bg-white/[6-9]|text-shadow|bg-theme|text-letter" src/` で残存を棚卸し(下記の対象外領域を除く)。残っていたら潰す
+
+## 3. 触ってはいけない領域
+
+- `src/pages/bijigaku-navi/` 配下・和紙テーマ(実質別サイト)
+- `src/pages/quiz/`・`src/pages/cgraph.tsx`・`src/pages/live/heatmap.tsx`・`src/pages/relive/`・`src/features/relive/`(独自テーマ、body.tsxの除外分岐対象)
+- `src/pages/design-preview/`(モック。歴史的記録として現状凍結)
+- `src/components/index/opening.tsx`・`mainVideo.tsx`/`persistentMainVideo.tsx`(バッチ8で演出ごと再設計)
+- `scripts/`・`gatsby-node.ts`(今バッチでは変更不要のはず)
+
+## 4. 既知の罠(このリポジトリ固有)
+
+- **gatsby developとbuildの同時実行禁止**。ビルド前に `lsof -i :8000 -sTCP:LISTEN` を確認。壊れたら残プロセスkill+`.cache`/`public`削除
+- ビルド/開発サーバがシートを再取得し `static/data/*.json`・`static/relive/generated/*` に差分が出る。**意味のある差分(slug等)以外は `git restore` で戻してからコミット**
+- Gatsby Head内で `t()` 使用禁止(翻訳キー露出の実績)。既存Headは触らない
+- lintスクリプトなし。`npm run typecheck` で代替
+- 公式リンクは確定値のみ(公式YouTube=@reolch)。新規リンクを足さない
+
+## 5. 検証(7e完了時)
+
+typecheck → develop停止確認 → `npm run build` → 生成HTML検証:
+`/discography/` `/live/` `/place/` `/photos/` `/timeline/` `/welcome/` にダーククラス適用+旧クラスのマークアップ残存なし(共通CSS定義の残存は無害)、`/`(トップ)と `/songs/*` のリグレッションなし、下部タブが全対象ページに出る/除外ページに出ない。
+ブラウザ目視(develop)で: discographyのdialog開閉、liveのセトリ展開、placeの地図とマーカー、モバイル幅での下部タブ。
+
+## 6. コミット規約
+
+- サブバッチ単位でコミット(`feat(redesign): バッチ7a — welcome/timeline/photosのダーク化` の形式)
+- ブランチ: `feature/batch-07-redesign-rollout` を最新の `feature/batch-06-redesign-pages` から作成
+- 完了したら本ファイルと `plan/16` §6 に結果を追記
+
+## 7. エスカレーション基準(Fable 5に相談)
+
+①同じ問題に2回失敗 ②デザイン判断がbxトークン・リファレンス実装でカバーされない ③原因不明のビルド/データ破損 ④バッチ7完了後の全体レビュー(/code-review でも可)
