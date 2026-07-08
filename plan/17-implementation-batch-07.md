@@ -1,8 +1,26 @@
 # 17. 実行計画書: バッチ7 — B案リデザインの全ページ展開
 
 作成日: 2026-07-08
-ステータス: **未着手(この計画書はSonnet 5メインセッションがコールドスタートで実行できるように書かれている)**
+ステータス: **完了(2026-07-08)**
 体制: **Sonnet 5メイン**(必要なら自身のサブエージェントに分割委譲)。Fable 5は相談役(下記エスカレーション基準)
+
+## 完了記録(2026-07-08)
+
+ブランチ: `feature/batch-07-redesign-rollout`(`feature/batch-06-redesign-pages`から分岐)
+
+| サブバッチ | コミット | 内容 |
+|---|---|---|
+| 7a | `28eb981` | welcome.tsx・TimelineSection・xtimeline・PhotosSection・photography |
+| 7b | `19add27` | discography一式(DiscographySection + discography/配下6ファイル)。`themeColorPrimary/Secondary`の動的色ロジックは指示通り温存 |
+| 7c | `10c61f7` | live一式(LiveSection + live/配下)。`enhanced-timeline-item.tsx`のSetCard静的色をbx化、動的色ロジックは温存 |
+| 7d | `0f5c8c1` | PlaceSection/PlaceMap・SectionSkeleton・BackToTopButton |
+| 7e | `baa447c` | TrackingFooterをbody.tsx(非除外パス)に集約し個別ページ実装を撤去。7d時点でtone="dark"付与漏れがあったPlaceSectionのEmptyState/ErrorRetry/LoadingSkeletonを追加修正。StaticYoutubeのbg-theme→bg-bx-yellow。trackingFooter.test.tsxの期待クラスを新デザインに追従(バッチ5由来の既存壊れテストも合わせて修正) |
+
+7b・7cはサブエージェントに並行委譲(discography/liveでファイルが排他的なため)、7a・7d・7eはメインセッションで直接実装。
+
+**検証**: 各サブバッチでtypecheck通過。全体まとめでjest全5スイート33件通過、`npm run build`成功、生成HTMLへの`bg-white/[6-9]`等残存なし、`gatsby develop`起動確認+主要ページのHTTP 200確認。**ブラウザでのインタラクティブ検証(dialog開閉/セトリ展開/地図マーカー/下部タブのハイドレーション後の除外ページ非表示)は本セッションの環境にchromium-cli/playwrightが無かったため未実施**。次回、可能であれば導入して確認するか、ユーザーの手動確認を推奨。
+
+**残課題**: `body.tsx`のパス判定(bijigaku-navi/quiz/cgraph/heatmap/relive/design-preview除外)はSSGビルド時`pathname=""`のため常に非除外分岐でレンダーされ、クライアントhydration後に除外を反映する既存の設計(バッチ7以前からのOfficialFooterと同じ挙動)。TrackingFooterも同じ経路に乗せたため同じ制約を継承している。動作上はハイドレーション後に正しく非表示になる想定だが、本セッションでは目視確認できていない。
 
 ## 0. 最初に読むもの
 
