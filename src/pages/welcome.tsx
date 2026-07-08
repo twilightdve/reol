@@ -14,6 +14,7 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { reolTypes } from "../data/reol-type/types";
 import { ACTIVITY_START_YEAR, activityYears } from "../constants/artist";
+import { Kicker } from "../components/redesign";
 
 // ---------- データ型 ----------
 
@@ -117,7 +118,7 @@ const axisSongNames = (axis: "G" | "E"): string[] =>
 // ---------- ページ本体 ----------
 
 const containerCls =
-  "bg-white/80 backdrop-blur-sm rounded-xl shadow-sm p-4 sm:p-6";
+  "bg-white/5 border border-bx-line rounded-xl p-4 sm:p-6";
 
 const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
   const songs = useMemo(() => mergeSongs(data), [data]);
@@ -156,16 +157,16 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
   }, [songs, topSlugs]);
 
   return (
-    <main className="relative container mx-auto w-full max-w-4xl px-3 sm:px-4 py-6 text-gray-800 space-y-8">
+    <main className="relative container mx-auto w-full max-w-4xl px-3 sm:px-4 py-6 text-bx-ink space-y-8">
       {/* 1. ヒーロー */}
       <section className={containerCls}>
-        <p className="text-xs font-semibold tracking-[0.25em] text-[#27489b] mb-2">
+        <Kicker color="text-bx-blue" className="mb-2">
           WELCOME
-        </p>
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mb-3">
+        </Kicker>
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-bx-ink mb-3">
           はじめてのReol
         </h1>
-        <p className="text-sm leading-relaxed text-gray-700">
+        <p className="text-sm leading-relaxed text-bx-ink2">
           Reolに出会ったばかりのあなたへ。楽曲・ライブ・セトリ・ロケ地まで、れをる時代から{activityYears()}年分の活動を記録した非公式ファンサイトです。まずは代表曲から。気になったら、そのまま公式へ飛べます。
         </p>
       </section>
@@ -174,11 +175,11 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
       <section className={containerCls} aria-labelledby="welcome-top-songs">
         <h2
           id="welcome-top-songs"
-          className="text-xl font-bold text-gray-900 mb-1"
+          className="text-xl font-bold text-bx-ink mb-1"
         >
           まずはこの曲から
         </h2>
-        <p className="text-xs text-gray-600 mb-4">
+        <p className="text-xs text-bx-ink3 mb-4">
           当サイトに収録した歴代ライブのセットリストから、演奏回数が多い順に選んだ3曲です。公式MVをそのまま見られます。
         </p>
         <div className="space-y-6">
@@ -187,7 +188,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             return (
               <article
                 key={song.songUuid}
-                className="rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden"
+                className="rounded-lg border border-bx-line bg-white/5 overflow-hidden"
               >
                 {videoId && (
                   <div className="aspect-w-16 aspect-h-9 bg-black">
@@ -202,10 +203,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                   </div>
                 )}
                 <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">
+                  <h3 className="text-base sm:text-lg font-semibold text-bx-ink">
                     {song.songName}
                   </h3>
-                  <p className="text-xs text-gray-600 mt-1">
+                  <p className="text-xs text-bx-ink3 mt-1">
                     ライブ演奏回数 {song.totalPlays}回
                     {song.firstPlayedDate && (
                       <> ／ 初披露 {song.firstPlayedDate}</>
@@ -220,7 +221,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackOfficialLinkClick("streaming")}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full bg-[#27489b] text-white hover:bg-[#1a3a7a] transition-colors"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
                       >
                         配信で聴く ↗
                       </a>
@@ -230,7 +231,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackOfficialLinkClick("youtube_mv")}
-                      className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-gray-300 text-gray-700 hover:border-gray-500 hover:bg-gray-50 transition-colors"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
                     >
                       YouTubeで開く ↗
                     </a>
@@ -241,7 +242,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                           label: `top_song_stats:${song.slug}`,
                         })
                       }
-                      className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-amber-300 text-amber-800 hover:bg-amber-50 transition-colors"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
                     >
                       演奏履歴を見る →
                     </Link>
@@ -251,24 +252,24 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             );
           })}
         </div>
-        <p className="text-[11px] text-gray-500 mt-3">
+        <p className="text-[11px] text-bx-ink3 mt-3">
           ※演奏回数は当サイト収録のセットリスト集計に基づく参考値です。
         </p>
       </section>
 
       {/* 3. 年代からたどる */}
       <section className={containerCls} aria-labelledby="welcome-era">
-        <h2 id="welcome-era" className="text-xl font-bold text-gray-900 mb-1">
+        <h2 id="welcome-era" className="text-xl font-bold text-bx-ink mb-1">
           年代からたどる
         </h2>
-        <p className="text-xs text-gray-600 mb-4">
+        <p className="text-xs text-bx-ink3 mb-4">
           各年代のリリース曲から、ライブ演奏回数の多い代表曲を選びました。カードを開くと公式MVに飛べます。
         </p>
         <div className="space-y-5">
           {eraPicks.map(({ era, picks }) => (
             <div key={era.key}>
               <h3 className="text-sm font-bold mb-2">
-                <span className="text-[#27489b] tabular-nums">{era.label}</span>
+                <span className="text-bx-blue tabular-nums">{era.label}</span>
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {picks.map((song) => {
@@ -276,7 +277,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                   return (
                     <div
                       key={song.songUuid}
-                      className="rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-gray-400 transition-all overflow-hidden"
+                      className="rounded-lg border border-bx-line bg-white/5 hover:border-bx-blue transition-colors overflow-hidden"
                     >
                       <a
                         href={song.musicVideoUrl}
@@ -296,14 +297,14 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                           />
                         )}
                         <div className="p-3">
-                          <span className="text-sm font-semibold text-gray-900 group-hover:text-[#27489b] transition-colors">
+                          <span className="text-sm font-semibold text-bx-ink group-hover:text-bx-blue transition-colors">
                             {song.songName}
                           </span>
-                          <p className="text-[11px] text-gray-600 mt-1">
+                          <p className="text-[11px] text-bx-ink3 mt-1">
                             {song.releaseDate.slice(0, 4)}年リリース ／ 演奏
                             {song.totalPlays}回
                           </p>
-                          <span className="inline-block text-[11px] text-[#27489b] mt-1">
+                          <span className="inline-block text-[11px] text-bx-blue mt-1">
                             公式MVを見る ↗
                           </span>
                         </div>
@@ -315,7 +316,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackOfficialLinkClick("streaming")}
-                            className="text-[11px] text-gray-600 underline hover:text-gray-900"
+                            className="text-[11px] text-bx-ink3 underline hover:text-bx-ink"
                           >
                             配信で聴く ↗
                           </a>
@@ -332,10 +333,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
 
       {/* 4. 次に聴くなら */}
       <section className={containerCls} aria-labelledby="welcome-next">
-        <h2 id="welcome-next" className="text-xl font-bold text-gray-900 mb-1">
+        <h2 id="welcome-next" className="text-xl font-bold text-bx-ink mb-1">
           次に聴くなら
         </h2>
-        <p className="text-xs text-gray-600 mb-4">
+        <p className="text-xs text-bx-ink3 mb-4">
           当サイトのファンタイプ診断で使っている「楽曲の好み」の2軸です。ピンとくる方から掘ってみてください。
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
@@ -359,23 +360,23 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           ).map(({ key, emoji, title, desc, pick }) => (
             <div
               key={key}
-              className="rounded-lg border border-gray-200 bg-white shadow-sm p-4"
+              className="rounded-lg border border-bx-line bg-white/5 p-4"
             >
-              <h3 className="text-sm font-bold text-gray-900 mb-1">
+              <h3 className="text-sm font-bold text-bx-ink mb-1">
                 <span className="mr-1.5">{emoji}</span>
                 {title}
               </h3>
-              <p className="text-xs text-gray-600 mb-3">{desc}</p>
+              <p className="text-xs text-bx-ink3 mb-3">{desc}</p>
               {pick && (
                 <a
                   href={pick.musicVideoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackOfficialLinkClick("youtube_mv")}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-[#27489b] hover:underline"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-bx-blue hover:underline"
                 >
                   代表曲「{pick.songName}」を聴く ↗
-                  <span className="text-[10px] text-gray-500 font-normal">
+                  <span className="text-[10px] text-bx-ink3 font-normal">
                     (演奏{pick.totalPlays}回)
                   </span>
                 </a>
@@ -388,24 +389,23 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           onClick={() =>
             trackEvent("welcome_link_click", { label: "quiz_reol_type" })
           }
-          className="block group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+          className="block group rounded-xl overflow-hidden border border-bx-line hover:border-bx-blue transition-colors"
         >
-          <div className="relative bg-gradient-to-r from-[#1a1040] via-[#2d1b69] to-[#1a1040] p-4 sm:p-5">
+          <div className="relative bg-white/5 p-4 sm:p-5">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-xl">🎵</span>
-                  <span className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300">
+                  <span className="text-base font-bold text-bx-ink">
                     あなたのタイプを診断する
                   </span>
                 </div>
-                <p className="text-xs text-white/70">
+                <p className="text-xs text-bx-ink3">
                   最前突撃派? 後方俯瞰派? 全20問・2分で、あなたのReolファンタイプを診断。
                 </p>
               </div>
-              <div className="flex-shrink-0 ml-3 w-9 h-9 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
+              <div className="flex-shrink-0 ml-3 w-9 h-9 rounded-full border border-bx-line flex items-center justify-center group-hover:border-bx-blue transition-colors">
                 <svg
-                  className="w-4 h-4 text-purple-300 group-hover:translate-x-0.5 transition-transform"
+                  className="w-4 h-4 text-bx-blue group-hover:translate-x-0.5 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -425,10 +425,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
 
       {/* 5. もっと掘る */}
       <section className={containerCls} aria-labelledby="welcome-more">
-        <h2 id="welcome-more" className="text-xl font-bold text-gray-900 mb-1">
+        <h2 id="welcome-more" className="text-xl font-bold text-bx-ink mb-1">
           もっと掘る
         </h2>
-        <p className="text-xs text-gray-600 mb-4">
+        <p className="text-xs text-bx-ink3 mb-4">
           気になり始めたら、ここから先が本編です。
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -436,21 +436,18 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             {
               to: "/songs/stats/",
               label: "song_stats",
-              emoji: "📊",
               title: "楽曲統計",
               desc: "全楽曲の通算演奏回数・初披露日を一覧",
             },
             {
               to: "/live/",
               label: "live",
-              emoji: "🎤",
               title: "LIVE",
               desc: "歴代ライブの情報とセットリスト",
             },
             {
               to: "/search/",
               label: "search",
-              emoji: "🔍",
               title: "横断検索",
               desc: "曲名・ライブ名・場所をまとめて検索",
             },
@@ -461,13 +458,12 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               onClick={() =>
                 trackEvent("welcome_link_click", { label: item.label })
               }
-              className="group rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-[#27489b]/50 transition-all p-4"
+              className="group rounded-lg border border-bx-line bg-white/5 hover:border-bx-blue transition-colors p-4"
             >
-              <div className="text-2xl mb-2">{item.emoji}</div>
-              <div className="text-sm font-bold text-gray-900 group-hover:text-[#27489b] transition-colors">
+              <div className="text-sm font-bold text-bx-ink group-hover:text-bx-blue transition-colors">
                 {item.title} →
               </div>
-              <p className="text-[11px] text-gray-600 mt-1">{item.desc}</p>
+              <p className="text-[11px] text-bx-ink3 mt-1">{item.desc}</p>
             </Link>
           ))}
         </div>
@@ -475,14 +471,14 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
 
       {/* 6. 公式CTA */}
       <section
-        className="rounded-xl overflow-hidden shadow-md"
+        className="rounded-xl overflow-hidden border border-bx-line"
         aria-labelledby="welcome-official"
       >
-        <div className="bg-gradient-to-r from-[#27489b] via-[#1a3a7a] to-[#27489b] p-5 sm:p-6 text-white">
-          <h2 id="welcome-official" className="text-lg font-bold mb-1">
+        <div className="bg-white/5 p-5 sm:p-6">
+          <h2 id="welcome-official" className="text-lg font-bold text-bx-ink mb-1">
             ここから先は、公式で。
           </h2>
-          <p className="text-xs text-white/80 mb-4">
+          <p className="text-xs text-bx-ink3 mb-4">
             最新情報・音源・映像はすべて公式から。このサイトは非公式ファンサイトです。
           </p>
           <div className="flex flex-wrap gap-2">
@@ -491,7 +487,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackOfficialLinkClick("site")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-white text-[#27489b] hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
             >
               公式サイト ↗
             </a>
@@ -500,7 +496,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackOfficialLinkClick("youtube")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-white/50 text-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
             >
               公式YouTube ↗
             </a>

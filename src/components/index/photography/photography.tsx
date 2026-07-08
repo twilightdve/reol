@@ -140,18 +140,18 @@ const Photography: React.FC<PhotographyProps> = ({ posts }) => {
       <div
         key={`carousel-contents-${index}`}
         ref={carouselDivRefs[index]}
-        className="relative w-full h-min max-w-sm shrink-0 z-10 snap-center snap-normal bg-gray-900"
+        className="relative w-full h-min max-w-sm shrink-0 z-10 snap-center snap-normal bg-bx-bg"
         onClick={(event) => {
           event.stopPropagation();
         }}
       >
         <div className="tracking-widest h-[90dvh] overflow-y-scroll">
-          <h3 className="h-8 text-sm leading-8 px-2 text-theme whitespace-nowrap overflow-hidden">
+          <h3 className="h-8 text-sm leading-8 px-2 text-bx-yellow whitespace-nowrap overflow-hidden">
             <span className="pr-1">{post.date}</span>
             {post.title}
           </h3>
           {post.description && (
-            <p className="text-sm px-2 pt-1 pb-2 tracking-wide leading-relaxed">
+            <p className="text-sm px-2 pt-1 pb-2 tracking-wide leading-relaxed text-bx-ink2">
               {post.description}
             </p>
           )}
@@ -175,7 +175,7 @@ const Photography: React.FC<PhotographyProps> = ({ posts }) => {
                     return (
                       <div
                         key={`post-timeline-${selectedIndex}-${itemIndex}`}
-                        className="bg-gray-900 pb-2"
+                        className="bg-bx-bg pb-2"
                       >
                         <img
                           className="w-full h-auto"
@@ -214,7 +214,7 @@ const Photography: React.FC<PhotographyProps> = ({ posts }) => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-400"
+                        className="text-bx-blue"
                       >
                         {link.title}
                       </a>

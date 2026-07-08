@@ -28,14 +28,15 @@ const XTimeline: React.FC<XTimelineProps> = ({ id, title }) => {
       <div className={`px-2 pt-3 pb-2 w-full${didMount ? "" : " hidden"}`}>
         <h2
           id={`Twitter-${id}`}
-          className="flex items-center font-bold text-xl pt-8 pb-4 text-shadow"
+          className="flex items-center font-bold text-xl pt-8 pb-4 text-bx-ink"
         >
           <FaXTwitter className="mr-2" />
-          <span className="underline underline-offset-4 decoration-dashed decoration-1">
+          <span>
             <a
               href={`https://twitter.com/${id}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-bx-blue transition-colors"
             >
               {title}
             </a>
