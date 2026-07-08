@@ -12,18 +12,18 @@ interface LiveProps {
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
-  line: "hidden h-0.5 w-full bg-gray-500 sm:flex",
+  line: "hidden h-0.5 w-full bg-bx-line sm:flex",
   marker: {
     base: {
       horizontal:
-        "absolute -left-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
       vertical:
-        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
     },
     icon: {
-      base: "h-3 w-3 text-cyan-600",
+      base: "h-3 w-3 text-bx-blue",
       wrapper:
-        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-200 ring-8 ring-gray-100 sm:ring-white",
+        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-bx-blueDeep ring-8 ring-bx-bg",
     },
   },
   vertical: "",
@@ -33,9 +33,9 @@ const timelineContentTheme: FlowbiteTimelineContentTheme = {
   root: {
     base: "mt-3 sm:pr-8",
   },
-  body: "mb-2 text-sm font-normal text-gray-900",
-  time: "mb-1 text-xs font-normal leading-none text-gray-500",
-  title: "text-base font-semibold text-gray-900",
+  body: "mb-2 text-sm font-normal text-bx-ink",
+  time: "mb-1 text-xs font-normal leading-none text-bx-ink2",
+  title: "text-base font-semibold text-bx-ink",
 };
 
 const timelineItemTheme: FlowbiteTimelineItemTheme = {
@@ -51,7 +51,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   root: {
     direction: {
       horizontal: "items-base sm:flex",
-      vertical: "relative border-l border-letter",
+      vertical: "relative border-l border-bx-line",
     },
   },
   item: timelineItemTheme,
@@ -156,9 +156,11 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           return (
             <span
               key={`live-tag-${tag}`}
-              className={`px-2 py-1 tracking-wide rounded-md ${
-                currentNames.includes(tag) ? "bg-letter" : "bg-theme"
-              } text-white cursor-pointer`}
+              className={`px-2 py-1 tracking-wide rounded-md border cursor-pointer transition-colors ${
+                currentNames.includes(tag)
+                  ? "bg-bx-yellow text-bx-bg border-bx-yellow"
+                  : "border-bx-line text-bx-ink hover:border-bx-blue"
+              }`}
               onClick={() => handleNameTagClick(tag)}
             >
               #{tag}
@@ -170,9 +172,11 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           return (
             <span
               key={`live-tag-${tag}`}
-              className={`px-2 py-1 tracking-wide rounded-md ${
-                currentYears.includes(tag) ? "bg-letter" : "bg-theme"
-              } text-white cursor-pointer`}
+              className={`px-2 py-1 tracking-wide rounded-md border cursor-pointer transition-colors ${
+                currentYears.includes(tag)
+                  ? "bg-bx-yellow text-bx-bg border-bx-yellow"
+                  : "border-bx-line text-bx-ink hover:border-bx-blue"
+              }`}
               onClick={() => handleYearTagClick(tag)}
             >
               #{tag}
@@ -184,9 +188,11 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           return (
             <span
               key={`live-tag-${tag}`}
-              className={`px-2 py-1 tracking-wide rounded-md ${
-                currentTypes.includes(tag) ? "bg-letter" : "bg-theme"
-              } text-white cursor-pointer`}
+              className={`px-2 py-1 tracking-wide rounded-md border cursor-pointer transition-colors ${
+                currentTypes.includes(tag)
+                  ? "bg-bx-yellow text-bx-bg border-bx-yellow"
+                  : "border-bx-line text-bx-ink hover:border-bx-blue"
+              }`}
               onClick={() => handleTypeTagClick(tag)}
             >
               #{tag === "event" ? "イベント出演" : "ワンマンライヴ"}
@@ -194,7 +200,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           );
         })}
       </div>
-      <p className="text-xs text-right">{currentList.length}件</p>
+      <p className="text-xs text-right text-bx-ink2">{currentList.length}件</p>
       <div style={{ isolation: "isolate" }}>
         <Timeline theme={timelineRootTheme}>
           {currentList.map((live) => {

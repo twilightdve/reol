@@ -101,7 +101,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
         className={`relative sm:flex sm:flex-1 sm:justify-start sm:gap-5 sm:flex-row w-full h-full ${
           withDialog
             ? ""
-            : "sm:border sm:border-theme sm:rounded-lg sm:px-5 sm:py-3"
+            : "sm:border sm:border-bx-line sm:rounded-lg sm:px-5 sm:py-3"
         }`}
         onClick={(event) => event.stopPropagation()}
       >
@@ -113,7 +113,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
           <>
             {withDialog && (
               <div className="flex justify-between items-center">
-                <h5 className="text-base sm:text-lg sm:font-bold tracking-tight text-black pl-2 pb-2">
+                <h5 className="text-base sm:text-lg sm:font-bold tracking-tight text-bx-ink pl-2 pb-2">
                   <span className="flex justify-start items-center">
                     <Badge
                       color="yellow"
@@ -128,7 +128,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
                   </span>
                 </h5>
                 <button
-                  className="w-6 h-6 text-xl rounded-full ring-2 ring-gray-800 bg-white mr-3 sm:hidden"
+                  className="w-6 h-6 text-xl rounded-full ring-2 ring-bx-line bg-bx-bg text-bx-ink mr-3 sm:hidden"
                   onClick={handleDialogClose}
                 >
                   <AiOutlineClose className="m-auto" />
@@ -151,7 +151,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
                     />
                   </LazyComponent>
                 </div>
-                <div className="text-left w-full text-xs font-normal text-gray-800 pt-2 pl-2">
+                <div className="text-left w-full text-xs font-normal text-bx-ink pt-2 pl-2">
                   {liveItem.address && <span>{liveItem.address}</span>}
                   {liveItem.placeSite && (
                     <a
@@ -171,7 +171,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
           <div className="relative w-full sm:h-full px-2">
             <div key={`setlist-${liveItem.liveItemUuid}`}>
               <h5
-                className={`underline underline-offset-4 decoration-dashed decoration-1 pt-3 pb-2 text-sm tracking-widest text-gray-800`}
+                className={`underline underline-offset-4 decoration-dashed decoration-1 pt-3 pb-2 text-sm tracking-widest text-bx-ink`}
               >
                 セットリスト
               </h5>
@@ -191,7 +191,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
                         {linkable ? (
                           <Link
                             to={`/songs/stats/?songUuid=${song.songUuid}#song-${song.songUuid}`}
-                            className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-gray-800 hover:opacity-80"
+                            className="underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-bx-ink hover:opacity-80"
                             title="楽曲統計ページで演奏履歴を見る"
                           >
                             <span
@@ -200,7 +200,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
                           </Link>
                         ) : (
                           <span
-                            className={`underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-gray-800`}
+                            className={`underline underline-offset-4 decoration-dotted decoration-1 leading-loose text-bx-ink`}
                             dangerouslySetInnerHTML={{ __html: sanitized }}
                           />
                         )}
@@ -220,7 +220,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
         {!withDialog && live.posts.length > 0 && (
           <div className="relative w-full h-full sm:max-h-208 sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden">
             {renderSpotifyPlaylist()}
-            <h4 className="text-base pt-1 pb-2 pl-2 text-black">関連ポスト</h4>
+            <h4 className="text-base pt-1 pb-2 pl-2 text-bx-ink">関連ポスト</h4>
             <div className="pb-3">
               <Tweets
                 parentId={`${live.liveUuid}-${liveItem.liveItemUuid}`}
@@ -235,7 +235,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
         {withDialog && liveItem.posts.length > 0 && (
           <div className="relative w-full h-full sm:max-h-208 sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden">
             {renderSpotifyPlaylist()}
-            <h4 className="text-base pt-1 pb-2 pl-2 text-black">関連ポスト</h4>
+            <h4 className="text-base pt-1 pb-2 pl-2 text-bx-ink">関連ポスト</h4>
             <div className="pb-3">
               <Tweets
                 parentId={`${live.liveUuid}-${liveItem.liveItemUuid}`}
@@ -257,11 +257,11 @@ const LiveItem: React.FC<LiveItemProps> = ({
       <div key={`live-item-dialog-${liveItem.liveItemUuid}`}>
         <div
           key={`card-live-${liveItem.liveItemUuid}`}
-          className="w-80 bg-white border border-gray-200 rounded-lg shadow"
+          className="w-80 bg-white/5 border border-bx-line rounded-lg"
           onClick={handleDialogShow}
         >
           <div className="relative w-full max-h-40 p-3">
-            <h4 className="text-sm font-bold tracking-widest text-black">
+            <h4 className="text-sm font-bold tracking-widest text-bx-ink">
               <div className="flex justify-between items-center">
                 <span className="flex justify-start items-center">
                   <Badge
@@ -278,7 +278,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
               </div>
             </h4>
             <div className="pl-2">
-              <div className="text-sm font-normal text-gray-800 pt-2 whitespace-nowrap overflow-hidden">
+              <div className="text-sm font-normal text-bx-ink pt-2 whitespace-nowrap overflow-hidden">
                 {liveItem.placeSite ? (
                   <span className="flex justify-start items-center">
                     {liveItem.place}
@@ -295,7 +295,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
         <dialog
           key={`dialog-${liveItem.liveItemUuid}`}
           ref={dialogRef}
-          className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-white sm:backdrop-opacity-20 rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
+          className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-bx-bg text-bx-ink sm:backdrop-opacity-20 rounded-lg border border-bx-line mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
           onClick={handleDialogClose}
         >
           {renderContent()}

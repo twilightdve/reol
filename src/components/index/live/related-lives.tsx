@@ -54,7 +54,7 @@ const RelatedLives: React.FC<{ liveUuid: string }> = ({ liveUuid }) => {
 
   return (
     <div className="px-2 py-3 text-xs">
-      <h5 className="font-semibold mb-2 text-gray-800 tracking-widest underline underline-offset-4 decoration-dashed decoration-1">
+      <h5 className="font-semibold mb-2 text-bx-ink tracking-widest underline underline-offset-4 decoration-dashed decoration-1">
         セトリが似ているLIVE
       </h5>
       <ul className="space-y-1">
@@ -62,11 +62,11 @@ const RelatedLives: React.FC<{ liveUuid: string }> = ({ liveUuid }) => {
           <li key={s.liveUuid} className="leading-snug">
             <Link
               to={`/?liveSlug=${s.liveSlug}#live-${s.liveSlug}`}
-              className="underline underline-offset-2 decoration-dotted hover:opacity-80 text-gray-800"
+              className="underline underline-offset-2 decoration-dotted hover:opacity-80 text-bx-ink"
             >
               {s.title}
             </Link>
-            <span className="text-gray-500 ml-1">
+            <span className="text-bx-ink2 ml-1">
               {s.date} ／ 共通 {s.sharedCount} 曲・類似度 {(s.score * 100).toFixed(0)}%
             </span>
           </li>

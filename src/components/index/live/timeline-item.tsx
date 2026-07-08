@@ -27,18 +27,18 @@ type State = {
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
-  line: "hidden h-0.5 w-full bg-gray-500 sm:flex",
+  line: "hidden h-0.5 w-full bg-bx-line sm:flex",
   marker: {
     base: {
       horizontal:
-        "absolute -left-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
       vertical:
-        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
     },
     icon: {
-      base: "h-3 w-3 text-cyan-600",
+      base: "h-3 w-3 text-bx-blue",
       wrapper:
-        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-200 ring-8 ring-gray-100 sm:ring-white",
+        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-bx-blueDeep ring-8 ring-bx-bg",
     },
   },
   vertical: "",
@@ -48,9 +48,9 @@ const timelineContentTheme: FlowbiteTimelineContentTheme = {
   root: {
     base: "mt-3 sm:pr-8",
   },
-  body: "mb-2 text-sm font-normal text-black",
-  time: "mb-1 text-xs font-normal leading-none text-gray-500",
-  title: "text-base font-semibold text-gray-900",
+  body: "mb-2 text-sm font-normal text-bx-ink",
+  time: "mb-1 text-xs font-normal leading-none text-bx-ink2",
+  title: "text-base font-semibold text-bx-ink",
 };
 
 class TimelineItem extends Component<Props, State> {
@@ -79,20 +79,20 @@ class TimelineItem extends Component<Props, State> {
           icon={live.type === "oneman" ? MdTour : MdLocationPin}
           theme={{
             horizontal: "flex items-center",
-            line: "hidden h-0.5 w-full bg-gray-500 sm:flex",
+            line: "hidden h-0.5 w-full bg-bx-line sm:flex",
             marker: {
               base: {
                 horizontal:
-                  "absolute -left-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+                  "absolute -left-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
                 vertical:
-                  "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+                  "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-bx-line bg-bx-line",
               },
               icon: {
                 base: `h-3 w-3 ${
-                  live.type === "oneman" ? "text-yellow-800" : "text-cyan-600"
+                  live.type === "oneman" ? "text-bx-yellow" : "text-bx-blue"
                 }`,
-                wrapper: `absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full ring-8 ring-gray-100 sm:ring-white ${
-                  live.type === "oneman" ? "bg-yellow-400" : "bg-cyan-200"
+                wrapper: `absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full ring-8 ring-bx-bg ${
+                  live.type === "oneman" ? "bg-bx-yellow/30" : "bg-bx-blueDeep"
                 }`,
               },
             },
@@ -102,15 +102,15 @@ class TimelineItem extends Component<Props, State> {
         <Timeline.Content>
           <Timeline.Time
             theme={{
-              time: "mb-1 text-xs sm:text-sm font-normal leading-none text-gray-600 tracking-widest",
+              time: "mb-1 text-xs sm:text-sm font-normal leading-none text-bx-ink2 tracking-widest",
             }}
           >
             {live.date}
           </Timeline.Time>
           <Timeline.Title
             theme={{
-              title: `flex flex-col font-semibold text-gray-900${
-                !this.state.isExpand ? " border-b" : ""
+              title: `flex flex-col font-semibold text-bx-ink${
+                !this.state.isExpand ? " border-b border-bx-line" : ""
               }`,
             }}
             onClick={(event) => {
@@ -130,7 +130,7 @@ class TimelineItem extends Component<Props, State> {
               <span className={`w-full text-sm`}>{live.title}</span>
             </div>
             <div className="flex justify-between items-center">
-              <ul className="flex justify-start list-none py-2 text-xs text-gray-500 font-thin tracking-widest">
+              <ul className="flex justify-start list-none py-2 text-xs text-bx-ink2 font-thin tracking-widest">
                 {live?.name && (
                   <li>
                     <span>名義:&nbsp;</span>
@@ -138,7 +138,7 @@ class TimelineItem extends Component<Props, State> {
                   </li>
                 )}
               </ul>
-              <span className="w-4/12 text-sm text-gray-600">
+              <span className="w-4/12 text-sm text-bx-ink2">
                 {this.state.isExpand ? (
                   <div className="flex justify-end items-center">
                     <GoChevronUp className="mr-1 inline" />
@@ -157,7 +157,7 @@ class TimelineItem extends Component<Props, State> {
             {this.state.isExpand && (
               <div className="sm:px-5 sm:py-0">
                 {live.reports.length > 0 && (
-                  <div className="text-black">
+                  <div className="text-bx-ink">
                     <h4 className="text-sm tracking-widest pt-3 pb-2">
                       &lt;LIVE REPORT&gt;
                     </h4>
@@ -255,7 +255,7 @@ class TimelineItem extends Component<Props, State> {
                               }
                             })()}`}
                           >
-                            <h4 className="text-base pt-1 pb-2 text-black">
+                            <h4 className="text-base pt-1 pb-2 text-bx-ink">
                               関連ポスト
                             </h4>
                             <Tweets

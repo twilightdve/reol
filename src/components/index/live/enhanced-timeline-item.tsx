@@ -34,11 +34,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
   return (
     <li
       id={`live-item-${setlist.slug}`}
-      className="rounded-lg transition-all duration-200 overflow-hidden scroll-mt-24"
-      style={{
-        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 242, 235, 0.95) 100%)",
-        border: "1px solid rgba(209, 213, 219, 0.5)",
-      }}
+      className="rounded-lg transition-all duration-200 overflow-hidden scroll-mt-24 bg-white/5 border border-bx-line"
       onClick={(e) => e.stopPropagation()}
     >
       {/* セットリストヘッダー */}
@@ -46,37 +42,23 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
         className="flex items-start gap-3 text-sm p-3 cursor-pointer group"
         onClick={onToggleExpand}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "rgba(243, 244, 246, 0.8)";
+          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = "transparent";
         }}
       >
         <div className="flex items-center gap-3">
-          <span
-            className="font-bold px-3 py-1.5"
-            style={{
-              backgroundColor: "rgba(156, 163, 175, 0.6)",
-              color: "#1F2937",
-              borderRadius: "8px",
-              border: "1px solid rgba(156, 163, 175, 0.8)",
-            }}
-          >
+          <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink">
             Set {index + 1}
           </span>
-          <span
-            className="text-sm font-semibold group-hover:text-opacity-90 transition-opacity"
-            style={{ color: "#1F2937" }}
-          >
+          <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity">
             {setlist.liveItemName || `Set ${index + 1}`}
           </span>
         </div>
         <div className="flex items-center gap-2">
           {setlist.setList && setlist.setList.length > 0 && (
-            <span
-              className="text-xs font-medium flex items-center gap-1"
-              style={{ color: "#6B7280" }}
-            >
+            <span className="text-xs font-medium flex items-center gap-1 text-bx-ink2">
               {isSetExpanded ? (
                 <GoChevronUp className="w-4 h-4" />
               ) : (
@@ -93,10 +75,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
       {/* Set 内容（展開時） */}
       {isSetExpanded && (
         <div
-          className="px-4 pb-4 pt-2"
-          style={{
-            backgroundColor: "rgba(243, 244, 246, 0.5)",
-          }}
+          className="px-4 pb-4 pt-2 bg-white/5"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Google Maps */}
@@ -109,15 +88,14 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="text-xs mt-2 space-y-1" style={{ color: "#1F2937" }}>
+              <div className="text-xs mt-2 space-y-1 text-bx-ink">
                 {setlist.address && <p>{setlist.address}</p>}
                 {setlist.placeSite && (
                   <a
-                    className="flex items-center gap-1 hover:opacity-80"
+                    className="flex items-center gap-1 hover:opacity-80 text-bx-blue"
                     href={setlist.placeSite}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#3B82F6" }}
                   >
                     {setlist.placeSite}
                     <GoLinkExternal className="w-3 h-3" />
@@ -143,17 +121,11 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
 
           {/* Setlist */}
           <div className="mb-3">
-            <h5
-              className="text-sm font-semibold mb-2 pb-1 border-b"
-              style={{
-                color: "#1F2937",
-                borderColor: "rgba(209, 213, 219, 0.5)",
-              }}
-            >
+            <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
               セットリスト
             </h5>
             {setlist.setList && setlist.setList.length > 0 ? (
-              <ol className="space-y-1 text-xs list-decimal list-inside" style={{ color: "#1F2937", whiteSpace: "pre-line" }}>
+              <ol className="space-y-1 text-xs list-decimal list-inside text-bx-ink" style={{ whiteSpace: "pre-line" }}>
                 {setlist.setList.map((song, songIndex) => {
                   const text = song.liveItemSongName
                     ?.replace(/<br\s*\/?>/gi, '\n')
@@ -178,7 +150,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
                 })}
               </ol>
             ) : (
-              <p className="text-xs" style={{ color: "#6B7280" }}>
+              <p className="text-xs text-bx-ink2">
                 セットリスト情報は現在登録されていません
               </p>
             )}
@@ -204,13 +176,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
           {/* セット別関連ポスト */}
           {setlist.posts && setlist.posts.length > 0 && (
             <div className="mb-3">
-              <h5
-                className="text-sm font-semibold mb-2 pb-1 border-b"
-                style={{
-                  color: "#1F2937",
-                  borderColor: "rgba(209, 213, 219, 0.5)",
-                }}
-              >
+              <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
                 関連ポスト
               </h5>
               <Tweets
@@ -454,7 +420,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
       <Timeline.Item theme={dynamicTimelineItemTheme}>
         <Timeline.Point theme={timelinePointTheme} />
         <Timeline.Content>
-          <div className="p-4 text-gray-400">Loading...</div>
+          <div className="p-4 text-bx-ink3">Loading...</div>
         </Timeline.Content>
       </Timeline.Item>
     );
