@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { navigate } from "gatsby";
 import Opening from "./opening";
 import { Recommend } from "../../types/recommend";
-import TrackingFooter from "../modules/trackingFooter";
 import BackToTopButton from "../common/BackToTopButton";
 import { AppDispatch, RouteState } from "../../redux/store";
 import { ROUTE_NAMES } from "../../types/common";
@@ -92,7 +91,6 @@ const IndexContents: React.FC<IndexContentsProps> = ({
         {renderCurrentContents(currentRoute)}
       </main>
       <BackToTopButton />
-      <TrackingFooter />
     </>
   );
 };

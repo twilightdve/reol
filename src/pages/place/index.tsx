@@ -3,7 +3,6 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
-import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { PlaceSection } from "../../components/index/sections";
 import { Place } from "../../types/places";
@@ -34,7 +33,6 @@ const PlacePage: FC<PageProps<PlacePageData>> = ({ data }) => {
         <PlaceSection places={places} />
       </main>
       <BackToTopButton />
-      <TrackingFooter />
     </>
   );
 };

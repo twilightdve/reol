@@ -3,7 +3,6 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
-import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { DiscographySection } from "../../components/index/sections";
 import { DiscographyWithSongs } from "../../types/discography";
@@ -34,7 +33,6 @@ const DiscographyPage: FC<PageProps<DiscographyPageData>> = ({ data }) => {
         <DiscographySection discographies={discographies} />
       </main>
       <BackToTopButton />
-      <TrackingFooter />
     </>
   );
 };

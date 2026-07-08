@@ -3,7 +3,6 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
-import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { PhotosSection } from "../../components/index/sections";
 import { AppDispatch } from "../../redux/store";
@@ -27,7 +26,6 @@ const PhotosPage: FC<PageProps<PhotosPageData>> = ({ data }) => {
         <PhotosSection />
       </main>
       <BackToTopButton />
-      <TrackingFooter />
     </>
   );
 };

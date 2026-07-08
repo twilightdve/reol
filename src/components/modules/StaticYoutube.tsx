@@ -56,7 +56,7 @@ const StaticYoutube: React.FC<StaticYoutubeProps> = ({ videoId, type }) => {
           <div className="w-full h-full">
             <Button
               pill
-              className="absolute top-0 bottom-0 left-0 right-0 m-auto w-20 h-20 bg-theme"
+              className="absolute top-0 bottom-0 left-0 right-0 m-auto w-20 h-20 bg-bx-yellow"
             >
               <FaYoutube className="text-4xl" />
             </Button>

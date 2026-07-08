@@ -77,7 +77,7 @@ describe("TrackingFooter", () => {
 
     const activeItem = screen.getByLabelText("Navigate to DISCOGRAPHY section");
     expect(activeItem).toHaveAttribute("aria-selected", "true");
-    expect(activeItem).toHaveClass("bg-theme");
+    expect(activeItem).toHaveClass("text-bx-yellow");
   });
 
   test("handles navigation on click", () => {

@@ -345,18 +345,21 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             description="タイプ・検索条件をクリアしてもう一度お試しください。"
             actionLabel="条件をクリア"
             onAction={clearFilters}
+            tone="dark"
           />
         ) : mapLoadError ? (
           <ErrorRetry
             title="マップの読み込みに失敗しました"
             description="通信状況をご確認のうえ、再試行してください。"
             onRetry={retryMapLoad}
+            tone="dark"
           />
         ) : !MapComponent ? (
           <LoadingSkeleton
             rows={1}
             rowHeightClassName="h-48 sm:h-56"
             gapClassName=""
+            rowClassName="border border-bx-line bg-white/5"
             label="マップを読み込み中..."
           />
         ) : (
@@ -465,6 +468,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
                   actionLabel="条件をクリア"
                   onAction={clearFilters}
+                  tone="dark"
                 />
               ) : (
                 filteredPlaces.map((place) => {
@@ -655,6 +659,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
                   actionLabel="条件をクリア"
                   onAction={clearFilters}
+                  tone="dark"
                 />
               ) : (
                 prefectureGroups.map(([pref, list]) => (

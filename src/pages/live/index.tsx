@@ -8,7 +8,6 @@ import {
   buildMusicEventItemList,
   isValidIsoDate,
 } from "../../utils/jsonLd";
-import TrackingFooter from "../../components/modules/trackingFooter";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { LiveSection } from "../../components/index/sections";
 import { LiveInfo } from "../../types/live";
@@ -41,7 +40,6 @@ const LivePage: FC<PageProps<LivePageData>> = ({ data }) => {
         <LiveSection liveInfos={liveInfos} />
       </main>
       <BackToTopButton />
-      <TrackingFooter />
     </>
   );
 };

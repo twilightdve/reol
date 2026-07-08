@@ -9,6 +9,7 @@ import Layout from "./layout";
 import TopHeader from "./header";
 import PersistentMainVideo from "./persistentMainVideo";
 import OfficialFooter from "./officialFooter";
+import TrackingFooter from "./trackingFooter";
 import WashiBackgroundImage from "../../images/washi-background.png";
 
 type Props = {
@@ -165,9 +166,13 @@ const Body: FC<Props> = ({ children }) => {
       */}
       <TopHeader title={data.site.siteMetadata.title} />
       <PersistentMainVideo />
-      <Layout title={data.site.siteMetadata.title} children={children} />
-      {/* 公式送客フッター。フルスクリーン系ページ(quiz/cgraph/heatmap/relive)には出さない */}
-      <OfficialFooter />
+      <div className="pb-14">
+        <Layout title={data.site.siteMetadata.title} children={children} />
+        {/* 公式送客フッター。フルスクリーン系ページ(quiz/cgraph/heatmap/relive)には出さない */}
+        <OfficialFooter />
+      </div>
+      {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(quiz/cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
+      <TrackingFooter />
     </>
   );
 };
