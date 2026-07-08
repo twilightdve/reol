@@ -18,9 +18,18 @@
 
 7b・7cはサブエージェントに並行委譲(discography/liveでファイルが排他的なため)、7a・7d・7eはメインセッションで直接実装。
 
-**検証**: 各サブバッチでtypecheck通過。全体まとめでjest全5スイート33件通過、`npm run build`成功、生成HTMLへの`bg-white/[6-9]`等残存なし、`gatsby develop`起動確認+主要ページのHTTP 200確認。**ブラウザでのインタラクティブ検証(dialog開閉/セトリ展開/地図マーカー/下部タブのハイドレーション後の除外ページ非表示)は本セッションの環境にchromium-cli/playwrightが無かったため未実施**。次回、可能であれば導入して確認するか、ユーザーの手動確認を推奨。
+**検証**: 各サブバッチでtypecheck通過。全体まとめでjest全5スイート33件通過、`npm run build`成功、生成HTMLへの`bg-white/[6-9]`等残存なし。
 
-**残課題**: `body.tsx`のパス判定(bijigaku-navi/quiz/cgraph/heatmap/relive/design-preview除外)はSSGビルド時`pathname=""`のため常に非除外分岐でレンダーされ、クライアントhydration後に除外を反映する既存の設計(バッチ7以前からのOfficialFooterと同じ挙動)。TrackingFooterも同じ経路に乗せたため同じ制約を継承している。動作上はハイドレーション後に正しく非表示になる想定だが、本セッションでは目視確認できていない。
+**ブラウザ検証(2026-07-08追加実施)**: playwrightを開発依存に導入(`2c011c9`)し、headless Chromiumで実機相当の確認を実施。
+- 下部タブ(TrackingFooter)表示: `/` `/discography/` `/live/` `/place/` `/photos/` `/welcome/` `/songs/stats/` `/search/` の8ページで表示を確認
+- 下部タブ非表示: `/cgraph/` `/quiz/reol-type/` `/bijigaku-navi/` `/relive/` `/live/heatmap/` `/design-preview/` の6ページでハイドレーション後に非表示になることを確認(§残課題のSSG初期描画の懸念は、クライアント側で正しく補正されることを実測で確認できた)
+- discographyのアルバムカードクリック展開: 動的テーマカラー(`themeColorPrimary`由来のcyan)を保持したまま曲目リストと埋め込み動画が展開されることを確認
+- liveのライブカードクリック展開: セトリ(Set 1/Set 2)が展開されることを確認
+- discography/liveのタグフィルタピル(#Reol等): クリックで黄色ハイライト+件数フィルタが機能することを確認
+- placeページ: Leaflet地図とマーカー46件の描画を確認
+- コンソールエラー: bijigaku-navi配下のSupabase fetch失敗のみ検出(本セッションのサンドボックスにネットワーク到達性が無いことが原因の環境起因。バッチ7の変更対象外領域かつコード上の回帰ではない)
+
+**残課題(解消済み)**: `body.tsx`のパス判定によるSSG初期描画時の一瞬の非除外分岐レンダリングは、上記ブラウザ検証によりクライアントhydration後に正しく除外される(除外ページで下部タブが表示されない)ことを実測確認済み。運用上の問題なしと判断。
 
 ## 0. 最初に読むもの
 
