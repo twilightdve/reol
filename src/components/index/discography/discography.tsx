@@ -26,18 +26,18 @@ type State = {
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
-  line: "hidden h-0.5 w-full bg-gray-500 sm:flex",
+  line: "hidden h-0.5 w-full bg-bx-line sm:flex",
   marker: {
     base: {
       horizontal:
-        "absolute -left-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 h-3 w-3 rounded-full border border-bx-bg bg-bx-line",
       vertical:
-        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-bx-bg bg-bx-line",
     },
     icon: {
-      base: "h-3 w-3 text-cyan-600",
+      base: "h-3 w-3 text-bx-blue",
       wrapper:
-        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-200 ring-8 ring-gray-100 sm:ring-white",
+        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-bx-blueDeep ring-8 ring-bx-bg",
     },
   },
   vertical: "",
@@ -47,9 +47,9 @@ const timelineContentTheme: FlowbiteTimelineContentTheme = {
   root: {
     base: "mt-3 sm:pr-8",
   },
-  body: "mb-2 text-sm font-normal text-black",
-  time: "mb-1 text-xs font-normal leading-none text-gray-500",
-  title: "text-base font-semibold text-gray-900",
+  body: "mb-2 text-sm font-normal text-bx-ink",
+  time: "mb-1 text-xs font-normal leading-none text-bx-ink2",
+  title: "text-base font-semibold text-bx-ink",
 };
 
 const timelineItemTheme: FlowbiteTimelineItemTheme = {
@@ -65,7 +65,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   root: {
     direction: {
       horizontal: "items-base sm:flex",
-      vertical: "relative border-l border-letter",
+      vertical: "relative border-l border-bx-line",
     },
   },
   item: timelineItemTheme,
@@ -155,11 +155,11 @@ class Discography extends Component<Props, State> {
             return (
               <span
                 key={`discography-tag-${tag}`}
-                className={`px-2 py-1 tracking-wide rounded-md ${
+                className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentNames.includes(tag)
-                    ? "bg-letter"
-                    : "bg-theme"
-                } text-white`}
+                    ? "border-bx-yellow text-bx-yellow bg-white/5"
+                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                }`}
                 onClick={(event) => {
                   const nextNames = this.toggleTag(
                     this.state.currentNames,
@@ -181,11 +181,11 @@ class Discography extends Component<Props, State> {
             return (
               <span
                 key={`discography-tag-${tag}`}
-                className={`px-2 py-1 tracking-wide rounded-md ${
+                className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentYears.includes(tag)
-                    ? "bg-letter"
-                    : "bg-theme"
-                } text-white`}
+                    ? "border-bx-yellow text-bx-yellow bg-white/5"
+                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                }`}
                 onClick={(event) => {
                   const nextYears = this.toggleTag(
                     this.state.currentYears,
@@ -210,11 +210,11 @@ class Discography extends Component<Props, State> {
             return (
               <span
                 key={`discography-tag-${tag}`}
-                className={`px-2 py-1 tracking-wide rounded-md ${
+                className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentFormats.includes(tag)
-                    ? "bg-letter"
-                    : "bg-theme"
-                } text-white`}
+                    ? "border-bx-yellow text-bx-yellow bg-white/5"
+                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                }`}
                 onClick={(event) => {
                   const nextFormats = this.toggleTag(
                     this.state.currentFormats,
@@ -236,7 +236,7 @@ class Discography extends Component<Props, State> {
             );
           })}
         </div>
-        <p className="text-xs text-right pt-2">{list.length}件</p>
+        <p className="text-xs text-right pt-2 text-bx-ink2">{list.length}件</p>
         <div style={{ isolation: "isolate" }}>
           <Timeline theme={timelineRootTheme}>
             {list.map((item, i) => {

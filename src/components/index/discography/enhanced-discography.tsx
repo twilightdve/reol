@@ -13,9 +13,9 @@ export const timelineContentTheme = {
   root: {
     base: "mt-0 sm:pr-4",
   },
-  body: "mb-2 text-sm font-normal text-gray-500 dark:text-gray-400",
-  time: "mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500",
-  title: "text-base font-semibold text-gray-900 dark:text-white",
+  body: "mb-2 text-sm font-normal text-bx-ink2",
+  time: "mb-1 text-xs font-normal leading-none text-bx-ink3",
+  title: "text-base font-semibold text-bx-ink",
 };
 
 // Timeline Point テーマ（アイコンと線を非表示）
@@ -75,12 +75,7 @@ const EnhancedDiscography: React.FC<Props> = React.memo(({ discographyWithSongs 
       {sortedYears.map((year, yearIndex) => (
         <div key={year} className="space-y-8" style={{ borderLeft: 'none' }}>
           {/* 年ヘッダー */}
-          <h2 
-            className="text-3xl sm:text-4xl font-bold text-white px-2"
-            style={{
-              textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-            }}
-          >
+          <h2 className="text-3xl sm:text-4xl font-bold text-bx-ink px-2">
             {year}
           </h2>
 

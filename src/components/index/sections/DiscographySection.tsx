@@ -14,21 +14,21 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
   discographies,
 }) => {
   return (
-    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="bg-white/70 backdrop-blur-sm rounded-xl shadow-sm mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
+    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="bg-white/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
-        <h2 className="flex items-center font-bold text-lg text-shadow">
+        <h2 className="flex items-center font-bold text-lg text-bx-ink">
           <FaCompactDisc className="text-lg mr-2" />
           <span className="underline underline-offset-4 decoration-dashed decoration-1">
             DISCOGRAPHY
           </span>
         </h2>
-        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest">
+        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
           DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。
         </div>
         <div className="pt-2">
           <Link
             to="/cgraph"
-            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-fuchsia-500 text-fuchsia-600 hover:bg-fuchsia-500 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
           >
             相関図を見る
             <GoLinkExternal className="inline" />
@@ -36,8 +36,8 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
         </div>
       </div>
       <Discography data={discographies} />
-      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-gray-200">
-        <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide">
+      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-white/5 rounded-lg border border-bx-line">
+        <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
           <li>
             上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます
             <br />

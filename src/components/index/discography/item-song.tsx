@@ -191,7 +191,7 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
             >
               <div className="flex justify-start items-center py-1">
                 <FaCirclePlay className="mr-2" />
-                <span className="text-letter">Music Video</span>
+                <span className="text-bx-blue">Music Video</span>
               </div>
             </li>
           )}
@@ -201,7 +201,7 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
             >
               <div className="flex justify-start items-center py-1">
                 <FaCirclePlay className="mr-2" />
-                <span className="text-letter">Lyric Video</span>
+                <span className="text-bx-blue">Lyric Video</span>
               </div>
             </li>
           )}
@@ -209,7 +209,7 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
             <li onClick={(event) => handleVideoPlay(song.liveVideoUrl!, event)}>
               <div className="flex justify-start items-center py-1">
                 <FaCirclePlay className="mr-2" />
-                <span className="text-letter">Live Video</span>
+                <span className="text-bx-blue">Live Video</span>
               </div>
             </li>
           )}
@@ -217,10 +217,10 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
       )}
       <dialog
         ref={dialogRef}
-        className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-gray-900 sm:backdrop-opacity-20 rounded-lg border-theme mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
+        className="w-screen max-w-full sm:w-5/6 h-full sm:max-h-208 bg-bx-bg sm:backdrop-opacity-20 rounded-lg border border-bx-line mt-40 ml-0 mr-0 mb-0 sm:m-auto sm:p-3"
         onClick={handleDialogClose}
       >
-        <div className="container w-full h-full text-white">
+        <div className="container w-full h-full text-bx-ink">
           <h3 className="mt-2 mb-2 ml-2 text-base">
             <div className="flex items-center">
               <span className="underline underline-offset-2">
@@ -304,8 +304,8 @@ const ItemSong: React.FC<Props> = ({ song, colorPalette }) => {
                 <Radar
                   name="SongFeature"
                   dataKey="A"
-                  stroke="#8884d8"
-                  fill="#8884d8"
+                  stroke="#6b8ce0"
+                  fill="#6b8ce0"
                   fillOpacity={0.6}
                 />
               </RadarChart>

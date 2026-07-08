@@ -57,11 +57,8 @@ const getBilibiliBvid = (url: string | null | undefined): string | null => {
 // YouTube埋め込みコンポーネント
 const YouTubeEmbed: React.FC<{ videoId: string }> = ({ videoId }) => (
   <div
-    className="mb-3 transition-all duration-300"
+    className="mb-3 transition-all duration-300 rounded-lg border border-bx-line bg-white/5"
     style={{
-      backgroundColor: "rgba(243, 244, 246, 0.5)",
-      borderRadius: "8px",
-      border: "1px solid rgba(209, 213, 219, 0.5)",
       overflow: "hidden",
       position: "relative",
       paddingBottom: "56.25%", // 16:9アスペクト比
@@ -87,11 +84,8 @@ const YouTubeEmbed: React.FC<{ videoId: string }> = ({ videoId }) => (
 // bilibili埋め込みコンポーネント
 const BilibiliEmbed: React.FC<{ bvid: string }> = ({ bvid }) => (
   <div
-    className="mb-3 transition-all duration-300"
+    className="mb-3 transition-all duration-300 rounded-lg border border-bx-line bg-white/5"
     style={{
-      backgroundColor: "rgba(243, 244, 246, 0.5)",
-      borderRadius: "8px",
-      border: "1px solid rgba(209, 213, 219, 0.5)",
       overflow: "hidden",
       position: "relative",
       paddingBottom: "56.25%", // 16:9アスペクト比
@@ -142,7 +136,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
     if (!youTubeId && !bvid) return null;
     return (
       <div className="mb-2">
-        <p className="text-xs font-medium mb-1" style={{ color: "#6B7280" }}>
+        <p className="text-xs font-medium mb-1 text-bx-ink2">
           {label}
         </p>
         {youTubeId ? (
@@ -155,43 +149,26 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
   };
 
   return (    <li
-      className="rounded-lg transition-all duration-200 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 242, 235, 0.95) 100%)",
-        border: "1px solid rgba(209, 213, 219, 0.5)",
-      }}
+      className="rounded-lg transition-all duration-200 overflow-hidden border border-bx-line bg-white/5"
       onClick={(e) => e.stopPropagation()}
     >
       {/* 曲ヘッダー（クリック可能） */}
       <div
-        className="flex items-start gap-3 text-sm p-3 cursor-pointer group"
+        className="flex items-start gap-3 text-sm p-3 cursor-pointer group hover:bg-white/5 transition-colors"
         onClick={onToggleExpand}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "rgba(243, 244, 246, 0.8)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = "transparent";
-        }}
       >
         <span
-          className="font-bold min-w-[2rem] text-center px-2 py-1"
-          style={{
-            backgroundColor: "rgba(156, 163, 175, 0.6)",
-            color: "#1F2937",
-            borderRadius: "6px",
-          }}
+          className="font-bold min-w-[2rem] text-center px-2 py-1 rounded text-bx-ink2 bg-white/10"
         >
           {String(index + 1).padStart(2, "0")}
         </span>
         <span
-          className="flex-1 font-medium group-hover:text-opacity-90 transition-opacity"
-          style={{ color: "#1F2937" }}
+          className="flex-1 font-medium group-hover:text-opacity-90 transition-opacity text-bx-ink"
         >
           {song.songName}
         </span>
         <span
-          className="text-xs font-medium flex items-center gap-1"
-          style={{ color: "#6B7280" }}
+          className="text-xs font-medium flex items-center gap-1 text-bx-ink2"
         >
           {isSongExpanded ? (
             <GoChevronUp className="w-4 h-4" />
@@ -203,29 +180,24 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
 
       {/* 曲詳細（展開時） */}
       {isSongExpanded && (
-        <div
-          className="px-4 pb-4 pt-2"
-          style={{
-            backgroundColor: "rgba(243, 244, 246, 0.5)",
-          }}
-        >
+        <div className="px-4 pb-4 pt-2 border-t border-bx-line">
           {/* クレジット情報 */}
-          <div className="text-xs space-y-1 mb-3" style={{ color: "#1F2937", whiteSpace: "pre-line" }}>
+          <div className="text-xs space-y-1 mb-3 text-bx-ink" style={{ whiteSpace: "pre-line" }}>
             {song.lyricMember && (
               <p>
-                <span style={{ color: "#6B7280" }}>作詞：</span>
+                <span className="text-bx-ink2">作詞：</span>
                 {song.lyricMember.replace(/<br\s*\/?>/gi, '\n')}
               </p>
             )}
             {song.musicMember && (
               <p>
-                <span style={{ color: "#6B7280" }}>作曲：</span>
+                <span className="text-bx-ink2">作曲：</span>
                 {song.musicMember.replace(/<br\s*\/?>/gi, '\n')}
               </p>
             )}
             {song.produceMember && (
               <p>
-                <span style={{ color: "#6B7280" }}>編曲：</span>
+                <span className="text-bx-ink2">編曲：</span>
                 {song.produceMember.replace(/<br\s*\/?>/gi, '\n')}
               </p>
             )}
@@ -239,12 +211,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
                   href={song.lyricUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium border transition-opacity hover:opacity-80"
-                  style={{
-                    color: "#1F2937",
-                    borderColor: "#9CA3AF",
-                    backgroundColor: "rgba(255, 255, 255, 0.7)",
-                  }}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium border border-bx-line text-bx-ink bg-white/5 transition-colors hover:border-bx-blue"
                   onClick={(event) => event.stopPropagation()}
                 >
                   <BiCommentDetail />
@@ -257,8 +224,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
                   href={song.downloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-80"
-                  style={{ backgroundColor: "#059669" }}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-bx-yellow text-bx-bg transition-opacity hover:opacity-90"
                   onClick={(event) => {
                     event.stopPropagation();
                     trackOfficialLinkClick("streaming");
@@ -275,11 +241,11 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
           {renderVideo("Music Video", musicVideoId, musicBilibili)}
           {renderVideo("Lyric Video", lyricVideoId, lyricBilibili)}
           {renderVideo("Live Video", liveVideoId, liveBilibili)}
-          
+
           {/* Spotify埋め込み */}
           {song.spotifyTrackId && (
             <div className="mb-3">
-              <p className="text-xs font-medium mb-1" style={{ color: "#6B7280" }}>Spotify</p>
+              <p className="text-xs font-medium mb-1 text-bx-ink2">Spotify</p>
               <iframe
                 className="rounded-lg w-full"
                 src={`https://open.spotify.com/embed/track/${song.spotifyTrackId}?utm_source=generator`}
@@ -290,10 +256,10 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
               />
             </div>
           )}
-          
-          <div className="text-xs" style={{ color: "#1F2937", whiteSpace: "pre-line" }}>
+
+          <div className="text-xs text-bx-ink" style={{ whiteSpace: "pre-line" }}>
             {!musicVideoId && !lyricVideoId && !liveVideoId && !musicBilibili && !lyricBilibili && !liveBilibili && !song.spotifyTrackId && !song.lyricMember && !song.musicMember && !song.produceMember && (
-              <p style={{ color: "#6B7280" }}>
+              <p className="text-bx-ink2">
                 詳細情報は現在登録されていません
               </p>
             )}

@@ -117,7 +117,7 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
         <LoadingSkeleton
           rows={3}
           rowHeightClassName="h-5"
-          rowClassName="border border-gray-700 bg-white/10"
+          rowClassName="border border-bx-line bg-white/5"
           label="演奏履歴を読み込み中…"
         />
       </div>
@@ -126,7 +126,7 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
 
   if (entry === null || entry.totalPlays === 0) {
     return (
-      <div className="mx-4 my-3 text-xs text-gray-400">
+      <div className="mx-4 my-3 text-xs text-bx-ink2">
         LIVEでの演奏履歴は記録されていません
       </div>
     );
@@ -141,18 +141,18 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
       <h4 className="mb-2 text-sm font-semibold tracking-wide">
         LIVE演奏履歴
       </h4>
-      <div className="mb-2 text-gray-300">
-        通算&nbsp;<span className="font-semibold text-white">{entry.totalPlays}</span>
+      <div className="mb-2 text-bx-ink2">
+        通算&nbsp;<span className="font-semibold text-bx-ink">{entry.totalPlays}</span>
         &nbsp;回 / 初演奏&nbsp;{entry.firstPlayedDate ?? "?"} / 最新&nbsp;
         {entry.lastPlayedDate ?? "?"}
       </div>
-      <ul className="list-none border-l border-gray-700 pl-3">
+      <ul className="list-none border-l border-bx-line pl-3">
         {visible.map((p) => (
           <li
             key={p.liveItemSongUuid}
             className="my-1 leading-snug"
           >
-            <span className="text-gray-400 mr-2">{p.date}</span>
+            <span className="text-bx-ink2 mr-2">{p.date}</span>
             <Link
               to={`/?liveSlug=${p.liveSlug}#live-${p.liveSlug}`}
               className="underline underline-offset-2 hover:opacity-80"
@@ -160,10 +160,10 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
               {p.liveTitle}
             </Link>
             {p.liveItemName && (
-              <span className="text-gray-400 ml-1">／{p.liveItemName}</span>
+              <span className="text-bx-ink2 ml-1">／{p.liveItemName}</span>
             )}
             {p.place && (
-              <span className="text-gray-500 ml-1">＠{p.place}</span>
+              <span className="text-bx-ink3 ml-1">＠{p.place}</span>
             )}
           </li>
         ))}
@@ -171,7 +171,7 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
       {playsDesc.length > 8 && (
         <button
           type="button"
-          className="mt-2 text-xs underline underline-offset-2 text-gray-300 hover:text-white"
+          className="mt-2 text-xs underline underline-offset-2 text-bx-ink2 hover:text-bx-ink"
           onClick={(e) => {
             e.stopPropagation();
             setExpanded((v) => !v);

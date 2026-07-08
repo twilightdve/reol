@@ -20,18 +20,18 @@ type Props = {
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
-  line: "hidden h-0.5 w-full bg-gray-500 sm:flex",
+  line: "hidden h-0.5 w-full bg-bx-line sm:flex",
   marker: {
     base: {
       horizontal:
-        "absolute -left-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 h-3 w-3 rounded-full border border-bx-bg bg-bx-line",
       vertical:
-        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-500",
+        "absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-bx-bg bg-bx-line",
     },
     icon: {
-      base: "h-3 w-3 text-cyan-600",
+      base: "h-3 w-3 text-bx-blue",
       wrapper:
-        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-200 ring-8 ring-gray-100 sm:ring-white",
+        "absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-bx-blueDeep ring-8 ring-bx-bg",
     },
   },
   vertical: "",
@@ -41,9 +41,9 @@ const timelineContentTheme: FlowbiteTimelineContentTheme = {
   root: {
     base: "mt-3 sm:pr-8",
   },
-  body: "mb-2 text-sm font-normal text-black",
-  time: "mb-1 text-xs font-normal leading-none text-gray-500",
-  title: "text-base font-semibold text-gray-900",
+  body: "mb-2 text-sm font-normal text-bx-ink",
+  time: "mb-1 text-xs font-normal leading-none text-bx-ink2",
+  title: "text-base font-semibold text-bx-ink",
 };
 
 const timelineItemTheme: FlowbiteTimelineItemTheme = {
@@ -98,15 +98,15 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
       <Timeline.Content>
         <Timeline.Time
           theme={{
-            time: "mb-1 text-xs sm:text-sm font-normal leading-none text-gray-600 tracking-widest",
+            time: "mb-1 text-xs sm:text-sm font-normal leading-none text-bx-ink2 tracking-widest",
           }}
         >
           {item.releaseDate?.replaceAll("-", "/")}
         </Timeline.Time>
         <Timeline.Title
           theme={{
-            title: `flex flex-col font-semibold text-gray-900${
-              !isExpand ? " border-b" : ""
+            title: `flex flex-col font-semibold text-bx-ink${
+              !isExpand ? " border-b border-bx-line" : ""
             }`,
           }}
           onClick={handleTitleClick}
@@ -119,7 +119,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
             <span className={`text-sm tracking-widest`}>{item.title}</span>
           </div>
           <div className="flex justify-between items-center">
-            <ul className="flex justify-start list-none py-2 ml-6 text-xs text-black font-thin tracking-widest">
+            <ul className="flex justify-start list-none py-2 ml-6 text-xs text-bx-ink font-thin tracking-widest">
               {item?.name && (
                 <li>
                   <span>名義:&nbsp;</span>
@@ -134,7 +134,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
               )}
             </ul>
             {item.songs.length > 0 && (
-              <span className="w-4/12 text-sm text-gray-600">
+              <span className="w-4/12 text-sm text-bx-ink2">
                 {isExpand ? (
                   <div className="flex justify-end items-center">
                     <GoChevronUp className="mr-1" />
@@ -156,14 +156,14 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
         </Timeline.Title>
         <Timeline.Body>
           {isExpand && item.songs.length > 0 && (
-            <div className="flex flex-wrap bg-white mt-2 px-5 pt-2 pb-5 rounded-lg border border-theme text-xs">
+            <div className="flex flex-wrap bg-white/5 mt-2 px-5 pt-2 pb-5 rounded-lg border border-bx-line text-xs">
               <div
                 className={`${item.posts.length > 0 ? "sm:w-1/2" : "w-full"}`}
               >
-                <h4 className="text-sm font-bold leading-10 text-black">
+                <h4 className="text-sm font-bold leading-10 text-bx-ink">
                   収録曲
                 </h4>
-                <ol className="list-decimal list-outside pl-5 text-black font-thin tracking-widest">
+                <ol className="list-decimal list-outside pl-5 text-bx-ink font-thin tracking-widest">
                   {item.songs.map((song, i) => {
                     return (
                       <ItemSong
@@ -174,7 +174,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
                   })}
                 </ol>
                 {item.reports && item.reports.length > 0 && (
-                  <div className="text-black">
+                  <div className="text-bx-ink">
                     <h4 className="text-sm tracking-widest pt-3 pb-2">
                       &lt;インタビュー&gt;
                     </h4>
@@ -211,7 +211,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
                 <div
                   className={`relative w-full sm:h-full sm:w-1/2 pt-2 sm:pt-2 sm:pb-2 sm:px-3 overflow-x-hidden sm:max-h-192`}
                 >
-                  <h4 className="text-sm font-bold pt-1 pb-2 text-black">
+                  <h4 className="text-sm font-bold pt-1 pb-2 text-bx-ink">
                     関連ポスト
                   </h4>
                   <Tweets
