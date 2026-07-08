@@ -23,8 +23,9 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [13-implementation-batch-03.md](./13-implementation-batch-03.md) | 実行計画書: 第3バッチ(Issue 11/7/13+α・実装済み) |
 | [14-implementation-batch-04.md](./14-implementation-batch-04.md) | 実行計画書: 第4バッチ選定(曲詳細ハブ+小物・実装済み) |
 | [15-uiux-redesign-ab.md](./15-uiux-redesign-ab.md) | デザイン提案: UI/UX評価とリデザインA/B案(B案採用・青×黄で確定) |
-| [16-implementation-plan-b.md](./16-implementation-plan-b.md) | 実行計画書: B案「BLACKBOX / CHRONICLE」本実装(バッチ5・6完了、7〜8残) |
-| [17-implementation-batch-07.md](./17-implementation-batch-07.md) | 実行計画書: バッチ7 全ページ展開(Sonnet 5メイン実行用の自己完結仕様書) |
+| [16-implementation-plan-b.md](./16-implementation-plan-b.md) | 実行計画書: B案「BLACKBOX / CHRONICLE」本実装(バッチ5〜7完了、8残) |
+| [17-implementation-batch-07.md](./17-implementation-batch-07.md) | 実行計画書: バッチ7 全ページ展開(完了。playwright導入によるブラウザ検証結果を含む) |
+| [18-implementation-batch-08.md](./18-implementation-batch-08.md) | 実行計画書: バッチ8「磨き」(オープニング再着色/ダイナミックアクセント点検/OG画像。ユーザー確認待ち項目あり) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
 ## インフラ前提
