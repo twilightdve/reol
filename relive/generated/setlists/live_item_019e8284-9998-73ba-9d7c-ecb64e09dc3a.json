@@ -287,11 +287,14 @@
       "displayTitle": "アストロノーツ",
       "normalizedTitle": "アストロノーツ",
       "policy": "cover",
+      "trackId": "song_019f2411-b39b-7e06-83c9-ea363755f78f",
+      "aliases": [],
       "afterglowTailSec": 8,
       "note": "source_cover",
       "match": {
-        "status": "missing",
-        "reason": "no_discography_match"
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
       }
     },
     {

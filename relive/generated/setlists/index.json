@@ -109,13 +109,13 @@
       "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 1,
+      "songCount": 0,
       "playablePolicySummary": {
         "required": 0,
-        "special": 1,
+        "special": 0,
         "medley": 0,
         "cover": 0,
-        "se": 1,
+        "se": 0,
         "unknown": 0
       }
     },
@@ -128,13 +128,13 @@
       "venueName": "岡谷鋼機名古屋公会堂",
       "venueId": "venue_岡谷鋼機名古屋公会堂",
       "type": "oneman",
-      "songCount": 1,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 0,
+        "required": 25,
         "special": 1,
-        "medley": 0,
+        "medley": 1,
         "cover": 0,
-        "se": 1,
+        "se": 0,
         "unknown": 0
       }
     },

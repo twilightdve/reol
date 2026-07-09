@@ -10,8 +10,8 @@
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
@@ -93,12 +93,12 @@
       "title": "Reol Oneman Live「No title」",
       "date": "2024-08-17",
       "sharedCount": 10,
-      "score": 0.244,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
@@ -125,7 +125,7 @@
     },
     {
       "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-      "liveSlug": "9fb2c90aaf78",
+      "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "sharedCount": 5,
@@ -201,7 +201,7 @@
     },
     {
       "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-      "liveSlug": "9fb2c90aaf78",
+      "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "sharedCount": 4,
@@ -288,9 +288,9 @@
         "019e8282-9677-71ba-834f-526dbc3b7b50",
         "019e8282-afa5-7e91-9c36-59164936111c",
         "019e8282-a484-7754-947a-b329bcd014cd",
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-b15a-78b5-aba8-2ec6c1deb7cf",
         "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-a7d9-7308-98f9-05fe78d54b53",
         "019e8282-9618-718f-b19f-8707fc5f04d3",
         "019e8282-8d1b-7746-a03c-6168be0b3d0e"
@@ -317,7 +317,7 @@
     },
     {
       "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-      "liveSlug": "9fb2c90aaf78",
+      "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "sharedCount": 6,
@@ -327,8 +327,8 @@
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
-        "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5"
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
+        "019e8282-b2ad-7dd6-9931-f352016f0f37"
       ]
     },
     {
@@ -372,22 +372,22 @@
       ]
     },
     {
-      "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
-      "liveSlug": "osaka-metropolitan-rock-festival-2023",
-      "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
-      "date": "2023-05-14",
+      "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+      "liveSlug": "countdown-japan-2526",
+      "title": "COUNTDOWN JAPAN 25/26",
+      "date": "2025-12-28",
       "sharedCount": 2,
-      "score": 0.286,
+      "score": 0.333,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-a112-7a3a-9938-28cc87cc9f00"
       ]
     },
     {
-      "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
-      "liveSlug": "countdown-japan-2526",
-      "title": "COUNTDOWN JAPAN 25/26",
-      "date": "2025-12-28",
+      "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
+      "liveSlug": "osaka-metropolitan-rock-festival-2023",
+      "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "date": "2023-05-14",
       "sharedCount": 2,
       "score": 0.286,
       "sharedSongUuids": [
@@ -452,9 +452,9 @@
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
         "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-b4cf-7347-9d12-536f29d4cf12",
         "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-d8b6-7a54-89e6-60ef20ae23ce"
       ]
     },
@@ -695,7 +695,7 @@
     },
     {
       "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-      "liveSlug": "9fb2c90aaf78",
+      "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "sharedCount": 5,
@@ -751,8 +751,8 @@
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-b92f-7d20-bd2e-2189afd4074b",
         "019e8282-a69c-7448-bfb1-ae2273ccc08c",
@@ -768,7 +768,7 @@
     },
     {
       "liveUuid": "019e8284-7d4e-7b3e-8757-9fb2c90aaf78",
-      "liveSlug": "9fb2c90aaf78",
+      "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
       "title": "さよなら中野サンプラザ音楽祭",
       "date": "2023-05-13",
       "sharedCount": 7,
@@ -803,6 +803,25 @@
       ]
     },
     {
+      "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
+      "liveSlug": "reol-secret-live-legit",
+      "title": "Reol Secret Live  \"極秘LEGIT\"",
+      "date": "2024-04-06〜2024-04-17",
+      "sharedCount": 9,
+      "score": 0.209,
+      "sharedSongUuids": [
+        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-88dd-71bc-a94d-9cdd721917e3",
+        "019e8282-acdf-79e4-b6be-f1de4e78e657",
+        "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
+        "019e8282-a3bf-78da-920a-67daf07accf9",
+        "019e8282-ad45-712c-abc5-4dc5ed07cdc1",
+        "019e8282-b080-7b80-b17b-5b31ddfbe416"
+      ]
+    },
+    {
       "liveUuid": "019e8284-7c09-7e10-b969-8ef960700248",
       "liveSlug": "countdown-japan-2223",
       "title": "COUNTDOWN JAPAN 22/23",
@@ -816,25 +835,6 @@
         "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "019e8282-b92f-7d20-bd2e-2189afd4074b",
         "019e8282-afa5-7e91-9c36-59164936111c"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-82bf-7279-90da-bbe763c75e71",
-      "liveSlug": "reol-secret-live-legit",
-      "title": "Reol Secret Live  \"極秘LEGIT\"",
-      "date": "2024-04-06〜2024-04-17",
-      "sharedCount": 9,
-      "score": 0.205,
-      "sharedSongUuids": [
-        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
-        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
-        "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-88dd-71bc-a94d-9cdd721917e3",
-        "019e8282-acdf-79e4-b6be-f1de4e78e657",
-        "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
-        "019e8282-a3bf-78da-920a-67daf07accf9",
-        "019e8282-ad45-712c-abc5-4dc5ed07cdc1",
-        "019e8282-b080-7b80-b17b-5b31ddfbe416"
       ]
     }
   ],
@@ -976,8 +976,8 @@
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
-        "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5"
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
+        "019e8282-b2ad-7dd6-9931-f352016f0f37"
       ]
     },
     {
@@ -1549,8 +1549,8 @@
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
@@ -1591,9 +1591,9 @@
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
         "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-b4cf-7347-9d12-536f29d4cf12",
         "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-d8b6-7a54-89e6-60ef20ae23ce"
       ]
     },
@@ -1610,8 +1610,8 @@
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-b788-7d1d-a5f7-c81d27df50ac",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-b92f-7d20-bd2e-2189afd4074b",
         "019e8282-a69c-7448-bfb1-ae2273ccc08c",
@@ -1643,9 +1643,9 @@
         "019e8282-9677-71ba-834f-526dbc3b7b50",
         "019e8282-afa5-7e91-9c36-59164936111c",
         "019e8282-a484-7754-947a-b329bcd014cd",
+        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-b15a-78b5-aba8-2ec6c1deb7cf",
         "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "019e8282-b315-798d-b991-c7fc740b5dc5",
         "019e8282-a7d9-7308-98f9-05fe78d54b53",
         "019e8282-9618-718f-b19f-8707fc5f04d3",
         "019e8282-8d1b-7746-a03c-6168be0b3d0e"
@@ -1768,6 +1768,21 @@
       ]
     },
     {
+      "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
+      "liveSlug": "xihu-music-festival",
+      "title": "XIHU MUSIC FESTIVAL",
+      "date": "2024-11-02",
+      "sharedCount": 5,
+      "score": 0.385,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00"
+      ]
+    },
+    {
       "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
       "liveSlug": "osaka-metropolitan-rock-festival-2023",
       "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
@@ -1793,21 +1808,6 @@
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
-      "liveSlug": "xihu-music-festival",
-      "title": "XIHU MUSIC FESTIVAL",
-      "date": "2024-11-02",
-      "sharedCount": 5,
-      "score": 0.357,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00"
       ]
     },
     {
@@ -1939,21 +1939,21 @@
       ]
     },
     {
-      "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
-      "liveSlug": "osaka-metropolitan-rock-festival-2023",
-      "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
-      "date": "2023-05-14",
+      "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+      "liveSlug": "countdown-japan-2526",
+      "title": "COUNTDOWN JAPAN 25/26",
+      "date": "2025-12-28",
       "sharedCount": 1,
-      "score": 0.143,
+      "score": 0.167,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36"
       ]
     },
     {
-      "liveUuid": "019e8284-7fed-78ad-ad9d-20795e2f7383",
-      "liveSlug": "summer-sonic-2023",
-      "title": "SUMMER SONIC 2023",
-      "date": "2023-08-19",
+      "liveUuid": "019e8284-7daa-7cff-bf0a-c5af3c54630a",
+      "liveSlug": "osaka-metropolitan-rock-festival-2023",
+      "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "date": "2023-05-14",
       "sharedCount": 1,
       "score": 0.143,
       "sharedSongUuids": [
@@ -1967,26 +1967,25 @@
       "liveSlug": "reol-oneman-live-no-title-in-shanghai",
       "title": "Reol Oneman Live 'No title' in SHANGHAI",
       "date": "2025-08-17",
-      "sharedCount": 26,
-      "score": 0.929,
+      "sharedCount": 25,
+      "score": 0.926,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
-        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-c12d-7b1c-ad00-b0329fafa802",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-        "019e8282-80f0-74e0-9c8b-0191e39556a8",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+        "019e8282-80f0-74e0-9c8b-0191e39556a8",
         "019e8282-e50d-7766-92e8-5edfa82f644f",
         "019e8282-aede-7f64-a17b-7b73662a8470",
         "019e8282-b012-7b78-8e55-fa91bc320dd8",
@@ -2003,39 +2002,17 @@
       "liveSlug": "dios2025-withunitedlab",
       "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
       "date": "2025-02-16",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.276,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
-      "liveSlug": "reol-oneman-live-2026",
-      "title": "Reol Oneman Live 2026 美辞学",
-      "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 11,
-      "score": 0.256,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
-        "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-d2de-7503-a017-b8b32643a99d",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
     {
@@ -2044,7 +2021,7 @@
       "title": "Reol Oneman Live 2022「激情アラート」",
       "date": "2022-04-27〜2022-05-13",
       "sharedCount": 10,
-      "score": 0.256,
+      "score": 0.263,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
@@ -2064,18 +2041,35 @@
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
       "date": "2020-02-08〜2020-08-16",
       "sharedCount": 10,
-      "score": 0.244,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
         "019e8282-aede-7f64-a17b-7b73662a8470",
         "019e8282-b012-7b78-8e55-fa91bc320dd8"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-80c6-756b-8ed3-a4241a1c7978",
+      "liveSlug": "simple-life-shanghai",
+      "title": "Simple Life Shanghai 上海簡単生活節",
+      "date": "2023-10-05",
+      "sharedCount": 7,
+      "score": 0.25,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-8424-7cc7-a286-7bf3738631d1",
+        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+        "019e8282-b38d-7f15-8cf5-c31353acff03",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-adad-7bc0-9325-9fe96e85c651"
       ]
     }
   ],
@@ -2086,12 +2080,12 @@
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
       "sharedCount": 6,
-      "score": 0.375,
+      "score": 0.4,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -2102,31 +2096,13 @@
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
       "sharedCount": 6,
-      "score": 0.353,
+      "score": 0.375,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
-      "liveSlug": "reol-oneman-live-in-yokohama-arena",
-      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-      "date": "2025-11-09",
-      "sharedCount": 8,
-      "score": 0.286,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-d2de-7503-a017-b8b32643a99d",
-        "019e8282-908f-7915-a305-74f7c9d6efcc",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2136,12 +2112,12 @@
       "title": "Namba Culture Terminal 2024  -1st Anniversary-",
       "date": "2024-10-26",
       "sharedCount": 6,
-      "score": 0.286,
+      "score": 0.3,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -2152,12 +2128,30 @@
       "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
       "date": "2025-02-16",
       "sharedCount": 5,
-      "score": 0.263,
+      "score": 0.278,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+      "liveSlug": "reol-oneman-live-in-yokohama-arena",
+      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+      "date": "2025-11-09",
+      "sharedCount": 8,
+      "score": 0.276,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-d2de-7503-a017-b8b32643a99d",
+        "019e8282-908f-7915-a305-74f7c9d6efcc",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     }
@@ -2168,18 +2162,17 @@
       "liveSlug": "xihu-music-festival",
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
-      "sharedCount": 11,
-      "score": 0.733,
+      "sharedCount": 10,
+      "score": 0.714,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-88dd-71bc-a94d-9cdd721917e3",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -2189,16 +2182,15 @@
       "liveSlug": "wonderlivet2024",
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
-      "sharedCount": 8,
-      "score": 0.471,
+      "sharedCount": 7,
+      "score": 0.438,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2208,15 +2200,15 @@
       "title": "Sakura-Con 2025",
       "date": "2025-04-18〜2025-04-20",
       "sharedCount": 8,
-      "score": 0.4,
+      "score": 0.421,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2226,34 +2218,31 @@
       "title": "Anime Boston",
       "date": "2025-05-23-2025-05-25",
       "sharedCount": 8,
-      "score": 0.4,
+      "score": 0.421,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
     {
-      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
-      "liveSlug": "reol-oneman-live-in-yokohama-arena",
-      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-      "date": "2025-11-09",
-      "sharedCount": 9,
+      "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
+      "liveSlug": "2024",
+      "title": "軌道共鳴2024",
+      "date": "2024-09-20",
+      "sharedCount": 6,
       "score": 0.3,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-a3bf-78da-920a-67daf07accf9",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     }
@@ -2264,18 +2253,17 @@
       "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
       "title": "Namba Culture Terminal 2024  -1st Anniversary-",
       "date": "2024-10-26",
-      "sharedCount": 11,
-      "score": 0.733,
+      "sharedCount": 10,
+      "score": 0.714,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-88dd-71bc-a94d-9cdd721917e3",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -2285,16 +2273,15 @@
       "liveSlug": "wonderlivet2024",
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
-      "sharedCount": 8,
-      "score": 0.615,
+      "sharedCount": 7,
+      "score": 0.583,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2304,15 +2291,15 @@
       "title": "Sakura-Con 2025",
       "date": "2025-04-18〜2025-04-20",
       "sharedCount": 8,
-      "score": 0.5,
+      "score": 0.533,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2322,15 +2309,15 @@
       "title": "Anime Boston",
       "date": "2025-05-23-2025-05-25",
       "sharedCount": 8,
-      "score": 0.5,
+      "score": 0.533,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2340,12 +2327,12 @@
       "title": "超音楽祭 in ニコニコ超会議2024",
       "date": "2024-04-27",
       "sharedCount": 5,
-      "score": 0.357,
+      "score": 0.385,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-a112-7a3a-9938-28cc87cc9f00"
       ]
     }
@@ -2356,34 +2343,15 @@
       "liveSlug": "xihu-music-festival",
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
-      "sharedCount": 8,
-      "score": 0.615,
+      "sharedCount": 7,
+      "score": 0.583,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
-      "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
-      "title": "Namba Culture Terminal 2024  -1st Anniversary-",
-      "date": "2024-10-26",
-      "sharedCount": 8,
-      "score": 0.471,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2393,12 +2361,12 @@
       "title": "Sakura-Con 2025",
       "date": "2025-04-18〜2025-04-20",
       "sharedCount": 7,
-      "score": 0.438,
+      "score": 0.467,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
@@ -2410,14 +2378,31 @@
       "title": "Anime Boston",
       "date": "2025-05-23-2025-05-25",
       "sharedCount": 7,
+      "score": 0.467,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-8424-7cc7-a286-7bf3738631d1",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-a0ad-7f0c-8601-1254a08351e9",
+        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
+      "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
+      "title": "Namba Culture Terminal 2024  -1st Anniversary-",
+      "date": "2024-10-26",
+      "sharedCount": 7,
       "score": 0.438,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2427,12 +2412,12 @@
       "title": "軌道共鳴2024",
       "date": "2024-09-20",
       "sharedCount": 6,
-      "score": 0.375,
+      "score": 0.4,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -2444,14 +2429,28 @@
       "liveSlug": "xihu-music-festival",
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
-      "sharedCount": 6,
-      "score": 0.353,
+      "sharedCount": 5,
+      "score": 0.313,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
+        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
+      "liveSlug": "2024",
+      "title": "軌道共鳴2024",
+      "date": "2024-09-20",
+      "sharedCount": 5,
+      "score": 0.278,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2460,15 +2459,14 @@
       "liveSlug": "reol-oneman-liveno-title",
       "title": "Reol Oneman Live「No title」",
       "date": "2024-08-17",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.276,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
@@ -2479,15 +2477,14 @@
       "liveSlug": "reol-oneman-live-no-title-in-shanghai",
       "title": "Reol Oneman Live 'No title' in SHANGHAI",
       "date": "2025-08-17",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.276,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
@@ -2498,8 +2495,8 @@
       "liveSlug": "reol-oneman-live-2026",
       "title": "Reol Oneman Live 2026 美辞学",
       "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.267,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
@@ -2507,23 +2504,7 @@
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
-      "liveSlug": "wonderlivet2024",
-      "title": "WONDERLIVET2024",
-      "date": "2024-11-10",
-      "sharedCount": 5,
-      "score": 0.294,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     }
@@ -2610,11 +2591,11 @@
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
@@ -2628,15 +2609,15 @@
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
       "sharedCount": 8,
-      "score": 0.5,
+      "score": 0.533,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2646,12 +2627,12 @@
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
       "sharedCount": 7,
-      "score": 0.438,
+      "score": 0.467,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
@@ -2663,15 +2644,15 @@
       "title": "Namba Culture Terminal 2024  -1st Anniversary-",
       "date": "2024-10-26",
       "sharedCount": 8,
-      "score": 0.4,
+      "score": 0.421,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2704,11 +2685,11 @@
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
@@ -2722,15 +2703,15 @@
       "title": "XIHU MUSIC FESTIVAL",
       "date": "2024-11-02",
       "sharedCount": 8,
-      "score": 0.5,
+      "score": 0.533,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2740,12 +2721,12 @@
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
       "sharedCount": 7,
-      "score": 0.438,
+      "score": 0.467,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
@@ -2757,15 +2738,15 @@
       "title": "Namba Culture Terminal 2024  -1st Anniversary-",
       "date": "2024-10-26",
       "sharedCount": 8,
-      "score": 0.4,
+      "score": 0.421,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -2946,26 +2927,25 @@
       "liveSlug": "reol-oneman-liveno-title",
       "title": "Reol Oneman Live「No title」",
       "date": "2024-08-17",
-      "sharedCount": 26,
-      "score": 0.929,
+      "sharedCount": 25,
+      "score": 0.926,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
-        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-c12d-7b1c-ad00-b0329fafa802",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-        "019e8282-80f0-74e0-9c8b-0191e39556a8",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+        "019e8282-80f0-74e0-9c8b-0191e39556a8",
         "019e8282-e50d-7766-92e8-5edfa82f644f",
         "019e8282-aede-7f64-a17b-7b73662a8470",
         "019e8282-b012-7b78-8e55-fa91bc320dd8",
@@ -2982,39 +2962,17 @@
       "liveSlug": "dios2025-withunitedlab",
       "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
       "date": "2025-02-16",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.276,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
-      "liveSlug": "reol-oneman-live-2026",
-      "title": "Reol Oneman Live 2026 美辞学",
-      "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 11,
-      "score": 0.256,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
-        "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-d2de-7503-a017-b8b32643a99d",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
     {
@@ -3023,12 +2981,12 @@
       "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
       "date": "2020-02-08〜2020-08-16",
       "sharedCount": 10,
-      "score": 0.244,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-91d8-7397-a5fd-4aa163c238ca",
         "019e8282-adad-7bc0-9325-9fe96e85c651",
@@ -3043,7 +3001,7 @@
       "title": "Simple Life Shanghai 上海簡単生活節",
       "date": "2023-10-05",
       "sharedCount": 7,
-      "score": 0.241,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
@@ -3053,64 +3011,42 @@
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-adad-7bc0-9325-9fe96e85c651"
       ]
-    }
-  ],
-  "019e8284-9004-71cd-8d29-3e1b6cb843be": [
-    {
-      "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
-      "liveSlug": "bandstival",
-      "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
-      "date": "2025-12-06",
-      "sharedCount": 9,
-      "score": 0.36,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-ee36-7d02-919b-36babd0173f5",
-        "019e8282-f23c-7c2b-a500-b62ec40367d4",
-        "019e8282-916c-7afe-ad65-19e75b32b017",
-        "019e8282-b7e3-730d-a541-f5b4804e1631"
-      ]
     },
     {
       "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
       "liveSlug": "reol-oneman-live-2026",
       "title": "Reol Oneman Live 2026 美辞学",
       "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 13,
-      "score": 0.342,
+      "sharedCount": 10,
+      "score": 0.233,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+        "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+        "019e8282-801f-7552-a1a6-fa5a912a47f8",
+        "019e8282-b38d-7f15-8cf5-c31353acff03",
+        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-d2de-7503-a017-b8b32643a99d",
-        "019e8282-ee36-7d02-919b-36babd0173f5",
-        "019e8282-f23c-7c2b-a500-b62ec40367d4",
-        "019e8282-ee94-77a8-b274-270d4d301d22",
-        "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-        "019e8282-9e1a-7177-9501-7ac3e24ed303"
+        "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
-    },
+    }
+  ],
+  "019e8284-9004-71cd-8d29-3e1b6cb843be": [
     {
       "liveUuid": "019e8284-8d78-79c0-9801-bcfa308eca6c",
       "liveSlug": "sakura-con-2025",
       "title": "Sakura-Con 2025",
       "date": "2025-04-18〜2025-04-20",
       "sharedCount": 9,
-      "score": 0.321,
+      "score": 0.31,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
@@ -3123,13 +3059,13 @@
       "title": "Anime Boston",
       "date": "2025-05-23-2025-05-25",
       "sharedCount": 9,
-      "score": 0.321,
+      "score": 0.31,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
@@ -3137,20 +3073,60 @@
       ]
     },
     {
-      "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
-      "liveSlug": "wonderlivet2024",
-      "title": "WONDERLIVET2024",
-      "date": "2024-11-10",
+      "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
+      "liveSlug": "bandstival",
+      "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+      "date": "2025-12-06",
       "sharedCount": 8,
       "score": 0.308,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
+        "019e8282-ee36-7d02-919b-36babd0173f5",
+        "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-916c-7afe-ad65-19e75b32b017",
+        "019e8282-b7e3-730d-a541-f5b4804e1631"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveSlug": "reol-oneman-live-2026",
+      "title": "Reol Oneman Live 2026 美辞学",
+      "date": "2026-03-14〜2026-07-18",
+      "sharedCount": 12,
+      "score": 0.3,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-a0ad-7f0c-8601-1254a08351e9",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
         "019e8282-d2de-7503-a017-b8b32643a99d",
+        "019e8282-ee36-7d02-919b-36babd0173f5",
+        "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-ee94-77a8-b274-270d4d301d22",
+        "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
+        "019e8282-9e1a-7177-9501-7ac3e24ed303"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-8598-78a5-b9d6-073d38283314",
+      "liveSlug": "2024",
+      "title": "軌道共鳴2024",
+      "date": "2024-09-20",
+      "sharedCount": 8,
+      "score": 0.276,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-d2de-7503-a017-b8b32643a99d",
+        "019e8282-908f-7915-a305-74f7c9d6efcc",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     }
@@ -3161,13 +3137,12 @@
       "liveSlug": "countdown-japan-2526",
       "title": "COUNTDOWN JAPAN 25/26",
       "date": "2025-12-28",
-      "sharedCount": 7,
-      "score": 0.7,
+      "sharedCount": 6,
+      "score": 0.667,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b714-7a5d-933a-34fa187bc83b",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
         "019e8282-b7e3-730d-a541-f5b4804e1631"
@@ -3178,14 +3153,13 @@
       "liveSlug": "reol-oneman-live-in-yokohama-arena",
       "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
       "date": "2025-11-09",
-      "sharedCount": 9,
-      "score": 0.36,
+      "sharedCount": 8,
+      "score": 0.308,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
         "019e8282-916c-7afe-ad65-19e75b32b017",
@@ -3198,7 +3172,7 @@
       "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
       "date": "2022-10-15",
       "sharedCount": 4,
-      "score": 0.267,
+      "score": 0.286,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b714-7a5d-933a-34fa187bc83b",
@@ -3207,30 +3181,28 @@
       ]
     },
     {
-      "liveUuid": "019e8284-87b5-7796-98e2-9817d14747ae",
-      "liveSlug": "xihu-music-festival",
-      "title": "XIHU MUSIC FESTIVAL",
-      "date": "2024-11-02",
-      "sharedCount": 4,
-      "score": 0.235,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf"
-      ]
-    },
-    {
       "liveUuid": "019e8284-7fed-78ad-ad9d-20795e2f7383",
       "liveSlug": "summer-sonic-2023",
       "title": "SUMMER SONIC 2023",
       "date": "2023-08-19",
       "sharedCount": 3,
-      "score": 0.214,
+      "score": 0.231,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-916c-7afe-ad65-19e75b32b017"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-7951-7809-92bc-6a9fadc897fb",
+      "liveSlug": "division-rap-battle-7th-livesummit-of-divisions",
+      "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+      "date": "2021-08-07",
+      "sharedCount": 2,
+      "score": 0.222,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00"
       ]
     }
   ],
@@ -3240,13 +3212,12 @@
       "liveSlug": "bandstival",
       "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
       "date": "2025-12-06",
-      "sharedCount": 7,
-      "score": 0.7,
+      "sharedCount": 6,
+      "score": 0.667,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b714-7a5d-933a-34fa187bc83b",
         "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
         "019e8282-b7e3-730d-a541-f5b4804e1631"
@@ -3258,7 +3229,7 @@
       "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
       "date": "2021-08-07",
       "sharedCount": 2,
-      "score": 0.286,
+      "score": 0.333,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-a112-7a3a-9938-28cc87cc9f00"
@@ -3270,7 +3241,7 @@
       "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
       "date": "2022-08-06",
       "sharedCount": 3,
-      "score": 0.25,
+      "score": 0.273,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b714-7a5d-933a-34fa187bc83b",
@@ -3283,7 +3254,7 @@
       "title": "DEAD POP FESTiVAL 2025",
       "date": "2025-06-28",
       "sharedCount": 3,
-      "score": 0.25,
+      "score": 0.273,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-b714-7a5d-933a-34fa187bc83b",
@@ -3291,19 +3262,16 @@
       ]
     },
     {
-      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
-      "liveSlug": "reol-oneman-live-in-yokohama-arena",
-      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-      "date": "2025-11-09",
-      "sharedCount": 6,
-      "score": 0.24,
+      "liveUuid": "019e8284-7b28-76c8-8215-aed344698f6f",
+      "liveSlug": "90-live-gumbo-park-osaka-gigantic-music-festival2022-spin-off-the-bonds-2022-excitement-osaka",
+      "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+      "date": "2022-10-15",
+      "sharedCount": 3,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-ee36-7d02-919b-36babd0173f5",
-        "019e8282-f23c-7c2b-a500-b62ec40367d4",
-        "019e8282-b7e3-730d-a541-f5b4804e1631"
+        "019e8282-b714-7a5d-933a-34fa187bc83b",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00"
       ]
     }
   ],
@@ -3313,8 +3281,8 @@
       "liveSlug": "reol-oneman-live-in-yokohama-arena",
       "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
       "date": "2025-11-09",
-      "sharedCount": 13,
-      "score": 0.342,
+      "sharedCount": 12,
+      "score": 0.3,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
@@ -3322,7 +3290,6 @@
         "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
@@ -3336,8 +3303,8 @@
       "liveSlug": "dios2025-withunitedlab",
       "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
       "date": "2025-02-16",
-      "sharedCount": 9,
-      "score": 0.3,
+      "sharedCount": 8,
+      "score": 0.267,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
@@ -3345,7 +3312,6 @@
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -3355,18 +3321,17 @@
       "liveSlug": "reol-oneman-liveno-title",
       "title": "Reol Oneman Live「No title」",
       "date": "2024-08-17",
-      "sharedCount": 11,
-      "score": 0.256,
+      "sharedCount": 10,
+      "score": 0.233,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
@@ -3376,39 +3341,37 @@
       "liveSlug": "reol-oneman-live-no-title-in-shanghai",
       "title": "Reol Oneman Live 'No title' in SHANGHAI",
       "date": "2025-08-17",
-      "sharedCount": 11,
-      "score": 0.256,
+      "sharedCount": 10,
+      "score": 0.233,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-8424-7cc7-a286-7bf3738631d1",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
         "019e8282-b38d-7f15-8cf5-c31353acff03",
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
     {
-      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-      "liveSlug": "reol-oneman-live-2025",
-      "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-      "date": "2024-01-19〜2024-06-08",
-      "sharedCount": 9,
-      "score": 0.225,
+      "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
+      "liveSlug": "reol-oneman-live",
+      "title": "Reol Oneman LIVE「刮目相待」",
+      "date": "2018-06-01〜2018-06-08",
+      "sharedCount": 8,
+      "score": 0.2,
       "sharedSongUuids": [
-        "019e8282-b714-7a5d-933a-34fa187bc83b",
+        "019e8282-8424-7cc7-a286-7bf3738631d1",
+        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
-        "019e8282-d2de-7503-a017-b8b32643a99d",
-        "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
-        "019e8282-d776-70df-b9dc-d510f145a2f5"
+        "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+        "019e8282-9b94-7dd6-8594-018b304cfdcb",
+        "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+        "019e8282-9e1a-7177-9501-7ac3e24ed303",
+        "019e8282-8d77-7522-a885-d14a4873ca1f"
       ]
     }
   ],
@@ -3580,8 +3543,8 @@
         "019e8282-916c-7afe-ad65-19e75b32b017",
         "019e8282-9100-7de6-b068-abb907e16395",
         "019e8282-987d-71ac-b390-33bdbee08323",
-        "019e8282-980c-7897-af8d-f29a00eea377",
-        "019e8282-9a62-7eca-bbc3-b00a4788ccf0"
+        "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+        "019e8282-980c-7897-af8d-f29a00eea377"
       ]
     },
     {
@@ -3655,7 +3618,7 @@
       "title": "れをる単独公演「極彩色HighFidelity」",
       "date": "2015-10-23〜2016-01-09",
       "sharedCount": 8,
-      "score": 0.242,
+      "score": 0.235,
       "sharedSongUuids": [
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-908f-7915-a305-74f7c9d6efcc",
@@ -3673,15 +3636,15 @@
       "title": "Reol Secret Live  \"極秘LEGIT\"",
       "date": "2024-04-06〜2024-04-17",
       "sharedCount": 9,
-      "score": 0.225,
+      "score": 0.231,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-9020-7457-9b15-125dc38bee15",
         "019e8282-8ba5-7d40-902b-e994975bf05a",
-        "019e8282-8a79-7924-be2a-2ae51e764636",
         "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
         "019e8282-9e1a-7177-9501-7ac3e24ed303",
+        "019e8282-8a79-7924-be2a-2ae51e764636",
         "019e8282-98ec-78d4-a7e5-1429844e87a6",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
       ]
@@ -3776,7 +3739,7 @@
       "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
       "date": "2025-11-09",
       "sharedCount": 10,
-      "score": 0.256,
+      "score": 0.25,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
@@ -3888,13 +3851,13 @@
       "title": "軌道共鳴2024",
       "date": "2024-09-20",
       "sharedCount": 7,
-      "score": 0.259,
+      "score": 0.269,
       "sharedSongUuids": [
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-b9f9-7865-84a7-e9853fda1749",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-b9f9-7865-84a7-e9853fda1749",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "019e8282-d2de-7503-a017-b8b32643a99d"
       ]
@@ -3904,14 +3867,13 @@
       "liveSlug": "reol-oneman-live-2026",
       "title": "Reol Oneman Live 2026 美辞学",
       "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 9,
-      "score": 0.225,
+      "sharedCount": 8,
+      "score": 0.2,
       "sharedSongUuids": [
         "019e8282-b714-7a5d-933a-34fa187bc83b",
         "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
@@ -3923,12 +3885,11 @@
       "liveSlug": "reol-secret-live-legit",
       "title": "Reol Secret Live  \"極秘LEGIT\"",
       "date": "2024-04-06〜2024-04-17",
-      "sharedCount": 9,
-      "score": 0.22,
+      "sharedCount": 8,
+      "score": 0.2,
       "sharedSongUuids": [
         "019e8282-c4dd-71c6-a878-5e06267be179",
         "019e8282-b9f9-7865-84a7-e9853fda1749",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
@@ -3938,37 +3899,42 @@
       ]
     },
     {
+      "liveUuid": "019e8284-8137-72c8-a205-53a93aee8b1c",
+      "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+      "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+      "date": "2023-11-18〜2024-03-20",
+      "sharedCount": 12,
+      "score": 0.188,
+      "sharedSongUuids": [
+        "019e8282-b714-7a5d-933a-34fa187bc83b",
+        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+        "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
+        "019e8282-b9f9-7865-84a7-e9853fda1749",
+        "019e8282-b92f-7d20-bd2e-2189afd4074b",
+        "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+        "019e8282-a043-72e8-a2e5-fe78da7ab58c",
+        "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
+        "019e8282-afa5-7e91-9c36-59164936111c",
+        "019e8282-a484-7754-947a-b329bcd014cd"
+      ]
+    },
+    {
       "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
       "liveSlug": "reol-oneman-live-in-yokohama-arena",
       "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
       "date": "2025-11-09",
-      "sharedCount": 8,
-      "score": 0.211,
+      "sharedCount": 7,
+      "score": 0.179,
       "sharedSongUuids": [
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
         "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-c4dd-71c6-a878-5e06267be179",
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
         "019e8282-d2de-7503-a017-b8b32643a99d",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
-      "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
-      "title": "Namba Culture Terminal 2024  -1st Anniversary-",
-      "date": "2024-10-26",
-      "sharedCount": 6,
-      "score": 0.194,
-      "sharedSongUuids": [
-        "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8",
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-d426-7101-a7ef-56ed1f7c439b",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-9020-7457-9b15-125dc38bee15"
       ]
     }
   ],
@@ -4108,8 +4074,8 @@
         "019e8282-916c-7afe-ad65-19e75b32b017",
         "019e8282-9100-7de6-b068-abb907e16395",
         "019e8282-987d-71ac-b390-33bdbee08323",
-        "019e8282-980c-7897-af8d-f29a00eea377",
-        "019e8282-9a62-7eca-bbc3-b00a4788ccf0"
+        "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+        "019e8282-980c-7897-af8d-f29a00eea377"
       ]
     },
     {
@@ -4202,7 +4168,7 @@
       "title": "Reol Secret Live  \"極秘LEGIT\"",
       "date": "2024-04-06〜2024-04-17",
       "sharedCount": 10,
-      "score": 0.238,
+      "score": 0.244,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
@@ -4243,7 +4209,7 @@
       "title": "Reol Oneman Live 2019「侵攻アップグレード」",
       "date": "2019-10-06〜2019-10-19",
       "sharedCount": 10,
-      "score": 0.238,
+      "score": 0.244,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
@@ -4258,38 +4224,20 @@
       ]
     },
     {
-      "liveUuid": "019e8284-8605-7b52-a298-29ba6fe3856d",
-      "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
-      "title": "Namba Culture Terminal 2024  -1st Anniversary-",
-      "date": "2024-10-26",
-      "sharedCount": 8,
-      "score": 0.229,
-      "sharedSongUuids": [
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-8933-7d04-8788-b26cdc9183a6",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-88dd-71bc-a94d-9cdd721917e3",
-        "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
-        "019e8282-a3bf-78da-920a-67daf07accf9",
-        "019e8282-9020-7457-9b15-125dc38bee15"
-      ]
-    },
-    {
       "liveUuid": "019e8284-71f9-7490-a34f-5c74c54bd7a9",
       "liveSlug": "reol-oneman-live",
       "title": "Reol Oneman LIVE「刮目相待」",
       "date": "2018-06-01〜2018-06-08",
       "sharedCount": 9,
-      "score": 0.225,
+      "score": 0.231,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-9020-7457-9b15-125dc38bee15",
         "019e8282-8ba5-7d40-902b-e994975bf05a",
-        "019e8282-8a79-7924-be2a-2ae51e764636",
         "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
         "019e8282-9e1a-7177-9501-7ac3e24ed303",
+        "019e8282-8a79-7924-be2a-2ae51e764636",
         "019e8282-98ec-78d4-a7e5-1429844e87a6",
         "019e8282-89a5-74fb-af3d-eba9f9d552a6"
       ]
@@ -4300,7 +4248,7 @@
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
       "date": "2023-11-18〜2024-03-20",
       "sharedCount": 15,
-      "score": 0.221,
+      "score": 0.224,
       "sharedSongUuids": [
         "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
         "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
@@ -4320,22 +4268,41 @@
       ]
     },
     {
-      "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
-      "liveSlug": "reol-oneman-live-2025",
-      "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
-      "date": "2024-01-19〜2024-06-08",
+      "liveUuid": "019e8284-769c-725d-b466-ae659843b954",
+      "liveSlug": "reol-oneman-live-2020",
+      "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+      "date": "2020-02-08〜2020-08-16",
       "sharedCount": 9,
-      "score": 0.22,
+      "score": 0.214,
       "sharedSongUuids": [
-        "019e8282-c4dd-71c6-a878-5e06267be179",
-        "019e8282-b9f9-7865-84a7-e9853fda1749",
-        "019e8282-dce7-762b-92ff-843bafb668cf",
-        "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
+        "019e8282-a0ad-7f0c-8601-1254a08351e9",
         "019e8282-a043-72e8-a2e5-fe78da7ab58c",
         "019e8282-a6fa-7cbd-899e-ba76bb0b5bdf",
-        "019e8282-9020-7457-9b15-125dc38bee15",
-        "019e8282-8ba5-7d40-902b-e994975bf05a",
-        "019e8282-9eea-7677-822b-93f7cf6fbc6a"
+        "019e8282-acdf-79e4-b6be-f1de4e78e657",
+        "019e8282-ad45-712c-abc5-4dc5ed07cdc1",
+        "019e8282-b080-7b80-b17b-5b31ddfbe416"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
+      "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+      "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+      "date": "2023-01-26〜2023-03-05",
+      "sharedCount": 9,
+      "score": 0.209,
+      "sharedSongUuids": [
+        "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+        "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+        "019e8282-8933-7d04-8788-b26cdc9183a6",
+        "019e8282-88dd-71bc-a94d-9cdd721917e3",
+        "019e8282-acdf-79e4-b6be-f1de4e78e657",
+        "019e8282-b65d-763b-bc27-2fbe2ae62a8a",
+        "019e8282-a3bf-78da-920a-67daf07accf9",
+        "019e8282-ad45-712c-abc5-4dc5ed07cdc1",
+        "019e8282-b080-7b80-b17b-5b31ddfbe416"
       ]
     }
   ],
@@ -4375,8 +4342,8 @@
       "score": 0.235,
       "sharedSongUuids": [
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -4389,8 +4356,8 @@
       "score": 0.235,
       "sharedSongUuids": [
         "019e8282-801f-7552-a1a6-fa5a912a47f8",
-        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-d426-7101-a7ef-56ed1f7c439b",
+        "019e8282-a112-7a3a-9938-28cc87cc9f00",
         "019e8282-e3f0-71e0-b1dd-d05e87f39b32"
       ]
     },
@@ -4454,12 +4421,12 @@
       ]
     },
     {
-      "liveUuid": "019e8284-7c09-7e10-b969-8ef960700248",
-      "liveSlug": "countdown-japan-2223",
-      "title": "COUNTDOWN JAPAN 22/23",
-      "date": "2022-12-29",
+      "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
+      "liveSlug": "wonderlivet2024",
+      "title": "WONDERLIVET2024",
+      "date": "2024-11-10",
       "sharedCount": 1,
-      "score": 0.1,
+      "score": 0.111,
       "sharedSongUuids": [
         "019e8282-b84b-7700-b7fd-523c6a6e9b2c"
       ]
@@ -4511,20 +4478,6 @@
       ]
     },
     {
-      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
-      "liveSlug": "reol-oneman-live-in-yokohama-arena",
-      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-      "date": "2025-11-09",
-      "sharedCount": 4,
-      "score": 0.148,
-      "sharedSongUuids": [
-        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
-        "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
-        "019e8282-a69c-7448-bfb1-ae2273ccc08c",
-        "019e8282-a043-72e8-a2e5-fe78da7ab58c"
-      ]
-    },
-    {
       "liveUuid": "019e8284-7c76-7696-a0b5-ce0f4f776156",
       "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
       "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
@@ -4536,6 +4489,20 @@
         "019e8282-acdf-79e4-b6be-f1de4e78e657",
         "019e8282-afa5-7e91-9c36-59164936111c",
         "019e8282-ad45-712c-abc5-4dc5ed07cdc1"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+      "liveSlug": "reol-oneman-live-in-yokohama-arena",
+      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+      "date": "2025-11-09",
+      "sharedCount": 4,
+      "score": 0.143,
+      "sharedSongUuids": [
+        "019e8282-9e87-7c1b-9a4b-fee4ee9ec0a6",
+        "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
+        "019e8282-a69c-7448-bfb1-ae2273ccc08c",
+        "019e8282-a043-72e8-a2e5-fe78da7ab58c"
       ]
     }
   ],
@@ -4574,23 +4541,23 @@
       ]
     },
     {
-      "liveUuid": "019e8284-8058-7ca9-9450-058b657d4a33",
-      "liveSlug": "mirrorball-parade-vol3",
-      "title": "MIRRORBALL PARADE vol.3",
-      "date": "2023-09-10",
-      "sharedCount": 1,
-      "score": 0.1,
-      "sharedSongUuids": [
-        "019e8282-ba7d-7c73-a3f2-34f7120314c8"
-      ]
-    },
-    {
       "liveUuid": "019e8284-883e-7930-a992-5ce81682402c",
       "liveSlug": "wonderlivet2024",
       "title": "WONDERLIVET2024",
       "date": "2024-11-10",
       "sharedCount": 1,
-      "score": 0.1,
+      "score": 0.111,
+      "sharedSongUuids": [
+        "019e8282-ba7d-7c73-a3f2-34f7120314c8"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
+      "liveSlug": "bandstival",
+      "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+      "date": "2025-12-06",
+      "sharedCount": 1,
+      "score": 0.111,
       "sharedSongUuids": [
         "019e8282-ba7d-7c73-a3f2-34f7120314c8"
       ]
@@ -4603,7 +4570,7 @@
       "title": "Reol Oneman LIVE「刮目相待」",
       "date": "2018-06-01〜2018-06-08",
       "sharedCount": 8,
-      "score": 0.242,
+      "score": 0.235,
       "sharedSongUuids": [
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-908f-7915-a305-74f7c9d6efcc",
@@ -4621,7 +4588,7 @@
       "title": "REOL LAST LIVE「終楽章」",
       "date": "2017-10-20〜2017-10-22",
       "sharedCount": 7,
-      "score": 0.194,
+      "score": 0.189,
       "sharedSongUuids": [
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
@@ -4654,7 +4621,7 @@
       "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
       "date": "2023-11-18〜2024-03-20",
       "sharedCount": 7,
-      "score": 0.103,
+      "score": 0.101,
       "sharedSongUuids": [
         "019e8282-8933-7d04-8788-b26cdc9183a6",
         "019e8282-9ac3-7c85-9d5e-9d8e3dd6ee9e",
@@ -4671,7 +4638,7 @@
       "title": "Reol Installation Concert 2021「音沙汰」",
       "date": "2021-06-26〜2021-06-27",
       "sharedCount": 4,
-      "score": 0.1,
+      "score": 0.098,
       "sharedSongUuids": [
         "019e8282-908f-7915-a305-74f7c9d6efcc",
         "019e8282-9020-7457-9b15-125dc38bee15",
@@ -4789,7 +4756,7 @@
       "title": "れをる単独公演「極彩色HighFidelity」",
       "date": "2015-10-23〜2016-01-09",
       "sharedCount": 1,
-      "score": 0.05,
+      "score": 0.048,
       "sharedSongUuids": [
         "019e8282-e50d-7766-92e8-5edfa82f644f"
       ]
@@ -4809,7 +4776,7 @@
   "019e8284-6e21-705d-b925-9c8d28cbe073": [
     {
       "liveUuid": "019e8284-6cd6-7138-99cc-22a335d06b80",
-      "liveSlug": "22a335d06b80",
+      "liveSlug": "gigabanana-za-besuto-shikurettoraibu",
       "title": "ぎがばなな ざ べすと シークレットライブ",
       "date": "2013-09-23",
       "sharedCount": 1,
@@ -4846,7 +4813,7 @@
       "title": "れをる単独公演「極彩色HighFidelity」",
       "date": "2015-10-23〜2016-01-09",
       "sharedCount": 1,
-      "score": 0.05,
+      "score": 0.048,
       "sharedSongUuids": [
         "019e8282-e50d-7766-92e8-5edfa82f644f"
       ]
@@ -4860,6 +4827,30 @@
       "score": 0.043,
       "sharedSongUuids": [
         "019e8282-e50d-7766-92e8-5edfa82f644f"
+      ]
+    }
+  ],
+  "019e8284-6e8a-7abc-a342-ff382f76b9da": [
+    {
+      "liveUuid": "019e8284-6ef0-7b6b-9a0e-18c7b62839c8",
+      "liveSlug": "highfidelity",
+      "title": "れをる単独公演「極彩色HighFidelity」",
+      "date": "2015-10-23〜2016-01-09",
+      "sharedCount": 1,
+      "score": 0.048,
+      "sharedSongUuids": [
+        "019f2411-b39b-7e06-83c9-ea363755f78f"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+      "liveSlug": "reol-oneman-live-in-yokohama-arena",
+      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+      "date": "2025-11-09",
+      "sharedCount": 1,
+      "score": 0.04,
+      "sharedSongUuids": [
+        "019f2411-b39b-7e06-83c9-ea363755f78f"
       ]
     }
   ],

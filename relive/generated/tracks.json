@@ -5812,20 +5812,37 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
-      "canonicalTitle": "白夜",
-      "aliases": [],
+      "canonicalTitle": "白夜(White Midnight)",
+      "aliases": [
+        "白夜"
+      ],
       "artistNames": [
         "Reol"
       ],
       "kind": "original",
+      "expectedDurationSec": 251.2,
       "matchHints": [
+        "白夜whitemidnight",
         "白夜"
       ],
+      "audioFeature": {
+        "tempo": 190,
+        "energy": 0.833,
+        "danceability": 0.51,
+        "loudness": -4.627,
+        "valence": 0.366,
+        "acousticness": 0.00397,
+        "instrumentalness": 0.00000217,
+        "liveness": 0.146,
+        "key": 8,
+        "mode": 0,
+        "timeSignature": 4
+      },
       "source": {
         "type": "fansite-discography-json",
         "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
         "songUuid": "019e8282-dce7-762b-92ff-843bafb668cf",
-        "spotifyTrackId": null
+        "spotifyTrackId": "3OVUxDaAI2uAasWciRQkrv"
       }
     },
     {
@@ -6833,6 +6850,556 @@
         "type": "fansite-discography-json",
         "discographyUuid": "019e8e7b-265e-72ff-82c3-1a32dd3a1fe9",
         "songUuid": "019e8e7b-b836-76a3-a999-abcf1e076fff",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b06d-7199-8cbc-fb84689a07c0",
+      "canonicalTitle": "-序章-",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "序章"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b06d-7199-8cbc-fb84689a07c0",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b0f1-75fb-a944-1d2160d04927",
+      "canonicalTitle": "美辞目録 (Rhetoric Index)",
+      "aliases": [
+        "美辞目録"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "美辞目録rhetoricindex",
+        "美辞目録"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b0f1-75fb-a944-1d2160d04927",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b166-716d-abd0-59b6f7401218",
+      "canonicalTitle": "平面鏡",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "平面鏡"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b166-716d-abd0-59b6f7401218",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b1d1-7320-9a56-c986b58a6c47",
+      "canonicalTitle": "十中八九",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "十中八九"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b1d1-7320-9a56-c986b58a6c47",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b232-7588-a1bb-b0a9da7d7ab1",
+      "canonicalTitle": "煩悩遊戯",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "煩悩遊戯"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b232-7588-a1bb-b0a9da7d7ab1",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b2ac-7d38-8359-d5c00b6fdfc2",
+      "canonicalTitle": "切っ先(Edge)",
+      "aliases": [
+        "切っ先"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "切っ先edge",
+        "切っ先"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b2ac-7d38-8359-d5c00b6fdfc2",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b331-7d22-bc17-e3184810aa3f",
+      "canonicalTitle": "No title - Seaside Remix",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "notitleseasideremix"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b331-7d22-bc17-e3184810aa3f",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b39b-7e06-83c9-ea363755f78f",
+      "canonicalTitle": "アストロノーツ",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "アストロノーツ"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b39b-7e06-83c9-ea363755f78f",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b409-7fec-b621-fe4e4385916f",
+      "canonicalTitle": "第六感",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "第六感"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b409-7fec-b621-fe4e4385916f",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b46d-74e4-977a-85e1447feec5",
+      "canonicalTitle": "ウテナ",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "ウテナ"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b46d-74e4-977a-85e1447feec5",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b4f1-7084-ba23-94bd0e3add9b",
+      "canonicalTitle": "SCORPION",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "scorpion"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b4f1-7084-ba23-94bd0e3add9b",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b55b-741a-8d4a-47153d077d65",
+      "canonicalTitle": "ギミアブレスタッナウ",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "ギミアブレスタッナウ"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b55b-741a-8d4a-47153d077d65",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b5cf-7f08-acde-1e0624aa8481",
+      "canonicalTitle": "LUVORATORRRRRY!",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "luvoratorrrrry"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b5cf-7f08-acde-1e0624aa8481",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b64a-74e5-8908-785b3b3d0cfb",
+      "canonicalTitle": "おとめの肖像 (Portrait of Her)",
+      "aliases": [
+        "おとめの肖像"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "おとめの肖像portraitofher",
+        "おとめの肖像"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b64a-74e5-8908-785b3b3d0cfb",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b6d4-7009-957e-239ac90dea11",
+      "canonicalTitle": "感情御中 -WANT U LUV IT-",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "感情御中wantuluvit"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b6d4-7009-957e-239ac90dea11",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b758-7155-8016-fc079d850d95",
+      "canonicalTitle": "ディア",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "ディア"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b758-7155-8016-fc079d850d95",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b7c8-77e9-b097-4e75eb2fe002",
+      "canonicalTitle": "染",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "染"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b7c8-77e9-b097-4e75eb2fe002",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-b9ec-7e66-a6c2-baf1fdcf5037",
+      "canonicalTitle": "真空オールドローズ",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "真空オールドローズ"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-b9ec-7e66-a6c2-baf1fdcf5037",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-ba55-79c4-a95e-865a4afa4f1a",
+      "canonicalTitle": "あ可よろし",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "あ可よろし"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-ba55-79c4-a95e-865a4afa4f1a",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bac9-7a97-be1b-f17a855cc928",
+      "canonicalTitle": "Digression of Reol",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "digressionof"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bac9-7a97-be1b-f17a855cc928",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bb42-791c-b60a-08fe2354b8f0",
+      "canonicalTitle": "激白",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "激白"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bb42-791c-b60a-08fe2354b8f0",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bbaf-7ef6-8fbd-2c95eda9668a",
+      "canonicalTitle": "白夜(White Midnight)",
+      "aliases": [
+        "白夜"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "白夜whitemidnight",
+        "白夜"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bbaf-7ef6-8fbd-2c95eda9668a",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bc20-75e0-9c65-a13212845002",
+      "canonicalTitle": "RE RESCUE",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "rerescue"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bc20-75e0-9c65-a13212845002",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bc85-7fd0-aa45-48b4ba71a04e",
+      "canonicalTitle": "煽げや尊し(Agitate)",
+      "aliases": [
+        "煽げや尊し"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "煽げや尊しagitate",
+        "煽げや尊し"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bc85-7fd0-aa45-48b4ba71a04e",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bcf3-70ed-a096-7b3176580a92",
+      "canonicalTitle": "劣等上等",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "劣等上等"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bcf3-70ed-a096-7b3176580a92",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bd66-761e-9e46-8f28164d83a9",
+      "canonicalTitle": "サイサキ",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "サイサキ"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bd66-761e-9e46-8f28164d83a9",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-bdd1-7c1a-ae38-be79cb701701",
+      "canonicalTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "aliases": [
+        "うつくしじごく"
+      ],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "うつくしじごくutsukushijigoku",
+        "うつくしじごく"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-bdd1-7c1a-ae38-be79cb701701",
+        "spotifyTrackId": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f2411-be40-794f-a6da-7cff31b7490f",
+      "canonicalTitle": "-終章-",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "終章"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+        "songUuid": "019f2411-be40-794f-a6da-7cff31b7490f",
         "spotifyTrackId": null
       }
     }

@@ -1,10 +1,10 @@
 {
   "summary": {
-    "totalSetlistInstances": 2108,
-    "matchedInstances": 1828,
-    "unmatchedInstances": 269,
-    "uniqueSongsPlayed": 112,
-    "uniqueUnmatched": 134
+    "totalSetlistInstances": 2132,
+    "matchedInstances": 1824,
+    "unmatchedInstances": 267,
+    "uniqueSongsPlayed": 113,
+    "uniqueUnmatched": 131
   },
   "unmatched": [
     {
@@ -31,7 +31,7 @@
     },
     {
       "name": "",
-      "count": 38,
+      "count": 36,
       "type": null,
       "samples": [
         {
@@ -53,7 +53,7 @@
     },
     {
       "name": "港のヨーコ・ヨコハマ・ヨコスカ",
-      "count": 19,
+      "count": 21,
       "type": "cover",
       "samples": [
         {
@@ -92,6 +92,50 @@
           "date": "2023-02-05",
           "liveTitle": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
           "liveItemName": "宮城"
+        }
+      ]
+    },
+    {
+      "name": "(Remix)",
+      "count": 4,
+      "type": "medley",
+      "samples": [
+        {
+          "date": "2026-06-12",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "宮城"
+        },
+        {
+          "date": "2026-06-19",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2026-06-27",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "福岡"
+        }
+      ]
+    },
+    {
+      "name": "COCOON",
+      "count": 4,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2026-06-12",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "宮城"
+        },
+        {
+          "date": "2026-06-19",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2026-06-27",
+          "liveTitle": "Reol Oneman Live 2026 美辞学",
+          "liveItemName": "福岡"
         }
       ]
     },
@@ -162,50 +206,6 @@
       ]
     },
     {
-      "name": "(Remix)",
-      "count": 3,
-      "type": "medley",
-      "samples": [
-        {
-          "date": "2026-06-12",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "宮城"
-        },
-        {
-          "date": "2026-06-19",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "大阪"
-        },
-        {
-          "date": "2026-06-27",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "福岡"
-        }
-      ]
-    },
-    {
-      "name": "COCOON",
-      "count": 3,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2026-06-12",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "宮城"
-        },
-        {
-          "date": "2026-06-19",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "大阪"
-        },
-        {
-          "date": "2026-06-27",
-          "liveTitle": "Reol Oneman Live 2026 美辞学",
-          "liveItemName": "福岡"
-        }
-      ]
-    },
-    {
       "name": "Starduster（そらる）",
       "count": 2,
       "type": "cover",
@@ -253,23 +253,6 @@
           "date": "2015-07-11",
           "liveTitle": "Stars on Planet 2015 大宮",
           "liveItemName": "夜の部"
-        }
-      ]
-    },
-    {
-      "name": "アストロノーツ",
-      "count": 2,
-      "type": "cover",
-      "samples": [
-        {
-          "date": "2015-11-26",
-          "liveTitle": "れをる単独公演「極彩色HighFidelity」",
-          "liveItemName": "西の宴"
-        },
-        {
-          "date": "2025-11-09",
-          "liveTitle": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-          "liveItemName": "神奈川"
         }
       ]
     },
@@ -1260,18 +1243,6 @@
       ]
     },
     {
-      "name": "アストロノーツ（れをる）",
-      "count": 1,
-      "type": "cover",
-      "samples": [
-        {
-          "date": "2015-07-11",
-          "liveTitle": "Stars on Planet 2015 大宮",
-          "liveItemName": "夜の部"
-        }
-      ]
-    },
-    {
       "name": "アポロ（天月）",
       "count": 1,
       "type": "cover",
@@ -1724,18 +1695,6 @@
           "date": "2025-07-26",
           "liveTitle": "須田景凪 presents \"MINGLE -三面鏡-“",
           "liveItemName": "大阪"
-        }
-      ]
-    },
-    {
-      "name": "-序章-",
-      "count": 1,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2025-11-09",
-          "liveTitle": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-          "liveItemName": "神奈川"
         }
       ]
     },
