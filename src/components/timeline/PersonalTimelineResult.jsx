@@ -154,7 +154,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
 
       // キャンバスに描画
       const canvas = await html2canvas(timelineRef.current, {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#0b0b10',
         scale: 2, // 高解像度
         useCORS: true,
         allowTaint: true,
@@ -191,14 +191,14 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
   };
 
   return (
-    <div className="min-h-screen px-2 py-2 max-w-6xl mx-auto bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="min-h-screen px-2 py-2 max-w-6xl mx-auto">
+      <div className="bg-bx-bg/60 border border-bx-line rounded-lg overflow-hidden">
         {/* ヘッダー */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3">
-          <h1 className="text-lg font-bold mb-1">
+        <div className="border-b border-bx-line text-bx-ink p-3">
+          <h1 className="text-lg font-bold mb-1 text-bx-yellow">
             🎵 {userInfo.nickname}さんの思い出年表
           </h1>
-          <p className="text-xs opacity-90">
+          <p className="text-xs text-bx-ink2">
             思い出深い楽曲とライブを選んで、あなただけの年表を作成
           </p>
         </div>
@@ -206,19 +206,19 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
         <div className="p-3">
           {/* 選択モードタブ */}
           <div className="flex justify-center mb-3">
-            <div className="bg-gray-100 rounded-md p-0.5">
+            <div className="bg-white/5 border border-bx-line rounded-md p-0.5">
               <button
                 onClick={() => setViewMode('songs')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all flex items-center ${
-                  viewMode === 'songs' 
-                  ? 'bg-purple-500 text-white shadow-md'
-                  : 'text-gray-700 hover:bg-white'
+                  viewMode === 'songs'
+                  ? 'bg-bx-blue text-bx-bg'
+                  : 'text-bx-ink2 hover:text-bx-ink'
                 }`}
               >
                 <FaMusic className="mr-1" style={{fontSize: '10px'}} />
                 楽曲選択
                 {selectedSongs.length > 0 && (
-                  <span className="ml-1 bg-white text-purple-500 rounded-full px-1 py-0.5 text-xs">
+                  <span className="ml-1 bg-bx-bg text-bx-blue rounded-full px-1 py-0.5 text-xs">
                     {selectedSongs.length}
                   </span>
                 )}
@@ -226,15 +226,15 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
               <button
                 onClick={() => setViewMode('lives')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all flex items-center ${
-                  viewMode === 'lives' 
-                  ? 'bg-blue-500 text-white shadow-md'
-                  : 'text-gray-700 hover:bg-white'
+                  viewMode === 'lives'
+                  ? 'bg-bx-blue text-bx-bg'
+                  : 'text-bx-ink2 hover:text-bx-ink'
                 }`}
               >
                 <FaMicrophone className="mr-1" style={{fontSize: '10px'}} />
                 ライブ選択
                 {selectedLives.length > 0 && (
-                  <span className="ml-1 bg-white text-blue-500 rounded-full px-1 py-0.5 text-xs">
+                  <span className="ml-1 bg-bx-bg text-bx-blue rounded-full px-1 py-0.5 text-xs">
                     {selectedLives.length}
                   </span>
                 )}
@@ -246,15 +246,15 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
             {/* 選択エリア */}
             <div className="space-y-3">
               <div>
-                <h2 className="text-sm font-bold mb-1 flex items-center">
+                <h2 className="text-sm font-bold mb-1 flex items-center text-bx-ink">
                   {viewMode === 'songs' ? (
                     <>
-                      <FaMusic className="mr-1 text-purple-500 text-xs" />
+                      <FaMusic className="mr-1 text-bx-blue text-xs" />
                       楽曲選択
                     </>
                   ) : (
                     <>
-                      <FaMicrophone className="mr-1 text-blue-500 text-xs" />
+                      <FaMicrophone className="mr-1 text-bx-yellow text-xs" />
                       ライブ選択
                     </>
                   )}
@@ -266,7 +266,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                   placeholder={viewMode === 'songs' ? '楽曲名で検索...' : 'ライブ名で検索...'}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full p-1 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-purple-500 focus:border-transparent mb-1"
+                  className="w-full p-1 bg-white/5 border border-bx-line rounded text-xs text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40 mb-1"
                 />
 
                 {/* リスト */}
@@ -279,25 +279,25 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                           key={song.songUuid}
                           onClick={() => toggleSongSelection(song)}
                           className={`p-0.5 rounded border cursor-pointer transition-all ${
-                            isSelected 
-                            ? 'border-purple-500 bg-purple-50'
-                            : 'border-gray-200 hover:border-purple-300 hover:bg-purple-25'
+                            isSelected
+                            ? 'border-bx-blue bg-bx-blue/10'
+                            : 'border-bx-line bg-white/5 hover:border-bx-blue'
                           }`}
                         >
                           <div className="flex justify-between items-center">
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center space-x-1">
-                                <h3 className="font-medium text-gray-800 text-xs truncate leading-none">{song.songName}</h3>
-                                <span className="text-xs text-gray-400 font-normal">({new Date(song.releaseDate).getFullYear()})</span>
+                                <h3 className="font-medium text-bx-ink text-xs truncate leading-none">{song.songName}</h3>
+                                <span className="text-xs text-bx-ink3 font-normal">({new Date(song.releaseDate).getFullYear()})</span>
                               </div>
-                              <p className="text-xs text-gray-400 truncate leading-none mt-0.5">{song.albumTitle}</p>
+                              <p className="text-xs text-bx-ink3 truncate leading-none mt-0.5">{song.albumTitle}</p>
                             </div>
                             <div className={`w-2 h-2 rounded-full border flex items-center justify-center ml-1 flex-shrink-0 ${
-                              isSelected 
-                              ? 'border-purple-500 bg-purple-500'
-                              : 'border-gray-300'
+                              isSelected
+                              ? 'border-bx-blue bg-bx-blue'
+                              : 'border-bx-line'
                             }`}>
-                              {isSelected && <div className="w-0.5 h-0.5 bg-white rounded-full"></div>}
+                              {isSelected && <div className="w-0.5 h-0.5 bg-bx-bg rounded-full"></div>}
                             </div>
                           </div>
                         </div>
@@ -311,26 +311,26 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                           key={live.liveUuid}
                           onClick={() => toggleLiveSelection(live)}
                           className={`p-0.5 rounded border cursor-pointer transition-all ${
-                            isSelected 
-                            ? 'border-blue-500 bg-blue-50'
-                            : 'border-gray-200 hover:border-blue-300 hover:bg-blue-25'
+                            isSelected
+                            ? 'border-bx-yellow bg-bx-yellow/10'
+                            : 'border-bx-line bg-white/5 hover:border-bx-yellow'
                           }`}
                         >
                           <div className="flex justify-between items-center">
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center space-x-1">
-                                <h3 className="font-medium text-gray-800 text-xs truncate leading-none">{live.title}</h3>
-                                <span className="text-xs text-gray-400 font-normal">
+                                <h3 className="font-medium text-bx-ink text-xs truncate leading-none">{live.title}</h3>
+                                <span className="text-xs text-bx-ink3 font-normal">
                                   ({new Date(live.date).getFullYear()}.{new Date(live.date).getMonth() + 1})
                                 </span>
                               </div>
                             </div>
                             <div className={`w-2 h-2 rounded-full border flex items-center justify-center ml-1 flex-shrink-0 ${
-                              isSelected 
-                              ? 'border-blue-500 bg-blue-500'
-                              : 'border-gray-300'
+                              isSelected
+                              ? 'border-bx-yellow bg-bx-yellow'
+                              : 'border-bx-line'
                             }`}>
-                              {isSelected && <div className="w-0.5 h-0.5 bg-white rounded-full"></div>}
+                              {isSelected && <div className="w-0.5 h-0.5 bg-bx-bg rounded-full"></div>}
                             </div>
                           </div>
                         </div>
@@ -343,56 +343,56 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
 
             {/* 年表プレビューエリア */}
             <div className="space-y-4">
-              <h2 className="text-lg font-bold mb-2 flex items-center">
-                <FaCalendarAlt className="mr-2 text-green-500 text-sm" />
+              <h2 className="text-lg font-bold mb-2 flex items-center text-bx-ink">
+                <FaCalendarAlt className="mr-2 text-bx-yellow text-sm" />
                 年表プレビュー
               </h2>
 
               {years.length === 0 ? (
-                <div className="text-center py-4 text-gray-500">
+                <div className="text-center py-4 text-bx-ink3">
                   <FaCalendarAlt className="text-lg mx-auto mb-1 opacity-50" />
                   <p className="text-xs">楽曲やライブを選択すると<br />年表がここに表示されます</p>
                 </div>
               ) : (
-                <div ref={timelineRef} className="relative bg-white p-6 rounded-lg border border-gray-200 shadow-lg">
+                <div ref={timelineRef} className="relative bg-bx-bg p-6 rounded-lg border border-bx-line">
                   {/* メインタイムライン軸 - 太く目立つように */}
-                  <div className="absolute left-8 top-4 bottom-4 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-green-500 rounded-full shadow-lg"></div>
-                  
+                  <div className="absolute left-8 top-4 bottom-4 w-1 bg-bx-blue rounded-full"></div>
+
                   <div className="space-y-8 relative z-10">
                     {years.map((year, yearIndex) => {
                       const yearData = timelineByYear[year];
                       const totalItems = yearData.songs.length + yearData.lives.length;
-                      
+
                       return (
                         <div key={year} className="relative">
                           {/* 年の大きな表示 - 左側に配置 */}
                           <div className="absolute left-0 top-0">
-                            <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
-                              <span className="text-white font-bold text-lg">{year}</span>
+                            <div className="w-16 h-16 bg-bx-blueDeep border border-bx-blue rounded-lg flex items-center justify-center">
+                              <span className="text-bx-ink font-bold text-lg">{year}</span>
                             </div>
                           </div>
-                          
+
                           {/* イベントカード - 右側に横並び */}
                           <div className="ml-20 space-y-3">
                             {/* 楽曲カード */}
                             {yearData.songs.map((song, songIndex) => (
                               <div key={song.songUuid} className="relative">
-                                <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-400 p-3 rounded-r-lg shadow-md hover:shadow-lg transition-shadow">
+                                <div className="bg-white/5 border-l-4 border-bx-blue p-3 rounded-r-lg">
                                   <div className="flex items-center justify-between mb-2">
                                     <div className="flex items-center space-x-3">
-                                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                                        <FaMusic className="text-white text-xs" />
+                                      <div className="w-8 h-8 bg-bx-blue rounded-full flex items-center justify-center">
+                                        <FaMusic className="text-bx-bg text-xs" />
                                       </div>
                                       <div>
-                                        <h4 className="font-semibold text-gray-800 text-sm">{song.songName}</h4>
-                                        <p className="text-gray-500 text-xs">
+                                        <h4 className="font-semibold text-bx-ink text-sm">{song.songName}</h4>
+                                        <p className="text-bx-ink3 text-xs">
                                           {new Date(song.releaseDate).getFullYear()}年{new Date(song.releaseDate).getMonth() + 1}月
                                         </p>
                                       </div>
                                     </div>
                                     <button
                                       onClick={() => toggleSongSelection(song)}
-                                      className="text-red-500 hover:text-red-700 p-1 rounded hover:bg-red-50 transition-colors"
+                                      className="text-bx-ink3 hover:text-bx-ink p-1 rounded hover:bg-white/10 transition-colors"
                                     >
                                       <FaTimes className="text-xs" />
                                     </button>
@@ -403,40 +403,40 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                                       placeholder="この楽曲への思い入れやエピソードを書いてみましょう..."
                                       value={song.comment || ''}
                                       onChange={(e) => updateSongComment(song.songUuid, e.target.value)}
-                                      className="w-full p-2 text-xs border border-purple-200 rounded bg-white/70 focus:bg-white focus:border-purple-400 focus:ring-1 focus:ring-purple-400 resize-none transition-all"
+                                      className="w-full p-2 text-xs bg-white/5 border border-bx-line rounded text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40 resize-none transition-all"
                                       rows="2"
                                     />
                                   </div>
                                   {song.comment && (
-                                    <div className="mt-1 p-2 bg-white/80 rounded text-xs text-gray-700 italic border-l-2 border-purple-300">
+                                    <div className="mt-1 p-2 bg-white/5 rounded text-xs text-bx-ink2 italic border-l-2 border-bx-blue">
                                       "{song.comment}"
                                     </div>
                                   )}
                                 </div>
                                 {/* 接続線 */}
-                                <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-purple-400 transform -translate-x-4 -translate-y-0.5"></div>
+                                <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-bx-blue transform -translate-x-4 -translate-y-0.5"></div>
                               </div>
                             ))}
 
                             {/* ライブカード */}
                             {yearData.lives.map((live, liveIndex) => (
                               <div key={live.liveUuid} className="relative">
-                                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-400 p-3 rounded-r-lg shadow-md hover:shadow-lg transition-shadow">
+                                <div className="bg-white/5 border-l-4 border-bx-yellow p-3 rounded-r-lg">
                                   <div className="flex items-center justify-between mb-2">
                                     <div className="flex items-center space-x-3">
-                                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                        <FaMicrophone className="text-white text-xs" />
+                                      <div className="w-8 h-8 bg-bx-yellow rounded-full flex items-center justify-center">
+                                        <FaMicrophone className="text-bx-bg text-xs" />
                                       </div>
                                       <div>
-                                        <h4 className="font-semibold text-gray-800 text-sm">{live.title}</h4>
-                                        <p className="text-gray-500 text-xs">
+                                        <h4 className="font-semibold text-bx-ink text-sm">{live.title}</h4>
+                                        <p className="text-bx-ink3 text-xs">
                                           {new Date(live.date).getFullYear()}年{new Date(live.date).getMonth() + 1}月
                                         </p>
                                       </div>
                                     </div>
                                     <button
                                       onClick={() => toggleLiveSelection(live)}
-                                      className="text-red-500 hover:text-red-700 p-1 rounded hover:bg-red-50 transition-colors"
+                                      className="text-bx-ink3 hover:text-bx-ink p-1 rounded hover:bg-white/10 transition-colors"
                                     >
                                       <FaTimes className="text-xs" />
                                     </button>
@@ -447,18 +447,18 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                                       placeholder="このライブの思い出や感想を書いてみましょう..."
                                       value={live.comment || ''}
                                       onChange={(e) => updateLiveComment(live.liveUuid, e.target.value)}
-                                      className="w-full p-2 text-xs border border-blue-200 rounded bg-white/70 focus:bg-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400 resize-none transition-all"
+                                      className="w-full p-2 text-xs bg-white/5 border border-bx-line rounded text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-yellow focus:ring-1 focus:ring-bx-yellow/40 resize-none transition-all"
                                       rows="2"
                                     />
                                   </div>
                                   {live.comment && (
-                                    <div className="mt-1 p-2 bg-white/80 rounded text-xs text-gray-700 italic border-l-2 border-blue-300">
+                                    <div className="mt-1 p-2 bg-white/5 rounded text-xs text-bx-ink2 italic border-l-2 border-bx-yellow">
                                       "{live.comment}"
                                     </div>
                                   )}
                                 </div>
                                 {/* 接続線 */}
-                                <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-blue-400 transform -translate-x-4 -translate-y-0.5"></div>
+                                <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-bx-yellow transform -translate-x-4 -translate-y-0.5"></div>
                               </div>
                             ))}
                           </div>
@@ -473,37 +473,37 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
 
           {/* 統計情報 */}
           {(selectedSongs.length > 0 || selectedLives.length > 0) && (
-            <div className="mt-3 bg-gradient-to-br from-purple-50 via-blue-50 to-green-50 rounded p-2 border border-purple-200">
-              <h3 className="text-sm font-bold mb-2 text-center text-gray-800">
+            <div className="mt-3 bg-white/5 rounded p-2 border border-bx-line">
+              <h3 className="text-sm font-bold mb-2 text-center text-bx-ink">
                 📊 サマリー
               </h3>
               <div className="grid grid-cols-4 gap-2">
-                <div className="text-center bg-white rounded p-1 shadow-sm">
-                  <div className="text-lg font-bold text-purple-600">{selectedSongs.length}</div>
-                  <div className="text-xs text-gray-600">楽曲</div>
+                <div className="text-center bg-bx-bg rounded p-1 border border-bx-line">
+                  <div className="text-lg font-bold text-bx-blue">{selectedSongs.length}</div>
+                  <div className="text-xs text-bx-ink2">楽曲</div>
                 </div>
-                <div className="text-center bg-white rounded p-1 shadow-sm">
-                  <div className="text-lg font-bold text-blue-600">{selectedLives.length}</div>
-                  <div className="text-xs text-gray-600">ライブ</div>
+                <div className="text-center bg-bx-bg rounded p-1 border border-bx-line">
+                  <div className="text-lg font-bold text-bx-yellow">{selectedLives.length}</div>
+                  <div className="text-xs text-bx-ink2">ライブ</div>
                 </div>
-                <div className="text-center bg-white rounded p-1 shadow-sm">
-                  <div className="text-lg font-bold text-green-600">{years.length}</div>
-                  <div className="text-xs text-gray-600">年数</div>
+                <div className="text-center bg-bx-bg rounded p-1 border border-bx-line">
+                  <div className="text-lg font-bold text-bx-blueLight">{years.length}</div>
+                  <div className="text-xs text-bx-ink2">年数</div>
                 </div>
-                <div className="text-center bg-white rounded p-1 shadow-sm">
-                  <div className="text-lg font-bold text-orange-600">
+                <div className="text-center bg-bx-bg rounded p-1 border border-bx-line">
+                  <div className="text-lg font-bold text-bx-ink">
                     {years.length > 0 ? Math.max(...years.map(y => parseInt(y))) - Math.min(...years.map(y => parseInt(y))) + 1 : 0}
                   </div>
-                  <div className="text-xs text-gray-600">期間</div>
+                  <div className="text-xs text-bx-ink2">期間</div>
                 </div>
               </div>
-              
+
               {years.length > 0 && (
                 <div className="mt-2 text-center">
-                  <p className="text-gray-700 text-xs">
-                    <span className="font-semibold text-purple-600">{Math.min(...years.map(y => parseInt(y)))}年</span>
+                  <p className="text-bx-ink2 text-xs">
+                    <span className="font-semibold text-bx-blue">{Math.min(...years.map(y => parseInt(y)))}年</span>
                     から
-                    <span className="font-semibold text-blue-600">{Math.max(...years.map(y => parseInt(y)))}年</span>
+                    <span className="font-semibold text-bx-yellow">{Math.max(...years.map(y => parseInt(y)))}年</span>
                     まで、Reolと共に歩んだ時間
                   </p>
                 </div>
@@ -515,13 +515,13 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
           <div className="flex flex-wrap justify-center gap-2 mt-4">
             <button
               onClick={onBack}
-              className="px-4 py-2 bg-gray-500 text-white rounded-md text-sm font-medium hover:bg-gray-600 transition-all"
+              className="px-4 py-2 bg-white/10 border border-bx-line text-bx-ink rounded-md text-sm font-medium hover:bg-white/20 transition-colors"
             >
               ← 設定変更
             </button>
             <button
               onClick={onReset}
-              className="px-4 py-2 bg-red-500 text-white rounded-md text-sm font-medium hover:bg-red-600 transition-all"
+              className="px-4 py-2 border border-bx-line text-bx-ink3 rounded-md text-sm font-medium hover:border-bx-blue hover:text-bx-ink transition-colors"
             >
               やり直し
             </button>
@@ -530,13 +530,13 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                 <button
                   onClick={generateTimelineImage}
                   disabled={isGeneratingImage}
-                  className={`px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-md text-sm font-medium hover:from-green-600 hover:to-emerald-700 transition-all flex items-center ${
+                  className={`px-4 py-2 bg-bx-yellow text-bx-bg rounded-md text-sm font-medium hover:opacity-90 transition-opacity flex items-center ${
                     isGeneratingImage ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                 >
                   {isGeneratingImage ? (
                     <>
-                      <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-1"></div>
+                      <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-bx-bg mr-1"></div>
                       生成中...
                     </>
                   ) : (
@@ -548,7 +548,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                 </button>
                 <button
                   onClick={generateSNSImage}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-md text-sm font-medium hover:from-blue-600 hover:to-cyan-700 transition-all flex items-center"
+                  className="px-4 py-2 bg-bx-blue text-bx-bg rounded-md text-sm font-medium hover:opacity-90 transition-opacity flex items-center"
                 >
                   <FaShare className="mr-1 text-xs" />
                   SNS用
@@ -562,18 +562,18 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
       {/* SNS用画像プレビューモーダル */}
       {showImagePreview && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-auto">
+          <div className="bg-bx-bg border border-bx-line rounded-xl max-w-2xl w-full max-h-[90vh] overflow-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">SNS用画像プレビュー</h2>
+                <h2 className="text-2xl font-bold text-bx-ink">SNS用画像プレビュー</h2>
                 <button
                   onClick={() => setShowImagePreview(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full"
+                  className="p-2 text-bx-ink2 hover:bg-white/10 rounded-full"
                 >
                   <FaTimes />
                 </button>
               </div>
-              
+
               <div ref={imagePreviewRef} className="bg-gradient-to-br from-purple-400 via-blue-500 to-indigo-600 text-white p-8 rounded-xl">
                 <div className="text-center mb-6">
                   <h1 className="text-3xl font-bold mb-2">🎵 {userInfo.nickname}さんの</h1>
@@ -642,7 +642,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                       console.error('SNS画像生成エラー:', error);
                     }
                   }}
-                  className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all flex items-center"
+                  className="px-6 py-3 bg-bx-blue text-bx-bg rounded-lg hover:opacity-90 transition-opacity flex items-center"
                 >
                   <FaDownload className="mr-2" />
                   SNS用画像をダウンロード
@@ -653,7 +653,7 @@ const PersonalTimelineResult = ({ timelineData, discographies, liveInfos, onRese
                     navigator.clipboard.writeText(text);
                     alert('SNS投稿用テキストをコピーしました！');
                   }}
-                  className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all flex items-center"
+                  className="px-6 py-3 bg-bx-yellow text-bx-bg rounded-lg hover:opacity-90 transition-opacity flex items-center"
                 >
                   <FaShare className="mr-2" />
                   投稿テキストをコピー

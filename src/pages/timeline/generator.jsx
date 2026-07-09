@@ -218,13 +218,13 @@ const TimelineGeneratorPage = ({ data }) => {
   }
 
   return (
-    <div className="min-h-screen px-4 py-8 max-w-2xl mx-auto bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100">
-      <div className="bg-white rounded-xl shadow-2xl p-8">
+    <div className="min-h-screen px-4 py-8 max-w-2xl mx-auto">
+      <div className="bg-bx-bg/60 border border-bx-line rounded-lg p-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-4">
+          <h1 className="text-4xl font-bold text-bx-yellow mb-4">
             🎵 Reol年表ジェネレーター
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-bx-ink2 text-lg">
             あなたとReolとの特別な歩みを美しい年表で表現しましょう
           </p>
         </div>
@@ -232,26 +232,26 @@ const TimelineGeneratorPage = ({ data }) => {
         <div className="mb-8">
           <div className="flex justify-center mb-6">
             <div className="flex items-center space-x-4">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 1 ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg' : 'bg-gray-300 text-gray-600'}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 1 ? 'bg-bx-blue text-bx-bg' : 'border border-bx-line text-bx-ink2'}`}>
                 1
               </div>
-              <div className={`w-16 h-1 ${step >= 2 ? 'bg-gradient-to-r from-purple-500 to-blue-500' : 'bg-gray-300'} rounded-full`}></div>
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 2 ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg' : 'bg-gray-300 text-gray-600'}`}>
+              <div className={`w-16 h-1 ${step >= 2 ? 'bg-bx-blue' : 'bg-bx-line'} rounded-full`}></div>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 2 ? 'bg-bx-blue text-bx-bg' : 'border border-bx-line text-bx-ink2'}`}>
                 2
               </div>
-              <div className={`w-16 h-1 ${step >= 3 ? 'bg-gradient-to-r from-purple-500 to-blue-500' : 'bg-gray-300'} rounded-full`}></div>
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 3 ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg' : 'bg-gray-300 text-gray-600'}`}>
+              <div className={`w-16 h-1 ${step >= 3 ? 'bg-bx-blue' : 'bg-bx-line'} rounded-full`}></div>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${step >= 3 ? 'bg-bx-blue text-bx-bg' : 'border border-bx-line text-bx-ink2'}`}>
                 3
               </div>
             </div>
           </div>
 
-          <div className="text-center text-sm text-gray-600">
-            <span className={step === 1 ? 'font-semibold text-purple-600' : ''}>基本情報</span>
+          <div className="text-center text-sm text-bx-ink2">
+            <span className={step === 1 ? 'font-semibold text-bx-blue' : ''}>基本情報</span>
             <span className="mx-2">→</span>
-            <span className={step === 2 ? 'font-semibold text-purple-600' : ''}>詳細設定</span>
+            <span className={step === 2 ? 'font-semibold text-bx-blue' : ''}>詳細設定</span>
             <span className="mx-2">→</span>
-            <span className={step === 3 ? 'font-semibold text-purple-600' : ''}>年表完成</span>
+            <span className={step === 3 ? 'font-semibold text-bx-blue' : ''}>年表完成</span>
           </div>
         </div>
 
@@ -260,26 +260,26 @@ const TimelineGeneratorPage = ({ data }) => {
             <h2 className="text-xl font-semibold mb-4">基本情報を入力してください</h2>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 ニックネーム
               </label>
               <input
                 type="text"
                 value={userInfo.nickname}
                 onChange={(e) => handleInputChange('nickname', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
                 placeholder="あなたのニックネーム"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 Reolを知った年
               </label>
               <select
                 value={userInfo.startYear}
                 onChange={(e) => handleInputChange('startYear', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください</option>
                 {Array.from({ length: new Date().getFullYear() - 2012 + 1 }, (_, i) => 2012 + i).reverse().map(year => (
@@ -289,13 +289,13 @@ const TimelineGeneratorPage = ({ data }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 どこでReolを知りましたか？
               </label>
               <select
                 value={userInfo.discoverySource}
                 onChange={(e) => handleInputChange('discoverySource', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください</option>
                 <option value="YouTube">YouTube</option>
@@ -317,7 +317,7 @@ const TimelineGeneratorPage = ({ data }) => {
             <button
               onClick={() => setStep(2)}
               disabled={!userInfo.nickname || !userInfo.startYear || !userInfo.discoverySource}
-              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 px-6 rounded-xl font-bold text-lg disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg disabled:hover:scale-100"
+              className="w-full bg-bx-yellow text-bx-bg py-4 px-6 rounded-lg font-bold text-lg disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90 transition-opacity duration-300"
             >
               次のステップへ ✨
             </button>
@@ -327,22 +327,22 @@ const TimelineGeneratorPage = ({ data }) => {
         {step === 2 && (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              <h2 className="text-2xl font-semibold mb-4 text-bx-ink">
                 ✨ より詳細な年表にしませんか？
               </h2>
-              <p className="text-gray-600">
+              <p className="text-bx-ink2">
                 基本情報の入力が完了しました。次の画面で思い出深い楽曲や参戦ライブを選択して、あなただけの特別な年表を作成できます。
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 好きな時代
               </label>
               <select
                 value={userInfo.favoriteEra}
                 onChange={(e) => handleInputChange('favoriteEra', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください（任意）</option>
                 <option value="歌ってみた時代">歌ってみた時代（〜2016）</option>
@@ -353,13 +353,13 @@ const TimelineGeneratorPage = ({ data }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 好きなアルバム・EP
               </label>
               <select
                 value={userInfo.favoriteAlbum}
                 onChange={(e) => handleInputChange('favoriteAlbum', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください（任意）</option>
                 <option value="No title">No title</option>
@@ -377,13 +377,13 @@ const TimelineGeneratorPage = ({ data }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 思い出深い楽曲
               </label>
               <select
                 value={userInfo.favoriteSong}
                 onChange={(e) => handleInputChange('favoriteSong', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください（任意）</option>
                 {songList.map(song => (
@@ -395,20 +395,20 @@ const TimelineGeneratorPage = ({ data }) => {
                 <input
                   type="text"
                   placeholder="楽曲名を入力してください"
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 mt-2 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
                   onChange={(e) => handleInputChange('favoriteSong', e.target.value)}
                 />
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 ライブ・イベント参加経験
               </label>
               <select
                 value={userInfo.liveExperience}
                 onChange={(e) => handleInputChange('liveExperience', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください（任意）</option>
                 <option value="参加経験あり">参加経験あり</option>
@@ -419,13 +419,13 @@ const TimelineGeneratorPage = ({ data }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-bx-ink2 mb-2">
                 Reolの魅力はどこ？
               </label>
               <select
                 value={userInfo.reolPersonality}
                 onChange={(e) => handleInputChange('reolPersonality', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 bg-white/5 border border-bx-line rounded-lg text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
               >
                 <option value="">選択してください（任意）</option>
                 <option value="歌声の美しさ">歌声の美しさ</option>
@@ -441,15 +441,15 @@ const TimelineGeneratorPage = ({ data }) => {
             <div className="flex space-x-4 pt-6">
               <button
                 onClick={() => setStep(1)}
-                className="w-full bg-gray-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-600 transition-all"
+                className="w-full bg-white/10 border border-bx-line text-bx-ink py-4 px-6 rounded-lg font-semibold hover:bg-white/20 transition-colors"
               >
                 ← 戻る
               </button>
               <button
                 onClick={generateTimeline}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-bx-yellow text-bx-bg py-4 px-6 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity duration-300"
               >
-                � 楽曲・ライブ選択へ進む
+                🎶 楽曲・ライブ選択へ進む
               </button>
             </div>
           </div>
