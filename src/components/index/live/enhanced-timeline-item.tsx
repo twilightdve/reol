@@ -356,7 +356,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   return (
     <div className="mb-4">
       <div
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-xl border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
+        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-lg border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
         style={{
           borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
         }}

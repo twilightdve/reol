@@ -348,7 +348,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     <div className="mb-4">
       {/* カード本体 */}
       <div
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-xl border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
+        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-lg border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
         style={{
           borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
         }}
@@ -441,7 +441,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 <>
                   {youtubeVideoId && (
                     <div
-                      className="mt-4 transition-all duration-300 rounded-xl border border-bx-line bg-white/5"
+                      className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-white/5"
                       style={{
                         overflow: "hidden",
                         position: "relative",
