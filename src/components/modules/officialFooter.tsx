@@ -105,7 +105,8 @@ const OfficialFooter: React.FC = () => {
           <GoLinkExternal className="text-[10px]" />
         </a>
         <span aria-hidden>|</span>
-        <span>&copy; 2023 Pochi</span>
+        {/* SSGのためビルド時点の年で焼き込まれる(デプロイごとに更新される) */}
+        <span>&copy; 2023–{new Date().getFullYear()} Pochi</span>
       </div>
     </footer>
   );

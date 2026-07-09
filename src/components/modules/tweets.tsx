@@ -56,22 +56,22 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
                 className={
                   loadedIds.has(post.id)
                     ? "hidden"
-                    : "relative border border-gray-300 rounded-lg p-5 text-black mb-3 bg-white overflow-hidden"
+                    : "relative border border-bx-line rounded-lg p-5 mb-3 bg-white/5 overflow-hidden"
                 }
               >
                 {/* スケルトン */}
                 <div className="animate-pulse space-y-3">
                   <div className="flex items-center space-x-3">
-                    <div className="rounded-full bg-gray-300 h-12 w-12"></div>
+                    <div className="rounded-full bg-white/10 h-12 w-12"></div>
                     <div className="flex-1 space-y-2">
-                      <div className="h-3 bg-gray-300 rounded w-1/4"></div>
-                      <div className="h-3 bg-gray-300 rounded w-1/3"></div>
+                      <div className="h-3 bg-white/10 rounded w-1/4"></div>
+                      <div className="h-3 bg-white/10 rounded w-1/3"></div>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-3 bg-gray-300 rounded"></div>
-                    <div className="h-3 bg-gray-300 rounded w-5/6"></div>
-                    <div className="h-3 bg-gray-300 rounded w-4/6"></div>
+                    <div className="h-3 bg-white/10 rounded"></div>
+                    <div className="h-3 bg-white/10 rounded w-5/6"></div>
+                    <div className="h-3 bg-white/10 rounded w-4/6"></div>
                   </div>
                 </div>
                 {/* ローディングスピナー */}
@@ -87,6 +87,7 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
                 <LazyComponent>
                   <Tweet
                     tweetId={post.id}
+                    options={{ theme: "dark" }}
                     onLoad={() => handleTweetLoad(post.id)}
                   />
                 </LazyComponent>
