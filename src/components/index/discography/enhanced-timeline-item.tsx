@@ -1,4 +1,5 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { Link } from "gatsby";
 import { Timeline } from "flowbite-react";
 import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -6,7 +7,6 @@ import { FaMusic } from "react-icons/fa6";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
-import { getContrastTextColor } from "../../../utils/colorContrast";
 import { addAlpha } from "../../../utils/colorExtractor";
 import YouTube from "react-youtube";
 import Tweets from "../../modules/tweets";
@@ -16,9 +16,6 @@ import {
   timelineContentTheme,
 } from "./enhanced-discography";
 import { trackOfficialLinkClick } from "../../../utils/analytics";
-
-// iOS判定（共通化）
-const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 type Props = {
   item: DiscographyWithSongs;
@@ -167,6 +164,16 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
         >
           {song.songName}
         </span>
+        {song.slug && (
+          <Link
+            to={`/songs/${song.slug}/`}
+            onClick={(e) => e.stopPropagation()}
+            className="text-xs font-medium text-bx-ink2 hover:text-bx-blue transition-colors underline underline-offset-2 decoration-dotted flex-shrink-0"
+            title="楽曲詳細ページを見る"
+          >
+            詳細
+          </Link>
+        )}
         <span
           className="text-xs font-medium flex items-center gap-1 text-bx-ink2"
         >
@@ -279,9 +286,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
   );
 
   const [isExpand, setIsExpand] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [expandedSongs, setExpandedSongs] = useState<Set<number>>(new Set());
-  const cardRef = useRef<HTMLDivElement>(null);
 
   // ディープリンク (#disc-<slug>) の対象カードを自動展開する。
   useEffect(() => {
@@ -302,7 +307,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     };
   }, [item.slug]);
 
-  // カラーパレットフック
+  // カラーパレットフック（左アクセントバー・バッジ色にのみ使用。カード地色は固定のbxトークン）
   const { colorPalette, isLoading } = useColorPalette({
     title: item.title,
     autoApply: true,
@@ -310,12 +315,6 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     themeColorPrimary: item.themeColorPrimary,
     themeColorSecondary: item.themeColorSecondary,
   });
-
-  // 背景色に対して適切なテキストカラーを計算（メモ化）
-  const textColors = React.useMemo(
-    () => getContrastTextColor(colorPalette.primary),
-    [colorPalette.primary]
-  );
 
   // 動的なテーマ（メモ化）
   const dynamicTimelineItemTheme = React.useMemo(
@@ -335,107 +334,6 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     []
   );
 
-  const handleCardHover = useCallback(() => {
-    if (!isHovered) {
-      setIsHovered(true);
-
-      if (cardRef.current) {
-        const card = cardRef.current;
-        const primaryColor = colorPalette.primary || "#6366f1";
-        const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-        // ホバー時：より鮮やかでグロー効果のある背景 + Glassmorphism強化
-        card.style.background = `linear-gradient(135deg, 
-          ${primaryColor} 0%, 
-          ${secondaryColor} 100%)`;
-        // iOSではbackdrop-filterを無効化
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(6px)";
-          (card.style as any).webkitBackdropFilter = "blur(6px)";
-        }
-        card.style.transform = "translateY(0)";
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
-      }
-    }
-  }, [isHovered, colorPalette]);
-
-  const handleCardLeave = useCallback(() => {
-    setIsHovered(false);
-
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      // 通常時:完全な色 + Glassmorphism
-      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-      // iOSではbackdrop-filterを無効化
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      if (!isIOS) {
-        card.style.backdropFilter = "blur(4px)";
-        (card.style as any).webkitBackdropFilter = "blur(4px)";
-      }
-      card.style.transform = "translateY(0)";
-      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
-    }
-  }, [colorPalette]);
-
-  useEffect(() => {
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      // 初期表示時:完全な色 + Glassmorphism
-      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-      // iOSではbackdrop-filterを無効化
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      if (!isIOS) {
-        card.style.backdropFilter = "blur(4px)";
-        (card.style as any).webkitBackdropFilter = "blur(4px)";
-      }
-      card.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-      card.style.borderRadius = "12px";
-      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
-    }
-  }, [colorPalette]);
-
-  // 展開時にもカラーパレットを適用
-  useEffect(() => {
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      if (isExpand) {
-        // 展開時：ホバー時と同じスタイルを適用 + 横幅拡大
-        card.style.background = `linear-gradient(135deg, 
-          ${primaryColor} 0%, 
-          ${secondaryColor} 100%)`;
-        // iOSではbackdrop-filterを無効化
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(6px)";
-          (card.style as any).webkitBackdropFilter = "blur(6px)";
-        }
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
-        card.style.width = 'calc(100% + 0.5rem)';
-        card.style.marginLeft = '-0.25rem';
-      } else {
-        // 非展開時：展開時と同じ色、通常サイズ
-        card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(4px)";
-          (card.style as any).webkitBackdropFilter = "blur(4px)";
-        }
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-        card.style.width = '100%';
-        card.style.marginLeft = '0';
-      }
-    }
-  }, [isExpand, colorPalette]);
-
   const handleTitleClick = useCallback(() => {
     setIsExpand(!isExpand);
   }, [isExpand]);
@@ -450,17 +348,11 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     <div className="mb-2">
       {/* カード本体 */}
       <div
-        ref={cardRef}
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full"
+        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-xl border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
         style={{
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          borderRadius: "12px",
-          background: `linear-gradient(135deg, ${colorPalette.primary} 0%, ${colorPalette.secondary} 100%)`,
-          border: `1px solid ${addAlpha(colorPalette.primary, 0.9)}`,
+          borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
         }}
         onClick={handleTitleClick}
-        onMouseEnter={handleCardHover}
-        onMouseLeave={handleCardLeave}
       >
           {/* コンテンツ情報 */}
           <div className="w-full">
@@ -469,21 +361,17 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
               <div className="space-y-1">
                 {/* 1行目：日付　タグ */}
                 <div className="flex items-center justify-between gap-2">
-                  <span
-                    className="text-xs font-medium"
-                    style={{ color: textColors.secondary }}
-                  >
+                  <span className="text-xs font-medium text-bx-ink2">
                     {item.releaseDate?.replaceAll("-", "/")}
                   </span>
                   <div className="flex gap-1">
                     {item?.format && (
                       <span
-                        className="px-2 py-0.5 text-xs font-semibold"
+                        className="px-2 py-0.5 text-xs font-semibold rounded-md border"
                         style={{
-                          backgroundColor: `${colorPalette.secondary}40`,
-                          color: textColors.primary,
-                          borderRadius: "6px",
-                          border: `1px solid ${colorPalette.secondary}60`,
+                          backgroundColor: addAlpha(colorPalette.secondary, 0.15),
+                          color: colorPalette.secondary,
+                          borderColor: addAlpha(colorPalette.secondary, 0.4),
                         }}
                       >
                         {item.format}
@@ -495,14 +383,8 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 {/* 2行目：タイトル　展開ボタン */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1 flex-1 min-w-0">
-                    <FaMusic
-                      className="w-3 h-3 flex-shrink-0"
-                      style={{ color: textColors.secondary }}
-                    />
-                    <h3
-                      className="text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate"
-                      style={{ color: textColors.primary }}
-                    >
+                    <FaMusic className="w-3 h-3 flex-shrink-0 text-bx-ink2" />
+                    <h3 className="text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
                       {item.title}
                     </h3>
                   </div>
@@ -511,23 +393,14 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
             ) : (
               // 展開時：従来のレイアウト
               <>
-                <div
-                  className="mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider"
-                  style={{ color: textColors.secondary }}
-                >
+                <div className="mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider text-bx-ink2">
                   {item.releaseDate?.replaceAll("-", "/")}
                 </div>
 
                 <div className="flex flex-col font-semibold">
                   <div className="flex items-center gap-1 mb-0">
-                    <FaMusic
-                      className="w-4 h-4 flex-shrink-0"
-                      style={{ color: textColors.secondary }}
-                    />
-                    <h3
-                      className="text-base sm:text-lg font-bold leading-tight"
-                      style={{ color: textColors.primary }}
-                    >
+                    <FaMusic className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
+                    <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
                       {item.title}
                     </h3>
                   </div>
@@ -536,12 +409,11 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   <div className="flex flex-wrap gap-2 text-xs mt-3">
                     {item?.name && (
                       <span
-                        className="px-3 py-1.5 text-xs font-semibold"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border"
                         style={{
-                          backgroundColor: `${colorPalette.primary}40`,
-                          color: textColors.primary,
-                          borderRadius: "8px",
-                          border: `1px solid ${colorPalette.primary}60`,
+                          backgroundColor: addAlpha(colorPalette.primary, 0.15),
+                          color: colorPalette.primary,
+                          borderColor: addAlpha(colorPalette.primary, 0.4),
                         }}
                       >
                         {item.name}
@@ -549,12 +421,11 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                     )}
                     {item?.format && (
                       <span
-                        className="px-3 py-1.5 text-xs font-semibold"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border"
                         style={{
-                          backgroundColor: `${colorPalette.secondary}40`,
-                          color: textColors.primary,
-                          borderRadius: "8px",
-                          border: `1px solid ${colorPalette.secondary}60`,
+                          backgroundColor: addAlpha(colorPalette.secondary, 0.15),
+                          color: colorPalette.secondary,
+                          borderColor: addAlpha(colorPalette.secondary, 0.4),
                         }}
                       >
                         {item.format}
@@ -570,11 +441,8 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 <>
                   {youtubeVideoId && (
                     <div
-                      className="mt-4 transition-all duration-300"
+                      className="mt-4 transition-all duration-300 rounded-xl border border-bx-line bg-white/5"
                       style={{
-                        backgroundColor: "rgba(255, 255, 255, 0.15)",
-                        borderRadius: "12px",
-                        border: "1px solid rgba(255, 255, 255, 0.25)",
                         overflow: "hidden",
                         position: "relative",
                         paddingBottom: "56.25%", // 16:9アスペクト比
@@ -629,10 +497,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {/* インタビュー・レポート */}
                   {item.reports && item.reports.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
-                      <h4 
-                        className="text-sm font-bold pb-3"
-                        style={{ color: textColors.primary }}
-                      >
+                      <h4 className="text-sm font-bold pb-3 text-bx-ink">
                         インタビュー
                       </h4>
                       <ul className="list-disc pl-5 text-xs space-y-1">
@@ -645,8 +510,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                               href={report.discographyReportUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="hover:opacity-80 transition-opacity inline-flex items-center gap-1"
-                              style={{ color: textColors.primary }}
+                              className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
                             >
                               {report.discographyReportName}
                               <GoLinkExternal className="w-3 h-3" />
@@ -660,10 +524,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {/* 関連ポスト */}
                   {item.posts && item.posts.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
-                      <h4 
-                        className="text-sm font-bold pb-3"
-                        style={{ color: textColors.primary }}
-                      >
+                      <h4 className="text-sm font-bold pb-3 text-bx-ink">
                         関連ポスト
                       </h4>
                       <Tweets

@@ -1,21 +1,16 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Timeline } from "flowbite-react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { useColorPalette } from "../../../hooks/useColorPalette";
-import { getContrastTextColor } from "../../../utils/colorContrast";
-import { addAlpha } from "../../../utils/colorExtractor";
 import Tweets from "../../modules/tweets";
 import {
   timelineItemTheme,
   timelinePointTheme,
   timelineContentTheme,
 } from "./enhanced-live";
-
-// iOS判定（共通化）
-const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 type Props = {
   live: LiveInfo;
@@ -27,10 +22,11 @@ type SetCardProps = {
   index: number;
   isSetExpanded: boolean;
   liveSpotifyPlaylistId?: string;
+  songSlugByUuid: Map<string, string>;
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
-const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSpotifyPlaylistId, onToggleExpand }) => {
+const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSpotifyPlaylistId, songSlugByUuid, onToggleExpand }) => {
   return (
     <li
       id={`live-item-${setlist.slug}`}
@@ -130,15 +126,22 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
                   const text = song.liveItemSongName
                     ?.replace(/<br\s*\/?>/gi, '\n')
                     .replace(/\n\n+/g, '\n');
+                  const slug = song.songUuid
+                    ? songSlugByUuid.get(song.songUuid)
+                    : undefined;
                   const linkable =
                     song.songUuid !== undefined && song.songUuid !== null;
                   return (
                     <li key={song.liveItemSongUuid ?? songIndex} className="leading-relaxed">
                       {linkable ? (
                         <Link
-                          to={`/songs/stats/?songUuid=${song.songUuid}#song-${song.songUuid}`}
+                          to={
+                            slug
+                              ? `/songs/${slug}/`
+                              : `/songs/stats/?songUuid=${song.songUuid}#song-${song.songUuid}`
+                          }
                           className="underline underline-offset-2 decoration-dotted hover:opacity-80"
-                          title="楽曲統計ページで演奏履歴を見る"
+                          title={slug ? "楽曲詳細ページを見る" : "楽曲統計ページで演奏履歴を見る"}
                         >
                           {text}
                         </Link>
@@ -198,11 +201,36 @@ SetCard.displayName = 'SetCard';
 
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const [isExpand, setIsExpand] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
-  const cardRef = useRef<HTMLDivElement>(null);
 
-  // カラーパレットフック
+  // セットリスト曲から楽曲詳細ページ(/songs/<slug>/)へリンクするための songUuid → slug 解決マップ
+  const songSlugData = useStaticQuery(graphql`
+    query LiveItemSongSlugMap {
+      discography {
+        discographyWithSongs {
+          songs {
+            songUuid
+            slug
+          }
+        }
+      }
+    }
+  `);
+  const songSlugByUuid = React.useMemo(() => {
+    const map = new Map<string, string>();
+    const discographies =
+      songSlugData?.discography?.discographyWithSongs ?? [];
+    for (const disc of discographies) {
+      for (const song of disc.songs ?? []) {
+        if (song?.songUuid && song?.slug) {
+          map.set(song.songUuid, song.slug);
+        }
+      }
+    }
+    return map;
+  }, [songSlugData]);
+
+  // カラーパレットフック（左アクセントバー・バッジ色にのみ使用。カード地色は固定のbxトークン）
   const { colorPalette, isLoading } = useColorPalette({
     title: live.title,
     autoApply: true,
@@ -210,13 +238,6 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     themeColorPrimary: live.themeColorPrimary,
     themeColorSecondary: live.themeColorSecondary,
   });
-
-  // 背景色に対して適切なテキストカラーを計算
-  // 背景色に対して適切なテキストカラーを計算（メモ化）
-  const textColors = React.useMemo(
-    () => getContrastTextColor(colorPalette.primary),
-    [colorPalette.primary]
-  );
 
   // 動的なテーマ（メモ化）
   const dynamicTimelineItemTheme = React.useMemo(
@@ -235,100 +256,6 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     }),
     []
   );
-
-  const handleCardHover = useCallback(() => {
-    if (!isHovered) {
-      setIsHovered(true);
-
-      if (cardRef.current) {
-        const card = cardRef.current;
-        const primaryColor = colorPalette.primary || "#6366f1";
-        const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-        card.style.background = `linear-gradient(135deg, 
-          ${primaryColor} 0%, 
-          ${secondaryColor} 100%)`;
-        // iOSではbackdrop-filterを無効化
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(6px)";
-          (card.style as any).webkitBackdropFilter = "blur(6px)";
-        }
-        card.style.transform = "translateY(0)";
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
-      }
-    }
-  }, [isHovered, colorPalette]);
-
-  const handleCardLeave = useCallback(() => {
-    setIsHovered(false);
-
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-      // iOSではbackdrop-filterを無効化
-      if (!isIOS) {
-        card.style.backdropFilter = "blur(4px)";
-        (card.style as any).webkitBackdropFilter = "blur(4px)";
-      }
-      card.style.transform = "translateY(0)";
-      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
-    }
-  }, [colorPalette]);
-
-  useEffect(() => {
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-      // iOSではbackdrop-filterを無効化
-      if (!isIOS) {
-        card.style.backdropFilter = "blur(4px)";
-        (card.style as any).webkitBackdropFilter = "blur(4px)";
-      }
-      card.style.borderRadius = "12px";
-      card.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-      card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-      card.style.border = `1px solid ${addAlpha(primaryColor, 0.3)}`;
-    }
-  }, [colorPalette]);
-
-  useEffect(() => {
-    if (cardRef.current) {
-      const card = cardRef.current;
-      const primaryColor = colorPalette.primary || "#6366f1";
-      const secondaryColor = colorPalette.secondary || "#8b5cf6";
-
-      if (isExpand) {
-        // 展開時：ホバー時と同じスタイル + 横幅拡大
-        card.style.background = `linear-gradient(135deg, 
-          ${primaryColor} 0%, 
-          ${secondaryColor} 100%)`;
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(6px)";
-          (card.style as any).webkitBackdropFilter = "blur(6px)";
-        }
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 8px 24px -8px ${primaryColor}88, 0 12px 32px -12px ${secondaryColor}66`;
-        card.style.width = 'calc(100% + 0.5rem)';
-        card.style.marginLeft = '-0.25rem';
-      } else {
-        // 非展開時：通常スタイル
-        card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-        if (!isIOS) {
-          card.style.backdropFilter = "blur(4px)";
-          (card.style as any).webkitBackdropFilter = "blur(4px)";
-        }
-        card.style.boxShadow = `0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 2px 8px -2px ${primaryColor}44, 0 4px 16px -4px ${secondaryColor}33`;
-        card.style.width = '100%';
-        card.style.marginLeft = '0';
-      }
-    }
-  }, [isExpand, colorPalette]);
 
   const handleTitleClick = useCallback(() => {
     setIsExpand((prev) => !prev);
@@ -429,17 +356,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   return (
     <div className="mb-2">
       <div
-        ref={cardRef}
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full"
+        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-xl border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
         style={{
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          borderRadius: "12px",
-          background: `linear-gradient(135deg, ${colorPalette.primary} 0%, ${colorPalette.secondary} 100%)`,
-          border: `1px solid ${addAlpha(colorPalette.primary, 0.9)}`,
+          borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
         }}
           onClick={handleTitleClick}
-          onMouseEnter={handleCardHover}
-          onMouseLeave={handleCardLeave}
         >
           <div className="w-full">
             {!isExpand ? (
@@ -447,10 +368,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span
-                      className="text-xs font-medium"
-                      style={{ color: textColors.secondary }}
-                    >
+                    <span className="text-xs font-medium text-bx-ink2">
                       {live.date?.replaceAll("-", "/")}
                     </span>
                     {isOngoingTour && (
@@ -468,10 +386,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                     )}
                   </div>
 
-                  <h3
-                    className="text-sm sm:text-base font-bold leading-tight"
-                    style={{ color: textColors.primary }}
-                  >
+                  <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
                     {live.title}
                   </h3>
                 </div>
@@ -479,17 +394,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 {/* 展開ボタン */}
                 <button
                   onClick={handleTitleClick}
-                  className="flex-shrink-0 p-1.5 hover:scale-110 transition-all duration-200"
-                  style={{
-                    backgroundColor: `${colorPalette.accent}30`,
-                    borderRadius: "8px",
-                    backdropFilter: "blur(8px)",
-                  }}
+                  className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-white/5"
                   aria-label="展開"
                 >
                   <GoChevronUp
-                    style={{ color: textColors.primary }}
-                    className={`w-4 h-4 transition-transform duration-300 ${
+                    className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
                       isExpand ? "rotate-180" : ""
                     }`}
                   />
@@ -500,9 +409,8 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
               <>
                 <Timeline.Time
                   theme={{
-                    time: "mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider",
+                    time: "mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider text-bx-ink2",
                   }}
-                  style={{ color: textColors.secondary }}
                 >
                   {live.date?.replaceAll("-", "/")}
                 </Timeline.Time>
@@ -513,14 +421,8 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   }}
                 >
                   <div className="flex items-center gap-1 mb-0">
-                    <FaCalendarAlt
-                      className="w-4 h-4 flex-shrink-0"
-                      style={{ color: textColors.secondary }}
-                    />
-                    <h3
-                      className="text-base sm:text-lg font-bold leading-tight"
-                      style={{ color: textColors.primary }}
-                    >
+                    <FaCalendarAlt className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
+                    <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
                       {live.title}
                     </h3>
                   </div>
@@ -574,6 +476,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                           setlist={setlist}
                           index={index}
                           isSetExpanded={isSetExpanded}
+                          songSlugByUuid={songSlugByUuid}
                           liveSpotifyPlaylistId={live.spotifyPlaylistId || undefined}
                           onToggleExpand={(e) => {
                             e.stopPropagation();
@@ -598,10 +501,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
             {/* LIVEレポート */}
             {live.reports && live.reports.length > 0 && (
               <div className="mt-4 transition-all duration-300">
-                <h4 
-                  className="text-sm font-bold pb-3"
-                  style={{ color: textColors.primary }}
-                >
+                <h4 className="text-sm font-bold pb-3 text-bx-ink">
                   LIVE REPORT
                 </h4>
                 <ul className="list-disc pl-5 text-xs space-y-1">
@@ -614,8 +514,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                         href={report.liveReportUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:opacity-80 transition-opacity inline-flex items-center gap-1"
-                        style={{ color: textColors.primary }}
+                        className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
                       >
                         {report.liveReportName}
                         <GoLinkExternal className="w-3 h-3" />
@@ -625,14 +524,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 </ul>
               </div>
             )}
-            
+
             {/* 関連ポスト */}
             {live.posts && live.posts.length > 0 && (
               <div className="mt-4 transition-all duration-300">
-                <h4 
-                  className="text-sm font-bold pb-3"
-                  style={{ color: textColors.primary }}
-                >
+                <h4 className="text-sm font-bold pb-3 text-bx-ink">
                   関連ポスト
                 </h4>
                 <Tweets
