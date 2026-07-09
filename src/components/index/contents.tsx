@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { navigate } from "gatsby";
-import Opening from "./opening";
 import { Recommend } from "../../types/recommend";
 import BackToTopButton from "../common/BackToTopButton";
 import { AppDispatch, RouteState } from "../../redux/store";
@@ -86,7 +85,6 @@ const IndexContents: React.FC<IndexContentsProps> = ({
 
   return (
     <>
-      <Opening />
       <main className="relative container mx-auto px-2 w-full">
         {renderCurrentContents(currentRoute)}
       </main>

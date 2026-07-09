@@ -132,109 +132,22 @@ const config = {
         800: "200rem",
       },
       animation: {
-        byeShutter: "byeShutter 4s ease-in-out forwards",
-        shutterOpen: "shutterOpen 4s ease-in-out forwards",
-        unbox: "unbox 4s ease-in-out forwards",
-        unboxReverse: "unboxReverse 4s ease-in-out forwards",
         untape: "untape 4s ease-in-out forwards",
-        turnAround: "turnAround 12s linear 0s infinite normal none running",
         fadeIn: "fadeIn 1.5s ease-in-out forwards",
         fadeInFast: "fadeIn 0.2s ease-in-out forwards",
-        fadeOut: "fadeOut 1.5s ease-in-out 0.5s forwards",
         fadeInOut1: "fadeInOut 10s ease-in-out 0s forwards",
         fadeInOut2: "fadeInOut 10s ease-in-out 10s forwards",
         fadeInOut3: "fadeInOut 10s ease-in-out 20s forwards",
-        blink: "blink 0.5s ease-in-out infinite normal none running",
-        intro: "intro 4s ease-in-out forwards",
         topBubbles: "topBubbles 1s ease-out 1s infinite normal",
         bottomBubbles: "bottomBubbles 0.5s ease-out 1s infinite",
-        cloud: "cloud 120s linear infinite",
       },
       keyframes: {
-        byeShutter: {
-          "70%": { opacity: "1" },
-          "100%": { opacity: "0", display: "none" },
-        },
-        shutterOpen: {
-          "0%": { width: "0", height: "1px" },
-          "50%": { width: "100%", height: "1px" },
-          "90%": { width: "100%", height: "100%" },
-          "100%": { width: "100%", height: "100%" },
-        },
-        unbox: {
-          "0%": {
-            color: "#ea6000",
-            backgroundColor: "#000",
-            borderColor: "#ea6000",
-            opacity: "1",
-          },
-          "50%": {
-            color: "#000",
-            backgroundColor: "#ea6000",
-            borderColor: "#000",
-            opacity: "1",
-          },
-          "70%": {
-            color: "#000",
-            backgroundColor: "#ea6000",
-            borderColor: "#000",
-            opacity: "0",
-          },
-          "100%": {
-            color: "#000",
-            backgroundColor: "#ea6000",
-            borderColor: "#000",
-            opacity: "0",
-          },
-        },
-        unboxReverse: {
-          "0%": {
-            color: "#000",
-            backgroundColor: "#ea6000",
-            borderColor: "#000",
-            opacity: "1",
-          },
-          "50%": {
-            color: "#ea6000",
-            backgroundColor: "#000",
-            borderColor: "#ea6000",
-            opacity: "1",
-          },
-          "70%": {
-            color: "#ea6000",
-            backgroundColor: "#000",
-            borderColor: "#ea6000",
-            opacity: "0",
-          },
-          "100%": {
-            color: "#ea6000",
-            backgroundColor: "#000",
-            borderColor: "#ea6000",
-            opacity: "0",
-          },
-        },
-        turnAround: {
-          "0%": {
-            transform: "rotateX(0deg) rotateY(0deg) rotateZ(0deg)",
-          },
-          "100%": {
-            transform: "rotateX(360deg) rotateY(360deg) rotateZ(360deg)",
-          },
-        },
         fadeIn: {
           "0%": {
             opacity: 0,
           },
           "100%": {
             opacity: 1,
-          },
-        },
-        fadeOut: {
-          "0%": {
-            opacity: 1,
-          },
-          "100%": {
-            opacity: 0,
           },
         },
         fadeInOut: {
@@ -245,28 +158,6 @@ const config = {
             opacity: 1,
           },
           "75%": {
-            opacity: 1,
-          },
-          "100%": {
-            opacity: 0,
-          },
-        },
-        intro: {
-          "0%": {
-            opacity: 0,
-          },
-          "40%": {
-            opacity: 1,
-          },
-          "80%": {
-            opacity: 1,
-          },
-          "100%": {
-            opacity: 0,
-          },
-        },
-        blink: {
-          "0%": {
             opacity: 1,
           },
           "100%": {
@@ -291,14 +182,6 @@ const config = {
             backgroundSize: "0% 0%, 0% 0%",
             backgroundPosition: "20% 20%, 20% 20%",
             opacity: 0,
-          },
-        },
-        cloud: {
-          "0%": {
-            backgroundPosition: "0px",
-          },
-          "100%": {
-            backgroundPosition: "5440px",
           },
         },
       },

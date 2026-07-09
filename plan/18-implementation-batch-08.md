@@ -1,7 +1,7 @@
 # 18. 実行計画書: バッチ8 — B案リデザインの磨き
 
 作成日: 2026-07-09
-ステータス: **実行中**(8a・8cの方針確定。2026-07-09ユーザー決定: **8a=オープニング演出を撤去**(BLACKBOX復活ではなく削除)、**8c=OG画像はスクリプト生成**)
+ステータス: **完了**(8a・8b・8cすべて実施済み。2026-07-09ユーザー決定: **8a=オープニング演出を撤去**(BLACKBOX復活ではなく削除)、**8c=OG画像はスクリプト生成**)
 体制: Sonnet 5メイン
 
 plan/16 §2「バッチ8(B-4・任意): 磨き」の3項目を、実装前に現状調査した上で詳細化したもの。
@@ -27,6 +27,17 @@ plan/16 §2「バッチ8(B-4・任意): 磨き」の3項目を、実装前に現
 ### 検証方針
 
 `gatsby develop`でトップページを開き、オープニングなしで即座に本編(HomeSection等)が表示されること、スクロールロックが残留していないこと(`document.body`に`overflow-hidden`が残らないこと)を確認。
+
+### 実施結果(2026-07-10実施・完了)
+
+- `contents.tsx`から`<Opening />`呼び出しとimportを削除
+- 依存関係調査の結果、Openingの自動タイマー(0.5秒後に`playerRef.mute()`+`.playVideo()`)がMainVideoのミュート自動再生の唯一のトリガーだったことが判明。**ユーザー判断: 自動再生自体をやめる**(トリガーの移植はしない)。MainVideoのYouTube iframeは`controls`を無効化していないため、ユーザーは通常のYouTube標準コントロールで再生可能
+- `src/components/index/opening.tsx`・`src/styles/opening.scss`・`src/images/cloud.png`(未追跡ファイルだった)を削除
+- `tailwind.config.js`のOpening専用animation/keyframe(`byeShutter`/`shutterOpen`/`unbox`/`unboxReverse`/`turnAround`/`fadeOut`/`intro`/`blink`/`cloud`)を削除(他のコンポーネントでの使用ゼロ件をgrepで確認済み)。`fadeIn`(photography.tsxの`fadeInFast`が参照)・`fadeInOut1〜3`・`topBubbles`/`bottomBubbles`/`untape`は他所での使用有無に関わらずOpening専用ではないため対象外(スコープ外の既存未使用コードには手を入れない)
+- `src/styles/global.scss`のOpeningバブル演出専用だった`@keyframes shake`/`@keyframes float`を削除(opening.tsx削除により完全に孤立したため)
+- GA4の`opening`/`unbox`イベント計測は本削除により発火しなくなる(想定通りの影響)
+
+**検証**: `npm run typecheck`(エラーなし)、`npx jest`(5 suites / 33 tests 全通過)、`npm run build`(成功)、ビルド後の`public/index.html`をgrepし`UNBOX`/`BLACKBOX`/`openingShown`の残留がないことを確認(検出された`UNBOX`は無関係な既存コピー「UNBOXED — SINCE 2012」の一致であることを確認済み)。
 
 ### 参考: 削除前の現状(調査時点の記録)
 
@@ -77,9 +88,14 @@ plan/16 §2「バッチ8(B-4・任意): 磨き」の3項目を、実装前に現
 3. 必要なら、明度が低い色に対してのみ薄い発光オーバーレイを足す、またはテキスト側の`getContrastTextColor`しきい値を調整する程度の小規模な補正で対応できる見込み
 4. フォールバック色(`#6366f1`/`#8b5cf6`)をbx-blue/bx-blueLight系に変更するかどうかも判断が必要(現状のfallbackは紫系でbxパレットと系統が異なる)
 
-### 検証方針
+### 検証結果(2026-07-09実施・完了)
 
-明度・彩度の異なる作品色を数件(暗い色/明るい色/低彩度色)develop上でサンプル展開し、テキストの可読性を目視確認。
+playwrightで実際にdiscographyページを確認。
+- `themeColorPrimary=#000000`/`secondary=#FFFFFF`(「聖槍爆裂ボーイ」等、複数件): 黒→白のグラデーションで、明るい側が黒背景に対して明確に浮き上がって見える。問題なし。
+- 双方とも暗い色の最悪ケース「白夜(White Midnight)」(`#091C60`/`#00030C`、輝度28.9/3.0): ページ背景(`bx-bg` #0b0b10、輝度約2.6)よりわずかに明るいネイビーのため、カードの境界は視認でき、白文字も読める。完全に沈んで消える例は見つからなかった。
+- 既存の`getContrastTextColor`(WCAG相対輝度ベース)がテキスト色を暗背景/明背景で自動切替しており、想定通り機能している。
+
+**結論: コード変更は不要と判断**。フォールバック色(`#6366f1`/`#8b5cf6`)の変更や発光オーバーレイの追加は、実機確認で問題が見られなかったため見送り。CLAUDE.mdの「不要な大規模リファクタリングはしない」方針に沿い、投機的な修正は行わない。
 
 ## 3. サブバッチ8c: OG画像のダークテーマ化
 
