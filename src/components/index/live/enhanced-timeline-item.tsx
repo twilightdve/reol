@@ -22,7 +22,7 @@ type SetCardProps = {
   index: number;
   isSetExpanded: boolean;
   liveSpotifyPlaylistId?: string;
-  songSlugByUuid: Map<string, string>;
+  songSlugByUuid: { byUuid: Map<string, string>; byName: Map<string, string> };
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
@@ -126,9 +126,13 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
                   const text = song.liveItemSongName
                     ?.replace(/<br\s*\/?>/gi, '\n')
                     .replace(/\n\n+/g, '\n');
-                  const slug = song.songUuid
-                    ? songSlugByUuid.get(song.songUuid)
-                    : undefined;
+                  const slug =
+                    (song.songUuid
+                      ? songSlugByUuid.byUuid.get(song.songUuid)
+                      : undefined) ??
+                    (song.liveItemSongName
+                      ? songSlugByUuid.byName.get(song.liveItemSongName)
+                      : undefined);
                   const linkable =
                     song.songUuid !== undefined && song.songUuid !== null;
                   return (
@@ -203,31 +207,34 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
 
-  // セットリスト曲から楽曲詳細ページ(/songs/<slug>/)へリンクするための songUuid → slug 解決マップ
+  // セットリスト曲から楽曲詳細ページ(/songs/<slug>/)へリンクするための songUuid → slug 解決マップ。
+  // ページは songStats(代表曲のみ)にしか存在しないため、discographyの全曲(重複あり)
+  // ではなく songStats から解決する。songUuid が代表曲と一致しない重複データの場合に
+  // 備えて曲名でのフォールバックも用意する(gatsby-node.tsのページ生成側と同じ方針)。
   const songSlugData = useStaticQuery(graphql`
     query LiveItemSongSlugMap {
-      discography {
-        discographyWithSongs {
-          songs {
-            songUuid
-            slug
-          }
+      songStats {
+        songStats {
+          songUuid
+          slug
+          songName
         }
       }
     }
   `);
   const songSlugByUuid = React.useMemo(() => {
     const map = new Map<string, string>();
-    const discographies =
-      songSlugData?.discography?.discographyWithSongs ?? [];
-    for (const disc of discographies) {
-      for (const song of disc.songs ?? []) {
-        if (song?.songUuid && song?.slug) {
-          map.set(song.songUuid, song.slug);
-        }
+    const byName = new Map<string, string>();
+    const stats = songSlugData?.songStats?.songStats ?? [];
+    for (const song of stats) {
+      if (song?.songUuid && song?.slug) {
+        map.set(song.songUuid, song.slug);
+      }
+      if (song?.songName && song?.slug) {
+        byName.set(song.songName, song.slug);
       }
     }
-    return map;
+    return { byUuid: map, byName };
   }, [songSlugData]);
 
   // カラーパレットフック（左アクセントバー・バッジ色にのみ使用。カード地色は固定のbxトークン）
