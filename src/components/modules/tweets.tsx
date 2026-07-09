@@ -17,25 +17,20 @@ const INITIAL_SHOW_COUNT = 3;
 const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
   const tweetRef = useRef<TabsRef>(null);
   const [active, setActive] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [loadCount, setLoadCount] = useState(0);
+  const [loadedIds, setLoadedIds] = useState<Set<string>>(new Set());
   const [showAll, setShowAll] = useState(false);
-  const loadedRef = useRef(false);
 
   const displayedPosts = showAll ? posts : posts.slice(0, INITIAL_SHOW_COUNT);
   const hasMore = posts.length > INITIAL_SHOW_COUNT;
 
-  const handleTweetLoad = useCallback(() => {
-    setLoadCount((prevCount) => {
-      const count = prevCount + 1;
-      const targetCount = displayedPosts.length;
-      if (count >= targetCount && targetCount > 0 && !loadedRef.current) {
-        loadedRef.current = true;
-        setLoaded(true);
-      }
-      return count;
+  const handleTweetLoad = useCallback((postId: string) => {
+    setLoadedIds((prev) => {
+      if (prev.has(postId)) return prev;
+      const next = new Set(prev);
+      next.add(postId);
+      return next;
     });
-  }, [displayedPosts.length]);
+  }, []);
 
   const handlePostClick = useCallback((postId: string) => {
     UtilityService.gtag({
@@ -48,9 +43,6 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
   const handleShowMore = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
     setShowAll(true);
-    loadedRef.current = false;
-    setLoaded(false);
-    setLoadCount(0);
   }, []);
 
   return (
@@ -62,7 +54,7 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
               <div
                 key={`pre-post-${parentId}-${post.id}`}
                 className={
-                  loaded
+                  loadedIds.has(post.id)
                     ? "hidden"
                     : "relative border border-gray-300 rounded-lg p-5 text-black mb-3 bg-white overflow-hidden"
                 }
@@ -93,7 +85,10 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
                 onClick={() => handlePostClick(post.id)}
               >
                 <LazyComponent>
-                  <Tweet tweetId={post.id} onLoad={handleTweetLoad} />
+                  <Tweet
+                    tweetId={post.id}
+                    onLoad={() => handleTweetLoad(post.id)}
+                  />
                 </LazyComponent>
               </article>
             </div>
