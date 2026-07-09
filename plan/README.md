@@ -26,6 +26,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [16-implementation-plan-b.md](./16-implementation-plan-b.md) | 実行計画書: B案「BLACKBOX / CHRONICLE」本実装(バッチ5〜8すべて完了) |
 | [17-implementation-batch-07.md](./17-implementation-batch-07.md) | 実行計画書: バッチ7 全ページ展開(完了。playwright導入によるブラウザ検証結果を含む) |
 | [18-implementation-batch-08.md](./18-implementation-batch-08.md) | 実行計画書: バッチ8「磨き」(オープニング撤去/ダイナミックアクセント点検/OG画像ダーク化) — ✅完了(2026-07-10) |
+| [19-fansite-auth-reuse.md](./19-fansite-auth-reuse.md) | 検討メモ: 美辞学ナビ認証基盤のファンサイト転用(タイプ診断結果保存・LIVE参戦フラグ) — 計画段階、ユーザー確認待ち |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
 ## インフラ前提
