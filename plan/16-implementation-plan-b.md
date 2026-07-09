@@ -56,9 +56,9 @@
 - 下部タブ全ページ常設(P2-1)
 - 別テーマ領域(bijigaku-navi=和紙 / quiz / relive)は**変更しない**(境界=body.tsxの分岐を維持)
 
-### バッチ8(B-4・任意): 磨き
+### バッチ8(B-4・任意): 磨き ※実装は plan/18 参照
 
-- 旧BLACKBOXオープニング(`opening.tsx` `renderUnbox`系)を**青×黄に再着色して復活**(現行の空と雲openingと差し替え)
+- オープニング演出: 2026-07-09ユーザー決定により**再着色復活ではなく撤去**
 - era/作品別ダイナミックアクセント(`themeColorPrimary/Secondary` + dynamic-colors.css基盤)
 - OG画像のダークテーマ化(`generate-reol-type-og.ts` 等)
 
@@ -94,3 +94,4 @@ typecheck → develop停止確認(lsof -i :8000)→ build → 生成HTML検証(�
 | バッチ5の既知残: opening演出は空と雲のまま(バッチ8で青×黄化)、THEATER統合(PersistentMainVideoは現状維持)、self-hostフォント未導入 | バッチ6以降で対応 |
 | **バッチ6(曲詳細+stats+検索のダーク化)** | ✅ **実装・検証完了(2026-07-07)** — `feature/batch-06-redesign-pages`(`f71d8de`+`c715ef0`)。状態系tone対応/曲詳細130ページ/統計ダークテーブル/検索カテゴリ別グルーピング。typecheck・build・生成HTML検証済み。※検索結果はフラット関連度順→カテゴリ別グルーピングに変更(要ユーザー確認) |
 | バッチ7(discography/live/place/photos/timeline/welcome展開+白前提スタイル一掃+下部タブ全ページ常設) | ✅ **実装・検証完了(2026-07-08)** — `feature/batch-07-redesign-rollout`(7a〜7e、詳細はplan/17 §完了記録)。typecheck・jest全件・build・生成HTML残存クラス検証済み。playwright導入(`2c011c9`)しdialog開閉/setlist展開/地図マーカー/下部タブ表示分岐をheadless Chromiumで実測確認済み |
+| バッチ8(オープニング撤去/ダイナミックアクセント点検/OG画像ダーク化) | ✅ **実装・検証完了(2026-07-10)** — `feature/batch-08-redesign-polish`(詳細はplan/18)。8c=OG画像script生成、8b=既存コントラスト機構で問題なしと確認(コード変更なし)、8a=opening.tsx等削除・tailwind未使用keyframe除去。typecheck・jest全件・build検証済み |
