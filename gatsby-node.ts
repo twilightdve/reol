@@ -831,8 +831,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     } | null;
     discography: {
       discographyWithSongs: {
+        discographyUuid: string;
         songs: {
           songUuid: string;
+          slug: string;
+          songName: string | null;
+          songNo: number | null;
           discographyTitle: string | null;
           lyricUrl: string | null;
           spotifyTrackId: string | null;
@@ -870,8 +874,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
       discography {
         discographyWithSongs {
+          discographyUuid
           songs {
             songUuid
+            slug
+            songName
+            songNo
             discographyTitle
             lyricUrl
             spotifyTrackId
@@ -895,6 +903,24 @@ export const createPages: GatsbyNode["createPages"] = async ({
         .flatMap((disc) => disc.songs)
         .map((song) => [song.songUuid, song])
     );
+    // discographyUuid → 収録曲一覧(同アルバム内回遊用。曲順でソート)
+    const albumSongsByDiscUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
+        disc.discographyUuid,
+        [...disc.songs]
+          .sort((a, b) => (a.songNo ?? 0) - (b.songNo ?? 0))
+          .map((s) => ({
+            songUuid: s.songUuid,
+            slug: s.slug,
+            songName: s.songName ?? "",
+          })),
+      ])
+    );
+
+    // 楽曲ページは代表曲(songStats)にしか存在しないため、アルバム収録曲の
+    // リンク先slugは songUuid → 曲名 の順で代表曲へ解決する(解決不能ならリンクなし)
+    const statsSlugByUuid = new Map(songStats.map((s) => [s.songUuid, s.slug]));
+    const statsSlugByName = new Map(songStats.map((s) => [s.songName, s.slug]));
 
     const songTemplate = path.resolve("./src/templates/song.tsx");
     songStats.forEach((song) => {
@@ -908,6 +934,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
 
       const credit = creditByUuid.get(song.songUuid);
+      const albumSongs = (
+        song.discographyUuid
+          ? albumSongsByDiscUuid.get(song.discographyUuid) ?? []
+          : []
+      ).map((s) => ({
+        songName: s.songName,
+        slug:
+          statsSlugByUuid.get(s.songUuid) ??
+          statsSlugByName.get(s.songName) ??
+          null,
+      }));
       createPage({
         path: `/songs/${song.slug}/`,
         component: songTemplate,
@@ -929,6 +966,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           musicMember: credit?.musicMember ?? null,
           lyricVideoUrl: credit?.lyricVideoUrl ?? null,
           liveVideoUrl: credit?.liveVideoUrl ?? null,
+          albumSongs,
           plays: song.plays,
         },
       });

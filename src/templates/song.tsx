@@ -21,7 +21,7 @@ import SEO from "../components/SEO";
 import EmptyState from "../components/common/EmptyState";
 import LazyComponent from "../components/modules/LazyComponent";
 import { GlassCard, Kicker } from "../components/redesign";
-import { trackOfficialLinkClick } from "../utils/analytics";
+import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { buildBreadcrumbList, buildMusicRecording } from "../utils/jsonLd";
 
 // YouTubeのビデオIDを抽出する共通関数(discography/liveの実装と同様)
@@ -72,12 +72,15 @@ export interface SongPageContext {
   musicMember: string | null;
   lyricVideoUrl: string | null;
   liveVideoUrl: string | null;
+  /** 同アルバム収録曲(slugは代表曲ページが存在する場合のみ) */
+  albumSongs: { songName: string; slug: string | null }[];
   plays: Play[];
 }
 
 const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext }) => {
   const {
     songName,
+    slug,
     discographySlug,
     discographyTitle,
     totalPlays,
@@ -91,10 +94,20 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     musicMember,
     lyricVideoUrl,
     liveVideoUrl,
+    albumSongs,
     plays,
   } = pageContext;
 
   const sortedPlays = [...plays].sort((a, b) => b.date.localeCompare(a.date));
+
+  // Xシェア: intentリンク(外部サービスへの送信はユーザーのクリック起点)
+  const shareUrl = `https://reol.twilightea.com/songs/${slug}/`;
+  const shareText = `Reol「${songName}」の演奏統計・MV・配信リンク | !Legit(非公式ファンサイト)`;
+  const shareIntentUrl = `https://x.com/intent/post?text=${encodeURIComponent(
+    shareText
+  )}&url=${encodeURIComponent(shareUrl)}`;
+
+  const otherAlbumSongs = (albumSongs ?? []).filter((s) => s.slug !== slug);
 
   const videoEmbeds = [
     { label: "Music Video", url: musicVideoUrl },
@@ -174,9 +187,8 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
           ))}
         </section>
 
-        {/* ③公式導線ボタン群(あるものだけ) */}
-        {(downloadUrl || lyricUrl || musicVideoUrl) && (
-          <section className="mb-8 flex flex-wrap items-center gap-3">
+        {/* ③公式導線ボタン群(あるものだけ) + Xシェア */}
+        <section className="mb-8 flex flex-wrap items-center gap-3">
             {downloadUrl && (
               <a
                 href={downloadUrl}
@@ -210,8 +222,19 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 公式MVを見る
               </a>
             )}
+            <a
+              href={shareIntentUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("song_share", { category: "share", label: songName })
+              }
+              className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink3 hover:border-bx-blue hover:text-bx-ink transition-colors"
+              title="この曲のページをXでシェア"
+            >
+              Xでシェア
+            </a>
           </section>
-        )}
 
         {/* ③'公式動画埋め込みプレイヤー(MV / 歌詞動画 / ライブ映像) */}
         {videoEmbeds.length > 0 && (
@@ -333,6 +356,35 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
             </div>
           )}
         </section>
+
+        {/* ⑤'同アルバム収録曲(回遊) */}
+        {discographyTitle && otherAlbumSongs.length > 0 && (
+          <section className="mb-10">
+            <Kicker className="mb-4">
+              ALSO ON 『{discographyTitle}』
+            </Kicker>
+            <ul className="flex flex-wrap gap-2">
+              {otherAlbumSongs.map((s, i) =>
+                s.slug ? (
+                  <li key={`${s.slug}-${i}`}>
+                    <Link
+                      to={`/songs/${s.slug}/`}
+                      className="inline-block text-[12px] font-semibold rounded-full px-3.5 py-1.5 border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
+                    >
+                      {s.songName}
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={`nolink-${i}`}>
+                    <span className="inline-block text-[12px] font-semibold rounded-full px-3.5 py-1.5 border border-bx-line text-bx-ink3">
+                      {s.songName}
+                    </span>
+                  </li>
+                )
+              )}
+            </ul>
+          </section>
+        )}
 
         {/* ⑥回遊 */}
         <section className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5">

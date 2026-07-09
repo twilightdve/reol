@@ -4,6 +4,7 @@ import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
+import OnThisDay from "../OnThisDay";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -111,6 +112,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
       <div className="px-2 sm:px-4 pt-6">
         <ExploreGrid />
       </div>
+
+      {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示) */}
+      <OnThisDay />
 
       {/* 入口3カード：初見の人が最初に触れる導線 */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 px-2 sm:px-4 pt-10">
