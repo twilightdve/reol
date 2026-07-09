@@ -848,7 +848,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }[];
     } | null;
   }>(`
-    query {
+    query SongPagesData {
       songStats {
         songStats {
           songUuid
