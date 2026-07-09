@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
-import { GlassCard, Kicker, StatCounter, ExploreGrid, EraChips } from "../../redesign";
+import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -110,11 +110,6 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
       {/* EXPLORE: 主要セクションへの大タイル導線 */}
       <div className="px-2 sm:px-4 pt-6">
         <ExploreGrid />
-      </div>
-
-      {/* CHRONICLE: 年代から遡る */}
-      <div className="px-2 sm:px-4 pt-12">
-        <EraChips />
       </div>
 
       {/* 入口3カード：初見の人が最初に触れる導線 */}

@@ -7,7 +7,7 @@ import { AppDispatch, RouteState } from "../../redux/store";
 import { ROUTE_NAMES } from "../../types/common";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { trackSectionView } from "../../utils/analytics";
-import { HomeSection, TimelineSection } from "./sections";
+import { HomeSection } from "./sections";
 import { SiteStats } from "./sections/HomeSection";
 
 interface IndexContentsProps {
@@ -74,8 +74,6 @@ const IndexContents: React.FC<IndexContentsProps> = ({
     switch (route) {
       case ROUTE_NAMES[0]:
         return <HomeSection recommend={recommend} siteStats={siteStats} />;
-      case ROUTE_NAMES[5]:
-        return <TimelineSection />;
       // DISCOGRAPHY / LIVE / PLACE / PHOTO は独立ページに切り出し済み。
       // ハッシュアクセスは contents.tsx 上部の useEffect でリダイレクトされる。
       default:

@@ -15,7 +15,6 @@ const NAV_ITEMS = [
   { label: "LIVE", to: "/live/" },
   { label: "PLACE", to: "/place/" },
   { label: "PHOTO", to: "/photos/" },
-  { label: "TIMELINE", to: "/timeline/" },
 ];
 
 const TopHeader: React.FC<Props> = ({ title }) => {

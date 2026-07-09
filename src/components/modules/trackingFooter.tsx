@@ -27,7 +27,6 @@ const TrackingFooter: React.FC = () => {
       [ROUTE_NAMES[2]]: <BsSpeakerFill {...iconProps} />,
       [ROUTE_NAMES[3]]: <TbMapPinHeart {...iconProps} />,
       [ROUTE_NAMES[4]]: <FaPhotoVideo {...iconProps} />,
-      // [ROUTE_NAMES[5]]: <FaCalendarAlt {...iconProps} />,
     };
   }, []);
 

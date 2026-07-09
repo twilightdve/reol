@@ -41,10 +41,6 @@ const SECTION_META: Record<
     title: 'PHOTOS',
     description: 'ファンが撮影/共有した写真を眺められます。',
   },
-  timeline: {
-    title: 'TIMELINE',
-    description: 'Reolのできごとを時系列で振り返ります。',
-  },
 }
 
 interface SEOProps {
