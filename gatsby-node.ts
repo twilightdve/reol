@@ -162,9 +162,26 @@ const createLiveNodes = async (
   // シート側 (live_item_song.songUuid) が埋まっていればそれを優先、無ければ matcher で fallback
   const songsForIndex = await sheet.getSongs();
   const liveSongIndex = buildSongIndex(songsForIndex);
+  // 同名楽曲は複数リリース(シングル/再録/コンピ収録等)にまたがってsongUuidが
+  // 別々に存在するが、楽曲詳細ページ(/songs/<slug>/)は代表songUuid(最古リリース、
+  // buildSongIndexのbyExactが保持)にしか生成されない。シート側songUuidが非代表の
+  // 重複を指していると詳細ページへのリンクが404になるため、常に代表uuidへ正規化する。
+  const uuidToRepresentative = new Map<string, string>();
+  for (const s of songsForIndex) {
+    if (!s.songUuid || !s.songName) continue;
+    uuidToRepresentative.set(
+      s.songUuid,
+      liveSongIndex.byExact.get(s.songName) ?? s.songUuid
+    );
+  }
   const liveItemSongs: LiveItemSong[] = liveItemSongsRaw.map((s) => {
     if (s.songUuid) {
-      return { ...s, matchSource: "sheet" };
+      const representative = uuidToRepresentative.get(s.songUuid) ?? s.songUuid;
+      return {
+        ...s,
+        songUuid: representative,
+        matchSource: representative === s.songUuid ? "sheet" : "sheet-normalized",
+      };
     }
     const r = matchSongId(s.liveItemSongName, liveSongIndex);
     return { ...s, songUuid: r.songUuid, matchSource: r.source };
@@ -832,6 +849,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
     discography: {
       discographyWithSongs: {
         discographyUuid: string;
+        reports: {
+          discographyRepoUuid: string;
+          discographyReportName: string;
+          discographyReportUrl: string;
+        }[];
+        posts: {
+          discographyPostUuid: string;
+          discographyPostId: string;
+          discographyPostHTML: string;
+        }[];
         songs: {
           songUuid: string;
           slug: string;
@@ -875,6 +902,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
       discography {
         discographyWithSongs {
           discographyUuid
+          reports {
+            discographyRepoUuid
+            discographyReportName
+            discographyReportUrl
+          }
+          posts {
+            discographyPostUuid
+            discographyPostId
+            discographyPostHTML
+          }
           songs {
             songUuid
             slug
@@ -922,6 +959,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const statsSlugByUuid = new Map(songStats.map((s) => [s.songUuid, s.slug]));
     const statsSlugByName = new Map(songStats.map((s) => [s.songName, s.slug]));
 
+    // discographyUuid → 収録アルバムのインタビュー/関連ポスト(楽曲詳細ページに転載)
+    const reportsByDiscUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
+        disc.discographyUuid,
+        disc.reports ?? [],
+      ])
+    );
+    const postsByDiscUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
+        disc.discographyUuid,
+        disc.posts ?? [],
+      ])
+    );
+
     const songTemplate = path.resolve("./src/templates/song.tsx");
     songStats.forEach((song) => {
       // /songs/stats/ という既存ページと衝突するため、万一 slug が "stats" の曲が
@@ -945,6 +996,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
           statsSlugByName.get(s.songName) ??
           null,
       }));
+      const albumReports = song.discographyUuid
+        ? reportsByDiscUuid.get(song.discographyUuid) ?? []
+        : [];
+      const albumPosts = song.discographyUuid
+        ? postsByDiscUuid.get(song.discographyUuid) ?? []
+        : [];
       createPage({
         path: `/songs/${song.slug}/`,
         component: songTemplate,
@@ -967,6 +1024,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           lyricVideoUrl: credit?.lyricVideoUrl ?? null,
           liveVideoUrl: credit?.liveVideoUrl ?? null,
           albumSongs,
+          albumReports,
+          albumPosts,
           plays: song.plays,
         },
       });

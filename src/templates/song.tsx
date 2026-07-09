@@ -15,11 +15,13 @@
 import React from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
 import { FiMic } from "react-icons/fi";
+import { GoLinkExternal } from "react-icons/go";
 import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import EmptyState from "../components/common/EmptyState";
 import LazyComponent from "../components/modules/LazyComponent";
+import Tweets from "../components/modules/tweets";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { buildBreadcrumbList, buildMusicRecording } from "../utils/jsonLd";
@@ -74,6 +76,17 @@ export interface SongPageContext {
   liveVideoUrl: string | null;
   /** 同アルバム収録曲(slugは代表曲ページが存在する場合のみ) */
   albumSongs: { songName: string; slug: string | null }[];
+  /** 収録アルバムのインタビュー・関連ポスト(アルバム単位のデータを転載) */
+  albumReports: {
+    discographyRepoUuid: string;
+    discographyReportName: string;
+    discographyReportUrl: string;
+  }[];
+  albumPosts: {
+    discographyPostUuid: string;
+    discographyPostId: string;
+    discographyPostHTML: string;
+  }[];
   plays: Play[];
 }
 
@@ -95,6 +108,8 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     lyricVideoUrl,
     liveVideoUrl,
     albumSongs,
+    albumReports,
+    albumPosts,
     plays,
   } = pageContext;
 
@@ -383,6 +398,42 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 )
               )}
             </ul>
+          </section>
+        )}
+
+        {/* ⑤''収録アルバムのインタビュー */}
+        {albumReports && albumReports.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">INTERVIEW</Kicker>
+            <ul className="list-disc pl-5 text-xs space-y-1">
+              {albumReports.map((report) => (
+                <li key={report.discographyRepoUuid} className="leading-relaxed">
+                  <a
+                    href={report.discographyReportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
+                  >
+                    {report.discographyReportName}
+                    <GoLinkExternal className="w-3 h-3" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* ⑤'''収録アルバムの関連ポスト */}
+        {albumPosts && albumPosts.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Tweets
+              parentId={`song-${slug}`}
+              posts={[...albumPosts].reverse().map((post) => ({
+                id: post.discographyPostId,
+                html: post.discographyPostHTML,
+              }))}
+            />
           </section>
         )}
 
