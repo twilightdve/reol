@@ -838,6 +838,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           spotifyTrackId: string | null;
           lyricMember: string | null;
           musicMember: string | null;
+          lyricVideoUrl: string | null;
+          liveVideoUrl: string | null;
         }[];
       }[];
     } | null;
@@ -875,6 +877,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             spotifyTrackId
             lyricMember
             musicMember
+            lyricVideoUrl
+            liveVideoUrl
           }
         }
       }
@@ -923,6 +927,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           spotifyTrackId: credit?.spotifyTrackId ?? null,
           lyricMember: credit?.lyricMember ?? null,
           musicMember: credit?.musicMember ?? null,
+          lyricVideoUrl: credit?.lyricVideoUrl ?? null,
+          liveVideoUrl: credit?.liveVideoUrl ?? null,
           plays: song.plays,
         },
       });

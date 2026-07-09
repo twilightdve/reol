@@ -15,6 +15,7 @@
 import React from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
 import { FiMic } from "react-icons/fi";
+import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import EmptyState from "../components/common/EmptyState";
@@ -22,6 +23,26 @@ import LazyComponent from "../components/modules/LazyComponent";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackOfficialLinkClick } from "../utils/analytics";
 import { buildBreadcrumbList, buildMusicRecording } from "../utils/jsonLd";
+
+// YouTubeのビデオIDを抽出する共通関数(discography/liveの実装と同様)
+const getYouTubeVideoId = (url: string | null | undefined): string | null => {
+  if (!url) return null;
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) return shortMatch[1];
+  const longMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (longMatch) return longMatch[1];
+  return null;
+};
+
+// bilibiliのBV ID(bvid)を抽出する共通関数
+const getBilibiliBvid = (url: string | null | undefined): string | null => {
+  if (!url) return null;
+  const pathMatch = url.match(/bilibili\.com\/video\/(BV[0-9A-Za-z]+)/);
+  if (pathMatch) return pathMatch[1];
+  const queryMatch = url.match(/[?&]bvid=(BV[0-9A-Za-z]+)/);
+  if (queryMatch) return queryMatch[1];
+  return null;
+};
 
 type Play = {
   date: string;
@@ -49,6 +70,8 @@ export interface SongPageContext {
   spotifyTrackId: string | null;
   lyricMember: string | null;
   musicMember: string | null;
+  lyricVideoUrl: string | null;
+  liveVideoUrl: string | null;
   plays: Play[];
 }
 
@@ -66,10 +89,24 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     spotifyTrackId,
     lyricMember,
     musicMember,
+    lyricVideoUrl,
+    liveVideoUrl,
     plays,
   } = pageContext;
 
   const sortedPlays = [...plays].sort((a, b) => b.date.localeCompare(a.date));
+
+  const videoEmbeds = [
+    { label: "Music Video", url: musicVideoUrl },
+    { label: "Lyric Video", url: lyricVideoUrl },
+    { label: "Live Video", url: liveVideoUrl },
+  ]
+    .map(({ label, url }) => {
+      const youTubeId = getYouTubeVideoId(url);
+      const bvid = youTubeId ? null : getBilibiliBvid(url);
+      return { label, youTubeId, bvid };
+    })
+    .filter((v) => v.youTubeId || v.bvid);
 
   const statCards = [
     { label: "通算演奏", value: `${totalPlays.toLocaleString()}回` },
@@ -173,6 +210,54 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 公式MVを見る
               </a>
             )}
+          </section>
+        )}
+
+        {/* ③'公式動画埋め込みプレイヤー(MV / 歌詞動画 / ライブ映像) */}
+        {videoEmbeds.length > 0 && (
+          <section className="mb-8 space-y-4">
+            {videoEmbeds.map(({ label, youTubeId, bvid }) => (
+              <LazyComponent key={label}>
+                <p className="mb-2 text-[11px] font-extrabold tracking-wide text-bx-ink3">
+                  {label}
+                </p>
+                <div
+                  className="rounded-xl border border-bx-line bg-white/5 overflow-hidden relative"
+                  style={{ paddingBottom: "56.25%", height: 0 }}
+                >
+                  <div className="absolute top-0 left-0 w-full h-full">
+                    {youTubeId ? (
+                      <YouTube
+                        videoId={youTubeId}
+                        opts={{
+                          width: "100%",
+                          height: "100%",
+                          playerVars: { autoplay: 0 },
+                        }}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    ) : (
+                      <iframe
+                        src={`https://player.bilibili.com/player.html?bvid=${bvid}&page=1&autoplay=0`}
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          border: 0,
+                        }}
+                        scrolling="no"
+                        frameBorder="0"
+                        allowFullScreen
+                        loading="lazy"
+                        title={`${label} - ${songName}`}
+                      />
+                    )}
+                  </div>
+                </div>
+              </LazyComponent>
+            ))}
           </section>
         )}
 
