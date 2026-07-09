@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import { Timeline } from "flowbite-react";
 import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -113,10 +113,18 @@ type SongCardProps = {
   song: Song;
   index: number;
   isSongExpanded: boolean;
+  songSlugByUuid: { byUuid: Map<string, string>; byName: Map<string, string> };
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
-const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onToggleExpand }) => {
+const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, songSlugByUuid, onToggleExpand }) => {
+  // song.slug はこの収録盤(ライブ映像作品等の副次的な収録リストを含む)内での
+  // 生データのslugであり、楽曲詳細ページ(/songs/<slug>/)は代表曲にしか存在しない
+  // ため、そのまま使うと非代表の重複収録で404になる。songStatsの代表slugへ解決する
+  const detailSlug =
+    songSlugByUuid.byUuid.get(song.songUuid) ??
+    songSlugByUuid.byName.get(song.songName) ??
+    null;
   const musicVideoId = getYouTubeVideoId(song.musicVideoUrl);
   const lyricVideoId = getYouTubeVideoId(song.lyricVideoUrl);
   const liveVideoId = getYouTubeVideoId(song.liveVideoUrl);
@@ -164,9 +172,9 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, isSongExpanded, onTogg
         >
           {song.songName}
         </span>
-        {song.slug && (
+        {detailSlug && (
           <Link
-            to={`/songs/${song.slug}/`}
+            to={`/songs/${detailSlug}/`}
             onClick={(e) => e.stopPropagation()}
             className="text-xs font-medium text-bx-ink2 hover:text-bx-blue transition-colors underline underline-offset-2 decoration-dotted flex-shrink-0"
             title="楽曲詳細ページを見る"
@@ -287,6 +295,28 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSongs, setExpandedSongs] = useState<Set<number>>(new Set());
+
+  // 曲行の「詳細」リンク先を代表曲(songStats)のslugへ解決するためのマップ
+  const songSlugData = useStaticQuery(graphql`
+    query DiscographySongSlugMap {
+      songStats {
+        songStats {
+          songUuid
+          slug
+          songName
+        }
+      }
+    }
+  `);
+  const songSlugByUuid = React.useMemo(() => {
+    const byUuid = new Map<string, string>();
+    const byName = new Map<string, string>();
+    for (const s of songSlugData?.songStats?.songStats ?? []) {
+      if (s?.songUuid && s?.slug) byUuid.set(s.songUuid, s.slug);
+      if (s?.songName && s?.slug) byName.set(s.songName, s.slug);
+    }
+    return { byUuid, byName };
+  }, [songSlugData]);
 
   // ディープリンク (#disc-<slug>) の対象カードを自動展開する。
   useEffect(() => {
@@ -475,6 +505,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                               song={song}
                               index={index}
                               isSongExpanded={isSongExpanded}
+                              songSlugByUuid={songSlugByUuid}
                               onToggleExpand={(e) => {
                                 e.stopPropagation();
                                 setExpandedSongs((prev) => {
