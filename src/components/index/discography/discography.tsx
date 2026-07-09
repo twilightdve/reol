@@ -22,16 +22,7 @@ type State = {
   currentNames: string[];
   currentYears: string[];
   currentFormats: string[];
-  currentEra: string | null;
 };
-
-// era(活動期)による年代絞り込み。区分はトップの旧CHRONICLEセクションと同じ
-// (plan/15・16のB案デザイン定義に準拠)
-const eras: { key: string; label: string; from: number; to: number }[] = [
-  { key: "reworu", label: "れをる期 2012–2014", from: 2012, to: 2014 },
-  { key: "unit", label: "REOL期 2015–2016", from: 2015, to: 2016 },
-  { key: "solo", label: "Reol期 2017–", from: 2017, to: 9999 },
-];
 
 const timelinePointTheme: FlowbiteTimelinePointTheme = {
   horizontal: "flex items-center",
@@ -121,7 +112,6 @@ class Discography extends Component<Props, State> {
       currentNames: [],
       currentYears: [],
       currentFormats: [],
-      currentEra: null,
     };
   }
 
@@ -138,8 +128,7 @@ class Discography extends Component<Props, State> {
   filterNextList(
     nextNames?: string[],
     nextYears?: string[],
-    nextFormats?: string[],
-    nextEra?: string | null
+    nextFormats?: string[]
   ) {
     let list = this.props.data;
     if (nextNames && nextNames.length > 0) {
@@ -153,15 +142,6 @@ class Discography extends Component<Props, State> {
     if (nextFormats && nextFormats.length > 0) {
       list = list.filter((item) => nextFormats?.includes(item?.format ?? ""));
     }
-    if (nextEra) {
-      const era = eras.find((e) => e.key === nextEra);
-      if (era) {
-        list = list.filter((item) => {
-          const year = parseInt(item?.releaseDate?.split("-")[0] ?? "", 10);
-          return !isNaN(year) && year >= era.from && year <= era.to;
-        });
-      }
-    }
 
     return list;
   }
@@ -170,35 +150,6 @@ class Discography extends Component<Props, State> {
     const list = this.state.currentList;
     return (
       <div className="w-full pt-2 px-2 sm:px-10">
-        {/* era(活動期)絞り込み: 単一選択、再クリックで解除 */}
-        <div className="flex flex-wrap gap-1.5 pb-2 text-xs font-bold">
-          {eras.map((era) => (
-            <span
-              key={`discography-era-${era.key}`}
-              className={`px-3 py-1.5 tracking-wide rounded-full border transition-colors cursor-pointer ${
-                this.state.currentEra === era.key
-                  ? "border-bx-yellow text-bx-yellow bg-white/5"
-                  : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
-              }`}
-              onClick={() => {
-                const nextEra =
-                  this.state.currentEra === era.key ? null : era.key;
-                this.setState({
-                  ...this.state,
-                  currentEra: nextEra,
-                  currentList: this.filterNextList(
-                    this.state.currentNames,
-                    this.state.currentYears,
-                    this.state.currentFormats,
-                    nextEra
-                  ),
-                });
-              }}
-            >
-              {era.label}
-            </span>
-          ))}
-        </div>
         <div className="flex flex-wrap gap-1 text-xs font-bold">
           {tags.name.map((tag) => {
             return (
@@ -221,7 +172,6 @@ class Discography extends Component<Props, State> {
                       nextNames,
                       this.state.currentYears,
                       this.state.currentFormats,
-                      this.state.currentEra
                     ),
                   });
                 }}
@@ -252,7 +202,6 @@ class Discography extends Component<Props, State> {
                       this.state.currentNames,
                       nextYears,
                       this.state.currentFormats,
-                      this.state.currentEra
                     ),
                   });
                 }}
@@ -283,7 +232,6 @@ class Discography extends Component<Props, State> {
                       this.state.currentNames,
                       this.state.currentYears,
                       nextFormats,
-                      this.state.currentEra
                     ),
                   });
                 }}
