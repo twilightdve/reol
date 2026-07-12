@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_019f545f-88be-74fc-a5c1-9cb452b5ee4e",
+  "tourName": "Reol Secret Live #極秘LEGIT #2",
+  "liveTitle": "Reol Secret Live #極秘LEGIT #2 東京",
+  "date": "2026-12-15",
+  "venueName": "Zepp Shinjuku (TOKYO)",
+  "venueId": "venue_zepp_shinjuku_tokyo",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
+    "liveItemUuid": "019f545f-88be-74fc-a5c1-9cb452b5ee4e",
+    "sourceId": "live_item_019f545f-88be-74fc-a5c1-9cb452b5ee4e"
+  },
+  "entries": []
+}

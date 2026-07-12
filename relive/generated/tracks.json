@@ -7402,6 +7402,25 @@
         "songUuid": "019f2411-be40-794f-a6da-7cff31b7490f",
         "spotifyTrackId": null
       }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+      "canonicalTitle": "COCOON",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "cocoon"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "019f545f-7df0-7f3d-9e1b-c5524f33fe6c",
+        "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+        "spotifyTrackId": "13a3coid2lL3Ke2C3DsjX2"
+      }
     }
   ]
 }
