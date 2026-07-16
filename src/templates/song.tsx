@@ -319,6 +319,48 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
           </section>
         )}
 
+        {/* ④'収録アルバムのインタビュー */}
+        {albumReports && albumReports.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">INTERVIEW</Kicker>
+            <ul className="list-disc pl-5 text-xs space-y-1">
+              {albumReports.map((report) => (
+                <li key={report.discographyRepoUuid} className="leading-relaxed">
+                  <a
+                    href={report.discographyReportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("report_click", {
+                        category: "outbound",
+                        label: report.discographyReportName,
+                      })
+                    }
+                    className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
+                  >
+                    {report.discographyReportName}
+                    <GoLinkExternal className="w-3 h-3" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* ④''収録アルバムの関連ポスト */}
+        {albumPosts && albumPosts.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Tweets
+              parentId={`song-${slug}`}
+              posts={albumPosts.map((post) => ({
+                id: post.discographyPostId,
+                html: post.discographyPostHTML,
+              }))}
+            />
+          </section>
+        )}
+
         {/* ⑤演奏履歴タイムライン */}
         <section className="mb-10">
           <Kicker className="mb-4">
@@ -401,41 +443,6 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
           </section>
         )}
 
-        {/* ⑤''収録アルバムのインタビュー */}
-        {albumReports && albumReports.length > 0 && (
-          <section className="mb-8">
-            <Kicker className="mb-4">INTERVIEW</Kicker>
-            <ul className="list-disc pl-5 text-xs space-y-1">
-              {albumReports.map((report) => (
-                <li key={report.discographyRepoUuid} className="leading-relaxed">
-                  <a
-                    href={report.discographyReportUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
-                  >
-                    {report.discographyReportName}
-                    <GoLinkExternal className="w-3 h-3" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {/* ⑤'''収録アルバムの関連ポスト */}
-        {albumPosts && albumPosts.length > 0 && (
-          <section className="mb-8">
-            <Kicker className="mb-4">関連ポスト</Kicker>
-            <Tweets
-              parentId={`song-${slug}`}
-              posts={[...albumPosts].reverse().map((post) => ({
-                id: post.discographyPostId,
-                html: post.discographyPostHTML,
-              }))}
-            />
-          </section>
-        )}
 
         {/* ⑥回遊 */}
         <section className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5">

@@ -60,6 +60,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
 const tags = {
   name: ["Reol", "REOL", "れをる"],
   year: [
+    "2026",
     "2025",
     "2024",
     "2023",

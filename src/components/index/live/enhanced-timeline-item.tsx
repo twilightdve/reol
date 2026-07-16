@@ -6,6 +6,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
+import { trackEvent } from "../../../utils/analytics";
 import {
   timelineItemTheme,
   timelinePointTheme,
@@ -21,12 +22,11 @@ type SetCardProps = {
   setlist: MergedLiveItem;
   index: number;
   isSetExpanded: boolean;
-  liveSpotifyPlaylistId?: string;
   songSlugByUuid: { byUuid: Map<string, string>; byName: Map<string, string> };
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
-const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSpotifyPlaylistId, songSlugByUuid, onToggleExpand }) => {
+const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
   return (
     <li
       id={`live-item-${setlist.slug}`}
@@ -35,7 +35,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
     >
       {/* セットリストヘッダー */}
       <div
-        className="flex items-start gap-3 text-sm p-3 cursor-pointer group"
+        className="flex items-start justify-between gap-3 text-sm p-3 cursor-pointer group"
         onClick={onToggleExpand}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
@@ -65,6 +65,14 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
               )}
             </span>
           )}
+          <Link
+            to={`/live/${setlist.slug}/`}
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1 text-xs font-extrabold flex-shrink-0 rounded-full px-2.5 py-1 border border-bx-yellow text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg transition-colors"
+            title="この公演の詳細ページ(セットリスト・会場・関連ポスト)を見る"
+          >
+            詳細
+          </Link>
         </div>
       </div>
 
@@ -74,47 +82,6 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
           className="px-4 pb-4 pt-2 bg-white/5"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Google Maps */}
-          {setlist.googleMapsUrl && (
-            <div className="mb-3">
-              <iframe
-                src={setlist.googleMapsUrl}
-                className="w-full rounded-lg"
-                height="200"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              <div className="text-xs mt-2 space-y-1 text-bx-ink">
-                {setlist.address && <p>{setlist.address}</p>}
-                {setlist.placeSite && (
-                  <a
-                    className="flex items-center gap-1 hover:opacity-80 text-bx-blue"
-                    href={setlist.placeSite}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {setlist.placeSite}
-                    <GoLinkExternal className="w-3 h-3" />
-                  </a>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Spotify Playlist */}
-          {(setlist.spotifyPlaylistId || liveSpotifyPlaylistId) && (
-            <div className="mb-3">
-              <iframe
-                className="rounded-lg w-full"
-                src={`https://open.spotify.com/embed/playlist/${setlist.spotifyPlaylistId || liveSpotifyPlaylistId}?utm_source=generator`}
-                height="400"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-          )}
-
           {/* Setlist */}
           <div className="mb-3">
             <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
@@ -161,40 +128,17 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, liveSp
                 セットリスト情報は現在登録されていません
               </p>
             )}
-            {setlist.setList && setlist.setList.length > 0 && (
-              <div className="mt-3">
-                <Link
-                  to={`/relive/?setlistId=${setlist.liveItemUuid}`}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-opacity hover:opacity-90"
-                  style={{
-                    backgroundColor: "rgba(199, 43, 40, 0.85)",
-                    color: "#FFF4CE",
-                    border: "1px solid rgba(255, 244, 206, 0.4)",
-                  }}
-                  title="Relive Player (β) — このセットリストをローカル音源で再生します"
-                >
-                  Relive Playerで聴く (β)
-                  <GoLinkExternal className="w-3 h-3" />
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* セット別関連ポスト */}
-          {setlist.posts && setlist.posts.length > 0 && (
-            <div className="mb-3">
-              <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
-                関連ポスト
-              </h5>
-              <Tweets
-                parentId={`${setlist.liveItemUuid}`}
-                posts={setlist.posts.reverse().map((post) => ({
-                  id: post.liveItemPostId,
-                  html: post.liveItemPostHTML,
-                }))}
-              />
+            <div className="mt-3">
+              <Link
+                to={`/live/${setlist.slug}/`}
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-bx-yellow text-bx-bg transition-opacity hover:opacity-90"
+              >
+                公演詳細ページを見る
+                <GoLinkExternal className="text-[10px]" />
+              </Link>
             </div>
-          )}
+          </div>
         </div>
       )}
     </li>
@@ -324,30 +268,50 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   );
 
   // ディープリンク: location.hash が このライブ/セットを指していれば自動展開
+  const applyDeepLink = useCallback(
+    (raw: string) => {
+      if (!raw) return;
+      // live-{slug}
+      if (raw === `live-${live.slug}`) {
+        setIsExpand(true);
+        return;
+      }
+      // live-item-{liveItem.slug}
+      const m = raw.match(/^live-item-([a-z0-9-]+)$/);
+      if (m) {
+        const slug = m[1];
+        const idx = (live.items ?? []).findIndex((it) => it.slug === slug);
+        if (idx >= 0) {
+          setIsExpand(true);
+          setExpandedSets((prev) => {
+            const ns = new Set(prev);
+            ns.add(idx);
+            return ns;
+          });
+        }
+      }
+    },
+    [live.slug, live.items]
+  );
+
+  // 初回マウント時(他ページからの遷移・直リンク)は location.hash から判定
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const raw = window.location.hash.replace("#", "");
-    if (!raw) return;
-    // live-{slug}
-    if (raw === `live-${live.slug}`) {
-      setIsExpand(true);
-      return;
-    }
-    // live-item-{liveItem.slug}
-    const m = raw.match(/^live-item-([a-z0-9-]+)$/);
-    if (m) {
-      const slug = m[1];
-      const idx = (live.items ?? []).findIndex((it) => it.slug === slug);
-      if (idx >= 0) {
-        setIsExpand(true);
-        setExpandedSets((prev) => {
-          const ns = new Set(prev);
-          ns.add(idx);
-          return ns;
-        });
-      }
-    }
-  }, [live.slug, live.items]);
+    applyDeepLink(window.location.hash.replace("#", ""));
+  }, [applyDeepLink]);
+
+  // 同一ページ内でのハッシュリンク(例: /live/ 上部の「直近の開催予定」バナー)は
+  // client-side router がこのコンポーネントを再マウントしないため、上のuseEffectが
+  // 発火しない。そのケースは "live-deep-link" カスタムイベントで直接通知してもらう。
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (detail) applyDeepLink(detail);
+    };
+    window.addEventListener("live-deep-link", handler);
+    return () => window.removeEventListener("live-deep-link", handler);
+  }, [applyDeepLink]);
 
   if (isLoading) {
     return (
@@ -361,7 +325,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   }
 
   return (
-    <div className="mb-4">
+    <div id={`live-${live.slug}`} className="mb-4 scroll-mt-24">
       <div
         className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-lg border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
         style={{
@@ -484,7 +448,6 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                           index={index}
                           isSetExpanded={isSetExpanded}
                           songSlugByUuid={songSlugByUuid}
-                          liveSpotifyPlaylistId={live.spotifyPlaylistId || undefined}
                           onToggleExpand={(e) => {
                             e.stopPropagation();
                             setExpandedSets((prev) => {
@@ -521,6 +484,12 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                         href={report.liveReportUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackEvent("report_click", {
+                            category: "outbound",
+                            label: report.liveReportName,
+                          })
+                        }
                         className="hover:opacity-80 transition-opacity inline-flex items-center gap-1 text-bx-ink"
                       >
                         {report.liveReportName}
@@ -540,7 +509,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 </h4>
                 <Tweets
                   parentId={`${live.liveUuid}`}
-                  posts={live.posts.reverse().map((post) => ({
+                  posts={live.posts.map((post) => ({
                     id: post.livePostId,
                     html: post.livePostHTML,
                   }))}

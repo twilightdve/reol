@@ -5,6 +5,7 @@ import { getResult, type Answers } from "../../../data/reol-type/scoring";
 import { axisLabels, typeGroups, reolTypes, getLocalizedType, getLocalizedTypeGroup, getLocalizedAxisLabels, type TypeCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
 import jaCommon from "../../../i18n/locales/ja/common.json";
+import { trackOfficialLinkClick } from "../../../utils/analytics";
 
 const STORAGE_KEY = "reol_type_answers";
 const SITE_URL = "https://reol.twilightea.com";
@@ -574,6 +575,32 @@ const ResultPage = () => {
         >
           {t('reolType.retryDiagnosis')}
         </button>
+
+        {/* === 公式CTA === */}
+        <div className="bg-white/5 rounded-xl p-5 border border-white/10 space-y-3">
+          <h3 className="text-sm font-bold text-gray-300">{t('reolType.officialCtaTitle')}</h3>
+          <p className="text-xs text-gray-500 leading-relaxed">{t('reolType.officialCtaDesc')}</p>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href="https://reol.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackOfficialLinkClick("site")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/80 hover:to-blue-500/80 transition-all"
+            >
+              {t('reolType.officialSite')}
+            </a>
+            <a
+              href="https://www.youtube.com/@reolch"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackOfficialLinkClick("youtube")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              {t('reolType.officialYoutube')}
+            </a>
+          </div>
+        </div>
 
         {/* === タイプ詳細 === */}
         <Link
