@@ -289,7 +289,8 @@ export class SheetService {
           row[COL.discographyRepo.discographyReportUrl]
         ),
       }))
-      .filter((v) => v.discographyRepoUuid !== "");
+      // uuidだけ埋まってURL未記入の空行(シート起票時のプレースホルダ)を除外
+      .filter((v) => v.discographyRepoUuid !== "" && v.discographyReportUrl !== "");
   }
 
   async getDiscographyPosts(): Promise<DiscographyPost[]> {
@@ -301,7 +302,8 @@ export class SheetService {
         discographyPostId: str(row[COL.discographyPost.discographyPostId]),
         discographyPostHTML: str(row[COL.discographyPost.discographyPostHTML]),
       }))
-      .filter((v) => v.discographyPostUuid !== "");
+      // uuidだけ埋まってpostId未記入の空行(シート起票時のプレースホルダ)を除外
+      .filter((v) => v.discographyPostUuid !== "" && v.discographyPostId !== "");
   }
 
   async getSongs(): Promise<Song[]> {
@@ -378,7 +380,8 @@ export class SheetService {
         livePostId: str(row[COL.livePost.livePostId]),
         livePostHTML: str(row[COL.livePost.livePostHTML]),
       }))
-      .filter((v) => v.livePostUuid !== "");
+      // uuidだけ埋まってpostId未記入の空行(シート起票時のプレースホルダ)を除外
+      .filter((v) => v.livePostUuid !== "" && v.livePostId !== "");
   }
 
   async getLiveItems(): Promise<LiveItem[]> {
@@ -438,7 +441,8 @@ export class SheetService {
         liveItemPostId: str(row[COL.liveItemPost.liveItemPostId]),
         liveItemPostHTML: str(row[COL.liveItemPost.liveItemPostHTML]),
       }))
-      .filter((v) => v.liveItemPostUuid !== "");
+      // uuidだけ埋まってpostId未記入の空行(シート起票時のプレースホルダ)を除外
+      .filter((v) => v.liveItemPostUuid !== "" && v.liveItemPostId !== "");
   }
 
   async getLiveReports(): Promise<LiveReport[]> {
@@ -450,7 +454,8 @@ export class SheetService {
         liveReportName: str(row[COL.liveReport.liveReportName]),
         liveReportUrl: str(row[COL.liveReport.liveReportUrl]),
       }))
-      .filter((v) => v.liveReportUuid !== "");
+      // uuidだけ埋まってURL未記入の空行(シート起票時のプレースホルダ)を除外
+      .filter((v) => v.liveReportUuid !== "" && v.liveReportUrl !== "");
   }
 
   async getRecommends(): Promise<Recommend[]> {

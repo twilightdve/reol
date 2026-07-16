@@ -232,7 +232,7 @@
       "displayTitle": "白夜",
       "normalizedTitle": "白夜",
       "policy": "required",
-      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "trackId": "song_019e8282-b315-798d-b991-c7fc740b5dc5",
       "aliases": [
         "白夜"
       ],
@@ -241,7 +241,7 @@
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {
@@ -375,7 +375,7 @@
       "displayTitle": "感情御中 - WANT U LUV IT-",
       "normalizedTitle": "感情御中wantuluvit",
       "policy": "required",
-      "trackId": "song_019e8282-e1d7-722e-ad1a-1247b82b3b4a",
+      "trackId": "song_019e8282-c4dd-71c6-a878-5e06267be179",
       "aliases": [
         "感情御中 - WANT U LUV IT"
       ],
@@ -384,7 +384,7 @@
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {

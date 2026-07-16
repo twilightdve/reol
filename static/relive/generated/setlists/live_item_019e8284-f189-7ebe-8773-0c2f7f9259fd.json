@@ -393,10 +393,13 @@
       "displayTitle": "COCOON",
       "normalizedTitle": "cocoon",
       "policy": "required",
+      "trackId": "song_019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+      "aliases": [],
       "afterglowTailSec": 8,
       "match": {
-        "status": "missing",
-        "reason": "no_discography_match"
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
       }
     },
     {

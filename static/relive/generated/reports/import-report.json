@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-06T17:48:15.442Z",
+  "generatedAt": "2026-07-16T07:13:37.227Z",
   "counts": {
-    "sourceLives": 75,
-    "sourceLiveItems": 167,
-    "sourceSetlistEntries": 2107,
-    "sourceDiscographies": 93,
-    "sourceSongs": 250,
-    "generatedTracks": 250,
-    "generatedSetlists": 167,
-    "generatedVenues": 115,
+    "sourceLives": 76,
+    "sourceLiveItems": 170,
+    "sourceSetlistEntries": 2156,
+    "sourceDiscographies": 94,
+    "sourceSongs": 251,
+    "generatedTracks": 251,
+    "generatedSetlists": 170,
+    "generatedVenues": 117,
     "verifiedVenueCapacities": 22,
-    "venueCapacitiesNeedingVerification": 93,
-    "matchedEntries": 1826,
+    "venueCapacitiesNeedingVerification": 95,
+    "matchedEntries": 1875,
     "candidateEntries": 12,
     "specialEntries": 124,
     "unmatchedEntries": 145
@@ -21,21 +21,10 @@
     {
       "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
       "normalizedTitle": "港のヨーコヨコハマヨコスカ",
-      "count": 19,
+      "count": 22,
       "exampleSetlistIds": [
-        "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
-        "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
-        "live_item_019e8284-f0d0-7c4c-b463-efb128b466db",
-        "live_item_019e8284-f06e-7e8f-8887-51966ceb2597",
-        "live_item_019e8284-f00d-7421-8f35-22bb8786a7cb"
-      ],
-      "reason": "no_discography_match"
-    },
-    {
-      "rawTitle": "COCOON",
-      "normalizedTitle": "cocoon",
-      "count": 3,
-      "exampleSetlistIds": [
+        "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6",
+        "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221",
         "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
         "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
         "live_item_019e8284-f0d0-7c4c-b463-efb128b466db"

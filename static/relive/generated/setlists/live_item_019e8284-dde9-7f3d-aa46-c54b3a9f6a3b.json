@@ -165,7 +165,7 @@
       "displayTitle": "白夜",
       "normalizedTitle": "白夜",
       "policy": "required",
-      "trackId": "song_019e8282-dce7-762b-92ff-843bafb668cf",
+      "trackId": "song_019e8282-b315-798d-b991-c7fc740b5dc5",
       "aliases": [
         "白夜"
       ],
@@ -174,7 +174,7 @@
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {

@@ -1032,4 +1032,156 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
     console.log(`[songs] generated ${songStats.length} song pages`);
   }
+
+  // ----- ライブ公演詳細ページ(/live/<liveItem.slug>/) -----
+  // 1公演(1日程 = 従来のSetCard相当)ごとに1ページ生成する。
+  // セットリスト曲は songStats(代表曲のみ)へ解決してリンクする(曲詳細ページ側と同じ方針)。
+  const liveResult = await graphql<{
+    live: {
+      liveInfos: {
+        liveUuid: string;
+        slug: string;
+        title: string;
+        name: string;
+        spotifyPlaylistId: string | null;
+        reports: {
+          liveReportUuid: string;
+          liveReportName: string;
+          liveReportUrl: string;
+        }[];
+        items: {
+          liveItemUuid: string;
+          slug: string;
+          liveItemName: string | null;
+          date: string;
+          place: string | null;
+          placeSite: string | null;
+          address: string | null;
+          googleMapsUrl: string | null;
+          spotifyPlaylistId: string | null;
+          setList: {
+            liveItemSongUuid: string;
+            liveItemSongName: string;
+            songUuid: string | null;
+          }[];
+          posts: {
+            liveItemPostUuid: string;
+            liveItemPostId: string;
+            liveItemPostHTML: string;
+          }[];
+        }[];
+      }[];
+    } | null;
+    songStats: {
+      songStats: { songUuid: string; slug: string; songName: string }[];
+    } | null;
+  }>(`
+    query LiveItemPagesData {
+      live {
+        liveInfos {
+          liveUuid
+          slug
+          title
+          name
+          spotifyPlaylistId
+          reports {
+            liveReportUuid
+            liveReportName
+            liveReportUrl
+          }
+          items {
+            liveItemUuid
+            slug
+            liveItemName
+            date
+            place
+            placeSite
+            address
+            googleMapsUrl
+            spotifyPlaylistId
+            setList {
+              liveItemSongUuid
+              liveItemSongName
+              songUuid
+            }
+            posts {
+              liveItemPostUuid
+              liveItemPostId
+              liveItemPostHTML
+            }
+          }
+        }
+      }
+      songStats {
+        songStats {
+          songUuid
+          slug
+          songName
+        }
+      }
+    }
+  `);
+
+  if (liveResult.errors) {
+    console.error("[live] GraphQLクエリでエラーが発生しました", liveResult.errors);
+  } else {
+    const liveInfos = liveResult.data?.live?.liveInfos ?? [];
+    const statsSlugByUuid = new Map(
+      (liveResult.data?.songStats?.songStats ?? []).map((s) => [s.songUuid, s.slug])
+    );
+    const statsSlugByName = new Map(
+      (liveResult.data?.songStats?.songStats ?? []).map((s) => [s.songName, s.slug])
+    );
+
+    const liveItemTemplate = path.resolve("./src/templates/live-item.tsx");
+    let liveItemPageCount = 0;
+    liveInfos.forEach((live) => {
+      // 同ツアー内の他公演一覧(回遊用)。日付昇順。
+      const siblingItems = [...live.items]
+        .sort((a, b) => a.date.localeCompare(b.date))
+        .map((it) => ({
+          slug: it.slug,
+          date: it.date,
+          liveItemName: it.liveItemName,
+          place: it.place,
+        }));
+
+      live.items.forEach((item) => {
+        const setList = item.setList.map((s) => ({
+          liveItemSongUuid: s.liveItemSongUuid,
+          liveItemSongName: s.liveItemSongName,
+          slug: s.songUuid
+            ? statsSlugByUuid.get(s.songUuid) ??
+              statsSlugByName.get(s.liveItemSongName) ??
+              null
+            : null,
+        }));
+
+        createPage({
+          path: `/live/${item.slug}/`,
+          component: liveItemTemplate,
+          context: {
+            liveItemUuid: item.liveItemUuid,
+            slug: item.slug,
+            liveUuid: live.liveUuid,
+            liveSlug: live.slug,
+            liveTitle: live.title,
+            liveItemName: item.liveItemName,
+            date: item.date,
+            place: item.place,
+            placeSite: item.placeSite,
+            address: item.address,
+            googleMapsUrl: item.googleMapsUrl,
+            spotifyPlaylistId: item.spotifyPlaylistId || live.spotifyPlaylistId,
+            setList,
+            posts: item.posts,
+            reports: live.reports,
+            siblingItems: siblingItems.filter((s) => s.slug !== item.slug),
+          },
+        });
+        liveItemPageCount += 1;
+      });
+    });
+    console.log(`[live] generated ${liveItemPageCount} live item pages`);
+  }
 };

@@ -6,6 +6,25 @@
   },
   "setlists": [
     {
+      "setlistId": "live_item_019f545f-88be-74fc-a5c1-9cb452b5ee4e",
+      "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
+      "liveItemUuid": "019f545f-88be-74fc-a5c1-9cb452b5ee4e",
+      "title": "Reol Secret Live #極秘LEGIT #2 東京",
+      "date": "2026-12-15",
+      "venueName": "Zepp Shinjuku (TOKYO)",
+      "venueId": "venue_zepp_shinjuku_tokyo",
+      "type": "oneman",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
       "setlistId": "live_item_019f1dd4-df98-7bfe-9de5-73e2a258e670",
       "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
       "liveItemUuid": "019f1dd4-df98-7bfe-9de5-73e2a258e670",
@@ -33,6 +52,25 @@
       "venueName": "フィラ・バルセロナ・グラン・ビア",
       "venueId": "venue_フィラ_バルセロナ_グラン_ビア",
       "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_019f545f-888f-7d58-9a33-aafb2fd8747d",
+      "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
+      "liveItemUuid": "019f545f-888f-7d58-9a33-aafb2fd8747d",
+      "title": "Reol Secret Live #極秘LEGIT #2 大阪",
+      "date": "2026-11-29",
+      "venueName": "GORILLA HALL OSAKA",
+      "venueId": "venue_gorilla_hall_osaka",
+      "type": "oneman",
       "songCount": 0,
       "playablePolicySummary": {
         "required": 0,
@@ -82,10 +120,29 @@
       }
     },
     {
+      "setlistId": "live_item_019f53e2-dc4e-775d-828b-8839c883f961",
+      "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
+      "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+      "title": "Reol Oneman Live 2026 美辞学 韓国 #2",
+      "date": "2026-07-19",
+      "venueName": "YES24 WANDERLOCH HALL",
+      "venueId": "venue_yes24_wanderloch_hall",
+      "type": "oneman",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
       "setlistId": "live_item_019e8284-f332-7d51-a5a3-f8a90b94113c",
       "liveUuid": "019e8284-9148-7f4e-b33a-0a731e8b057e",
       "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
-      "title": "Reol Oneman Live 2026 美辞学 韓国",
+      "title": "Reol Oneman Live 2026 美辞学 韓国 #1",
       "date": "2026-07-18",
       "venueName": "YES24 WANDERLOCH HALL",
       "venueId": "venue_yes24_wanderloch_hall",
@@ -109,13 +166,13 @@
       "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 1,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 0,
+        "required": 24,
         "special": 1,
-        "medley": 0,
+        "medley": 1,
         "cover": 0,
-        "se": 1,
+        "se": 0,
         "unknown": 0
       }
     },
@@ -128,13 +185,13 @@
       "venueName": "岡谷鋼機名古屋公会堂",
       "venueId": "venue_岡谷鋼機名古屋公会堂",
       "type": "oneman",
-      "songCount": 1,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 0,
+        "required": 25,
         "special": 1,
-        "medley": 0,
+        "medley": 1,
         "cover": 0,
-        "se": 1,
+        "se": 0,
         "unknown": 0
       }
     },
