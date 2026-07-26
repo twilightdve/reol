@@ -29,7 +29,6 @@ export const store = configureStore({
       isLoaded: false,
       currentVideoId: "",
       isShrinked: false,
-      isPlayerHidden: false,
       playerRef: null,
     },
     route: {

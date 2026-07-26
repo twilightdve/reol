@@ -66,6 +66,20 @@ const getYoutubeThumb = (url: string): string | null => {
   return m ? `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg` : null;
 };
 
+// スポットの静的地図サムネイル用。外部staticmap APIには依存せず、
+// ヒートマップ等でも使っている公式OSMタイルサーバーから該当地点のタイルを1枚だけ取得する
+// (Slippy map tilenamesの標準計算式)。ピン等は乗らないが軽量なプレビューとして十分。
+const OSM_TILE_ZOOM = 15;
+const latLngToTileUrl = (lat: number, lng: number): string => {
+  const n = Math.pow(2, OSM_TILE_ZOOM);
+  const x = Math.floor(((lng + 180) / 360) * n);
+  const latRad = (lat * Math.PI) / 180;
+  const y = Math.floor(
+    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n
+  );
+  return `https://tile.openstreetmap.org/${OSM_TILE_ZOOM}/${x}/${y}.png`;
+};
+
 // 都道府県の並び順（北から南へ）
 const PREFECTURE_ORDER = [
   "北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
@@ -630,13 +644,28 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                     }}
                                   />
                                 )}
-                                <iframe
-                                  src={item.mapsEmbedUrl}
-                                  className="w-full h-48 rounded mb-2"
-                                  loading="lazy"
-                                  referrerPolicy="no-referrer-when-downgrade"
-                                  title={`Map for ${item.name}`}
-                                />
+                                <a
+                                  href={item.mapsUrl || item.mapsEmbedUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group/map relative block w-full h-32 rounded mb-2 overflow-hidden bg-white/5 border border-bx-line"
+                                >
+                                  {item.lat && item.lng ? (
+                                    <img
+                                      src={latLngToTileUrl(item.lat, item.lng)}
+                                      alt=""
+                                      loading="lazy"
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-bx-ink3 text-xs">
+                                      地図データなし
+                                    </div>
+                                  )}
+                                  <span className="absolute bottom-1 right-1 px-2 py-1 text-[11px] font-bold rounded bg-bx-bg/90 text-bx-yellow border border-bx-line group-hover/map:bg-bx-yellow group-hover/map:text-bx-bg transition-colors">
+                                    地図で開く ↗
+                                  </span>
+                                </a>
                                 <p className="text-xs text-bx-ink2">{item.address}</p>
                               </div>
                             ))}
