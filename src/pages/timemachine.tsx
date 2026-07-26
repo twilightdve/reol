@@ -31,6 +31,17 @@ type Snapshot = {
     place: string | null;
     liveSlug: string | null;
   } | null;
+  /** この月「限定」のできごと。スナップショットはこれらのいずれかがある月だけに絞られている */
+  releases: { title: string; slug: string; releaseDate: string | null }[];
+  lives: {
+    title: string | null;
+    itemName: string | null;
+    date: string | null;
+    place: string | null;
+    liveSlug: string | null;
+    liveItemSlug: string;
+  }[];
+  newSongs: { songName: string; slug: string }[];
 };
 
 const formatMonth = (month: string): string => {
@@ -100,8 +111,9 @@ const TimeMachinePage: React.FC = () => {
           タイムマシン
         </h1>
         <p className="text-sm leading-relaxed text-bx-ink2">
-          スライダーで年月を選ぶと、その時点までのReolの歩みを再現します。
-          今と同じ「楽曲数・ライブ数・演奏数」が、当時はどれだけだったかを辿れます。
+          リリース・ライブ・楽曲の初披露があった月だけを辿れます。
+          今と同じ「楽曲数・ライブ数・演奏数」が、当時はどれだけだったかを確認しながら、
+          その月に何が起きたかを振り返れます。
         </p>
       </section>
 
@@ -171,6 +183,88 @@ const TimeMachinePage: React.FC = () => {
             ))}
           </section>
 
+          {(current.releases.length > 0 ||
+            current.lives.length > 0 ||
+            current.newSongs.length > 0) && (
+            <section className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5 space-y-4">
+              <h2 className="text-[10px] font-bold tracking-wide text-bx-ink3">
+                この月のできごと
+              </h2>
+
+              {current.releases.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold text-bx-blue mb-1.5">
+                    リリース
+                  </p>
+                  <ul className="space-y-1.5">
+                    {current.releases.map((r) => (
+                      <li key={r.slug}>
+                        <Link
+                          to={`/discography/#disc-${r.slug}`}
+                          className="text-sm text-bx-ink hover:text-bx-blue transition-colors"
+                        >
+                          {r.title}
+                        </Link>
+                        <span className="text-xs text-bx-ink3 ml-2">
+                          {formatDate(r.releaseDate)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {current.lives.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold text-bx-yellow mb-1.5">
+                    ライブ
+                  </p>
+                  <ul className="space-y-1.5">
+                    {current.lives.map((l) => (
+                      <li key={l.liveItemSlug}>
+                        <Link
+                          to={
+                            l.liveSlug
+                              ? `/live/#live-item-${l.liveItemSlug}`
+                              : "/live/"
+                          }
+                          className="text-sm text-bx-ink hover:text-bx-yellow transition-colors"
+                        >
+                          {l.title}
+                          {l.itemName ? ` ${l.itemName}` : ""}
+                        </Link>
+                        <span className="text-xs text-bx-ink3 ml-2">
+                          {formatDate(l.date)}
+                          {l.place ? ` ${l.place}` : ""}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {current.newSongs.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold text-bx-blueLight mb-1.5">
+                    初披露曲
+                  </p>
+                  <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
+                    {current.newSongs.map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          to={`/songs/${s.slug}/`}
+                          className="text-sm text-bx-ink hover:text-bx-blueLight transition-colors"
+                        >
+                          {s.songName}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </section>
+          )}
+
           <section className="space-y-3">
             {current.latestRelease ? (
               <GlassCard
@@ -179,7 +273,7 @@ const TimeMachinePage: React.FC = () => {
                 className="p-4"
               >
                 <div className="text-[10px] font-bold tracking-wide text-bx-ink3 mb-1">
-                  最新リリース ({formatDate(current.latestRelease.releaseDate)})
+                  この時点での最新リリース ({formatDate(current.latestRelease.releaseDate)})
                 </div>
                 <div className="text-base font-bold text-bx-ink">
                   {current.latestRelease.title}
@@ -237,7 +331,7 @@ export default TimeMachinePage;
 export const Head: HeadFC = () => (
   <SEO
     title="タイムマシン"
-    description="年月スライダーで、その時点までのReolの楽曲数・ライブ数・演奏数・最新リリース・次のライブを辿れます。"
+    description="リリース・ライブ・楽曲の初披露があった月を辿り、その時点までのReolの楽曲数・ライブ数・演奏数を確認できます。"
     path="/timemachine/"
     jsonLd={buildBreadcrumbList([
       { name: "ホーム", path: "/" },

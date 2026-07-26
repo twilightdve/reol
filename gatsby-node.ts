@@ -550,7 +550,7 @@ const createSongStatsNodes = async (
 
       let discPointer = -1;
       let livePointer = 0;
-      const snapshots = monthKeys.map((month) => {
+      const allSnapshots = monthKeys.map((month) => {
         // 過去月は月末、当月は「今日」をカットオフにする
         // (当月分を月末まで含めてしまうと、まだ開催されていない当月内の
         // 予定公演を「開催済み」として誤カウントするため)
@@ -587,6 +587,32 @@ const createSongStatsNodes = async (
           return !!item && (item.date ?? "") <= cutoff;
         }).length;
 
+        // この月「限定」のできごと(リリース/公演/初披露曲)。スナップショット
+        // 一覧を「変化のあった月だけ」に絞り込むための判定にも使う。
+        const releases = sortedDiscByDate
+          .filter((d) => (d.releaseDate ?? "").slice(0, 7) === month)
+          .map((d) => ({
+            title: d.title,
+            slug: d.slug,
+            releaseDate: d.releaseDate ?? null,
+          }));
+        const livesThisMonth = sortedLiveItemsByDate
+          .filter((it) => (it.date ?? "").slice(0, 7) === month)
+          .map((it) => {
+            const parent = liveByUuid.get(it.liveUuid);
+            return {
+              title: parent?.title ?? null,
+              itemName: it.liveItemName ?? null,
+              date: it.date ?? null,
+              place: it.place ?? null,
+              liveSlug: parent?.slug ?? null,
+              liveItemSlug: it.slug,
+            };
+          });
+        const newSongs = songStats
+          .filter((s) => (s.firstPlayedDate ?? "").slice(0, 7) === month)
+          .map((s) => ({ songName: s.songName, slug: s.slug }));
+
         return {
           month,
           songCount,
@@ -608,12 +634,29 @@ const createSongStatsNodes = async (
                 liveSlug: nextItemParent?.slug ?? null,
               }
             : null,
+          releases,
+          lives: livesThisMonth,
+          newSongs,
         };
       });
 
+      // 「全月」だと変化のない月が大半を占め閲覧体験が薄くなるため、
+      // リリース/公演/初披露曲のいずれかがあった月だけに絞り込む
+      // (累計値はその月時点のカットオフで計算済みのため、間引いても
+      // 「その時点までの累計」としての正しさは変わらない)。
+      // 最初と最後の月は範囲の起点/現在地として常に残す。
+      const snapshots = allSnapshots.filter(
+        (s, i) =>
+          i === 0 ||
+          i === allSnapshots.length - 1 ||
+          s.releases.length > 0 ||
+          s.lives.length > 0 ||
+          s.newSongs.length > 0
+      );
+
       await writeDataJson("timemachine.json", { snapshots });
       console.log(
-        `[timemachine] generated ${snapshots.length} monthly snapshots (${minMonth} - ${maxMonth})`
+        `[timemachine] generated ${snapshots.length}/${allSnapshots.length} eventful monthly snapshots (${minMonth} - ${maxMonth})`
       );
     }
   }
