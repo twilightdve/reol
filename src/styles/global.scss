@@ -233,3 +233,8 @@ body.is-ios {
   /* 背景サイズをより鮮明に */
   background-size: 100% auto !important;
 }
+
+/* ヒートマップ等のOSMタイルをダークテーマに近づける(反転+色調整)。 */
+.relive-map-tiles-dark {
+  filter: invert(92%) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
+}

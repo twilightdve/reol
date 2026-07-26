@@ -246,12 +246,12 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
   }, [filteredItems])
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen bg-bx-bg">
+      <header className="bg-bx-bg shadow-sm border-b border-bx-line">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link
             to="/live/"
-            className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+            className="inline-flex items-center gap-2 text-bx-blueLight hover:text-bx-blue font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
             LIVE 一覧へ戻る
@@ -261,11 +261,11 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-4">
-          <h1 className="flex items-center gap-2 text-2xl font-bold text-gray-800">
-            <MapPin className="w-6 h-6 text-purple-600" />
+          <h1 className="flex items-center gap-2 text-2xl font-bold text-bx-ink">
+            <MapPin className="w-6 h-6 text-bx-blueLight" />
             Reol 公演ヒートマップ
           </h1>
-          <p className="mt-1 text-sm text-gray-600">
+          <p className="mt-1 text-sm text-bx-ink3">
             これまでに開催された Reol の公演を都道府県別に可視化しています。色が濃いほど公演数が多い地域です。
           </p>
         </div>
@@ -285,7 +285,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
                 typeFilter === t.key
                   ? `${t.color} text-white shadow`
-                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                  : 'bg-bx-bg text-bx-ink3 border border-bx-line hover:bg-white/5'
               }`}
             >
               {t.label}
@@ -296,7 +296,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         {/* マップ */}
         <Suspense
           fallback={
-            <div className="h-[320px] rounded-lg border border-gray-200 bg-gray-100 flex items-center justify-center text-gray-500 text-sm">
+            <div className="h-[320px] rounded-lg border border-bx-line bg-bx-line/30 flex items-center justify-center text-bx-ink3 text-sm">
               地図を読み込み中...
             </div>
           }
@@ -329,7 +329,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
               }
             />
           ) : (
-            <div className="h-[320px] rounded-lg border border-gray-200 bg-gray-100 flex items-center justify-center text-gray-500 text-sm">
+            <div className="h-[320px] rounded-lg border border-bx-line bg-bx-line/30 flex items-center justify-center text-bx-ink3 text-sm">
               地図を読み込み中...
             </div>
           )}
@@ -337,45 +337,45 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
 
         {/* 選択中エリアの会場一覧 */}
         {selected && (
-          <div className="mt-3 bg-white rounded-lg border border-purple-200 p-3">
+          <div className="mt-3 bg-bx-bg rounded-lg border border-bx-line p-3">
             <div className="flex items-center justify-between mb-2">
-              <h2 className="font-bold text-sm text-gray-800">
+              <h2 className="font-bold text-sm text-bx-ink">
                 <span
                   className={`inline-block w-2 h-2 rounded-full mr-1.5 ${
-                    selected.kind === 'jp' ? 'bg-purple-500' : 'bg-blue-500'
+                    selected.kind === 'jp' ? 'bg-bx-yellow' : 'bg-blue-500'
                   }`}
                 />
                 {selected.name} の会場 ({selectedVenues.length})
               </h2>
               <button
                 onClick={() => setSelected(null)}
-                className="text-xs text-gray-500 hover:text-gray-800 underline"
+                className="text-xs text-bx-ink3 hover:text-bx-ink underline"
               >
                 選択解除
               </button>
             </div>
             {selectedVenues.length === 0 ? (
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-bx-ink3">
                 このエリアでの公演データはまだありません
               </p>
             ) : (
-              <ul className="text-xs divide-y divide-gray-100">
+              <ul className="text-xs divide-y divide-bx-line">
                 {selectedVenues.map((v) => (
                   <li
                     key={`${v.place}-${v.address ?? ''}`}
                     className="py-1.5 flex items-start gap-2"
                   >
                     <span className="flex-1">
-                      <span className="font-medium text-gray-800">
+                      <span className="font-medium text-bx-ink">
                         {v.place}
                       </span>
                       {v.address && (
-                        <span className="block text-[10px] text-gray-500">
+                        <span className="block text-[10px] text-bx-ink3">
                           {v.address}
                         </span>
                       )}
                     </span>
-                    <span className="font-mono font-bold text-purple-700 text-xs">
+                    <span className="font-mono font-bold text-bx-yellow text-xs">
                       {v.count}
                     </span>
                   </li>
@@ -387,34 +387,34 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
 
         {/* サマリー */}
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
-          <div className="bg-white border border-gray-200 rounded p-2">
-            <div className="text-gray-500">国内公演</div>
-            <div className="text-lg font-bold text-purple-700">{totalJP}</div>
+          <div className="bg-bx-bg border border-bx-line rounded p-2">
+            <div className="text-bx-ink3">国内公演</div>
+            <div className="text-lg font-bold text-bx-yellow">{totalJP}</div>
           </div>
-          <div className="bg-white border border-gray-200 rounded p-2">
-            <div className="text-gray-500">海外公演</div>
-            <div className="text-lg font-bold text-blue-700">{totalOverseas}</div>
+          <div className="bg-bx-bg border border-bx-line rounded p-2">
+            <div className="text-bx-ink3">海外公演</div>
+            <div className="text-lg font-bold text-bx-blue">{totalOverseas}</div>
           </div>
-          <div className="bg-white border border-gray-200 rounded p-2">
-            <div className="text-gray-500">参加都道府県</div>
-            <div className="text-lg font-bold text-pink-700">{visitedJP} / 47</div>
+          <div className="bg-bx-bg border border-bx-line rounded p-2">
+            <div className="text-bx-ink3">参加都道府県</div>
+            <div className="text-lg font-bold text-bx-yellow">{visitedJP} / 47</div>
           </div>
-          <div className="bg-white border border-gray-200 rounded p-2">
-            <div className="text-gray-500">不明 / 未確定</div>
-            <div className="text-lg font-bold text-gray-500">{unknownCount}</div>
+          <div className="bg-bx-bg border border-bx-line rounded p-2">
+            <div className="text-bx-ink3">不明 / 未確定</div>
+            <div className="text-lg font-bold text-bx-ink3">{unknownCount}</div>
           </div>
         </div>
 
         {/* 地域別ランキング (国内 47 都道府県 + 海外地域 1件以上) */}
         <div className="mt-4">
-          <section className="bg-white rounded-lg border border-gray-200 p-3">
-            <h2 className="font-bold text-sm mb-2 text-gray-800">
+          <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
+            <h2 className="font-bold text-sm mb-2 text-bx-ink">
               地域別ランキング
             </h2>
             {ranking.length === 0 ? (
-              <p className="text-xs text-gray-500">該当データがありません</p>
+              <p className="text-xs text-bx-ink3">該当データがありません</p>
             ) : (
-              <ol className="text-xs divide-y divide-gray-100 max-h-[480px] overflow-y-auto pr-1">
+              <ol className="text-xs divide-y divide-bx-line max-h-[480px] overflow-y-auto pr-1">
                 {ranking.map((r, i) => {
                   const top = ranking[0]?.count || 1
                   const ratio = r.count / top
@@ -425,17 +425,17 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                   return (
                     <li
                       key={`${r.kind}-${r.region}`}
-                      className="py-1.5 flex items-center gap-2 cursor-pointer hover:bg-purple-50"
+                      className="py-1.5 flex items-center gap-2 cursor-pointer hover:bg-white/5"
                       onClick={() => setSelected(targetSelected)}
                     >
-                      <span className="w-7 text-right text-gray-500">{i + 1}.</span>
-                      <span className="w-28 truncate flex items-center gap-1">
+                      <span className="w-7 text-right text-bx-ink3">{i + 1}.</span>
+                      <span className="w-28 truncate flex items-center gap-1 text-bx-ink">
                         {r.region}
                       </span>
-                      <div className="flex-1 bg-gray-100 rounded h-2 overflow-hidden">
+                      <div className="flex-1 bg-bx-line/50 rounded h-2 overflow-hidden">
                         <div
                           className={`h-full ${
-                            isOverseas ? 'bg-blue-500' : 'bg-purple-500'
+                            isOverseas ? 'bg-blue-500' : 'bg-bx-yellow'
                           }`}
                           style={{
                             width: `${
@@ -446,7 +446,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                       </div>
                       <span
                         className={`w-8 text-right font-mono font-bold ${
-                          isOverseas ? 'text-blue-700' : 'text-purple-700'
+                          isOverseas ? 'text-bx-blue' : 'text-bx-yellow'
                         }`}
                       >
                         {r.count}
@@ -461,14 +461,14 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
 
         {/* 会場別ランキング */}
         <div className="mt-4">
-          <section className="bg-white rounded-lg border border-gray-200 p-3">
-            <h2 className="font-bold text-sm mb-2 text-gray-800">
+          <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
+            <h2 className="font-bold text-sm mb-2 text-bx-ink">
               会場別ランキング
             </h2>
             {venueRanking.length === 0 ? (
-              <p className="text-xs text-gray-500">該当データがありません</p>
+              <p className="text-xs text-bx-ink3">該当データがありません</p>
             ) : (
-              <ol className="text-xs divide-y divide-gray-100 max-h-[480px] overflow-y-auto pr-1">
+              <ol className="text-xs divide-y divide-bx-line max-h-[480px] overflow-y-auto pr-1">
                 {venueRanking.map((v, i) => {
                   const top = venueRanking[0]?.count || 1
                   const ratio = v.count / top
@@ -492,28 +492,28 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                       key={`venue-${v.place}-${i}`}
                       className={`py-1.5 flex items-center gap-2 ${
                         targetSelected
-                          ? 'cursor-pointer hover:bg-purple-50'
+                          ? 'cursor-pointer hover:bg-white/5'
                           : ''
                       }`}
                       onClick={() => {
                         if (targetSelected) setSelected(targetSelected)
                       }}
                     >
-                      <span className="w-7 text-right text-gray-500">
+                      <span className="w-7 text-right text-bx-ink3">
                         {i + 1}.
                       </span>
                       <span className="flex-1 min-w-0">
-                        <span className="block truncate font-medium text-gray-800">
+                        <span className="block truncate font-medium text-bx-ink">
                           {v.place}
                         </span>
-                        <span className="block text-[10px] text-gray-500 truncate">
+                        <span className="block text-[10px] text-bx-ink3 truncate">
                           {areaLabel}
                         </span>
                       </span>
-                      <div className="w-24 bg-gray-100 rounded h-2 overflow-hidden">
+                      <div className="w-24 bg-bx-line/50 rounded h-2 overflow-hidden">
                         <div
                           className={`h-full ${
-                            isOverseas ? 'bg-blue-500' : 'bg-purple-500'
+                            isOverseas ? 'bg-blue-500' : 'bg-bx-yellow'
                           }`}
                           style={{
                             width: `${
@@ -524,7 +524,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                       </div>
                       <span
                         className={`w-8 text-right font-mono font-bold ${
-                          isOverseas ? 'text-blue-700' : 'text-purple-700'
+                          isOverseas ? 'text-bx-blue' : 'text-bx-yellow'
                         }`}
                       >
                         {v.count}
@@ -537,7 +537,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
           </section>
         </div>
 
-        <p className="mt-4 text-[10px] text-gray-400">
+        <p className="mt-4 text-[10px] text-bx-ink3">
           地図データ:&nbsp;
           <a
             className="underline"

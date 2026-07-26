@@ -16,6 +16,7 @@ export declare const japaneseText: string;
 export declare const maxHFill: string;
 export declare const maxWFill: string;
 export declare const pulseGlow: string;
+export declare const reliveMapTilesDark: string;
 export declare const sectionBody: string;
 export declare const sectionHeader: string;
 export declare const toastNotification: string;

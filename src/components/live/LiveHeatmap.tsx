@@ -81,15 +81,16 @@ const COUNTRY_NAME_TO_OVERSEAS: Record<string, string> = Object.entries(
   return acc
 }, {})
 
-// 公演数 → カラーグラデーション (薄い → 濃い紫)
+// 公演数 → カラーグラデーション (暗い下地 → 黄 → 橙 → 赤)。
+// サイト全体がダークテーマのため、0件の下地も白系ではなくbx-line相当の暗色にする。
 const COLOR_SCALE = [
-  '#f5f5fa', // 0
-  '#e7d8f7',
-  '#d3b3f0',
-  '#b685e3',
-  '#9356cf',
-  '#6b2cb5',
-  '#4a1d8c',
+  '#26262e', // 0 (bx-line相当)
+  '#4a3f1f',
+  '#7a6a28',
+  '#c99a2a',
+  '#e2bf57', // bx-yellow(サイトのアクセント色)
+  '#e8823a',
+  '#d9412a',
 ]
 
 function getColor(count: number, max: number): string {
@@ -445,7 +446,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
 
   return (
     <div
-      className={`rounded-lg overflow-hidden border border-gray-200 relative ${
+      className={`rounded-lg overflow-hidden border border-bx-line relative ${
         heightClassName ?? 'h-[320px]'
       }`}
     >
@@ -453,7 +454,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
         center={[37, 138]}
         zoom={4}
         minZoom={2}
-        style={{ height: '100%', width: '100%', background: '#dbeafe' }}
+        style={{ height: '100%', width: '100%', background: '#0d0e14' }}
         scrollWheelZoom={false}
         worldCopyJump={false}
         maxBounds={[[0, -180], [85, 180]]}
@@ -462,7 +463,8 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          opacity={0.35}
+          className="relive-map-tiles-dark"
+          opacity={0.5}
           noWrap={true}
         />
         <MapPanner
@@ -513,24 +515,24 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
         ))}
       </MapContainer>
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/80 text-sm text-red-600">
+        <div className="absolute inset-0 flex items-center justify-center bg-bx-bg/90 text-sm text-red-400">
           地図データを読み込めませんでした: {error}
         </div>
       )}
       {/* 凡例 */}
-      <div className="absolute bottom-2 right-2 bg-white/90 rounded-md shadow px-3 py-2 text-[10px] leading-tight z-[400]">
+      <div className="absolute bottom-2 right-2 bg-bx-bg/90 border border-bx-line rounded-md shadow px-3 py-2 text-[10px] leading-tight z-[400] text-bx-ink">
         <div className="font-bold mb-1">公演数</div>
         <div className="flex items-center gap-1">
           {COLOR_SCALE.map((c, i) => (
             <span
               key={c}
-              className="inline-block w-4 h-3 border border-gray-300"
+              className="inline-block w-4 h-3 border border-bx-line"
               style={{ background: c }}
               title={i === 0 ? '0' : ''}
             />
           ))}
         </div>
-        <div className="flex justify-between mt-0.5">
+        <div className="flex justify-between mt-0.5 text-bx-ink3">
           <span>少</span>
           <span>多 ({max})</span>
         </div>

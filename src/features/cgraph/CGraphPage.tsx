@@ -301,9 +301,11 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
   type Preset = "all" | "core" | "tieup" | "vocal" | "producer";
   const [preset, setPreset] = useState<Preset>(() => {
     const p = initialParams.get("preset");
-    if (p === "core" || p === "tieup" || p === "vocal" || p === "producer")
+    if (p === "all" || p === "core" || p === "tieup" || p === "vocal" || p === "producer")
       return p;
-    return "all";
+    // 初期表示は全員(438人)だとモバイルでヘアボール化するため、
+    // Reolとの共演が多い「コア」をデフォルトにする。全員表示はプリセットから選択可能。
+    return "core";
   });
 
   // Fetch JSON data at runtime (avoids bloating the JS bundle).
@@ -444,12 +446,15 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
   }, [graph, selected, enabledRoles, prevNode]);
 
   // Compute available roles (sorted) and year bounds from the graph.
+  // roleKeys は現在のプリセットで絞り込んだ displayGraph から算出する。
+  // 全件(graph)から算出すると、プリセットで人数を絞った際に該当0件の
+  // ロールチップ(特に「Other」)が空のまま並んでしまうため。
   const { roleKeys, yearBounds } = useMemo(() => {
     if (!graph) return { roleKeys: [] as string[], yearBounds: null as null | [number, number] };
     const roles = new Set<string>();
     let minYear = Infinity;
     let maxYear = -Infinity;
-    for (const l of graph.links) roles.add(l.role);
+    for (const l of displayGraph?.links ?? graph.links) roles.add(l.role);
     for (const n of graph.nodes) {
       if (n.kind === "song" && n.year !== undefined) {
         if (n.year < minYear) minYear = n.year;
@@ -468,7 +473,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           ? ([minYear, maxYear] as [number, number])
           : null,
     };
-  }, [graph]);
+  }, [graph, displayGraph]);
 
   // Initialise year slider once graph loads.
   useEffect(() => {

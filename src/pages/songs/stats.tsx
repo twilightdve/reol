@@ -201,6 +201,12 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
           <p className="text-xs text-bx-ink3">
             LIVEで演奏された楽曲の通算演奏回数・初出 / 最終演奏日を一覧します。
           </p>
+          <Link
+            to="/about/data/"
+            className="inline-block mt-1.5 text-xs text-bx-blue hover:text-bx-blueLight underline underline-offset-2"
+          >
+            集計ルールについて →
+          </Link>
         </header>
 
         <section className="mb-5 grid grid-cols-2 gap-2 sm:gap-3">
@@ -296,7 +302,14 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                         {rankLabel}
                       </td>
                       <td className="px-4 py-3 font-bold text-bx-ink whitespace-nowrap">
-                        {s.songName}
+                        <Link
+                          to={`/songs/${s.slug}/`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:text-bx-blue hover:underline underline-offset-2"
+                          title="楽曲詳細ページへ"
+                        >
+                          {s.songName}
+                        </Link>
                         <span
                           aria-hidden
                           className={`ml-2 inline-block text-[10px] text-bx-ink3 transition-transform group-hover:text-bx-blue ${

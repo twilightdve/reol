@@ -44,24 +44,29 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
           e.currentTarget.style.backgroundColor = "transparent";
         }}
       >
-        <div className="flex items-center gap-3">
-          <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
+          <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink flex-shrink-0">
             Set {index + 1}
+            {setlist.date && (
+              <span className="font-normal text-bx-ink2">
+                {" "}({setlist.date.split("-").slice(1).join("/")})
+              </span>
+            )}
           </span>
-          <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity">
-            {setlist.liveItemName || `Set ${index + 1}`}
+          <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity truncate">
+            {setlist.liveItemName || setlist.place || `Set ${index + 1}`}
           </span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           {setlist.setList && setlist.setList.length > 0 && (
             <span className="text-xs font-medium flex items-center gap-1 text-bx-ink2">
               {isSetExpanded ? (
                 <GoChevronUp className="w-4 h-4" />
               ) : (
-                <>
+                <span className="hidden sm:inline-flex items-center gap-1">
                   <GoListUnordered className="w-4 h-4" />
                   {setlist.setList.length}曲
-                </>
+                </span>
               )}
             </span>
           )}
@@ -439,30 +444,33 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   </div>
                 ) : (
                   <ul className="space-y-3">
-                    {live.items.map((setlist, index) => {
-                      const isSetExpanded = expandedSets.has(index);
-                      return (
-                        <SetCard
-                          key={index}
-                          setlist={setlist}
-                          index={index}
-                          isSetExpanded={isSetExpanded}
-                          songSlugByUuid={songSlugByUuid}
-                          onToggleExpand={(e) => {
-                            e.stopPropagation();
-                            setExpandedSets((prev) => {
-                              const newSet = new Set(prev);
-                              if (newSet.has(index)) {
-                                newSet.delete(index);
-                              } else {
-                                newSet.add(index);
-                              }
-                              return newSet;
-                            });
-                          }}
-                        />
-                      );
-                    })}
+                    {live.items
+                      .map((setlist, originalIndex) => ({ setlist, originalIndex }))
+                      .sort((a, b) => a.setlist.date.localeCompare(b.setlist.date))
+                      .map(({ setlist, originalIndex }, sortedIndex) => {
+                        const isSetExpanded = expandedSets.has(originalIndex);
+                        return (
+                          <SetCard
+                            key={originalIndex}
+                            setlist={setlist}
+                            index={sortedIndex}
+                            isSetExpanded={isSetExpanded}
+                            songSlugByUuid={songSlugByUuid}
+                            onToggleExpand={(e) => {
+                              e.stopPropagation();
+                              setExpandedSets((prev) => {
+                                const newSet = new Set(prev);
+                                if (newSet.has(originalIndex)) {
+                                  newSet.delete(originalIndex);
+                                } else {
+                                  newSet.add(originalIndex);
+                                }
+                                return newSet;
+                              });
+                            }}
+                          />
+                        );
+                      })}
                   </ul>
                 )}
               </div>
