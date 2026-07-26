@@ -156,6 +156,19 @@ const SearchPage: React.FC = () => {
       .catch((e) => setError(String(e)));
   }, []);
 
+  // songStats は代表曲(副題違い等を名寄せした後の最古リリース)のみを含むため、
+  // 非代表songUuidはここに存在しない。songName でも引けるようフォールバック用の
+  // マップを作っておく(discography/enhanced-timeline-item.tsx と同じ解決方式)。
+  const songSlugByUuid = useMemo(() => {
+    const byUuid = new Map<string, string>();
+    const byName = new Map<string, string>();
+    for (const s of songStats?.songStats ?? []) {
+      if (s.songUuid && s.slug) byUuid.set(s.songUuid, s.slug);
+      if (s.songName && s.slug) byName.set(s.songName, s.slug);
+    }
+    return { byUuid, byName };
+  }, [songStats]);
+
   const hits = useMemo<Hit[]>(() => {
     const q = query.trim();
     if (!q || !discography || !lives || !places || !songStats) return [];
@@ -179,28 +192,38 @@ const SearchPage: React.FC = () => {
       }
     }
 
-    // Songs（disc 内 songs + songStats 両方をマージ。songUuid をキーにユニーク化）
-    const seenSongIds = new Set<string>();
+    // Songs（disc 内 songs + songStats 両方をマージ。代表slugをキーにユニーク化）
+    const seenSongSlugs = new Set<string>();
     for (const d of discography) {
       for (const s of d.songs ?? []) {
-        if (seenSongIds.has(s.songUuid)) continue;
         const nameLower = s.songName.toLowerCase();
         const exact = nameLower === qLower;
         const partial = nameLower.includes(qLower);
         const norm = normalizeSongName(s.songName).includes(qNorm);
-        if (exact || partial || (qNorm && norm)) {
-          seenSongIds.add(s.songUuid);
-          const stat = songStats.songStats.find((x) => x.songUuid === s.songUuid);
-          results.push({
-            kind: "song",
-            songSlug: s.slug,
-            name: s.songName,
-            subtitle: `${d.title}${
-              stat ? ` / LIVE ${stat.totalPlays}回` : ""
-            }`,
-            score: exact ? 100 : partial ? 80 : 60,
-          });
-        }
+        if (!(exact || partial || (qNorm && norm))) continue;
+        const stat = songStats.songStats.find((x) => x.songUuid === s.songUuid);
+        // s.slug は収録盤ごとの生データのslug。楽曲詳細ページ(/songs/<slug>/)は
+        // 代表曲(songStats、副題違い等の名寄せ後の最古リリース)にしか生成されない
+        // ため、そのまま使うとライブ盤等の副次収録から404になる。songStatsには
+        // 代表曲のみが載るため、非代表songUuidはuuid一致では引けず songName で
+        // フォールバックする。songStatsの代表slugへ解決し、同一代表曲が複数収録に
+        // 跨るケースの重複表示も防ぐ。
+        const resolvedSlug =
+          stat?.slug ??
+          songSlugByUuid.byUuid.get(s.songUuid) ??
+          songSlugByUuid.byName.get(s.songName) ??
+          s.slug;
+        if (seenSongSlugs.has(resolvedSlug)) continue;
+        seenSongSlugs.add(resolvedSlug);
+        results.push({
+          kind: "song",
+          songSlug: resolvedSlug,
+          name: s.songName,
+          subtitle: `${d.title}${
+            stat ? ` / LIVE ${stat.totalPlays}回` : ""
+          }`,
+          score: exact ? 100 : partial ? 80 : 60,
+        });
       }
     }
 
@@ -264,7 +287,7 @@ const SearchPage: React.FC = () => {
     }
 
     return results.sort((a, b) => b.score - a.score);
-  }, [query, discography, lives, places, songStats]);
+  }, [query, discography, lives, places, songStats, songSlugByUuid]);
 
   const filtered = useMemo<Hit[]>(() => {
     if (tab === "all") return hits;
