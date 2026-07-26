@@ -24,8 +24,12 @@ import { buildBreadcrumbList, buildMusicEvent, isValidIsoDate } from "../utils/j
 type SetListSong = {
   liveItemSongUuid: string;
   liveItemSongName: string;
+  type: string | null;
   slug: string | null;
 };
+
+const isNonSongItem = (song: Pick<SetListSong, "type">): boolean =>
+  song.type === "segment";
 
 type SiblingItem = {
   slug: string;
@@ -83,6 +87,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
   } = pageContext;
 
   const heading = liveItemName || liveTitle;
+  const mcCount = setList.filter(isNonSongItem).length;
+  const songCount = setList.length - mcCount;
 
   // Xシェア: intentリンク(外部サービスへの送信はユーザーのクリック起点)
   const shareUrl = `https://reol.twilightea.com/live/${slug}/`;
@@ -211,7 +217,10 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
 
         {/* ⑤セットリスト */}
         <section className="mb-10">
-          <Kicker className="mb-4">SETLIST — {setList.length}曲</Kicker>
+          <Kicker className="mb-4">
+            SETLIST — {songCount}曲
+            {mcCount > 0 ? `（MC ${mcCount}）` : ""}
+          </Kicker>
           {setList.length === 0 ? (
             <EmptyState
               icon={<FiMusic />}
@@ -220,22 +229,39 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               description="情報が確認でき次第、追加します。"
             />
           ) : (
-            <ol className="space-y-1 text-sm list-decimal list-inside text-bx-ink">
-              {setList.map((song) => (
-                <li key={song.liveItemSongUuid} className="leading-relaxed">
-                  {song.slug ? (
-                    <Link
-                      to={`/songs/${song.slug}/`}
-                      className="hover:text-bx-blue underline underline-offset-2 decoration-dotted transition-colors"
-                    >
-                      {song.liveItemSongName}
-                    </Link>
-                  ) : (
-                    song.liveItemSongName
-                  )}
-                </li>
-              ))}
-            </ol>
+            <ul className="space-y-1 text-sm list-none text-bx-ink">
+              {(() => {
+                let songIndex = 0;
+                return setList.map((song) => {
+                  if (isNonSongItem(song)) {
+                    return (
+                      <li
+                        key={song.liveItemSongUuid}
+                        className="leading-relaxed pl-6 text-bx-ink3 text-xs italic"
+                      >
+                        {song.liveItemSongName}
+                      </li>
+                    );
+                  }
+                  songIndex += 1;
+                  return (
+                    <li key={song.liveItemSongUuid} className="leading-relaxed pl-1">
+                      <span className="inline-block w-6 text-bx-ink3">{songIndex}.</span>
+                      {song.slug ? (
+                        <Link
+                          to={`/songs/${song.slug}/`}
+                          className="hover:text-bx-blue underline underline-offset-2 decoration-dotted transition-colors"
+                        >
+                          {song.liveItemSongName}
+                        </Link>
+                      ) : (
+                        song.liveItemSongName
+                      )}
+                    </li>
+                  );
+                });
+              })()}
+            </ul>
           )}
         </section>
 
@@ -267,21 +293,9 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           </section>
         )}
 
-        {/* ⑤''関連ポスト */}
-        {posts.length > 0 && (
-          <section className="mb-8">
-            <Kicker className="mb-4">関連ポスト</Kicker>
-            <Tweets
-              parentId={`live-item-${slug}`}
-              posts={posts.map((post) => ({
-                id: post.liveItemPostId,
-                html: post.liveItemPostHTML,
-              }))}
-            />
-          </section>
-        )}
-
         {/* ⑤'''同ツアーの他公演(回遊) */}
+        {/* 通過コストがほぼゼロの一覧型セクションを、没入型で長い関連ポストより
+            前に置く。逆順だと関連ポストの後がスクロールで到達されにくいため。 */}
         {siblingItems.length > 0 && (
           <section className="mb-10">
             <Kicker className="mb-4">OTHER DATES — 『{liveTitle}』</Kicker>
@@ -312,6 +326,20 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                 </div>
               ))}
             </div>
+          </section>
+        )}
+
+        {/* ⑤''関連ポスト */}
+        {posts.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Tweets
+              parentId={`live-item-${slug}`}
+              posts={posts.map((post) => ({
+                id: post.liveItemPostId,
+                html: post.liveItemPostHTML,
+              }))}
+            />
           </section>
         )}
 
@@ -359,8 +387,9 @@ export default LiveItemPage;
 const buildDescription = (ctx: LiveItemPageContext): string => {
   const parts = [`Reol「${ctx.liveItemName || ctx.liveTitle}」の公演情報。`];
   if (ctx.place) parts.push(`会場: ${ctx.place}。`);
-  if (ctx.setList.length > 0) {
-    parts.push(`セットリスト${ctx.setList.length}曲を掲載。`);
+  const songCount = ctx.setList.filter((s) => !isNonSongItem(s)).length;
+  if (songCount > 0) {
+    parts.push(`セットリスト${songCount}曲を掲載。`);
   }
   return parts.join("");
 };

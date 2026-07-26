@@ -403,11 +403,17 @@ const RelivePlayerApp: React.FC = () => {
       .then((loaded) => {
         setSampleData(loaded);
         setIsSampleDataLoaded(true);
+        // 会場は「今読み込んだセトリ」が常に正。見出し(sampleData.setlist)・
+        // 会場パネル(currentMemory)・セレクタが食い違わないよう、venueId/venueName は
+        // current(未確定の初期値 or 別プリセット由来の値)より loaded を優先する。
+        const venue =
+          loaded.venues.find((v) => v.venueId === loaded.setlist.venueId) ||
+          loaded.venues[0];
         setCurrentMemory((current) => ({
           ...makeDefaultMemory(loaded),
           ...current,
-          venueId: current.venueId || loaded.venues[0]?.venueId,
-          venueName: current.venueName || loaded.setlist.venueName || loaded.venues[0]?.name,
+          venueId: venue?.venueId || loaded.setlist.venueId,
+          venueName: loaded.setlist.venueName || venue?.name,
         }));
       })
       .catch((err) => {
@@ -429,7 +435,16 @@ const RelivePlayerApp: React.FC = () => {
       .then((presets) => {
         setMemoryPresets(presets);
         if (presets[0]) {
-          setCurrentMemory(presets[0]);
+          // プリセットは音響/視聴位置の好みの復元用。会場を示す項目
+          // (venueId/venueName/setlistId等)は「今読み込まれているセトリ」が
+          // 常に正であるべきなので、プリセット由来の値で上書きしない
+          // (会場パネルだけ別会場を指してしまう不整合を防ぐ)。
+          const { venueId, venueName, setlistId, title, tourName, liveTitle, date, ...preference } =
+            presets[0];
+          setCurrentMemory((current) => ({
+            ...current,
+            ...preference,
+          }));
         }
       })
       .catch((err) => {

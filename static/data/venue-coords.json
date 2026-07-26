@@ -1,4 +1,19 @@
 {
+  "フィラ・バルセロナ・グラン・ビア": {
+    "lat": 41.352537999999996,
+    "lng": 2.1318094,
+    "source": "googleMapsUrl"
+  },
+  "GORILLA HALL OSAKA": {
+    "lat": 34.6117592,
+    "lng": 135.46946069999998,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Shinjuku (TOKYO)": {
+    "lat": 35.695897099999996,
+    "lng": 139.7006492,
+    "source": "googleMapsUrl"
+  },
   "舞洲スポーツアイランド": {
     "lat": 34.66693108491004,
     "lng": 135.3924789119308,
@@ -139,12 +154,7 @@
     "lng": 121.44735519370822,
     "source": "googleMapsUrl"
   },
-  "幕張メッセ ホール 9・10・11": {
-    "lat": 35.647009700000005,
-    "lng": 140.03443489999998,
-    "source": "googleMapsUrl"
-  },
-  "Zeep Namba": {
+  "Zepp Namba": {
     "lat": 34.65737008542275,
     "lng": 135.49870311193683,
     "source": "googleMapsUrl"
@@ -169,24 +179,9 @@
     "lng": 139.6233054757779,
     "source": "googleMapsUrl"
   },
-  "福岡UNITEDLAB ": {
+  "福岡UNITEDLAB": {
     "lat": 33.5865821,
     "lng": 130.392776,
-    "source": "googleMapsUrl"
-  },
-  "Zepp Osaka Bayside": {
-    "lat": 34.6621016,
-    "lng": 135.4351611,
-    "source": "googleMapsUrl"
-  },
-  "Zepp Nagoya": {
-    "lat": 35.1633536,
-    "lng": 136.88473159999998,
-    "source": "googleMapsUrl"
-  },
-  "Zepp DiverCity Tokyo": {
-    "lat": 35.6247520329593,
-    "lng": 139.77201061196095,
     "source": "googleMapsUrl"
   },
   "KINTEX HALL": {
@@ -215,9 +210,9 @@
     "source": "googleMapsUrl"
   },
   "BIG CAT": {
-    "lat": 34.6716122,
-    "lng": 135.4992085,
-    "source": "manual"
+    "lat": 34.6723442,
+    "lng": 130.8845977,
+    "source": "googleMapsUrl"
   },
   "Spotify O-EAST": {
     "lat": 35.6587215,
@@ -227,6 +222,21 @@
   "musinsa garage": {
     "lat": 37.551543672042435,
     "lng": 126.9172053758731,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Osaka Bayside": {
+    "lat": 34.6621016,
+    "lng": 135.4351611,
+    "source": "googleMapsUrl"
+  },
+  "Zepp Nagoya": {
+    "lat": 35.1633536,
+    "lng": 136.88473159999998,
+    "source": "googleMapsUrl"
+  },
+  "Zepp DiverCity Tokyo": {
+    "lat": 35.6247520329593,
+    "lng": 139.77201061196095,
     "source": "googleMapsUrl"
   },
   "Zepp DiverCity": {
@@ -275,9 +285,9 @@
     "source": "googleMapsUrl"
   },
   "広島クラブクアトロ": {
-    "lat": 34.3935971,
-    "lng": 132.4585107,
-    "source": "manual"
+    "lat": 34.9120616,
+    "lng": 130.7965647,
+    "source": "googleMapsUrl"
   },
   "岡山 CRAZYMAMA KINGDOM": {
     "lat": 34.657135100000005,
@@ -404,11 +414,6 @@
     "lng": 136.9204545,
     "source": "googleMapsUrl"
   },
-  "LINE CUBE SHIBUYA ": {
-    "lat": 35.6642039,
-    "lng": 139.69855529999998,
-    "source": "googleMapsUrl"
-  },
   "Veats Shibuya": {
     "lat": 35.6607517,
     "lng": 139.6973995,
@@ -467,11 +472,6 @@
   "EX THEATER ROPPONGI": {
     "lat": 35.661263399999996,
     "lng": 139.7272975,
-    "source": "googleMapsUrl"
-  },
-  "Zepp Namba": {
-    "lat": 34.657365672935114,
-    "lng": 135.49870847574272,
     "source": "googleMapsUrl"
   },
   "豊洲PIT": {

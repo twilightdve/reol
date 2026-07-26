@@ -166,7 +166,7 @@ const Body: FC<Props> = ({ children }) => {
       */}
       <TopHeader title={data.site.siteMetadata.title} />
       <PersistentMainVideo />
-      <div className="pb-14">
+      <div className="pb-[calc(3.5rem+env(safe-area-inset-bottom))]">
         <Layout title={data.site.siteMetadata.title} children={children} />
         {/* 公式送客フッター。フルスクリーン系ページ(quiz/cgraph/heatmap/relive)には出さない */}
         <OfficialFooter />

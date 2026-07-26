@@ -158,7 +158,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             </p>
             <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ライブに行く</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              167公演のセトリアーカイブと初参加ガイド。
+              {liveItemCount}公演のセトリアーカイブと初参加ガイド。
             </p>
           </Link>
           <Link
@@ -194,7 +194,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           </p>
           <h2 className="mt-2 text-[15px] font-bold text-bx-ink">データを掘る</h2>
           <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            130曲の演奏回数・初披露・最終演奏を全曲収録。
+            {songCount}曲の演奏回数・初披露・最終演奏を全曲収録。
           </p>
         </GlassCard>
       </div>

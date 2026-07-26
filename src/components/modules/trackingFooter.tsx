@@ -53,7 +53,7 @@ const TrackingFooter: React.FC = () => {
   try {
     return (
       <nav
-        className="fixed bottom-0 z-[50] w-full bg-bx-bg/95 border-t border-bx-line backdrop-blur"
+        className="fixed bottom-0 z-[50] w-full bg-bx-bg/95 border-t border-bx-line backdrop-blur pb-[env(safe-area-inset-bottom)]"
         role="navigation"
         aria-label="Main navigation"
       >
