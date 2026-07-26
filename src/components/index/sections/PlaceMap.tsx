@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Place, PlaceItem } from "../../../types/places";
+import { useTheme } from "../../../hooks/useTheme";
 
 // Webpack 環境下の Leaflet デフォルトアイコンパスを修正
 // https://github.com/PaulLeCam/react-leaflet/issues/453
@@ -43,6 +44,7 @@ const FitBounds: React.FC<{ markers: PlaceMarker[]; map: L.Map | null }> = ({
 
 const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
   const [map, setMap] = React.useState<L.Map | null>(null);
+  const { theme } = useTheme();
 
   // 中心: 日本のおおよそ中央
   const center: [number, number] = markers.length
@@ -60,7 +62,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          url={`https://{s}.basemaps.cartocdn.com/${theme === "light" ? "light_all" : "dark_all"}/{z}/{x}/{y}{r}.png`}
         />
         <FitBounds markers={markers} map={map} />
         {markers.map((m) => (
