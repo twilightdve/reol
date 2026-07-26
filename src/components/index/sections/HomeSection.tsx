@@ -176,26 +176,40 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           </Link>
         </GlassCard>
 
-        {/* データを掘る */}
-        <GlassCard
-          to="/songs/stats/"
-          accent="blueLight"
-          className="p-4"
-          onClick={() =>
-            trackEvent("entry_card_click", {
-              category: "navigation",
-              label: "データを掘る",
-              card_type: "stats",
-            })
-          }
-        >
-          <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-            DATA
-          </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">データを掘る</h2>
-          <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            {songCount}曲の演奏回数・初披露・最終演奏を全曲収録。
-          </p>
+        {/* データを掘る（カード内にタイムマシンへのサブリンクを併設） */}
+        <GlassCard accent="blueLight" className="h-full flex flex-col overflow-hidden">
+          <Link
+            to="/songs/stats/"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "データを掘る",
+                card_type: "stats",
+              })
+            }
+            className="block flex-1 p-4"
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              DATA
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">データを掘る</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              {songCount}曲の演奏回数・初披露・最終演奏を全曲収録。
+            </p>
+          </Link>
+          <Link
+            to="/timemachine/"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "タイムマシンで辿る",
+                card_type: "timemachine",
+              })
+            }
+            className="block text-center text-[10px] sm:text-xs text-bx-ink3 border-t border-bx-line py-1.5 hover:text-bx-blueLight transition-colors"
+          >
+            タイムマシンで辿る →
+          </Link>
         </GlassCard>
       </div>
 

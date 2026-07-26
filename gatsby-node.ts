@@ -514,6 +514,110 @@ const createSongStatsNodes = async (
     JSON.stringify({ summary, unmatched }, null, 2)
   );
 
+  // ----- 新規コンテンツ案E「タイムマシン」用の月次スナップショット事前計算 -----
+  // カットオフ日付までの楽曲数/ライブ数/演奏数は、SiteStats/SongStats と同じ
+  // 集計対象(canonicalUuidMap で名寄せ済みの songStats, segment除外済みの
+  // liveItemSongs)を日付でフィルタするだけにし、別ロジックで再集計しない
+  // (「サイト内の数字が一致しない」問題の再発防止)。
+  {
+    const allLiveDates = liveItems
+      .map((it) => it.date)
+      .filter((d): d is string => !!d);
+    if (allLiveDates.length > 0) {
+      const sortedDiscByDate = [...discographies]
+        .filter((d) => !!d.releaseDate)
+        .sort((a, b) => (a.releaseDate ?? "").localeCompare(b.releaseDate ?? ""));
+      const sortedLiveItemsByDate = [...liveItems]
+        .filter((it) => !!it.date)
+        .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+
+      const minMonth = allLiveDates.reduce((a, b) => (a < b ? a : b)).slice(0, 7);
+      const maxMonth = today.slice(0, 7);
+
+      const monthKeys: string[] = [];
+      {
+        let [y, m] = minMonth.split("-").map(Number);
+        const [maxY, maxM] = maxMonth.split("-").map(Number);
+        while (y < maxY || (y === maxY && m <= maxM)) {
+          monthKeys.push(`${y}-${String(m).padStart(2, "0")}`);
+          m += 1;
+          if (m > 12) {
+            m = 1;
+            y += 1;
+          }
+        }
+      }
+
+      let discPointer = -1;
+      let livePointer = 0;
+      const snapshots = monthKeys.map((month) => {
+        // 過去月は月末、当月は「今日」をカットオフにする
+        // (当月分を月末まで含めてしまうと、まだ開催されていない当月内の
+        // 予定公演を「開催済み」として誤カウントするため)
+        const cutoff = month === maxMonth ? today : `${month}-31`;
+
+        while (
+          discPointer + 1 < sortedDiscByDate.length &&
+          (sortedDiscByDate[discPointer + 1].releaseDate ?? "") <= cutoff
+        ) {
+          discPointer += 1;
+        }
+        const latestDisc = discPointer >= 0 ? sortedDiscByDate[discPointer] : null;
+
+        while (
+          livePointer < sortedLiveItemsByDate.length &&
+          (sortedLiveItemsByDate[livePointer].date ?? "") <= cutoff
+        ) {
+          livePointer += 1;
+        }
+        const nextItem = sortedLiveItemsByDate[livePointer] ?? null;
+        const nextItemParent = nextItem
+          ? liveByUuid.get(nextItem.liveUuid)
+          : null;
+
+        const songCount = songStats.filter(
+          (s) => !!s.firstPlayedDate && s.firstPlayedDate <= cutoff
+        ).length;
+        const liveItemCount = liveItems.filter(
+          (it) => (it.date ?? "") <= cutoff
+        ).length;
+        const performanceCount = liveItemSongs.filter((s) => {
+          if (!s.liveItemSongName || s.type === "segment") return false;
+          const item = itemMap.get(s.liveItemUuid);
+          return !!item && (item.date ?? "") <= cutoff;
+        }).length;
+
+        return {
+          month,
+          songCount,
+          liveItemCount,
+          performanceCount,
+          latestRelease: latestDisc
+            ? {
+                title: latestDisc.title,
+                slug: latestDisc.slug,
+                releaseDate: latestDisc.releaseDate ?? null,
+              }
+            : null,
+          nextLive: nextItem
+            ? {
+                title: nextItemParent?.title ?? null,
+                itemName: nextItem.liveItemName ?? null,
+                date: nextItem.date ?? null,
+                place: nextItem.place ?? null,
+                liveSlug: nextItemParent?.slug ?? null,
+              }
+            : null,
+        };
+      });
+
+      await writeDataJson("timemachine.json", { snapshots });
+      console.log(
+        `[timemachine] generated ${snapshots.length} monthly snapshots (${minMonth} - ${maxMonth})`
+      );
+    }
+  }
+
   // ----- ライブ類似度（Jaccard係数）の事前計算 -----
   // songUuid のセットを liveUuid 単位で構築
   const songSetByLive = new Map<string, Set<string>>();
