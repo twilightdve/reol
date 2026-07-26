@@ -156,7 +156,7 @@ const TimelineItem: React.FC<Props> = ({ item }) => {
         </Timeline.Title>
         <Timeline.Body>
           {isExpand && item.songs.length > 0 && (
-            <div className="flex flex-wrap bg-white/5 mt-2 px-5 pt-2 pb-5 rounded-lg border border-bx-line text-xs">
+            <div className="flex flex-wrap bg-bx-surface/5 mt-2 px-5 pt-2 pb-5 rounded-lg border border-bx-line text-xs">
               <div
                 className={`${item.posts.length > 0 ? "sm:w-1/2" : "w-full"}`}
               >

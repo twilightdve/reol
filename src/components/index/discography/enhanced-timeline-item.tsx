@@ -52,14 +52,14 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
     null;
   return (
     <li
-      className="rounded-lg overflow-hidden border border-bx-line bg-white/5"
+      className="rounded-lg overflow-hidden border border-bx-line bg-bx-surface/5"
       onClick={(e) => e.stopPropagation()}
     >
       {/* 曲ヘッダー。クレジット/歌詞/配信リンクは楽曲詳細ページに集約済みなので
           ここではアコーディオン展開はせず「詳細」への導線に徹する */}
       <div className="flex items-center gap-3 text-sm p-3">
         <span
-          className="font-bold min-w-[2rem] text-center px-2 py-1 rounded text-bx-ink2 bg-white/10"
+          className="font-bold min-w-[2rem] text-center px-2 py-1 rounded text-bx-ink2 bg-bx-surface/10"
         >
           {String(index + 1).padStart(2, "0")}
         </span>
@@ -263,7 +263,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 <>
                   {youtubeVideoId && (
                     <div
-                      className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-white/5"
+                      className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-bx-surface/5"
                       style={{
                         overflow: "hidden",
                         position: "relative",

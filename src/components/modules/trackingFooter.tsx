@@ -80,7 +80,7 @@ const TrackingFooter: React.FC = () => {
                   handleNavigation(nextRoute)();
                 }
               }}
-              className={`relative flex flex-col items-center justify-center text-center m-auto py-2 sm:py-3 px-1 sm:px-2 w-1/6 cursor-pointer transition-all duration-200 hover:bg-white/5 active:bg-white/10 focus:outline-none focus:ring-2 focus:ring-bx-blue focus:ring-inset ${
+              className={`relative flex flex-col items-center justify-center text-center m-auto py-2 sm:py-3 px-1 sm:px-2 w-1/6 cursor-pointer transition-all duration-200 hover:bg-bx-surface/5 active:bg-bx-surface/10 focus:outline-none focus:ring-2 focus:ring-bx-blue focus:ring-inset ${
                 currentRoute === route
                   ? "text-bx-yellow before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-0.5 before:bg-bx-yellow"
                   : "text-bx-ink2"

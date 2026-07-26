@@ -6,6 +6,7 @@ import { feature } from 'topojson-client'
 import type { Topology, GeometryObject } from 'topojson-specification'
 import type { Feature, FeatureCollection, Geometry } from 'geojson'
 import { PREFECTURE_LIST, PrefectureName } from '../../utils/extractPrefecture'
+import { useTheme } from '../../hooks/useTheme'
 
 export type PrefectureCountMap = Partial<Record<PrefectureName, number>>
 export type OverseasCountMap = Record<string, number>
@@ -93,16 +94,28 @@ const COLOR_SCALE = [
   '#d9412a',
 ]
 
-function getColor(count: number, max: number): string {
-  if (!count) return COLOR_SCALE[0]
-  if (max <= 0) return COLOR_SCALE[0]
+// ライトモード用。0件の下地のみ明色(bx-line light相当)に差し替え、
+// 中間〜高数値の黄橙赤は明るい背景でも十分視認できるため共通のまま流用する。
+const LIGHT_COLOR_SCALE = [
+  '#e0dfd8', // 0 (bx-line light相当)
+  '#4a3f1f',
+  '#7a6a28',
+  '#c99a2a',
+  '#8a6d1f', // bx-yellow light相当
+  '#e8823a',
+  '#d9412a',
+]
+
+function getColor(count: number, max: number, scale: string[] = COLOR_SCALE): string {
+  if (!count) return scale[0]
+  if (max <= 0) return scale[0]
   // 公演数のレンジが偏るので対数スケールで分割
   const ratio = Math.log(count + 1) / Math.log(max + 1)
   const idx = Math.min(
-    COLOR_SCALE.length - 1,
-    Math.max(1, Math.round(ratio * (COLOR_SCALE.length - 1)))
+    scale.length - 1,
+    Math.max(1, Math.round(ratio * (scale.length - 1)))
   )
-  return COLOR_SCALE[idx]
+  return scale[idx]
 }
 
 interface PrefectureProps {
@@ -217,6 +230,8 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
   const [admin1Data, setAdmin1Data] = useState<Record<string, Admin1FC>>({})
   const [venueCoords, setVenueCoords] = useState<VenueCoordMap>({})
   const [error, setError] = useState<string | null>(null)
+  const { theme } = useTheme()
+  const scale = theme === 'light' ? LIGHT_COLOR_SCALE : COLOR_SCALE
 
   // Leaflet は SSR では使えないので、ブラウザ初回 render で 1 回だけ生成。
   const venuePinIcon = useMemo(
@@ -350,7 +365,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
     const c = (name && counts[name]) || 0
     const isSelected = !!name && selectedPrefecture === name
     return {
-      fillColor: getColor(c, max),
+      fillColor: getColor(c, max, scale),
       weight: isSelected ? 2 : 0.6,
       color: isSelected ? '#7c3aed' : '#888',
       fillOpacity: c > 0 ? 0.85 : 0.6,
@@ -389,7 +404,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
       }
     }
     return {
-      fillColor: getColor(c, max),
+      fillColor: getColor(c, max, scale),
       weight: isSelected ? 2 : 0.6,
       color: isSelected ? '#1d4ed8' : '#666',
       fillOpacity: 0.85,
@@ -422,7 +437,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
       const c = (name && overseasSubCounts?.[name]) || 0
       const isSelected = !!name && selectedOverseasRegion === name
       return {
-        fillColor: getColor(c, max),
+        fillColor: getColor(c, max, scale),
         weight: isSelected ? 2 : 0.5,
         color: isSelected ? '#1d4ed8' : '#888',
         fillOpacity: c > 0 ? 0.85 : 0.5,
@@ -454,7 +469,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
         center={[37, 138]}
         zoom={4}
         minZoom={2}
-        style={{ height: '100%', width: '100%', background: '#0d0e14' }}
+        style={{ height: '100%', width: '100%', background: theme === 'light' ? '#eef0f5' : '#0d0e14' }}
         scrollWheelZoom={false}
         worldCopyJump={false}
         maxBounds={[[0, -180], [85, 180]]}
@@ -523,7 +538,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
       <div className="absolute bottom-2 right-2 bg-bx-bg/90 border border-bx-line rounded-md shadow px-3 py-2 text-[10px] leading-tight z-[400] text-bx-ink">
         <div className="font-bold mb-1">公演数</div>
         <div className="flex items-center gap-1">
-          {COLOR_SCALE.map((c, i) => (
+          {scale.map((c, i) => (
             <span
               key={c}
               className="inline-block w-4 h-3 border border-bx-line"

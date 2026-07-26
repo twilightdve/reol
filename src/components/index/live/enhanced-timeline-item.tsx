@@ -30,7 +30,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
   return (
     <li
       id={`live-item-${setlist.slug}`}
-      className="rounded-lg transition-all duration-200 overflow-hidden scroll-mt-24 bg-white/5 border border-bx-line"
+      className="rounded-lg transition-all duration-200 overflow-hidden scroll-mt-24 bg-bx-surface/5 border border-bx-line"
       onClick={(e) => e.stopPropagation()}
     >
       {/* セットリストヘッダー */}
@@ -84,7 +84,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
       {/* Set 内容（展開時） */}
       {isSetExpanded && (
         <div
-          className="px-4 pb-4 pt-2 bg-white/5"
+          className="px-4 pb-4 pt-2 bg-bx-surface/5"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Setlist */}
@@ -370,7 +370,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 {/* 展開ボタン */}
                 <button
                   onClick={handleTitleClick}
-                  className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-white/5"
+                  className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
                   aria-label="展開"
                 >
                   <GoChevronUp

@@ -14,7 +14,7 @@ import { buildBreadcrumbList } from "../../utils/jsonLd";
 import { Kicker } from "../../components/redesign";
 
 const containerCls =
-  "rounded-lg border border-bx-line bg-white/5 p-4 sm:p-5";
+  "rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5";
 
 const AboutDataPage: React.FC = () => {
   return (

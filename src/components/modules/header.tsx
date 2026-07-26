@@ -4,7 +4,8 @@ import { activityYears } from "../../constants/artist";
 import { Link } from "gatsby";
 import { FaQuestion, FaQuestionCircle, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiSun, FiMoon } from "react-icons/fi";
+import { useTheme } from "../../hooks/useTheme";
 
 type Props = {
   title: string;
@@ -19,6 +20,7 @@ const NAV_ITEMS = [
 
 const TopHeader: React.FC<Props> = ({ title }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { theme, toggleTheme } = useTheme();
 
   const handleDialogOpen = useCallback((event: React.MouseEvent) => {
     event.stopPropagation();
@@ -67,6 +69,19 @@ const TopHeader: React.FC<Props> = ({ title }) => {
               <FiSearch className="text-sm sm:mr-1" />
               <span className="hidden sm:inline">検索</span>
             </Link>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="flex-shrink-0 text-bx-ink2 hover:text-bx-ink transition-colors"
+              aria-label={theme === "light" ? "ダークモードに切替" : "ライトモードに切替"}
+              title={theme === "light" ? "ダークモードに切替" : "ライトモードに切替"}
+            >
+              {theme === "light" ? (
+                <FiMoon className="text-xl" />
+              ) : (
+                <FiSun className="text-xl" />
+              )}
+            </button>
             <FaQuestionCircle className="text-xl flex-shrink-0 text-bx-ink" onClick={handleDialogOpen} />
           </div>
           <dialog

@@ -229,12 +229,12 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
               placeholder="🔍 曲名で検索"
-              className="flex-1 min-w-[160px] px-3 py-1.5 text-base sm:text-sm rounded-md bg-white/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
+              className="flex-1 min-w-[160px] px-3 py-1.5 text-base sm:text-sm rounded-md bg-bx-surface/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
             />
             <select
               value={sortKey}
               onChange={(e) => setSortKey(e.target.value as SortKey)}
-              className="px-2 py-1.5 text-base sm:text-sm rounded-md bg-white/5 border border-bx-line text-bx-ink focus:outline-none focus:border-bx-blue"
+              className="px-2 py-1.5 text-base sm:text-sm rounded-md bg-bx-surface/5 border border-bx-line text-bx-ink focus:outline-none focus:border-bx-blue"
             >
               <option value="plays">演奏回数 (多)</option>
               <option value="last">最終演奏 (新)</option>
@@ -290,8 +290,8 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                           setOpenSongSlug(isOpen ? null : s.slug);
                         }
                       }}
-                      className={`group cursor-pointer transition-colors border-b border-bx-line hover:bg-white/5 ${
-                        isOpen ? "bg-white/5" : ""
+                      className={`group cursor-pointer transition-colors border-b border-bx-line hover:bg-bx-surface/5 ${
+                        isOpen ? "bg-bx-surface/5" : ""
                       }`}
                     >
                       <td
@@ -331,7 +331,7 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                     </tr>
 
                     {isOpen && (
-                      <tr className="border-b border-bx-line bg-white/5">
+                      <tr className="border-b border-bx-line bg-bx-surface/5">
                         <td colSpan={5} className="px-4 pt-3 pb-4 text-xs">
                           <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-bx-ink3">
                             <span>
@@ -452,7 +452,7 @@ const PlayHistory: React.FC<{
       <LoadingSkeleton
         rows={3}
         rowHeightClassName="h-14"
-        rowClassName="border border-bx-line bg-white/5"
+        rowClassName="border border-bx-line bg-bx-surface/5"
         label="演奏履歴を読み込み中..."
       />
     );
@@ -476,7 +476,7 @@ const PlayHistory: React.FC<{
             <li key={p.liveItemSongUuid}>
               <Link
                 to={`/live/#live-item-${p.liveItemSlug}`}
-                className="group flex items-stretch gap-2 sm:gap-3 rounded-md border border-bx-line bg-white/5 hover:border-bx-blue hover:bg-white/[0.08] transition-all overflow-hidden"
+                className="group flex items-stretch gap-2 sm:gap-3 rounded-md border border-bx-line bg-bx-surface/5 hover:border-bx-blue hover:bg-bx-surface/[0.08] transition-all overflow-hidden"
               >
                 {/* 日付ブロック */}
                 <div className="flex flex-col items-center justify-center px-2 sm:px-3 py-2 min-w-[58px] sm:min-w-[68px] border-r border-bx-line">
@@ -530,7 +530,7 @@ const Card: React.FC<{ label: string; value: string; accent?: "blue" | "yellow" 
 }) => {
   const c = accentColors[accent] ?? accentColors.blue;
   return (
-    <div className="rounded-lg bg-white/5 border border-bx-line overflow-hidden">
+    <div className="rounded-lg bg-bx-surface/5 border border-bx-line overflow-hidden">
       <div className={`h-1 ${c.bar}`} />
       <div className="px-3 py-2">
         <div className="text-[10px] sm:text-xs text-bx-ink3">{label}</div>

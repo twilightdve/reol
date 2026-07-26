@@ -326,7 +326,7 @@ const SearchPage: React.FC = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="例: 第六感 / 文明ココロミー / 武道館 / 2024"
-          className="w-full px-3 py-2 mb-3 text-base sm:text-sm rounded bg-white/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
+          className="w-full px-3 py-2 mb-3 text-base sm:text-sm rounded bg-bx-surface/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
         />
 
         {error && (
@@ -348,8 +348,8 @@ const SearchPage: React.FC = () => {
               type="button"
               className={`px-2 py-1 rounded border transition-colors ${
                 tab === k
-                  ? "border-bx-yellow text-bx-yellow bg-white/5"
-                  : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                  ? "border-bx-yellow text-bx-yellow bg-bx-surface/5"
+                  : "border-bx-line text-bx-ink3 bg-bx-surface/5 hover:border-bx-blue"
               }`}
               onClick={() => setTab(k)}
             >
@@ -359,7 +359,7 @@ const SearchPage: React.FC = () => {
         </nav>
 
         {!isLoaded && !error && (
-          <div className="rounded-lg border border-bx-line bg-white/5 p-6 text-center">
+          <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-6 text-center">
             <div className="inline-block w-6 h-6 border-2 border-bx-line border-t-bx-yellow rounded-full animate-spin mb-2" />
             <p className="text-bx-ink2 text-sm">データを読み込み中…</p>
           </div>
@@ -367,7 +367,7 @@ const SearchPage: React.FC = () => {
 
         {/* 空状態: サンプルクエリで検索の使い方を提示する */}
         {isLoaded && !query.trim() && (
-          <div className="rounded-lg border border-bx-line bg-white/5 p-4">
+          <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4">
             <p className="text-xs text-bx-ink3 mb-2">
               曲名・アルバム名・公演名・会場名・年号などで検索できます。例:
             </p>
@@ -376,7 +376,7 @@ const SearchPage: React.FC = () => {
                 <button
                   key={q}
                   type="button"
-                  className="px-3 py-1 text-xs rounded-full border border-bx-line bg-white/5 text-bx-ink3 hover:border-bx-blue transition-colors"
+                  className="px-3 py-1 text-xs rounded-full border border-bx-line bg-bx-surface/5 text-bx-ink3 hover:border-bx-blue transition-colors"
                   onClick={() => setQuery(q)}
                 >
                   {q}

@@ -5,7 +5,7 @@ import { posts } from "../photography/posts";
 
 const PhotosSection: React.FC = () => {
   return (
-    <section id="PHOTOS" style={{ contentVisibility: "auto" }} className="bg-white/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
+    <section id="PHOTOS" style={{ contentVisibility: "auto" }} className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <h2 className="font-bold text-lg pt-4 px-2 text-bx-ink">
         <FaRegNewspaper className="inline text-sm mr-2" />
         <span>PHOTOGRAPHY</span>

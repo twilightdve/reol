@@ -281,7 +281,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   const renderPrefectureItem = (place: Place, item: PlaceItem) => (
     <li
       key={`pref-item-${place.placeUuid}-${item.placeItemUuid}`}
-      className="bg-white/5 rounded-md border border-bx-line p-3"
+      className="bg-bx-surface/5 rounded-md border border-bx-line p-3"
     >
       <div className="flex items-center gap-2 mb-1 flex-wrap">
         {place.type && (
@@ -336,7 +336,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   );
 
   return (
-    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-white/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
+    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
         <Kicker color="text-bx-blue" className="mb-1">PLACE</Kicker>
         <h2 className="flex items-center font-bold text-lg text-bx-ink">
@@ -373,7 +373,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             rows={1}
             rowHeightClassName="h-48 sm:h-56"
             gapClassName=""
-            rowClassName="border border-bx-line bg-white/5"
+            rowClassName="border border-bx-line bg-bx-surface/5"
             label="マップを読み込み中..."
           />
         ) : (
@@ -407,7 +407,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
                     active
                       ? "bg-bx-blue text-bx-bg border-bx-blue"
-                      : "bg-white/5 text-bx-ink border-bx-line hover:border-bx-blue"
+                      : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                   }`}
                 >
                   {m.label}
@@ -431,7 +431,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
                   active
                     ? "bg-bx-yellow text-bx-bg border-bx-yellow"
-                    : "bg-white/5 text-bx-ink border-bx-line hover:border-bx-blue"
+                    : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                 }`}
               >
                 {f.label}
@@ -450,7 +450,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="例: 武道館 / 東京 / 第六感"
               style={NO_ZOOM_STYLE}
-              className="block w-full min-h-[44px] px-3 py-2 bg-white/5 border border-bx-line text-bx-ink rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1"
+              className="block w-full min-h-[44px] px-3 py-2 bg-bx-surface/5 border border-bx-line text-bx-ink rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1"
             />
           </label>
         )}
@@ -463,7 +463,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <button
               type="button"
               onClick={clearFilters}
-              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-bx-line bg-white/5 hover:border-bx-blue transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
             >
               条件をクリア
             </button>
@@ -515,7 +515,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                         }}
                         aria-expanded={isExpanded}
                         aria-controls={`place-panel-${place.slug}`}
-                        className={`relative w-full text-left cursor-pointer rounded-lg transition-colors motion-reduce:transition-none overflow-hidden text-bx-ink bg-white/5 border border-bx-line hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2`}
+                        className={`relative w-full text-left cursor-pointer rounded-lg transition-colors motion-reduce:transition-none overflow-hidden text-bx-ink bg-bx-surface/5 border border-bx-line hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2`}
                       >
                         {!isExpanded && (
                           <div className="min-h-[64px] p-3 flex items-center gap-3">
@@ -524,10 +524,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                 src={thumb}
                                 alt=""
                                 loading="lazy"
-                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-white/5"
+                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-bx-surface/5"
                               />
                             ) : (
-                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-white/5 flex items-center justify-center text-bx-ink3">
+                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
                                 <TbMapPinHeart className="text-xl" aria-hidden="true" />
                               </div>
                             )}
@@ -602,7 +602,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                             {place.items?.map((item, itemIdx) => (
                               <div
                                 key={`place-${place.placeUuid}-${item.placeItemUuid}`}
-                                className="mb-3 last:mb-0 bg-white/5 border border-bx-line rounded-lg p-4"
+                                className="mb-3 last:mb-0 bg-bx-surface/5 border border-bx-line rounded-lg p-4"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 <div className="flex items-start justify-between gap-2 mb-2">
@@ -648,7 +648,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   href={item.mapsUrl || item.mapsEmbedUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="group/map relative block w-full h-32 rounded mb-2 overflow-hidden bg-white/5 border border-bx-line"
+                                  className="group/map relative block w-full h-32 rounded mb-2 overflow-hidden bg-bx-surface/5 border border-bx-line"
                                 >
                                   {item.lat && item.lng ? (
                                     <img

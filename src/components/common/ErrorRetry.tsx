@@ -29,8 +29,8 @@ const ErrorRetry: React.FC<ErrorRetryProps> = ({
 }) => {
   const containerClass =
     tone === "light"
-      ? "border-red-300 bg-white/90"
-      : "border-red-500/40 bg-white/5";
+      ? "border-red-300 bg-bx-surface/90"
+      : "border-red-500/40 bg-bx-surface/5";
   const titleClass = tone === "light" ? "text-red-700" : "text-red-300";
   const descriptionClass = tone === "light" ? "text-gray-700" : "text-gray-300";
   const buttonClass =

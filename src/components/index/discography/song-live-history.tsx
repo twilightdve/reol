@@ -117,7 +117,7 @@ const SongLiveHistory: React.FC<Props> = ({ songUuid }) => {
         <LoadingSkeleton
           rows={3}
           rowHeightClassName="h-5"
-          rowClassName="border border-bx-line bg-white/5"
+          rowClassName="border border-bx-line bg-bx-surface/5"
           label="演奏履歴を読み込み中…"
         />
       </div>

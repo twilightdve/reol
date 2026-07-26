@@ -153,11 +153,7 @@ const Body: FC<Props> = ({ children }) => {
       />
       <div
         aria-hidden
-        className="fixed inset-0 -z-10 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(70rem 30rem at 50% -14rem, rgba(39,72,155,0.35), transparent 65%)",
-        }}
+        className="fixed inset-0 -z-10 pointer-events-none bx-hero-glow"
       />
       {/*
         ヘッダーと永続 MainVideo はページ遷移をまたいで位置/状態を保ちたいため

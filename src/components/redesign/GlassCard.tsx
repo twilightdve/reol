@@ -40,7 +40,7 @@ const GlassCard: React.FC<GlassCardProps> = ({
   children,
 }) => {
   const baseClassName = [
-    "group relative block rounded-xl border border-bx-line bg-white/[0.035] transition-colors",
+    "group relative block rounded-xl border border-bx-line bg-bx-surface/[0.035] transition-colors",
     accent ? ACCENT_HOVER_BORDER[accent] : "",
     className,
   ]

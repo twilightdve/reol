@@ -257,7 +257,7 @@ const LiveItem: React.FC<LiveItemProps> = ({
       <div key={`live-item-dialog-${liveItem.liveItemUuid}`}>
         <div
           key={`card-live-${liveItem.liveItemUuid}`}
-          className="w-80 bg-white/5 border border-bx-line rounded-lg"
+          className="w-80 bg-bx-surface/5 border border-bx-line rounded-lg"
           onClick={handleDialogShow}
         >
           <div className="relative w-full max-h-40 p-3">

@@ -29,8 +29,8 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   const containerClass =
     tone === "light"
-      ? "border-gray-200 bg-white/60 backdrop-blur"
-      : "border-bx-line bg-white/5";
+      ? "border-gray-200 bg-bx-surface/60 backdrop-blur"
+      : "border-bx-line bg-bx-surface/5";
   const titleClass = tone === "light" ? "text-gray-800" : "text-bx-ink";
   const descriptionClass = tone === "light" ? "text-gray-700" : "text-bx-ink3";
   const buttonClass =

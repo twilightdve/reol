@@ -118,7 +118,7 @@ const axisSongNames = (axis: "G" | "E"): string[] =>
 // ---------- ページ本体 ----------
 
 const containerCls =
-  "bg-white/5 border border-bx-line rounded-xl p-4 sm:p-6";
+  "bg-bx-surface/5 border border-bx-line rounded-xl p-4 sm:p-6";
 
 const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
   const songs = useMemo(() => mergeSongs(data), [data]);
@@ -188,7 +188,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             return (
               <article
                 key={song.songUuid}
-                className="rounded-lg border border-bx-line bg-white/5 overflow-hidden"
+                className="rounded-lg border border-bx-line bg-bx-surface/5 overflow-hidden"
               >
                 {videoId && (
                   <div className="aspect-w-16 aspect-h-9 bg-black">
@@ -277,7 +277,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                   return (
                     <div
                       key={song.songUuid}
-                      className="rounded-lg border border-bx-line bg-white/5 hover:border-bx-blue transition-colors overflow-hidden"
+                      className="rounded-lg border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors overflow-hidden"
                     >
                       <a
                         href={song.musicVideoUrl}
@@ -360,7 +360,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           ).map(({ key, emoji, title, desc, pick }) => (
             <div
               key={key}
-              className="rounded-lg border border-bx-line bg-white/5 p-4"
+              className="rounded-lg border border-bx-line bg-bx-surface/5 p-4"
             >
               <h3 className="text-sm font-bold text-bx-ink mb-1">
                 <span className="mr-1.5">{emoji}</span>
@@ -391,7 +391,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           }
           className="block group rounded-xl overflow-hidden border border-bx-line hover:border-bx-blue transition-colors"
         >
-          <div className="relative bg-white/5 p-4 sm:p-5">
+          <div className="relative bg-bx-surface/5 p-4 sm:p-5">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="flex items-baseline gap-2 mb-1">
@@ -458,7 +458,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               onClick={() =>
                 trackEvent("welcome_link_click", { label: item.label })
               }
-              className="group rounded-lg border border-bx-line bg-white/5 hover:border-bx-blue transition-colors p-4"
+              className="group rounded-lg border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors p-4"
             >
               <div className="text-sm font-bold text-bx-ink group-hover:text-bx-blue transition-colors">
                 {item.title} →
@@ -474,7 +474,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
         className="rounded-xl overflow-hidden border border-bx-line"
         aria-labelledby="welcome-official"
       >
-        <div className="bg-white/5 p-5 sm:p-6">
+        <div className="bg-bx-surface/5 p-5 sm:p-6">
           <h2 id="welcome-official" className="text-lg font-bold text-bx-ink mb-1">
             ここから先は、公式で。
           </h2>

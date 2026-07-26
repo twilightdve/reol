@@ -49,7 +49,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
   return (
     <section
       id="LIVE"
-      className="bg-white/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3"
+      className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3"
     >
       <div className="pt-6 pb-2 px-2 sm:pt-12">
         <h2 className="flex items-center font-bold text-lg text-bx-ink">
@@ -103,7 +103,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
         </div>
       </div>
       <Live data={liveInfos} key="live" />
-      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-white/5 border border-bx-line rounded-lg">
+      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 border border-bx-line rounded-lg">
         <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
           <li>
             上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます

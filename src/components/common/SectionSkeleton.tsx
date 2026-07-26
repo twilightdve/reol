@@ -20,8 +20,8 @@ const SectionSkeleton: React.FC<SectionSkeletonProps> = ({
 }) => {
   const baseClass =
     tone === "light"
-      ? "bg-white/60 backdrop-blur border-gray-200 text-gray-700"
-      : "bg-white/5 border-bx-line text-bx-ink2";
+      ? "bg-bx-surface/60 backdrop-blur border-gray-200 text-gray-700"
+      : "bg-bx-surface/5 border-bx-line text-bx-ink2";
 
   return (
     <div

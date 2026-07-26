@@ -260,7 +260,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                   {label}
                 </p>
                 <div
-                  className="rounded-xl border border-bx-line bg-white/5 overflow-hidden relative"
+                  className="rounded-xl border border-bx-line bg-bx-surface/5 overflow-hidden relative"
                   style={{ paddingBottom: "56.25%", height: 0 }}
                 >
                   <div className="absolute top-0 left-0 w-full h-full">

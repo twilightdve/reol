@@ -98,6 +98,40 @@
   --temp-color-text: var(--color-text);
   --temp-gradient-primary: var(--gradient-primary);
   --temp-gradient-background: var(--gradient-background);
+
+  /*
+    B案リデザイン(plan/16) bx-* トークンの実体。RGB channel-triplet で持ち、
+    tailwind.config.js 側で `rgb(var(--bx-*) / <alpha-value>)` として参照する
+    (`bg-bx-bg/95` 等の opacity 修飾子を機能させるため)。
+    デフォルト(クラス無し)= ダークモード。ライトモードは .light 側で上書きする。
+  */
+  --bx-bg: 11 11 16;
+  --bx-ink: 242 240 235;
+  --bx-ink2: 143 142 150;
+  --bx-ink3: 165 164 172;
+  --bx-line: 38 38 46;
+  --bx-blue: 107 140 224;
+  --bx-blue-deep: 39 72 155;
+  --bx-blue-light: 168 192 255;
+  --bx-yellow: 226 191 87;
+  --bx-surface: 255 255 255; /* bg-bx-surface は常に低 alpha (例: /5) で使う前提 */
+}
+
+/*
+  ライトモード。テーマ切替ボタンで <html> に付与される `.light` 配下で
+  bx-* トークンを上書きする。手動切替 + localStorage 保存 (useTheme フック)。
+*/
+.light {
+  --bx-bg: 250 249 247;
+  --bx-ink: 26 26 32;
+  --bx-ink2: 107 106 114;
+  --bx-ink3: 85 84 92;
+  --bx-line: 224 223 216;
+  --bx-blue: 39 72 155;
+  --bx-blue-deep: 28 53 114;
+  --bx-blue-light: 74 104 192;
+  --bx-yellow: 138 109 31;
+  --bx-surface: 0 0 0;
 }
 
 body {
@@ -234,7 +268,23 @@ body.is-ios {
   background-size: 100% auto !important;
 }
 
-/* ヒートマップ等のOSMタイルをダークテーマに近づける(反転+色調整)。 */
+/* ヒートマップ等のOSMタイルをダークテーマに近づける(反転+色調整)。ライトモードでは反転しない。 */
 .relive-map-tiles-dark {
   filter: invert(92%) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
+}
+
+.light .relive-map-tiles-dark {
+  filter: none;
+}
+
+/*
+  Body 固定背景の上に敷く公式ブルーのラジアルグロー(B案リデザイン: plan/16)。
+  ライトモードでは背景が明るいため、同じ強さだと浮いて見えるのでアルファを弱める。
+*/
+.bx-hero-glow {
+  background: radial-gradient(70rem 30rem at 50% -14rem, rgb(var(--bx-blue-deep) / 0.35), transparent 65%);
+}
+
+.light .bx-hero-glow {
+  background: radial-gradient(70rem 30rem at 50% -14rem, rgb(var(--bx-blue-deep) / 0.12), transparent 65%);
 }

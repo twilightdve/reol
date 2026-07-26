@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Timeline } from "react-twitter-widgets";
 import { FaXTwitter } from "react-icons/fa6";
 import UtilityService from "../../services/UtilityService";
+import { useTheme } from "../../hooks/useTheme";
 
 interface XTimelineProps {
   id: string;
@@ -10,6 +11,7 @@ interface XTimelineProps {
 
 const XTimeline: React.FC<XTimelineProps> = ({ id, title }) => {
   const [didMount, setDidMount] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     setDidMount(true);
@@ -51,6 +53,7 @@ const XTimeline: React.FC<XTimelineProps> = ({ id, title }) => {
             options={{
               height: "1024",
               chrome: "noheader",
+              theme,
             }}
           />
         </div>

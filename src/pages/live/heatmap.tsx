@@ -285,7 +285,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
                 typeFilter === t.key
                   ? `${t.color} text-white shadow`
-                  : 'bg-bx-bg text-bx-ink3 border border-bx-line hover:bg-white/5'
+                  : 'bg-bx-bg text-bx-ink3 border border-bx-line hover:bg-bx-surface/5'
               }`}
             >
               {t.label}
@@ -425,7 +425,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                   return (
                     <li
                       key={`${r.kind}-${r.region}`}
-                      className="py-1.5 flex items-center gap-2 cursor-pointer hover:bg-white/5"
+                      className="py-1.5 flex items-center gap-2 cursor-pointer hover:bg-bx-surface/5"
                       onClick={() => setSelected(targetSelected)}
                     >
                       <span className="w-7 text-right text-bx-ink3">{i + 1}.</span>
@@ -492,7 +492,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                       key={`venue-${v.place}-${i}`}
                       className={`py-1.5 flex items-center gap-2 ${
                         targetSelected
-                          ? 'cursor-pointer hover:bg-white/5'
+                          ? 'cursor-pointer hover:bg-bx-surface/5'
                           : ''
                       }`}
                       onClick={() => {

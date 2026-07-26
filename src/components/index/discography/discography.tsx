@@ -158,8 +158,8 @@ class Discography extends Component<Props, State> {
                 key={`discography-tag-${tag}`}
                 className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentNames.includes(tag)
-                    ? "border-bx-yellow text-bx-yellow bg-white/5"
-                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                    ? "border-bx-yellow text-bx-yellow bg-bx-surface/5"
+                    : "border-bx-line text-bx-ink3 bg-bx-surface/5 hover:border-bx-blue"
                 }`}
                 onClick={(event) => {
                   const nextNames = this.toggleTag(
@@ -188,8 +188,8 @@ class Discography extends Component<Props, State> {
                 key={`discography-tag-${tag}`}
                 className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentYears.includes(tag)
-                    ? "border-bx-yellow text-bx-yellow bg-white/5"
-                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                    ? "border-bx-yellow text-bx-yellow bg-bx-surface/5"
+                    : "border-bx-line text-bx-ink3 bg-bx-surface/5 hover:border-bx-blue"
                 }`}
                 onClick={(event) => {
                   const nextYears = this.toggleTag(
@@ -218,8 +218,8 @@ class Discography extends Component<Props, State> {
                 key={`discography-tag-${tag}`}
                 className={`px-2 py-1 tracking-wide rounded-md border transition-colors cursor-pointer ${
                   this.state.currentFormats.includes(tag)
-                    ? "border-bx-yellow text-bx-yellow bg-white/5"
-                    : "border-bx-line text-bx-ink3 bg-white/5 hover:border-bx-blue"
+                    ? "border-bx-yellow text-bx-yellow bg-bx-surface/5"
+                    : "border-bx-line text-bx-ink3 bg-bx-surface/5 hover:border-bx-blue"
                 }`}
                 onClick={(event) => {
                   const nextFormats = this.toggleTag(
