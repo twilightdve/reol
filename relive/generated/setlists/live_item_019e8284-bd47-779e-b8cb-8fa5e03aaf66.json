@@ -36,13 +36,16 @@
       "displayTitle": "オオエドランヴ",
       "normalizedTitle": "オオエドランヴ",
       "policy": "required",
-      "trackId": "song_019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-      "aliases": [],
-      "afterglowTailSec": 8,
+      "trackId": "song_019e8282-8086-71d2-b69e-440dd933a405",
+      "aliases": [
+        "オオエドランヴ"
+      ],
+      "expectedDurationSec": 181.2,
+      "afterglowTailSec": 12.6,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {

@@ -72,17 +72,20 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221_entry_019f47e3-ab4a-751a-8f49-2fd8b0e60664",
       "order": 4,
-      "rawTitle": "煽げや尊し",
-      "displayTitle": "煽げや尊し",
-      "normalizedTitle": "煽げや尊し",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "normalizedTitle": "煽げや尊しagitate",
       "policy": "required",
-      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-      "aliases": [],
-      "afterglowTailSec": 8,
+      "trackId": "song_019e8282-b788-7d1d-a5f7-c81d27df50ac",
+      "aliases": [
+        "煽げや尊し"
+      ],
+      "expectedDurationSec": 217.1,
+      "afterglowTailSec": 11.8,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {

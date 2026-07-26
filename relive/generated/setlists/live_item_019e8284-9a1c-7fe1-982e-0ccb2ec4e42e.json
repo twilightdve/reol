@@ -90,13 +90,16 @@
       "displayTitle": "drop pop candy",
       "normalizedTitle": "droppopcandy",
       "policy": "required",
-      "trackId": "song_019e8282-de39-73a2-bd46-329895b231b6",
-      "aliases": [],
-      "afterglowTailSec": 8,
+      "trackId": "song_019e8282-80f0-74e0-9c8b-0191e39556a8",
+      "aliases": [
+        "drop pop candy"
+      ],
+      "expectedDurationSec": 225,
+      "afterglowTailSec": 11.9,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {

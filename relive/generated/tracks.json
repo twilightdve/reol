@@ -6157,20 +6157,37 @@
     {
       "schemaVersion": 1,
       "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-      "canonicalTitle": "煽げや尊し",
-      "aliases": [],
+      "canonicalTitle": "煽げや尊し(Agitate)",
+      "aliases": [
+        "煽げや尊し"
+      ],
       "artistNames": [
         "Reol"
       ],
       "kind": "original",
+      "expectedDurationSec": 217.1,
       "matchHints": [
+        "煽げや尊しagitate",
         "煽げや尊し"
       ],
+      "audioFeature": {
+        "tempo": 131,
+        "energy": 0.926,
+        "danceability": 0.703,
+        "loudness": -1.803,
+        "valence": 0.55,
+        "acousticness": 0.00749,
+        "instrumentalness": 0.00000489,
+        "liveness": 0.361,
+        "key": 6,
+        "mode": 1,
+        "timeSignature": 4
+      },
       "source": {
         "type": "fansite-discography-json",
         "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
         "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-        "spotifyTrackId": null
+        "spotifyTrackId": "2LeHTvjUmiR1A6L9txGDfm"
       }
     },
     {

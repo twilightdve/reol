@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T17:21:27.381Z",
+  "generatedAt": "2026-07-26T19:26:34.651Z",
   "counts": {
     "sourceLives": 76,
     "sourceLiveItems": 170,
@@ -9,8 +9,8 @@
     "sourceSongs": 251,
     "generatedTracks": 251,
     "generatedSetlists": 170,
-    "generatedVenues": 117,
-    "verifiedVenueCapacities": 22,
+    "generatedVenues": 116,
+    "verifiedVenueCapacities": 21,
     "venueCapacitiesNeedingVerification": 95,
     "matchedEntries": 1875,
     "candidateEntries": 12,

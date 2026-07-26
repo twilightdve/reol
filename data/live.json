@@ -3762,10 +3762,10 @@
           {
             "liveItemSongUuid": "019f1dd4-e493-726a-8c34-941a589635ff",
             "liveItemUuid": "019e8284-f0d0-7c4c-b463-efb128b466db",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019f1dd4-e516-7d70-8e6d-fd769db563cd",
@@ -3994,10 +3994,10 @@
           {
             "liveItemSongUuid": "019f1dd4-ee7b-74c7-b37b-226f219e988d",
             "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019f1dd4-eed2-754b-a307-c45746c9ac55",
@@ -4214,10 +4214,10 @@
           {
             "liveItemSongUuid": "019f1dd5-007b-7f84-a5c4-a8a65e179d86",
             "liveItemUuid": "019e8284-f189-7ebe-8773-0c2f7f9259fd",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019f1dd5-00d6-7d07-abed-20ec4e0d3e38",
@@ -4452,10 +4452,10 @@
           {
             "liveItemSongUuid": "019f47e3-ab4a-751a-8f49-2fd8b0e60664",
             "liveItemUuid": "019e8284-f1e4-7eb6-afe7-88639d68c221",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019f47e3-ab88-78b3-8e14-c4f0c0f9044b",
@@ -4706,10 +4706,10 @@
           {
             "liveItemSongUuid": "019f53e2-e0c0-7bfb-8a0d-e4d8f12ec913",
             "liveItemUuid": "019e8284-f255-7f05-a5de-574ac6f9b6f6",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019f53e2-e106-7ca3-a0cd-2630220501fe",
@@ -5595,10 +5595,10 @@
           {
             "liveItemSongUuid": "019e82aa-0827-7da1-bea9-90d635a4aa19",
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82aa-0aad-7eff-8e9d-6db9cc97a314",
@@ -5920,10 +5920,10 @@
           {
             "liveItemSongUuid": "019e82a9-f0c8-761d-8c7e-5396b4453d74",
             "liveItemUuid": "019e8284-e456-75bb-aea4-a4de231dca9a",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-f12d-7b37-98bd-a9b6bd9322ba",
@@ -6195,7 +6195,7 @@
         "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
         "liveItemName": "大阪",
         "date": "2025-07-26",
-        "place": "Zeep Namba",
+        "place": "Zepp Namba",
         "placeSite": "https://www.zepp.co.jp/hall/namba/",
         "address": "〒556-0012 大阪府大阪市浪速区敷津東２丁目１−３９",
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.894385768297!2d135.49870311193683!3d34.65737008542275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1743274041934!5m2!1sja!2sjp",
@@ -6268,10 +6268,10 @@
           {
             "liveItemSongUuid": "019e82a9-dde4-707c-949e-68c4e040a3a6",
             "liveItemUuid": "019e8284-e375-7cc4-9665-1dc3d0966c27",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           }
         ],
         "posts": []
@@ -6413,8 +6413,8 @@
             "liveItemUuid": "019e8284-e310-7509-9ed2-1faafc189aae",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-d806-7f90-82db-0b4a4ae0e515",
@@ -6560,10 +6560,10 @@
           {
             "liveItemSongUuid": "019e82a9-cd59-7d07-a7cd-8ccddc05fd5f",
             "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-cdb6-7be5-9a31-03c6fbd47fce",
@@ -6702,10 +6702,10 @@
           {
             "liveItemSongUuid": "019e82a9-c53e-7882-9cb1-1fb069b20022",
             "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-c5a9-7923-90cc-88ab6c4c777c",
@@ -6970,10 +6970,10 @@
           {
             "liveItemSongUuid": "019e82a9-a968-79db-8c0c-c3ff17962877",
             "liveItemUuid": "019e8284-e14b-719b-909a-5f7132db573e",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-a9d7-7e73-b82c-60346135283b",
@@ -7150,10 +7150,10 @@
           {
             "liveItemSongUuid": "019e82a9-784c-7c56-91c6-0d2fa5174211",
             "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-78b3-74c5-a9b1-28b98f1a879c",
@@ -7302,10 +7302,10 @@
           {
             "liveItemSongUuid": "019e82a9-743e-7acd-acc4-31a43ff062bc",
             "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-74a9-7127-a9a7-e4a85e7140a9",
@@ -7470,10 +7470,10 @@
           {
             "liveItemSongUuid": "019e82a9-64c4-7a4b-88ee-d373f7f697e5",
             "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-6682-78d7-90e0-15ee54402a30",
@@ -7633,10 +7633,10 @@
           {
             "liveItemSongUuid": "019e82a9-58aa-7740-81ed-1d7dd789eb3f",
             "liveItemUuid": "019e8284-db67-7983-b404-0dff42e5887c",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-591b-7842-9c81-1bac8e303f4d",
@@ -7784,8 +7784,8 @@
             "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-48db-78d6-b7d1-72bceffcde43",
@@ -7958,10 +7958,10 @@
           {
             "liveItemSongUuid": "019e82a9-5396-76ae-a654-3d6d217759a3",
             "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
-            "liveItemSongName": "煽げや尊し",
+            "liveItemSongName": "煽げや尊し(Agitate)",
             "type": "song",
-            "songUuid": "019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a9-53fb-740d-8290-6f27c6cf904d",
@@ -11444,8 +11444,8 @@
             "liveItemUuid": "019e8284-cbf8-7230-9a0a-834b66afd97e",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a8-884b-732b-b26d-751032b441d9",
@@ -17910,8 +17910,8 @@
             "liveItemUuid": "019e8284-b901-7484-8cf4-5a234f4fc725",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a7-3c55-7b86-8345-041058f0dcc8",
@@ -18248,8 +18248,8 @@
             "liveItemUuid": "019e8284-bd47-779e-b8cb-8fa5e03aaf66",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a7-52bc-7545-9f33-507df8b36983",
@@ -21873,8 +21873,8 @@
             "liveItemUuid": "019e8284-a79f-7f1d-aa5b-1217419bf9be",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a6-95e8-7ec2-aad3-96355e83f1c9",
@@ -22857,8 +22857,8 @@
             "liveItemUuid": "019e8284-a20c-7fa9-8858-b25b14d2993a",
             "liveItemSongName": "drop pop candy",
             "type": "song",
-            "songUuid": "019e8282-de39-73a2-bd46-329895b231b6",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-80f0-74e0-9c8b-0191e39556a8",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a6-593b-7d9d-b496-bb7071b633a2",
@@ -23091,8 +23091,8 @@
             "liveItemUuid": "019e8284-a2ce-7636-a86a-6b2e5d88a5d2",
             "liveItemSongName": "drop pop candy",
             "type": "song",
-            "songUuid": "019e8282-de39-73a2-bd46-329895b231b6",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-80f0-74e0-9c8b-0191e39556a8",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a6-6eb4-79eb-bc23-cece07867b36",
@@ -23702,8 +23702,8 @@
             "liveItemUuid": "019e8284-9e35-7021-9816-80e8102d0a47",
             "liveItemSongName": "オオエドランヴ",
             "type": "song",
-            "songUuid": "019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-8086-71d2-b69e-440dd933a405",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a6-4ba2-7ac4-adcd-9b7c74b1f2db",
@@ -24556,8 +24556,8 @@
             "liveItemUuid": "019e8284-9a1c-7fe1-982e-0ccb2ec4e42e",
             "liveItemSongName": "drop pop candy",
             "type": "song",
-            "songUuid": "019e8282-de39-73a2-bd46-329895b231b6",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-80f0-74e0-9c8b-0191e39556a8",
+            "matchSource": "sheet-normalized"
           },
           {
             "liveItemSongUuid": "019e82a6-46c7-71fb-b42e-bf49fa2171bf",

@@ -1064,51 +1064,6 @@
     },
     {
       "schemaVersion": 1,
-      "venueId": "venue_zeep_namba",
-      "name": "Zepp Namba (OSAKA)",
-      "aliases": [
-        "Zeep Namba",
-        "Zepp Namba"
-      ],
-      "type": "live_house",
-      "typeGuessReason": [
-        "live_house_keyword",
-        "venue_enrichment_snapshot"
-      ],
-      "siteUrl": "https://www.zepp.co.jp/hall/namba/",
-      "address": "〒556-0012 大阪府大阪市浪速区敷津東2-1-39",
-      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.894385768297!2d135.49870311193683!3d34.65737008542275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1743274041934!5m2!1sja!2sjp",
-      "capacity": 2513,
-      "capacityStatus": "verified",
-      "sourceLiveUuids": [
-        "019e8284-8eb6-7fbd-99fd-83a8b1f63378"
-      ],
-      "sourceSetlistIds": [
-        "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27"
-      ],
-      "capacityKind": "standing",
-      "seatedCapacity": 1206,
-      "capacityRange": null,
-      "verifiedAt": "2026-05-17",
-      "verificationSources": [
-        {
-          "title": "Zepp Namba(OSAKA) | Zeppホールネットワーク",
-          "url": "https://www.zepp.co.jp/hall/namba/",
-          "sourceType": "official",
-          "fields": [
-            "name",
-            "siteUrl",
-            "address",
-            "capacity"
-          ]
-        }
-      ],
-      "verificationNotes": [
-        "Standing capacity 2,513; seated configuration 1,206. Layout varies by event."
-      ]
-    },
-    {
-      "schemaVersion": 1,
       "venueId": "venue_zepp_namba",
       "name": "Zepp Namba (OSAKA)",
       "aliases": [
@@ -1122,14 +1077,16 @@
       ],
       "siteUrl": "https://www.zepp.co.jp/hall/namba/",
       "address": "〒556-0012 大阪府大阪市浪速区敷津東2-1-39",
-      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8945605003178!2d135.49870847574272!3d34.657365672935114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1699166570248!5m2!1sja!2sjp",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.894385768297!2d135.49870311193683!3d34.65737008542275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e765e16ddc8d%3A0x8f3dcd1552b2d1a!2sZepp%20Namba!5e0!3m2!1sja!2sjp!4v1743274041934!5m2!1sja!2sjp",
       "capacity": 2513,
       "capacityStatus": "verified",
       "sourceLiveUuids": [
-        "019e8284-7136-7d18-868c-c3b750f137e1"
+        "019e8284-7136-7d18-868c-c3b750f137e1",
+        "019e8284-8eb6-7fbd-99fd-83a8b1f63378"
       ],
       "sourceSetlistIds": [
-        "live_item_019e8284-a20c-7fa9-8858-b25b14d2993a"
+        "live_item_019e8284-a20c-7fa9-8858-b25b14d2993a",
+        "live_item_019e8284-e375-7cc4-9665-1dc3d0966c27"
       ],
       "capacityKind": "standing",
       "seatedCapacity": 1206,

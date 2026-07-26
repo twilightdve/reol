@@ -54,13 +54,16 @@
       "displayTitle": "オオエドランヴ",
       "normalizedTitle": "オオエドランヴ",
       "policy": "required",
-      "trackId": "song_019e8282-d8b6-7a54-89e6-60ef20ae23ce",
-      "aliases": [],
-      "afterglowTailSec": 8,
+      "trackId": "song_019e8282-8086-71d2-b69e-440dd933a405",
+      "aliases": [
+        "オオエドランヴ"
+      ],
+      "expectedDurationSec": 181.2,
+      "afterglowTailSec": 12.6,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {
@@ -445,17 +448,20 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-db09-75c5-8464-3176f8b63fb0_entry_019e82a9-5396-76ae-a654-3d6d217759a3",
       "order": 25,
-      "rawTitle": "煽げや尊し",
-      "displayTitle": "煽げや尊し",
-      "normalizedTitle": "煽げや尊し",
+      "rawTitle": "煽げや尊し(Agitate)",
+      "displayTitle": "煽げや尊し(Agitate)",
+      "normalizedTitle": "煽げや尊しagitate",
       "policy": "required",
-      "trackId": "song_019e8282-e3f0-71e0-b1dd-d05e87f39b32",
-      "aliases": [],
-      "afterglowTailSec": 8,
+      "trackId": "song_019e8282-b788-7d1d-a5f7-c81d27df50ac",
+      "aliases": [
+        "煽げや尊し"
+      ],
+      "expectedDurationSec": 217.1,
+      "afterglowTailSec": 11.8,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet"
+        "reason": "source_song_uuid:sheet-normalized"
       }
     },
     {
