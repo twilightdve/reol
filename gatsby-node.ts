@@ -14,10 +14,11 @@ import {
 } from "./src/types/live";
 import { Recommend } from "./src/types/recommend";
 import { Place, PlaceItem } from "./src/types/places";
-import { buildSongIndex, matchSongId } from "./src/utils/songMatcher";
+import { buildSongIndex, matchSongId, buildCanonicalUuidMap } from "./src/utils/songMatcher";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
+import { generateSongOgImages } from "./scripts/generate-song-og";
 import {
   MusicBrainzService,
   Record as MbRecord,
@@ -162,18 +163,12 @@ const createLiveNodes = async (
   // シート側 (live_item_song.songUuid) が埋まっていればそれを優先、無ければ matcher で fallback
   const songsForIndex = await sheet.getSongs();
   const liveSongIndex = buildSongIndex(songsForIndex);
-  // 同名楽曲は複数リリース(シングル/再録/コンピ収録等)にまたがってsongUuidが
-  // 別々に存在するが、楽曲詳細ページ(/songs/<slug>/)は代表songUuid(最古リリース、
-  // buildSongIndexのbyExactが保持)にしか生成されない。シート側songUuidが非代表の
-  // 重複を指していると詳細ページへのリンクが404になるため、常に代表uuidへ正規化する。
-  const uuidToRepresentative = new Map<string, string>();
-  for (const s of songsForIndex) {
-    if (!s.songUuid || !s.songName) continue;
-    uuidToRepresentative.set(
-      s.songUuid,
-      liveSongIndex.byExact.get(s.songName) ?? s.songUuid
-    );
-  }
+  // 同名楽曲(副題違い含む)は複数リリース(シングル/再録/コンピ収録等)にまたがって
+  // songUuidが別々に存在するが、楽曲詳細ページ(/songs/<slug>/)は代表songUuid
+  // (副題を落とした名前でグルーピングした最古リリース)にしか生成されない。
+  // シート側songUuidが非代表の重複を指していると詳細ページへのリンクが404に
+  // なるため、常に代表uuidへ正規化する。
+  const uuidToRepresentative = buildCanonicalUuidMap(songsForIndex);
   const liveItemSongs: LiveItemSong[] = liveItemSongsRaw.map((s) => {
     if (s.songUuid) {
       const representative = uuidToRepresentative.get(s.songUuid) ?? s.songUuid;
@@ -329,6 +324,9 @@ const createSongStatsNodes = async (
     matchSource: string;
   };
   const playsBySong = new Map<string, Play[]>();
+  // 副題違いの楽曲マスタ重複("煽げや尊し(Agitate)" / "煽げや尊し" 等)を
+  // 同一楽曲として集計するため、演奏記録は代表uuidのバケットへ振り分ける。
+  const canonicalUuidMap = buildCanonicalUuidMap(songs);
   const unmatched: {
     name: string;
     count: number;
@@ -354,12 +352,16 @@ const createSongStatsNodes = async (
     if (s.type === "segment") continue;
 
     // シート由来の songUuid があればそれを優先、無ければ matcher
-    const resolvedUuid = s.songUuid
+    const matchedUuid = s.songUuid
       ? s.songUuid
       : matchSongId(s.liveItemSongName, songIndex).songUuid;
     const matchSource = s.songUuid
       ? "sheet"
       : matchSongId(s.liveItemSongName, songIndex).source;
+    // 副題違いの重複楽曲を代表uuidへ正規化してから集計する
+    const resolvedUuid = matchedUuid
+      ? canonicalUuidMap.get(matchedUuid) ?? matchedUuid
+      : null;
 
     if (resolvedUuid) {
       const list = playsBySong.get(resolvedUuid) ?? [];
@@ -396,11 +398,11 @@ const createSongStatsNodes = async (
     }
   }
 
-  // 代表 songUuid: songMatcher の解決結果が自分自身と一致する楽曲のみ stats に出力
-  const representativeUuidOf = (song: typeof songs[number]): string => {
-    const r = matchSongId(song.songName, songIndex);
-    return r.songUuid ?? song.songUuid;
-  };
+  // 代表 songUuid: 副題を落として名寄せした際に自分自身が代表となる楽曲のみ
+  // stats に出力する(例: "煽げや尊し(Agitate)" と "煽げや尊し" は同一グループとして
+  // まとめ、最古リリースのみを掲載する)。
+  const representativeUuidOf = (song: typeof songs[number]): string =>
+    canonicalUuidMap.get(song.songUuid) ?? song.songUuid;
   const songStats = songs
     .filter(
       (song) =>
@@ -453,6 +455,20 @@ const createSongStatsNodes = async (
     },
   });
 
+  // 楽曲詳細ページ(/songs/<slug>/)ごとのOGP画像。既存データ(演奏回数・初披露日)を
+  // 画像化するだけなので新規執筆は不要。
+  const songOg = await generateSongOgImages(
+    songStats.map((s) => ({
+      slug: s.slug,
+      songName: s.songName,
+      totalPlays: s.totalPlays,
+      firstPlayedDate: s.firstPlayedDate,
+    }))
+  );
+  console.log(
+    `[song-og] generated=${songOg.generated}, skipped=${songOg.skipped} (songs=${songStats.length})`
+  );
+
   // ----- トップページのヒーロー統計・NEXT LIVE(B案リデザイン)用のビルド時集計 -----
   // カウントアップ演出の最終値をビルド時に焼き込む(クライアントでの再計算はしない)
   const today = new Date().toISOString().slice(0, 10);
@@ -464,8 +480,10 @@ const createSongStatsNodes = async (
   const siteStats = {
     songCount: songStats.length,
     liveItemCount: liveItems.length,
-    // セトリ登録済みの演奏数(曲DBに未マッチの表記も演奏としてカウント)
-    performanceCount: liveItemSongs.filter((s) => !!s.liveItemSongName).length,
+    // セトリ登録済みの演奏数(曲DBに未マッチの表記も演奏としてカウント。MC等のsegmentは除外)
+    performanceCount: liveItemSongs.filter(
+      (s) => !!s.liveItemSongName && s.type !== "segment"
+    ).length,
     nextLive: nextItem
       ? {
           title: nextLiveParent?.title ?? null,
@@ -1063,6 +1081,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             liveItemSongUuid: string;
             liveItemSongName: string;
             songUuid: string | null;
+            type: LiveItemSong["type"] | null;
           }[];
           posts: {
             liveItemPostUuid: string;
@@ -1103,6 +1122,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               liveItemSongUuid
               liveItemSongName
               songUuid
+              type
             }
             posts {
               liveItemPostUuid
@@ -1150,6 +1170,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const setList = item.setList.map((s) => ({
           liveItemSongUuid: s.liveItemSongUuid,
           liveItemSongName: s.liveItemSongName,
+          type: s.type ?? null,
           slug: s.songUuid
             ? statsSlugByUuid.get(s.songUuid) ??
               statsSlugByName.get(s.liveItemSongName) ??

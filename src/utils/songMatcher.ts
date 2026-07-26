@@ -109,3 +109,41 @@ export const matchSongId = (
 
   return { songUuid: null, source: "none" };
 };
+
+/**
+ * 楽曲マスタ自身の名寄せ用。
+ *
+ * `matchSongId` は「完全一致」を最優先するため、"煽げや尊し(Agitate)" のように
+ * 曲名自体に副題が含まれるレコードは常に自分自身と完全一致してしまい、
+ * 副題なし版("煽げや尊し")等の別レコードへ正規化されない
+ * (`byExact` は文字列完全一致でしか引けないため)。
+ *
+ * そのため楽曲マスタ同士の名寄せは、副題を落とした文字列
+ * (`stripParenthetical`)をグルーピングキーとして行う。
+ * 同一グループ内では songUuid が UUIDv7 で文字列順=時系列順になる前提のもと、
+ * 最小(最古)の songUuid を代表として採用する。
+ *
+ * "mede:mede" と "mede:mede -JJJ Remix-" のように括弧書きでない別曲は
+ * `stripParenthetical` で変化しないため、別グループのまま維持される。
+ */
+export const buildCanonicalUuidMap = (
+  songs: { songUuid: string; songName: string | null }[]
+): Map<string, string> => {
+  const groups = new Map<string, string[]>();
+  for (const s of songs) {
+    if (!s.songUuid || !s.songName) continue;
+    const key = stripParenthetical(s.songName) || s.songName;
+    const list = groups.get(key) ?? [];
+    list.push(s.songUuid);
+    groups.set(key, list);
+  }
+
+  const canonical = new Map<string, string>();
+  for (const uuids of groups.values()) {
+    const representative = [...uuids].sort((a, b) => a.localeCompare(b))[0];
+    for (const uuid of uuids) {
+      canonical.set(uuid, representative);
+    }
+  }
+  return canonical;
+};

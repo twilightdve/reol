@@ -347,21 +347,9 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
           </section>
         )}
 
-        {/* ④''収録アルバムの関連ポスト */}
-        {albumPosts && albumPosts.length > 0 && (
-          <section className="mb-8">
-            <Kicker className="mb-4">関連ポスト</Kicker>
-            <Tweets
-              parentId={`song-${slug}`}
-              posts={albumPosts.map((post) => ({
-                id: post.discographyPostId,
-                html: post.discographyPostHTML,
-              }))}
-            />
-          </section>
-        )}
-
         {/* ⑤演奏履歴タイムライン */}
+        {/* 通過コストがほぼゼロの一覧型セクションを、没入型で長い関連ポストより
+            前に置く。逆順だと関連ポストの後がスクロールで到達されにくいため。 */}
         <section className="mb-10">
           <Kicker className="mb-4">
             PERFORMANCE HISTORY — {totalPlays.toLocaleString()}件
@@ -413,6 +401,20 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
             </div>
           )}
         </section>
+
+        {/* ④''収録アルバムの関連ポスト */}
+        {albumPosts && albumPosts.length > 0 && (
+          <section className="mb-8">
+            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Tweets
+              parentId={`song-${slug}`}
+              posts={albumPosts.map((post) => ({
+                id: post.discographyPostId,
+                html: post.discographyPostHTML,
+              }))}
+            />
+          </section>
+        )}
 
         {/* ⑤'同アルバム収録曲(回遊) */}
         {discographyTitle && otherAlbumSongs.length > 0 && (
@@ -502,6 +504,7 @@ export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
       title={`${songName}(Reol)`}
       description={buildDescription(pageContext)}
       path={`/songs/${slug}/`}
+      image={`https://reol.twilightea.com/og/songs/${slug}.png`}
       jsonLd={[
         buildMusicRecording({ name: songName, albumName: discographyTitle }),
         buildBreadcrumbList([
