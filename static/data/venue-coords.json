@@ -1,4 +1,14 @@
 {
+  "BIG CAT": {
+    "lat": 34.6716122,
+    "lng": 135.4992085,
+    "source": "manual"
+  },
+  "広島クラブクアトロ": {
+    "lat": 34.3935971,
+    "lng": 132.4585107,
+    "source": "manual"
+  },
   "フィラ・バルセロナ・グラン・ビア": {
     "lat": 41.352537999999996,
     "lng": 2.1318094,
@@ -209,11 +219,6 @@
     "lng": 130.401964,
     "source": "googleMapsUrl"
   },
-  "BIG CAT": {
-    "lat": 34.6723442,
-    "lng": 130.8845977,
-    "source": "googleMapsUrl"
-  },
   "Spotify O-EAST": {
     "lat": 35.6587215,
     "lng": 139.6956111,
@@ -282,11 +287,6 @@
   "昭和女子大学人見記念講堂": {
     "lat": 35.644535,
     "lng": 139.67622409999998,
-    "source": "googleMapsUrl"
-  },
-  "広島クラブクアトロ": {
-    "lat": 34.9120616,
-    "lng": 130.7965647,
     "source": "googleMapsUrl"
   },
   "岡山 CRAZYMAMA KINGDOM": {

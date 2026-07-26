@@ -424,15 +424,13 @@
       "displayTitle": "劣等上等",
       "normalizedTitle": "劣等上等",
       "policy": "required",
-      "trackId": "song_019e8282-a62a-7a15-87e8-7a8649c18930",
-      "aliases": [
-        "劣等上等"
-      ],
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
+      "aliases": [],
       "afterglowTailSec": 12,
       "match": {
         "status": "matched",
         "score": 1,
-        "reason": "source_song_uuid:sheet-normalized"
+        "reason": "source_song_uuid:sheet"
       }
     },
     {

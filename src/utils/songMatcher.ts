@@ -125,14 +125,43 @@ export const matchSongId = (
  *
  * "mede:mede" と "mede:mede -JJJ Remix-" のように括弧書きでない別曲は
  * `stripParenthetical` で変化しないため、別グループのまま維持される。
+ * "ディア(Instrumental)" のように括弧書きが別アレンジ/別トラックを示す場合も
+ * (`isArrangementVariant`)、同一楽曲の副題とはみなさず名寄せしない。
  */
+// 括弧書きの中身がこれらのキーワードを含む場合、副題(別題)ではなく
+// 別アレンジ/別トラックの印なので名寄せしない(例: "ディア(Instrumental)"は
+// "ディア"とは別の1トラックであり、同一楽曲の副題違いではない)。
+const ARRANGEMENT_VARIANT_KEYWORDS = [
+  "instrumental",
+  "remix",
+  "anime size",
+  "ending",
+  "special edition",
+  "off vocal",
+  "acoustic",
+  "tv size",
+  "short ver",
+];
+
+/** 括弧書きの中身が別アレンジ/別トラックを示すものかどうか */
+const isArrangementVariant = (songName: string): boolean => {
+  const matches = songName.match(/[（(]([^）)]*)[)）]/g) ?? [];
+  return matches.some((m) => {
+    const inner = m.slice(1, -1).toLowerCase();
+    return ARRANGEMENT_VARIANT_KEYWORDS.some((kw) => inner.includes(kw));
+  });
+};
+
 export const buildCanonicalUuidMap = (
   songs: { songUuid: string; songName: string | null }[]
 ): Map<string, string> => {
   const groups = new Map<string, string[]>();
   for (const s of songs) {
     if (!s.songUuid || !s.songName) continue;
-    const key = stripParenthetical(s.songName) || s.songName;
+    // 別アレンジ/別トラックは名寄せせず、曲名そのものを単独グループのキーにする
+    const key = isArrangementVariant(s.songName)
+      ? s.songName
+      : stripParenthetical(s.songName) || s.songName;
     const list = groups.get(key) ?? [];
     list.push(s.songUuid);
     groups.set(key, list);
