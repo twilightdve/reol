@@ -1,8 +1,9 @@
 .cgraph-root {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  /* 4rem = ファンサイト共通ヘッダー(h-16)の高さ */
+  height: calc(100vh - 4rem);
   background: #fafaf5;
   color: #111827;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",

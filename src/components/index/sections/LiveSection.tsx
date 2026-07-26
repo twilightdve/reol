@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 import { BsSpeakerFill } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
-import { MapPin } from "lucide-react";
 import Live from "../live/live";
 import { LiveInfo } from "../../../types/live";
 import { trackEvent } from "../../../utils/analytics";
@@ -92,15 +91,6 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
             </span>
           </Link>
         )}
-        <div className="pt-2">
-          <Link
-            to="/live/heatmap/"
-            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
-          >
-            <MapPin className="h-4 w-4" />
-            参戦地マップを見る
-          </Link>
-        </div>
       </div>
       <Live data={liveInfos} key="live" />
       <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 border border-bx-line rounded-lg">
