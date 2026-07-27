@@ -735,6 +735,195 @@ const createSongStatsNodes = async (
   console.log(
     `[liveSimilarity] ${liveUuids.length} lives indexed, top5 each`
   );
+
+  // ----- 新規コンテンツ案H「セトリの文法解析」用の事前集計 -----
+  // (plan/legit-improvement-plan.md 5章)。曲の隣接関係・出現ポジション・
+  // 年別のオープニング傾向・ツアー内の変化を、既存のsongStats算出と同じ
+  // 名寄せ(canonicalUuidMap)を通してから集計する。
+  {
+    const resolveSongIdentity = (
+      s: LiveItemSong
+    ): { uuid: string; name: string } | null => {
+      if (s.type === "segment") return null;
+      const matched = s.songUuid
+        ? s.songUuid
+        : matchSongId(s.liveItemSongName, songIndex).songUuid;
+      if (!matched) return null;
+      const resolvedUuid = canonicalUuidMap.get(matched) ?? matched;
+      const songMeta = songs.find((sg) => sg.songUuid === resolvedUuid);
+      return { uuid: resolvedUuid, name: songMeta?.songName ?? s.liveItemSongName };
+    };
+
+    // liveItemUuid → 演奏順(liveItemSongUuid昇順 = 他ページと同じ並び順ルール)
+    const rawByItem = new Map<string, LiveItemSong[]>();
+    for (const s of liveItemSongs) {
+      const list = rawByItem.get(s.liveItemUuid) ?? [];
+      list.push(s);
+      rawByItem.set(s.liveItemUuid, list);
+    }
+    for (const list of rawByItem.values()) {
+      list.sort((a, b) => a.liveItemSongUuid.localeCompare(b.liveItemSongUuid));
+    }
+
+    const pairCounts = new Map<string, number>();
+    const pairNames = new Map<string, [string, string]>();
+    const songAppearanceCount = new Map<string, number>();
+    const openerCount = new Map<string, number>();
+    const closerCount = new Map<string, number>();
+    const middleCount = new Map<string, number>();
+    const yearlyOpeners = new Map<string, Map<string, number>>();
+    const nameByUuid = new Map<string, string>();
+
+    for (const [liveItemUuid, rawList] of rawByItem) {
+      const item = itemMap.get(liveItemUuid);
+      if (!item || !item.date) continue;
+      const year = item.date.slice(0, 4);
+
+      const resolved = rawList.map((s) => resolveSongIdentity(s));
+      const songOnly: { uuid: string; name: string }[] = [];
+      for (let i = 0; i < resolved.length; i++) {
+        const cur = resolved[i];
+        if (!cur) continue;
+        songOnly.push(cur);
+        songAppearanceCount.set(cur.uuid, (songAppearanceCount.get(cur.uuid) ?? 0) + 1);
+        nameByUuid.set(cur.uuid, cur.name);
+        // 隣接判定: 生の並びで直前がsegment/未マッチだった場合は連続とみなさない
+        const prev = i > 0 ? resolved[i - 1] : null;
+        if (prev) {
+          const key = `${prev.uuid}>>${cur.uuid}`;
+          pairCounts.set(key, (pairCounts.get(key) ?? 0) + 1);
+          pairNames.set(key, [prev.name, cur.name]);
+        }
+      }
+
+      if (songOnly.length === 0) continue;
+      const opener = songOnly[0];
+      const closer = songOnly[songOnly.length - 1];
+      openerCount.set(opener.uuid, (openerCount.get(opener.uuid) ?? 0) + 1);
+      closerCount.set(closer.uuid, (closerCount.get(closer.uuid) ?? 0) + 1);
+      for (let i = 1; i < songOnly.length - 1; i++) {
+        const mid = songOnly[i];
+        middleCount.set(mid.uuid, (middleCount.get(mid.uuid) ?? 0) + 1);
+      }
+
+      const yearMap = yearlyOpeners.get(year) ?? new Map<string, number>();
+      yearMap.set(opener.name, (yearMap.get(opener.name) ?? 0) + 1);
+      yearlyOpeners.set(year, yearMap);
+    }
+
+    const topPairs = Array.from(pairCounts.entries())
+      .map(([key, count]) => {
+        const [prevUuid] = key.split(">>");
+        const total = songAppearanceCount.get(prevUuid) ?? count;
+        const [from, to] = pairNames.get(key) as [string, string];
+        return { from, to, count, total, rate: total > 0 ? count / total : 0 };
+      })
+      .filter((p) => p.count >= 3)
+      .sort((a, b) => b.rate - a.rate || b.count - a.count)
+      .slice(0, 20);
+
+    const topOpeners = Array.from(openerCount.entries())
+      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    const topClosers = Array.from(closerCount.entries())
+      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    // オープナー/クローザー「専任」曲(中盤・逆側の役割には出ない)
+    const openerSpecialists = Array.from(openerCount.entries())
+      .filter(
+        ([uuid, count]) =>
+          count >= 2 && !middleCount.has(uuid) && !closerCount.has(uuid)
+      )
+      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+    const closerSpecialists = Array.from(closerCount.entries())
+      .filter(
+        ([uuid, count]) =>
+          count >= 2 && !middleCount.has(uuid) && !openerCount.has(uuid)
+      )
+      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    const yearlyOpenerTop = Array.from(yearlyOpeners.entries())
+      .map(([year, m]) => {
+        const sorted = Array.from(m.entries()).sort((a, b) => b[1] - a[1]);
+        return {
+          year,
+          topSong: sorted[0]?.[0] ?? null,
+          count: sorted[0]?.[1] ?? 0,
+        };
+      })
+      .sort((a, b) => a.year.localeCompare(b.year));
+
+    // ツアー内の変化: 同一liveUuid配下で複数日程がある場合、初日と最終日の
+    // セトリを比較し、入れ替わった曲を抽出する。
+    const itemsByLive = new Map<string, typeof liveItems>();
+    for (const it of liveItems) {
+      const list = itemsByLive.get(it.liveUuid) ?? [];
+      list.push(it);
+      itemsByLive.set(it.liveUuid, list);
+    }
+    const tourDiffs: {
+      liveTitle: string;
+      liveSlug: string;
+      firstDate: string;
+      lastDate: string;
+      added: string[];
+      removed: string[];
+    }[] = [];
+    for (const [liveUuid, items] of itemsByLive) {
+      const dated = items
+        .filter((it) => !!it.date)
+        .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+      if (dated.length < 2) continue;
+      const first = dated[0];
+      const last = dated[dated.length - 1];
+      const namesOf = (itemUuid: string): Set<string> =>
+        new Set(
+          (rawByItem.get(itemUuid) ?? [])
+            .map((s) => resolveSongIdentity(s))
+            .filter((x): x is { uuid: string; name: string } => !!x)
+            .map((x) => x.name)
+        );
+      const firstNames = namesOf(first.liveItemUuid);
+      const lastNames = namesOf(last.liveItemUuid);
+      const added = Array.from(lastNames).filter((n) => !firstNames.has(n));
+      const removed = Array.from(firstNames).filter((n) => !lastNames.has(n));
+      if (added.length === 0 && removed.length === 0) continue;
+      const live = liveByUuid.get(liveUuid);
+      if (!live) continue;
+      tourDiffs.push({
+        liveTitle: live.title,
+        liveSlug: live.slug,
+        firstDate: first.date as string,
+        lastDate: last.date as string,
+        added,
+        removed,
+      });
+    }
+    tourDiffs.sort(
+      (a, b) => b.added.length + b.removed.length - (a.added.length + a.removed.length)
+    );
+
+    await writeDataJson("setlist-grammar.json", {
+      topPairs,
+      topOpeners,
+      topClosers,
+      openerSpecialists,
+      closerSpecialists,
+      yearlyOpenerTop,
+      tourDiffs: tourDiffs.slice(0, 15),
+    });
+    console.log(
+      `[setlist-grammar] pairs=${pairCounts.size} openers=${openerCount.size} closers=${closerCount.size} tourDiffs=${tourDiffs.length}`
+    );
+  }
 };
 
 /**

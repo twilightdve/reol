@@ -221,10 +221,10 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
       </div>
 
-      {/* 深堀りツール：相関図・開催地マップ・楽曲ソーター */}
+      {/* 深堀りツール：相関図・開催地マップ・楽曲ソーター・セトリの文法 */}
       <div className="px-2 sm:px-4 pt-8">
         <Kicker color="text-bx-blueLight">MORE TOOLS</Kicker>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-3.5">
           <GlassCard
             to="/cgraph"
             accent="blueLight"
@@ -285,6 +285,27 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <h2 className="mt-2 text-[15px] font-bold text-bx-ink">楽曲ソーター</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
               2曲ずつ好きな方を選んで、あなただけの楽曲ランキングを作成。
+            </p>
+          </GlassCard>
+
+          <GlassCard
+            to="/live/setlist-grammar/"
+            accent="blueLight"
+            className="p-4"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "セトリの文法",
+                card_type: "setlist_grammar",
+              })
+            }
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              SETLIST GRAMMAR
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリの文法</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              曲の隣接関係・定位置・年別傾向をデータで解析。
             </p>
           </GlassCard>
         </div>
