@@ -12,6 +12,7 @@ import type {
   CGraphNode,
   RawRelationsArtist,
 } from "./types";
+import SixDegreesPanel from "./SixDegreesPanel";
 import "./cgraph.css";
 
 /**
@@ -255,6 +256,8 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
   // ヘッダー (検索・年・ロール・プリセット) を折りたたむフラグ。
   // スマホでインスペクタを開いた時にノードが見えなくなる問題対策。
   const [headerCollapsed, setHeaderCollapsed] = useState<boolean>(false);
+  // 新規コンテンツ案A「Six Degrees of Reol」パネルの開閉。
+  const [showSixDegrees, setShowSixDegrees] = useState<boolean>(false);
   // ノード選択時、モバイル幅ならヘッダーを自動的に畳む。
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -629,6 +632,13 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           >
             PNG保存
           </button>
+          <button
+            type="button"
+            className="cgraph-mini-btn"
+            onClick={() => setShowSixDegrees((v) => !v)}
+          >
+            Six Degrees
+          </button>
         </div>
         <div className="cgraph-roles">
           {roleKeys
@@ -715,6 +725,13 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           </div>
         )}
         {!graph && !error && <div className="cgraph-loading">データ取得中…</div>}
+        {graph && showSixDegrees && (
+          <SixDegreesPanel
+            graph={graph}
+            onSelectNode={handleSelect}
+            onClose={() => setShowSixDegrees(false)}
+          />
+        )}
         {graph && (
           <CGraphView
             data={displayGraph ?? graph}

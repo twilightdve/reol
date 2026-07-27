@@ -650,3 +650,162 @@
 .cgraph-back-btn:hover {
   background: rgba(234, 179, 8, 0.25);
 }
+
+/* 新規コンテンツ案A「Six Degrees of Reol」パネル */
+.cgraph-sixdeg {
+  position: absolute;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  width: 280px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+}
+
+.cgraph-sixdeg header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.cgraph-sixdeg header h2 {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.cgraph-sixdeg-desc {
+  color: #6b7280;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.cgraph-sixdeg-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cgraph-sixdeg-field {
+  position: relative;
+}
+
+.cgraph-sixdeg-field label {
+  display: block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-bottom: 2px;
+}
+
+.cgraph-sixdeg-field input {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+}
+
+.cgraph-sixdeg-suggest {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 2px 0 0;
+  padding: 4px;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cgraph-sixdeg-suggest li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 4px 6px;
+  border: none;
+  background: none;
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cgraph-sixdeg-suggest li button:hover {
+  background: #f3f4f6;
+}
+
+.cgraph-sixdeg-result {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.cgraph-sixdeg-nopath {
+  color: #b45309;
+  font-size: 0.78rem;
+}
+
+.cgraph-sixdeg-count {
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 0 8px;
+}
+
+.cgraph-sixdeg-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cgraph-sixdeg-hop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 4px 8px;
+  padding-left: 8px;
+  border-left: 2px dashed #d1d5db;
+}
+
+.cgraph-sixdeg-weak {
+  color: #9ca3af;
+  font-size: 0.68rem;
+}
+
+.cgraph-sixdeg-node {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 5px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #f9fafb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cgraph-sixdeg-node:hover {
+  background: #eef2ff;
+  border-color: #a5b4fc;
+}
+
+@media (max-width: 640px) {
+  .cgraph-sixdeg {
+    left: 8px;
+    right: 8px;
+    width: auto;
+  }
+}
