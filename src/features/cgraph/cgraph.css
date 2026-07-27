@@ -706,46 +706,14 @@
   margin-bottom: 2px;
 }
 
-.cgraph-sixdeg-field input {
+.cgraph-sixdeg-field select {
   width: 100%;
   padding: 5px 8px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 0.8rem;
-  box-sizing: border-box;
-}
-
-.cgraph-sixdeg-suggest {
-  position: absolute;
-  z-index: 5;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin: 2px 0 0;
-  padding: 4px;
-  list-style: none;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.cgraph-sixdeg-suggest li button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 4px 6px;
-  border: none;
-  background: none;
-  font-size: 0.78rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.cgraph-sixdeg-suggest li button:hover {
-  background: #f3f4f6;
+  box-sizing: border-box;
 }
 
 .cgraph-sixdeg-result {

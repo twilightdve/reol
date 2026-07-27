@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { CGraphData, CGraphNode } from "./types";
 import { findShortestPath } from "./pathfinder";
 import { getRoleConfig } from "./role-config";
@@ -9,61 +9,31 @@ interface SixDegreesPanelProps {
   onClose: () => void;
 }
 
-/** 入力欄1つぶんのアーティスト検索(タイプアヘッド)。 */
+/** 入力欄1つぶんのアーティスト選択(ドロップダウン)。 */
 const ArtistPicker: React.FC<{
   label: string;
   artists: CGraphNode[];
   value: CGraphNode | null;
   onChange: (node: CGraphNode | null) => void;
 }> = ({ label, artists, value, onChange }) => {
-  const [query, setQuery] = useState(value?.name ?? "");
-  const [open, setOpen] = useState(false);
-
-  // ランダム選択など、親から value が外部的に変わった場合も表示を追従させる。
-  useEffect(() => {
-    if (value) setQuery(value.name);
-  }, [value]);
-
-  const suggestions = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return [];
-    return artists.filter((a) => a.name.toLowerCase().includes(q)).slice(0, 8);
-  }, [artists, query]);
-
   return (
     <div className="cgraph-sixdeg-field">
-      <label>{label}</label>
-      <input
-        type="text"
-        value={query}
-        placeholder="アーティスト名"
+      <label htmlFor={`cgraph-sixdeg-${label}`}>{label}</label>
+      <select
+        id={`cgraph-sixdeg-${label}`}
+        value={value?.id ?? ""}
         onChange={(e) => {
-          setQuery(e.target.value);
-          setOpen(true);
-          if (value) onChange(null);
+          const node = artists.find((a) => a.id === e.target.value) ?? null;
+          onChange(node);
         }}
-        onFocus={() => setOpen(true)}
-        onBlur={() => setTimeout(() => setOpen(false), 150)}
-      />
-      {open && suggestions.length > 0 && (
-        <ul className="cgraph-sixdeg-suggest">
-          {suggestions.map((a) => (
-            <li key={a.id}>
-              <button
-                type="button"
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => {
-                  onChange(a);
-                  setQuery(a.name);
-                  setOpen(false);
-                }}
-              >
-                {a.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      >
+        <option value="">アーティストを選択</option>
+        {artists.map((a) => (
+          <option key={a.id} value={a.id}>
+            {a.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
