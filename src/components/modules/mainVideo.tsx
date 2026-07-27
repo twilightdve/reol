@@ -24,6 +24,19 @@ const isSecondLevelPath = (pathname: string): boolean => {
   return segments.length >= 2;
 };
 
+// 相関図 (/cgraph) と参戦地マップ (/live/heatmap) はフルスクリーンの
+// グラフ/マップ描画ページ。body.tsx の isCGraphPath / isLiveHeatmapPath と
+// 同じ判定を用いて、フル表示の動画が描画領域を圧迫しないよう常にミニ表示に固定する。
+const isFullscreenVizPath = (pathname: string): boolean => {
+  if (!pathname) return false;
+  return (
+    pathname === "/cgraph" ||
+    pathname.startsWith("/cgraph/") ||
+    pathname === "/live/heatmap" ||
+    pathname.startsWith("/live/heatmap/")
+  );
+};
+
 const defaultOpts: Options = {
   height: "180",
   width: "320",
@@ -92,7 +105,7 @@ const MainVideo: React.FC<Props> = ({
     });
     return () => unlisten();
   }, []);
-  const forceMini = isSecondLevelPath(pathname);
+  const forceMini = isSecondLevelPath(pathname) || isFullscreenVizPath(pathname);
   // 実際に「縮小表示として描画するか」。スクロール連動の縮小(isShrinked && onPlaying)
   // に加え、2階層目のページでは常にミニ表示を強制する。
   const isMini = (isShrinked && onPlaying) || forceMini;
@@ -282,7 +295,17 @@ const MainVideo: React.FC<Props> = ({
             ? // position:fixedはビューポート基準のため、ヘッダー(h-16=4rem, z-40)が
               // まだ画面上部にある間(nearTop)はその下に、スクロールでヘッダーが
               // 画面外に出たら本来の右上端(top-1)に寄せる。
-              `fixed w-[min(30vw,13rem)] ${nearTop ? "top-[4.25rem]" : "top-1"} right-1 -translate-x-1 rounded-lg`
+              // 相関図/参戦地マップはスクロールしない固定ビューポートページなので
+              // nearTopが常にtrueのまま維持され、素朴に4.25remだと自前のツールバー
+              // (検索/絞り込み/Six Degreesボタン)に重なってしまうため、
+              // その高さ分さらに下にオフセットする。
+              `fixed w-[min(30vw,13rem)] ${
+                isFullscreenVizPath(pathname)
+                  ? "top-[7.5rem]"
+                  : nearTop
+                  ? "top-[4.25rem]"
+                  : "top-1"
+              } right-1 -translate-x-1 rounded-lg`
             : "w-full top-0 right-0 left-full translate-x-0 rounded-none"
         }`}
       >

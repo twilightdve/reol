@@ -11,96 +11,159 @@
   overflow: hidden;
 }
 
-.cgraph-header {
+/* --- ツールバー: 常時表示は1段のみ。検索/絞り込み/PNG保存等は
+   トグルで開くドロワー・メニューに格納する。 --- */
+.cgraph-toolbar {
   flex-shrink: 0;
-  padding: 12px 16px 8px;
+  padding: 8px 16px;
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   position: relative;
 }
 
-.cgraph-header-toggle {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  padding: 2px 8px;
-  font-size: 0.7rem;
-  color: #6b7280;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  border-radius: 999px;
-  cursor: pointer;
-  display: none;
+.cgraph-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.cgraph-header-toggle:hover {
-  background: #e5e7eb;
+.cgraph-toolbar-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
 }
 
-.cgraph-header--collapsed .cgraph-title p,
-.cgraph-header--collapsed .cgraph-controls,
-.cgraph-header--collapsed .cgraph-roles,
-.cgraph-header--collapsed .cgraph-presets {
-  display: none;
-}
-
-.cgraph-header--collapsed {
-  padding-bottom: 4px;
-}
-
-.cgraph-title h1 {
-  font-size: 1.1rem;
+.cgraph-toolbar-title h1 {
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  margin: 0 0 2px;
+  letter-spacing: 0.03em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cgraph-title p {
-  font-size: 0.7rem;
+.cgraph-toolbar-count {
+  font-size: 0.72rem;
   color: #6b7280;
-  margin: 0 0 8px;
-  line-height: 1.5;
+  white-space: nowrap;
 }
 
-/* Six Degrees 導線。他の地味なミニボタンに埋もれないよう、
-   タイトル直下に単独の目立つCTAとして配置する。 */
-.cgraph-sixdeg-cta {
-  display: inline-flex;
+.cgraph-toolbar-actions {
+  display: flex;
   align-items: center;
   gap: 6px;
-  margin: 0 0 10px;
-  padding: 7px 14px;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f59e0b, #ec4899);
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cgraph-tbtn {
+  position: relative;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.35);
+  white-space: nowrap;
 }
 
-.cgraph-sixdeg-cta:hover {
-  filter: brightness(1.08);
+.cgraph-tbtn:hover {
+  background: #f3f4f6;
 }
 
-.cgraph-controls {
+.cgraph-tbtn[aria-pressed="true"],
+.cgraph-tbtn[aria-expanded="true"] {
+  background: #111827;
+  border-color: #111827;
+  color: #ffffff;
+}
+
+/* Six Degrees 導線。派手なグラデーションは使わず、他のツールバー
+   ボタンと同じ形で、ボーダー色のみアクセントにする。 */
+.cgraph-tbtn-accent {
+  border-color: #0ea5e9;
+  color: #0369a1;
+}
+
+.cgraph-tbtn-accent:hover {
+  background: #f0f9ff;
+}
+
+.cgraph-tbtn-accent[aria-pressed="true"] {
+  background: #0369a1;
+  border-color: #0369a1;
+  color: #ffffff;
+}
+
+.cgraph-tbtn-dot {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0ea5e9;
+}
+
+.cgraph-tbtn-menu-wrap {
+  position: relative;
+}
+
+.cgraph-tbtn-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 20;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  min-width: 140px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+}
+
+.cgraph-tbtn-menu button {
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #111827;
+}
+
+.cgraph-tbtn-menu button:hover {
+  background: #f3f4f6;
+}
+
+.cgraph-search-row {
+  margin-top: 8px;
+}
+
+.cgraph-filters-drawer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .cgraph-search {
-  flex: 1 1 200px;
-  min-width: 180px;
+  width: 100%;
   padding: 6px 10px;
   font-size: 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   background: #f9fafb;
+  box-sizing: border-box;
 }
 
 .cgraph-search:focus {
@@ -162,6 +225,25 @@
 .cgraph-canvas {
   position: absolute;
   inset: 0;
+  transition: right 0.2s ease;
+}
+
+/* 右ドック(インスペクタ / Six Degrees)が開いている間は、
+   オーバーレイで隠すのではなくキャンバスの描画領域自体を縮める。 */
+.cgraph-main--docked .cgraph-canvas {
+  right: 320px;
+}
+
+.cgraph-dock {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
 }
 
 .cgraph-loading,
@@ -214,11 +296,8 @@
 }
 
 .cgraph-inspector {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 260px;
-  max-height: calc(100% - 24px);
+  width: 100%;
+  max-height: 100%;
   overflow-y: auto;
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -226,6 +305,7 @@
   padding: 10px 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   font-size: 0.8rem;
+  box-sizing: border-box;
 }
 
 /* 最小化時はヘッダ (ノード名 + ボタン) だけ表示してグラフ領域を広く取る。 */
@@ -562,42 +642,38 @@
 }
 
 @media (max-width: 640px) {
-  .cgraph-header-toggle {
-    display: inline-block;
-  }
-
-  .cgraph-title p {
-    display: none;
-  }
-
-  .cgraph-title h1 {
+  .cgraph-toolbar-title h1 {
     font-size: 1rem;
   }
 
-  .cgraph-inspector {
-    /* 画面下部に固定、画面の最大 50% を占める。背景タップで focus 解除しやすく。 */
+  .cgraph-tbtn {
+    padding: 6px 9px;
+  }
+
+  /* モバイルではキャンバスを縮めず、ドックは画面下部に重ねる
+     bottom sheet として表示する(横幅が狭くグラフ領域を優先したいため)。 */
+  .cgraph-main--docked .cgraph-canvas {
+    right: 0;
+  }
+
+  .cgraph-dock {
     top: auto;
-    right: 8px;
     left: 8px;
+    right: 8px;
     bottom: 8px;
     width: auto;
     max-height: 50vh;
-    overflow-y: auto;
+  }
+
+  .cgraph-inspector,
+  .cgraph-sixdeg {
+    width: 100%;
+    max-height: 50vh;
   }
 
   .cgraph-inspector--mini {
     max-height: 64px;
     max-width: none;
-  }
-
-  .cgraph-controls {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .cgraph-search {
-    flex: 1 1 100%;
-    min-width: 0;
   }
 }
 
@@ -674,14 +750,11 @@
   background: rgba(234, 179, 8, 0.25);
 }
 
-/* 新規コンテンツ案A「Six Degrees of Reol」パネル */
+/* 新規コンテンツ案A「Six Degrees of Reol」パネル。
+   インスペクタと同じ右ドックスロットを共有する(排他表示)。 */
 .cgraph-sixdeg {
-  position: absolute;
-  z-index: 10;
-  top: 12px;
-  left: 12px;
-  width: 280px;
-  max-height: calc(100% - 24px);
+  width: 100%;
+  max-height: 100%;
   overflow-y: auto;
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -689,6 +762,7 @@
   padding: 10px 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   font-size: 0.8rem;
+  box-sizing: border-box;
 }
 
 .cgraph-sixdeg header {
@@ -793,10 +867,3 @@
   border-color: #a5b4fc;
 }
 
-@media (max-width: 640px) {
-  .cgraph-sixdeg {
-    left: 8px;
-    right: 8px;
-    width: auto;
-  }
-}
