@@ -765,19 +765,56 @@ const createSongStatsNodes = async (
       list.sort((a, b) => a.liveItemSongUuid.localeCompare(b.liveItemSongUuid));
     }
 
+    // 同一ツアー(liveUuid)内の複数日程は基本的にセトリがほぼ同じため、隣接・
+    // 定位置・年別集計を日程ごとに数えると長期ツアーが過剰にカウントされる。
+    // 各ツアーにつき最も早い日程(初日)1公演だけを代表として使う
+    // (ツアー内の入れ替わり比較は別途この後で初日・最終日を突き合わせるので対象外)。
+    const representativeItemUuidByLive = new Map<string, string>();
+    for (const it of liveItems) {
+      if (!it.date) continue;
+      const curUuid = representativeItemUuidByLive.get(it.liveUuid);
+      const curItem = curUuid ? itemMap.get(curUuid) : null;
+      if (!curItem || !curItem.date || it.date < curItem.date) {
+        representativeItemUuidByLive.set(it.liveUuid, it.liveItemUuid);
+      }
+    }
+    const representativeItemUuids = new Set(
+      representativeItemUuidByLive.values()
+    );
+
+    // 「何を数えたか」をクリックで確認できるように、集計の内訳(どのツアーが
+    // カウントされたか)もソースとして残しておく。
+    type GrammarSource = { liveTitle: string; liveSlug: string; date: string };
+
     const pairCounts = new Map<string, number>();
     const pairNames = new Map<string, [string, string]>();
+    const pairSources = new Map<string, GrammarSource[]>();
     const songAppearanceCount = new Map<string, number>();
     const openerCount = new Map<string, number>();
+    const openerSources = new Map<string, GrammarSource[]>();
     const closerCount = new Map<string, number>();
+    const closerSources = new Map<string, GrammarSource[]>();
     const middleCount = new Map<string, number>();
     const yearlyOpeners = new Map<string, Map<string, number>>();
+    const yearlyOpenerSources = new Map<string, GrammarSource[]>();
     const nameByUuid = new Map<string, string>();
 
     for (const [liveItemUuid, rawList] of rawByItem) {
+      if (!representativeItemUuids.has(liveItemUuid)) continue;
       const item = itemMap.get(liveItemUuid);
       if (!item || !item.date) continue;
       const year = item.date.slice(0, 4);
+      const live = liveByUuid.get(item.liveUuid);
+      const source: GrammarSource = {
+        liveTitle: live?.title ?? "",
+        liveSlug: live?.slug ?? "",
+        date: item.date,
+      };
+      const pushSource = (map: Map<string, GrammarSource[]>, key: string) => {
+        const list = map.get(key) ?? [];
+        list.push(source);
+        map.set(key, list);
+      };
 
       const resolved = rawList.map((s) => resolveSongIdentity(s));
       const songOnly: { uuid: string; name: string }[] = [];
@@ -793,6 +830,7 @@ const createSongStatsNodes = async (
           const key = `${prev.uuid}>>${cur.uuid}`;
           pairCounts.set(key, (pairCounts.get(key) ?? 0) + 1);
           pairNames.set(key, [prev.name, cur.name]);
+          pushSource(pairSources, key);
         }
       }
 
@@ -800,7 +838,9 @@ const createSongStatsNodes = async (
       const opener = songOnly[0];
       const closer = songOnly[songOnly.length - 1];
       openerCount.set(opener.uuid, (openerCount.get(opener.uuid) ?? 0) + 1);
+      pushSource(openerSources, opener.uuid);
       closerCount.set(closer.uuid, (closerCount.get(closer.uuid) ?? 0) + 1);
+      pushSource(closerSources, closer.uuid);
       for (let i = 1; i < songOnly.length - 1; i++) {
         const mid = songOnly[i];
         middleCount.set(mid.uuid, (middleCount.get(mid.uuid) ?? 0) + 1);
@@ -809,6 +849,7 @@ const createSongStatsNodes = async (
       const yearMap = yearlyOpeners.get(year) ?? new Map<string, number>();
       yearMap.set(opener.name, (yearMap.get(opener.name) ?? 0) + 1);
       yearlyOpeners.set(year, yearMap);
+      pushSource(yearlyOpenerSources, `${year}::${opener.name}`);
     }
 
     const topPairs = Array.from(pairCounts.entries())
@@ -816,19 +857,34 @@ const createSongStatsNodes = async (
         const [prevUuid] = key.split(">>");
         const total = songAppearanceCount.get(prevUuid) ?? count;
         const [from, to] = pairNames.get(key) as [string, string];
-        return { from, to, count, total, rate: total > 0 ? count / total : 0 };
+        return {
+          from,
+          to,
+          count,
+          total,
+          rate: total > 0 ? count / total : 0,
+          sources: pairSources.get(key) ?? [],
+        };
       })
       .filter((p) => p.count >= 3)
       .sort((a, b) => b.rate - a.rate || b.count - a.count)
       .slice(0, 20);
 
     const topOpeners = Array.from(openerCount.entries())
-      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: openerSources.get(uuid) ?? [],
+      }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
     const topClosers = Array.from(closerCount.entries())
-      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: closerSources.get(uuid) ?? [],
+      }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
@@ -838,7 +894,11 @@ const createSongStatsNodes = async (
         ([uuid, count]) =>
           count >= 2 && !middleCount.has(uuid) && !closerCount.has(uuid)
       )
-      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: openerSources.get(uuid) ?? [],
+      }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
     const closerSpecialists = Array.from(closerCount.entries())
@@ -846,17 +906,25 @@ const createSongStatsNodes = async (
         ([uuid, count]) =>
           count >= 2 && !middleCount.has(uuid) && !openerCount.has(uuid)
       )
-      .map(([uuid, count]) => ({ name: nameByUuid.get(uuid) ?? uuid, count }))
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: closerSources.get(uuid) ?? [],
+      }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
     const yearlyOpenerTop = Array.from(yearlyOpeners.entries())
       .map(([year, m]) => {
         const sorted = Array.from(m.entries()).sort((a, b) => b[1] - a[1]);
+        const topSong = sorted[0]?.[0] ?? null;
         return {
           year,
-          topSong: sorted[0]?.[0] ?? null,
+          topSong,
           count: sorted[0]?.[1] ?? 0,
+          sources: topSong
+            ? yearlyOpenerSources.get(`${year}::${topSong}`) ?? []
+            : [],
         };
       })
       .sort((a, b) => a.year.localeCompare(b.year));
