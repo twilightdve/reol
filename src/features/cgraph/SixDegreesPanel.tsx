@@ -31,6 +31,7 @@ const ArtistPicker: React.FC<{
         {artists.map((a) => (
           <option key={a.id} value={a.id}>
             {a.name}
+            {typeof a.degree === "number" ? ` (${a.degree})` : ""}
           </option>
         ))}
       </select>
@@ -43,11 +44,16 @@ const SixDegreesPanel: React.FC<SixDegreesPanelProps> = ({
   onSelectNode,
   onClose,
 }) => {
+  // つながりの数(degree)の降順。同数なら名前順で安定化。
   const artists = useMemo(
     () =>
       graph.nodes
         .filter((n) => n.kind === "artist")
-        .sort((a, b) => a.name.localeCompare(b.name, "ja")),
+        .sort(
+          (a, b) =>
+            (b.degree ?? 0) - (a.degree ?? 0) ||
+            a.name.localeCompare(b.name, "ja")
+        ),
     [graph]
   );
 

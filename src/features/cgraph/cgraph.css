@@ -63,6 +63,28 @@
   line-height: 1.5;
 }
 
+/* Six Degrees 導線。他の地味なミニボタンに埋もれないよう、
+   タイトル直下に単独の目立つCTAとして配置する。 */
+.cgraph-sixdeg-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.35);
+}
+
+.cgraph-sixdeg-cta:hover {
+  filter: brightness(1.08);
+}
+
 .cgraph-controls {
   display: flex;
   flex-wrap: wrap;

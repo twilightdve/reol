@@ -562,6 +562,13 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             アーティストの相関図。ノードをドラッグして整え、ホバーで関係を強調、
             クリックで近傍にフォーカス、右クリックでサイト内検索へ。
           </p>
+          <button
+            type="button"
+            className="cgraph-sixdeg-cta"
+            onClick={() => setShowSixDegrees((v) => !v)}
+          >
+            🔗 Six Degrees — 2人のつながりを探す
+          </button>
         </div>
         <div className="cgraph-controls">
           <input
@@ -631,13 +638,6 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             }}
           >
             PNG保存
-          </button>
-          <button
-            type="button"
-            className="cgraph-mini-btn"
-            onClick={() => setShowSixDegrees((v) => !v)}
-          >
-            Six Degrees
           </button>
         </div>
         <div className="cgraph-roles">
