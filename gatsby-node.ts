@@ -1504,8 +1504,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
       for (const item of live.items ?? []) {
         const d = parseMonthDay(item.date);
         if (!d) continue;
-        const songs = item.setList.filter((s) => s.type !== "segment");
-        const mcCount = item.setList.length - songs.length;
+        // liveItemSongName が空文字のエントリは「セトリ未登録」のプレースホルダー
+        // (segment同様、実際の演奏曲としては扱わない)。
+        const songs = item.setList.filter(
+          (s) => !!s.liveItemSongName && s.type !== "segment"
+        );
+        const mcCount = item.setList.filter(
+          (s) => s.type === "segment"
+        ).length;
         const metaParts = [
           LIVE_TYPE_LABEL[live.type] ?? live.type,
           songs.length > 0
