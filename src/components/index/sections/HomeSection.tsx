@@ -221,7 +221,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
       </div>
 
-      {/* 深堀りツール：相関図・開催地マップ・日替わりクイズ */}
+      {/* 深堀りツール：相関図・開催地マップ・楽曲ソーター */}
       <div className="px-2 sm:px-4 pt-8">
         <Kicker color="text-bx-blueLight">MORE TOOLS</Kicker>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-3.5">
@@ -268,25 +268,23 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           </GlassCard>
 
           <GlassCard
-            to="/quiz/live-guess/"
+            to="/songs/sorter/"
             accent="blueLight"
             className="p-4"
             onClick={() =>
               trackEvent("entry_card_click", {
                 category: "navigation",
-                label: "日替わり公演当てクイズ",
-                card_type: "live_guess_quiz",
+                label: "楽曲ソーター",
+                card_type: "song_sorter",
               })
             }
           >
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              DAILY QUIZ
+              SONG SORTER
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">
-              日替わり公演当てクイズ
-            </h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">楽曲ソーター</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              ヒントを1つずつ開いて、今日の公演を当てよう。
+              2曲ずつ好きな方を選んで、あなただけの楽曲ランキングを作成。
             </p>
           </GlassCard>
         </div>
