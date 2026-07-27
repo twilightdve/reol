@@ -254,11 +254,11 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   )}
 
                   {ev.setlist.length > 0 && (
-                    <details className="mt-2.5 pt-2.5 border-t border-bx-line">
-                      <summary className="cursor-pointer text-[11px] text-bx-ink3 hover:text-bx-ink">
-                        セットリストを見る ({ev.setlist.length}曲)
-                      </summary>
-                      <ol className="mt-2 space-y-1 text-[12px] text-bx-ink2">
+                    <div className="mt-2.5 pt-2.5 border-t border-bx-line">
+                      <div className="text-[11px] text-bx-ink3 mb-1.5">
+                        セットリスト ({ev.setlist.length}曲)
+                      </div>
+                      <ol className="space-y-1 text-[12px] text-bx-ink2">
                         {ev.setlist.map((s, si) =>
                           s.slug ? (
                             <li key={si}>
@@ -276,7 +276,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                           )
                         )}
                       </ol>
-                    </details>
+                    </div>
                   )}
                 </GlassCard>
               </li>
