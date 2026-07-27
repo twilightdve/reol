@@ -62,10 +62,99 @@ const fetchJson = async <T,>(url: string): Promise<T> => {
   return r.json();
 };
 
+/**
+ * 年×月のカレンダー形式でスナップショットを選べるグリッド。
+ * スナップショットは「変化のあった月」だけに間引かれているため(gatsby-node.ts参照)、
+ * マークが付く=その月に何かが起きた月、付かない=データが存在しない/動きが無い月。
+ */
+const YearMonthCalendar: React.FC<{
+  snapshots: Snapshot[];
+  currentMonth: string;
+  onSelectMonth: (index: number) => void;
+}> = ({ snapshots, currentMonth, onSelectMonth }) => {
+  const indexByMonth = useMemo(() => {
+    const m = new Map<string, number>();
+    snapshots.forEach((s, i) => m.set(s.month, i));
+    return m;
+  }, [snapshots]);
+
+  const minMonth = snapshots[0]?.month ?? "";
+  const maxMonth = snapshots[snapshots.length - 1]?.month ?? "";
+  const minYear = parseInt(minMonth.slice(0, 4), 10);
+  const maxYear = parseInt(maxMonth.slice(0, 4), 10);
+  const years = Array.from(
+    { length: maxYear - minYear + 1 },
+    (_, i) => minYear + i
+  );
+
+  return (
+    <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-3 sm:p-4 overflow-x-auto">
+      <table className="w-full text-center border-collapse">
+        <thead>
+          <tr>
+            <th className="text-[10px] text-bx-ink3 font-normal text-left pr-2">
+              年
+            </th>
+            {Array.from({ length: 12 }, (_, i) => i + 1).map((mo) => (
+              <th key={mo} className="text-[10px] text-bx-ink3 font-normal">
+                {mo}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {years.map((year) => (
+            <tr key={year}>
+              <td className="text-[11px] text-bx-ink3 tabular-nums text-left pr-2 whitespace-nowrap">
+                {year}
+              </td>
+              {Array.from({ length: 12 }, (_, i) => i + 1).map((mo) => {
+                const key = `${year}-${String(mo).padStart(2, "0")}`;
+                if (key < minMonth || key > maxMonth) {
+                  return <td key={mo} className="p-0.5" />;
+                }
+                const snapshotIndex = indexByMonth.get(key);
+                const isCurrent = key === currentMonth;
+                return (
+                  <td key={mo} className="p-0.5">
+                    {snapshotIndex !== undefined ? (
+                      <button
+                        type="button"
+                        onClick={() => onSelectMonth(snapshotIndex)}
+                        aria-label={formatMonth(key)}
+                        className={`w-full aspect-square rounded text-[10px] transition-colors ${
+                          isCurrent
+                            ? "bg-bx-yellow text-bx-bg font-bold"
+                            : "bg-bx-blue/40 hover:bg-bx-blue/70 text-bx-ink"
+                        }`}
+                      >
+                        {mo}
+                      </button>
+                    ) : (
+                      <div
+                        aria-hidden
+                        className="w-full aspect-square rounded bg-bx-line/30"
+                      />
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="mt-2 text-[10px] text-bx-ink3">
+        色付きのマス = リリース・ライブ・初披露曲のいずれかがあった月
+      </p>
+    </div>
+  );
+};
+
 const TimeMachinePage: React.FC = () => {
   const [snapshots, setSnapshots] = useState<Snapshot[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [index, setIndex] = useState<number | null>(null);
+  const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
     fetchJson<{ snapshots: Snapshot[] }>("/static/data/timemachine.json")
@@ -161,7 +250,22 @@ const TimeMachinePage: React.FC = () => {
               <span>{snapshots && formatMonth(snapshots[0].month)}</span>
               <span>{snapshots && formatMonth(snapshots[snapshots.length - 1].month)}</span>
             </div>
+            <button
+              type="button"
+              onClick={() => setShowCalendar((v) => !v)}
+              className="mt-3 text-[11px] font-bold text-bx-blueLight hover:text-bx-blue transition-colors"
+            >
+              {showCalendar ? "▲ カレンダーを閉じる" : "▼ カレンダーで選ぶ"}
+            </button>
           </section>
+
+          {showCalendar && snapshots && current && (
+            <YearMonthCalendar
+              snapshots={snapshots}
+              currentMonth={current.month}
+              onSelectMonth={goTo}
+            />
+          )}
 
           <section className="grid grid-cols-3 gap-2 sm:gap-3">
             {[

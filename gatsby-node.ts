@@ -1470,6 +1470,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
         onThisDayPageCount += 1;
       }
     }
+    // カレンダーUI用の軽量インデックス(MM-DD → イベント件数)。個々の日ページの
+    // pageContextには自分の月の365日ぶんを重複して埋め込みたくないため、
+    // 別ファイルとしてクライアント側からfetchする。
+    const calendarIndex: Record<string, number> = {};
+    for (const [monthDay, events] of eventsByMonthDay) {
+      calendarIndex[monthDay] = events.length;
+    }
+    await writeDataJson("on-this-day-index.json", calendarIndex);
+
     console.log(
       `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`
     );

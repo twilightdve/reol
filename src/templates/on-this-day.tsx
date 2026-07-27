@@ -33,6 +33,92 @@ const formatMonthDayLabel = (monthDay: string): string => {
   return `${mo}月${d}日`;
 };
 
+const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const WEEKDAY_LABELS = ["日", "月", "火", "水", "木", "金", "土"];
+// 曜日レイアウト計算のためだけの固定基準年(実在の年月とは無関係な「MM-DD」の
+// 巡回カレンダーなので、閲覧時の実年とはあえて連動させない=ハイドレーション
+// ミスマッチも起きない)。
+const CALENDAR_LAYOUT_REF_YEAR = 2025;
+
+/** その月の1日が何曜日か(0=日)を、閲覧年に依存しない固定基準年で求める。 */
+const firstWeekdayOfMonth = (month: number): number =>
+  new Date(Date.UTC(CALENDAR_LAYOUT_REF_YEAR, month - 1, 1)).getUTCDay();
+
+const MonthCalendar: React.FC<{
+  month: number;
+  onPrevMonth: () => void;
+  onNextMonth: () => void;
+  index: Record<string, number> | null;
+  currentMonthDay: string;
+}> = ({ month, onPrevMonth, onNextMonth, index, currentMonthDay }) => {
+  const daysInMonth = DAYS_IN_MONTH[month - 1];
+  const leadingBlanks = firstWeekdayOfMonth(month);
+  const cells: (number | null)[] = [
+    ...Array(leadingBlanks).fill(null),
+    ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
+  ];
+
+  return (
+    <div className="mb-6 rounded-lg border border-bx-line p-3">
+      <div className="flex items-center justify-between mb-2">
+        <button
+          type="button"
+          onClick={onPrevMonth}
+          aria-label="前の月"
+          className="w-7 h-7 rounded-full text-bx-ink2 hover:text-bx-blue transition-colors"
+        >
+          ◀
+        </button>
+        <div className="text-sm font-bold text-bx-ink">{month}月</div>
+        <button
+          type="button"
+          onClick={onNextMonth}
+          aria-label="次の月"
+          className="w-7 h-7 rounded-full text-bx-ink2 hover:text-bx-blue transition-colors"
+        >
+          ▶
+        </button>
+      </div>
+      <div className="grid grid-cols-7 gap-1 text-center">
+        {WEEKDAY_LABELS.map((w) => (
+          <div key={w} className="text-[10px] text-bx-ink3 py-1">
+            {w}
+          </div>
+        ))}
+        {cells.map((day, i) => {
+          if (day === null) return <div key={`blank-${i}`} />;
+          const monthDayStr = `${String(month).padStart(2, "0")}-${String(
+            day
+          ).padStart(2, "0")}`;
+          const count = index?.[monthDayStr] ?? 0;
+          const isCurrent = monthDayStr === currentMonthDay;
+          return (
+            <Link
+              key={monthDayStr}
+              to={`/on-this-day/${monthDayStr}/`}
+              className={`relative flex flex-col items-center justify-center rounded py-1.5 text-xs transition-colors ${
+                isCurrent
+                  ? "bg-bx-yellow text-bx-bg font-bold"
+                  : count > 0
+                  ? "text-bx-ink hover:bg-bx-surface/10 font-medium"
+                  : "text-bx-ink3 hover:bg-bx-surface/10"
+              }`}
+            >
+              {day}
+              {count > 0 && !isCurrent && (
+                <span
+                  aria-hidden
+                  className="absolute bottom-0.5 w-1 h-1 rounded-full bg-bx-yellow"
+                />
+              )}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
   pageContext,
 }) => {
@@ -47,6 +133,25 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
+
+  // カレンダーの「どの日にマークが付くか」用インデックス。365ページそれぞれに
+  // 埋め込むと重複が大きいため、別ファイルとして1回だけ取得する。
+  const [calendarIndex, setCalendarIndex] = useState<Record<
+    string,
+    number
+  > | null>(null);
+  useEffect(() => {
+    fetch("/static/data/on-this-day-index.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => setCalendarIndex(data))
+      .catch(() => {
+        /* カレンダーのマークが出ないだけなので握りつぶす */
+      });
+  }, []);
+
+  const [calendarMonth, setCalendarMonth] = useState(
+    parseInt(monthDay.slice(0, 2), 10)
+  );
 
   return (
     <Layout title={`${label}は何の日`}>
@@ -75,6 +180,18 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
             {formatMonthDayLabel(nextMonthDay)} →
           </Link>
         </nav>
+
+        <MonthCalendar
+          month={calendarMonth}
+          onPrevMonth={() =>
+            setCalendarMonth((m) => (m === 1 ? 12 : m - 1))
+          }
+          onNextMonth={() =>
+            setCalendarMonth((m) => (m === 12 ? 1 : m + 1))
+          }
+          index={calendarIndex}
+          currentMonthDay={monthDay}
+        />
 
         {events.length === 0 ? (
           <p className="text-sm text-bx-ink3 border-t border-bx-line pt-6">
