@@ -514,6 +514,153 @@ const createSongStatsNodes = async (
     JSON.stringify({ summary, unmatched }, null, 2)
   );
 
+  // ----- 新規コンテンツ案E「タイムマシン」用の月次スナップショット事前計算 -----
+  // カットオフ日付までの楽曲数/ライブ数/演奏数は、SiteStats/SongStats と同じ
+  // 集計対象(canonicalUuidMap で名寄せ済みの songStats, segment除外済みの
+  // liveItemSongs)を日付でフィルタするだけにし、別ロジックで再集計しない
+  // (「サイト内の数字が一致しない」問題の再発防止)。
+  {
+    const allLiveDates = liveItems
+      .map((it) => it.date)
+      .filter((d): d is string => !!d);
+    if (allLiveDates.length > 0) {
+      const sortedDiscByDate = [...discographies]
+        .filter((d) => !!d.releaseDate)
+        .sort((a, b) => (a.releaseDate ?? "").localeCompare(b.releaseDate ?? ""));
+      const sortedLiveItemsByDate = [...liveItems]
+        .filter((it) => !!it.date)
+        .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+
+      const minMonth = allLiveDates.reduce((a, b) => (a < b ? a : b)).slice(0, 7);
+      const maxMonth = today.slice(0, 7);
+
+      const monthKeys: string[] = [];
+      {
+        let [y, m] = minMonth.split("-").map(Number);
+        const [maxY, maxM] = maxMonth.split("-").map(Number);
+        while (y < maxY || (y === maxY && m <= maxM)) {
+          monthKeys.push(`${y}-${String(m).padStart(2, "0")}`);
+          m += 1;
+          if (m > 12) {
+            m = 1;
+            y += 1;
+          }
+        }
+      }
+
+      let discPointer = -1;
+      let livePointer = 0;
+      const allSnapshots = monthKeys.map((month) => {
+        // 過去月は月末、当月は「今日」をカットオフにする
+        // (当月分を月末まで含めてしまうと、まだ開催されていない当月内の
+        // 予定公演を「開催済み」として誤カウントするため)
+        const cutoff = month === maxMonth ? today : `${month}-31`;
+
+        while (
+          discPointer + 1 < sortedDiscByDate.length &&
+          (sortedDiscByDate[discPointer + 1].releaseDate ?? "") <= cutoff
+        ) {
+          discPointer += 1;
+        }
+        const latestDisc = discPointer >= 0 ? sortedDiscByDate[discPointer] : null;
+
+        while (
+          livePointer < sortedLiveItemsByDate.length &&
+          (sortedLiveItemsByDate[livePointer].date ?? "") <= cutoff
+        ) {
+          livePointer += 1;
+        }
+        const nextItem = sortedLiveItemsByDate[livePointer] ?? null;
+        const nextItemParent = nextItem
+          ? liveByUuid.get(nextItem.liveUuid)
+          : null;
+
+        const songCount = songStats.filter(
+          (s) => !!s.firstPlayedDate && s.firstPlayedDate <= cutoff
+        ).length;
+        const liveItemCount = liveItems.filter(
+          (it) => (it.date ?? "") <= cutoff
+        ).length;
+        const performanceCount = liveItemSongs.filter((s) => {
+          if (!s.liveItemSongName || s.type === "segment") return false;
+          const item = itemMap.get(s.liveItemUuid);
+          return !!item && (item.date ?? "") <= cutoff;
+        }).length;
+
+        // この月「限定」のできごと(リリース/公演/初披露曲)。スナップショット
+        // 一覧を「変化のあった月だけ」に絞り込むための判定にも使う。
+        const releases = sortedDiscByDate
+          .filter((d) => (d.releaseDate ?? "").slice(0, 7) === month)
+          .map((d) => ({
+            title: d.title,
+            slug: d.slug,
+            releaseDate: d.releaseDate ?? null,
+          }));
+        const livesThisMonth = sortedLiveItemsByDate
+          .filter((it) => (it.date ?? "").slice(0, 7) === month)
+          .map((it) => {
+            const parent = liveByUuid.get(it.liveUuid);
+            return {
+              title: parent?.title ?? null,
+              itemName: it.liveItemName ?? null,
+              date: it.date ?? null,
+              place: it.place ?? null,
+              liveSlug: parent?.slug ?? null,
+              liveItemSlug: it.slug,
+            };
+          });
+        const newSongs = songStats
+          .filter((s) => (s.firstPlayedDate ?? "").slice(0, 7) === month)
+          .map((s) => ({ songName: s.songName, slug: s.slug }));
+
+        return {
+          month,
+          songCount,
+          liveItemCount,
+          performanceCount,
+          latestRelease: latestDisc
+            ? {
+                title: latestDisc.title,
+                slug: latestDisc.slug,
+                releaseDate: latestDisc.releaseDate ?? null,
+              }
+            : null,
+          nextLive: nextItem
+            ? {
+                title: nextItemParent?.title ?? null,
+                itemName: nextItem.liveItemName ?? null,
+                date: nextItem.date ?? null,
+                place: nextItem.place ?? null,
+                liveSlug: nextItemParent?.slug ?? null,
+              }
+            : null,
+          releases,
+          lives: livesThisMonth,
+          newSongs,
+        };
+      });
+
+      // 「全月」だと変化のない月が大半を占め閲覧体験が薄くなるため、
+      // リリース/公演/初披露曲のいずれかがあった月だけに絞り込む
+      // (累計値はその月時点のカットオフで計算済みのため、間引いても
+      // 「その時点までの累計」としての正しさは変わらない)。
+      // 最初と最後の月は範囲の起点/現在地として常に残す。
+      const snapshots = allSnapshots.filter(
+        (s, i) =>
+          i === 0 ||
+          i === allSnapshots.length - 1 ||
+          s.releases.length > 0 ||
+          s.lives.length > 0 ||
+          s.newSongs.length > 0
+      );
+
+      await writeDataJson("timemachine.json", { snapshots });
+      console.log(
+        `[timemachine] generated ${snapshots.length}/${allSnapshots.length} eventful monthly snapshots (${minMonth} - ${maxMonth})`
+      );
+    }
+  }
+
   // ----- ライブ類似度（Jaccard係数）の事前計算 -----
   // songUuid のセットを liveUuid 単位で構築
   const songSetByLive = new Map<string, Set<string>>();

@@ -116,8 +116,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
       {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示) */}
       <OnThisDay />
 
-      {/* 入口3カード：初見の人が最初に触れる導線 */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 px-2 sm:px-4 pt-10">
+      {/* 入口カード：初見の人が最初に触れる導線 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 px-2 sm:px-4 pt-10">
         {/* はじめてのReol */}
         <GlassCard
           to="/welcome/"
@@ -195,6 +195,28 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           <h2 className="mt-2 text-[15px] font-bold text-bx-ink">データを掘る</h2>
           <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
             {songCount}曲の演奏回数・初披露・最終演奏を全曲収録。
+          </p>
+        </GlassCard>
+
+        {/* タイムマシン */}
+        <GlassCard
+          to="/timemachine/"
+          accent="ink"
+          className="p-4"
+          onClick={() =>
+            trackEvent("entry_card_click", {
+              category: "navigation",
+              label: "タイムマシン",
+              card_type: "timemachine",
+            })
+          }
+        >
+          <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-ink">
+            TIME MACHINE
+          </p>
+          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">タイムマシン</h2>
+          <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+            年月スライダーで、当時の楽曲数・ライブ数・演奏数を再現。
           </p>
         </GlassCard>
       </div>
