@@ -11,6 +11,8 @@ type OnThisDayEvent = {
   suffix: string;
   to: string;
   meta: string | null;
+  musicVideos: { name: string; slug: string; url: string }[];
+  setlist: { name: string; slug: string | null }[];
 };
 
 type OnThisDayPageContext = {
@@ -199,39 +201,83 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
             {events.map((ev, i) => (
               <li key={`otd-${i}`}>
                 <GlassCard
-                  to={ev.to}
                   accent={ev.kind === "release" ? "blueLight" : "yellow"}
-                  className="flex items-center gap-3 p-3"
+                  className="p-3"
                 >
-                  <div
-                    aria-hidden
-                    className={`w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-lg font-extrabold ${
-                      ev.kind === "release"
-                        ? "bg-bx-blueLight/15 text-bx-blueLight"
-                        : "bg-bx-yellow/15 text-bx-yellow"
-                    }`}
+                  <Link
+                    to={ev.to}
+                    className="group flex items-center gap-3"
                   >
-                    {ev.kind === "release" ? "♪" : "🎤"}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
-                      {ev.year}年
-                      {currentYear !== null && currentYear > ev.year && (
-                        <span className="ml-1 text-bx-ink3 font-medium">
-                          ({currentYear - ev.year}年前)
-                        </span>
-                      )}
-                    </span>
-                    <div className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors truncate">
-                      {ev.label}
-                      {ev.suffix}
+                    <div
+                      aria-hidden
+                      className={`w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-lg font-extrabold ${
+                        ev.kind === "release"
+                          ? "bg-bx-blueLight/15 text-bx-blueLight"
+                          : "bg-bx-yellow/15 text-bx-yellow"
+                      }`}
+                    >
+                      {ev.kind === "release" ? "♪" : "🎤"}
                     </div>
-                    {ev.meta && (
-                      <div className="text-[11px] text-bx-ink3 mt-0.5 truncate">
-                        {ev.meta}
+                    <div className="min-w-0 flex-1">
+                      <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
+                        {ev.year}年
+                        {currentYear !== null && currentYear > ev.year && (
+                          <span className="ml-1 text-bx-ink3 font-medium">
+                            ({currentYear - ev.year}年前)
+                          </span>
+                        )}
+                      </span>
+                      <div className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors truncate">
+                        {ev.label}
+                        {ev.suffix}
                       </div>
-                    )}
-                  </div>
+                      {ev.meta && (
+                        <div className="text-[11px] text-bx-ink3 mt-0.5 truncate">
+                          {ev.meta}
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+
+                  {ev.musicVideos.length > 0 && (
+                    <div className="mt-2.5 pt-2.5 border-t border-bx-line flex flex-wrap gap-1.5">
+                      {ev.musicVideos.map((mv) => (
+                        <Link
+                          key={mv.slug}
+                          to={`/songs/${mv.slug}/`}
+                          className="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border border-bx-line text-bx-ink2 hover:border-bx-blueLight hover:text-bx-blueLight transition-colors"
+                        >
+                          ▶ {mv.name} MV
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
+                  {ev.setlist.length > 0 && (
+                    <details className="mt-2.5 pt-2.5 border-t border-bx-line">
+                      <summary className="cursor-pointer text-[11px] text-bx-ink3 hover:text-bx-ink">
+                        セットリストを見る ({ev.setlist.length}曲)
+                      </summary>
+                      <ol className="mt-2 space-y-1 text-[12px] text-bx-ink2">
+                        {ev.setlist.map((s, si) =>
+                          s.slug ? (
+                            <li key={si}>
+                              <Link
+                                to={`/songs/${s.slug}/`}
+                                className="hover:text-bx-blue transition-colors"
+                              >
+                                {si + 1}. {s.name}
+                              </Link>
+                            </li>
+                          ) : (
+                            <li key={si}>
+                              {si + 1}. {s.name}
+                            </li>
+                          )
+                        )}
+                      </ol>
+                    </details>
+                  )}
                 </GlassCard>
               </li>
             ))}

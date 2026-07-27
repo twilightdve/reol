@@ -1366,7 +1366,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
           slug: string;
           releaseDate: string | null;
           format: string | null;
-          songs: { songUuid: string }[];
+          songs: {
+            songUuid: string;
+            songName: string;
+            slug: string;
+            musicVideoUrl: string | null;
+          }[];
         }[];
       } | null;
       live: {
@@ -1377,7 +1382,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
             slug: string;
             date: string | null;
             place: string | null;
-            setList: { liveItemSongUuid: string; type: string | null }[];
+            setList: {
+              liveItemSongUuid: string;
+              liveItemSongName: string;
+              type: string | null;
+            }[];
           }[];
         }[];
       } | null;
@@ -1391,6 +1400,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
             format
             songs {
               songUuid
+              songName
+              slug
+              musicVideoUrl
             }
           }
         }
@@ -1404,6 +1416,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               place
               setList {
                 liveItemSongUuid
+                liveItemSongName
                 type
               }
             }
@@ -1413,6 +1426,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
     `);
     if (onThisDayResult.errors) {
       throw onThisDayResult.errors;
+    }
+
+    // ライブのセトリ曲名 → 楽曲slug の解決用。「今日は何の日」限定の簡易解決で、
+    // 副題違い等の名寄せ(buildCanonicalUuidMap)までは行わない。一致しない場合は
+    // 単にリンク無し(プレーンテキスト)で表示するだけなので、誤リンクの実害は無い。
+    const songSlugByName = new Map<string, string>();
+    for (const disc of onThisDayResult.data?.discography?.discographyWithSongs ??
+      []) {
+      for (const s of disc.songs) {
+        songSlugByName.set(s.songName, s.slug);
+      }
     }
 
     const parseMonthDay = (
@@ -1439,6 +1463,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
       suffix: string;
       to: string;
       meta: string | null;
+      /** リリースイベント: MVがある楽曲だけを列挙 */
+      musicVideos: { name: string; slug: string; url: string }[];
+      /** ライブイベント: セトリ(MC等のsegmentは除く) */
+      setlist: { name: string; slug: string | null }[];
     };
     const eventsByMonthDay = new Map<string, OnThisDayEvent[]>();
     const pushOnThisDayEvent = (monthDay: string, ev: OnThisDayEvent) => {
@@ -1454,6 +1482,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
       const metaParts = [disc.format, `${disc.songs.length}曲収録`].filter(
         (v): v is string => !!v
       );
+      const musicVideos = disc.songs
+        .filter((s) => !!s.musicVideoUrl)
+        .map((s) => ({
+          name: s.songName,
+          slug: s.slug,
+          url: s.musicVideoUrl as string,
+        }));
       pushOnThisDayEvent(d.monthDay, {
         kind: "release",
         year: d.year,
@@ -1461,20 +1496,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
         suffix: "リリース",
         to: `/discography/#disc-${disc.slug}`,
         meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+        musicVideos,
+        setlist: [],
       });
     }
     for (const live of onThisDayResult.data?.live?.liveInfos ?? []) {
       for (const item of live.items ?? []) {
         const d = parseMonthDay(item.date);
         if (!d) continue;
-        const songCount = item.setList.filter(
-          (s) => s.type !== "segment"
-        ).length;
-        const mcCount = item.setList.length - songCount;
+        const songs = item.setList.filter((s) => s.type !== "segment");
+        const mcCount = item.setList.length - songs.length;
         const metaParts = [
           LIVE_TYPE_LABEL[live.type] ?? live.type,
-          songCount > 0
-            ? `${songCount}曲${mcCount > 0 ? `(MC ${mcCount})` : ""}`
+          songs.length > 0
+            ? `${songs.length}曲${mcCount > 0 ? `(MC ${mcCount})` : ""}`
             : null,
         ].filter((v): v is string => !!v);
         pushOnThisDayEvent(d.monthDay, {
@@ -1484,6 +1519,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
           suffix: item.place ? ` @ ${item.place}` : "",
           to: `/live/#live-item-${item.slug}`,
           meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+          musicVideos: [],
+          setlist: songs.map((s) => ({
+            name: s.liveItemSongName,
+            slug: songSlugByName.get(s.liveItemSongName) ?? null,
+          })),
         });
       }
     }
