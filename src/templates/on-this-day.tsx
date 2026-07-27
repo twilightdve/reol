@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, HeadFC, PageProps } from "gatsby";
+import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { GlassCard, Kicker } from "../components/redesign";
+
+/** "https://youtu.be/xxxx" / "https://www.youtube.com/watch?v=xxxx" からvideoIdを抽出 */
+const getYouTubeVideoId = (url: string): string | null => {
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) return shortMatch[1];
+  const longMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (longMatch) return longMatch[1];
+  return null;
+};
 
 type OnThisDayEvent = {
   kind: "release" | "live";
@@ -152,6 +162,10 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
     parseInt(monthDay.slice(0, 2), 10)
   );
 
+  // 開いているMVプレイヤー。`${イベントindex}-${曲slug}` をキーにし、
+  // 一度に1つだけ再生する(複数iframeを同時ロードしないため)。
+  const [expandedMv, setExpandedMv] = useState<string | null>(null);
+
   return (
     <Layout title={`${label}は何の日`}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
@@ -240,16 +254,64 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   </Link>
 
                   {ev.musicVideos.length > 0 && (
-                    <div className="mt-2.5 pt-2.5 border-t border-bx-line flex flex-wrap gap-1.5">
-                      {ev.musicVideos.map((mv) => (
-                        <Link
-                          key={mv.slug}
-                          to={`/songs/${mv.slug}/`}
-                          className="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border border-bx-line text-bx-ink2 hover:border-bx-blueLight hover:text-bx-blueLight transition-colors"
-                        >
-                          ▶ {mv.name} MV
-                        </Link>
-                      ))}
+                    <div className="mt-2.5 pt-2.5 border-t border-bx-line">
+                      <div className="flex flex-wrap gap-1.5">
+                        {ev.musicVideos.map((mv) => {
+                          const key = `${i}-${mv.slug}`;
+                          const isOpen = expandedMv === key;
+                          return (
+                            <button
+                              key={mv.slug}
+                              type="button"
+                              onClick={() =>
+                                setExpandedMv((cur) =>
+                                  cur === key ? null : key
+                                )
+                              }
+                              className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border transition-colors ${
+                                isOpen
+                                  ? "border-bx-blueLight text-bx-blueLight bg-bx-blueLight/10"
+                                  : "border-bx-line text-bx-ink2 hover:border-bx-blueLight hover:text-bx-blueLight"
+                              }`}
+                            >
+                              {isOpen ? "✕" : "▶"} {mv.name} MV
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {ev.musicVideos.map((mv) => {
+                        const key = `${i}-${mv.slug}`;
+                        if (expandedMv !== key) return null;
+                        const videoId = getYouTubeVideoId(mv.url);
+                        if (!videoId) return null;
+                        return (
+                          <div
+                            key={mv.slug}
+                            className="mt-2 rounded-lg overflow-hidden border border-bx-line bg-bx-surface/5"
+                            style={{
+                              position: "relative",
+                              paddingBottom: "56.25%",
+                              height: 0,
+                            }}
+                          >
+                            <YouTube
+                              videoId={videoId}
+                              opts={{
+                                width: "100%",
+                                height: "100%",
+                                playerVars: { autoplay: 1 },
+                              }}
+                              style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
 
