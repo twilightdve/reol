@@ -162,9 +162,11 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
     parseInt(monthDay.slice(0, 2), 10)
   );
 
-  // 開いているMVプレイヤー。`${イベントindex}-${曲slug}` をキーにし、
-  // 一度に1つだけ再生する(複数iframeを同時ロードしないため)。
-  const [expandedMv, setExpandedMv] = useState<string | null>(null);
+  // タップされたMVだけ実際のiframeに差し替える(mainVideo.tsxと同じファサード方式)。
+  // サムネイル(静的画像)は常時表示し、ネットワーク負荷や意図しない自動再生を避ける。
+  const [activatedMv, setActivatedMv] = useState<Set<string>>(new Set());
+  const activateMv = (key: string) =>
+    setActivatedMv((prev) => new Set(prev).add(key));
 
   return (
     <Layout title={`${label}は何の日`}>
@@ -254,61 +256,57 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   </Link>
 
                   {ev.musicVideos.length > 0 && (
-                    <div className="mt-2.5 pt-2.5 border-t border-bx-line">
-                      <div className="flex flex-wrap gap-1.5">
-                        {ev.musicVideos.map((mv) => {
-                          const key = `${i}-${mv.slug}`;
-                          const isOpen = expandedMv === key;
-                          return (
-                            <button
-                              key={mv.slug}
-                              type="button"
-                              onClick={() =>
-                                setExpandedMv((cur) =>
-                                  cur === key ? null : key
-                                )
-                              }
-                              className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border transition-colors ${
-                                isOpen
-                                  ? "border-bx-blueLight text-bx-blueLight bg-bx-blueLight/10"
-                                  : "border-bx-line text-bx-ink2 hover:border-bx-blueLight hover:text-bx-blueLight"
-                              }`}
-                            >
-                              {isOpen ? "✕" : "▶"} {mv.name} MV
-                            </button>
-                          );
-                        })}
-                      </div>
+                    <div className="mt-2.5 pt-2.5 border-t border-bx-line space-y-3">
                       {ev.musicVideos.map((mv) => {
                         const key = `${i}-${mv.slug}`;
-                        if (expandedMv !== key) return null;
                         const videoId = getYouTubeVideoId(mv.url);
                         if (!videoId) return null;
+                        const isActive = activatedMv.has(key);
                         return (
-                          <div
-                            key={mv.slug}
-                            className="mt-2 rounded-lg overflow-hidden border border-bx-line bg-bx-surface/5"
-                            style={{
-                              position: "relative",
-                              paddingBottom: "56.25%",
-                              height: 0,
-                            }}
-                          >
-                            <YouTube
-                              videoId={videoId}
-                              opts={{
-                                width: "100%",
-                                height: "100%",
-                                playerVars: { autoplay: 1 },
-                              }}
-                              style={{
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                width: "100%",
-                                height: "100%",
-                              }}
-                            />
+                          <div key={mv.slug}>
+                            <div className="text-[11px] text-bx-ink3 mb-1">
+                              {mv.name} MV
+                            </div>
+                            <div
+                              className="relative rounded-lg overflow-hidden border border-bx-line bg-black"
+                              style={{ paddingBottom: "56.25%", height: 0 }}
+                            >
+                              {isActive ? (
+                                <YouTube
+                                  videoId={videoId}
+                                  opts={{
+                                    width: "100%",
+                                    height: "100%",
+                                    playerVars: { autoplay: 1 },
+                                  }}
+                                  style={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                  }}
+                                />
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => activateMv(key)}
+                                  aria-label={`${mv.name} のMVを再生`}
+                                  className="group absolute inset-0 w-full h-full"
+                                >
+                                  <img
+                                    src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                                    alt=""
+                                    loading="lazy"
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                  />
+                                  <span className="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/15 transition-colors">
+                                    <span className="w-12 h-12 rounded-full bg-bx-yellow/90 flex items-center justify-center text-bx-bg text-xl shadow-lg">
+                                      ▶
+                                    </span>
+                                  </span>
+                                </button>
+                              )}
+                            </div>
                           </div>
                         );
                       })}
