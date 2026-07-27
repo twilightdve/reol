@@ -96,21 +96,16 @@ const MonthCalendar: React.FC<{
             <Link
               key={monthDayStr}
               to={`/on-this-day/${monthDayStr}/`}
-              className={`relative flex flex-col items-center justify-center rounded py-1.5 text-xs transition-colors ${
+              title={count > 0 ? `${count}件のできごと` : undefined}
+              className={`flex items-center justify-center rounded py-1.5 text-xs font-bold border-2 transition-colors ${
                 isCurrent
-                  ? "bg-bx-yellow text-bx-bg font-bold"
+                  ? "bg-bx-yellow border-bx-yellow text-bx-bg"
                   : count > 0
-                  ? "text-bx-ink hover:bg-bx-surface/10 font-medium"
-                  : "text-bx-ink3 hover:bg-bx-surface/10"
+                  ? "border-bx-yellow text-bx-ink hover:bg-bx-yellow/15"
+                  : "border-transparent text-bx-ink3 hover:bg-bx-surface/10 font-medium"
               }`}
             >
               {day}
-              {count > 0 && !isCurrent && (
-                <span
-                  aria-hidden
-                  className="absolute bottom-0.5 w-1 h-1 rounded-full bg-bx-yellow"
-                />
-              )}
             </Link>
           );
         })}
