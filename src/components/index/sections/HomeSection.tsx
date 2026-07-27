@@ -311,6 +311,22 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
 
         <GlassCard
+          href="/quiz/reol-ken/"
+          className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bx-blueLight"
+        >
+          <div>
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              CERTIFICATION
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">Reol検定</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              5級〜1級、データから自動出題される検定に挑戦。
+            </p>
+          </div>
+          <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
+        </GlassCard>
+
+        <GlassCard
           href="/bijigaku-navi/"
           className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bijigaku-header"
         >
