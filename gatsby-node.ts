@@ -1365,15 +1365,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
           title: string;
           slug: string;
           releaseDate: string | null;
+          format: string | null;
+          songs: { songUuid: string }[];
         }[];
       } | null;
       live: {
         liveInfos: {
           title: string;
+          type: string;
           items: {
             slug: string;
             date: string | null;
             place: string | null;
+            setList: { liveItemSongUuid: string; type: string | null }[];
           }[];
         }[];
       } | null;
@@ -1384,15 +1388,24 @@ export const createPages: GatsbyNode["createPages"] = async ({
             title
             slug
             releaseDate
+            format
+            songs {
+              songUuid
+            }
           }
         }
         live {
           liveInfos {
             title
+            type
             items {
               slug
               date
               place
+              setList {
+                liveItemSongUuid
+                type
+              }
             }
           }
         }
@@ -1414,11 +1427,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
       };
     };
 
+    const LIVE_TYPE_LABEL: Record<string, string> = {
+      oneman: "ワンマン",
+      event: "イベント",
+    };
+
     type OnThisDayEvent = {
+      kind: "release" | "live";
       year: number;
       label: string;
       suffix: string;
       to: string;
+      meta: string | null;
     };
     const eventsByMonthDay = new Map<string, OnThisDayEvent[]>();
     const pushOnThisDayEvent = (monthDay: string, ev: OnThisDayEvent) => {
@@ -1431,22 +1451,39 @@ export const createPages: GatsbyNode["createPages"] = async ({
       []) {
       const d = parseMonthDay(disc.releaseDate);
       if (!d) continue;
+      const metaParts = [disc.format, `${disc.songs.length}曲収録`].filter(
+        (v): v is string => !!v
+      );
       pushOnThisDayEvent(d.monthDay, {
+        kind: "release",
         year: d.year,
         label: `『${disc.title}』`,
         suffix: "リリース",
         to: `/discography/#disc-${disc.slug}`,
+        meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
       });
     }
     for (const live of onThisDayResult.data?.live?.liveInfos ?? []) {
       for (const item of live.items ?? []) {
         const d = parseMonthDay(item.date);
         if (!d) continue;
+        const songCount = item.setList.filter(
+          (s) => s.type !== "segment"
+        ).length;
+        const mcCount = item.setList.length - songCount;
+        const metaParts = [
+          LIVE_TYPE_LABEL[live.type] ?? live.type,
+          songCount > 0
+            ? `${songCount}曲${mcCount > 0 ? `(MC ${mcCount})` : ""}`
+            : null,
+        ].filter((v): v is string => !!v);
         pushOnThisDayEvent(d.monthDay, {
+          kind: "live",
           year: d.year,
           label: live.title,
           suffix: item.place ? ` @ ${item.place}` : "",
           to: `/live/#live-item-${item.slug}`,
+          meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
         });
       }
     }

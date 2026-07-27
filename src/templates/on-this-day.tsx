@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link, HeadFC, PageProps } from "gatsby";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
-import { Kicker } from "../components/redesign";
+import { GlassCard, Kicker } from "../components/redesign";
 
 type OnThisDayEvent = {
+  kind: "release" | "live";
   year: number;
   label: string;
   suffix: string;
   to: string;
+  meta: string | null;
 };
 
 type OnThisDayPageContext = {
@@ -196,23 +198,41 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
           <ul className="space-y-3 border-t border-bx-line pt-6">
             {events.map((ev, i) => (
               <li key={`otd-${i}`}>
-                <Link
+                <GlassCard
                   to={ev.to}
-                  className="group flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
+                  accent={ev.kind === "release" ? "blueLight" : "yellow"}
+                  className="flex items-center gap-3 p-3"
                 >
-                  <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
-                    {ev.year}年
-                    {currentYear !== null && currentYear > ev.year && (
-                      <span className="ml-1 text-bx-ink3 font-medium">
-                        ({currentYear - ev.year}年前)
-                      </span>
+                  <div
+                    aria-hidden
+                    className={`w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-lg font-extrabold ${
+                      ev.kind === "release"
+                        ? "bg-bx-blueLight/15 text-bx-blueLight"
+                        : "bg-bx-yellow/15 text-bx-yellow"
+                    }`}
+                  >
+                    {ev.kind === "release" ? "♪" : "🎤"}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
+                      {ev.year}年
+                      {currentYear !== null && currentYear > ev.year && (
+                        <span className="ml-1 text-bx-ink3 font-medium">
+                          ({currentYear - ev.year}年前)
+                        </span>
+                      )}
+                    </span>
+                    <div className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors truncate">
+                      {ev.label}
+                      {ev.suffix}
+                    </div>
+                    {ev.meta && (
+                      <div className="text-[11px] text-bx-ink3 mt-0.5 truncate">
+                        {ev.meta}
+                      </div>
                     )}
-                  </span>
-                  <span className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors">
-                    {ev.label}
-                    {ev.suffix}
-                  </span>
-                </Link>
+                  </div>
+                </GlassCard>
               </li>
             ))}
           </ul>
