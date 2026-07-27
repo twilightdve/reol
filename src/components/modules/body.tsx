@@ -38,8 +38,9 @@ const isReolTypeQuizPath = (pathname: string): boolean => {
 };
 
 /**
- * 相関図 (/cgraph) はフルスクリーンのグラフ描画ページのため
- * ファンサイトヘッダー / 動画を表示しない。
+ * 相関図 (/cgraph) はフルスクリーンのグラフ描画ページ。ヘッダー/mainVideoは
+ * 表示して遷移後も動画再生を継続できるようにするが、下部の送客フッター/
+ * タブバーは可視領域を圧迫するため出さない。
  */
 const isCGraphPath = (pathname: string): boolean => {
   if (!pathname) return false;
@@ -47,8 +48,8 @@ const isCGraphPath = (pathname: string): boolean => {
 };
 
 /**
- * 参戦地マップ (/live/heatmap 配下) もフルスクリーンのマップ表示のため
- * ファンサイトヘッダー / 動画を表示しない。
+ * 参戦地マップ (/live/heatmap 配下) もフルスクリーンのマップ表示。
+ * isCGraphPath と同様、ヘッダー/mainVideoは表示し送客フッター/タブバーのみ出さない。
  */
 const isLiveHeatmapPath = (pathname: string): boolean => {
   if (!pathname) return false;
@@ -134,27 +135,41 @@ const Body: FC<Props> = ({ children }) => {
     );
   }
 
-  if (isReolTypeQuiz || isCGraph || isLiveHeatmap || isRelive || isDesignPreview) {
-    // ファンタイプ診断 / 相関図 / 参戦地マップ / Relive Player はページ内で独自の背景・レイアウトを持つため
+  if (isReolTypeQuiz || isRelive || isDesignPreview) {
+    // ファンタイプ診断 / Relive Player / デザインプレビューはページ内で独自の背景・レイアウトを持つため
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
     return <Layout title={data.site.siteMetadata.title} children={children} />;
   }
 
+  // 相関図 / 参戦地マップはフルスクリーンのビジュアライゼーションのため、
+  // 可視領域を圧迫する送客フッター/下部タブ/固定背景グローは出さない。
+  // ただし TopHeader / PersistentMainVideo は「通常ページ」と全く同じ
+  // JSXツリー上の位置に置き続けること。isCGraph/isLiveHeatmap によって
+  // early return で別のフラグメントに分けてしまうと、Reactがこの2つを
+  // 別コンポーネントとして扱い、HOME→/cgraph/のような遷移時に
+  // PersistentMainVideo(ひいては再生中のiframe)がアンマウント→再マウント
+  // され、遷移をまたいだ動画再生の継続が壊れる。
+  const isFullscreenViz = isCGraph || isLiveHeatmap;
+
   return (
     <>
-      {/*
-        サイト全体の固定背景(B案リデザイン: plan/16)。
-        ほぼ黒 bx-bg の上に、公式ブルー(#27489b)のラジアルグローを上部に敷く。
-        ページ遷移しても再描画されないよう wrapRootElement に乗せた Body 内に置く。
-      */}
-      <div
-        aria-hidden
-        className="fixed inset-0 -z-20 bg-bx-bg pointer-events-none"
-      />
-      <div
-        aria-hidden
-        className="fixed inset-0 -z-10 pointer-events-none bx-hero-glow"
-      />
+      {!isFullscreenViz && (
+        <>
+          {/*
+            サイト全体の固定背景(B案リデザイン: plan/16)。
+            ほぼ黒 bx-bg の上に、公式ブルー(#27489b)のラジアルグローを上部に敷く。
+            ページ遷移しても再描画されないよう wrapRootElement に乗せた Body 内に置く。
+          */}
+          <div
+            aria-hidden
+            className="fixed inset-0 -z-20 bg-bx-bg pointer-events-none"
+          />
+          <div
+            aria-hidden
+            className="fixed inset-0 -z-10 pointer-events-none bx-hero-glow"
+          />
+        </>
+      )}
       {/*
         ヘッダーと永続 MainVideo はページ遷移をまたいで位置/状態を保ちたいため
         ページ本体 (Layout > children) の上に出している。
@@ -162,13 +177,19 @@ const Body: FC<Props> = ({ children }) => {
       */}
       <TopHeader title={data.site.siteMetadata.title} />
       <PersistentMainVideo />
-      <div className="pb-[calc(3.5rem+env(safe-area-inset-bottom))]">
+      <div
+        className={
+          isFullscreenViz
+            ? ""
+            : "pb-[calc(3.5rem+env(safe-area-inset-bottom))]"
+        }
+      >
         <Layout title={data.site.siteMetadata.title} children={children} />
         {/* 公式送客フッター。フルスクリーン系ページ(quiz/cgraph/heatmap/relive)には出さない */}
-        <OfficialFooter />
+        {!isFullscreenViz && <OfficialFooter />}
       </div>
       {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(quiz/cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
-      <TrackingFooter />
+      {!isFullscreenViz && <TrackingFooter />}
     </>
   );
 };

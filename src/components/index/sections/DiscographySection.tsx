@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
 import { FaCompactDisc, FaCirclePlay } from "react-icons/fa6";
-import { GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { GoListUnordered } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import Discography from "../discography/discography";
 import { DiscographyWithSongs } from "../../../types/discography";
@@ -24,15 +23,6 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
         </h2>
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
           DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。
-        </div>
-        <div className="pt-2">
-          <Link
-            to="/cgraph"
-            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
-          >
-            相関図を見る
-            <GoLinkExternal className="inline" />
-          </Link>
         </div>
       </div>
       <Discography data={discographies} />
