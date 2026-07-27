@@ -278,6 +278,19 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                       </ol>
                     </div>
                   )}
+
+                  <div className="mt-2.5 pt-2.5 border-t border-bx-line text-right">
+                    <Link
+                      to={ev.to}
+                      className={`inline-flex items-center gap-1 text-[11px] font-bold ${
+                        ev.kind === "release"
+                          ? "text-bx-blueLight hover:text-bx-blue"
+                          : "text-bx-yellow hover:text-bx-blue"
+                      } transition-colors`}
+                    >
+                      詳細はこちら →
+                    </Link>
+                  </div>
                 </GlassCard>
               </li>
             ))}
