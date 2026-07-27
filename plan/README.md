@@ -29,6 +29,8 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [19-fansite-auth-reuse.md](./19-fansite-auth-reuse.md) | 検討メモ: 美辞学ナビ認証基盤のファンサイト転用(タイプ診断結果保存・LIVE参戦フラグ) — 計画段階、ユーザー確認待ち |
 | [20-release-review.md](./20-release-review.md) | リリース前サイト評価: P0修正3件/リリース時判断/追加コンテンツ提案(On This Day等) — 提案段階 |
 | [21-ga4-analysis-improvement-plan.md](./21-ga4-analysis-improvement-plan.md) | GA4実データ分析(analytics-mcp)とタグ運用・導線改善プラン(2026-07-16) — 分析完了、提案段階 |
+| [22-cgraph-redesign.md](./22-cgraph-redesign.md) | 相関図(/cgraph/)のUI/UX再設計: ツールバー1段化+右ドック統一 — 実装済み |
+| [23-scroll-14years-draft.md](./23-scroll-14years-draft.md) | 新規コンテンツ案D「スクロールで読む◯年」の骨子+本文ドラフト(名義3章構成) — 要監修、実装未着手 |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
 ## インフラ前提
