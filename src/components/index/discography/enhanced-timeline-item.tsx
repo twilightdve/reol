@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaMusic } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
 import { useColorPalette } from "../../../hooks/useColorPalette";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { addAlpha } from "../../../utils/colorExtractor";
 import YouTube from "react-youtube";
 import Tweets from "../../modules/tweets";
@@ -88,6 +89,17 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const [isExpand, setIsExpand] = useState(false);
 
+  // コレクション台帳(所有/視聴済み記録、localStorage完結)
+  const { owned, mounted, toggle } = useCollectionOwned();
+  const isOwned = mounted && owned.has(item.discographyUuid);
+  const handleToggleOwned = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      toggle(item.discographyUuid);
+    },
+    [toggle, item.discographyUuid]
+  );
+
   // 曲行の「詳細」リンク先を代表曲(songStats)のslugへ解決するためのマップ
   const songSlugData = useStaticQuery(graphql`
     query DiscographySongSlugMap {
@@ -166,6 +178,24 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const youtubeVideoId = getYouTubeVideoId(item.xfdUrl);
 
+  // コレクション台帳の所有/視聴済みトグル(カード全体のクリック=展開と競合しないようstopPropagation)
+  const ownedToggleButton = (
+    <button
+      type="button"
+      onClick={handleToggleOwned}
+      aria-pressed={isOwned}
+      aria-label={isOwned ? "所有済みから外す" : "所有/視聴済みにする"}
+      title={isOwned ? "所有済み" : "所有/視聴済みにする"}
+      className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+        isOwned
+          ? "border-bx-blue bg-bx-blue text-bx-bg"
+          : "border-bx-line text-transparent hover:border-bx-blue"
+      }`}
+    >
+      ✓
+    </button>
+  );
+
   return (
     <div className="mb-4">
       {/* カード本体 */}
@@ -202,7 +232,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   </div>
                 </div>
 
-                {/* 2行目：タイトル　展開ボタン */}
+                {/* 2行目：タイトル　所有トグル */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1 flex-1 min-w-0">
                     <FaMusic className="w-3 h-3 flex-shrink-0 text-bx-ink2" />
@@ -210,6 +240,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                       {item.title}
                     </h3>
                   </div>
+                  {ownedToggleButton}
                 </div>
               </div>
             ) : (
@@ -220,11 +251,14 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 </div>
 
                 <div className="flex flex-col font-semibold">
-                  <div className="flex items-center gap-1 mb-0">
-                    <FaMusic className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
-                    <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
-                      {item.title}
-                    </h3>
+                  <div className="flex items-center justify-between gap-2 mb-0">
+                    <div className="flex items-center gap-1 min-w-0">
+                      <FaMusic className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
+                      <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
+                        {item.title}
+                      </h3>
+                    </div>
+                    {ownedToggleButton}
                   </div>
 
                   {/* メタデータ */}
