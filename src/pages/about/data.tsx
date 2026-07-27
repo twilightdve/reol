@@ -67,7 +67,7 @@ const AboutDataPage: React.FC = () => {
           複数公演が含まれるため)。
         </p>
         <p className="text-sm leading-relaxed text-bx-ink2">
-          参戦地マップ(ヒートマップ)の「国内」「海外」「不明/未確定」の内訳は、
+          開催地マップ(ヒートマップ)の「国内」「海外」「不明/未確定」の内訳は、
           この公演数を会場所在地の判定状況で分類したものです。「不明/未確定」は、
           会場や開催地が特定できていない、または日程・会場が未発表の公演を指します。
         </p>
@@ -117,7 +117,7 @@ export default AboutDataPage;
 export const Head: HeadFC = () => (
   <SEO
     title="集計ルールについて"
-    description="TOPページや楽曲統計・参戦地マップに表示される楽曲数・公演数・演奏回数の定義と算出方法を説明します。"
+    description="TOPページや楽曲統計・開催地マップに表示される楽曲数・公演数・演奏回数の定義と算出方法を説明します。"
     path="/about/data/"
     jsonLd={buildBreadcrumbList([
       { name: "ホーム", path: "/" },

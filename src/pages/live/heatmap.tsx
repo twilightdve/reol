@@ -250,11 +250,11 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
       <header className="bg-bx-bg shadow-sm border-b border-bx-line">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link
-            to="/live/"
+            to="/"
             className="inline-flex items-center gap-2 text-bx-blueLight hover:text-bx-blue font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
-            LIVE 一覧へ戻る
+            HOMEへ戻る
           </Link>
         </div>
       </header>
@@ -263,7 +263,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <div className="mb-4">
           <h1 className="flex items-center gap-2 text-2xl font-bold text-bx-ink">
             <MapPin className="w-6 h-6 text-bx-blueLight" />
-            Reol 公演ヒートマップ
+            開催地マップ
           </h1>
           <p className="mt-1 text-sm text-bx-ink3">
             これまでに開催された Reol の公演を都道府県別に可視化しています。色が濃いほど公演数が多い地域です。
@@ -576,7 +576,7 @@ export default ReolHeatmapPage
 
 export const Head: HeadFC = () => (
   <SEO
-    title="参戦地マップ(公演ヒートマップ)"
+    title="開催地マップ(公演ヒートマップ)"
     description="Reol の過去公演を都道府県別にヒートマップで可視化します。"
     path="/live/heatmap/"
   />

@@ -48,7 +48,7 @@ const isCGraphPath = (pathname: string): boolean => {
 };
 
 /**
- * 参戦地マップ (/live/heatmap 配下) もフルスクリーンのマップ表示。
+ * 開催地マップ (/live/heatmap 配下) もフルスクリーンのマップ表示。
  * isCGraphPath と同様、ヘッダー/mainVideoは表示し送客フッター/タブバーのみ出さない。
  */
 const isLiveHeatmapPath = (pathname: string): boolean => {
@@ -141,7 +141,7 @@ const Body: FC<Props> = ({ children }) => {
     return <Layout title={data.site.siteMetadata.title} children={children} />;
   }
 
-  // 相関図 / 参戦地マップはフルスクリーンのビジュアライゼーションのため、
+  // 相関図 / 開催地マップはフルスクリーンのビジュアライゼーションのため、
   // 可視領域を圧迫する送客フッター/下部タブ/固定背景グローは出さない。
   // ただし TopHeader / PersistentMainVideo は「通常ページ」と全く同じ
   // JSXツリー上の位置に置き続けること。isCGraph/isLiveHeatmap によって

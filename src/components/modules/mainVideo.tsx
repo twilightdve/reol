@@ -24,7 +24,7 @@ const isSecondLevelPath = (pathname: string): boolean => {
   return segments.length >= 2;
 };
 
-// 相関図 (/cgraph) と参戦地マップ (/live/heatmap) はフルスクリーンの
+// 相関図 (/cgraph) と開催地マップ (/live/heatmap) はフルスクリーンの
 // グラフ/マップ描画ページ。body.tsx の isCGraphPath / isLiveHeatmapPath と
 // 同じ判定を用いて、フル表示の動画が描画領域を圧迫しないよう常にミニ表示に固定する。
 const isFullscreenVizPath = (pathname: string): boolean => {
@@ -295,7 +295,7 @@ const MainVideo: React.FC<Props> = ({
             ? // position:fixedはビューポート基準のため、ヘッダー(h-16=4rem, z-40)が
               // まだ画面上部にある間(nearTop)はその下に、スクロールでヘッダーが
               // 画面外に出たら本来の右上端(top-1)に寄せる。
-              // 相関図/参戦地マップはスクロールしない固定ビューポートページなので
+              // 相関図/開催地マップはスクロールしない固定ビューポートページなので
               // nearTopが常にtrueのまま維持され、素朴に4.25remだと自前のツールバー
               // (検索/絞り込み/Six Degreesボタン)に重なってしまうため、
               // その高さ分さらに下にオフセットする。

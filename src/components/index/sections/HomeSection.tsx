@@ -199,7 +199,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
       </div>
 
-      {/* 深堀りツール：相関図・参戦地マップ */}
+      {/* 深堀りツール：相関図・開催地マップ */}
       <div className="px-2 sm:px-4 pt-8">
         <Kicker color="text-bx-blueLight">MORE TOOLS</Kicker>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-3.5">
@@ -231,7 +231,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             onClick={() =>
               trackEvent("entry_card_click", {
                 category: "navigation",
-                label: "参戦地マップ",
+                label: "開催地マップ",
                 card_type: "heatmap",
               })
             }
@@ -239,7 +239,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               LIVE HEATMAP
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">参戦地マップ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">開催地マップ</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
               都道府県別の公演数を色分けしたヒートマップ。
             </p>
