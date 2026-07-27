@@ -179,6 +179,10 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
   )
   const totalOverseas = overseasCounts.reduce((s, [, c]) => s + c, 0)
   const visitedJP = PREFECTURE_LIST.filter((p) => (counts[p] ?? 0) > 0).length
+  const unvisitedJP = useMemo(
+    () => PREFECTURE_LIST.filter((p) => (counts[p] ?? 0) === 0),
+    [counts]
+  )
 
   // 選択中エリアに属する公演を抽出
   const selectedItems = useMemo<AggregatedItem[]>(() => {
@@ -458,6 +462,33 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
             )}
           </section>
         </div>
+
+        {/* 未訪問の都道府県 */}
+        {typeFilter === 'all' && (
+          <div className="mt-4">
+            <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
+              <h2 className="font-bold text-sm mb-2 text-bx-ink">
+                未開催の都道府県 ({unvisitedJP.length})
+              </h2>
+              {unvisitedJP.length === 0 ? (
+                <p className="text-xs text-bx-ink3">
+                  全都道府県で開催実績があります
+                </p>
+              ) : (
+                <div className="flex flex-wrap gap-1.5">
+                  {unvisitedJP.map((p) => (
+                    <span
+                      key={p}
+                      className="px-2 py-1 rounded-full text-[11px] bg-bx-line/40 text-bx-ink3 border border-bx-line"
+                    >
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </section>
+          </div>
+        )}
 
         {/* 会場別ランキング */}
         <div className="mt-4">

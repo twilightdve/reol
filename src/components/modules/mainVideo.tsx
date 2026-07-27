@@ -95,6 +95,21 @@ const MainVideo: React.FC<Props> = ({
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
   const reducedMotion = useReducedMotion();
 
+  // 強制ミニ表示(forceMini)のページでは動画を閉じる(=フル表示に戻す)先が
+  // 無いため、「非表示にする」明示的な離脱手段としてセッション中だけ記憶する。
+  const PIP_DISMISSED_KEY = "reol-mainvideo-pip-dismissed";
+  const [dismissed, setDismissed] = useState(
+    isBrowser && window.sessionStorage.getItem(PIP_DISMISSED_KEY) === "1"
+  );
+  const handleDismiss = useCallback(() => {
+    setDismissed(true);
+    try {
+      window.sessionStorage.setItem(PIP_DISMISSED_KEY, "1");
+    } catch (_) {
+      // ignore (Safari Private mode 等)
+    }
+  }, []);
+
   // "/live/xxxx/" のような2階層目(詳細ページ)では、常に縮小表示(ミニプレイヤー)に固定する。
   const [pathname, setPathname] = useState(
     isBrowser ? window.location.pathname : ""
@@ -278,6 +293,10 @@ const MainVideo: React.FC<Props> = ({
     [onError, currentVideoId, handleEnd]
   );
 
+  // ユーザーがPiP(ミニ表示)を明示的に閉じていたら、フル表示に戻れない
+  // 強制ミニ表示ページでは再表示のしようがないため、このセッション中は描画しない。
+  if (dismissed && isMini) return null;
+
   try {
     const playlistVideos = playlist
       .filter((item) => item.xfdUrl)
@@ -316,6 +335,17 @@ const MainVideo: React.FC<Props> = ({
             onClick={handleExpand}
             className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
             aria-label="動画を横幅フル表示に戻す"
+          >
+            <IoClose className="text-white text-xl" />
+          </button>
+        )}
+        {/* forceMini(2階層目/相関図/開催地マップ)には「フル表示に戻す」先が無いため、
+            代わりにこのセッション中だけ非表示にできる閉じるボタンを出す。 */}
+        {forceMini && (
+          <button
+            onClick={handleDismiss}
+            className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
+            aria-label="動画を閉じる"
           >
             <IoClose className="text-white text-xl" />
           </button>

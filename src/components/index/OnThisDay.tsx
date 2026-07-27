@@ -220,6 +220,12 @@ const OnThisDay: React.FC = () => {
           );
         })}
       </ul>
+      <Link
+        to={`/on-this-day/${today.monthDay}/`}
+        className="mt-3 inline-block text-[11px] text-bx-ink3 hover:text-bx-blueLight transition-colors"
+      >
+        この日の全記録を見る →
+      </Link>
     </section>
   );
 };

@@ -1352,4 +1352,126 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
     console.log(`[live] generated ${liveItemPageCount} live item pages`);
   }
+
+  // ----- On This Day 個別ページ(/on-this-day/MM-DD/) -----
+  // ホームの OnThisDay ウィジェット(src/components/index/OnThisDay.tsx)と同じ
+  // ソース(discography の releaseDate / liveItems の date)から月日(MM-DD)ごとに
+  // 出来事を集約し、365日ぶんの静的ページを生成する。イベントが無い日も
+  // ページ自体は作り(前日/翌日ナビが途切れないように)、「記録なし」を明示する。
+  {
+    const onThisDayResult = await graphql<{
+      discography: {
+        discographyWithSongs: {
+          title: string;
+          slug: string;
+          releaseDate: string | null;
+        }[];
+      } | null;
+      live: {
+        liveInfos: {
+          title: string;
+          items: {
+            slug: string;
+            date: string | null;
+            place: string | null;
+          }[];
+        }[];
+      } | null;
+    }>(`
+      query OnThisDayPagesData {
+        discography {
+          discographyWithSongs {
+            title
+            slug
+            releaseDate
+          }
+        }
+        live {
+          liveInfos {
+            title
+            items {
+              slug
+              date
+              place
+            }
+          }
+        }
+      }
+    `);
+    if (onThisDayResult.errors) {
+      throw onThisDayResult.errors;
+    }
+
+    const parseMonthDay = (
+      value: string | null | undefined
+    ): { year: number; monthDay: string } | null => {
+      if (!value) return null;
+      const m = value.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+      if (!m) return null;
+      return {
+        year: parseInt(m[1], 10),
+        monthDay: `${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`,
+      };
+    };
+
+    type OnThisDayEvent = {
+      year: number;
+      label: string;
+      suffix: string;
+      to: string;
+    };
+    const eventsByMonthDay = new Map<string, OnThisDayEvent[]>();
+    const pushOnThisDayEvent = (monthDay: string, ev: OnThisDayEvent) => {
+      const list = eventsByMonthDay.get(monthDay) ?? [];
+      list.push(ev);
+      eventsByMonthDay.set(monthDay, list);
+    };
+
+    for (const disc of onThisDayResult.data?.discography?.discographyWithSongs ??
+      []) {
+      const d = parseMonthDay(disc.releaseDate);
+      if (!d) continue;
+      pushOnThisDayEvent(d.monthDay, {
+        year: d.year,
+        label: `『${disc.title}』`,
+        suffix: "リリース",
+        to: `/discography/#disc-${disc.slug}`,
+      });
+    }
+    for (const live of onThisDayResult.data?.live?.liveInfos ?? []) {
+      for (const item of live.items ?? []) {
+        const d = parseMonthDay(item.date);
+        if (!d) continue;
+        pushOnThisDayEvent(d.monthDay, {
+          year: d.year,
+          label: live.title,
+          suffix: item.place ? ` @ ${item.place}` : "",
+          to: `/live/#live-item-${item.slug}`,
+        });
+      }
+    }
+
+    const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const onThisDayTemplate = path.resolve("./src/templates/on-this-day.tsx");
+    let onThisDayPageCount = 0;
+    for (let month = 1; month <= 12; month++) {
+      for (let day = 1; day <= DAYS_IN_MONTH[month - 1]; day++) {
+        const monthDay = `${String(month).padStart(2, "0")}-${String(
+          day
+        ).padStart(2, "0")}`;
+        const events = (eventsByMonthDay.get(monthDay) ?? []).sort(
+          (a, b) => a.year - b.year
+        );
+        createPage({
+          path: `/on-this-day/${monthDay}/`,
+          component: onThisDayTemplate,
+          context: { monthDay, events },
+        });
+        onThisDayPageCount += 1;
+      }
+    }
+    console.log(
+      `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`
+    );
+  }
 };
