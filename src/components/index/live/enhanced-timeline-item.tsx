@@ -66,7 +66,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
             className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
               isAttended
                 ? "border-bx-blue bg-bx-blue text-bx-bg"
-                : "border-bx-line text-transparent hover:border-bx-blue"
+                : "border-bx-blue text-transparent"
             }`}
           >
             ✓
