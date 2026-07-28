@@ -13,6 +13,7 @@ import EmptyState from "../../common/EmptyState";
 import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
 import { Kicker } from "../../redesign";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 
 // Leaflet は SSR で動かないので動的読み込み
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -98,10 +99,137 @@ const NO_ZOOM_STYLE: React.CSSProperties = { fontSize: 16 };
 const TYPE_KEYS = ["ALL", "MV", "CM", "TV", "XFD", "OTHER"] as const;
 const VIEW_KEYS = ["type", "prefecture"] as const;
 
+// 新規コンテンツ案I「聖地スタンプラリー」のシェア画像生成。
+// /quiz/reol-type/result.tsx の generateShareCard と同じ canvas→toDataURL方式。
+const generateStampCard = (
+  places: Place[],
+  visitedSet: Set<string>
+): Promise<string> => {
+  return new Promise((resolve) => {
+    const DPR = 2;
+    const W = 600;
+    const H = 315;
+    const canvas = document.createElement("canvas");
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    const ctx = canvas.getContext("2d")!;
+    ctx.scale(DPR, DPR);
+
+    const font = (size: number, weight = "400") =>
+      `${weight} ${size}px -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif`;
+
+    const bg = ctx.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0, "#0c0f14");
+    bg.addColorStop(1, "#161a22");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    const visitedCount = places.filter((p) => visitedSet.has(p.placeUuid)).length;
+    const total = places.length;
+    const rate = total > 0 ? Math.round((visitedCount / total) * 100) : 0;
+
+    ctx.fillStyle = "rgba(255,255,255,0.4)";
+    ctx.font = font(11);
+    ctx.textAlign = "left";
+    ctx.fillText("Reol 聖地スタンプラリー", 32, 36);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = font(36, "700");
+    ctx.fillText(`${visitedCount} / ${total} 制覇`, 32, 88);
+
+    ctx.fillStyle = "#e2bf57";
+    ctx.font = font(16, "500");
+    ctx.fillText(
+      rate >= 100 ? "🏆 コンプリート達成率 100%" : `達成率 ${rate}%`,
+      32,
+      116
+    );
+
+    // スタンプグリッド(訪問済みは塗りつぶし+チェック、未訪問は枠のみ)
+    const cols = 8;
+    const gx = 32;
+    const gy = 150;
+    const cellW = (W - 64) / cols;
+    const cellH = 34;
+    places.forEach((p, i) => {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
+      const cx = gx + col * cellW + cellW / 2;
+      const cy = gy + row * cellH + cellH / 2;
+      const isVisited = visitedSet.has(p.placeUuid);
+      ctx.beginPath();
+      ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+      ctx.fillStyle = isVisited ? "#6b8ce0" : "rgba(255,255,255,0.06)";
+      ctx.fill();
+      ctx.strokeStyle = isVisited ? "#6b8ce0" : "rgba(255,255,255,0.25)";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      if (isVisited) {
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(cx - 4, cy);
+        ctx.lineTo(cx - 1, cy + 3.2);
+        ctx.lineTo(cx + 4.5, cy - 4);
+        ctx.stroke();
+      }
+    });
+
+    ctx.fillStyle = "rgba(255,255,255,0.3)";
+    ctx.font = font(10);
+    ctx.textAlign = "right";
+    ctx.fillText("reol.twilightea.com/place/", W - 32, H - 16);
+
+    resolve(canvas.toDataURL("image/png"));
+  });
+};
+
 const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   const [expandedPlaceIds, setExpandedPlaceIds] = useState<Set<string>>(
     new Set()
   );
+
+  // 新規コンテンツ案I「聖地スタンプラリー」。DISCOGRAPHY/LIVEと同じ仕組み
+  // (namespace="visited")。訪問済みはPlace単位(全16箇所)で記録する。
+  const { owned: visited, mounted: visitedMounted, toggle: toggleVisited } =
+    useCollectionOwned("visited");
+  const visitedCount = visitedMounted
+    ? places.filter((p) => visited.has(p.placeUuid)).length
+    : 0;
+  const totalPlaceCount = places.length;
+  const visitedRate =
+    totalPlaceCount > 0 ? Math.round((visitedCount / totalPlaceCount) * 100) : 0;
+  const [sharingStamp, setSharingStamp] = useState(false);
+
+  const handleShareStampCard = useCallback(async () => {
+    if (typeof window === "undefined") return;
+    setSharingStamp(true);
+    try {
+      const dataUrl = await generateStampCard(places, visited);
+      const res = await fetch(dataUrl);
+      const blob = await res.blob();
+      const file = new File([blob], "reol-place-stamp.png", { type: "image/png" });
+      trackEvent("place_stamp_share", {
+        category: "engagement",
+        label: `${visitedCount}/${totalPlaceCount}`,
+      });
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file] });
+          return;
+        } catch (e) {
+          if ((e as Error).name === "AbortError") return;
+        }
+      }
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "reol-place-stamp.png";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } finally {
+      setSharingStamp(false);
+    }
+  }, [places, visited, visitedCount, totalPlaceCount]);
   // URLクエリと同期: ?type=MV&view=prefecture&q=武道館
   const [typeFilter, setTypeFilterRaw] = useUrlQueryState<TypeFilter>(
     "type",
@@ -348,6 +476,39 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           <br />
           聖地巡礼の参考情報としてご覧ください（掲載されていない情報があればぜひ教えていただけますと幸いです）。
         </div>
+
+        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs text-bx-ink3">聖地スタンプラリー</span>
+            <span className="text-sm font-bold text-bx-blue tabular-nums">
+              {visitedCount} / {totalPlaceCount} ・ {visitedRate}%
+            </span>
+          </div>
+          <div className="h-1.5 rounded-full bg-bx-line/50 overflow-hidden">
+            <div
+              className="h-full bg-bx-blue transition-all"
+              style={{ width: `${visitedRate}%` }}
+            />
+          </div>
+          <div className="mt-2 flex items-center justify-between gap-2 flex-wrap">
+            <p className="text-[10px] text-bx-ink3">
+              各カードの「✓」で訪問済みを記録できます(この端末のブラウザ内のみに保存)
+              {visitedRate >= 100 && totalPlaceCount > 0 && (
+                <span className="ml-1 font-bold text-bx-yellow">
+                  🏆 全{totalPlaceCount}箇所制覇！
+                </span>
+              )}
+            </p>
+            <button
+              type="button"
+              onClick={handleShareStampCard}
+              disabled={sharingStamp}
+              className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1 text-[11px] font-bold rounded-full border border-bx-blue text-bx-blue hover:bg-bx-blue hover:text-bx-bg transition-colors disabled:opacity-50"
+            >
+              {sharingStamp ? "作成中..." : "スタンプ帳をシェア画像で保存"}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* マップ: 見出し直下にフルブリードで常時表示(このページの主役のため大きく) */}
@@ -506,6 +667,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     )
                   );
                   const thumb = getYoutubeThumb(place.url);
+                  const isVisited = visitedMounted && visited.has(place.placeUuid);
+                  const handleToggleVisited = (e: React.MouseEvent) => {
+                    e.stopPropagation();
+                    toggleVisited(place.placeUuid);
+                  };
 
                   return (
                     <div
@@ -529,6 +695,20 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                       >
                         {!isExpanded && (
                           <div className="min-h-[64px] p-3 flex items-center gap-3">
+                            <button
+                              type="button"
+                              onClick={handleToggleVisited}
+                              aria-pressed={isVisited}
+                              aria-label={isVisited ? "訪問済みから外す" : "訪問済みにする"}
+                              title={isVisited ? "訪問済み" : "訪問済みにする"}
+                              className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+                                isVisited
+                                  ? "border-bx-blue bg-bx-blue text-bx-bg"
+                                  : "border-bx-blue text-transparent"
+                              }`}
+                            >
+                              ✓
+                            </button>
                             {thumb ? (
                               <img
                                 src={thumb}
@@ -570,6 +750,20 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                           <div id={`place-panel-${place.slug}`} className="p-4">
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <button
+                                  type="button"
+                                  onClick={handleToggleVisited}
+                                  aria-pressed={isVisited}
+                                  aria-label={isVisited ? "訪問済みから外す" : "訪問済みにする"}
+                                  title={isVisited ? "訪問済み" : "訪問済みにする"}
+                                  className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+                                    isVisited
+                                      ? "border-bx-blue bg-bx-blue text-bx-bg"
+                                      : "border-bx-blue text-transparent"
+                                  }`}
+                                >
+                                  ✓
+                                </button>
                                 {place.type && (
                                   <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
                                     {place.type}

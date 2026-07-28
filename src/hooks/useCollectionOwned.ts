@@ -6,23 +6,25 @@ import { useCallback, useEffect, useState } from "react";
  * 対象のuuidをlocalStorage(このブラウザ内のみ)に保存するだけで、
  * アカウント登録やサーバー送信は行わない。
  *
- * DISCOGRAPHYの「所有/視聴済み」とLIVEの「参戦済み」は別の記録なので、
- * namespace ごとにストレージキーを分ける(混ざらないように)。
+ * DISCOGRAPHYの「所有/視聴済み」、LIVEの「参戦済み」、PLACEの「訪問済み」は
+ * 別の記録なので、namespace ごとにストレージキーを分ける(混ざらないように)。
  *
  * 同じページ内に複数箇所(各カードの✓ボタン、全体コンプ率バー)でこのフックを
  * 呼び出すため、1箇所での変更を他のインスタンスにも反映する必要がある。
  * storageイベントは同一タブ内では発火しないため、専用のカスタムイベントで
  * 同期する。
  */
-export type CollectionNamespace = "owned" | "attended";
+export type CollectionNamespace = "owned" | "attended" | "visited";
 
 const STORAGE_KEY: Record<CollectionNamespace, string> = {
   owned: "reol-collection-owned",
   attended: "reol-collection-attended",
+  visited: "reol-collection-visited",
 };
 const CHANGE_EVENT: Record<CollectionNamespace, string> = {
   owned: "reol-collection-changed",
   attended: "reol-collection-attended-changed",
+  visited: "reol-collection-visited-changed",
 };
 
 const loadOwned = (ns: CollectionNamespace): Set<string> => {
