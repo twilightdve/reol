@@ -346,19 +346,26 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
 
         <GlassCard
-          href="/bijigaku-navi/"
-          className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bijigaku-header"
+          href="/live/guide/"
+          className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bx-blueLight"
+          onClick={() =>
+            trackEvent("entry_card_click", {
+              category: "navigation",
+              label: "ライヴ参戦ガイド",
+              card_type: "live_guide",
+            })
+          }
         >
           <div>
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bijigaku-header">
-              BIJIGAKU NAVI
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              LIVE GUIDE
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">美辞学ナビ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ライヴ参戦ガイド</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              会場情報・アクセス・参加者情報をチェック
+              持ち物・服装・マナーから遠征のコツまで
             </p>
           </div>
-          <span className="flex-shrink-0 font-extrabold text-bijigaku-header">→</span>
+          <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
         </GlassCard>
       </div>
 
