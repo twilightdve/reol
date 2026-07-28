@@ -253,7 +253,10 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
                       {song.songName}
                     </span>
                     {isHiddenGem && (
-                      <span className="flex-shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-bx-yellow text-bx-bg whitespace-nowrap">
+                      <span
+                        title="あなたの個人ランキング上位30%以内かつ、サイト全体の演奏回数ランキングが下位40%(演奏機会が少ない曲)に自動で付与されます"
+                        className="flex-shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-bx-yellow text-bx-bg whitespace-nowrap cursor-help"
+                      >
                         生で聴きたい
                       </span>
                     )}
@@ -264,6 +267,13 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
                 );
               })}
             </ol>
+
+            <p className="text-[11px] text-bx-ink3 leading-relaxed">
+              <span className="font-bold px-1.5 py-0.5 rounded-full bg-bx-yellow text-bx-bg text-[10px] mr-1">
+                生で聴きたい
+              </span>
+              は、あなたの個人ランキング上位30%以内かつ、サイト全体の演奏回数ランキングが下位40%(演奏機会が少ない曲)の曲に自動で付与されます。
+            </p>
 
             <button
               type="button"
