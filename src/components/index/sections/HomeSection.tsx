@@ -308,6 +308,27 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
               曲の隣接関係・定位置・年別傾向をデータで解析。
             </p>
           </GlassCard>
+
+          <GlassCard
+            to="/posts/"
+            accent="blueLight"
+            className="p-4"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "関連ポスト",
+                card_type: "posts",
+              })
+            }
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              POSTS
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">関連ポスト</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              楽曲・ライブ・各公演の関連ポストを時系列で横断表示。
+            </p>
+          </GlassCard>
         </div>
       </div>
 

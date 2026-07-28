@@ -2,7 +2,7 @@ import type { GatsbyNode, SourceNodesArgs } from "gatsby";
 import { promises as fs } from "fs";
 import path from "path";
 import { SheetService } from "./src/services/SpreadsheetService";
-import { DiscographyWithSongs } from "./src/types/discography";
+import { DiscographyWithSongs, Discography, DiscographyPost } from "./src/types/discography";
 import {
   Live,
   LiveItem,
@@ -229,6 +229,173 @@ const createLiveNodes = async (
   await writeDataJson("live.json", liveInfos, {
     mirrorToStatic: true,
   });
+};
+
+// 新規コンテンツ案J「/posts/ 関連ポスト独立セクション」用の集約データ。
+// discography/live/liveItem に散らばる関連ポスト(X埋め込み)を1つの
+// 時系列インデックスにまとめる。埋め込みHTML(Tweet標準の"copy embed code"形式)
+// から投稿者ハンドル・表示名・投稿日をパースする(表示にはtweetIdのみ使うため
+// HTML自体は保存しない)。
+//
+// 投稿者の分類(本人/公式/メディア/ファン)はハンドル名のヒューリスティック。
+// 「本人」以外は確認が取れたハンドルのみ手動でリストに追加する運用とし、
+// 未確認のアカウントを推測で「公式」「メディア」に分類しない
+// (reol-official-links相当の確認方針を踏襲)。
+const HERSELF_HANDLES = new Set(["rrreol"]);
+// 確認済みの公式関連アカウント(本人以外)。ハンドル名は小文字・@なしで追加。
+const OFFICIAL_HANDLES = new Set<string>([]);
+// 確認済みのメディア・ニュースアカウント。
+const MEDIA_HANDLES = new Set<string>([]);
+
+type PostCategory = "本人" | "公式" | "メディア" | "ファン";
+
+const classifyPostHandle = (handle: string | null): PostCategory => {
+  if (!handle) return "ファン";
+  const h = handle.toLowerCase();
+  if (HERSELF_HANDLES.has(h)) return "本人";
+  if (OFFICIAL_HANDLES.has(h)) return "公式";
+  if (MEDIA_HANDLES.has(h)) return "メディア";
+  return "ファン";
+};
+
+// Twitter/Xの標準的な埋め込みHTML
+// (`&mdash; 表示名 (@handle) <a href=".../status/...">日付</a>`)から
+// ハンドル・表示名・投稿日を抜き出す。パース不可の場合はnullのまま返す。
+const parsePostEmbedHtml = (
+  html: string
+): { handle: string | null; displayName: string | null; postedAt: string | null } => {
+  const handleMatch = html.match(/\(@(\w+)\)/);
+  const nameMatch = html.match(/&mdash;\s*([^(]+?)\s*\(@/);
+  const dateMatch = html.match(/status\/\d+[^>]*>([^<]+)<\/a>/);
+  let postedAt: string | null = null;
+  if (dateMatch) {
+    const d = new Date(dateMatch[1]);
+    if (!isNaN(d.getTime())) {
+      postedAt = d.toISOString().slice(0, 10);
+    }
+  }
+  return {
+    handle: handleMatch ? handleMatch[1] : null,
+    displayName: nameMatch ? nameMatch[1].trim() : null,
+    postedAt,
+  };
+};
+
+type PostsIndexEntry = {
+  id: string;
+  handle: string | null;
+  displayName: string | null;
+  postedAt: string | null;
+  category: PostCategory;
+  sourceType: "discography" | "live" | "liveItem";
+  sourceTitle: string;
+  sourceSlug: string;
+};
+
+const createPostsIndexNode = async (
+  sheet: SheetService,
+  { actions, createNodeId, createContentDigest }: SourceNodesArgs
+) => {
+  const { createNode } = actions;
+
+  const [discography, discographyPosts, lives, livePosts, liveItems, liveItemPosts] =
+    await Promise.all([
+      sheet.getDiscography(),
+      sheet.getDiscographyPosts(),
+      sheet.getLives(),
+      sheet.getLivePosts(),
+      sheet.getLiveItems(),
+      sheet.getLiveItemPosts(),
+    ]);
+
+  const discByUuid = new Map<string, Discography>(
+    discography.map((d) => [d.discographyUuid, d])
+  );
+  const liveByUuid = new Map<string, Live>(lives.map((l) => [l.liveUuid, l]));
+  const itemByUuid = new Map<string, LiveItem>(
+    liveItems.map((it) => [it.liveItemUuid, it])
+  );
+
+  const posts: PostsIndexEntry[] = [];
+
+  const pushEntry = (
+    id: string,
+    html: string,
+    sourceType: PostsIndexEntry["sourceType"],
+    sourceTitle: string,
+    sourceSlug: string
+  ) => {
+    const parsed = parsePostEmbedHtml(html);
+    posts.push({
+      id,
+      handle: parsed.handle,
+      displayName: parsed.displayName,
+      postedAt: parsed.postedAt,
+      category: classifyPostHandle(parsed.handle),
+      sourceType,
+      sourceTitle,
+      sourceSlug,
+    });
+  };
+
+  for (const p of discographyPosts as DiscographyPost[]) {
+    const disc = discByUuid.get(p.discographyUuid);
+    if (!disc) continue;
+    pushEntry(
+      p.discographyPostId,
+      p.discographyPostHTML,
+      "discography",
+      disc.title,
+      `/discography/#disc-${disc.slug}`
+    );
+  }
+
+  for (const p of livePosts as LivePost[]) {
+    const live = liveByUuid.get(p.liveUuid);
+    if (!live) continue;
+    pushEntry(
+      p.livePostId,
+      p.livePostHTML,
+      "live",
+      live.title,
+      `/live/#live-${live.slug}`
+    );
+  }
+
+  for (const p of liveItemPosts as LiveItemPost[]) {
+    const item = itemByUuid.get(p.liveItemUuid);
+    if (!item) continue;
+    const parentLive = liveByUuid.get(item.liveUuid);
+    const label = [parentLive?.title, item.liveItemName || item.place]
+      .filter(Boolean)
+      .join(" - ");
+    pushEntry(
+      p.liveItemPostId,
+      p.liveItemPostHTML,
+      "liveItem",
+      label || parentLive?.title || "LIVE",
+      `/live/${item.slug}/`
+    );
+  }
+
+  // 新しい順(投稿日不明は末尾)
+  posts.sort(
+    (a, b) =>
+      (b.postedAt || "").localeCompare(a.postedAt || "") ||
+      b.id.localeCompare(a.id)
+  );
+
+  createNode({
+    id: createNodeId("PostsIndex"),
+    posts,
+    internal: {
+      type: "PostsIndex",
+      content: JSON.stringify(posts),
+      contentDigest: createContentDigest(posts),
+    },
+  });
+  await writeDataJson("posts-index.json", { posts });
+  console.log(`[posts-index] total=${posts.length}`);
 };
 
 const createRecommendNodes = async (
@@ -1136,6 +1303,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
       createRecommendNodes(sheet, args),
       createPlaceNodes(sheet, args),
       createRelationsNodes(args),
+      createPostsIndexNode(sheet, args),
     ]);
     // disc/live のロード後に楽曲×ライブのインデックスを作る
     await createSongStatsNodes(sheet, args);
