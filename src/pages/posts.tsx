@@ -19,13 +19,15 @@ import { Kicker } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import LazyComponent from "../components/modules/LazyComponent";
 import { useTheme } from "../hooks/useTheme";
-import { trackFilterChange } from "../utils/analytics";
+import { trackFilterChange, trackEvent } from "../utils/analytics";
+import UtilityService from "../services/UtilityService";
 
 type PostCategory = "本人" | "公式" | "メディア" | "ファン";
 type SourceType = "discography" | "live" | "liveItem";
 
 type PostEntry = {
   id: string;
+  html: string;
   handle: string | null;
   displayName: string | null;
   postedAt: string | null;
@@ -33,6 +35,27 @@ type PostEntry = {
   sourceType: SourceType;
   sourceTitle: string;
   sourceSlug: string;
+};
+
+const BLOCKQUOTE_ALLOWED_TAGS = ["blockquote", "p", "a", "br"];
+
+/** 事前取得済みのblockquoteを軽量表示するカード(既定表示、widgets.js不使用)。 */
+const StaticPostPreview: React.FC<{ html: string | null | undefined }> = ({ html }) => {
+  // innerHTMLへの代入は値を暗黙にString()化するため、htmlがfalsyだと
+  // 文字列"undefined"がそのまま描画されてしまう。ここで明示的に弾く。
+  if (!html) {
+    return (
+      <p className="text-xs text-bx-ink3">本文を表示できませんでした。</p>
+    );
+  }
+  return (
+    <div
+      className="text-sm leading-relaxed text-bx-ink2 [&_blockquote]:m-0 [&_blockquote]:p-0 [&_blockquote]:border-0 [&_p]:mb-2 [&_a]:text-bx-blue [&_a]:underline [&_a]:underline-offset-2"
+      dangerouslySetInnerHTML={{
+        __html: UtilityService.sanitizeHTMLWithAllowedTags(html, BLOCKQUOTE_ALLOWED_TAGS),
+      }}
+    />
+  );
 };
 
 type PostsIndexData = { posts: PostEntry[] };
@@ -95,6 +118,22 @@ const PostsPage: React.FC = () => {
   const visiblePosts = filtered.slice(0, visibleCount);
 
   const resetPaging = () => setVisibleCount(PAGE_SIZE);
+
+  // 既定では事前取得済みのblockquoteを軽量表示し、widgets.jsのiframeは
+  // ユーザーが個別に切り替えた投稿だけ読み込む(1000件超えるため全件iframe化は重い)。
+  const [iframeIds, setIframeIds] = useState<Set<string>>(new Set());
+  const toggleIframe = (key: string) => {
+    setIframeIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
+        trackEvent("posts_iframe_toggle", { category: "engagement", label: key });
+      }
+      return next;
+    });
+  };
 
   return (
     <Layout title="関連ポスト">
@@ -203,42 +242,59 @@ const PostsPage: React.FC = () => {
               </p>
             ) : (
               <ul className="space-y-4">
-                {visiblePosts.map((p) => (
-                  <li
-                    key={`${p.sourceType}-${p.id}`}
-                    className="rounded-lg border border-bx-line bg-bx-surface/5 p-3"
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
-                      <Link
-                        to={p.sourceSlug}
-                        className="text-xs font-bold text-bx-blue hover:underline truncate"
-                      >
-                        {p.sourceTitle}
-                      </Link>
-                      <span className="flex-shrink-0 flex items-center gap-1.5">
-                        {p.postedAt && (
-                          <span className="text-[10px] text-bx-ink3 tabular-nums">
-                            {p.postedAt}
-                          </span>
-                        )}
-                        <span
-                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                            p.category === "本人"
-                              ? "bg-bx-yellow text-bx-bg"
-                              : p.category === "公式" || p.category === "メディア"
-                              ? "bg-bx-blue text-bx-bg"
-                              : "border border-bx-line text-bx-ink3"
-                          }`}
+                {visiblePosts.map((p) => {
+                  const key = `${p.sourceType}-${p.id}`;
+                  const showIframe = iframeIds.has(key);
+                  return (
+                    <li
+                      key={key}
+                      className="rounded-lg border border-bx-line bg-bx-surface/5 p-3"
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
+                        <Link
+                          to={p.sourceSlug}
+                          className="text-xs font-bold text-bx-blue hover:underline truncate"
                         >
-                          {p.category}
+                          {p.sourceTitle}
+                        </Link>
+                        <span className="flex-shrink-0 flex items-center gap-1.5">
+                          {p.postedAt && (
+                            <span className="text-[10px] text-bx-ink3 tabular-nums">
+                              {p.postedAt}
+                            </span>
+                          )}
+                          <span
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                              p.category === "本人"
+                                ? "bg-bx-yellow text-bx-bg"
+                                : p.category === "公式" || p.category === "メディア"
+                                ? "bg-bx-blue text-bx-bg"
+                                : "border border-bx-line text-bx-ink3"
+                            }`}
+                          >
+                            {p.category}
+                          </span>
                         </span>
-                      </span>
-                    </div>
-                    <LazyComponent>
-                      <Tweet tweetId={p.id} options={{ theme }} />
-                    </LazyComponent>
-                  </li>
-                ))}
+                      </div>
+
+                      {showIframe ? (
+                        <LazyComponent>
+                          <Tweet tweetId={p.id} options={{ theme }} />
+                        </LazyComponent>
+                      ) : (
+                        <StaticPostPreview html={p.html} />
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => toggleIframe(key)}
+                        className="mt-2 text-[11px] text-bx-ink3 hover:text-bx-blue underline underline-offset-2"
+                      >
+                        {showIframe ? "軽量表示に戻す" : "埋め込み表示(iframe)で見る"}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             )}
 

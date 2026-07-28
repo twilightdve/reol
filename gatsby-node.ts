@@ -281,8 +281,17 @@ const parsePostEmbedHtml = (
   };
 };
 
+// 一覧では毎回widgets.jsのiframeを読み込まず、事前取得済みの
+// <blockquote>だけを軽量表示する。widgets.js を読み込むと同一ページ内の
+// 他のtwitter-tweet blockquoteまで巻き込んでiframe化されてしまうため、
+// <script>タグは静的表示用データからは除去しておく
+// (iframe表示への切り替えは別途 react-twitter-widgets の Tweet を使う)。
+const stripWidgetsScript = (html: string): string =>
+  html.replace(/<script[^>]*widgets\.js[^>]*><\/script>/i, "").trim();
+
 type PostsIndexEntry = {
   id: string;
+  html: string;
   handle: string | null;
   displayName: string | null;
   postedAt: string | null;
@@ -328,6 +337,7 @@ const createPostsIndexNode = async (
     const parsed = parsePostEmbedHtml(html);
     posts.push({
       id,
+      html: stripWidgetsScript(html),
       handle: parsed.handle,
       displayName: parsed.displayName,
       postedAt: parsed.postedAt,
