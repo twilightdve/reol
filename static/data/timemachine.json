@@ -1,0 +1,4224 @@
+{
+  "snapshots": [
+    {
+      "month": "2013-09",
+      "songCount": 1,
+      "liveItemCount": 1,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "WAVE",
+        "slug": "wave",
+        "releaseDate": "2012-9-29"
+      },
+      "nextLive": {
+        "title": "amphead nico nico singer music live vol.03",
+        "itemName": null,
+        "date": "2014-02-01",
+        "place": "原宿 ASTRO HALL",
+        "liveSlug": "amphead-nico-nico-singer-music-live-vol03"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ぎがばなな ざ べすと シークレットライブ",
+          "itemName": null,
+          "date": "2013-09-23",
+          "place": "東京 ニッショーホール",
+          "liveSlug": "gigabanana-za-besuto-shikurettoraibu",
+          "liveItemSlug": "gigaba-na-na-za"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "ギガンティックO.T.N",
+          "slug": "otn"
+        }
+      ]
+    },
+    {
+      "month": "2013-10",
+      "songCount": 1,
+      "liveItemCount": 1,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "ジッタードール",
+        "slug": "jittadoru",
+        "releaseDate": "2013-10-20"
+      },
+      "nextLive": {
+        "title": "amphead nico nico singer music live vol.03",
+        "itemName": null,
+        "date": "2014-02-01",
+        "place": "原宿 ASTRO HALL",
+        "liveSlug": "amphead-nico-nico-singer-music-live-vol03"
+      },
+      "releases": [
+        {
+          "title": "ジッタードール",
+          "slug": "jittadoru",
+          "releaseDate": "2013-10-20"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2013-12",
+      "songCount": 1,
+      "liveItemCount": 1,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "一心不乱 〔feat.ill.bell,nqrse〕",
+        "slug": "featillbellnqrse",
+        "releaseDate": "2013-12-22"
+      },
+      "nextLive": {
+        "title": "amphead nico nico singer music live vol.03",
+        "itemName": null,
+        "date": "2014-02-01",
+        "place": "原宿 ASTRO HALL",
+        "liveSlug": "amphead-nico-nico-singer-music-live-vol03"
+      },
+      "releases": [
+        {
+          "title": "Masked bitcH -GIGA Birthday Arrange-",
+          "slug": "masked-bitch-giga-birthday-arrange",
+          "releaseDate": "2013-12-15"
+        },
+        {
+          "title": "一心不乱 〔feat.ill.bell,nqrse〕",
+          "slug": "featillbellnqrse",
+          "releaseDate": "2013-12-22"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2014-02",
+      "songCount": 1,
+      "liveItemCount": 2,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "〔ななひら×れをる〕 8HIT",
+        "slug": "8hit",
+        "releaseDate": "2013-9-25"
+      },
+      "nextLive": {
+        "title": "nico nico Spirit.",
+        "itemName": null,
+        "date": "2015-02-01",
+        "place": "新宿ReNY",
+        "liveSlug": "nico-nico-spirit"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "amphead nico nico singer music live vol.03",
+          "itemName": null,
+          "date": "2014-02-01",
+          "place": "原宿 ASTRO HALL",
+          "liveSlug": "amphead-nico-nico-singer-music-live-vol03",
+          "liveItemSlug": "amphead-nico"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2014-08",
+      "songCount": 1,
+      "liveItemCount": 2,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "No title-",
+        "slug": "no-title-2",
+        "releaseDate": "2014-08-17"
+      },
+      "nextLive": {
+        "title": "nico nico Spirit.",
+        "itemName": null,
+        "date": "2015-02-01",
+        "place": "新宿ReNY",
+        "liveSlug": "nico-nico-spirit"
+      },
+      "releases": [
+        {
+          "title": "No title-",
+          "slug": "no-title-2",
+          "releaseDate": "2014-08-17"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2014-10",
+      "songCount": 1,
+      "liveItemCount": 2,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "レッド・パージ！！！",
+        "slug": "reddopaji",
+        "releaseDate": "2014-10-3"
+      },
+      "nextLive": {
+        "title": "nico nico Spirit.",
+        "itemName": null,
+        "date": "2015-02-01",
+        "place": "新宿ReNY",
+        "liveSlug": "nico-nico-spirit"
+      },
+      "releases": [
+        {
+          "title": "No title",
+          "slug": "no-title",
+          "releaseDate": "2014-10-13"
+        },
+        {
+          "title": "レッド・パージ！！！",
+          "slug": "reddopaji",
+          "releaseDate": "2014-10-3"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2014-11",
+      "songCount": 1,
+      "liveItemCount": 2,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "ストリーミングハート",
+        "slug": "sutoriminguhato",
+        "releaseDate": "2014-11-24"
+      },
+      "nextLive": {
+        "title": "nico nico Spirit.",
+        "itemName": null,
+        "date": "2015-02-01",
+        "place": "新宿ReNY",
+        "liveSlug": "nico-nico-spirit"
+      },
+      "releases": [
+        {
+          "title": "POPEE the クラウン を うたいました",
+          "slug": "popee-the",
+          "releaseDate": "2014-11-11"
+        },
+        {
+          "title": "ストリーミングハート",
+          "slug": "sutoriminguhato",
+          "releaseDate": "2014-11-24"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2015-02",
+      "songCount": 1,
+      "liveItemCount": 3,
+      "performanceCount": 10,
+      "latestRelease": {
+        "title": "ヒビカセ ver れをる",
+        "slug": "ver-2",
+        "releaseDate": "2014-9-24"
+      },
+      "nextLive": {
+        "title": "ウタカツ！スーパーライブ2015",
+        "itemName": null,
+        "date": "2015-03-22",
+        "place": "国立代々木競技場第一体育館",
+        "liveSlug": "2015"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "nico nico Spirit.",
+          "itemName": null,
+          "date": "2015-02-01",
+          "place": "新宿ReNY",
+          "liveSlug": "nico-nico-spirit",
+          "liveItemSlug": "nico-nico"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2015-03",
+      "songCount": 1,
+      "liveItemCount": 4,
+      "performanceCount": 55,
+      "latestRelease": {
+        "title": "ヒビカセ ver れをる",
+        "slug": "ver-2",
+        "releaseDate": "2014-9-24"
+      },
+      "nextLive": {
+        "title": "Stars on Planet 2015 大宮",
+        "itemName": "昼の部",
+        "date": "2015-07-11",
+        "place": "大宮ソニックシティ",
+        "liveSlug": "stars-on-planet-2015"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ウタカツ！スーパーライブ2015",
+          "itemName": null,
+          "date": "2015-03-22",
+          "place": "国立代々木競技場第一体育館",
+          "liveSlug": "2015",
+          "liveItemSlug": "utakatsu"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2015-07",
+      "songCount": 2,
+      "liveItemCount": 6,
+      "performanceCount": 87,
+      "latestRelease": {
+        "title": "極彩色",
+        "slug": "gokusaishoku-2",
+        "releaseDate": "2015-07-29"
+      },
+      "nextLive": {
+        "title": "れをる単独公演「極彩色HighFidelity」",
+        "itemName": "東の宴",
+        "date": "2015-10-23",
+        "place": "TSUTAYA O-EAST",
+        "liveSlug": "highfidelity"
+      },
+      "releases": [
+        {
+          "title": "極彩色",
+          "slug": "gokusaishoku-2",
+          "releaseDate": "2015-07-29"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Stars on Planet 2015 大宮",
+          "itemName": "昼の部",
+          "date": "2015-07-11",
+          "place": "大宮ソニックシティ",
+          "liveSlug": "stars-on-planet-2015",
+          "liveItemSlug": "hiru-no-bu"
+        },
+        {
+          "title": "Stars on Planet 2015 大宮",
+          "itemName": "夜の部",
+          "date": "2015-07-11",
+          "place": "大宮ソニックシティ",
+          "liveSlug": "stars-on-planet-2015",
+          "liveItemSlug": "yoru-no-bu"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "アストロノーツ",
+          "slug": "asutoronotsu"
+        }
+      ]
+    },
+    {
+      "month": "2015-10",
+      "songCount": 2,
+      "liveItemCount": 7,
+      "performanceCount": 87,
+      "latestRelease": {
+        "title": "WAVE 〔niki × EZFG〕",
+        "slug": "wave-niki-ezfg",
+        "releaseDate": "2015-10-20"
+      },
+      "nextLive": {
+        "title": "れをる単独公演「極彩色HighFidelity」",
+        "itemName": "西の宴",
+        "date": "2015-11-26",
+        "place": "BIG CAT",
+        "liveSlug": "highfidelity"
+      },
+      "releases": [
+        {
+          "title": "頓珍漢の宴",
+          "slug": "tonchinkan-no-utage",
+          "releaseDate": "2015-10-1"
+        },
+        {
+          "title": "WAVE 〔niki × EZFG〕",
+          "slug": "wave-niki-ezfg",
+          "releaseDate": "2015-10-20"
+        }
+      ],
+      "lives": [
+        {
+          "title": "れをる単独公演「極彩色HighFidelity」",
+          "itemName": "東の宴",
+          "date": "2015-10-23",
+          "place": "TSUTAYA O-EAST",
+          "liveSlug": "highfidelity",
+          "liveItemSlug": "azuma-no-utage"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2015-11",
+      "songCount": 19,
+      "liveItemCount": 8,
+      "performanceCount": 114,
+      "latestRelease": {
+        "title": "脳内革命ガール 〔ill.bell〕",
+        "slug": "illbell",
+        "releaseDate": "2015-11-22"
+      },
+      "nextLive": {
+        "title": "れをる単独公演「極彩色HighFidelity」",
+        "itemName": "華の宴 in 上海",
+        "date": "2016-01-09",
+        "place": "MAO livehouse",
+        "liveSlug": "highfidelity"
+      },
+      "releases": [
+        {
+          "title": "脳内革命ガール 〔ill.bell〕",
+          "slug": "illbell",
+          "releaseDate": "2015-11-22"
+        }
+      ],
+      "lives": [
+        {
+          "title": "れをる単独公演「極彩色HighFidelity」",
+          "itemName": "西の宴",
+          "date": "2015-11-26",
+          "place": "BIG CAT",
+          "liveSlug": "highfidelity",
+          "liveItemSlug": "nishi-no-utage"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "極彩色",
+          "slug": "gokusaishiki"
+        },
+        {
+          "songName": "染",
+          "slug": "some"
+        },
+        {
+          "songName": "-nil-",
+          "slug": "nil"
+        },
+        {
+          "songName": "ROXY",
+          "slug": "roxy"
+        },
+        {
+          "songName": "-orderly-",
+          "slug": "orderly"
+        },
+        {
+          "songName": "MONSTER",
+          "slug": "monster"
+        },
+        {
+          "songName": "mede:mede",
+          "slug": "medemede"
+        },
+        {
+          "songName": "ハルシアン",
+          "slug": "harushian"
+        },
+        {
+          "songName": "ミッドナイトストロウラ",
+          "slug": "middonaitosutoroura"
+        },
+        {
+          "songName": "アシンメトリー",
+          "slug": "ashinmetori"
+        },
+        {
+          "songName": "Echo",
+          "slug": "echo"
+        },
+        {
+          "songName": "-BWW SCREAM-",
+          "slug": "bww-scream"
+        },
+        {
+          "songName": "ラ・タタン",
+          "slug": "ratatan"
+        },
+        {
+          "songName": "ロジックエージェント",
+          "slug": "rojikkuejento"
+        },
+        {
+          "songName": "Behind The Night",
+          "slug": "behind-the-night"
+        },
+        {
+          "songName": "Syrup",
+          "slug": "syrup"
+        },
+        {
+          "songName": "約束の蒼",
+          "slug": "yakusoku-no-ao"
+        }
+      ]
+    },
+    {
+      "month": "2016-01",
+      "songCount": 21,
+      "liveItemCount": 9,
+      "performanceCount": 129,
+      "latestRelease": {
+        "title": "メリュー",
+        "slug": "meryu",
+        "releaseDate": "2015-6-11"
+      },
+      "nextLive": {
+        "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+        "itemName": null,
+        "date": "2016-07-02",
+        "place": "赤坂BLITZ",
+        "liveSlug": "presents-summer-rise-2016"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "れをる単独公演「極彩色HighFidelity」",
+          "itemName": "華の宴 in 上海",
+          "date": "2016-01-09",
+          "place": "MAO livehouse",
+          "liveSlug": "highfidelity",
+          "liveItemSlug": "in"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "LUVORATORRRRRY!",
+          "slug": "luvoratorrrrry"
+        },
+        {
+          "songName": "drop pop candy (feat. ギガ)",
+          "slug": "drop-pop-candy-feat"
+        }
+      ]
+    },
+    {
+      "month": "2016-07",
+      "songCount": 21,
+      "liveItemCount": 10,
+      "performanceCount": 129,
+      "latestRelease": {
+        "title": "メリュー",
+        "slug": "meryu",
+        "releaseDate": "2015-6-11"
+      },
+      "nextLive": {
+        "title": "BIG FOREST LIVE",
+        "itemName": null,
+        "date": "2016-08-28",
+        "place": "札幌芸術の森野外ステージ",
+        "liveSlug": "big-forest-live"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "日本工学院ミュージックカレッジ presents Summer Rise 2016",
+          "itemName": null,
+          "date": "2016-07-02",
+          "place": "赤坂BLITZ",
+          "liveSlug": "presents-summer-rise-2016",
+          "liveItemSlug": "nihonkougakuin"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2016-08",
+      "songCount": 21,
+      "liveItemCount": 11,
+      "performanceCount": 129,
+      "latestRelease": {
+        "title": "メリュー",
+        "slug": "meryu",
+        "releaseDate": "2015-6-11"
+      },
+      "nextLive": {
+        "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+        "itemName": "TOKYO",
+        "date": "2017-02-26",
+        "place": "Zepp Tokyo",
+        "liveSlug": "reol"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "BIG FOREST LIVE",
+          "itemName": null,
+          "date": "2016-08-28",
+          "place": "札幌芸術の森野外ステージ",
+          "liveSlug": "big-forest-live",
+          "liveItemSlug": "big-forest-live"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2016-10",
+      "songCount": 21,
+      "liveItemCount": 11,
+      "performanceCount": 129,
+      "latestRelease": {
+        "title": "Σ",
+        "slug": "siguma",
+        "releaseDate": "2016-10-19"
+      },
+      "nextLive": {
+        "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+        "itemName": "TOKYO",
+        "date": "2017-02-26",
+        "place": "Zepp Tokyo",
+        "liveSlug": "reol"
+      },
+      "releases": [
+        {
+          "title": "Σ",
+          "slug": "siguma",
+          "releaseDate": "2016-10-19"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2017-02",
+      "songCount": 37,
+      "liveItemCount": 12,
+      "performanceCount": 148,
+      "latestRelease": {
+        "title": "ECHO",
+        "slug": "echo",
+        "releaseDate": "2016-5-13"
+      },
+      "nextLive": {
+        "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+        "itemName": "OSAKA",
+        "date": "2017-03-05",
+        "place": "なんばHatch",
+        "liveSlug": "reol"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+          "itemName": "TOKYO",
+          "date": "2017-02-26",
+          "place": "Zepp Tokyo",
+          "liveSlug": "reol",
+          "liveItemSlug": "tokyo"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "No title",
+          "slug": "no-title"
+        },
+        {
+          "songName": "宵々古今",
+          "slug": "yoi-kokon"
+        },
+        {
+          "songName": "ちるちる",
+          "slug": "chiruchiru"
+        },
+        {
+          "songName": "DetaramE KiddinG",
+          "slug": "detarame-kidding"
+        },
+        {
+          "songName": "ニュータイプトーキョー",
+          "slug": "nyutaiputokyo"
+        },
+        {
+          "songName": "ギミアブレスタッナウ",
+          "slug": "gimiaburesutannau"
+        },
+        {
+          "songName": "VIP KID",
+          "slug": "vip-kid"
+        },
+        {
+          "songName": "404 not found",
+          "slug": "404-not-found"
+        },
+        {
+          "songName": "サマーホラーパーティ",
+          "slug": "samahorapati"
+        },
+        {
+          "songName": "オオエドランヴ (feat. nqrse)",
+          "slug": "feat-nqrse"
+        },
+        {
+          "songName": "Lunatic",
+          "slug": "lunatic"
+        },
+        {
+          "songName": "神様になった日",
+          "slug": "kamisama-ni-natta-hi"
+        },
+        {
+          "songName": "VIORA",
+          "slug": "viora"
+        },
+        {
+          "songName": "コノヨLoading...",
+          "slug": "loading"
+        },
+        {
+          "songName": "RE:",
+          "slug": "re"
+        },
+        {
+          "songName": "-FINAL SIGMA-",
+          "slug": "final-sigma"
+        }
+      ]
+    },
+    {
+      "month": "2017-03",
+      "songCount": 37,
+      "liveItemCount": 15,
+      "performanceCount": 166,
+      "latestRelease": {
+        "title": "ECHO",
+        "slug": "echo",
+        "releaseDate": "2016-5-13"
+      },
+      "nextLive": {
+        "title": "AIR-G' 35th Anniversary New Music Lab 2",
+        "itemName": null,
+        "date": "2017-04-28",
+        "place": "cube garden",
+        "liveSlug": "air-g-35th-anniversary-new-music-lab-2"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+          "itemName": "OSAKA",
+          "date": "2017-03-05",
+          "place": "なんばHatch",
+          "liveSlug": "reol",
+          "liveItemSlug": "osaka"
+        },
+        {
+          "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+          "itemName": "KOREA",
+          "date": "2017-03-11",
+          "place": "HONGDAE V-HALL",
+          "liveSlug": "reol",
+          "liveItemSlug": "korea"
+        },
+        {
+          "title": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+          "itemName": "KOREA",
+          "date": "2017-03-12",
+          "place": "HONGDAE V-HALL",
+          "liveSlug": "reol",
+          "liveItemSlug": "korea-2"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2017-04",
+      "songCount": 37,
+      "liveItemCount": 16,
+      "performanceCount": 166,
+      "latestRelease": {
+        "title": "ECHO",
+        "slug": "echo",
+        "releaseDate": "2016-5-13"
+      },
+      "nextLive": {
+        "title": "HYPER JAPAN Festival 2017 ",
+        "itemName": null,
+        "date": "2017-07-16",
+        "place": "Tobacco Dock",
+        "liveSlug": "hyper-japan-festival-2017"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "AIR-G' 35th Anniversary New Music Lab 2",
+          "itemName": null,
+          "date": "2017-04-28",
+          "place": "cube garden",
+          "liveSlug": "air-g-35th-anniversary-new-music-lab-2",
+          "liveItemSlug": "air-g-35th"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2017-07",
+      "songCount": 37,
+      "liveItemCount": 17,
+      "performanceCount": 173,
+      "latestRelease": {
+        "title": "ECHO",
+        "slug": "echo",
+        "releaseDate": "2016-5-13"
+      },
+      "nextLive": {
+        "title": "REOL LAST LIVE「終楽章」",
+        "itemName": "OSAKA",
+        "date": "2017-10-20",
+        "place": "Zepp Namba",
+        "liveSlug": "reol-last-live"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "HYPER JAPAN Festival 2017 ",
+          "itemName": null,
+          "date": "2017-07-16",
+          "place": "Tobacco Dock",
+          "liveSlug": "hyper-japan-festival-2017",
+          "liveItemSlug": "hyper-japan"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2017-10",
+      "songCount": 40,
+      "liveItemCount": 19,
+      "performanceCount": 223,
+      "latestRelease": {
+        "title": "エンドレスEP",
+        "slug": "ep",
+        "releaseDate": "2017-10-11"
+      },
+      "nextLive": {
+        "title": "ビクターロック祭り 2018",
+        "itemName": null,
+        "date": "2018-03-17",
+        "place": "幕張メッセ",
+        "liveSlug": "2018"
+      },
+      "releases": [
+        {
+          "title": "エンドレスEP",
+          "slug": "ep",
+          "releaseDate": "2017-10-11"
+        }
+      ],
+      "lives": [
+        {
+          "title": "REOL LAST LIVE「終楽章」",
+          "itemName": "OSAKA",
+          "date": "2017-10-20",
+          "place": "Zepp Namba",
+          "liveSlug": "reol-last-live",
+          "liveItemSlug": "osaka-2"
+        },
+        {
+          "title": "REOL LAST LIVE「終楽章」",
+          "itemName": "TOKYO",
+          "date": "2017-10-22",
+          "place": "豊洲PIT",
+          "liveSlug": "reol-last-live",
+          "liveItemSlug": "tokyo-2"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "ヒビカセ",
+          "slug": "hibikase"
+        },
+        {
+          "songName": "エンドレスライン",
+          "slug": "endoresurain"
+        },
+        {
+          "songName": "B12",
+          "slug": "b12"
+        }
+      ]
+    },
+    {
+      "month": "2018-01",
+      "songCount": 40,
+      "liveItemCount": 19,
+      "performanceCount": 223,
+      "latestRelease": {
+        "title": "平面鏡",
+        "slug": "heimenkyo",
+        "releaseDate": "2018-01-09"
+      },
+      "nextLive": {
+        "title": "ビクターロック祭り 2018",
+        "itemName": null,
+        "date": "2018-03-17",
+        "place": "幕張メッセ",
+        "liveSlug": "2018"
+      },
+      "releases": [
+        {
+          "title": "平面鏡",
+          "slug": "heimenkyo",
+          "releaseDate": "2018-01-09"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2018-03",
+      "songCount": 43,
+      "liveItemCount": 20,
+      "performanceCount": 226,
+      "latestRelease": {
+        "title": "虚構集",
+        "slug": "kyokou-shuu",
+        "releaseDate": "2018-03-14"
+      },
+      "nextLive": {
+        "title": "Reol Oneman LIVE「刮目相待」",
+        "itemName": "東京",
+        "date": "2018-06-01",
+        "place": "EX THEATER ROPPONGI",
+        "liveSlug": "reol-oneman-live"
+      },
+      "releases": [
+        {
+          "title": "虚構集",
+          "slug": "kyokou-shuu",
+          "releaseDate": "2018-03-14"
+        }
+      ],
+      "lives": [
+        {
+          "title": "ビクターロック祭り 2018",
+          "itemName": null,
+          "date": "2018-03-17",
+          "place": "幕張メッセ",
+          "liveSlug": "2018",
+          "liveItemSlug": "bikutaarokku"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "平面鏡",
+          "slug": "heimen-kyo"
+        },
+        {
+          "songName": "エンド",
+          "slug": "endo"
+        },
+        {
+          "songName": "ミッシング",
+          "slug": "misshingu"
+        }
+      ]
+    },
+    {
+      "month": "2018-05",
+      "songCount": 43,
+      "liveItemCount": 20,
+      "performanceCount": 226,
+      "latestRelease": {
+        "title": "サイサキ",
+        "slug": "saisaki",
+        "releaseDate": "2018-05-16"
+      },
+      "nextLive": {
+        "title": "Reol Oneman LIVE「刮目相待」",
+        "itemName": "東京",
+        "date": "2018-06-01",
+        "place": "EX THEATER ROPPONGI",
+        "liveSlug": "reol-oneman-live"
+      },
+      "releases": [
+        {
+          "title": "サイサキ",
+          "slug": "saisaki",
+          "releaseDate": "2018-05-16"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2018-06",
+      "songCount": 47,
+      "liveItemCount": 22,
+      "performanceCount": 268,
+      "latestRelease": {
+        "title": "サイサキ",
+        "slug": "saisaki",
+        "releaseDate": "2018-05-16"
+      },
+      "nextLive": {
+        "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+        "itemName": "大阪",
+        "date": "2018-10-26",
+        "place": "なんばHatch",
+        "liveSlug": "reol-japan-tour-2018made-in-faction"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman LIVE「刮目相待」",
+          "itemName": "東京",
+          "date": "2018-06-01",
+          "place": "EX THEATER ROPPONGI",
+          "liveSlug": "reol-oneman-live",
+          "liveItemSlug": "toukyou"
+        },
+        {
+          "title": "Reol Oneman LIVE「刮目相待」",
+          "itemName": "大阪",
+          "date": "2018-06-08",
+          "place": "なんばHatch",
+          "liveSlug": "reol-oneman-live",
+          "liveItemSlug": "ousaka"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "サイサキ",
+          "slug": "saisaki"
+        },
+        {
+          "songName": "あ可よろし",
+          "slug": "akayoroshi"
+        },
+        {
+          "songName": "カルト",
+          "slug": "karuto"
+        },
+        {
+          "songName": "生命線",
+          "slug": "seimei-sen"
+        }
+      ]
+    },
+    {
+      "month": "2018-07",
+      "songCount": 47,
+      "liveItemCount": 22,
+      "performanceCount": 268,
+      "latestRelease": {
+        "title": "SAIREN",
+        "slug": "sairen",
+        "releaseDate": "2018-07-17"
+      },
+      "nextLive": {
+        "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+        "itemName": "大阪",
+        "date": "2018-10-26",
+        "place": "なんばHatch",
+        "liveSlug": "reol-japan-tour-2018made-in-faction"
+      },
+      "releases": [
+        {
+          "title": "SAIREN",
+          "slug": "sairen",
+          "releaseDate": "2018-07-17"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2018-10",
+      "songCount": 47,
+      "liveItemCount": 23,
+      "performanceCount": 268,
+      "latestRelease": {
+        "title": "事実上",
+        "slug": "jijitsujou",
+        "releaseDate": "2018-10-17"
+      },
+      "nextLive": {
+        "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+        "itemName": "札幌",
+        "date": "2018-11-03",
+        "place": "札幌ペニーレーン24",
+        "liveSlug": "reol-japan-tour-2018made-in-faction"
+      },
+      "releases": [
+        {
+          "title": "事実上",
+          "slug": "jijitsujou",
+          "releaseDate": "2018-10-17"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "大阪",
+          "date": "2018-10-26",
+          "place": "なんばHatch",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "ousaka-2"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2018-11",
+      "songCount": 59,
+      "liveItemCount": 27,
+      "performanceCount": 294,
+      "latestRelease": {
+        "title": "事実上",
+        "slug": "jijitsujou",
+        "releaseDate": "2018-10-17"
+      },
+      "nextLive": {
+        "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+        "itemName": "韓国",
+        "date": "2018-12-15",
+        "place": "HONDAE MUVHALL",
+        "liveSlug": "reol-japan-tour-2018made-in-faction"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "札幌",
+          "date": "2018-11-03",
+          "place": "札幌ペニーレーン24",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "sapporo"
+        },
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "福岡",
+          "date": "2018-11-11",
+          "place": "DRUM LOGOS",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "fukuoka"
+        },
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "愛知",
+          "date": "2018-11-17",
+          "place": "ReNY limited",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "aichi"
+        },
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "東京",
+          "date": "2018-11-30",
+          "place": "Zepp Tokyo",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "toukyou-2"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "劣等上等",
+          "slug": "rettou-joutou"
+        },
+        {
+          "songName": "煩悩遊戯",
+          "slug": "bonnou-yuugi"
+        },
+        {
+          "songName": "十中八九",
+          "slug": "jutchuuhakku"
+        },
+        {
+          "songName": "激白",
+          "slug": "gekihaku"
+        },
+        {
+          "songName": "真空オールドローズ",
+          "slug": "shinkuu-ourudorouzu"
+        },
+        {
+          "songName": "ミラージュ",
+          "slug": "miraju"
+        },
+        {
+          "songName": "秋映",
+          "slug": "akibae"
+        },
+        {
+          "songName": "-Opening-",
+          "slug": "opening"
+        },
+        {
+          "songName": "SAIREN",
+          "slug": "sairen"
+        },
+        {
+          "songName": "幽居のワルツ",
+          "slug": "yuukyo-no-warutsu"
+        },
+        {
+          "songName": "mede:mede -JJJ Remix-",
+          "slug": "medemede-jjj-remix"
+        },
+        {
+          "songName": "-MANDARA FACT-",
+          "slug": "mandara-fact"
+        }
+      ]
+    },
+    {
+      "month": "2018-12",
+      "songCount": 59,
+      "liveItemCount": 28,
+      "performanceCount": 294,
+      "latestRelease": {
+        "title": "事実上",
+        "slug": "jijitsujou",
+        "releaseDate": "2018-10-17"
+      },
+      "nextLive": {
+        "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+        "itemName": "広州",
+        "date": "2019-01-10",
+        "place": "Mao live house",
+        "liveSlug": "reol-japan-tour-2018made-in-faction"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "韓国",
+          "date": "2018-12-15",
+          "place": "HONDAE MUVHALL",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "kankoku"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2019-01",
+      "songCount": 59,
+      "liveItemCount": 31,
+      "performanceCount": 294,
+      "latestRelease": {
+        "title": "事実上",
+        "slug": "jijitsujou",
+        "releaseDate": "2018-10-17"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live 2019「文明ココロミー」",
+        "itemName": "-東の塔-",
+        "date": "2019-07-13",
+        "place": "渋谷ストリームホール",
+        "liveSlug": "reol-secret-live-2019"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "広州",
+          "date": "2019-01-10",
+          "place": "Mao live house",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "koushuu"
+        },
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "上海",
+          "date": "2019-01-12",
+          "place": "Modernsky Lab",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "shanhai"
+        },
+        {
+          "title": "Reol Japan Tour 2018「MADE IN FACTION」",
+          "itemName": "北京",
+          "date": "2019-01-13",
+          "place": "Tango live",
+          "liveSlug": "reol-japan-tour-2018made-in-faction",
+          "liveItemSlug": "pekin"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2019-03",
+      "songCount": 59,
+      "liveItemCount": 31,
+      "performanceCount": 294,
+      "latestRelease": {
+        "title": "文明EP",
+        "slug": "ep-2",
+        "releaseDate": "2019-03-20"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live 2019「文明ココロミー」",
+        "itemName": "-東の塔-",
+        "date": "2019-07-13",
+        "place": "渋谷ストリームホール",
+        "liveSlug": "reol-secret-live-2019"
+      },
+      "releases": [
+        {
+          "title": "文明EP",
+          "slug": "ep-2",
+          "releaseDate": "2019-03-20"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2019-06",
+      "songCount": 59,
+      "liveItemCount": 31,
+      "performanceCount": 294,
+      "latestRelease": {
+        "title": "事実上(アナログ盤)",
+        "slug": "jijitsujou-anarogu-ban",
+        "releaseDate": "2019-06-07"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live 2019「文明ココロミー」",
+        "itemName": "-東の塔-",
+        "date": "2019-07-13",
+        "place": "渋谷ストリームホール",
+        "liveSlug": "reol-secret-live-2019"
+      },
+      "releases": [
+        {
+          "title": "事実上(アナログ盤)",
+          "slug": "jijitsujou-anarogu-ban",
+          "releaseDate": "2019-06-07"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2019-07",
+      "songCount": 64,
+      "liveItemCount": 34,
+      "performanceCount": 330,
+      "latestRelease": {
+        "title": "ゆーれいずみー",
+        "slug": "yureizumi",
+        "releaseDate": "2019-07-24"
+      },
+      "nextLive": {
+        "title": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+        "itemName": null,
+        "date": "2019-08-03",
+        "place": "国営ひたち海浜公園",
+        "liveSlug": "rock-in-japan-festival-2019-buzz-stage"
+      },
+      "releases": [
+        {
+          "title": "ゆーれいずみー",
+          "slug": "yureizumi",
+          "releaseDate": "2019-07-24"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Secret Live 2019「文明ココロミー」",
+          "itemName": "-東の塔-",
+          "date": "2019-07-13",
+          "place": "渋谷ストリームホール",
+          "liveSlug": "reol-secret-live-2019",
+          "liveItemSlug": "azuma-no-tou"
+        },
+        {
+          "title": "Reol Secret Live 2019「文明ココロミー」",
+          "itemName": "-西の塔-",
+          "date": "2019-07-14",
+          "place": "梅田バナナホール",
+          "liveSlug": "reol-secret-live-2019",
+          "liveItemSlug": "nishi-no-tou"
+        },
+        {
+          "title": "Reol Secret Live 2019「文明ココロミー」",
+          "itemName": "-央の塔-",
+          "date": "2019-07-19",
+          "place": "名古屋 E.L.L.",
+          "liveSlug": "reol-secret-live-2019",
+          "liveItemSlug": "hisashi-no-tou"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "ウテナ",
+          "slug": "utena"
+        },
+        {
+          "songName": "たい",
+          "slug": "tai"
+        },
+        {
+          "songName": "ゆーれいずみー",
+          "slug": "yureizumi"
+        },
+        {
+          "songName": "シンカロン",
+          "slug": "shinkaron"
+        },
+        {
+          "songName": "失楽園",
+          "slug": "shitsu-rakuen"
+        }
+      ]
+    },
+    {
+      "month": "2019-08",
+      "songCount": 64,
+      "liveItemCount": 35,
+      "performanceCount": 337,
+      "latestRelease": {
+        "title": "ゆーれいずみー",
+        "slug": "yureizumi",
+        "releaseDate": "2019-07-24"
+      },
+      "nextLive": {
+        "title": "宗像フェス Fukutsu Koinoura",
+        "itemName": null,
+        "date": "2019-09-22",
+        "place": "恋の浦海岸",
+        "liveSlug": "fukutsu-koinoura"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+          "itemName": null,
+          "date": "2019-08-03",
+          "place": "国営ひたち海浜公園",
+          "liveSlug": "rock-in-japan-festival-2019-buzz-stage",
+          "liveItemSlug": "rock-japan"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2019-09",
+      "songCount": 64,
+      "liveItemCount": 36,
+      "performanceCount": 338,
+      "latestRelease": {
+        "title": "ゆーれいずみー",
+        "slug": "yureizumi",
+        "releaseDate": "2019-07-24"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+        "itemName": "大阪",
+        "date": "2019-10-06",
+        "place": "松下IMPホール",
+        "liveSlug": "reol-oneman-live-2019"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "宗像フェス Fukutsu Koinoura",
+          "itemName": null,
+          "date": "2019-09-22",
+          "place": "恋の浦海岸",
+          "liveSlug": "fukutsu-koinoura",
+          "liveItemSlug": "munakata-fesu"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2019-10",
+      "songCount": 65,
+      "liveItemCount": 40,
+      "performanceCount": 384,
+      "latestRelease": {
+        "title": "HYPE MODE",
+        "slug": "hype-mode",
+        "releaseDate": "2019-10-20"
+      },
+      "nextLive": {
+        "title": "YouTube FanFest Japan 2019",
+        "itemName": null,
+        "date": "2019-12-04",
+        "place": "幕張メッセ",
+        "liveSlug": "youtube-fanfest-japan-2019"
+      },
+      "releases": [
+        {
+          "title": "HYPE MODE",
+          "slug": "hype-mode",
+          "releaseDate": "2019-10-20"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "itemName": "大阪",
+          "date": "2019-10-06",
+          "place": "松下IMPホール",
+          "liveSlug": "reol-oneman-live-2019",
+          "liveItemSlug": "ousaka-3"
+        },
+        {
+          "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "itemName": "愛知",
+          "date": "2019-10-11",
+          "place": "ReNY limited",
+          "liveSlug": "reol-oneman-live-2019",
+          "liveItemSlug": "aichi-2"
+        },
+        {
+          "title": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "itemName": "東京",
+          "date": "2019-10-19",
+          "place": "新木場スタジオコースト",
+          "liveSlug": "reol-oneman-live-2019",
+          "liveItemSlug": "toukyou-3"
+        },
+        {
+          "title": "第16回 東京国際ミュージック・マーケット",
+          "itemName": null,
+          "date": "2019-10-28",
+          "place": "Veats Shibuya",
+          "liveSlug": "16",
+          "liveItemSlug": "dai-16-kai"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "HYPE MODE",
+          "slug": "hype-mode"
+        }
+      ]
+    },
+    {
+      "month": "2019-12",
+      "songCount": 66,
+      "liveItemCount": 42,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "HYPE MODE",
+        "slug": "hype-mode",
+        "releaseDate": "2019-10-20"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "広島",
+        "date": "2020-02-08",
+        "place": "広島クラブクアトロ",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "YouTube FanFest Japan 2019",
+          "itemName": null,
+          "date": "2019-12-04",
+          "place": "幕張メッセ",
+          "liveSlug": "youtube-fanfest-japan-2019",
+          "liveItemSlug": "youtube-fanfest"
+        },
+        {
+          "title": "COUNTDOWN JAPAN 19/20",
+          "itemName": null,
+          "date": "2019-12-29",
+          "place": "幕張メッセ",
+          "liveSlug": "countdown-japan-1920",
+          "liveItemSlug": "countdown-japan"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "un, deux, trois",
+          "slug": "un-deux-trois"
+        }
+      ]
+    },
+    {
+      "month": "2020-01",
+      "songCount": 66,
+      "liveItemCount": 42,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "金字塔",
+        "slug": "kinjitou",
+        "releaseDate": "2020-01-22"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "広島",
+        "date": "2020-02-08",
+        "place": "広島クラブクアトロ",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [
+        {
+          "title": "金字塔",
+          "slug": "kinjitou",
+          "releaseDate": "2020-01-22"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2020-02",
+      "songCount": 66,
+      "liveItemCount": 47,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "金字塔",
+        "slug": "kinjitou",
+        "releaseDate": "2020-01-22"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "大阪 ※中止",
+        "date": "2020-03-07",
+        "place": "なんばHatch",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "広島",
+          "date": "2020-02-08",
+          "place": "広島クラブクアトロ",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "hiroshima"
+        },
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "福岡",
+          "date": "2020-02-09",
+          "place": "DRUM LOGOS",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "fukuoka-2"
+        },
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "宮城",
+          "date": "2020-02-15",
+          "place": "仙台 Rensa",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "miyagi"
+        },
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "北海道",
+          "date": "2020-02-22",
+          "place": "札幌ペニーレーン24",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "hokkaidou"
+        },
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "愛知 ※中止",
+          "date": "2020-02-29",
+          "place": "名古屋ダイアモンドホール",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "aichi-chuushi"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2020-03",
+      "songCount": 66,
+      "liveItemCount": 49,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "金字塔",
+        "slug": "kinjitou",
+        "releaseDate": "2020-01-22"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "出港編（神奈川） ※中止",
+        "date": "2020-04-04",
+        "place": "神奈川県民ホール",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "大阪 ※中止",
+          "date": "2020-03-07",
+          "place": "なんばHatch",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "ousaka-chuushi"
+        },
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "東京 ※中止",
+          "date": "2020-03-21",
+          "place": "LINE CUBE SHIBUYA",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "toukyou-chuushi"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2020-04",
+      "songCount": 66,
+      "liveItemCount": 50,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "金字塔",
+        "slug": "kinjitou",
+        "releaseDate": "2020-01-22"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "接続編（無観客LiveYouTube）",
+        "date": "2020-08-16",
+        "place": "LINE CUBE SHIBUYA",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "出港編（神奈川） ※中止",
+          "date": "2020-04-04",
+          "place": "神奈川県民ホール",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "shukkou-hen-kanagawa-chuushi"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2020-07",
+      "songCount": 66,
+      "liveItemCount": 50,
+      "performanceCount": 391,
+      "latestRelease": {
+        "title": "第六感",
+        "slug": "dairokkan",
+        "releaseDate": "2020-07-29"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+        "itemName": "接続編（無観客LiveYouTube）",
+        "date": "2020-08-16",
+        "place": "LINE CUBE SHIBUYA",
+        "liveSlug": "reol-oneman-live-2020"
+      },
+      "releases": [
+        {
+          "title": "第六感",
+          "slug": "dairokkan",
+          "releaseDate": "2020-07-29"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2020-08",
+      "songCount": 75,
+      "liveItemCount": 51,
+      "performanceCount": 416,
+      "latestRelease": {
+        "title": "第六感",
+        "slug": "dairokkan",
+        "releaseDate": "2020-07-29"
+      },
+      "nextLive": {
+        "title": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+        "itemName": "YouTube",
+        "date": "2020-10-11",
+        "place": null,
+        "liveSlug": "youtube-fanfest-japan-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2020「ハーメルンの大号令」",
+          "itemName": "接続編（無観客LiveYouTube）",
+          "date": "2020-08-16",
+          "place": "LINE CUBE SHIBUYA",
+          "liveSlug": "reol-oneman-live-2020",
+          "liveItemSlug": "liveyoutube"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "第六感",
+          "slug": "dairokkan"
+        },
+        {
+          "songName": "1LDK",
+          "slug": "1ldk"
+        },
+        {
+          "songName": "金字塔",
+          "slug": "kinjitou"
+        },
+        {
+          "songName": "ダリ",
+          "slug": "dari"
+        },
+        {
+          "songName": "ハーメルン",
+          "slug": "hamerun"
+        },
+        {
+          "songName": "-ムーブのための試奏曲 Nr.4-",
+          "slug": "nr4"
+        },
+        {
+          "songName": "GRIMOIRE",
+          "slug": "grimoire"
+        },
+        {
+          "songName": "insider",
+          "slug": "insider"
+        },
+        {
+          "songName": "-ルネの小品 Nr.9-",
+          "slug": "nr9"
+        }
+      ]
+    },
+    {
+      "month": "2020-10",
+      "songCount": 75,
+      "liveItemCount": 52,
+      "performanceCount": 416,
+      "latestRelease": {
+        "title": "第六感",
+        "slug": "dairokkan",
+        "releaseDate": "2020-07-29"
+      },
+      "nextLive": {
+        "title": "JAPAN ONLINE FESTIVAL 2020",
+        "itemName": "オンライン",
+        "date": "2020-11-07",
+        "place": null,
+        "liveSlug": "japan-online-festival-2020"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
+          "itemName": "YouTube",
+          "date": "2020-10-11",
+          "place": null,
+          "liveSlug": "youtube-fanfest-japan-2020",
+          "liveItemSlug": "youtube"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2020-11",
+      "songCount": 76,
+      "liveItemCount": 53,
+      "performanceCount": 424,
+      "latestRelease": {
+        "title": "Q?",
+        "slug": "q",
+        "releaseDate": "2020-11-04"
+      },
+      "nextLive": {
+        "title": "YOUTUBE MUSIC WEEKEND",
+        "itemName": "YouTube",
+        "date": "2020-12-06",
+        "place": null,
+        "liveSlug": "youtube-music-weekend"
+      },
+      "releases": [
+        {
+          "title": "Q?",
+          "slug": "q",
+          "releaseDate": "2020-11-04"
+        }
+      ],
+      "lives": [
+        {
+          "title": "JAPAN ONLINE FESTIVAL 2020",
+          "itemName": "オンライン",
+          "date": "2020-11-07",
+          "place": null,
+          "liveSlug": "japan-online-festival-2020",
+          "liveItemSlug": "onrain"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "Q?",
+          "slug": "q"
+        }
+      ]
+    },
+    {
+      "month": "2020-12",
+      "songCount": 76,
+      "liveItemCount": 55,
+      "performanceCount": 424,
+      "latestRelease": {
+        "title": "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+        "slug": "reol-live-2019-2020",
+        "releaseDate": "2020-12-23"
+      },
+      "nextLive": {
+        "title": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+        "itemName": "オンライン",
+        "date": "2021-03-04",
+        "place": null,
+        "liveSlug": "live-yeah-vol3party"
+      },
+      "releases": [
+        {
+          "title": "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+          "slug": "reol-live-2019-2020",
+          "releaseDate": "2020-12-23"
+        }
+      ],
+      "lives": [
+        {
+          "title": "YOUTUBE MUSIC WEEKEND",
+          "itemName": "YouTube",
+          "date": "2020-12-06",
+          "place": null,
+          "liveSlug": "youtube-music-weekend",
+          "liveItemSlug": "youtube-2"
+        },
+        {
+          "title": "COUNTDOWN JAPAN 20/21　※中止",
+          "itemName": null,
+          "date": "2020-12-30",
+          "place": null,
+          "liveSlug": "countdown-japan-2021",
+          "liveItemSlug": "kauntodaunjapan"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2021-03",
+      "songCount": 76,
+      "liveItemCount": 56,
+      "performanceCount": 429,
+      "latestRelease": {
+        "title": "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+        "slug": "reol-live-2019-2020",
+        "releaseDate": "2020-12-23"
+      },
+      "nextLive": {
+        "title": "Reol Installation Concert 2021「音沙汰」",
+        "itemName": "東京",
+        "date": "2021-06-26",
+        "place": "LINE CUBE SHIBUYA",
+        "liveSlug": "reol-installation-concert-2021"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+          "itemName": "オンライン",
+          "date": "2021-03-04",
+          "place": null,
+          "liveSlug": "live-yeah-vol3party",
+          "liveItemSlug": "onrain-2"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2021-06",
+      "songCount": 77,
+      "liveItemCount": 58,
+      "performanceCount": 475,
+      "latestRelease": {
+        "title": "Reol LIVE 2019-2020\n-ハーメルンの大号令 / 侵攻アップグレード‐",
+        "slug": "reol-live-2019-2020",
+        "releaseDate": "2020-12-23"
+      },
+      "nextLive": {
+        "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+        "itemName": null,
+        "date": "2021-08-07",
+        "place": "ぴあアリーナMM",
+        "liveSlug": "division-rap-battle-7th-livesummit-of-divisions"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Installation Concert 2021「音沙汰」",
+          "itemName": "東京",
+          "date": "2021-06-26",
+          "place": "LINE CUBE SHIBUYA",
+          "liveSlug": "reol-installation-concert-2021",
+          "liveItemSlug": "toukyou-4"
+        },
+        {
+          "title": "Reol Installation Concert 2021「音沙汰」",
+          "itemName": "大阪",
+          "date": "2021-06-27",
+          "place": "フェニーチェ堺",
+          "liveSlug": "reol-installation-concert-2021",
+          "liveItemSlug": "ousaka-4"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "白夜(White Midnight)",
+          "slug": "white-midnight"
+        }
+      ]
+    },
+    {
+      "month": "2021-07",
+      "songCount": 77,
+      "liveItemCount": 58,
+      "performanceCount": 475,
+      "latestRelease": {
+        "title": "白夜(White Midnight)",
+        "slug": "white-midnight",
+        "releaseDate": "2021-07-28"
+      },
+      "nextLive": {
+        "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+        "itemName": null,
+        "date": "2021-08-07",
+        "place": "ぴあアリーナMM",
+        "liveSlug": "division-rap-battle-7th-livesummit-of-divisions"
+      },
+      "releases": [
+        {
+          "title": "白夜(White Midnight)",
+          "slug": "white-midnight",
+          "releaseDate": "2021-07-28"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2021-08",
+      "songCount": 77,
+      "liveItemCount": 59,
+      "performanceCount": 477,
+      "latestRelease": {
+        "title": "白夜(White Midnight)",
+        "slug": "white-midnight",
+        "releaseDate": "2021-07-28"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2022「激情アラート」",
+        "itemName": "愛知",
+        "date": "2022-04-27",
+        "place": "Zepp Nagoya",
+        "liveSlug": "reol-oneman-live-2022"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ヒプノシスマイク -Division Rap Battle- 7th LIVE\"SUMMIT OF DIVISIONS\"",
+          "itemName": null,
+          "date": "2021-08-07",
+          "place": "ぴあアリーナMM",
+          "liveSlug": "division-rap-battle-7th-livesummit-of-divisions",
+          "liveItemSlug": "hipunoshisumaik"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2021-10",
+      "songCount": 77,
+      "liveItemCount": 59,
+      "performanceCount": 477,
+      "latestRelease": {
+        "title": "Boy",
+        "slug": "boy",
+        "releaseDate": "2021-10-24"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2022「激情アラート」",
+        "itemName": "愛知",
+        "date": "2022-04-27",
+        "place": "Zepp Nagoya",
+        "liveSlug": "reol-oneman-live-2022"
+      },
+      "releases": [
+        {
+          "title": "Boy",
+          "slug": "boy",
+          "releaseDate": "2021-10-24"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2021-12",
+      "songCount": 77,
+      "liveItemCount": 59,
+      "performanceCount": 477,
+      "latestRelease": {
+        "title": "第六感",
+        "slug": "dairokkan-2",
+        "releaseDate": "2021-12-15"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2022「激情アラート」",
+        "itemName": "愛知",
+        "date": "2022-04-27",
+        "place": "Zepp Nagoya",
+        "liveSlug": "reol-oneman-live-2022"
+      },
+      "releases": [
+        {
+          "title": "第六感",
+          "slug": "dairokkan-2",
+          "releaseDate": "2021-12-15"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2022-04",
+      "songCount": 82,
+      "liveItemCount": 61,
+      "performanceCount": 519,
+      "latestRelease": {
+        "title": "第六感",
+        "slug": "dairokkan-2",
+        "releaseDate": "2021-12-15"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2022「激情アラート」",
+        "itemName": "福岡",
+        "date": "2022-05-02",
+        "place": "Zepp Fukuoka",
+        "liveSlug": "reol-oneman-live-2022"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "愛知",
+          "date": "2022-04-27",
+          "place": "Zepp Nagoya",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "aichi-3"
+        },
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "大阪",
+          "date": "2022-04-28",
+          "place": "Zepp Osaka Bayside",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "ousaka-5"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "赤裸裸(NAKED)",
+          "slug": "naked"
+        },
+        {
+          "songName": "Boy",
+          "slug": "boy"
+        },
+        {
+          "songName": "Nd60",
+          "slug": "nd60"
+        },
+        {
+          "songName": "Ms.CONTROL",
+          "slug": "mscontrol"
+        },
+        {
+          "songName": "ミュータント",
+          "slug": "myutanto"
+        }
+      ]
+    },
+    {
+      "month": "2022-05",
+      "songCount": 82,
+      "liveItemCount": 65,
+      "performanceCount": 539,
+      "latestRelease": {
+        "title": "赤裸裸(NAKED)",
+        "slug": "naked",
+        "releaseDate": "2022-05-18"
+      },
+      "nextLive": {
+        "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+        "itemName": null,
+        "date": "2022-07-23",
+        "place": "舞洲スポーツアイランド",
+        "liveSlug": "osaka-gigantic-music-festival-2022"
+      },
+      "releases": [
+        {
+          "title": "赤裸裸(NAKED)",
+          "slug": "naked",
+          "releaseDate": "2022-05-18"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "福岡",
+          "date": "2022-05-02",
+          "place": "Zepp Fukuoka",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "fukuoka-3"
+        },
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "宮城",
+          "date": "2022-05-08",
+          "place": "仙台PIT",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "miyagi-2"
+        },
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "東京",
+          "date": "2022-05-12",
+          "place": "Zepp Haneda",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "toukyou-5"
+        },
+        {
+          "title": "Reol Oneman Live 2022「激情アラート」",
+          "itemName": "東京",
+          "date": "2022-05-13",
+          "place": "Zepp Haneda",
+          "liveSlug": "reol-oneman-live-2022",
+          "liveItemSlug": "toukyou-6"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2022-07",
+      "songCount": 82,
+      "liveItemCount": 66,
+      "performanceCount": 540,
+      "latestRelease": {
+        "title": "煽げや尊し(Agitate)",
+        "slug": "agitate",
+        "releaseDate": "2022-07-27"
+      },
+      "nextLive": {
+        "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+        "itemName": null,
+        "date": "2022-08-06",
+        "place": "千葉市蘇我スポーツ公園",
+        "liveSlug": "rock-in-japan-festival-2022-hillside-stage"
+      },
+      "releases": [
+        {
+          "title": "煽げや尊し(Agitate)",
+          "slug": "agitate",
+          "releaseDate": "2022-07-27"
+        }
+      ],
+      "lives": [
+        {
+          "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2022-",
+          "itemName": null,
+          "date": "2022-07-23",
+          "place": "舞洲スポーツアイランド",
+          "liveSlug": "osaka-gigantic-music-festival-2022",
+          "liveItemSlug": "jaiga-ousaka"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2022-08",
+      "songCount": 83,
+      "liveItemCount": 67,
+      "performanceCount": 548,
+      "latestRelease": {
+        "title": "No title - Seaside Remix",
+        "slug": "no-title-seaside-remix",
+        "releaseDate": "2022-08-17"
+      },
+      "nextLive": {
+        "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+        "itemName": null,
+        "date": "2022-10-15",
+        "place": "大阪城音楽堂",
+        "liveSlug": "90-live-gumbo-park-osaka-gigantic-music-festival2022-spin-off-the-bonds-2022-excitement-osaka"
+      },
+      "releases": [
+        {
+          "title": "No title - Seaside Remix",
+          "slug": "no-title-seaside-remix",
+          "releaseDate": "2022-08-17"
+        }
+      ],
+      "lives": [
+        {
+          "title": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+          "itemName": null,
+          "date": "2022-08-06",
+          "place": "千葉市蘇我スポーツ公園",
+          "liveSlug": "rock-in-japan-festival-2022-hillside-stage",
+          "liveItemSlug": "rock-japan-2"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "煽げや尊し(Agitate)",
+          "slug": "agitate"
+        }
+      ]
+    },
+    {
+      "month": "2022-10",
+      "songCount": 83,
+      "liveItemCount": 68,
+      "performanceCount": 557,
+      "latestRelease": {
+        "title": "SCORPION",
+        "slug": "scorpion",
+        "releaseDate": "2022-10-28"
+      },
+      "nextLive": {
+        "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+        "itemName": null,
+        "date": "2022-12-23",
+        "place": "横浜アリーナ",
+        "liveSlug": "riot-games-riot-games-oneopening-act"
+      },
+      "releases": [
+        {
+          "title": "SCORPION",
+          "slug": "scorpion",
+          "releaseDate": "2022-10-28"
+        }
+      ],
+      "lives": [
+        {
+          "title": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+          "itemName": null,
+          "date": "2022-10-15",
+          "place": "大阪城音楽堂",
+          "liveSlug": "90-live-gumbo-park-osaka-gigantic-music-festival2022-spin-off-the-bonds-2022-excitement-osaka",
+          "liveItemSlug": "ousakajou"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2022-11",
+      "songCount": 83,
+      "liveItemCount": 68,
+      "performanceCount": 557,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+        "itemName": null,
+        "date": "2022-12-23",
+        "place": "横浜アリーナ",
+        "liveSlug": "riot-games-riot-games-oneopening-act"
+      },
+      "releases": [
+        {
+          "title": "COLORED DISC",
+          "slug": "colored-disc",
+          "releaseDate": "2022-11-16"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2022-12",
+      "songCount": 85,
+      "liveItemCount": 70,
+      "performanceCount": 568,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+        "itemName": "愛知",
+        "date": "2023-01-26",
+        "place": "Zepp Nagoya",
+        "liveSlug": "reol-oneman-live-2023-neo-nostalgia"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Riot Games公式オフラインイベント 「Riot Games ONE」OPENING ACT",
+          "itemName": null,
+          "date": "2022-12-23",
+          "place": "横浜アリーナ",
+          "liveSlug": "riot-games-riot-games-oneopening-act",
+          "liveItemSlug": "raiotto-geemusu"
+        },
+        {
+          "title": "COUNTDOWN JAPAN 22/23",
+          "itemName": null,
+          "date": "2022-12-29",
+          "place": "幕張メッセ",
+          "liveSlug": "countdown-japan-2223",
+          "liveItemSlug": "countdown-japan-2"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "SCORPION",
+          "slug": "scorpion"
+        },
+        {
+          "songName": "secret trip",
+          "slug": "secret-trip"
+        }
+      ]
+    },
+    {
+      "month": "2023-01",
+      "songCount": 87,
+      "liveItemCount": 72,
+      "performanceCount": 620,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+        "itemName": "宮城",
+        "date": "2023-02-05",
+        "place": "仙台PIT",
+        "liveSlug": "reol-oneman-live-2023-neo-nostalgia"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "愛知",
+          "date": "2023-01-26",
+          "place": "Zepp Nagoya",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "aichi-4"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "東京",
+          "date": "2023-01-29",
+          "place": "TOKYO DOME CITY HALL",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "toukyou-7"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "水底游歩道",
+          "slug": "minasoko-yuu-hodou"
+        },
+        {
+          "songName": "-Neo Nostalgia-",
+          "slug": "neo-nostalgia"
+        }
+      ]
+    },
+    {
+      "month": "2023-02",
+      "songCount": 87,
+      "liveItemCount": 78,
+      "performanceCount": 776,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+        "itemName": "長野",
+        "date": "2023-03-05",
+        "place": "まつもと市民芸術館",
+        "liveSlug": "reol-oneman-live-2023-neo-nostalgia"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "宮城",
+          "date": "2023-02-05",
+          "place": "仙台PIT",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "miyagi-3"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "神奈川",
+          "date": "2023-02-11",
+          "place": "KT Zepp Yokohama",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "kanagawa"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "福岡",
+          "date": "2023-02-18",
+          "place": "Zepp Fukuoka",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "fukuoka-4"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "広島",
+          "date": "2023-02-23",
+          "place": "広島クラブクアトロ",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "hiroshima-2"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "大阪",
+          "date": "2023-02-25",
+          "place": "Zepp Osaka Bayside",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "ousaka-6"
+        },
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "香川",
+          "date": "2023-02-26",
+          "place": "高松 festhalle",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "kagawa"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-03",
+      "songCount": 87,
+      "liveItemCount": 79,
+      "performanceCount": 804,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "ARABAKI ROCK FEST. 2023",
+        "itemName": null,
+        "date": "2023-04-30",
+        "place": "みちのく公園 北地区",
+        "liveSlug": "arabaki-rock-fest-2023"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」",
+          "itemName": "長野",
+          "date": "2023-03-05",
+          "place": "まつもと市民芸術館",
+          "liveSlug": "reol-oneman-live-2023-neo-nostalgia",
+          "liveItemSlug": "nagano"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-04",
+      "songCount": 88,
+      "liveItemCount": 80,
+      "performanceCount": 812,
+      "latestRelease": {
+        "title": "COLORED DISC",
+        "slug": "colored-disc",
+        "releaseDate": "2022-11-16"
+      },
+      "nextLive": {
+        "title": "さよなら中野サンプラザ音楽祭",
+        "itemName": null,
+        "date": "2023-05-13",
+        "place": "中野サンプラザ",
+        "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ARABAKI ROCK FEST. 2023",
+          "itemName": null,
+          "date": "2023-04-30",
+          "place": "みちのく公園 北地区",
+          "liveSlug": "arabaki-rock-fest-2023",
+          "liveItemSlug": "arabaki-rock"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "綺羅綺羅(Glitter)",
+          "slug": "glitter"
+        }
+      ]
+    },
+    {
+      "month": "2023-05",
+      "songCount": 88,
+      "liveItemCount": 82,
+      "performanceCount": 831,
+      "latestRelease": {
+        "title": "綺羅綺羅(Glitter)",
+        "slug": "glitter",
+        "releaseDate": "2023-05-24"
+      },
+      "nextLive": {
+        "title": "LuckyFes'23",
+        "itemName": null,
+        "date": "2023-07-16",
+        "place": "国営ひたち海浜公園",
+        "liveSlug": "luckyfes23"
+      },
+      "releases": [
+        {
+          "title": "綺羅綺羅(Glitter)",
+          "slug": "glitter",
+          "releaseDate": "2023-05-24"
+        }
+      ],
+      "lives": [
+        {
+          "title": "さよなら中野サンプラザ音楽祭",
+          "itemName": null,
+          "date": "2023-05-13",
+          "place": "中野サンプラザ",
+          "liveSlug": "sayonara-nakanosanpuraza-ongaku-sai",
+          "liveItemSlug": "sayonara"
+        },
+        {
+          "title": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+          "itemName": null,
+          "date": "2023-05-14",
+          "place": "海とのふれあい広場",
+          "liveSlug": "osaka-metropolitan-rock-festival-2023",
+          "liveItemSlug": "osaka-3"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-07",
+      "songCount": 89,
+      "liveItemCount": 85,
+      "performanceCount": 859,
+      "latestRelease": {
+        "title": "切っ先(Edge)",
+        "slug": "edge",
+        "releaseDate": "2023-07-07"
+      },
+      "nextLive": {
+        "title": "SUMMER SONIC 2023",
+        "itemName": null,
+        "date": "2023-08-19",
+        "place": "幕張メッセ",
+        "liveSlug": "summer-sonic-2023"
+      },
+      "releases": [
+        {
+          "title": "切っ先(Edge)",
+          "slug": "edge",
+          "releaseDate": "2023-07-07"
+        }
+      ],
+      "lives": [
+        {
+          "title": "LuckyFes'23",
+          "itemName": null,
+          "date": "2023-07-16",
+          "place": "国営ひたち海浜公園",
+          "liveSlug": "luckyfes23",
+          "liveItemSlug": "luckyfes23"
+        },
+        {
+          "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+          "itemName": null,
+          "date": "2023-07-22",
+          "place": "舞洲スポーツアイランド",
+          "liveSlug": "osaka-gigantic-music-festival-2023",
+          "liveItemSlug": "jaiga-ousaka-2"
+        },
+        {
+          "title": "Impactnation Japan Festival 2023",
+          "itemName": null,
+          "date": "2023-07-30",
+          "place": "Istora Gelora Bung Karno Jakarta, Indonesia.",
+          "liveSlug": "impactnation-japan-festival-2023",
+          "liveItemSlug": "impactnation"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "切っ先(Edge)",
+          "slug": "edge"
+        }
+      ]
+    },
+    {
+      "month": "2023-08",
+      "songCount": 89,
+      "liveItemCount": 86,
+      "performanceCount": 866,
+      "latestRelease": {
+        "title": "切っ先(Edge)",
+        "slug": "edge-2",
+        "releaseDate": "2023-08-30"
+      },
+      "nextLive": {
+        "title": "MIRRORBALL PARADE vol.3",
+        "itemName": null,
+        "date": "2023-09-10",
+        "place": "新潟テルサ",
+        "liveSlug": "mirrorball-parade-vol3"
+      },
+      "releases": [
+        {
+          "title": "切っ先(Edge)",
+          "slug": "edge-2",
+          "releaseDate": "2023-08-30"
+        }
+      ],
+      "lives": [
+        {
+          "title": "SUMMER SONIC 2023",
+          "itemName": null,
+          "date": "2023-08-19",
+          "place": "幕張メッセ",
+          "liveSlug": "summer-sonic-2023",
+          "liveItemSlug": "summer-sonic"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-09",
+      "songCount": 89,
+      "liveItemCount": 87,
+      "performanceCount": 876,
+      "latestRelease": {
+        "title": "切っ先(Edge)",
+        "slug": "edge-2",
+        "releaseDate": "2023-08-30"
+      },
+      "nextLive": {
+        "title": "Simple Life Shanghai 上海簡単生活節",
+        "itemName": null,
+        "date": "2023-10-05",
+        "place": "中国上海・森蘭緑地（Sen Lan Green Park)",
+        "liveSlug": "simple-life-shanghai"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "MIRRORBALL PARADE vol.3",
+          "itemName": null,
+          "date": "2023-09-10",
+          "place": "新潟テルサ",
+          "liveSlug": "mirrorball-parade-vol3",
+          "liveItemSlug": "mirrorball"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-10",
+      "songCount": 89,
+      "liveItemCount": 88,
+      "performanceCount": 885,
+      "latestRelease": {
+        "title": "BLACK BOX",
+        "slug": "black-box",
+        "releaseDate": "2023-10-18"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+        "itemName": "大阪 #black",
+        "date": "2023-11-18",
+        "place": "フェスティバルホール",
+        "liveSlug": "reol-oneman-live-202324unbox-blackpure"
+      },
+      "releases": [
+        {
+          "title": "BLACK BOX",
+          "slug": "black-box",
+          "releaseDate": "2023-10-18"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Simple Life Shanghai 上海簡単生活節",
+          "itemName": null,
+          "date": "2023-10-05",
+          "place": "中国上海・森蘭緑地（Sen Lan Green Park)",
+          "liveSlug": "simple-life-shanghai",
+          "liveItemSlug": "shinpururaifu"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2023-11",
+      "songCount": 94,
+      "liveItemCount": 89,
+      "performanceCount": 909,
+      "latestRelease": {
+        "title": "BLACK BOX",
+        "slug": "black-box",
+        "releaseDate": "2023-10-18"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+        "itemName": "福岡 #black",
+        "date": "2023-12-01",
+        "place": "Zepp Fukuoka",
+        "liveSlug": "reol-oneman-live-202324unbox-blackpure"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "大阪 #black",
+          "date": "2023-11-18",
+          "place": "フェスティバルホール",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "TAKE OFF",
+          "slug": "take-off"
+        },
+        {
+          "songName": "DDD",
+          "slug": "ddd"
+        },
+        {
+          "songName": "Final Call",
+          "slug": "final-call"
+        },
+        {
+          "songName": "さよならのすゝめ、今日のつづき",
+          "slug": "sayonara-no-susu-me-kyou-no-tsudzuki"
+        },
+        {
+          "songName": "-#000000-",
+          "slug": "0"
+        }
+      ]
+    },
+    {
+      "month": "2023-12",
+      "songCount": 94,
+      "liveItemCount": 98,
+      "performanceCount": 1089,
+      "latestRelease": {
+        "title": "BLACK BOX",
+        "slug": "black-box",
+        "releaseDate": "2023-10-18"
+      },
+      "nextLive": {
+        "title": "ANIPLEX 20th Anniversary Event -THANX-",
+        "itemName": null,
+        "date": "2024-01-07",
+        "place": "Zepp DiverCity",
+        "liveSlug": "aniplex-20th-anniversary-event-thanx"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "福岡 #black",
+          "date": "2023-12-01",
+          "place": "Zepp Fukuoka",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black-2"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "大分 #pure",
+          "date": "2023-12-02",
+          "place": "T.O.P.S BittsHALL",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "静岡 #pure",
+          "date": "2023-12-09",
+          "place": "LIVE ROXY SHIZUOKA",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-2"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "兵庫 #pure",
+          "date": "2023-12-10",
+          "place": "神戸ハーバースタジオ",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-3"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "愛媛 #pure",
+          "date": "2023-12-16",
+          "place": "松山 Wstudio RED",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-4"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "香川 #pure",
+          "date": "2023-12-17",
+          "place": "高松 DIME",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-5"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "愛知 #black",
+          "date": "2023-12-24",
+          "place": "Zepp Nagoya",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black-3"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "東京 #black",
+          "date": "2023-12-25",
+          "place": "昭和女子大学人見記念講堂",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black-4"
+        },
+        {
+          "title": "COUNTDOWN JAPAN 23/24",
+          "itemName": null,
+          "date": "2023-12-29",
+          "place": "幕張メッセ",
+          "liveSlug": "countdown-japan-2324",
+          "liveItemSlug": "countdown-japan-3"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-01",
+      "songCount": 94,
+      "liveItemCount": 101,
+      "performanceCount": 1133,
+      "latestRelease": {
+        "title": "BLACK BOX",
+        "slug": "black-box",
+        "releaseDate": "2023-10-18"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+        "itemName": "宮城 #black",
+        "date": "2024-02-03",
+        "place": "仙台 GIGS",
+        "liveSlug": "reol-oneman-live-202324unbox-blackpure"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ANIPLEX 20th Anniversary Event -THANX-",
+          "itemName": null,
+          "date": "2024-01-07",
+          "place": "Zepp DiverCity",
+          "liveSlug": "aniplex-20th-anniversary-event-thanx",
+          "liveItemSlug": "aniplex-20th"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "広島 #pure",
+          "date": "2024-01-27",
+          "place": "広島クラブクアトロ",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-6"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "岡山 #pure",
+          "date": "2024-01-28",
+          "place": "岡山 CRAZYMAMA KINGDOM",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-7"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-02",
+      "songCount": 94,
+      "liveItemCount": 105,
+      "performanceCount": 1221,
+      "latestRelease": {
+        "title": "Danger Danger",
+        "slug": "danger-danger",
+        "releaseDate": "2024-02-28"
+      },
+      "nextLive": {
+        "title": "Reol ASIA TOUR \"UNBOX\"",
+        "itemName": "深圳",
+        "date": "2024-03-02",
+        "place": "NUBOND LIVE HOUSE",
+        "liveSlug": "reol-asia-tour-unbox"
+      },
+      "releases": [
+        {
+          "title": "BBBang",
+          "slug": "bbbang",
+          "releaseDate": "2024-02-09"
+        },
+        {
+          "title": "Danger Danger",
+          "slug": "danger-danger",
+          "releaseDate": "2024-02-28"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "宮城 #black",
+          "date": "2024-02-03",
+          "place": "仙台 GIGS",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black-5"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "岩手 #pure",
+          "date": "2024-02-04",
+          "place": "盛岡 club change WAVE",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-8"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "北海道 #pure",
+          "date": "2024-02-10",
+          "place": "札幌ペニーレーン24",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-9"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "神奈川 #black",
+          "date": "2024-02-18",
+          "place": "神奈川県民ホール",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "black-6"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-03",
+      "songCount": 95,
+      "liveItemCount": 113,
+      "performanceCount": 1263,
+      "latestRelease": {
+        "title": "感情御中 -WANT U LUV IT",
+        "slug": "want-u-luv-it",
+        "releaseDate": "2024-03-20"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live  \"極秘LEGIT\"",
+        "itemName": "西の宴",
+        "date": "2024-04-06",
+        "place": "BIG CAT",
+        "liveSlug": "reol-secret-live-legit"
+      },
+      "releases": [
+        {
+          "title": "感情御中 -WANT U LUV IT",
+          "slug": "want-u-luv-it",
+          "releaseDate": "2024-03-20"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "深圳",
+          "date": "2024-03-02",
+          "place": "NUBOND LIVE HOUSE",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "sheen-zhn"
+        },
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "広州",
+          "date": "2024-03-03",
+          "place": "太空间 LIVE HOUSE",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "koushuu-2"
+        },
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "上海",
+          "date": "2024-03-06",
+          "place": "蜚声 PHASE LIVE HOUSE",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "shanhai-2"
+        },
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "北京",
+          "date": "2024-03-08",
+          "place": "东郎EAST LIVE",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "pekin-2"
+        },
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "TAIPEI",
+          "date": "2024-03-16",
+          "place": "Zepp New Taipei",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "taipei"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "新潟 #pure",
+          "date": "2024-03-19",
+          "place": "新潟 LOTS",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-10"
+        },
+        {
+          "title": "Reol Oneman Live 2023/24「UNBOX black/pure」",
+          "itemName": "石川 #pure",
+          "date": "2024-03-20",
+          "place": "金沢 エイトホール",
+          "liveSlug": "reol-oneman-live-202324unbox-blackpure",
+          "liveItemSlug": "pure-11"
+        },
+        {
+          "title": "Reol ASIA TOUR \"UNBOX\"",
+          "itemName": "SEOUL",
+          "date": "2024-03-23",
+          "place": "musinsa garage",
+          "liveSlug": "reol-asia-tour-unbox",
+          "liveItemSlug": "seoul"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "感情御中 -WANT U LUV IT-",
+          "slug": "want-u-luv-it"
+        }
+      ]
+    },
+    {
+      "month": "2024-04",
+      "songCount": 95,
+      "liveItemCount": 116,
+      "performanceCount": 1307,
+      "latestRelease": {
+        "title": "感情御中 -WANT U LUV IT",
+        "slug": "want-u-luv-it",
+        "releaseDate": "2024-03-20"
+      },
+      "nextLive": {
+        "title": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+        "itemName": null,
+        "date": "2024-06-22",
+        "place": "福岡　スカラエスパシオ",
+        "liveSlug": "umimoyasu-2024-wave"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Secret Live  \"極秘LEGIT\"",
+          "itemName": "西の宴",
+          "date": "2024-04-06",
+          "place": "BIG CAT",
+          "liveSlug": "reol-secret-live-legit",
+          "liveItemSlug": "nishi-no-utage-2"
+        },
+        {
+          "title": "Reol Secret Live  \"極秘LEGIT\"",
+          "itemName": "東の宴",
+          "date": "2024-04-17",
+          "place": "Spotify O-EAST",
+          "liveSlug": "reol-secret-live-legit",
+          "liveItemSlug": "azuma-no-utage-2"
+        },
+        {
+          "title": "超音楽祭 in ニコニコ超会議2024",
+          "itemName": null,
+          "date": "2024-04-27",
+          "place": "幕張メッセ",
+          "liveSlug": "in-2024",
+          "liveItemSlug": "chou-ongaku-sai"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-06",
+      "songCount": 95,
+      "liveItemCount": 117,
+      "performanceCount": 1317,
+      "latestRelease": {
+        "title": "感情御中 -WANT U LUV IT",
+        "slug": "want-u-luv-it",
+        "releaseDate": "2024-03-20"
+      },
+      "nextLive": {
+        "title": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+        "itemName": "VRChat",
+        "date": "2024-07-20",
+        "place": null,
+        "liveSlug": "fzmz-1st-live-deepdawn"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+          "itemName": null,
+          "date": "2024-06-22",
+          "place": "福岡　スカラエスパシオ",
+          "liveSlug": "umimoyasu-2024-wave",
+          "liveItemSlug": "furederikku"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-07",
+      "songCount": 96,
+      "liveItemCount": 119,
+      "performanceCount": 1321,
+      "latestRelease": {
+        "title": "感情御中 -WANT U LUV IT",
+        "slug": "want-u-luv-it",
+        "releaseDate": "2024-03-20"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live「No title」",
+        "itemName": null,
+        "date": "2024-08-17",
+        "place": "日本武道館",
+        "liveSlug": "reol-oneman-liveno-title"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "FZMZ 1st LIVE \"DEEP:DAWN\"",
+          "itemName": "VRChat",
+          "date": "2024-07-20",
+          "place": null,
+          "liveSlug": "fzmz-1st-live-deepdawn",
+          "liveItemSlug": "vrchat"
+        },
+        {
+          "title": "【重大発表あり!!!】宝鐘マリン生誕祭 3D LIVE！豪華ゲスト＆新曲お披露目！【ホロライブ/宝鐘マリン】",
+          "itemName": "YouTube",
+          "date": "2024-07-30",
+          "place": null,
+          "liveSlug": "3d-live",
+          "liveItemSlug": "youtube-3"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "Danger Danger",
+          "slug": "danger-danger"
+        }
+      ]
+    },
+    {
+      "month": "2024-08",
+      "songCount": 99,
+      "liveItemCount": 120,
+      "performanceCount": 1350,
+      "latestRelease": {
+        "title": "ディア",
+        "slug": "dia",
+        "releaseDate": "2024-08-18"
+      },
+      "nextLive": {
+        "title": "軌道共鳴2024",
+        "itemName": "大阪",
+        "date": "2024-09-20",
+        "place": "なんばHatch",
+        "liveSlug": "2024"
+      },
+      "releases": [
+        {
+          "title": "No title-(アナログ盤)",
+          "slug": "no-title-3",
+          "releaseDate": "2024-08-17"
+        },
+        {
+          "title": "No title+(アナログ盤)",
+          "slug": "no-title-4",
+          "releaseDate": "2024-08-17"
+        },
+        {
+          "title": "ディア",
+          "slug": "dia",
+          "releaseDate": "2024-08-18"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live「No title」",
+          "itemName": null,
+          "date": "2024-08-17",
+          "place": "日本武道館",
+          "liveSlug": "reol-oneman-liveno-title",
+          "liveItemSlug": "no-title"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "RE RESCUE",
+          "slug": "re-rescue"
+        },
+        {
+          "songName": "ディア",
+          "slug": "dia"
+        },
+        {
+          "songName": "-Ending-",
+          "slug": "ending"
+        }
+      ]
+    },
+    {
+      "month": "2024-09",
+      "songCount": 99,
+      "liveItemCount": 121,
+      "performanceCount": 1363,
+      "latestRelease": {
+        "title": "ULTRA C",
+        "slug": "ultra-c",
+        "releaseDate": "2024-09-18"
+      },
+      "nextLive": {
+        "title": "Namba Culture Terminal 2024  -1st Anniversary-",
+        "itemName": "大阪",
+        "date": "2024-10-26",
+        "place": "Yogibo META VALLEY",
+        "liveSlug": "namba-culture-terminal-2024-1st-anniversary"
+      },
+      "releases": [
+        {
+          "title": "ULTRA C",
+          "slug": "ultra-c",
+          "releaseDate": "2024-09-18"
+        }
+      ],
+      "lives": [
+        {
+          "title": "軌道共鳴2024",
+          "itemName": "大阪",
+          "date": "2024-09-20",
+          "place": "なんばHatch",
+          "liveSlug": "2024",
+          "liveItemSlug": "ousaka-7"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-10",
+      "songCount": 99,
+      "liveItemCount": 122,
+      "performanceCount": 1378,
+      "latestRelease": {
+        "title": "RE RESCUE",
+        "slug": "re-rescue",
+        "releaseDate": "2024-10-06"
+      },
+      "nextLive": {
+        "title": "XIHU MUSIC FESTIVAL",
+        "itemName": "中国",
+        "date": "2024-11-02",
+        "place": "中杭州太子湾公園（中国）",
+        "liveSlug": "xihu-music-festival"
+      },
+      "releases": [
+        {
+          "title": "RE RESCUE",
+          "slug": "re-rescue",
+          "releaseDate": "2024-10-06"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Namba Culture Terminal 2024  -1st Anniversary-",
+          "itemName": "大阪",
+          "date": "2024-10-26",
+          "place": "Yogibo META VALLEY",
+          "liveSlug": "namba-culture-terminal-2024-1st-anniversary",
+          "liveItemSlug": "ousaka-8"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-11",
+      "songCount": 99,
+      "liveItemCount": 124,
+      "performanceCount": 1400,
+      "latestRelease": {
+        "title": "秘色録",
+        "slug": "hiiro-roku",
+        "releaseDate": "2024-11-13"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+        "itemName": "大阪",
+        "date": "2025-01-19",
+        "place": "Zepp Osaka Bayside",
+        "liveSlug": "reol-oneman-live-2025"
+      },
+      "releases": [
+        {
+          "title": "秘色録",
+          "slug": "hiiro-roku",
+          "releaseDate": "2024-11-13"
+        }
+      ],
+      "lives": [
+        {
+          "title": "XIHU MUSIC FESTIVAL",
+          "itemName": "中国",
+          "date": "2024-11-02",
+          "place": "中杭州太子湾公園（中国）",
+          "liveSlug": "xihu-music-festival",
+          "liveItemSlug": "chuugoku"
+        },
+        {
+          "title": "WONDERLIVET2024",
+          "itemName": "韓国",
+          "date": "2024-11-10",
+          "place": "KINTEX HALL",
+          "liveSlug": "wonderlivet2024",
+          "liveItemSlug": "kankoku-2"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2024-12",
+      "songCount": 99,
+      "liveItemCount": 124,
+      "performanceCount": 1400,
+      "latestRelease": {
+        "title": "SHINOBI",
+        "slug": "shinobi",
+        "releaseDate": "2024-12-27"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+        "itemName": "大阪",
+        "date": "2025-01-19",
+        "place": "Zepp Osaka Bayside",
+        "liveSlug": "reol-oneman-live-2025"
+      },
+      "releases": [
+        {
+          "title": "SHINOBI",
+          "slug": "shinobi",
+          "releaseDate": "2024-12-27"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2025-01",
+      "songCount": 103,
+      "liveItemCount": 126,
+      "performanceCount": 1448,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+        "itemName": "東京",
+        "date": "2025-02-02",
+        "place": "Zepp DiverCity Tokyo",
+        "liveSlug": "reol-oneman-live-2025"
+      },
+      "releases": [
+        {
+          "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+          "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+          "releaseDate": "2025-01-15"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "大阪",
+          "date": "2025-01-19",
+          "place": "Zepp Osaka Bayside",
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "ousaka-9"
+        },
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "愛知",
+          "date": "2025-01-24",
+          "place": "Zepp Nagoya",
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "aichi-5"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "ULTRA C",
+          "slug": "ultra-c"
+        },
+        {
+          "songName": "SHINOBI",
+          "slug": "shinobi"
+        },
+        {
+          "songName": "RE RESCUE -aoexedit-",
+          "slug": "re-rescue-aoexedit"
+        },
+        {
+          "songName": "感情御中 -CRUSHedRemix-",
+          "slug": "crushedremix"
+        }
+      ]
+    },
+    {
+      "month": "2025-02",
+      "songCount": 103,
+      "liveItemCount": 128,
+      "performanceCount": 1483,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+        "itemName": "横浜",
+        "date": "2025-04-05",
+        "place": "KT Zepp Yokohama",
+        "liveSlug": "central-music-entertainment-festival-2025vival"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "東京",
+          "date": "2025-02-02",
+          "place": "Zepp DiverCity Tokyo",
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "toukyou-8"
+        },
+        {
+          "title": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
+          "itemName": "福岡",
+          "date": "2025-02-16",
+          "place": "福岡UNITEDLAB",
+          "liveSlug": "dios2025-withunitedlab",
+          "liveItemSlug": "fukuoka-5"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2025-04",
+      "songCount": 103,
+      "liveItemCount": 130,
+      "performanceCount": 1503,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "Anime Boston",
+        "itemName": "ボストン",
+        "date": "2025-05-23-2025-05-25",
+        "place": "Hynes Convention Center in Boston",
+        "liveSlug": "anime-boston"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+          "itemName": "横浜",
+          "date": "2025-04-05",
+          "place": "KT Zepp Yokohama",
+          "liveSlug": "central-music-entertainment-festival-2025vival",
+          "liveItemSlug": "yokohama"
+        },
+        {
+          "title": "Sakura-Con 2025",
+          "itemName": "シアトル",
+          "date": "2025-04-18〜2025-04-20",
+          "place": "Seattle Convention Center",
+          "liveSlug": "sakura-con-2025",
+          "liveItemSlug": "shiatoru"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2025-05",
+      "songCount": 103,
+      "liveItemCount": 131,
+      "performanceCount": 1516,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+        "itemName": "Hong Kong",
+        "date": "2025-06-03",
+        "place": "PORTAL",
+        "liveSlug": "reol-oneman-live-2025"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Anime Boston",
+          "itemName": "ボストン",
+          "date": "2025-05-23-2025-05-25",
+          "place": "Hynes Convention Center in Boston",
+          "liveSlug": "anime-boston",
+          "liveItemSlug": "bosuton"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2025-06",
+      "songCount": 103,
+      "liveItemCount": 135,
+      "performanceCount": 1524,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "須田景凪 presents \"MINGLE -三面鏡-“",
+        "itemName": "大阪",
+        "date": "2025-07-26",
+        "place": "Zepp Namba",
+        "liveSlug": "presents-mingle"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "Hong Kong",
+          "date": "2025-06-03",
+          "place": "PORTAL",
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "hong-kong"
+        },
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "Guangzhou",
+          "date": "2025-06-06",
+          "place": null,
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "guangzhou"
+        },
+        {
+          "title": "Reol Oneman Live 2025 カルチュア・カリキュラム",
+          "itemName": "Chengdu",
+          "date": "2025-06-08",
+          "place": null,
+          "liveSlug": "reol-oneman-live-2025",
+          "liveItemSlug": "chengdu"
+        },
+        {
+          "title": "DEAD POP FESTiVAL 2025",
+          "itemName": "川崎",
+          "date": "2025-06-28",
+          "place": "川崎市東扇島東公園特設会場",
+          "liveSlug": "dead-pop-festival-2025",
+          "liveItemSlug": "kawasaki"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2025-07",
+      "songCount": 103,
+      "liveItemCount": 136,
+      "performanceCount": 1533,
+      "latestRelease": {
+        "title": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+        "slug": "reol-oneman-live-no-title-in-nippon-budokan",
+        "releaseDate": "2025-01-15"
+      },
+      "nextLive": {
+        "title": "Sammy presents NEW HORIZON FEST",
+        "itemName": "千葉",
+        "date": "2025-08-02",
+        "place": "幕張メッセ",
+        "liveSlug": "sammy-presents-new-horizon-fest"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "須田景凪 presents \"MINGLE -三面鏡-“",
+          "itemName": "大阪",
+          "date": "2025-07-26",
+          "place": "Zepp Namba",
+          "liveSlug": "presents-mingle",
+          "liveItemSlug": "ousaka-10"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2025-08",
+      "songCount": 104,
+      "liveItemCount": 138,
+      "performanceCount": 1571,
+      "latestRelease": {
+        "title": "No title' in NIPPON BUDOKAN",
+        "slug": "no-title-in-nippon-budokan",
+        "releaseDate": "2025-08-27"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+        "itemName": "神奈川",
+        "date": "2025-11-09",
+        "place": "横浜アリーナ",
+        "liveSlug": "reol-oneman-live-in-yokohama-arena"
+      },
+      "releases": [
+        {
+          "title": "No title' in NIPPON BUDOKAN",
+          "slug": "no-title-in-nippon-budokan",
+          "releaseDate": "2025-08-27"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Sammy presents NEW HORIZON FEST",
+          "itemName": "千葉",
+          "date": "2025-08-02",
+          "place": "幕張メッセ",
+          "liveSlug": "sammy-presents-new-horizon-fest",
+          "liveItemSlug": "chiba"
+        },
+        {
+          "title": "Reol Oneman Live 'No title' in SHANGHAI",
+          "itemName": "上海",
+          "date": "2025-08-17",
+          "place": "静安体育中心",
+          "liveSlug": "reol-oneman-live-no-title-in-shanghai",
+          "liveItemSlug": "shanhai-3"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "オオエドランヴ feat. nqrse -十年物 Edition-",
+          "slug": "feat-nqrse-edition"
+        }
+      ]
+    },
+    {
+      "month": "2025-11",
+      "songCount": 109,
+      "liveItemCount": 139,
+      "performanceCount": 1597,
+      "latestRelease": {
+        "title": "オオエドランヴ feat. nqrse -十年物 Edition-",
+        "slug": "feat-nqrse-edition",
+        "releaseDate": "2025-11-09"
+      },
+      "nextLive": {
+        "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+        "itemName": "台湾",
+        "date": "2025-12-06",
+        "place": "新北市・新北大都会公園",
+        "liveSlug": "bandstival"
+      },
+      "releases": [
+        {
+          "title": "オオエドランヴ feat. nqrse -十年物 Edition-",
+          "slug": "feat-nqrse-edition",
+          "releaseDate": "2025-11-09"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+          "itemName": "神奈川",
+          "date": "2025-11-09",
+          "place": "横浜アリーナ",
+          "liveSlug": "reol-oneman-live-in-yokohama-arena",
+          "liveItemSlug": "kanagawa-2"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "うつくしじごく (Utsukushi Jigoku)",
+          "slug": "utsukushi-jigoku"
+        },
+        {
+          "songName": "美辞目録 (Rhetoric Index)",
+          "slug": "rhetoric-index"
+        },
+        {
+          "songName": "おとめの肖像 (Portrait of Her)",
+          "slug": "portrait-of-her"
+        },
+        {
+          "songName": "No title - Seaside Remix",
+          "slug": "no-title-seaside-remix"
+        },
+        {
+          "songName": "-序章-",
+          "slug": "joshou"
+        }
+      ]
+    },
+    {
+      "month": "2025-12",
+      "songCount": 109,
+      "liveItemCount": 141,
+      "performanceCount": 1614,
+      "latestRelease": {
+        "title": "オオエドランヴ feat. nqrse -十年物 Edition-",
+        "slug": "feat-nqrse-edition",
+        "releaseDate": "2025-11-09"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "栃木",
+        "date": "2026-03-14",
+        "place": "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+          "itemName": "台湾",
+          "date": "2025-12-06",
+          "place": "新北市・新北大都会公園",
+          "liveSlug": "bandstival",
+          "liveItemSlug": "taiwan"
+        },
+        {
+          "title": "COUNTDOWN JAPAN 25/26",
+          "itemName": null,
+          "date": "2025-12-28",
+          "place": "幕張メッセ",
+          "liveSlug": "countdown-japan-2526",
+          "liveItemSlug": "countdown-japan-4"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2026-01",
+      "songCount": 109,
+      "liveItemCount": 141,
+      "performanceCount": 1614,
+      "latestRelease": {
+        "title": "美辞学 (Rhetoric) ",
+        "slug": "rhetoric",
+        "releaseDate": "2026-01-21"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "栃木",
+        "date": "2026-03-14",
+        "place": "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [
+        {
+          "title": "美辞学 (Rhetoric) ",
+          "slug": "rhetoric",
+          "releaseDate": "2026-01-21"
+        }
+      ],
+      "lives": [],
+      "newSongs": []
+    },
+    {
+      "month": "2026-03",
+      "songCount": 111,
+      "liveItemCount": 145,
+      "performanceCount": 1706,
+      "latestRelease": {
+        "title": "美辞学 (Rhetoric) ",
+        "slug": "rhetoric",
+        "releaseDate": "2026-01-21"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "三重",
+        "date": "2026-04-04",
+        "place": "松阪M'AXA",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "栃木",
+          "date": "2026-03-14",
+          "place": "HEAVEN'S ROCK UTSUNOMIYA VJ-2",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "tochigi"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "徳島",
+          "date": "2026-03-20",
+          "place": "徳島club GRINDHOUSE",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "tokushima"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "山口",
+          "date": "2026-03-22",
+          "place": "周南RISING HALL",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "yamaguchi"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "神戸",
+          "date": "2026-03-28",
+          "place": "神戸Harbor Studio",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "koube"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "DEAD CENTER feat. LiSA",
+          "slug": "dead-center-feat-lisa"
+        },
+        {
+          "songName": "二等星 (Immitation Star)",
+          "slug": "immitation-star"
+        }
+      ]
+    },
+    {
+      "month": "2026-04",
+      "songCount": 111,
+      "liveItemCount": 150,
+      "performanceCount": 1824,
+      "latestRelease": {
+        "title": "Play On！",
+        "slug": "play-on",
+        "releaseDate": "2026-04-26"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "旭川",
+        "date": "2026-05-09",
+        "place": "旭川CASINO DRIVE",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [
+        {
+          "title": "Play On！",
+          "slug": "play-on",
+          "releaseDate": "2026-04-26"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "三重",
+          "date": "2026-04-04",
+          "place": "松阪M'AXA",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "mie"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "青森",
+          "date": "2026-04-11",
+          "place": "青森Quarter",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "aomori"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "長崎",
+          "date": "2026-04-18",
+          "place": "DRUM Be-7",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "nagasaki"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "熊本",
+          "date": "2026-04-19",
+          "place": "熊本B.9 V1",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "kumamoto"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "沖縄",
+          "date": "2026-04-29",
+          "place": "桜坂セントラル",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "okinawa"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2026-05",
+      "songCount": 111,
+      "liveItemCount": 157,
+      "performanceCount": 1989,
+      "latestRelease": {
+        "title": "Play On！",
+        "slug": "play-on",
+        "releaseDate": "2026-04-26"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "宮城",
+        "date": "2026-06-12",
+        "place": "トークネットホール仙台",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "旭川",
+          "date": "2026-05-09",
+          "place": "旭川CASINO DRIVE",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "asahikawa"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "札幌",
+          "date": "2026-05-10",
+          "place": "札幌ペニーレーン24",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "sapporo-2"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "横浜",
+          "date": "2026-05-16",
+          "place": "YOKOHAMA BayHall",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "yokohama-2"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "長野",
+          "date": "2026-05-23",
+          "place": "NAGANO CLUB JUNK BOX",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "nagano-2"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "新潟",
+          "date": "2026-05-24",
+          "place": "新潟LOTS",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "niigata"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "京都",
+          "date": "2026-05-30",
+          "place": "KYOTO FANJ",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "kyouto"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "岐阜",
+          "date": "2026-05-31",
+          "place": "岐阜Club-G",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "gifu"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2026-06",
+      "songCount": 112,
+      "liveItemCount": 160,
+      "performanceCount": 2061,
+      "latestRelease": {
+        "title": "Reol Oneman Live '美辞学' in YOKOHAMA ARENA",
+        "slug": "reol-oneman-live-in-yokohama-arena",
+        "releaseDate": "2026-06-03"
+      },
+      "nextLive": {
+        "title": "Reol Oneman Live 2026 美辞学",
+        "itemName": "愛知",
+        "date": "2026-07-04",
+        "place": "岡谷鋼機名古屋公会堂",
+        "liveSlug": "reol-oneman-live-2026"
+      },
+      "releases": [
+        {
+          "title": "Reol Oneman Live '美辞学' in YOKOHAMA ARENA",
+          "slug": "reol-oneman-live-in-yokohama-arena",
+          "releaseDate": "2026-06-03"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "宮城",
+          "date": "2026-06-12",
+          "place": "トークネットホール仙台",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "miyagi-4"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "大阪",
+          "date": "2026-06-19",
+          "place": "オリックス劇場",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "ousaka-11"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "福岡",
+          "date": "2026-06-27",
+          "place": "福岡国際会議場メインホール",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "fukuoka-6"
+        }
+      ],
+      "newSongs": [
+        {
+          "songName": "COCOON",
+          "slug": "cocoon"
+        }
+      ]
+    },
+    {
+      "month": "2026-07",
+      "songCount": 112,
+      "liveItemCount": 165,
+      "performanceCount": 2112,
+      "latestRelease": {
+        "title": "COCOON",
+        "slug": "cocoon",
+        "releaseDate": "2026-07-11"
+      },
+      "nextLive": {
+        "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+        "itemName": null,
+        "date": "2026-08-01",
+        "place": "舞洲スポーツアイランド",
+        "liveSlug": "osaka-gigantic-music-festival-2026"
+      },
+      "releases": [
+        {
+          "title": "COCOON",
+          "slug": "cocoon",
+          "releaseDate": "2026-07-11"
+        }
+      ],
+      "lives": [
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "愛知",
+          "date": "2026-07-04",
+          "place": "岡谷鋼機名古屋公会堂",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "aichi-6"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "東京",
+          "date": "2026-07-10",
+          "place": "LINE CUBE SHIBUYA",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "toukyou-9"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "韓国 #1",
+          "date": "2026-07-18",
+          "place": "YES24 WANDERLOCH HALL",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "kankoku-3"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "韓国 #2",
+          "date": "2026-07-19",
+          "place": "YES24 WANDERLOCH HALL",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "kankoku-4"
+        },
+        {
+          "title": "Reol Oneman Live 2026 美辞学",
+          "itemName": "台北",
+          "date": "2026-07-26",
+          "place": "Zepp New Taipei",
+          "liveSlug": "reol-oneman-live-2026",
+          "liveItemSlug": "taipei-2"
+        }
+      ],
+      "newSongs": []
+    }
+  ]
+}
