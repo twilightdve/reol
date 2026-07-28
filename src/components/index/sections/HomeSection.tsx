@@ -162,7 +162,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             </p>
           </Link>
           <Link
-            to="/bijigaku-navi/articles/live-tips-first-timer/"
+            to="/live/guide/"
             onClick={() =>
               trackEvent("entry_card_click", {
                 category: "navigation",
