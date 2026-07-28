@@ -1658,6 +1658,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         title: string;
         name: string;
         spotifyPlaylistId: string | null;
+        youtubeVideoId: string | null;
         reports: {
           liveReportUuid: string;
           liveReportName: string;
@@ -1673,6 +1674,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           address: string | null;
           googleMapsUrl: string | null;
           spotifyPlaylistId: string | null;
+          youtubeVideoId: string | null;
           setList: {
             liveItemSongUuid: string;
             liveItemSongName: string;
@@ -1699,6 +1701,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           title
           name
           spotifyPlaylistId
+          youtubeVideoId
           reports {
             liveReportUuid
             liveReportName
@@ -1714,6 +1717,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             address
             googleMapsUrl
             spotifyPlaylistId
+            youtubeVideoId
             setList {
               liveItemSongUuid
               liveItemSongName
@@ -1790,6 +1794,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             address: item.address,
             googleMapsUrl: item.googleMapsUrl,
             spotifyPlaylistId: item.spotifyPlaylistId || live.spotifyPlaylistId,
+            youtubeVideoId: item.youtubeVideoId || live.youtubeVideoId || null,
             setList,
             posts: item.posts,
             reports: live.reports,

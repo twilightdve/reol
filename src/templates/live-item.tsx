@@ -51,6 +51,7 @@ export interface LiveItemPageContext {
   address: string | null;
   googleMapsUrl: string | null;
   spotifyPlaylistId: string | null;
+  youtubeVideoId: string | null;
   setList: SetListSong[];
   posts: {
     liveItemPostUuid: string;
@@ -80,6 +81,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
     address,
     googleMapsUrl,
     spotifyPlaylistId,
+    youtubeVideoId,
     setList,
     posts,
     reports,
@@ -195,20 +197,18 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           </section>
         )}
 
-        {/* ④Spotifyプレイリスト */}
-        {spotifyPlaylistId && (
+        {/* ④'YouTube(公演のアーカイブ動画等) */}
+        {youtubeVideoId && (
           <section className="mb-8">
             <LazyComponent>
-              <div className="rounded-xl border border-bx-line overflow-hidden">
+              <div className="rounded-xl border border-bx-line overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
                 <iframe
-                  className="block w-full"
-                  src={`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}?utm_source=generator`}
-                  width="100%"
-                  height="400"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}`}
+                  title={`YouTube - ${heading}`}
                   loading="lazy"
-                  title={`Spotify - ${heading}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
                 />
               </div>
             </LazyComponent>
@@ -265,7 +265,27 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           )}
         </section>
 
-        {/* ⑤'LIVE REPORT(ツアー単位) */}
+        {/* ⑤'Spotifyプレイリスト */}
+        {spotifyPlaylistId && (
+          <section className="mb-8">
+            <LazyComponent>
+              <div className="rounded-xl border border-bx-line overflow-hidden">
+                <iframe
+                  className="block w-full"
+                  src={`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}?utm_source=generator`}
+                  width="100%"
+                  height="400"
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  title={`Spotify - ${heading}`}
+                />
+              </div>
+            </LazyComponent>
+          </section>
+        )}
+
+        {/* ⑤''LIVE REPORT(ツアー単位) */}
         {reports.length > 0 && (
           <section className="mb-8">
             <Kicker className="mb-4">LIVE REPORT</Kicker>
@@ -329,7 +349,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           </section>
         )}
 
-        {/* ⑤''関連ポスト */}
+        {/* ⑤''''関連ポスト */}
         {posts.length > 0 && (
           <section className="mb-8">
             <Kicker className="mb-4">関連ポスト</Kicker>
