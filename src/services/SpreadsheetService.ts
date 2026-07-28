@@ -118,6 +118,7 @@ const COL = {
     address: 8,
     googleMapsUrl: 9,
     spotifyPlaylistId: 10,
+    youtubeVideoId: 11,
     uuid: 14,
     slug: 15,
     liveUuid: 16,
@@ -398,6 +399,7 @@ export class SheetService {
         address: strOrNull(row[COL.liveItem.address]),
         googleMapsUrl: strOrNull(row[COL.liveItem.googleMapsUrl]),
         spotifyPlaylistId: strOrNull(row[COL.liveItem.spotifyPlaylistId]),
+        youtubeVideoId: strOrNull(row[COL.liveItem.youtubeVideoId]),
       }))
       .filter((v) => v.liveItemUuid !== "");
   }

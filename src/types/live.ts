@@ -34,6 +34,8 @@ export type LiveItem = {
   address: string | null;
   googleMapsUrl: string | null;
   spotifyPlaylistId: string | null;
+  /** 公演(日程)ごとのアーカイブ配信等のYouTube動画ID(URLではなく生ID)。任意項目 */
+  youtubeVideoId: string | null;
 };
 
 export type LiveItemSongType =

@@ -128,6 +128,31 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
           className="px-4 pb-4 pt-2 bg-bx-surface/5"
           onClick={(e) => e.stopPropagation()}
         >
+          {setlist.youtubeVideoId && (
+            <div
+              className="mb-3 rounded-lg border border-bx-line bg-bx-surface/5"
+              style={{
+                overflow: "hidden",
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9アスペクト比
+                height: 0,
+              }}
+            >
+              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+                <YouTube
+                  videoId={setlist.youtubeVideoId}
+                  opts={{
+                    width: "100%",
+                    height: "100%",
+                    playerVars: {
+                      autoplay: 0,
+                    },
+                  }}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            </div>
+          )}
           {/* Setlist */}
           <div className="mb-3">
             <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
@@ -258,7 +283,10 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     setIsExpand((prev) => !prev);
   }, []);
 
-  const youtubeVideoId = getYouTubeVideoId(live.siteUrl);
+  // ツアー(live)のsiteUrlがYouTubeでない場合、代表公演(先頭のitem)の
+  // youtubeVideoId列(公演ごとの生ID)にフォールバックする
+  const youtubeVideoId =
+    getYouTubeVideoId(live.siteUrl) ?? live.items?.[0]?.youtubeVideoId ?? null;
 
   // 開催中ツアー判定: 既に開始済み（過去/当日に公演あり）かつ未完了（今日以降にも公演あり）の場合のみ
   // ネタバレ警告対象とする。すべての公演が未来日のみのツアーはネタバレ要素が無いので対象外。

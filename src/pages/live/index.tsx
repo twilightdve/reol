@@ -90,6 +90,7 @@ export const query = graphql`
           address
           googleMapsUrl
           spotifyPlaylistId
+          youtubeVideoId
           setList {
             liveItemSongUuid
             liveItemUuid
