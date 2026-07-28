@@ -17,7 +17,6 @@ import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { Kicker } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
-import LazyComponent from "../components/modules/LazyComponent";
 import { useTheme } from "../hooks/useTheme";
 import { trackFilterChange, trackEvent } from "../utils/analytics";
 import UtilityService from "../services/UtilityService";
@@ -295,28 +294,35 @@ const PostsPage: React.FC = () => {
                       </div>
 
                       {showIframe ? (
-                        <div className="relative">
-                          {!iframeLoaded && (
-                            <div className="absolute inset-0 z-10 animate-pulse space-y-2 p-3 border border-bx-line rounded-lg bg-bx-bg">
-                              <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-bx-surface/10" />
-                                <div className="flex-1 space-y-1.5">
-                                  <div className="h-2.5 bg-bx-surface/10 rounded w-1/3" />
-                                  <div className="h-2.5 bg-bx-surface/10 rounded w-1/4" />
-                                </div>
+                        <>
+                          {/* 読み込み完了までは通常フローでスケルトンを表示し、
+                              下の投稿と重ならないようにする(絶対配置にしない)。
+                              tweets.tsx と同じ方式。 */}
+                          <div
+                            className={
+                              iframeLoaded
+                                ? "hidden"
+                                : "animate-pulse space-y-2 p-3 border border-bx-line rounded-lg bg-bx-surface/5"
+                            }
+                          >
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-bx-surface/10" />
+                              <div className="flex-1 space-y-1.5">
+                                <div className="h-2.5 bg-bx-surface/10 rounded w-1/3" />
+                                <div className="h-2.5 bg-bx-surface/10 rounded w-1/4" />
                               </div>
-                              <div className="h-2.5 bg-bx-surface/10 rounded" />
-                              <div className="h-2.5 bg-bx-surface/10 rounded w-5/6" />
                             </div>
-                          )}
-                          <LazyComponent>
+                            <div className="h-2.5 bg-bx-surface/10 rounded" />
+                            <div className="h-2.5 bg-bx-surface/10 rounded w-5/6" />
+                          </div>
+                          <div className={iframeLoaded ? "" : "invisible h-0 overflow-hidden"}>
                             <Tweet
                               tweetId={p.id}
                               options={{ theme }}
                               onLoad={() => markIframeLoaded(key)}
                             />
-                          </LazyComponent>
-                        </div>
+                          </div>
+                        </>
                       ) : (
                         <StaticPostPreview html={p.html} />
                       )}
