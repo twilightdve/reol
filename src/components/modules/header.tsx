@@ -1,4 +1,5 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import UtilityService from "../../services/UtilityService";
 import { activityYears } from "../../constants/artist";
 import { Link } from "gatsby";
@@ -21,6 +22,13 @@ const NAV_ITEMS = [
 const TopHeader: React.FC<Props> = ({ title }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { theme, toggleTheme } = useTheme();
+  // ABOUTダイアログはSSR時のHTMLに含めない(全ページ冒頭に同一の長文が
+  // 重複するSEO/読み上げ上の懸念があるため)。マウント後にbody直下へ
+  // portalで描画する。
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleDialogOpen = useCallback((event: React.MouseEvent) => {
     event.stopPropagation();
@@ -84,57 +92,62 @@ const TopHeader: React.FC<Props> = ({ title }) => {
             </button>
             <FaQuestionCircle className="text-xl flex-shrink-0 text-bx-ink" onClick={handleDialogOpen} />
           </div>
-          <dialog
-            className="w-11/12 max-h-208 bg-bx-bg border border-bx-line text-bx-ink sm:backdrop-opacity-20 rounded-lg sm:m-auto sm:p-3"
-            onClick={handleDialogClose}
-            ref={dialogRef}
-          >
-            <div className="pt-2 px-2 sm:pt-12">
-              <h1 className="font-bold text-xl">
-                <FaQuestion className="inline mb-1" />
-                ABOUT
-              </h1>
-              <p className="font-bold text-sm text-bx-blue pt-1">!Legitとは？</p>
-            </div>
-            <div className="pt-2 px-2 tracking-wide">
-              <p className="text-sm sm:text-base leading-loose break-words">
-                アーティスト「
-                <a
-                  href="https://reol.jp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  // dialog 全体の onClick(close)へのバブリングで遷移が
-                  // キャンセルされる環境があるため止める
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <span className="text-bx-blue">Reol</span>
-                </a>
-                &nbsp;(REOL/あにょすぺにょすゃゃ/れをる)」の
-                <span className="text-sm font-bold">非公式ファンサイト</span>
-                です。
-                <br />
-                これまでReolが辿ってきた、れをる時代から数えて{activityYears()}年の活動の中で、どのタイミングで出会ったかは人それぞれ。
-                <br />
-                Reolの活動の軌跡を余すことなく遡れる様に様々なコンテンツを掲載しますので、当サイトを通して新参も古参もより深くReolを好きになるきっかけになれば幸いです。
-                <br />
-                また、当サイトは自己満足的な推し活の一環として独自にReolに関する情報を発信していきますので、内容に偏りや間違いなどあるかもしれませんが、もしご興味あればご覧ください。
-              </p>
-              <p className="my-2 p-2 text-xs leading-normal bg-bx-bg border border-bx-line text-bx-ink3">
-                あくまで著作者の権利を守ることを第一に考え、許可されていない方法での音楽や映像、画像等コンテンツの掲載は行いませんが、もし運営者の不注意や無知により権利侵害をしているなど問題を見つけた際にはお手数ですがご連絡頂けますと幸いです。
-                <br />
-                また、こんなコンテンツが見たい！等のリクエストをいつでもどんなものでも募集しております。もしリクエストある方は
-                <a
-                  href="https://twitter.com/twilightplc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <FaXTwitter className="mr-1 inline text-xs" />
-                </a>
-                等でお気軽にご連絡ください。
-              </p>
-            </div>
-          </dialog>
+          {mounted &&
+            typeof document !== "undefined" &&
+            createPortal(
+              <dialog
+                className="w-11/12 max-h-208 bg-bx-bg border border-bx-line text-bx-ink sm:backdrop-opacity-20 rounded-lg sm:m-auto sm:p-3"
+                onClick={handleDialogClose}
+                ref={dialogRef}
+              >
+                <div className="pt-2 px-2 sm:pt-12">
+                  <h1 className="font-bold text-xl">
+                    <FaQuestion className="inline mb-1" />
+                    ABOUT
+                  </h1>
+                  <p className="font-bold text-sm text-bx-blue pt-1">!Legitとは？</p>
+                </div>
+                <div className="pt-2 px-2 tracking-wide">
+                  <p className="text-sm sm:text-base leading-loose break-words">
+                    アーティスト「
+                    <a
+                      href="https://reol.jp/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      // dialog 全体の onClick(close)へのバブリングで遷移が
+                      // キャンセルされる環境があるため止める
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <span className="text-bx-blue">Reol</span>
+                    </a>
+                    &nbsp;(REOL/あにょすぺにょすゃゃ/れをる)」の
+                    <span className="text-sm font-bold">非公式ファンサイト</span>
+                    です。
+                    <br />
+                    これまでReolが辿ってきた、れをる時代から数えて{activityYears()}年の活動の中で、どのタイミングで出会ったかは人それぞれ。
+                    <br />
+                    Reolの活動の軌跡を余すことなく遡れる様に様々なコンテンツを掲載しますので、当サイトを通して新参も古参もより深くReolを好きになるきっかけになれば幸いです。
+                    <br />
+                    また、当サイトは自己満足的な推し活の一環として独自にReolに関する情報を発信していきますので、内容に偏りや間違いなどあるかもしれませんが、もしご興味あればご覧ください。
+                  </p>
+                  <p className="my-2 p-2 text-xs leading-normal bg-bx-bg border border-bx-line text-bx-ink3">
+                    あくまで著作者の権利を守ることを第一に考え、許可されていない方法での音楽や映像、画像等コンテンツの掲載は行いませんが、もし運営者の不注意や無知により権利侵害をしているなど問題を見つけた際にはお手数ですがご連絡頂けますと幸いです。
+                    <br />
+                    また、こんなコンテンツが見たい！等のリクエストをいつでもどんなものでも募集しております。もしリクエストある方は
+                    <a
+                      href="https://twitter.com/twilightplc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <FaXTwitter className="mr-1 inline text-xs" />
+                    </a>
+                    等でお気軽にご連絡ください。
+                  </p>
+                </div>
+              </dialog>,
+              document.body
+            )}
         </div>
       </nav>
     </header>
