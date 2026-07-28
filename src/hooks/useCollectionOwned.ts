@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
  * 対象のuuidをlocalStorage(このブラウザ内のみ)に保存するだけで、
  * アカウント登録やサーバー送信は行わない。
  *
- * DISCOGRAPHYの「所有/視聴済み」、LIVEの「参戦済み」、PLACEの「訪問済み」は
+ * DISCOGRAPHYの「所有/視聴済み」、LIVEの「参戦済み」、PLACEの「巡礼済み」は
  * 別の記録なので、namespace ごとにストレージキーを分ける(混ざらないように)。
  *
  * 同じページ内に複数箇所(各カードの✓ボタン、全体コンプ率バー)でこのフックを

@@ -145,7 +145,7 @@ const generateStampCard = (
       116
     );
 
-    // スタンプグリッド(訪問済みは塗りつぶし+チェック、未訪問は枠のみ)
+    // スタンプグリッド(巡礼済みは塗りつぶし+チェック、未巡礼は枠のみ)
     const cols = 8;
     const gx = 32;
     const gy = 150;
@@ -190,7 +190,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   );
 
   // 新規コンテンツ案I「聖地スタンプラリー」。DISCOGRAPHY/LIVEと同じ仕組み
-  // (namespace="visited")。訪問済みはPlace単位(全16箇所)で記録する。
+  // (namespace="visited")。巡礼済みはPlace単位(全16箇所)で記録する。
   const { owned: visited, mounted: visitedMounted, toggle: toggleVisited } =
     useCollectionOwned("visited");
   const visitedCount = visitedMounted
@@ -492,7 +492,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           </div>
           <div className="mt-2 flex items-center justify-between gap-2 flex-wrap">
             <p className="text-[10px] text-bx-ink3">
-              各カードの「✓」で訪問済みを記録できます(この端末のブラウザ内のみに保存)
+              各カードの「✓」で巡礼済みを記録できます(この端末のブラウザ内のみに保存)
               {visitedRate >= 100 && totalPlaceCount > 0 && (
                 <span className="ml-1 font-bold text-bx-yellow">
                   🏆 全{totalPlaceCount}箇所制覇！
@@ -699,8 +699,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                               type="button"
                               onClick={handleToggleVisited}
                               aria-pressed={isVisited}
-                              aria-label={isVisited ? "訪問済みから外す" : "訪問済みにする"}
-                              title={isVisited ? "訪問済み" : "訪問済みにする"}
+                              aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
+                              title={isVisited ? "巡礼済み" : "巡礼済みにする"}
                               className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
                                 isVisited
                                   ? "border-bx-blue bg-bx-blue text-bx-bg"
@@ -754,8 +754,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   type="button"
                                   onClick={handleToggleVisited}
                                   aria-pressed={isVisited}
-                                  aria-label={isVisited ? "訪問済みから外す" : "訪問済みにする"}
-                                  title={isVisited ? "訪問済み" : "訪問済みにする"}
+                                  aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
+                                  title={isVisited ? "巡礼済み" : "巡礼済みにする"}
                                   className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
                                     isVisited
                                       ? "border-bx-blue bg-bx-blue text-bx-bg"
