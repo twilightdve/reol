@@ -289,12 +289,19 @@ const parsePostEmbedHtml = (
 };
 
 // 一覧では毎回widgets.jsのiframeを読み込まず、事前取得済みの
-// <blockquote>だけを軽量表示する。widgets.js を読み込むと同一ページ内の
-// 他のtwitter-tweet blockquoteまで巻き込んでiframe化されてしまうため、
-// <script>タグは静的表示用データからは除去しておく
-// (iframe表示への切り替えは別途 react-twitter-widgets の Tweet を使う)。
+// <blockquote>だけを軽量表示する。widgets.js は「ページ内の
+// class="twitter-tweet" を持つ blockquote 全部」を自動でiframe化する
+// 仕様のため、<script>タグを除去するだけでは不十分(他の投稿を
+// react-twitter-widgetsのTweetでiframe化した時点で、widgets.jsが
+// ロードされ、静的プレビュー中の同クラスも巻き込まれてしまう)。
+// class自体を静的表示用データから外し、widgets.jsの自動スキャン対象に
+// ならないようにする(iframe表示への切り替えは別途 react-twitter-widgets
+// の Tweet コンポーネントを使う)。
 const stripWidgetsScript = (html: string): string =>
-  html.replace(/<script[^>]*widgets\.js[^>]*><\/script>/i, "").trim();
+  html
+    .replace(/<script[^>]*widgets\.js[^>]*><\/script>/i, "")
+    .replace(/(<blockquote)\s+class="twitter-tweet"/i, "$1")
+    .trim();
 
 type PostsIndexEntry = {
   id: string;
