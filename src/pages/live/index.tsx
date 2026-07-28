@@ -64,6 +64,7 @@ export const query = graphql`
         name
         date
         siteUrl
+        youtubeVideoId
         spotifyPlaylistId
         themeColorPrimary
         themeColorSecondary

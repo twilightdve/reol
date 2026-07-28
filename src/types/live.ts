@@ -10,6 +10,8 @@ export type Live = {
   name: string;
   date: string;
   siteUrl: string | null;
+  /** ツアー全体の代表YouTube動画ID(URLではなく生ID)。任意項目 */
+  youtubeVideoId: string | null;
   spotifyPlaylistId: string | null;
   imageUrl?: string | null;
   themeColorPrimary?: string | null;

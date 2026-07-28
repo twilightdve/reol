@@ -19,19 +19,6 @@ type Props = {
   live: LiveInfo;
 };
 
-// YouTubeのビデオIDを抽出する共通関数(discographyのenhanced-timeline-item.tsxと同様)。
-// LIVEのsiteUrlは youtube.com/live/<id> 形式(配信アーカイブ)を含むことがあるため対応を追加。
-const getYouTubeVideoId = (url: string | null | undefined): string | null => {
-  if (!url) return null;
-  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
-  if (shortMatch) return shortMatch[1];
-  const watchMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
-  if (watchMatch) return watchMatch[1];
-  const liveMatch = url.match(/youtube\.com\/live\/([a-zA-Z0-9_-]+)/);
-  if (liveMatch) return liveMatch[1];
-  return null;
-};
-
 // セットカードコンポーネント
 type SetCardProps = {
   setlist: MergedLiveItem;
@@ -283,10 +270,9 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     setIsExpand((prev) => !prev);
   }, []);
 
-  // ツアー(live)のsiteUrlがYouTubeでない場合、代表公演(先頭のitem)の
-  // youtubeVideoId列(公演ごとの生ID)にフォールバックする
-  const youtubeVideoId =
-    getYouTubeVideoId(live.siteUrl) ?? live.items?.[0]?.youtubeVideoId ?? null;
+  // ツアー全体のサムネイル/埋め込みはliveのyoutubeVideoId(専用列)を使う。
+  // 各公演(SetCard)側は個別にlive_itemのyoutubeVideoIdを参照する(別値)。
+  const youtubeVideoId = live.youtubeVideoId ?? null;
 
   // 開催中ツアー判定: 既に開始済み（過去/当日に公演あり）かつ未完了（今日以降にも公演あり）の場合のみ
   // ネタバレ警告対象とする。すべての公演が未来日のみのツアーはネタバレ要素が無いので対象外。
