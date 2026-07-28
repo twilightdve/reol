@@ -350,38 +350,48 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         </div>
       </div>
 
-      {/* マップ: 見出し直下に横長で常時表示 */}
-      <div className="px-2 pb-3" aria-label="聖地マップ">
+      {/* マップ: 見出し直下にフルブリードで常時表示(このページの主役のため大きく) */}
+      <div className="pb-3" aria-label="聖地マップ">
         {typeof window === "undefined" ? null : markers.length === 0 ? (
-          <EmptyState
-            icon="📍"
-            title="表示できるマーカーがありません"
-            description="タイプ・検索条件をクリアしてもう一度お試しください。"
-            actionLabel="条件をクリア"
-            onAction={clearFilters}
-            tone="dark"
-          />
+          <div className="px-2">
+            <EmptyState
+              icon="📍"
+              title="表示できるマーカーがありません"
+              description="タイプ・検索条件をクリアしてもう一度お試しください。"
+              actionLabel="条件をクリア"
+              onAction={clearFilters}
+              tone="dark"
+            />
+          </div>
         ) : mapLoadError ? (
-          <ErrorRetry
-            title="マップの読み込みに失敗しました"
-            description="通信状況をご確認のうえ、再試行してください。"
-            onRetry={retryMapLoad}
-            tone="dark"
-          />
+          <div className="px-2">
+            <ErrorRetry
+              title="マップの読み込みに失敗しました"
+              description="通信状況をご確認のうえ、再試行してください。"
+              onRetry={retryMapLoad}
+              tone="dark"
+            />
+          </div>
         ) : !MapComponent ? (
-          <LoadingSkeleton
-            rows={1}
-            rowHeightClassName="h-48 sm:h-56"
-            gapClassName=""
-            rowClassName="border border-bx-line bg-bx-surface/5"
-            label="マップを読み込み中..."
-          />
+          <div
+            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
+          >
+            <LoadingSkeleton
+              rows={1}
+              rowHeightClassName="h-[60vh]"
+              gapClassName=""
+              rowClassName="border-0"
+              label="マップを読み込み中..."
+            />
+          </div>
         ) : (
-          <div className="rounded-lg overflow-hidden">
-            <MapComponent markers={markers} heightClassName="h-48 sm:h-56" />
+          <div
+            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
+          >
+            <MapComponent markers={markers} heightClassName="h-[60vh]" />
           </div>
         )}
-        <p className="mt-1 text-[10px] text-bx-ink3 text-right">
+        <p className="mt-1 px-2 text-[10px] text-bx-ink3 text-right">
           © OpenStreetMap contributors
         </p>
       </div>
