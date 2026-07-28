@@ -71,8 +71,14 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
           >
             ✓
           </button>
-          <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink flex-shrink-0">
-            {setlist.date ? setlist.date.split("-").slice(1).join("/") : `Set ${index + 1}`}
+          <span className="font-bold text-bx-ink flex-shrink-0">
+            {setlist.date
+              ? setlist.date
+                  .split("-")
+                  .slice(1)
+                  .map((n, i) => (i === 0 ? String(parseInt(n, 10)) : n))
+                  .join("/")
+              : `Set ${index + 1}`}
           </span>
           <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity truncate">
             {setlist.liveItemName || setlist.place || `Set ${index + 1}`}
