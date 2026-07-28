@@ -6,6 +6,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
+import YouTube from "react-youtube";
 import { trackEvent } from "../../../utils/analytics";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import {
@@ -16,6 +17,19 @@ import {
 
 type Props = {
   live: LiveInfo;
+};
+
+// YouTubeのビデオIDを抽出する共通関数(discographyのenhanced-timeline-item.tsxと同様)。
+// LIVEのsiteUrlは youtube.com/live/<id> 形式(配信アーカイブ)を含むことがあるため対応を追加。
+const getYouTubeVideoId = (url: string | null | undefined): string | null => {
+  if (!url) return null;
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) return shortMatch[1];
+  const watchMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (watchMatch) return watchMatch[1];
+  const liveMatch = url.match(/youtube\.com\/live\/([a-zA-Z0-9_-]+)/);
+  if (liveMatch) return liveMatch[1];
+  return null;
 };
 
 // セットカードコンポーネント
@@ -244,6 +258,8 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     setIsExpand((prev) => !prev);
   }, []);
 
+  const youtubeVideoId = getYouTubeVideoId(live.siteUrl);
+
   // 開催中ツアー判定: 既に開始済み（過去/当日に公演あり）かつ未完了（今日以降にも公演あり）の場合のみ
   // ネタバレ警告対象とする。すべての公演が未来日のみのツアーはネタバレ要素が無いので対象外。
   const isOngoingTour = React.useMemo(() => {
@@ -368,44 +384,58 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           <div className="w-full">
             {!isExpand ? (
               // 折りたたみ時：コンパクトなレイアウト
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xs font-medium text-bx-ink2">
-                      {live.date?.replaceAll("-", "/")}
-                    </span>
-                    {isOngoingTour && (
-                      <span
-                        className="text-[10px] font-bold px-1.5 py-0.5 rounded"
-                        style={{
-                          backgroundColor: "#FEF3C7",
-                          color: "#92400E",
-                          border: "1px solid #F59E0B",
-                        }}
-                        title="開催中のツアー。セットリストはネタバレ注意"
-                      >
-                        ⚠ ネタバレ注意
+              <div className="flex items-start gap-3">
+                {youtubeVideoId ? (
+                  <img
+                    src={`https://i.ytimg.com/vi/${youtubeVideoId}/mqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    className="w-12 h-12 flex-shrink-0 object-cover rounded bg-bx-surface/5"
+                  />
+                ) : (
+                  <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
+                    <FaCalendarAlt className="text-base" aria-hidden="true" />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-xs font-medium text-bx-ink2">
+                        {live.date?.replaceAll("-", "/")}
                       </span>
-                    )}
+                      {isOngoingTour && (
+                        <span
+                          className="text-[10px] font-bold px-1.5 py-0.5 rounded"
+                          style={{
+                            backgroundColor: "#FEF3C7",
+                            color: "#92400E",
+                            border: "1px solid #F59E0B",
+                          }}
+                          title="開催中のツアー。セットリストはネタバレ注意"
+                        >
+                          ⚠ ネタバレ注意
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
+                      {live.title}
+                    </h3>
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
-                    {live.title}
-                  </h3>
+                  {/* 展開ボタン */}
+                  <button
+                    onClick={handleTitleClick}
+                    className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
+                    aria-label="展開"
+                  >
+                    <GoChevronUp
+                      className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
+                        isExpand ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
                 </div>
-
-                {/* 展開ボタン */}
-                <button
-                  onClick={handleTitleClick}
-                  className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
-                  aria-label="展開"
-                >
-                  <GoChevronUp
-                    className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
-                      isExpand ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
               </div>
             ) : (
               // 展開時：従来のレイアウト
@@ -437,6 +467,32 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           {/* 展開コンテンツ */}
           {isExpand && (
             <>
+              {youtubeVideoId && (
+                <div
+                  className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-bx-surface/5"
+                  style={{
+                    overflow: "hidden",
+                    position: "relative",
+                    paddingBottom: "56.25%", // 16:9アスペクト比
+                    height: 0,
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+                    <YouTube
+                      videoId={youtubeVideoId}
+                      opts={{
+                        width: "100%",
+                        height: "100%",
+                        playerVars: {
+                          autoplay: 0,
+                        },
+                      }}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                </div>
+              )}
               {live.items && live.items.length > 0 && (
                 <div
                 className="mt-4 transition-all duration-300 w-full"
