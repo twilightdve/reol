@@ -243,9 +243,16 @@ const createLiveNodes = async (
 // (reol-official-links相当の確認方針を踏襲)。
 const HERSELF_HANDLES = new Set(["rrreol"]);
 // 確認済みの公式関連アカウント(本人以外)。ハンドル名は小文字・@なしで追加。
-const OFFICIAL_HANDLES = new Set<string>([]);
+const OFFICIAL_HANDLES = new Set<string>([
+  "reol_info", // Reol公式インフォメーションアカウント
+  "rrreol_official", // Reol OFFICIAL
+]);
 // 確認済みのメディア・ニュースアカウント。
-const MEDIA_HANDLES = new Set<string>([]);
+const MEDIA_HANDLES = new Set<string>([
+  "natalie_mu", // 音楽ナタリー
+  "rockinon_com", // rockin'on
+  "the_firsttimesn", // THE FIRST TIMES
+]);
 
 type PostCategory = "本人" | "公式" | "メディア" | "ファン";
 
