@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "gatsby";
 import { BsSpeakerFill } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
 import Live from "../live/live";
 import { LiveInfo } from "../../../types/live";
 import { trackEvent } from "../../../utils/analytics";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 
 interface LiveSectionProps {
   liveInfos: LiveInfo[];
@@ -45,6 +46,21 @@ const formatDate = (d: Date): string =>
 const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
   const nextLive = findNextLive(liveInfos);
 
+  // 新規コンテンツ案K「参戦履歴トラッカー」寄りの機能。個別の参戦済みチェックは
+  // 各公演カード(enhanced-timeline-item.tsx)側、ここでは全体の参戦率だけを
+  // まとめて表示する。DISCOGRAPHYの「コレクション台帳」と同じ仕組み(namespace違い)。
+  const { owned: attended, mounted } = useCollectionOwned("attended");
+  const allItemUuids = useMemo(
+    () => liveInfos.flatMap((live) => (live.items ?? []).map((it) => it.liveItemUuid)),
+    [liveInfos]
+  );
+  const attendedCount = mounted
+    ? allItemUuids.filter((uuid) => attended.has(uuid)).length
+    : 0;
+  const totalItemCount = allItemUuids.length;
+  const attendedRate =
+    totalItemCount > 0 ? Math.round((attendedCount / totalItemCount) * 100) : 0;
+
   return (
     <section
       id="LIVE"
@@ -59,6 +75,23 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
           LIVEでは過去に出演したワンマンライヴやツアー、フェスなどの情報を掲載しています。
           <br />
           ライヴごとのセトリや関連ポスト、ライヴレポートなどを載せていますので、参加できなかったライヴもどんな雰囲気だったのか少しでも感じ取れる様な情報を掲載しています。
+        </div>
+        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs text-bx-ink3">参戦記録</span>
+            <span className="text-sm font-bold text-bx-blue tabular-nums">
+              {attendedCount} / {totalItemCount} ・ {attendedRate}%
+            </span>
+          </div>
+          <div className="h-1.5 rounded-full bg-bx-line/50 overflow-hidden">
+            <div
+              className="h-full bg-bx-blue transition-all"
+              style={{ width: `${attendedRate}%` }}
+            />
+          </div>
+          <p className="mt-1.5 text-[10px] text-bx-ink3">
+            各公演カードの「✓」で参戦済みを記録できます(この端末のブラウザ内のみに保存)
+          </p>
         </div>
         {nextLive && (
           <Link

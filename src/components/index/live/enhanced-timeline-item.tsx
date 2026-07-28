@@ -7,6 +7,7 @@ import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
 import { trackEvent } from "../../../utils/analytics";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import {
   timelineItemTheme,
   timelinePointTheme,
@@ -27,6 +28,15 @@ type SetCardProps = {
 };
 
 const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
+  // コレクション台帳(参戦済み記録、localStorage完結)。DISCOGRAPHYの
+  // 所有/視聴済みとは別の記録(namespace="attended")なので混ざらない。
+  const { owned: attended, mounted, toggle } = useCollectionOwned("attended");
+  const isAttended = mounted && attended.has(setlist.liveItemUuid);
+  const handleToggleAttended = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toggle(setlist.liveItemUuid);
+  };
+
   return (
     <li
       id={`live-item-${setlist.slug}`}
@@ -45,6 +55,22 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
         }}
       >
         <div className="flex items-center gap-3 min-w-0 flex-1">
+          <button
+            type="button"
+            onClick={handleToggleAttended}
+            aria-pressed={isAttended}
+            aria-label={
+              isAttended ? "参戦済みから外す" : "参戦済みにする"
+            }
+            title={isAttended ? "参戦済み" : "参戦済みにする"}
+            className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+              isAttended
+                ? "border-bx-blue bg-bx-blue text-bx-bg"
+                : "border-bx-line text-transparent hover:border-bx-blue"
+            }`}
+          >
+            ✓
+          </button>
           <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink flex-shrink-0">
             Set {index + 1}
             {setlist.date && (
