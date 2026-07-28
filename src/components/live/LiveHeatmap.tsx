@@ -82,26 +82,26 @@ const COUNTRY_NAME_TO_OVERSEAS: Record<string, string> = Object.entries(
   return acc
 }, {})
 
-// 公演数 → カラーグラデーション (暗い下地 → 黄 → 橙 → 赤)。
+// 公演数 → カラーグラデーション (暗い下地 → 橙 → 赤)。
 // サイト全体がダークテーマのため、0件の下地も白系ではなくbx-line相当の暗色にする。
 const COLOR_SCALE = [
   '#26262e', // 0 (bx-line相当)
-  '#4a3f1f',
-  '#7a6a28',
-  '#c99a2a',
-  '#e2bf57', // bx-yellow(サイトのアクセント色)
+  '#4a2a16',
+  '#7a3d16',
+  '#a8541a',
+  '#d0701f',
   '#e8823a',
   '#d9412a',
 ]
 
 // ライトモード用。0件の下地のみ明色(bx-line light相当)に差し替え、
-// 中間〜高数値の黄橙赤は明るい背景でも十分視認できるため共通のまま流用する。
+// 中間〜高数値の橙〜赤は明るい背景でも十分視認できるため共通のまま流用する。
 const LIGHT_COLOR_SCALE = [
   '#e0dfd8', // 0 (bx-line light相当)
-  '#4a3f1f',
-  '#7a6a28',
-  '#c99a2a',
-  '#8a6d1f', // bx-yellow light相当
+  '#4a2a16',
+  '#7a3d16',
+  '#a8541a',
+  '#d0701f',
   '#e8823a',
   '#d9412a',
 ]
