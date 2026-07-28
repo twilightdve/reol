@@ -204,7 +204,7 @@ type VenueCoordMap = Record<string, VenueCoord>
 function createVenuePinIcon() {
   return L.divIcon({
     className: 'venue-pin-icon',
-    html: '<span style="display:block;width:12px;height:12px;border-radius:50%;background:#7c3aed;border:2px solid #fff;box-shadow:0 0 2px rgba(0,0,0,0.6);"></span>',
+    html: '<span style="display:block;width:12px;height:12px;border-radius:50%;background:#1d4ed8;border:2px solid #fff;box-shadow:0 0 2px rgba(0,0,0,0.6);"></span>',
     iconSize: [12, 12],
     iconAnchor: [6, 6],
   })
