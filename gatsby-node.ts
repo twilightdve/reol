@@ -237,7 +237,7 @@ const createLiveNodes = async (
 // から投稿者ハンドル・表示名・投稿日をパースする(表示にはtweetIdのみ使うため
 // HTML自体は保存しない)。
 //
-// 投稿者の分類(本人/公式/メディア/ファン)はハンドル名のヒューリスティック。
+// 投稿者の分類(本人/公式/メディア/その他)はハンドル名のヒューリスティック。
 // 「本人」以外は確認が取れたハンドルのみ手動でリストに追加する運用とし、
 // 未確認のアカウントを推測で「公式」「メディア」に分類しない
 // (reol-official-links相当の確認方針を踏襲)。
@@ -254,15 +254,15 @@ const MEDIA_HANDLES = new Set<string>([
   "the_firsttimesn", // THE FIRST TIMES
 ]);
 
-type PostCategory = "本人" | "公式" | "メディア" | "ファン";
+type PostCategory = "本人" | "公式" | "メディア" | "その他";
 
 const classifyPostHandle = (handle: string | null): PostCategory => {
-  if (!handle) return "ファン";
+  if (!handle) return "その他";
   const h = handle.toLowerCase();
   if (HERSELF_HANDLES.has(h)) return "本人";
   if (OFFICIAL_HANDLES.has(h)) return "公式";
   if (MEDIA_HANDLES.has(h)) return "メディア";
-  return "ファン";
+  return "その他";
 };
 
 // Twitter/Xの標準的な埋め込みHTML

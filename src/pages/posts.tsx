@@ -6,9 +6,9 @@
  * 時系列インデックスとして横断表示する。データは gatsby-node.ts の
  * createPostsIndexNode が事前生成する static/data/posts-index.json。
  *
- * 投稿者の分類(本人/公式/メディア/ファン)はハンドル名ベースの
+ * 投稿者の分類(本人/公式/メディア/その他)はハンドル名ベースの
  * ヒューリスティックで、確認が取れたハンドルのみ「本人/公式/メディア」に
- * 分類される(gatsby-node.ts側のリストで管理)。それ以外は「ファン」扱い。
+ * 分類される(gatsby-node.ts側のリストで管理)。それ以外は「その他」扱い。
  */
 import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC, Link } from "gatsby";
@@ -21,7 +21,7 @@ import { useTheme } from "../hooks/useTheme";
 import { trackFilterChange, trackEvent } from "../utils/analytics";
 import UtilityService from "../services/UtilityService";
 
-type PostCategory = "本人" | "公式" | "メディア" | "ファン";
+type PostCategory = "本人" | "公式" | "メディア" | "その他";
 type SourceType = "discography" | "live" | "liveItem";
 
 type PostEntry = {
@@ -73,7 +73,7 @@ const SOURCE_TYPE_LABELS: Record<"ALL" | SourceType, string> = {
 };
 const SOURCE_TYPE_KEYS: ("ALL" | SourceType)[] = ["ALL", "discography", "live", "liveItem"];
 
-const CATEGORY_KEYS: ("ALL" | PostCategory)[] = ["ALL", "本人", "公式", "メディア", "ファン"];
+const CATEGORY_KEYS: ("ALL" | PostCategory)[] = ["ALL", "本人", "公式", "メディア", "その他"];
 
 const PAGE_SIZE = 20;
 
