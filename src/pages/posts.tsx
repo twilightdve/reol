@@ -121,16 +121,32 @@ const PostsPage: React.FC = () => {
 
   // 既定では事前取得済みのblockquoteを軽量表示し、widgets.jsのiframeは
   // ユーザーが個別に切り替えた投稿だけ読み込む(1000件超えるため全件iframe化は重い)。
-  const [iframeIds, setIframeIds] = useState<Set<string>>(new Set());
+  // キーは "sourceType-id-index" にして、同一ツイートが複数箇所に埋め込まれて
+  // idが重複するケース(実データに存在)でも他の投稿と状態が混線しないようにする。
+  const [iframeKeys, setIframeKeys] = useState<Set<string>>(new Set());
+  const [loadedIframeKeys, setLoadedIframeKeys] = useState<Set<string>>(new Set());
   const toggleIframe = (key: string) => {
-    setIframeIds((prev) => {
+    setIframeKeys((prev) => {
       const next = new Set(prev);
       if (next.has(key)) {
         next.delete(key);
+        setLoadedIframeKeys((loaded) => {
+          const l = new Set(loaded);
+          l.delete(key);
+          return l;
+        });
       } else {
         next.add(key);
         trackEvent("posts_iframe_toggle", { category: "engagement", label: key });
       }
+      return next;
+    });
+  };
+  const markIframeLoaded = (key: string) => {
+    setLoadedIframeKeys((prev) => {
+      if (prev.has(key)) return prev;
+      const next = new Set(prev);
+      next.add(key);
       return next;
     });
   };
@@ -242,9 +258,10 @@ const PostsPage: React.FC = () => {
               </p>
             ) : (
               <ul className="space-y-4">
-                {visiblePosts.map((p) => {
-                  const key = `${p.sourceType}-${p.id}`;
-                  const showIframe = iframeIds.has(key);
+                {visiblePosts.map((p, i) => {
+                  const key = `${p.sourceType}-${p.id}-${i}`;
+                  const showIframe = iframeKeys.has(key);
+                  const iframeLoaded = loadedIframeKeys.has(key);
                   return (
                     <li
                       key={key}
@@ -278,9 +295,28 @@ const PostsPage: React.FC = () => {
                       </div>
 
                       {showIframe ? (
-                        <LazyComponent>
-                          <Tweet tweetId={p.id} options={{ theme }} />
-                        </LazyComponent>
+                        <div className="relative">
+                          {!iframeLoaded && (
+                            <div className="absolute inset-0 z-10 animate-pulse space-y-2 p-3 border border-bx-line rounded-lg bg-bx-bg">
+                              <div className="flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-full bg-bx-surface/10" />
+                                <div className="flex-1 space-y-1.5">
+                                  <div className="h-2.5 bg-bx-surface/10 rounded w-1/3" />
+                                  <div className="h-2.5 bg-bx-surface/10 rounded w-1/4" />
+                                </div>
+                              </div>
+                              <div className="h-2.5 bg-bx-surface/10 rounded" />
+                              <div className="h-2.5 bg-bx-surface/10 rounded w-5/6" />
+                            </div>
+                          )}
+                          <LazyComponent>
+                            <Tweet
+                              tweetId={p.id}
+                              options={{ theme }}
+                              onLoad={() => markIframeLoaded(key)}
+                            />
+                          </LazyComponent>
+                        </div>
                       ) : (
                         <StaticPostPreview html={p.html} />
                       )}
@@ -288,7 +324,7 @@ const PostsPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => toggleIframe(key)}
-                        className="mt-2 text-[11px] text-bx-ink3 hover:text-bx-blue underline underline-offset-2"
+                        className="mt-2 inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-bold rounded-full bg-bx-blue text-bx-bg hover:opacity-90 transition-opacity"
                       >
                         {showIframe ? "軽量表示に戻す" : "埋め込み表示(iframe)で見る"}
                       </button>
