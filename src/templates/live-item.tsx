@@ -31,6 +31,11 @@ type SetListSong = {
 const isNonSongItem = (song: Pick<SetListSong, "type">): boolean =>
   song.type === "segment";
 
+// live/live_itemの「youtube」列は動画IDとプレイリストIDを共存させている。
+// YouTubeの動画IDは常に11文字、プレイリストIDはそれより長いため長さで判定する。
+const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
+  !!id && id.length !== 11;
+
 type SiblingItem = {
   slug: string;
   date: string;
@@ -203,7 +208,11 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
             <LazyComponent>
               <div className="rounded-xl border border-bx-line overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
                 <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}`}
+                  src={
+                    isYoutubePlaylistId(youtubeVideoId)
+                      ? `https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`
+                      : `https://www.youtube-nocookie.com/embed/${youtubeVideoId}`
+                  }
                   title={`YouTube - ${heading}`}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

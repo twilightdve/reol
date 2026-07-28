@@ -19,6 +19,12 @@ type Props = {
   live: LiveInfo;
 };
 
+// live/live_itemの「youtube」列は動画IDとプレイリストIDを共存させている。
+// YouTubeの動画IDは常に11文字、プレイリストIDはPL/UU/OLAK5uy_等の
+// プレフィックス付きでそれより長いため、長さで判定する。
+const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
+  !!id && id.length !== 11;
+
 // セットカードコンポーネント
 type SetCardProps = {
   setlist: MergedLiveItem;
@@ -126,17 +132,29 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
               }}
             >
               <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-                <YouTube
-                  videoId={setlist.youtubeVideoId}
-                  opts={{
-                    width: "100%",
-                    height: "100%",
-                    playerVars: {
-                      autoplay: 0,
-                    },
-                  }}
-                  style={{ width: "100%", height: "100%" }}
-                />
+                {isYoutubePlaylistId(setlist.youtubeVideoId) ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/videoseries?list=${setlist.youtubeVideoId}`}
+                    title="YouTubeプレイリスト"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                    style={{ border: 0 }}
+                  />
+                ) : (
+                  <YouTube
+                    videoId={setlist.youtubeVideoId}
+                    opts={{
+                      width: "100%",
+                      height: "100%",
+                      playerVars: {
+                        autoplay: 0,
+                      },
+                    }}
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                )}
               </div>
             </div>
           )}
@@ -399,13 +417,20 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
             {!isExpand ? (
               // 折りたたみ時：コンパクトなレイアウト
               <div className="flex items-start gap-3">
-                {youtubeVideoId ? (
+                {youtubeVideoId && !isYoutubePlaylistId(youtubeVideoId) ? (
                   <img
                     src={`https://i.ytimg.com/vi/${youtubeVideoId}/mqdefault.jpg`}
                     alt=""
                     loading="lazy"
                     className="w-12 h-12 flex-shrink-0 object-cover rounded bg-bx-surface/5"
                   />
+                ) : youtubeVideoId ? (
+                  <div
+                    className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3"
+                    title="YouTubeプレイリスト"
+                  >
+                    <GoListUnordered className="text-lg" aria-hidden="true" />
+                  </div>
                 ) : (
                   <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
                     <FaCalendarAlt className="text-base" aria-hidden="true" />
@@ -493,17 +518,29 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-                    <YouTube
-                      videoId={youtubeVideoId}
-                      opts={{
-                        width: "100%",
-                        height: "100%",
-                        playerVars: {
-                          autoplay: 0,
-                        },
-                      }}
-                      style={{ width: "100%", height: "100%" }}
-                    />
+                    {isYoutubePlaylistId(youtubeVideoId) ? (
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`}
+                        title="YouTubeプレイリスト"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full"
+                        style={{ border: 0 }}
+                      />
+                    ) : (
+                      <YouTube
+                        videoId={youtubeVideoId}
+                        opts={{
+                          width: "100%",
+                          height: "100%",
+                          playerVars: {
+                            autoplay: 0,
+                          },
+                        }}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    )}
                   </div>
                 </div>
               )}
