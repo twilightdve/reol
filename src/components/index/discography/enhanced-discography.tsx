@@ -1,12 +1,7 @@
-import React from "react";
-import { Timeline } from "flowbite-react";
-import { DiscographyWithSongs } from "../../../types/discography";
-import EnhancedTimelineItem from "./enhanced-timeline-item";
-import type { FlowbiteTimelineTheme } from "flowbite-react";
-
-type Props = {
-  discographyWithSongs: DiscographyWithSongs[];
-};
+// discography.tsx / enhanced-timeline-item.tsx で使う共有テーマ定数。
+// 以前ここにあった年グループ化のデモ用コンポーネント(EnhancedDiscography)は
+// /dynamic-color-demo/ ページ専用で本番導線には未使用だったため削除し、
+// 年ヘッダー機能自体は discography.tsx に実装した。
 
 // Timeline Content テーマ
 export const timelineContentTheme = {
@@ -45,52 +40,3 @@ export const timelineItemTheme = {
   point: timelinePointTheme,
 };
 
-// Timeline Root テーマ
-const timelineRootTheme: FlowbiteTimelineTheme = {
-  root: {
-    direction: {
-      horizontal: "flex flex-wrap items-start gap-x-10 gap-y-16",
-      vertical: "relative",
-    },
-  },
-  item: timelineItemTheme,
-};
-
-const EnhancedDiscography: React.FC<Props> = React.memo(({ discographyWithSongs }) => {
-  // 年ごとにグループ化
-  const groupedByYear = discographyWithSongs.reduce((acc, item) => {
-    const year = item.releaseDate?.split('-')[0] || 'Unknown';
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(item);
-    return acc;
-  }, {} as Record<string, DiscographyWithSongs[]>);
-
-  // 年でソート（降順）
-  const sortedYears = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
-
-  return (
-    <div className="w-full space-y-20" style={{ borderLeft: 'none' }}>
-      {sortedYears.map((year, yearIndex) => (
-        <div key={year} className="space-y-8" style={{ borderLeft: 'none' }}>
-          {/* 年ヘッダー */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-bx-ink px-2">
-            {year}
-          </h2>
-
-          {/* カード一覧 */}
-          <div className="space-y-8" style={{ borderLeft: 'none' }}>
-            {groupedByYear[year].map((item) => (
-              <div key={item.discographyUuid} id={`disc-${item.slug}`} className="scroll-mt-24">
-                <EnhancedTimelineItem item={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-});
-
-export default EnhancedDiscography;

@@ -209,38 +209,49 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
           {/* コンテンツ情報 */}
           <div className="w-full">
             {!isExpand ? (
-              // 非展開時：コンパクトな2行レイアウト
-              <div className="space-y-1">
-                {/* 1行目：日付　タグ */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-medium text-bx-ink2">
-                    {item.releaseDate?.replaceAll("-", "/")}
-                  </span>
-                  <div className="flex gap-1">
-                    {item?.format && (
-                      <span
-                        className="px-2 py-0.5 text-xs font-semibold rounded-md border"
-                        style={{
-                          backgroundColor: addAlpha(colorPalette.secondary, 0.15),
-                          color: colorPalette.secondary,
-                          borderColor: addAlpha(colorPalette.secondary, 0.4),
-                        }}
-                      >
-                        {item.format}
-                      </span>
-                    )}
+              // 非展開時：左にサムネイル(48px)＋右にコンパクトな2行レイアウト
+              <div className="flex items-center gap-3">
+                {youtubeVideoId ? (
+                  <img
+                    src={`https://i.ytimg.com/vi/${youtubeVideoId}/mqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    className="w-12 h-12 flex-shrink-0 object-cover rounded bg-bx-surface/5"
+                  />
+                ) : (
+                  <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
+                    <FaMusic className="text-lg" aria-hidden="true" />
                   </div>
-                </div>
+                )}
+                <div className="flex-1 min-w-0 space-y-1">
+                  {/* 1行目：日付　タグ */}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-medium text-bx-ink2">
+                      {item.releaseDate?.replaceAll("-", "/")}
+                    </span>
+                    <div className="flex gap-1">
+                      {item?.format && (
+                        <span
+                          className="px-2 py-0.5 text-xs font-semibold rounded-md border"
+                          style={{
+                            backgroundColor: addAlpha(colorPalette.secondary, 0.15),
+                            color: colorPalette.secondary,
+                            borderColor: addAlpha(colorPalette.secondary, 0.4),
+                          }}
+                        >
+                          {item.format}
+                        </span>
+                      )}
+                    </div>
+                  </div>
 
-                {/* 2行目：タイトル　所有トグル */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1 flex-1 min-w-0">
-                    <FaMusic className="w-3 h-3 flex-shrink-0 text-bx-ink2" />
-                    <h3 className="text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
+                  {/* 2行目：タイトル　所有トグル */}
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="flex-1 min-w-0 text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
                       {item.title}
                     </h3>
+                    {ownedToggleButton}
                   </div>
-                  {ownedToggleButton}
                 </div>
               </div>
             ) : (

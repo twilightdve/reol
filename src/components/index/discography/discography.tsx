@@ -147,8 +147,23 @@ class Discography extends Component<Props, State> {
     return list;
   }
 
+  // 年ごとにグループ化(降順)。フィルタ後のlistに対して行う
+  groupByYear(list: DiscographyWithSongs[]) {
+    const grouped = new Map<string, DiscographyWithSongs[]>();
+    for (const item of list) {
+      const year = item.releaseDate?.split("-")[0] || "不明";
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year)!.push(item);
+    }
+    const sortedYears = Array.from(grouped.keys()).sort((a, b) =>
+      b.localeCompare(a)
+    );
+    return sortedYears.map((year) => ({ year, items: grouped.get(year)! }));
+  }
+
   render() {
     const list = this.state.currentList;
+    const groupedByYear = this.groupByYear(list);
     return (
       <div className="w-full pt-2 px-2 sm:px-10">
         <div className="flex flex-wrap gap-1 text-xs font-bold">
@@ -243,20 +258,44 @@ class Discography extends Component<Props, State> {
           })}
         </div>
         <p className="text-xs text-right pt-2 text-bx-ink2">{list.length}件</p>
+
+        {/* 年ジャンプ索引(スティッキー) */}
+        {groupedByYear.length > 1 && (
+          <div className="sticky top-0 z-20 -mx-2 sm:-mx-10 px-2 sm:px-10 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line overflow-x-auto whitespace-nowrap">
+            {groupedByYear.map(({ year }) => (
+              <a
+                key={`year-jump-${year}`}
+                href={`#disc-year-${year}`}
+                className="inline-block px-2 py-1 mr-1 text-xs font-bold rounded-md text-bx-ink3 hover:text-bx-blue hover:bg-bx-surface/5 transition-colors"
+              >
+                {year}
+              </a>
+            ))}
+          </div>
+        )}
+
         <div style={{ isolation: "isolate" }}>
-          <Timeline theme={timelineRootTheme}>
-            {list.map((item, i) => {
-              return (
-                <div
-                  key={`disco-timeline-${item.discographyUuid}`}
-                  id={item.slug ? `disc-${item.slug}` : undefined}
-                  className="scroll-mt-24"
-                >
-                  <EnhancedTimelineItem item={item} />
-                </div>
-              );
-            })}
-          </Timeline>
+          {groupedByYear.map(({ year, items }) => (
+            <div key={`disco-year-${year}`}>
+              <h2
+                id={`disc-year-${year}`}
+                className="scroll-mt-24 pt-6 pb-2 text-2xl sm:text-3xl font-bold text-bx-ink"
+              >
+                {year}
+              </h2>
+              <Timeline theme={timelineRootTheme}>
+                {items.map((item) => (
+                  <div
+                    key={`disco-timeline-${item.discographyUuid}`}
+                    id={item.slug ? `disc-${item.slug}` : undefined}
+                    className="scroll-mt-24"
+                  >
+                    <EnhancedTimelineItem item={item} />
+                  </div>
+                ))}
+              </Timeline>
+            </div>
+          ))}
         </div>
       </div>
     );
