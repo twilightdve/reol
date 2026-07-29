@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T19:14:17.299Z",
+  "generatedAt": "2026-07-29T14:10:36.181Z",
   "counts": {
     "sourceLives": 76,
     "sourceLiveItems": 170,
-    "sourceSetlistEntries": 2156,
+    "sourceSetlistEntries": 2187,
     "sourceDiscographies": 94,
     "sourceSongs": 251,
     "generatedTracks": 251,
@@ -12,10 +12,10 @@
     "generatedVenues": 116,
     "verifiedVenueCapacities": 21,
     "venueCapacitiesNeedingVerification": 95,
-    "matchedEntries": 1875,
+    "matchedEntries": 1906,
     "candidateEntries": 12,
-    "specialEntries": 124,
-    "unmatchedEntries": 145
+    "specialEntries": 121,
+    "unmatchedEntries": 148
   },
   "unmatchedRawTitles": [
     {
@@ -61,6 +61,17 @@
         "live_item_019e8284-df9c-7077-9032-3ff96d8ff44d",
         "live_item_019e8284-df39-730e-afd3-a575664f8694",
         "live_item_019e8284-decf-7fec-8307-c5845b9552e4"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "木綿のハンカチーフ",
+      "normalizedTitle": "木綿のハンカチーフ",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_item_019e8284-acc2-7e20-8699-e0223343a086",
+        "live_item_019e8284-ac60-7813-98eb-70bbaa71b61a",
+        "live_item_019e8284-abf6-7eed-be01-8b053a8f7927"
       ],
       "reason": "no_discography_match"
     },

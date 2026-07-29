@@ -2001,13 +2001,13 @@
       "venueName": "Zepp Haneda",
       "venueId": "venue_zepp_haneda",
       "type": "oneman",
-      "songCount": 20,
+      "songCount": 22,
       "playablePolicySummary": {
-        "required": 18,
-        "special": 2,
-        "medley": 2,
+        "required": 21,
+        "special": 1,
+        "medley": 0,
         "cover": 0,
-        "se": 0,
+        "se": 1,
         "unknown": 0
       }
     },
@@ -2240,11 +2240,11 @@
       "type": "event",
       "songCount": 1,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 1,
+        "required": 1,
+        "special": 0,
         "medley": 0,
         "cover": 0,
-        "se": 1,
+        "se": 0,
         "unknown": 0
       }
     },
@@ -2257,9 +2257,9 @@
       "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 25,
+      "songCount": 26,
       "playablePolicySummary": {
-        "required": 25,
+        "required": 26,
         "special": 0,
         "medley": 0,
         "cover": 0,
@@ -2485,12 +2485,12 @@
       "venueName": "新木場スタジオコースト",
       "venueId": "venue_新木場スタジオコ_スト",
       "type": "oneman",
-      "songCount": 23,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 23,
+        "required": 24,
         "special": 0,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 0,
         "unknown": 0
       }
@@ -2504,12 +2504,12 @@
       "venueName": "ReNY limited",
       "venueId": "venue_reny_limited",
       "type": "oneman",
-      "songCount": 23,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 23,
+        "required": 24,
         "special": 0,
         "medley": 0,
-        "cover": 0,
+        "cover": 1,
         "se": 0,
         "unknown": 0
       }
@@ -2523,13 +2523,13 @@
       "venueName": "松下IMPホール",
       "venueId": "venue_松下impホ_ル",
       "type": "oneman",
-      "songCount": 1,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 0,
-        "special": 1,
+        "required": 24,
+        "special": 0,
         "medley": 0,
-        "cover": 0,
-        "se": 1,
+        "cover": 1,
+        "se": 0,
         "unknown": 0
       }
     },

@@ -17,15 +17,20 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-bd47-779e-b8cb-8fa5e03aaf66_entry_019e82a7-51eb-7c96-8791-f49b523e36de",
       "order": 1,
-      "rawTitle": "Introduction～赤裸裸(NAKED)",
-      "displayTitle": "Introduction～赤裸裸(NAKED)",
-      "normalizedTitle": "introduction赤裸裸naked",
-      "policy": "medley",
-      "afterglowTailSec": 4,
-      "note": "medley_keyword",
+      "rawTitle": "Introduction",
+      "displayTitle": "Introduction",
+      "normalizedTitle": "introduction",
+      "policy": "required",
+      "trackId": "song_019e8282-e639-74a1-9b8c-fbd1e6171dbd",
+      "aliases": [
+        "introduction"
+      ],
+      "afterglowTailSec": 8,
+      "note": "source_inst",
       "match": {
-        "status": "special",
-        "reason": "medley_keyword"
+        "status": "matched",
+        "score": 0.92,
+        "reason": "alias"
       }
     },
     {
@@ -160,15 +165,15 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-bd47-779e-b8cb-8fa5e03aaf66_entry_019e82a7-553b-755a-a64c-2a5fd9c7c7c8",
       "order": 9,
-      "rawTitle": "Interlude～金字塔（激情edition）",
-      "displayTitle": "Interlude～金字塔（激情edition）",
-      "normalizedTitle": "interlude金字塔激情edition",
-      "policy": "medley",
+      "rawTitle": "Interlude",
+      "displayTitle": "Interlude",
+      "normalizedTitle": "interlude",
+      "policy": "se",
       "afterglowTailSec": 4,
-      "note": "medley_keyword",
+      "note": "se_keyword",
       "match": {
         "status": "special",
-        "reason": "medley_keyword"
+        "reason": "se_keyword"
       }
     },
     {
@@ -346,7 +351,7 @@
       "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
       "aliases": [],
       "expectedDurationSec": 191.9,
-      "afterglowTailSec": 16,
+      "afterglowTailSec": 12,
       "match": {
         "status": "matched",
         "score": 1,
@@ -364,6 +369,44 @@
       "trackId": "song_019e8282-b38d-7f15-8cf5-c31353acff03",
       "aliases": [],
       "expectedDurationSec": 251.8,
+      "afterglowTailSec": 11.1,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-bd47-779e-b8cb-8fa5e03aaf66_entry_019fac10-3333-748f-9707-4a276f91ae52",
+      "order": 21,
+      "rawTitle": "赤裸裸(NAKED)",
+      "displayTitle": "赤裸裸(NAKED)",
+      "normalizedTitle": "赤裸裸naked",
+      "policy": "required",
+      "trackId": "song_019e8282-b714-7a5d-933a-34fa187bc83b",
+      "aliases": [
+        "赤裸裸"
+      ],
+      "expectedDurationSec": 160.1,
+      "afterglowTailSec": 16.4,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-bd47-779e-b8cb-8fa5e03aaf66_entry_019fac10-33b1-7785-83ef-bbbb17df2096",
+      "order": 22,
+      "rawTitle": "金字塔",
+      "displayTitle": "金字塔",
+      "normalizedTitle": "金字塔",
+      "policy": "required",
+      "trackId": "song_019e8282-adad-7bc0-9325-9fe96e85c651",
+      "aliases": [],
+      "expectedDurationSec": 207.7,
       "afterglowTailSec": 15.1,
       "match": {
         "status": "matched",

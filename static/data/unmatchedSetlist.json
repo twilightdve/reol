@@ -1,10 +1,10 @@
 {
   "summary": {
-    "totalSetlistInstances": 2157,
-    "matchedInstances": 1883,
+    "totalSetlistInstances": 2188,
+    "matchedInstances": 1914,
     "unmatchedInstances": 265,
-    "uniqueSongsPlayed": 112,
-    "uniqueUnmatched": 130
+    "uniqueSongsPlayed": 113,
+    "uniqueUnmatched": 129
   },
   "unmatched": [
     {
@@ -31,7 +31,7 @@
     },
     {
       "name": "",
-      "count": 36,
+      "count": 34,
       "type": null,
       "samples": [
         {
@@ -136,6 +136,50 @@
           "date": "2020-08-16",
           "liveTitle": "Reol Oneman Live 2020「ハーメルンの大号令」",
           "liveItemName": "接続編（無観客LiveYouTube）"
+        }
+      ]
+    },
+    {
+      "name": "木綿のハンカチーフ",
+      "count": 3,
+      "type": "cover",
+      "samples": [
+        {
+          "date": "2019-10-06",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2019-10-11",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "liveItemName": "愛知"
+        },
+        {
+          "date": "2019-10-19",
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "liveItemName": "東京"
+        }
+      ]
+    },
+    {
+      "name": "Introduction",
+      "count": 3,
+      "type": "song",
+      "samples": [
+        {
+          "date": "2022-04-27",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+          "liveItemName": "愛知"
+        },
+        {
+          "date": "2022-04-28",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+          "liveItemName": "大阪"
+        },
+        {
+          "date": "2022-05-13",
+          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
+          "liveItemName": "東京"
         }
       ]
     },
@@ -316,23 +360,6 @@
           "date": "2019-07-14",
           "liveTitle": "Reol Secret Live 2019「文明ココロミー」",
           "liveItemName": "-西の塔-"
-        }
-      ]
-    },
-    {
-      "name": "Introduction",
-      "count": 2,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2022-04-27",
-          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
-          "liveItemName": "愛知"
-        },
-        {
-          "date": "2022-04-28",
-          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
-          "liveItemName": "大阪"
         }
       ]
     },
@@ -1517,30 +1544,6 @@
           "date": "2019-09-22",
           "liveTitle": "宗像フェス Fukutsu Koinoura",
           "liveItemName": null
-        }
-      ]
-    },
-    {
-      "name": "Introduction～赤裸裸(NAKED)",
-      "count": 1,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2022-05-13",
-          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
-          "liveItemName": "東京"
-        }
-      ]
-    },
-    {
-      "name": "Interlude～金字塔（激情edition）",
-      "count": 1,
-      "type": "song",
-      "samples": [
-        {
-          "date": "2022-05-13",
-          "liveTitle": "Reol Oneman Live 2022「激情アラート」",
-          "liveItemName": "東京"
         }
       ]
     },
