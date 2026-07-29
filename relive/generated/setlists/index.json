@@ -2257,9 +2257,9 @@
       "venueName": "LINE CUBE SHIBUYA",
       "venueId": "venue_line_cube_shibuya",
       "type": "oneman",
-      "songCount": 26,
+      "songCount": 25,
       "playablePolicySummary": {
-        "required": 26,
+        "required": 25,
         "special": 0,
         "medley": 0,
         "cover": 0,
