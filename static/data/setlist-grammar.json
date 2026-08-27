@@ -28,8 +28,8 @@
       "from": "サマーホラーパーティ",
       "to": "綺羅綺羅(Glitter)",
       "count": 3,
-      "total": 6,
-      "rate": 0.5,
+      "total": 7,
+      "rate": 0.42857142857142855,
       "sources": [
         {
           "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
@@ -190,35 +190,6 @@
       ]
     },
     {
-      "from": "劣等上等",
-      "to": "十中八九",
-      "count": 4,
-      "total": 17,
-      "rate": 0.23529411764705882,
-      "sources": [
-        {
-          "liveTitle": "SUMMER SONIC 2023",
-          "liveSlug": "summer-sonic-2023",
-          "date": "2023-08-19"
-        },
-        {
-          "liveTitle": "MIRRORBALL PARADE vol.3",
-          "liveSlug": "mirrorball-parade-vol3",
-          "date": "2023-09-10"
-        },
-        {
-          "liveTitle": "DEAD POP FESTiVAL 2025",
-          "liveSlug": "dead-pop-festival-2025",
-          "date": "2025-06-28"
-        },
-        {
-          "liveTitle": "Sammy presents NEW HORIZON FEST",
-          "liveSlug": "sammy-presents-new-horizon-fest",
-          "date": "2025-08-02"
-        }
-      ]
-    },
-    {
       "from": "サイサキ",
       "to": "白夜(White Midnight)",
       "count": 3,
@@ -291,6 +262,35 @@
       ]
     },
     {
+      "from": "劣等上等",
+      "to": "十中八九",
+      "count": 4,
+      "total": 18,
+      "rate": 0.2222222222222222,
+      "sources": [
+        {
+          "liveTitle": "SUMMER SONIC 2023",
+          "liveSlug": "summer-sonic-2023",
+          "date": "2023-08-19"
+        },
+        {
+          "liveTitle": "MIRRORBALL PARADE vol.3",
+          "liveSlug": "mirrorball-parade-vol3",
+          "date": "2023-09-10"
+        },
+        {
+          "liveTitle": "DEAD POP FESTiVAL 2025",
+          "liveSlug": "dead-pop-festival-2025",
+          "date": "2025-06-28"
+        },
+        {
+          "liveTitle": "Sammy presents NEW HORIZON FEST",
+          "liveSlug": "sammy-presents-new-horizon-fest",
+          "date": "2025-08-02"
+        }
+      ]
+    },
+    {
       "from": "切っ先(Edge)",
       "to": "SCORPION",
       "count": 3,
@@ -311,30 +311,6 @@
           "liveTitle": "WONDERLIVET2024",
           "liveSlug": "wonderlivet2024",
           "date": "2024-11-10"
-        }
-      ]
-    },
-    {
-      "from": "劣等上等",
-      "to": "サイサキ",
-      "count": 3,
-      "total": 17,
-      "rate": 0.17647058823529413,
-      "sources": [
-        {
-          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
-          "liveSlug": "reol-oneman-live-2019",
-          "date": "2019-10-06"
-        },
-        {
-          "liveTitle": "超音楽祭 in ニコニコ超会議2024",
-          "liveSlug": "in-2024",
-          "date": "2024-04-27"
-        },
-        {
-          "liveTitle": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-          "liveSlug": "reol-oneman-live-in-yokohama-arena",
-          "date": "2025-11-09"
         }
       ]
     },
@@ -397,6 +373,30 @@
       ]
     },
     {
+      "from": "劣等上等",
+      "to": "サイサキ",
+      "count": 3,
+      "total": 18,
+      "rate": 0.16666666666666666,
+      "sources": [
+        {
+          "liveTitle": "Reol Oneman Live 2019「侵攻アップグレード」",
+          "liveSlug": "reol-oneman-live-2019",
+          "date": "2019-10-06"
+        },
+        {
+          "liveTitle": "超音楽祭 in ニコニコ超会議2024",
+          "liveSlug": "in-2024",
+          "date": "2024-04-27"
+        },
+        {
+          "liveTitle": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+          "liveSlug": "reol-oneman-live-in-yokohama-arena",
+          "date": "2025-11-09"
+        }
+      ]
+    },
+    {
       "from": "煽げや尊し(Agitate)",
       "to": "第六感",
       "count": 3,
@@ -448,8 +448,8 @@
       "from": "第六感",
       "to": "煽げや尊し(Agitate)",
       "count": 3,
-      "total": 40,
-      "rate": 0.075,
+      "total": 41,
+      "rate": 0.07317073170731707,
       "sources": [
         {
           "liveTitle": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
@@ -472,8 +472,8 @@
       "from": "第六感",
       "to": "No title",
       "count": 3,
-      "total": 40,
-      "rate": 0.075,
+      "total": 41,
+      "rate": 0.07317073170731707,
       "sources": [
         {
           "liveTitle": "Namba Culture Terminal 2024  -1st Anniversary-",
@@ -672,6 +672,27 @@
       ]
     },
     {
+      "name": "美辞目録 (Rhetoric Index)",
+      "count": 3,
+      "sources": [
+        {
+          "liveTitle": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+          "liveSlug": "bandstival",
+          "date": "2025-12-06"
+        },
+        {
+          "liveTitle": "COUNTDOWN JAPAN 25/26",
+          "liveSlug": "countdown-japan-2526",
+          "date": "2025-12-28"
+        },
+        {
+          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+          "liveSlug": "osaka-gigantic-music-festival-2026",
+          "date": "2026-08-01"
+        }
+      ]
+    },
+    {
       "name": "ギガンティックO.T.N",
       "count": 2,
       "sources": [
@@ -702,28 +723,12 @@
           "date": "2019-12-29"
         }
       ]
-    },
-    {
-      "name": "宵々古今",
-      "count": 2,
-      "sources": [
-        {
-          "liveTitle": "REOL LAST LIVE「終楽章」",
-          "liveSlug": "reol-last-live",
-          "date": "2017-10-20"
-        },
-        {
-          "liveTitle": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
-          "liveSlug": "rock-in-japan-festival-2019-buzz-stage",
-          "date": "2019-08-03"
-        }
-      ]
     }
   ],
   "topClosers": [
     {
       "name": "第六感",
-      "count": 16,
+      "count": 17,
       "sources": [
         {
           "liveTitle": "YouTube FanFest Japan 2020 オープニングパフォーマンス",
@@ -804,6 +809,11 @@
           "liveTitle": "Sammy presents NEW HORIZON FEST",
           "liveSlug": "sammy-presents-new-horizon-fest",
           "date": "2025-08-02"
+        },
+        {
+          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+          "liveSlug": "osaka-gigantic-music-festival-2026",
+          "date": "2026-08-01"
         }
       ]
     },
@@ -1367,34 +1377,6 @@
       ]
     },
     {
-      "liveTitle": "Reol Oneman Live 2026 美辞学",
-      "liveSlug": "reol-oneman-live-2026",
-      "firstDate": "2026-03-14",
-      "lastDate": "2026-07-26",
-      "added": [],
-      "removed": [
-        "うつくしじごく (Utsukushi Jigoku)",
-        "平面鏡",
-        "劣等上等",
-        "DEAD CENTER feat. LiSA",
-        "SHINOBI",
-        "1LDK",
-        "二等星 (Immitation Star)",
-        "おとめの肖像 (Portrait of Her)",
-        "感情御中 -WANT U LUV IT-",
-        "第六感",
-        "白夜(White Midnight)",
-        "サイサキ",
-        "No title",
-        "ヒビカセ",
-        "ULTRA C",
-        "ディア",
-        "RE RESCUE",
-        "赤裸裸(NAKED)",
-        "美辞目録 (Rhetoric Index)"
-      ]
-    },
-    {
       "liveTitle": "Reol Secret Live 2019「文明ココロミー」",
       "liveSlug": "reol-secret-live-2019",
       "firstDate": "2019-07-13",
@@ -1415,6 +1397,28 @@
         "平面鏡",
         "ウテナ",
         "たい"
+      ]
+    },
+    {
+      "liveTitle": "Reol Oneman Live 2026 美辞学",
+      "liveSlug": "reol-oneman-live-2026",
+      "firstDate": "2026-03-14",
+      "lastDate": "2026-07-26",
+      "added": [
+        "煽げや尊し(Agitate)",
+        "TAKE OFF",
+        "エンドレスライン",
+        "ミッシング",
+        "エンド",
+        "ミッドナイトストロウラ",
+        "COCOON"
+      ],
+      "removed": [
+        "うつくしじごく (Utsukushi Jigoku)",
+        "サイサキ",
+        "No title",
+        "ヒビカセ",
+        "赤裸裸(NAKED)"
       ]
     },
     {

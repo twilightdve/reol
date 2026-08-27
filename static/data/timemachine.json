@@ -421,16 +421,16 @@
           "slug": "orderly"
         },
         {
+          "songName": "ミッドナイトストロウラ",
+          "slug": "middonaitosutoroura"
+        },
+        {
           "songName": "MONSTER",
           "slug": "monster"
         },
         {
           "songName": "mede:mede",
           "slug": "medemede"
-        },
-        {
-          "songName": "ミッドナイトストロウラ",
-          "slug": "middonaitosutoroura"
         },
         {
           "songName": "ハルシアン",
@@ -658,12 +658,12 @@
           "slug": "404-not-found"
         },
         {
-          "songName": "Lunatic",
-          "slug": "lunatic"
-        },
-        {
           "songName": "サマーホラーパーティ",
           "slug": "samahorapati"
+        },
+        {
+          "songName": "Lunatic",
+          "slug": "lunatic"
         },
         {
           "songName": "オオエドランヴ (feat. nqrse)",
@@ -3805,12 +3805,12 @@
       ],
       "newSongs": [
         {
-          "songName": "うつくしじごく (Utsukushi Jigoku)",
-          "slug": "utsukushi-jigoku"
-        },
-        {
           "songName": "美辞目録 (Rhetoric Index)",
           "slug": "rhetoric-index"
+        },
+        {
+          "songName": "うつくしじごく (Utsukushi Jigoku)",
+          "slug": "utsukushi-jigoku"
         },
         {
           "songName": "おとめの肖像 (Portrait of Her)",
@@ -4161,7 +4161,7 @@
       "month": "2026-07",
       "songCount": 113,
       "liveItemCount": 165,
-      "performanceCount": 2144,
+      "performanceCount": 2219,
       "latestRelease": {
         "title": "COCOON",
         "slug": "cocoon",
@@ -4221,6 +4221,36 @@
           "place": "Zepp New Taipei",
           "liveSlug": "reol-oneman-live-2026",
           "liveItemSlug": "taipei-2"
+        }
+      ],
+      "newSongs": []
+    },
+    {
+      "month": "2026-08",
+      "songCount": 113,
+      "liveItemCount": 166,
+      "performanceCount": 2229,
+      "latestRelease": {
+        "title": "COCOON",
+        "slug": "cocoon",
+        "releaseDate": "2026-07-11"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live #極秘LEGIT #2",
+        "itemName": "大阪",
+        "date": "2026-11-29",
+        "place": "GORILLA HALL OSAKA",
+        "liveSlug": "reol-secret-live-legit-2"
+      },
+      "releases": [],
+      "lives": [
+        {
+          "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+          "itemName": null,
+          "date": "2026-08-01",
+          "place": "舞洲スポーツアイランド",
+          "liveSlug": "osaka-gigantic-music-festival-2026",
+          "liveItemSlug": "jaiga-ousaka-3"
         }
       ],
       "newSongs": []

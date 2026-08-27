@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-30T19:22:31.119Z",
+  "generatedAt": "2026-08-27T16:38:16.676Z",
   "counts": {
     "sourceLives": 76,
     "sourceLiveItems": 170,
-    "sourceSetlistEntries": 2186,
+    "sourceSetlistEntries": 2271,
     "sourceDiscographies": 94,
     "sourceSongs": 251,
     "generatedTracks": 251,
@@ -12,22 +12,22 @@
     "generatedVenues": 116,
     "verifiedVenueCapacities": 21,
     "venueCapacitiesNeedingVerification": 95,
-    "matchedEntries": 1905,
+    "matchedEntries": 1982,
     "candidateEntries": 12,
-    "specialEntries": 121,
-    "unmatchedEntries": 148
+    "specialEntries": 124,
+    "unmatchedEntries": 153
   },
   "unmatchedRawTitles": [
     {
       "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
       "normalizedTitle": "港のヨーコヨコハマヨコスカ",
-      "count": 22,
+      "count": 27,
       "exampleSetlistIds": [
+        "live_item_019e8284-f2b9-7086-94cd-4756bc3a8a38",
+        "live_item_019f53e2-dc4e-775d-828b-8839c883f961",
+        "live_item_019e8284-f332-7d51-a5a3-f8a90b94113c",
         "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6",
-        "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221",
-        "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
-        "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
-        "live_item_019e8284-f0d0-7c4c-b463-efb128b466db"
+        "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221"
       ],
       "reason": "no_discography_match"
     },

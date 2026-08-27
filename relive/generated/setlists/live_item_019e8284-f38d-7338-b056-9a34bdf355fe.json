@@ -12,5 +12,186 @@
     "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
     "sourceId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe"
   },
-  "entries": []
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-9fac-75cd-b351-44ad9f16d7b6",
+      "order": 1,
+      "rawTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "displayTitle": "うつくしじごく (Utsukushi Jigoku)",
+      "normalizedTitle": "うつくしじごくutsukushijigoku",
+      "policy": "required",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
+      "aliases": [
+        "美辞目録"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-9fac-75cd-b351-44ad9f16d7b6",
+      "order": 2,
+      "rawTitle": "美辞目録 (Rhetoric Index)",
+      "displayTitle": "美辞目録 (Rhetoric Index)",
+      "normalizedTitle": "美辞目録rhetoricindex",
+      "policy": "required",
+      "trackId": "song_019e8282-f23c-7c2b-a500-b62ec40367d4",
+      "aliases": [
+        "美辞目録"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a059-7936-8def-eeadfd5bf5bf",
+      "order": 3,
+      "rawTitle": "宵々古今",
+      "displayTitle": "宵々古今",
+      "normalizedTitle": "宵々古今",
+      "policy": "required",
+      "trackId": "song_019e8282-91d8-7397-a5fd-4aa163c238ca",
+      "aliases": [],
+      "expectedDurationSec": 257.7,
+      "afterglowTailSec": 13,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a0da-73ad-aa24-fcae90ebde46",
+      "order": 4,
+      "rawTitle": "劣等上等",
+      "displayTitle": "劣等上等",
+      "normalizedTitle": "劣等上等",
+      "policy": "required",
+      "trackId": "song_019e8282-defc-71bb-a384-f0f8f9f8d84d",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a151-7427-8264-3a6429ff73a6",
+      "order": 5,
+      "rawTitle": "DEAD CENTER feat. LiSA",
+      "displayTitle": "DEAD CENTER feat. LiSA",
+      "normalizedTitle": "deadcenterfeatlisa",
+      "policy": "required",
+      "trackId": "song_019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a1ce-7916-ab89-cd2c44cdcef2",
+      "order": 6,
+      "rawTitle": "サマーホラーパーティ",
+      "displayTitle": "サマーホラーパーティ",
+      "normalizedTitle": "サマーホラーパーティ",
+      "policy": "required",
+      "trackId": "song_019e8282-980c-7897-af8d-f29a00eea377",
+      "aliases": [],
+      "expectedDurationSec": 254.6,
+      "afterglowTailSec": 11.8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a24b-762d-bd22-ea27bad83c86",
+      "order": 7,
+      "rawTitle": "おとめの肖像 (Portrait of Her)",
+      "displayTitle": "おとめの肖像 (Portrait of Her)",
+      "normalizedTitle": "おとめの肖像portraitofher",
+      "policy": "required",
+      "trackId": "song_019e8282-ee94-77a8-b274-270d4d301d22",
+      "aliases": [
+        "おとめの肖像"
+      ],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a2d3-774b-95e7-a06c42844bb1",
+      "order": 8,
+      "rawTitle": "COCOON",
+      "displayTitle": "COCOON",
+      "normalizedTitle": "cocoon",
+      "policy": "required",
+      "trackId": "song_019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+      "aliases": [],
+      "afterglowTailSec": 8,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a354-7c1b-9e17-6e731b7a00a7",
+      "order": 9,
+      "rawTitle": "あ可よろし",
+      "displayTitle": "あ可よろし",
+      "normalizedTitle": "あ可よろし",
+      "policy": "required",
+      "trackId": "song_019e8282-9e1a-7177-9501-7ac3e24ed303",
+      "aliases": [],
+      "expectedDurationSec": 303.6,
+      "afterglowTailSec": 16.9,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "entryId": "live_item_019e8284-f38d-7338-b056-9a34bdf355fe_entry_019fd26c-a3ca-7d00-9b05-fa9c17d2ced8",
+      "order": 10,
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
+      "match": {
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
+      }
+    }
+  ]
 }

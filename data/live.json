@@ -126,7 +126,98 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.515729870637!2d135.3924789119308!3d34.66693108491004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9482d50e319%3A0xd7c4fe39d573ed18!2z6Iie5rSy44K544Od44O844OE44Ki44Kk44Op44Oz44OJ!5e0!3m2!1sja!2sjp!4v1778689353625!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "youtubeVideoId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019fd26c-9fac-75cd-b351-44ad9f16d7b6",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9fac-75cd-b351-44ad9f16d7b6",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a059-7936-8def-eeadfd5bf5bf",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "宵々古今",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-91d8-7397-a5fd-4aa163c238ca",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a0da-73ad-aa24-fcae90ebde46",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a151-7427-8264-3a6429ff73a6",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a1ce-7916-ab89-cd2c44cdcef2",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "サマーホラーパーティ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-980c-7897-af8d-f29a00eea377",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a24b-762d-bd22-ea27bad83c86",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a2d3-774b-95e7-a06c42844bb1",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a354-7c1b-9e17-6e731b7a00a7",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-a3ca-7d00-9b05-fa9c17d2ced8",
+            "liveItemUuid": "019e8284-f38d-7338-b056-9a34bdf355fe",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": []
       }
     ],
@@ -307,7 +398,7 @@
           {
             "liveItemSongUuid": "019e82aa-1e85-78da-a92a-a8073cf7b89f",
             "liveItemUuid": "019e8284-e742-712a-b02a-6f4969cdb7e6",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -561,7 +652,7 @@
           {
             "liveItemSongUuid": "019e82aa-2f03-765e-8af4-208198216c8a",
             "liveItemUuid": "019e8284-ea47-7700-b47f-ce07cf0cf38d",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -803,7 +894,7 @@
           {
             "liveItemSongUuid": "019e82aa-3d0a-730b-b52d-c83a6533d17f",
             "liveItemUuid": "019e8284-eaa8-7608-bcf7-a21340afa42d",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -1051,7 +1142,7 @@
           {
             "liveItemSongUuid": "019e82aa-4aa5-743c-871b-5afa3f904207",
             "liveItemUuid": "019e8284-eb96-7f88-882d-79cf86a6d621",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -1293,7 +1384,7 @@
           {
             "liveItemSongUuid": "019e82aa-5857-764b-997a-06bd67f21e07",
             "liveItemUuid": "019e8284-ec07-7b6b-a7d7-b2f7d742e3db",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -1538,7 +1629,7 @@
           {
             "liveItemSongUuid": "019e82aa-675e-7299-bc7b-cd9fa32c8746",
             "liveItemUuid": "019e8284-ec68-7ef7-a62b-7b46f4ddcd9b",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -1795,7 +1886,7 @@
           {
             "liveItemSongUuid": "019e82aa-746e-732c-8ea2-3b4f027e56ef",
             "liveItemUuid": "019e8284-ecc7-72d8-892d-6b5849778f8e",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -2040,7 +2131,7 @@
           {
             "liveItemSongUuid": "019e82aa-83c6-7329-85f7-ad01cac4d346",
             "liveItemUuid": "019e8284-ed23-7141-92cc-06d8f958f7c5",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -2282,7 +2373,7 @@
           {
             "liveItemSongUuid": "019e82aa-8da3-765f-ae69-09cb26879d93",
             "liveItemUuid": "019e8284-ed83-7511-bbd9-a1ebbe3d7f09",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -2530,7 +2621,7 @@
           {
             "liveItemSongUuid": "019e82aa-9af7-7534-bc22-a1304a81a6e1",
             "liveItemUuid": "019e8284-ede7-798a-83f6-183a50e8776a",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -2778,7 +2869,7 @@
           {
             "liveItemSongUuid": "019e82aa-a9fc-7d32-a194-546bbe86d2c0",
             "liveItemUuid": "019e8284-ee54-7b7c-a2aa-205a32069d45",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -3020,7 +3111,7 @@
           {
             "liveItemSongUuid": "019e82aa-b666-7c86-a551-7cf6f9914163",
             "liveItemUuid": "019e8284-eebd-7c61-baa5-d69014b33336",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -3265,7 +3356,7 @@
           {
             "liveItemSongUuid": "019e82aa-c55e-7722-87e1-3425381ade66",
             "liveItemUuid": "019e8284-ef25-7237-a199-1ebc13374624",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -3513,7 +3604,7 @@
           {
             "liveItemSongUuid": "019e82aa-d429-7f84-8401-7f6cd02d76fb",
             "liveItemUuid": "019e8284-ef89-7f89-b54f-bbde3ec71efa",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -3745,7 +3836,7 @@
           {
             "liveItemSongUuid": "019e833e-23a6-7464-9e7c-0ffb0266c0b0",
             "liveItemUuid": "019e8284-f00d-7421-8f35-22bb8786a7cb",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -4011,7 +4102,7 @@
           {
             "liveItemSongUuid": "019e833e-2dd9-7e03-8742-75f5176aadc0",
             "liveItemUuid": "019e8284-f06e-7e8f-8887-51966ceb2597",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -4540,7 +4631,7 @@
           {
             "liveItemSongUuid": "019f1dd4-f7bd-76c9-914d-4df789eae9dc",
             "liveItemUuid": "019e8284-f128-7e46-8a9f-134032da24f1",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -5066,11 +5157,11 @@
           {
             "liveItemSongUuid": "019f47e3-b372-744e-9035-71f5bbeff9f7",
             "liveItemUuid": "019e8284-f1e4-7eb6-afe7-88639d68c221",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
-            "matchSource": "stripped"
+            "matchSource": "sheet"
           },
           {
             "liveItemSongUuid": "019f47e3-b3b8-7fc0-b205-fdfd85e0b17c",
@@ -5471,7 +5562,233 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2451656125463!2d121.4495726!3d25.059678299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a914b663455b%3A0xee6cea3890a8418f!2sZepp%20New%20Taipei!5e0!3m2!1sja!2sjp!4v1778688972972!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "youtubeVideoId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "01a0440a-3f17-7f87-ad21-ad6884900035",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-494e-7204-9632-e5f9965c3f8a",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-49c4-7545-9703-9a28a3f8f234",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "煽げや尊し(Agitate)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4a2d-7d5c-8ade-a1eadaed724e",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4a7f-7b97-900a-6718d928526d",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4ad9-7fbb-916e-371f26615891",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4b26-7dbf-9c9e-3be9fd496c78",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "白夜(White Midnight)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4bb0-72e8-be19-274a777cfc52",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4d58-7f88-94d6-221107cf17f8",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4db0-7bd3-ad4d-e56c83b097d1",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4e14-7a64-9f8a-f8a152326082",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4e5f-7a8c-a4de-4a7948317079",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4ead-7290-a82c-e1d6dcb69ca3",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4f11-77d5-8130-18d97940f69f",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4f8d-7708-8026-9752c3074dc9",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-4feb-796e-902e-1e1e25768d8f",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-5046-78c6-809d-c0b68f515b82",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-50be-70a4-9561-7346cf3611e6",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-5108-7bc7-8945-296335ece64f",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "ミッドナイトストロウラ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-8d77-7522-a885-d14a4873ca1f",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-516c-765e-8040-52cfa39b2652",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-51e9-7aa3-9775-3ff217415bad",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-523e-7185-83a0-24b8921c255c",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-528e-7bf8-97d9-80a5ec94bed7",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-556f-79ab-83ed-9f76893d8553",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "01a0440a-55b8-7647-84df-7df5ee874139",
+            "liveItemUuid": "019e8284-f2b9-7086-94cd-4756bc3a8a38",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": []
       },
       {
@@ -5486,7 +5803,224 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.936245690093!2d126.93765231202437!3d37.55656582458225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c990070c59fa9%3A0xb0cdd108deb985e6!2sYES24%20Wanderloch%20Hall!5e0!3m2!1sja!2sjp!4v1778689069490!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "youtubeVideoId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019fd26c-83f1-7b45-950d-90b4164617bd",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-84a0-72ab-80b5-854ecf9d09f0",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8521-71ba-83aa-0f360995472f",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-85a9-7ad8-879b-c79101bdf997",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "煽げや尊し(Agitate)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8629-76c1-9e79-b638e01cc761",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8698-77d2-b02a-1f6df2bff5a7",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8715-771c-96ac-b36e808d7176",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8792-7165-8478-905d82db2a79",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8819-7fee-8ef3-d00cf8d1fbba",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-888c-74ca-852e-a51807ddb34f",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8926-7bfe-9fb9-4838d81e6050",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-89ac-7502-abed-091d7f2715a6",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8a25-7968-a7bc-6013f65d9012",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8ab5-7e69-9d57-d187db50e619",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8b39-715a-a103-3c3fc6ee24ca",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8bbc-7b3e-8594-6775ce877ae4",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8c42-747d-a14d-4626d829350f",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "ミッドナイトストロウラ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-8d77-7522-a885-d14a4873ca1f",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8cd1-736d-b440-345f742b35e8",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8e5d-7745-9d28-fb0abf03bee3",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8ef1-76ac-a536-cc4231a878e6",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-8f8d-72c5-8508-a4393c31a15b",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9010-7046-887f-3414c99a5752",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-908e-7bc8-b429-9df50b95cd85",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-910e-78de-9129-5731e3fc9bcf",
+            "liveItemUuid": "019e8284-f332-7d51-a5a3-f8a90b94113c",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": [
           {
             "liveItemPostUuid": "019f6742-80d3-73e8-a12f-566dec529726",
@@ -5508,7 +6042,242 @@
         "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.936245690093!2d126.93765231202437!3d37.55656582458225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c990070c59fa9%3A0xb0cdd108deb985e6!2sYES24%20Wanderloch%20Hall!5e0!3m2!1sja!2sjp!4v1778689069490!5m2!1sja!2sjp",
         "spotifyPlaylistId": null,
         "youtubeVideoId": null,
-        "setList": [],
+        "setList": [
+          {
+            "liveItemSongUuid": "019fd26c-9195-7be2-9c5b-5c512008a746",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9237-7ae1-876f-35b93a6d03ec",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "平面鏡",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-92b0-7b49-b6ff-d657143f88b9",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "第六感",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b248-7b59-943b-c6976419cc36",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9357-7d2d-aa20-6c5ef71edf2c",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "煽げや尊し(Agitate)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b788-7d1d-a5f7-c81d27df50ac",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-93f2-75a9-b53f-d49e37a0beee",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "SHINOBI",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d776-70df-b9dc-d510f145a2f5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-945e-7c50-96ca-3f6d83f90d8c",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "TAKE OFF",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-bdd1-7295-9bf8-64d7d0ce5e4e",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-94f1-74f5-a4ac-b46c61643ae2",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "エンドレスライン",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9a62-7eca-bbc3-b00a4788ccf0",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9568-7238-a36e-8444fd2232f8",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "おとめの肖像 (Portrait of Her)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-95e4-7662-b896-2173882f2c75",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-965f-7f9a-82ae-130cdf05127f",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-96e1-7a6b-8e61-6251df533a57",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "港のヨーコ・ヨコハマ・ヨコスカ",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9760-7492-a598-b2be358c9825",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "感情御中 -WANT U LUV IT-",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-c4dd-71c6-a878-5e06267be179",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9820-779c-96b4-860fb723e62f",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "ディア",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d2de-7503-a017-b8b32643a99d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-98a5-71ca-b2ce-868b47023d91",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "(Remix)",
+            "type": "medley",
+            "youtubeVideoId": null,
+            "songUuid": null,
+            "matchSource": "none"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-992e-7234-a009-59c908098488",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "美辞目録 (Rhetoric Index)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-99bc-7669-bc3d-39213706e6f3",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "ミッシング",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9a39-7140-b0c7-e2fb67611049",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "エンド",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9b94-7dd6-8594-018b304cfdcb",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9ab1-7dff-b393-cf730dc66913",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "1LDK",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9b4f-79af-915f-076e7398b227",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "白夜(White Midnight)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9bed-705b-81f5-1369844b9d22",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "二等星 (Immitation Star)",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-f0ea-7081-9940-1493f104ebd8",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9c82-7a60-843b-d03729d22723",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "ULTRA C",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d3b8-74db-a4f7-36f2b78bbec5",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9d00-7fdd-bcd8-59afba814620",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "劣等上等",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9d85-746d-8835-d48f56007f79",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "DEAD CENTER feat. LiSA",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9e26-79b4-97b6-92a6ff26dc8c",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "COCOON",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9e9a-7d07-9a5b-1df895201c7c",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "RE RESCUE",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-d426-7101-a7ef-56ed1f7c439b",
+            "matchSource": "sheet"
+          },
+          {
+            "liveItemSongUuid": "019fd26c-9f21-71d2-86cc-c3a438283320",
+            "liveItemUuid": "019f53e2-dc4e-775d-828b-8839c883f961",
+            "liveItemSongName": "あ可よろし",
+            "type": "song",
+            "youtubeVideoId": null,
+            "songUuid": "019e8282-9e1a-7177-9501-7ac3e24ed303",
+            "matchSource": "sheet"
+          }
+        ],
         "posts": []
       }
     ],
@@ -5627,7 +6396,7 @@
           {
             "liveItemSongUuid": "019e82aa-179e-7d2e-a3f7-cceb3c407c7f",
             "liveItemUuid": "019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -5778,7 +6547,7 @@
           {
             "liveItemSongUuid": "019e82aa-132f-7ec0-a5f2-3457ca506a40",
             "liveItemUuid": "019e8284-e654-7d1d-9a67-1a419c63a86e",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -6154,7 +6923,7 @@
           {
             "liveItemSongUuid": "019e82aa-075b-7434-8c56-37e9c06b5eef",
             "liveItemUuid": "019e8284-e5f0-7f59-83aa-58e3ca28cc89",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -6420,7 +7189,7 @@
           {
             "liveItemSongUuid": "019e82a9-e9c8-7bd3-a211-687efcdd8b06",
             "liveItemUuid": "019e8284-e456-75bb-aea4-a4de231dca9a",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -7722,7 +8491,7 @@
           {
             "liveItemSongUuid": "019e82a9-b766-7621-8569-4f16d4372971",
             "liveItemUuid": "019e8284-e14b-719b-909a-5f7132db573e",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -7864,7 +8633,7 @@
           {
             "liveItemSongUuid": "019e82a9-78b3-74c5-a9b1-28b98f1a879c",
             "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -8030,7 +8799,7 @@
           {
             "liveItemSongUuid": "019e82a9-74a9-7127-a9a7-e4a85e7140a9",
             "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -8223,7 +8992,7 @@
           {
             "liveItemSongUuid": "019e82a9-66e4-7f10-b6bd-d330b6cc40c3",
             "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -8632,7 +9401,7 @@
           {
             "liveItemSongUuid": "019e82a9-4e6f-7e4b-8c5f-8779082c378d",
             "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": "3jgP2NIJ7k4",
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -9396,7 +10165,7 @@
           {
             "liveItemSongUuid": "019e82a9-2309-7e37-9bbf-1fd5e85d45dd",
             "liveItemUuid": "019e8284-d8b1-724c-b430-ca48389886e9",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -10107,7 +10876,7 @@
           {
             "liveItemSongUuid": "019e82a9-868d-7a38-ae9f-a4fe72f9c7be",
             "liveItemUuid": "019e8284-decf-7fec-8307-c5845b9552e4",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -10343,7 +11112,7 @@
           {
             "liveItemSongUuid": "019e82a9-93e5-7458-8251-d469b8861e91",
             "liveItemUuid": "019e8284-df39-730e-afd3-a575664f8694",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
@@ -10579,7 +11348,7 @@
           {
             "liveItemSongUuid": "019e82a9-a5b4-762f-ba03-c3d0c2734e30",
             "liveItemUuid": "019e8284-df9c-7077-9032-3ff96d8ff44d",
-            "liveItemSongName": "白夜",
+            "liveItemSongName": "白夜(White Midnight)",
             "type": "song",
             "youtubeVideoId": null,
             "songUuid": "019e8282-b315-798d-b991-c7fc740b5dc5",
