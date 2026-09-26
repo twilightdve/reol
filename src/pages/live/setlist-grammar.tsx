@@ -41,6 +41,18 @@ type TourDiff = {
   added: string[];
   removed: string[];
 };
+type WorkTrend = {
+  discographyUuid: string;
+  discographyTitle: string;
+  discographySlug: string;
+  releaseDate: string | null;
+  songCount: number;
+  playedSongCount: number;
+  totalPlays: number;
+  firstPlayedDate: string | null;
+  lastPlayedDate: string | null;
+  coverageRate: number;
+};
 
 type GrammarData = {
   topPairs: PairRow[];
@@ -50,6 +62,7 @@ type GrammarData = {
   closerSpecialists: NamedCount[];
   yearlyOpenerTop: YearlyOpener[];
   tourDiffs: TourDiff[];
+  workTrends: WorkTrend[];
 };
 
 const fetchJson = async <T,>(url: string): Promise<T> => {
@@ -316,6 +329,55 @@ const SetlistGrammarPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section>
+              <SectionTitle>作品別のライブ採用傾向</SectionTitle>
+              <p className="text-xs text-bx-ink3 mb-3">
+                収録曲のうち何曲がライブで演奏されたか(ライブ再現率)と、総演奏回数の多い順
+              </p>
+              <div className="overflow-x-auto overflow-y-auto max-h-[480px] border border-bx-line rounded-lg">
+                <table className="w-full text-xs">
+                  <thead className="sticky top-0 z-10">
+                    <tr className="bg-bx-bg text-bx-ink3">
+                      <th className="px-3 py-2 text-left border-b border-bx-line">作品</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">再現率</th>
+                      <th className="px-2 py-2 text-right w-16 border-b border-bx-line">総演奏</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">初演奏</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">最終演奏</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-bx-line">
+                    {data.workTrends.map((w) => (
+                      <tr key={w.discographyUuid} className="hover:bg-bx-surface/5">
+                        <td className="px-3 py-1.5">
+                          <Link
+                            to={`/discography/#disc-${w.discographySlug}`}
+                            className="text-bx-blueLight hover:text-bx-blue"
+                          >
+                            {w.discographyTitle}
+                          </Link>
+                          <span className="ml-1.5 text-bx-ink3">
+                            ({w.playedSongCount}/{w.songCount}曲)
+                          </span>
+                        </td>
+                        <td className="px-2 py-1.5 text-right font-mono text-bx-ink">
+                          {Math.round(w.coverageRate * 100)}%
+                        </td>
+                        <td className="px-2 py-1.5 text-right font-mono text-bx-ink">
+                          {w.totalPlays}
+                        </td>
+                        <td className="px-2 py-1.5 text-right text-bx-ink3">
+                          {w.firstPlayedDate ?? "-"}
+                        </td>
+                        <td className="px-2 py-1.5 text-right text-bx-ink3">
+                          {w.lastPlayedDate ?? "-"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </section>
           </div>
         )}

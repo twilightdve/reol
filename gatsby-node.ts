@@ -1313,6 +1313,60 @@ const createSongStatsNodes = async (
       (a, b) => b.added.length + b.removed.length - (a.added.length + a.removed.length)
     );
 
+    // ----- 作品別のライブ採用傾向 -----
+    // songStats(代表曲・演奏統計)を discographyUuid でグルーピングし、
+    // 作品ごとの「ライブ再現率(収録曲のうち何曲がライブ演奏されたか)」と
+    // 総演奏回数・初演奏日/最終演奏日を集計する。
+    const discByUuidForTrends = new Map(
+      discographies.map((d) => [d.discographyUuid, d])
+    );
+    type WorkTrend = {
+      discographyUuid: string;
+      discographyTitle: string;
+      discographySlug: string;
+      releaseDate: string | null;
+      songCount: number;
+      playedSongCount: number;
+      totalPlays: number;
+      firstPlayedDate: string | null;
+      lastPlayedDate: string | null;
+    };
+    const workTrendsMap = new Map<string, WorkTrend>();
+    for (const stat of songStats) {
+      if (!stat.discographyUuid) continue;
+      const disc = discByUuidForTrends.get(stat.discographyUuid);
+      if (!disc) continue;
+      const cur: WorkTrend = workTrendsMap.get(stat.discographyUuid) ?? {
+        discographyUuid: stat.discographyUuid,
+        discographyTitle: disc.title,
+        discographySlug: disc.slug,
+        releaseDate: disc.releaseDate ?? null,
+        songCount: 0,
+        playedSongCount: 0,
+        totalPlays: 0,
+        firstPlayedDate: null,
+        lastPlayedDate: null,
+      };
+      cur.songCount += 1;
+      if (stat.totalPlays > 0) {
+        cur.playedSongCount += 1;
+        cur.totalPlays += stat.totalPlays;
+        if (!cur.firstPlayedDate || (stat.firstPlayedDate && stat.firstPlayedDate < cur.firstPlayedDate)) {
+          cur.firstPlayedDate = stat.firstPlayedDate;
+        }
+        if (!cur.lastPlayedDate || (stat.lastPlayedDate && stat.lastPlayedDate > cur.lastPlayedDate)) {
+          cur.lastPlayedDate = stat.lastPlayedDate;
+        }
+      }
+      workTrendsMap.set(stat.discographyUuid, cur);
+    }
+    const workTrends = Array.from(workTrendsMap.values())
+      .map((w) => ({
+        ...w,
+        coverageRate: w.songCount === 0 ? 0 : Math.round((w.playedSongCount / w.songCount) * 1000) / 1000,
+      }))
+      .sort((a, b) => b.totalPlays - a.totalPlays);
+
     await writeDataJson("setlist-grammar.json", {
       topPairs,
       topOpeners,
@@ -1321,9 +1375,10 @@ const createSongStatsNodes = async (
       closerSpecialists,
       yearlyOpenerTop,
       tourDiffs: tourDiffs.slice(0, 15),
+      workTrends,
     });
     console.log(
-      `[setlist-grammar] pairs=${pairCounts.size} openers=${openerCount.size} closers=${closerCount.size} tourDiffs=${tourDiffs.length}`
+      `[setlist-grammar] pairs=${pairCounts.size} openers=${openerCount.size} closers=${closerCount.size} tourDiffs=${tourDiffs.length} workTrends=${workTrends.length}`
     );
   }
 };
