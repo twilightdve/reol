@@ -14,7 +14,11 @@ import {
 } from "./src/types/live";
 import { Recommend } from "./src/types/recommend";
 import { Place, PlaceItem } from "./src/types/places";
-import { buildSongIndex, matchSongId, buildCanonicalUuidMap } from "./src/utils/songMatcher";
+import {
+  buildSongIndex,
+  buildCanonicalUuidMap,
+  resolveTrustedSongUuid,
+} from "./src/utils/songMatcher";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
@@ -169,17 +173,23 @@ const createLiveNodes = async (
   // シート側songUuidが非代表の重複を指していると詳細ページへのリンクが404に
   // なるため、常に代表uuidへ正規化する。
   const uuidToRepresentative = buildCanonicalUuidMap(songsForIndex);
+  const songNameByUuid = new Map(songsForIndex.map((s) => [s.songUuid, s.songName]));
   const liveItemSongs: LiveItemSong[] = liveItemSongsRaw.map((s) => {
-    if (s.songUuid) {
-      const representative = uuidToRepresentative.get(s.songUuid) ?? s.songUuid;
-      return {
-        ...s,
-        songUuid: representative,
-        matchSource: representative === s.songUuid ? "sheet" : "sheet-normalized",
-      };
+    const trusted = resolveTrustedSongUuid(
+      s.songUuid,
+      s.liveItemSongName,
+      songNameByUuid,
+      liveSongIndex
+    );
+    if (!trusted.songUuid) {
+      return { ...s, songUuid: null, matchSource: trusted.source };
     }
-    const r = matchSongId(s.liveItemSongName, liveSongIndex);
-    return { ...s, songUuid: r.songUuid, matchSource: r.source };
+    const representative = uuidToRepresentative.get(trusted.songUuid) ?? trusted.songUuid;
+    const matchSource =
+      trusted.source === "sheet" && representative !== trusted.songUuid
+        ? "sheet-normalized"
+        : trusted.source;
+    return { ...s, songUuid: representative, matchSource };
   });
   const liveInfos: LiveInfo[] = live
     .map((item) => {
@@ -499,6 +509,7 @@ const createSongStatsNodes = async (
   );
 
   const songIndex = buildSongIndex(songs);
+  const songNameByUuid = new Map(songs.map((s) => [s.songUuid, s.songName]));
 
   type Play = {
     liveUuid: string;
@@ -542,13 +553,16 @@ const createSongStatsNodes = async (
     // segment 系は曲ではないのでスキップ
     if (s.type === "segment") continue;
 
-    // シート由来の songUuid があればそれを優先、無ければ matcher
-    const matchedUuid = s.songUuid
-      ? s.songUuid
-      : matchSongId(s.liveItemSongName, songIndex).songUuid;
-    const matchSource = s.songUuid
-      ? "sheet"
-      : matchSongId(s.liveItemSongName, songIndex).source;
+    // シート由来の songUuid があれば曲名との整合性を検証したうえで優先、
+    // 整合しない/無ければ matcher にフォールバック(resolveTrustedSongUuid)
+    const trusted = resolveTrustedSongUuid(
+      s.songUuid,
+      s.liveItemSongName,
+      songNameByUuid,
+      songIndex
+    );
+    const matchedUuid = trusted.songUuid;
+    const matchSource = trusted.source;
     // 副題違いの重複楽曲を代表uuidへ正規化してから集計する
     const resolvedUuid = matchedUuid
       ? canonicalUuidMap.get(matchedUuid) ?? matchedUuid
@@ -936,9 +950,12 @@ const createSongStatsNodes = async (
       s: LiveItemSong
     ): { uuid: string; name: string } | null => {
       if (s.type === "segment") return null;
-      const matched = s.songUuid
-        ? s.songUuid
-        : matchSongId(s.liveItemSongName, songIndex).songUuid;
+      const matched = resolveTrustedSongUuid(
+        s.songUuid,
+        s.liveItemSongName,
+        songNameByUuid,
+        songIndex
+      ).songUuid;
       if (!matched) return null;
       const resolvedUuid = canonicalUuidMap.get(matched) ?? matched;
       const songMeta = songs.find((sg) => sg.songUuid === resolvedUuid);

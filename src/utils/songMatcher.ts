@@ -56,6 +56,7 @@ export const buildSongIndex = (songs: Song[]): SongIndex => {
 
 export type MatchSource =
   | "sheet"
+  | "sheet-normalized"
   | "exact"
   | "alias"
   | "stripped"
@@ -67,6 +68,36 @@ export interface MatchResult {
   songUuid: string | null;
   source: MatchSource;
 }
+
+/** 曲名同士が(表記揺れを許容して)同一曲を指しているとみなせるか */
+const isPlausibleSameSong = (a: string, b: string): boolean =>
+  a === b ||
+  stripParenthetical(a) === stripParenthetical(b) ||
+  normalizeSongName(a) === normalizeSongName(b) ||
+  normalizeSongName(stripParenthetical(a)) === normalizeSongName(stripParenthetical(b));
+
+/**
+ * シート側の live_item_song.songUuid を信頼する前に、曲名との整合性を検証する。
+ *
+ * シートは手入力(行のコピペ等)のため、songUuid列だけが更新されず前の行の値が
+ * 残ってしまうケースがある(例: 別の曲名なのに前の曲のsongUuidを引き継ぐ)。
+ * songUuidの指す曲名がliveItemSongNameと明らかに違う場合は、シート側の値を
+ * 信頼せず通常の名前マッチングにフォールバックする。
+ */
+export const resolveTrustedSongUuid = (
+  sheetSongUuid: string | null | undefined,
+  liveItemSongName: string | null | undefined,
+  songNameByUuid: Map<string, string>,
+  index: SongIndex
+): MatchResult => {
+  if (sheetSongUuid) {
+    const discoName = songNameByUuid.get(sheetSongUuid);
+    if (discoName && liveItemSongName && isPlausibleSameSong(liveItemSongName, discoName)) {
+      return { songUuid: sheetSongUuid, source: "sheet" };
+    }
+  }
+  return matchSongId(liveItemSongName, index);
+};
 
 /** セトリ表記から songUuid を解決する */
 export const matchSongId = (
