@@ -4,9 +4,13 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
+import YouTube from "react-youtube";
 import { trackEvent } from "../../../utils/analytics";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { supabase } from "../../../lib/supabase";
 import {
   timelineItemTheme,
   timelinePointTheme,
@@ -17,16 +21,68 @@ type Props = {
   live: LiveInfo;
 };
 
+// live/live_itemの「youtube」列は動画IDとプレイリストIDを共存させている。
+// YouTubeの動画IDは常に11文字、プレイリストIDはPL/UU/OLAK5uy_等の
+// プレフィックス付きでそれより長いため、長さで判定する。
+const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
+  !!id && id.length !== 11;
+
 // セットカードコンポーネント
 type SetCardProps = {
   setlist: MergedLiveItem;
+  liveTitle: string;
   index: number;
   isSetExpanded: boolean;
   songSlugByUuid: { byUuid: Map<string, string>; byName: Map<string, string> };
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
-const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
+const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
+  // コレクション台帳(参戦済み記録、localStorage完結)。DISCOGRAPHYの
+  // 所有/視聴済みとは別の記録(namespace="attended")なので混ざらない。
+  const { owned: attended, mounted, toggle } = useCollectionOwned("attended");
+  const isAttended = mounted && attended.has(setlist.liveItemUuid);
+  const handleToggleAttended = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toggle(setlist.liveItemUuid);
+  };
+
+  // 「N人が参戦済み」の集計表示。この公演を展開した時だけ取得する。個人の特定はできない集計値のみ。
+  const [attendedCount, setAttendedCount] = useState<number | null>(null);
+  useEffect(() => {
+    if (!isSetExpanded || attendedCount !== null || !supabase) return;
+    supabase
+      .rpc("get_collection_count", { p_namespace: "attended", p_item_uuid: setlist.liveItemUuid })
+      .then(({ data, error }: { data: number | null; error: unknown }) => {
+        if (!error && typeof data === "number") setAttendedCount(data);
+      });
+  }, [isSetExpanded, attendedCount, setlist.liveItemUuid]);
+
+  // セットリストのクリップボードコピー
+  const [setlistCopied, setSetlistCopied] = useState(false);
+  const handleCopySetlist = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const lines = (setlist.setList ?? []).map((song, i) => {
+      const name = (song.liveItemSongName ?? "")
+        .replace(/<br\s*\/?>/gi, " / ")
+        .trim();
+      return `${i + 1}. ${name}`;
+    });
+    const title = setlist.liveItemName
+      ? `${liveTitle} ${setlist.liveItemName}`
+      : liveTitle;
+    const text = [
+      `${title} セットリスト`,
+      ...lines,
+      "",
+      `https://reol.twilightea.com/live/${setlist.slug}/`,
+    ].join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      setSetlistCopied(true);
+      setTimeout(() => setSetlistCopied(false), 2000);
+    });
+  };
+
   return (
     <li
       id={`live-item-${setlist.slug}`}
@@ -45,13 +101,30 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
         }}
       >
         <div className="flex items-center gap-3 min-w-0 flex-1">
-          <span className="font-bold px-3 py-1.5 rounded-lg border border-bx-line text-bx-ink flex-shrink-0">
-            Set {index + 1}
-            {setlist.date && (
-              <span className="font-normal text-bx-ink2">
-                {" "}({setlist.date.split("-").slice(1).join("/")})
-              </span>
-            )}
+          <button
+            type="button"
+            onClick={handleToggleAttended}
+            aria-pressed={isAttended}
+            aria-label={
+              isAttended ? "参戦済みから外す" : "参戦済みにする"
+            }
+            title={isAttended ? "参戦済み" : "参戦済みにする"}
+            className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+              isAttended
+                ? "border-bx-blue bg-bx-blue text-bx-bg"
+                : "border-bx-blue text-transparent"
+            }`}
+          >
+            ✓
+          </button>
+          <span className="font-bold text-bx-ink flex-shrink-0">
+            {setlist.date
+              ? setlist.date
+                  .split("-")
+                  .slice(1)
+                  .map((n, i) => (i === 0 ? String(parseInt(n, 10)) : n))
+                  .join("/")
+              : `Set ${index + 1}`}
           </span>
           <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity truncate">
             {setlist.liveItemName || setlist.place || `Set ${index + 1}`}
@@ -87,11 +160,72 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
           className="px-4 pb-4 pt-2 bg-bx-surface/5"
           onClick={(e) => e.stopPropagation()}
         >
+          {setlist.youtubeVideoId && (
+            <div
+              className="mb-3 rounded-lg border border-bx-line bg-bx-surface/5"
+              style={{
+                overflow: "hidden",
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9アスペクト比
+                height: 0,
+              }}
+            >
+              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+                {isYoutubePlaylistId(setlist.youtubeVideoId) ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/videoseries?list=${setlist.youtubeVideoId}`}
+                    title="YouTubeプレイリスト"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                    style={{ border: 0 }}
+                  />
+                ) : (
+                  <YouTube
+                    videoId={setlist.youtubeVideoId}
+                    opts={{
+                      width: "100%",
+                      height: "100%",
+                      playerVars: {
+                        autoplay: 0,
+                      },
+                    }}
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                )}
+              </div>
+            </div>
+          )}
+          {attendedCount !== null && attendedCount > 0 && (
+            <p className="text-xs text-bx-ink3 mb-2">{attendedCount}人が参戦済み</p>
+          )}
           {/* Setlist */}
           <div className="mb-3">
-            <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
-              セットリスト
-            </h5>
+            <div className="flex items-center justify-between mb-2 pb-1 border-b border-bx-line">
+              <h5 className="text-sm font-semibold text-bx-ink">
+                セットリスト
+              </h5>
+              {setlist.setList && setlist.setList.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleCopySetlist}
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-bx-ink2 hover:text-bx-blue transition-colors flex-shrink-0"
+                >
+                  {setlistCopied ? (
+                    <>
+                      <FiCheck className="w-3.5 h-3.5" />
+                      コピーしました
+                    </>
+                  ) : (
+                    <>
+                      <FiCopy className="w-3.5 h-3.5" />
+                      コピー
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
             {setlist.setList && setlist.setList.length > 0 ? (
               <ol className="space-y-1 text-xs list-decimal list-inside text-bx-ink" style={{ whiteSpace: "pre-line" }}>
                 {setlist.setList.map((song, songIndex) => {
@@ -217,6 +351,10 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     setIsExpand((prev) => !prev);
   }, []);
 
+  // ツアー全体のサムネイル/埋め込みはliveのyoutubeVideoId(専用列)を使う。
+  // 各公演(SetCard)側は個別にlive_itemのyoutubeVideoIdを参照する(別値)。
+  const youtubeVideoId = live.youtubeVideoId ?? null;
+
   // 開催中ツアー判定: 既に開始済み（過去/当日に公演あり）かつ未完了（今日以降にも公演あり）の場合のみ
   // ネタバレ警告対象とする。すべての公演が未来日のみのツアーはネタバレ要素が無いので対象外。
   const isOngoingTour = React.useMemo(() => {
@@ -341,44 +479,65 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           <div className="w-full">
             {!isExpand ? (
               // 折りたたみ時：コンパクトなレイアウト
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xs font-medium text-bx-ink2">
-                      {live.date?.replaceAll("-", "/")}
-                    </span>
-                    {isOngoingTour && (
-                      <span
-                        className="text-[10px] font-bold px-1.5 py-0.5 rounded"
-                        style={{
-                          backgroundColor: "#FEF3C7",
-                          color: "#92400E",
-                          border: "1px solid #F59E0B",
-                        }}
-                        title="開催中のツアー。セットリストはネタバレ注意"
-                      >
-                        ⚠ ネタバレ注意
+              <div className="flex items-start gap-3">
+                {youtubeVideoId && !isYoutubePlaylistId(youtubeVideoId) ? (
+                  <img
+                    src={`https://i.ytimg.com/vi/${youtubeVideoId}/mqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    className="w-12 h-12 flex-shrink-0 object-cover rounded bg-bx-surface/5"
+                  />
+                ) : youtubeVideoId ? (
+                  <div
+                    className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3"
+                    title="YouTubeプレイリスト"
+                  >
+                    <GoListUnordered className="text-lg" aria-hidden="true" />
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
+                    <FaCalendarAlt className="text-base" aria-hidden="true" />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-xs font-medium text-bx-ink2">
+                        {live.date?.replaceAll("-", "/")}
                       </span>
-                    )}
+                      {isOngoingTour && (
+                        <span
+                          className="text-[10px] font-bold px-1.5 py-0.5 rounded"
+                          style={{
+                            backgroundColor: "#FEF3C7",
+                            color: "#92400E",
+                            border: "1px solid #F59E0B",
+                          }}
+                          title="開催中のツアー。セットリストはネタバレ注意"
+                        >
+                          ⚠ ネタバレ注意
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
+                      {live.title}
+                    </h3>
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
-                    {live.title}
-                  </h3>
+                  {/* 展開ボタン */}
+                  <button
+                    onClick={handleTitleClick}
+                    className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
+                    aria-label="展開"
+                  >
+                    <GoChevronUp
+                      className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
+                        isExpand ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
                 </div>
-
-                {/* 展開ボタン */}
-                <button
-                  onClick={handleTitleClick}
-                  className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
-                  aria-label="展開"
-                >
-                  <GoChevronUp
-                    className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
-                      isExpand ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
               </div>
             ) : (
               // 展開時：従来のレイアウト
@@ -410,6 +569,44 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           {/* 展開コンテンツ */}
           {isExpand && (
             <>
+              {youtubeVideoId && (
+                <div
+                  className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-bx-surface/5"
+                  style={{
+                    overflow: "hidden",
+                    position: "relative",
+                    paddingBottom: "56.25%", // 16:9アスペクト比
+                    height: 0,
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+                    {isYoutubePlaylistId(youtubeVideoId) ? (
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`}
+                        title="YouTubeプレイリスト"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full"
+                        style={{ border: 0 }}
+                      />
+                    ) : (
+                      <YouTube
+                        videoId={youtubeVideoId}
+                        opts={{
+                          width: "100%",
+                          height: "100%",
+                          playerVars: {
+                            autoplay: 0,
+                          },
+                        }}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    )}
+                  </div>
+                </div>
+              )}
               {live.items && live.items.length > 0 && (
                 <div
                 className="mt-4 transition-all duration-300 w-full"
@@ -453,6 +650,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                           <SetCard
                             key={originalIndex}
                             setlist={setlist}
+                            liveTitle={live.title}
                             index={sortedIndex}
                             isSetExpanded={isSetExpanded}
                             songSlugByUuid={songSlugByUuid}

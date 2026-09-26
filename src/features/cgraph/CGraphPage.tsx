@@ -12,6 +12,7 @@ import type {
   CGraphNode,
   RawRelationsArtist,
 } from "./types";
+import SixDegreesPanel from "./SixDegreesPanel";
 import "./cgraph.css";
 
 /**
@@ -236,6 +237,9 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
         }
         return node;
       });
+      // 右ドックは Six Degrees / インスペクタが排他表示なので、
+      // ノードが選ばれたら Six Degrees を閉じてインスペクタに譲る。
+      if (node) setShowSixDegrees(false);
     },
     []
   );
@@ -252,18 +256,20 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
   const [showRelease, setShowRelease] = useState<boolean>(true);
   // 遠ノード (Reol BFS 距離 >=3 のアーティスト) を非表示にするトグル。
   const [hideFarNodes, setHideFarNodes] = useState<boolean>(false);
-  // ヘッダー (検索・年・ロール・プリセット) を折りたたむフラグ。
-  // スマホでインスペクタを開いた時にノードが見えなくなる問題対策。
-  const [headerCollapsed, setHeaderCollapsed] = useState<boolean>(false);
-  // ノード選択時、モバイル幅ならヘッダーを自動的に畳む。
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (selected && window.innerWidth <= 640) {
-      setHeaderCollapsed(true);
-    } else if (!selected) {
-      setHeaderCollapsed(false);
-    }
-  }, [selected]);
+  // 新規コンテンツ案A「Six Degrees of Reol」パネルの開閉。
+  // 選択中のノード(インスペクタ表示)とは排他: 開いている間は右ドックが
+  // Six Degrees を優先表示し、ノードを選ぶと自動的に閉じてインスペクタに譲る。
+  const [showSixDegrees, setShowSixDegrees] = useState<boolean>(false);
+  // ツールバーの検索欄・絞り込みドロワー・「⋯」メニューの開閉。
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
+  const [filtersOpen, setFiltersOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  // 右ドックの表示内容。Six Degrees が開いていればそちらを優先。
+  const dockMode: "sixdegrees" | "inspector" | null = showSixDegrees
+    ? "sixdegrees"
+    : selected
+    ? "inspector"
+    : null;
   // 初回オンボーディング表示フラグ。localStorage にて 1 回だけ表示。
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
   useEffect(() => {
@@ -538,169 +544,249 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
 
   return (
     <div className="cgraph-root">
-      <header
-        className={`cgraph-header${
-          headerCollapsed ? " cgraph-header--collapsed" : ""
-        }`}
-      >
-        <button
-          type="button"
-          className="cgraph-header-toggle"
-          aria-expanded={!headerCollapsed}
-          aria-label={headerCollapsed ? "検索・絞り込みを開く" : "検索・絞り込みを閉じる"}
-          onClick={() => setHeaderCollapsed((v) => !v)}
-        >
-          {headerCollapsed ? "▼ 検索・絞り込み" : "▲ 折りたたむ"}
-        </button>
-        <div className="cgraph-title">
-          <h1>Creator Relations</h1>
-          <p>
-            Reol を中心に楽曲クレジット（vocal / arrange / produce …）でつながる
-            アーティストの相関図。ノードをドラッグして整え、ホバーで関係を強調、
-            クリックで近傍にフォーカス、右クリックでサイト内検索へ。
-          </p>
-        </div>
-        <div className="cgraph-controls">
-          <input
-            className="cgraph-search"
-            type="search"
-            placeholder="アーティスト名 / 楽曲名で絞り込み"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          {yearBounds && yearRange && (
-            <div className="cgraph-year">
-              <label>
-                年:{" "}
-                <strong>
-                  {yearRange[0]} – {yearRange[1]}
-                </strong>
-              </label>
-              <input
-                type="range"
-                min={yearBounds[0]}
-                max={yearBounds[1]}
-                value={yearRange[0]}
-                onChange={(e) =>
-                  setYearRange([Number(e.target.value), yearRange[1]])
-                }
-              />
-              <input
-                type="range"
-                min={yearBounds[0]}
-                max={yearBounds[1]}
-                value={yearRange[1]}
-                onChange={(e) =>
-                  setYearRange([yearRange[0], Number(e.target.value)])
-                }
-              />
+      <header className="cgraph-toolbar">
+        <div className="cgraph-toolbar-row">
+          <div className="cgraph-toolbar-title">
+            <h1>Creator Relations</h1>
+            {displayGraph && (
+              <span className="cgraph-toolbar-count">
+                {displayGraph.nodes.length}人
+              </span>
+            )}
+          </div>
+          <div className="cgraph-toolbar-actions">
+            <button
+              type="button"
+              className="cgraph-tbtn"
+              aria-pressed={searchOpen}
+              aria-label="検索"
+              onClick={() => {
+                setSearchOpen((v) => !v);
+                setFiltersOpen(false);
+                setMenuOpen(false);
+              }}
+            >
+              検索
+            </button>
+            <button
+              type="button"
+              className="cgraph-tbtn"
+              aria-pressed={filtersOpen}
+              onClick={() => {
+                setFiltersOpen((v) => !v);
+                setSearchOpen(false);
+                setMenuOpen(false);
+              }}
+            >
+              絞り込み
+              {(preset !== "core" ||
+                hideFarNodes ||
+                !showRelease ||
+                (yearBounds &&
+                  yearRange &&
+                  (yearRange[0] !== yearBounds[0] ||
+                    yearRange[1] !== yearBounds[1]))) && (
+                <span className="cgraph-tbtn-dot" aria-hidden="true" />
+              )}
+            </button>
+            <button
+              type="button"
+              className="cgraph-tbtn cgraph-tbtn-accent"
+              aria-pressed={showSixDegrees}
+              onClick={() => {
+                setShowSixDegrees((v) => !v);
+                setSearchOpen(false);
+                setFiltersOpen(false);
+                setMenuOpen(false);
+              }}
+            >
+              Six Degrees
+            </button>
+            <div className="cgraph-tbtn-menu-wrap">
               <button
                 type="button"
-                className="cgraph-mini-btn"
-                onClick={() => setYearRange(yearBounds)}
+                className="cgraph-tbtn"
+                aria-label="その他の操作"
+                aria-expanded={menuOpen}
+                onClick={() => {
+                  setMenuOpen((v) => !v);
+                  setSearchOpen(false);
+                  setFiltersOpen(false);
+                }}
               >
-                Reset
+                ⋯
               </button>
+              {menuOpen && (
+                <div className="cgraph-tbtn-menu" role="menu">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      if (typeof document === "undefined") return;
+                      const canvas = document.querySelector(
+                        ".cgraph-canvas canvas"
+                      ) as HTMLCanvasElement | null;
+                      if (!canvas) return;
+                      canvas.toBlob((blob) => {
+                        if (!blob) return;
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href = url;
+                        a.download = `reol-cgraph-${new Date()
+                          .toISOString()
+                          .slice(0, 10)}.png`;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        setTimeout(() => URL.revokeObjectURL(url), 1000);
+                      }, "image/png");
+                    }}
+                  >
+                    PNG保存
+                  </button>
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setShowOnboarding(true);
+                    }}
+                  >
+                    使い方
+                  </button>
+                </div>
+              )}
             </div>
-          )}
-          <button
-            type="button"
-            className="cgraph-mini-btn"
-            onClick={() => {
-              if (typeof document === "undefined") return;
-              const canvas = document.querySelector(
-                ".cgraph-canvas canvas"
-              ) as HTMLCanvasElement | null;
-              if (!canvas) return;
-              canvas.toBlob((blob) => {
-                if (!blob) return;
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `reol-cgraph-${new Date()
-                  .toISOString()
-                  .slice(0, 10)}.png`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
-              }, "image/png");
-            }}
-          >
-            PNG保存
-          </button>
+          </div>
         </div>
-        <div className="cgraph-roles">
-          {roleKeys
-            .filter((r) => r !== "release")
-            .map((role) => {
-              const cfg = getRoleConfig(role);
-              const on = enabledRoles.has(role);
-              return (
+
+        {searchOpen && (
+          <div className="cgraph-search-row">
+            <input
+              className="cgraph-search"
+              type="search"
+              placeholder="アーティスト名 / 楽曲名で絞り込み"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              autoFocus
+            />
+          </div>
+        )}
+
+        {filtersOpen && (
+          <div className="cgraph-filters-drawer">
+            <div
+              className="cgraph-presets"
+              role="tablist"
+              aria-label="プリセット"
+            >
+              {(
+                [
+                  { id: "all", label: "全員" },
+                  { id: "core", label: "コア (Reol共演5+)" },
+                  { id: "tieup", label: "タイアップ作家" },
+                  { id: "vocal", label: "ボーカル系" },
+                  { id: "producer", label: "作曲・編曲系" },
+                ] as { id: Preset; label: string }[]
+              ).map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={preset === p.id}
+                  onClick={() => setPreset(p.id)}
+                  className={`cgraph-preset${
+                    preset === p.id ? " cgraph-preset--on" : ""
+                  }`}
+                >
+                  {p.label}
+                </button>
+              ))}
+            </div>
+
+            {yearBounds && yearRange && (
+              <div className="cgraph-year">
+                <label>
+                  年:{" "}
+                  <strong>
+                    {yearRange[0]} – {yearRange[1]}
+                  </strong>
+                </label>
+                <input
+                  type="range"
+                  min={yearBounds[0]}
+                  max={yearBounds[1]}
+                  value={yearRange[0]}
+                  onChange={(e) =>
+                    setYearRange([Number(e.target.value), yearRange[1]])
+                  }
+                />
+                <input
+                  type="range"
+                  min={yearBounds[0]}
+                  max={yearBounds[1]}
+                  value={yearRange[1]}
+                  onChange={(e) =>
+                    setYearRange([yearRange[0], Number(e.target.value)])
+                  }
+                />
                 <button
                   type="button"
-                  key={role}
-                  onClick={() => toggleRole(role)}
-                  className={`cgraph-chip${on ? " cgraph-chip-on" : ""}`}
-                  style={
-                    on
-                      ? { background: cfg.color, borderColor: cfg.color }
-                      : { borderColor: cfg.color, color: cfg.color }
-                  }
+                  className="cgraph-mini-btn"
+                  onClick={() => setYearRange(yearBounds)}
                 >
-                  {cfg.label}
+                  Reset
                 </button>
-              );
-            })}
-          <label className="cgraph-release-toggle">
-            <input
-              type="checkbox"
-              checked={showRelease}
-              onChange={(e) => setShowRelease(e.target.checked)}
-            />
-            release 線を表示
-          </label>
-          <label className="cgraph-release-toggle">
-            <input
-              type="checkbox"
-              checked={hideFarNodes}
-              onChange={(e) => setHideFarNodes(e.target.checked)}
-            />
-            遠いノードを隠す
-          </label>
-        </div>
-        <div className="cgraph-presets" role="tablist" aria-label="プリセット">
-          {(
-            [
-              { id: "all", label: "全員" },
-              { id: "core", label: "コア (Reol共演5+)" },
-              { id: "tieup", label: "タイアップ作家" },
-              { id: "vocal", label: "ボーカル系" },
-              { id: "producer", label: "作曲・編曲系" },
-            ] as { id: Preset; label: string }[]
-          ).map((p) => (
-            <button
-              key={p.id}
-              type="button"
-              role="tab"
-              aria-selected={preset === p.id}
-              onClick={() => setPreset(p.id)}
-              className={`cgraph-preset${
-                preset === p.id ? " cgraph-preset--on" : ""
-              }`}
-            >
-              {p.label}
-            </button>
-          ))}
-          {displayGraph && (
-            <span className="cgraph-preset-count">
-              {displayGraph.nodes.length} 人
-            </span>
-          )}
-        </div>
+              </div>
+            )}
+
+            <div className="cgraph-roles">
+              {roleKeys
+                .filter((r) => r !== "release")
+                .map((role) => {
+                  const cfg = getRoleConfig(role);
+                  const on = enabledRoles.has(role);
+                  return (
+                    <button
+                      type="button"
+                      key={role}
+                      onClick={() => toggleRole(role)}
+                      className={`cgraph-chip${on ? " cgraph-chip-on" : ""}`}
+                      style={
+                        on
+                          ? { background: cfg.color, borderColor: cfg.color }
+                          : { borderColor: cfg.color, color: cfg.color }
+                      }
+                    >
+                      {cfg.label}
+                    </button>
+                  );
+                })}
+              <label className="cgraph-release-toggle">
+                <input
+                  type="checkbox"
+                  checked={showRelease}
+                  onChange={(e) => setShowRelease(e.target.checked)}
+                />
+                release 線を表示
+              </label>
+              <label className="cgraph-release-toggle">
+                <input
+                  type="checkbox"
+                  checked={hideFarNodes}
+                  onChange={(e) => setHideFarNodes(e.target.checked)}
+                />
+                遠いノードを隠す
+              </label>
+            </div>
+          </div>
+        )}
       </header>
 
-      <main className="cgraph-main">
+      <main
+        className={`cgraph-main${dockMode ? " cgraph-main--docked" : ""}`}
+      >
         {error && (
           <div className="cgraph-error" role="alert">
             <p>データの読み込みに失敗しました。</p>
@@ -736,7 +822,18 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
         >
           {selected ? `選択中: ${selected.name}` : ""}
         </div>
-        {selected && (
+
+        {dockMode === "sixdegrees" && graph && (
+          <div className="cgraph-dock">
+            <SixDegreesPanel
+              graph={graph}
+              onSelectNode={handleSelect}
+              onClose={() => setShowSixDegrees(false)}
+            />
+          </div>
+        )}
+        {dockMode === "inspector" && selected && (
+          <div className="cgraph-dock">
           <aside
             className={`cgraph-inspector${
               inspectorMinimized ? " cgraph-inspector--mini" : ""
@@ -1113,6 +1210,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
               </>
             )}
           </aside>
+          </div>
         )}
       </main>
       <footer className="cgraph-footer">

@@ -90,17 +90,18 @@ const COL = {
     discographyUuid: 6,
   },
   live: {
-    range: "live!A2:K",
+    range: "live!A2:L",
     type: 1,
     title: 2,
     name: 3,
     date: 4,
     siteUrl: 5,
-    spotifyPlaylistId: 6,
-    themeColorPrimary: 7,
-    themeColorSecondary: 8,
-    uuid: 9,
-    slug: 10,
+    youtubeVideoId: 6,
+    spotifyPlaylistId: 7,
+    themeColorPrimary: 8,
+    themeColorSecondary: 9,
+    uuid: 10,
+    slug: 11,
   },
   livePost: {
     range: "live_post!A2:J",
@@ -118,6 +119,7 @@ const COL = {
     address: 8,
     googleMapsUrl: 9,
     spotifyPlaylistId: 10,
+    youtubeVideoId: 11,
     uuid: 14,
     slug: 15,
     liveUuid: 16,
@@ -126,6 +128,7 @@ const COL = {
     range: "live_item_song!A2:N",
     liveItemSongName: 6,
     type: 7,
+    youtubeVideoId: 8,
     uuid: 11,
     liveItemUuid: 12,
     songUuid: 13,
@@ -364,6 +367,7 @@ export class SheetService {
         name: str(row[COL.live.name]),
         date: str(row[COL.live.date]),
         siteUrl: strOrNull(row[COL.live.siteUrl]),
+        youtubeVideoId: strOrNull(row[COL.live.youtubeVideoId]),
         spotifyPlaylistId: strOrNull(row[COL.live.spotifyPlaylistId]),
         themeColorPrimary: strOrNull(row[COL.live.themeColorPrimary]),
         themeColorSecondary: strOrNull(row[COL.live.themeColorSecondary]),
@@ -398,6 +402,7 @@ export class SheetService {
         address: strOrNull(row[COL.liveItem.address]),
         googleMapsUrl: strOrNull(row[COL.liveItem.googleMapsUrl]),
         spotifyPlaylistId: strOrNull(row[COL.liveItem.spotifyPlaylistId]),
+        youtubeVideoId: strOrNull(row[COL.liveItem.youtubeVideoId]),
       }))
       .filter((v) => v.liveItemUuid !== "");
   }
@@ -426,6 +431,7 @@ export class SheetService {
           liveItemUuid: str(row[COL.liveItemSong.liveItemUuid]),
           liveItemSongName: str(row[COL.liveItemSong.liveItemSongName]),
           type,
+          youtubeVideoId: strOrNull(row[COL.liveItemSong.youtubeVideoId]),
           songUuid: strOrNull(row[COL.liveItemSong.songUuid]),
         };
       })

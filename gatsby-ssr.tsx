@@ -3,11 +3,14 @@ import { GatsbySSR } from "gatsby";
 import Body from "./src/components/modules/body";
 import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
+import { AuthProvider } from "./src/contexts/AuthContext";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return (
     <Provider store={store}>
-      <Body>{element}</Body>
+      <AuthProvider>
+        <Body>{element}</Body>
+      </AuthProvider>
     </Provider>
   );
 };

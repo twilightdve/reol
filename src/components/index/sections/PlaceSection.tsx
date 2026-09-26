@@ -13,6 +13,7 @@ import EmptyState from "../../common/EmptyState";
 import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
 import { Kicker } from "../../redesign";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 
 // Leaflet は SSR で動かないので動的読み込み
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -102,6 +103,18 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   const [expandedPlaceIds, setExpandedPlaceIds] = useState<Set<string>>(
     new Set()
   );
+
+  // 新規コンテンツ案I「聖地スタンプラリー」。DISCOGRAPHY/LIVEと同じ仕組み
+  // (namespace="visited")。巡礼済みはPlace単位(全16箇所)で記録する。
+  const { owned: visited, mounted: visitedMounted, toggle: toggleVisited } =
+    useCollectionOwned("visited");
+  const visitedCount = visitedMounted
+    ? places.filter((p) => visited.has(p.placeUuid)).length
+    : 0;
+  const totalPlaceCount = places.length;
+  const visitedRate =
+    totalPlaceCount > 0 ? Math.round((visitedCount / totalPlaceCount) * 100) : 0;
+  const [showStampBook, setShowStampBook] = useState(false);
   // URLクエリと同期: ?type=MV&view=prefecture&q=武道館
   const [typeFilter, setTypeFilterRaw] = useUrlQueryState<TypeFilter>(
     "type",
@@ -348,40 +361,111 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           <br />
           聖地巡礼の参考情報としてご覧ください（掲載されていない情報があればぜひ教えていただけますと幸いです）。
         </div>
+
+        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+          <button
+            type="button"
+            onClick={() => setShowStampBook((v) => !v)}
+            aria-expanded={showStampBook}
+            aria-controls="place-stamp-book-grid"
+            className="w-full flex items-center justify-between"
+          >
+            <span className="text-xs text-bx-ink3">聖地スタンプ帳</span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-sm font-bold text-bx-blue tabular-nums">
+                {visitedCount} / {totalPlaceCount}
+              </span>
+              {showStampBook ? (
+                <GoChevronUp className="text-bx-ink3" aria-hidden="true" />
+              ) : (
+                <GoChevronDown className="text-bx-ink3" aria-hidden="true" />
+              )}
+            </span>
+          </button>
+          {showStampBook && (
+            <div id="place-stamp-book-grid" className="grid grid-cols-4 sm:grid-cols-8 gap-2 mt-2">
+              {places.map((p) => {
+                const isVisited = visitedMounted && visited.has(p.placeUuid);
+                return (
+                  <div
+                    key={p.placeUuid}
+                    title={p.title}
+                    className={`flex flex-col items-center gap-1 rounded-lg border p-2 text-center transition-colors ${
+                      isVisited
+                        ? "border-bx-blue bg-bx-blue/10"
+                        : "border-bx-line bg-bx-surface/5"
+                    }`}
+                  >
+                    <span
+                      className={`w-8 h-8 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                        isVisited
+                          ? "border-bx-blue bg-bx-blue text-bx-bg"
+                          : "border-bx-line text-transparent"
+                      }`}
+                    >
+                      ✓
+                    </span>
+                    <span className="w-full text-[9px] leading-tight text-bx-ink3 line-clamp-2">
+                      {p.title}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {visitedRate >= 100 && totalPlaceCount > 0 && (
+            <p className="mt-3 text-center text-[11px] font-bold text-bx-yellow">
+              🏆 全{totalPlaceCount}箇所制覇！
+            </p>
+          )}
+          <p className="mt-2 text-[10px] text-bx-ink3">
+            各カードの「✓」で巡礼済みを記録できます(この端末のブラウザ内のみに保存)
+          </p>
+        </div>
       </div>
 
-      {/* マップ: 見出し直下に横長で常時表示 */}
-      <div className="px-2 pb-3" aria-label="聖地マップ">
+      {/* マップ: 見出し直下にフルブリードで常時表示(このページの主役のため大きく) */}
+      <div className="pb-3" aria-label="聖地マップ">
         {typeof window === "undefined" ? null : markers.length === 0 ? (
-          <EmptyState
-            icon="📍"
-            title="表示できるマーカーがありません"
-            description="タイプ・検索条件をクリアしてもう一度お試しください。"
-            actionLabel="条件をクリア"
-            onAction={clearFilters}
-            tone="dark"
-          />
+          <div className="px-2">
+            <EmptyState
+              icon="📍"
+              title="表示できるマーカーがありません"
+              description="タイプ・検索条件をクリアしてもう一度お試しください。"
+              actionLabel="条件をクリア"
+              onAction={clearFilters}
+              tone="dark"
+            />
+          </div>
         ) : mapLoadError ? (
-          <ErrorRetry
-            title="マップの読み込みに失敗しました"
-            description="通信状況をご確認のうえ、再試行してください。"
-            onRetry={retryMapLoad}
-            tone="dark"
-          />
+          <div className="px-2">
+            <ErrorRetry
+              title="マップの読み込みに失敗しました"
+              description="通信状況をご確認のうえ、再試行してください。"
+              onRetry={retryMapLoad}
+              tone="dark"
+            />
+          </div>
         ) : !MapComponent ? (
-          <LoadingSkeleton
-            rows={1}
-            rowHeightClassName="h-48 sm:h-56"
-            gapClassName=""
-            rowClassName="border border-bx-line bg-bx-surface/5"
-            label="マップを読み込み中..."
-          />
+          <div
+            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
+          >
+            <LoadingSkeleton
+              rows={1}
+              rowHeightClassName="h-[60vh]"
+              gapClassName=""
+              rowClassName="border-0"
+              label="マップを読み込み中..."
+            />
+          </div>
         ) : (
-          <div className="rounded-lg overflow-hidden">
-            <MapComponent markers={markers} heightClassName="h-48 sm:h-56" />
+          <div
+            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
+          >
+            <MapComponent markers={markers} heightClassName="h-[60vh]" />
           </div>
         )}
-        <p className="mt-1 text-[10px] text-bx-ink3 text-right">
+        <p className="mt-1 px-2 text-[10px] text-bx-ink3 text-right">
           © OpenStreetMap contributors
         </p>
       </div>
@@ -496,6 +580,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     )
                   );
                   const thumb = getYoutubeThumb(place.url);
+                  const isVisited = visitedMounted && visited.has(place.placeUuid);
+                  const handleToggleVisited = (e: React.MouseEvent) => {
+                    e.stopPropagation();
+                    toggleVisited(place.placeUuid);
+                  };
 
                   return (
                     <div
@@ -519,6 +608,20 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                       >
                         {!isExpanded && (
                           <div className="min-h-[64px] p-3 flex items-center gap-3">
+                            <button
+                              type="button"
+                              onClick={handleToggleVisited}
+                              aria-pressed={isVisited}
+                              aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
+                              title={isVisited ? "巡礼済み" : "巡礼済みにする"}
+                              className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+                                isVisited
+                                  ? "border-bx-blue bg-bx-blue text-bx-bg"
+                                  : "border-bx-blue text-transparent"
+                              }`}
+                            >
+                              ✓
+                            </button>
                             {thumb ? (
                               <img
                                 src={thumb}
@@ -560,6 +663,20 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                           <div id={`place-panel-${place.slug}`} className="p-4">
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <button
+                                  type="button"
+                                  onClick={handleToggleVisited}
+                                  aria-pressed={isVisited}
+                                  aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
+                                  title={isVisited ? "巡礼済み" : "巡礼済みにする"}
+                                  className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+                                    isVisited
+                                      ? "border-bx-blue bg-bx-blue text-bx-bg"
+                                      : "border-bx-blue text-transparent"
+                                  }`}
+                                >
+                                  ✓
+                                </button>
                                 {place.type && (
                                   <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
                                     {place.type}

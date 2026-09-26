@@ -2,7 +2,7 @@ import type { GatsbyNode, SourceNodesArgs } from "gatsby";
 import { promises as fs } from "fs";
 import path from "path";
 import { SheetService } from "./src/services/SpreadsheetService";
-import { DiscographyWithSongs } from "./src/types/discography";
+import { DiscographyWithSongs, Discography, DiscographyPost } from "./src/types/discography";
 import {
   Live,
   LiveItem,
@@ -14,11 +14,16 @@ import {
 } from "./src/types/live";
 import { Recommend } from "./src/types/recommend";
 import { Place, PlaceItem } from "./src/types/places";
-import { buildSongIndex, matchSongId, buildCanonicalUuidMap } from "./src/utils/songMatcher";
+import {
+  buildSongIndex,
+  buildCanonicalUuidMap,
+  resolveTrustedSongUuid,
+} from "./src/utils/songMatcher";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
+import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
   Record as MbRecord,
@@ -169,17 +174,23 @@ const createLiveNodes = async (
   // シート側songUuidが非代表の重複を指していると詳細ページへのリンクが404に
   // なるため、常に代表uuidへ正規化する。
   const uuidToRepresentative = buildCanonicalUuidMap(songsForIndex);
+  const songNameByUuid = new Map(songsForIndex.map((s) => [s.songUuid, s.songName]));
   const liveItemSongs: LiveItemSong[] = liveItemSongsRaw.map((s) => {
-    if (s.songUuid) {
-      const representative = uuidToRepresentative.get(s.songUuid) ?? s.songUuid;
-      return {
-        ...s,
-        songUuid: representative,
-        matchSource: representative === s.songUuid ? "sheet" : "sheet-normalized",
-      };
+    const trusted = resolveTrustedSongUuid(
+      s.songUuid,
+      s.liveItemSongName,
+      songNameByUuid,
+      liveSongIndex
+    );
+    if (!trusted.songUuid) {
+      return { ...s, songUuid: null, matchSource: trusted.source };
     }
-    const r = matchSongId(s.liveItemSongName, liveSongIndex);
-    return { ...s, songUuid: r.songUuid, matchSource: r.source };
+    const representative = uuidToRepresentative.get(trusted.songUuid) ?? trusted.songUuid;
+    const matchSource =
+      trusted.source === "sheet" && representative !== trusted.songUuid
+        ? "sheet-normalized"
+        : trusted.source;
+    return { ...s, songUuid: representative, matchSource };
   });
   const liveInfos: LiveInfo[] = live
     .map((item) => {
@@ -229,6 +240,197 @@ const createLiveNodes = async (
   await writeDataJson("live.json", liveInfos, {
     mirrorToStatic: true,
   });
+};
+
+// 新規コンテンツ案J「/posts/ 関連ポスト独立セクション」用の集約データ。
+// discography/live/liveItem に散らばる関連ポスト(X埋め込み)を1つの
+// 時系列インデックスにまとめる。埋め込みHTML(Tweet標準の"copy embed code"形式)
+// から投稿者ハンドル・表示名・投稿日をパースする(表示にはtweetIdのみ使うため
+// HTML自体は保存しない)。
+//
+// 投稿者の分類(本人/公式/メディア/その他)はハンドル名のヒューリスティック。
+// 「本人」以外は確認が取れたハンドルのみ手動でリストに追加する運用とし、
+// 未確認のアカウントを推測で「公式」「メディア」に分類しない
+// (reol-official-links相当の確認方針を踏襲)。
+const HERSELF_HANDLES = new Set(["rrreol"]);
+// 確認済みの公式関連アカウント(本人以外)。ハンドル名は小文字・@なしで追加。
+const OFFICIAL_HANDLES = new Set<string>([
+  "reol_info", // Reol公式インフォメーションアカウント
+  "rrreol_official", // Reol OFFICIAL
+]);
+// 確認済みのメディア・ニュースアカウント。
+const MEDIA_HANDLES = new Set<string>([
+  "natalie_mu", // 音楽ナタリー
+  "rockinon_com", // rockin'on
+  "the_firsttimesn", // THE FIRST TIMES
+]);
+
+type PostCategory = "本人" | "公式" | "メディア" | "その他";
+
+const classifyPostHandle = (handle: string | null): PostCategory => {
+  if (!handle) return "その他";
+  const h = handle.toLowerCase();
+  if (HERSELF_HANDLES.has(h)) return "本人";
+  if (OFFICIAL_HANDLES.has(h)) return "公式";
+  if (MEDIA_HANDLES.has(h)) return "メディア";
+  return "その他";
+};
+
+// Twitter/Xの標準的な埋め込みHTML
+// (`&mdash; 表示名 (@handle) <a href=".../status/...">日付</a>`)から
+// ハンドル・表示名・投稿日を抜き出す。パース不可の場合はnullのまま返す。
+const parsePostEmbedHtml = (
+  html: string
+): { handle: string | null; displayName: string | null; postedAt: string | null } => {
+  const handleMatch = html.match(/\(@(\w+)\)/);
+  const nameMatch = html.match(/&mdash;\s*([^(]+?)\s*\(@/);
+  const dateMatch = html.match(/status\/\d+[^>]*>([^<]+)<\/a>/);
+  let postedAt: string | null = null;
+  if (dateMatch) {
+    const d = new Date(dateMatch[1]);
+    if (!isNaN(d.getTime())) {
+      postedAt = d.toISOString().slice(0, 10);
+    }
+  }
+  return {
+    handle: handleMatch ? handleMatch[1] : null,
+    displayName: nameMatch ? nameMatch[1].trim() : null,
+    postedAt,
+  };
+};
+
+// 一覧では毎回widgets.jsのiframeを読み込まず、事前取得済みの
+// <blockquote>だけを軽量表示する。widgets.js は「ページ内の
+// class="twitter-tweet" を持つ blockquote 全部」を自動でiframe化する
+// 仕様のため、<script>タグを除去するだけでは不十分(他の投稿を
+// react-twitter-widgetsのTweetでiframe化した時点で、widgets.jsが
+// ロードされ、静的プレビュー中の同クラスも巻き込まれてしまう)。
+// class自体を静的表示用データから外し、widgets.jsの自動スキャン対象に
+// ならないようにする(iframe表示への切り替えは別途 react-twitter-widgets
+// の Tweet コンポーネントを使う)。
+const stripWidgetsScript = (html: string): string =>
+  html
+    .replace(/<script[^>]*widgets\.js[^>]*><\/script>/i, "")
+    .replace(/(<blockquote)\s+class="twitter-tweet"/i, "$1")
+    .trim();
+
+type PostsIndexEntry = {
+  id: string;
+  html: string;
+  handle: string | null;
+  displayName: string | null;
+  postedAt: string | null;
+  category: PostCategory;
+  sourceType: "discography" | "live" | "liveItem";
+  sourceTitle: string;
+  sourceSlug: string;
+};
+
+const createPostsIndexNode = async (
+  sheet: SheetService,
+  { actions, createNodeId, createContentDigest }: SourceNodesArgs
+) => {
+  const { createNode } = actions;
+
+  const [discography, discographyPosts, lives, livePosts, liveItems, liveItemPosts] =
+    await Promise.all([
+      sheet.getDiscography(),
+      sheet.getDiscographyPosts(),
+      sheet.getLives(),
+      sheet.getLivePosts(),
+      sheet.getLiveItems(),
+      sheet.getLiveItemPosts(),
+    ]);
+
+  const discByUuid = new Map<string, Discography>(
+    discography.map((d) => [d.discographyUuid, d])
+  );
+  const liveByUuid = new Map<string, Live>(lives.map((l) => [l.liveUuid, l]));
+  const itemByUuid = new Map<string, LiveItem>(
+    liveItems.map((it) => [it.liveItemUuid, it])
+  );
+
+  const posts: PostsIndexEntry[] = [];
+
+  const pushEntry = (
+    id: string,
+    html: string,
+    sourceType: PostsIndexEntry["sourceType"],
+    sourceTitle: string,
+    sourceSlug: string
+  ) => {
+    const parsed = parsePostEmbedHtml(html);
+    posts.push({
+      id,
+      html: stripWidgetsScript(html),
+      handle: parsed.handle,
+      displayName: parsed.displayName,
+      postedAt: parsed.postedAt,
+      category: classifyPostHandle(parsed.handle),
+      sourceType,
+      sourceTitle,
+      sourceSlug,
+    });
+  };
+
+  for (const p of discographyPosts as DiscographyPost[]) {
+    const disc = discByUuid.get(p.discographyUuid);
+    if (!disc) continue;
+    pushEntry(
+      p.discographyPostId,
+      p.discographyPostHTML,
+      "discography",
+      disc.title,
+      `/discography/#disc-${disc.slug}`
+    );
+  }
+
+  for (const p of livePosts as LivePost[]) {
+    const live = liveByUuid.get(p.liveUuid);
+    if (!live) continue;
+    pushEntry(
+      p.livePostId,
+      p.livePostHTML,
+      "live",
+      live.title,
+      `/live/#live-${live.slug}`
+    );
+  }
+
+  for (const p of liveItemPosts as LiveItemPost[]) {
+    const item = itemByUuid.get(p.liveItemUuid);
+    if (!item) continue;
+    const parentLive = liveByUuid.get(item.liveUuid);
+    const label = [parentLive?.title, item.liveItemName || item.place]
+      .filter(Boolean)
+      .join(" - ");
+    pushEntry(
+      p.liveItemPostId,
+      p.liveItemPostHTML,
+      "liveItem",
+      label || parentLive?.title || "LIVE",
+      `/live/${item.slug}/`
+    );
+  }
+
+  // 新しい順(投稿日不明は末尾)
+  posts.sort(
+    (a, b) =>
+      (b.postedAt || "").localeCompare(a.postedAt || "") ||
+      b.id.localeCompare(a.id)
+  );
+
+  createNode({
+    id: createNodeId("PostsIndex"),
+    posts,
+    internal: {
+      type: "PostsIndex",
+      content: JSON.stringify(posts),
+      contentDigest: createContentDigest(posts),
+    },
+  });
+  await writeDataJson("posts-index.json", { posts });
+  console.log(`[posts-index] total=${posts.length}`);
 };
 
 const createRecommendNodes = async (
@@ -308,6 +510,7 @@ const createSongStatsNodes = async (
   );
 
   const songIndex = buildSongIndex(songs);
+  const songNameByUuid = new Map(songs.map((s) => [s.songUuid, s.songName]));
 
   type Play = {
     liveUuid: string;
@@ -322,6 +525,7 @@ const createSongStatsNodes = async (
     rawName: string;
     type: LiveItemSong["type"];
     matchSource: string;
+    youtubeVideoId: string | null;
   };
   const playsBySong = new Map<string, Play[]>();
   // 副題違いの楽曲マスタ重複("煽げや尊し(Agitate)" / "煽げや尊し" 等)を
@@ -351,13 +555,16 @@ const createSongStatsNodes = async (
     // segment 系は曲ではないのでスキップ
     if (s.type === "segment") continue;
 
-    // シート由来の songUuid があればそれを優先、無ければ matcher
-    const matchedUuid = s.songUuid
-      ? s.songUuid
-      : matchSongId(s.liveItemSongName, songIndex).songUuid;
-    const matchSource = s.songUuid
-      ? "sheet"
-      : matchSongId(s.liveItemSongName, songIndex).source;
+    // シート由来の songUuid があれば曲名との整合性を検証したうえで優先、
+    // 整合しない/無ければ matcher にフォールバック(resolveTrustedSongUuid)
+    const trusted = resolveTrustedSongUuid(
+      s.songUuid,
+      s.liveItemSongName,
+      songNameByUuid,
+      songIndex
+    );
+    const matchedUuid = trusted.songUuid;
+    const matchSource = trusted.source;
     // 副題違いの重複楽曲を代表uuidへ正規化してから集計する
     const resolvedUuid = matchedUuid
       ? canonicalUuidMap.get(matchedUuid) ?? matchedUuid
@@ -378,6 +585,7 @@ const createSongStatsNodes = async (
         rawName: s.liveItemSongName,
         type: s.type ?? null,
         matchSource,
+        youtubeVideoId: s.youtubeVideoId ?? null,
       });
       playsBySong.set(resolvedUuid, list);
     } else {
@@ -420,16 +628,32 @@ const createSongStatsNodes = async (
         discographySlug: song.discographyUuid
           ? discSlugByUuid.get(song.discographyUuid) ?? null
           : null,
+        spotifyTrackId: song.spotifyTrackId ?? null,
         totalPlays: plays.length,
         firstPlayedDate: sorted[0]?.date ?? null,
         lastPlayedDate: sorted[sorted.length - 1]?.date ?? null,
         // 公式送客用リンク(統計ページの行展開から公式MV/配信へ誘導する)
         musicVideoUrl: song.musicVideoUrl ?? null,
         downloadUrl: song.downloadUrl ?? null,
+        // 楽曲ソーターの共有カード用ジャケット画像URL(Spotify画像CDN)。下で解決して埋める
+        artworkUrl: null as string | null,
         plays: sorted,
       };
     })
     .sort((a, b) => b.totalPlays - a.totalPlays);
+
+  // 楽曲ソーターのブラケット共有カード用ジャケット画像のURL。画像は自サイトに保存せず、
+  // ブラウザがSpotifyの画像CDNから直接読み込む。spotifyTrackIdが無い/解決に失敗した曲は
+  // null のままで、フロント側はプレースホルダー描画にフォールバックする。
+  const songArtwork = await resolveSongArtworkUrls(
+    songStats.map((s) => ({ slug: s.slug, spotifyTrackId: s.spotifyTrackId }))
+  );
+  for (const s of songStats) {
+    s.artworkUrl = songArtwork.urlBySlug.get(s.slug) ?? null;
+  }
+  console.log(
+    `[song-artwork] resolved=${songArtwork.resolved}, failed=${songArtwork.failed} (songs=${songStats.length})`
+  );
 
   for (const [name, info] of unmatchedAgg) {
     unmatched.push({ name, ...info });
@@ -514,6 +738,153 @@ const createSongStatsNodes = async (
     JSON.stringify({ summary, unmatched }, null, 2)
   );
 
+  // ----- 新規コンテンツ案E「タイムマシン」用の月次スナップショット事前計算 -----
+  // カットオフ日付までの楽曲数/ライブ数/演奏数は、SiteStats/SongStats と同じ
+  // 集計対象(canonicalUuidMap で名寄せ済みの songStats, segment除外済みの
+  // liveItemSongs)を日付でフィルタするだけにし、別ロジックで再集計しない
+  // (「サイト内の数字が一致しない」問題の再発防止)。
+  {
+    const allLiveDates = liveItems
+      .map((it) => it.date)
+      .filter((d): d is string => !!d);
+    if (allLiveDates.length > 0) {
+      const sortedDiscByDate = [...discographies]
+        .filter((d) => !!d.releaseDate)
+        .sort((a, b) => (a.releaseDate ?? "").localeCompare(b.releaseDate ?? ""));
+      const sortedLiveItemsByDate = [...liveItems]
+        .filter((it) => !!it.date)
+        .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+
+      const minMonth = allLiveDates.reduce((a, b) => (a < b ? a : b)).slice(0, 7);
+      const maxMonth = today.slice(0, 7);
+
+      const monthKeys: string[] = [];
+      {
+        let [y, m] = minMonth.split("-").map(Number);
+        const [maxY, maxM] = maxMonth.split("-").map(Number);
+        while (y < maxY || (y === maxY && m <= maxM)) {
+          monthKeys.push(`${y}-${String(m).padStart(2, "0")}`);
+          m += 1;
+          if (m > 12) {
+            m = 1;
+            y += 1;
+          }
+        }
+      }
+
+      let discPointer = -1;
+      let livePointer = 0;
+      const allSnapshots = monthKeys.map((month) => {
+        // 過去月は月末、当月は「今日」をカットオフにする
+        // (当月分を月末まで含めてしまうと、まだ開催されていない当月内の
+        // 予定公演を「開催済み」として誤カウントするため)
+        const cutoff = month === maxMonth ? today : `${month}-31`;
+
+        while (
+          discPointer + 1 < sortedDiscByDate.length &&
+          (sortedDiscByDate[discPointer + 1].releaseDate ?? "") <= cutoff
+        ) {
+          discPointer += 1;
+        }
+        const latestDisc = discPointer >= 0 ? sortedDiscByDate[discPointer] : null;
+
+        while (
+          livePointer < sortedLiveItemsByDate.length &&
+          (sortedLiveItemsByDate[livePointer].date ?? "") <= cutoff
+        ) {
+          livePointer += 1;
+        }
+        const nextItem = sortedLiveItemsByDate[livePointer] ?? null;
+        const nextItemParent = nextItem
+          ? liveByUuid.get(nextItem.liveUuid)
+          : null;
+
+        const songCount = songStats.filter(
+          (s) => !!s.firstPlayedDate && s.firstPlayedDate <= cutoff
+        ).length;
+        const liveItemCount = liveItems.filter(
+          (it) => (it.date ?? "") <= cutoff
+        ).length;
+        const performanceCount = liveItemSongs.filter((s) => {
+          if (!s.liveItemSongName || s.type === "segment") return false;
+          const item = itemMap.get(s.liveItemUuid);
+          return !!item && (item.date ?? "") <= cutoff;
+        }).length;
+
+        // この月「限定」のできごと(リリース/公演/初披露曲)。スナップショット
+        // 一覧を「変化のあった月だけ」に絞り込むための判定にも使う。
+        const releases = sortedDiscByDate
+          .filter((d) => (d.releaseDate ?? "").slice(0, 7) === month)
+          .map((d) => ({
+            title: d.title,
+            slug: d.slug,
+            releaseDate: d.releaseDate ?? null,
+          }));
+        const livesThisMonth = sortedLiveItemsByDate
+          .filter((it) => (it.date ?? "").slice(0, 7) === month)
+          .map((it) => {
+            const parent = liveByUuid.get(it.liveUuid);
+            return {
+              title: parent?.title ?? null,
+              itemName: it.liveItemName ?? null,
+              date: it.date ?? null,
+              place: it.place ?? null,
+              liveSlug: parent?.slug ?? null,
+              liveItemSlug: it.slug,
+            };
+          });
+        const newSongs = songStats
+          .filter((s) => (s.firstPlayedDate ?? "").slice(0, 7) === month)
+          .map((s) => ({ songName: s.songName, slug: s.slug }));
+
+        return {
+          month,
+          songCount,
+          liveItemCount,
+          performanceCount,
+          latestRelease: latestDisc
+            ? {
+                title: latestDisc.title,
+                slug: latestDisc.slug,
+                releaseDate: latestDisc.releaseDate ?? null,
+              }
+            : null,
+          nextLive: nextItem
+            ? {
+                title: nextItemParent?.title ?? null,
+                itemName: nextItem.liveItemName ?? null,
+                date: nextItem.date ?? null,
+                place: nextItem.place ?? null,
+                liveSlug: nextItemParent?.slug ?? null,
+              }
+            : null,
+          releases,
+          lives: livesThisMonth,
+          newSongs,
+        };
+      });
+
+      // 「全月」だと変化のない月が大半を占め閲覧体験が薄くなるため、
+      // リリース/公演/初披露曲のいずれかがあった月だけに絞り込む
+      // (累計値はその月時点のカットオフで計算済みのため、間引いても
+      // 「その時点までの累計」としての正しさは変わらない)。
+      // 最初と最後の月は範囲の起点/現在地として常に残す。
+      const snapshots = allSnapshots.filter(
+        (s, i) =>
+          i === 0 ||
+          i === allSnapshots.length - 1 ||
+          s.releases.length > 0 ||
+          s.lives.length > 0 ||
+          s.newSongs.length > 0
+      );
+
+      await writeDataJson("timemachine.json", { snapshots });
+      console.log(
+        `[timemachine] generated ${snapshots.length}/${allSnapshots.length} eventful monthly snapshots (${minMonth} - ${maxMonth})`
+      );
+    }
+  }
+
   // ----- ライブ類似度（Jaccard係数）の事前計算 -----
   // songUuid のセットを liveUuid 単位で構築
   const songSetByLive = new Map<string, Set<string>>();
@@ -588,6 +959,445 @@ const createSongStatsNodes = async (
   console.log(
     `[liveSimilarity] ${liveUuids.length} lives indexed, top5 each`
   );
+
+  // ----- 公演(liveItem)単位のセトリ類似度(Jaccard係数)の事前計算 -----
+  // 上のliveSimilarityはツアー(liveUuid)単位でまとめて比較するため、同一ツアー内の
+  // 日程違いはほぼ同じセトリになりノイズになりやすい。セトリ比較(/live/compare/)や
+  // 類似度ランキングでは「個別の公演」同士を比較したいため、liveItemUuid単位でも
+  // 別途計算する。
+  const songSetByLiveItem = new Map<string, Set<string>>();
+  const playMetaByLiveItem = new Map<string, Play>();
+  for (const stat of songStats) {
+    for (const p of stat.plays) {
+      const set = songSetByLiveItem.get(p.liveItemUuid) ?? new Set<string>();
+      set.add(stat.songUuid);
+      songSetByLiveItem.set(p.liveItemUuid, set);
+      if (!playMetaByLiveItem.has(p.liveItemUuid)) {
+        playMetaByLiveItem.set(p.liveItemUuid, p);
+      }
+    }
+  }
+  // ゲスト出演1曲のみ等、極端に少ない曲数の公演同士は「共通1曲=類似度100%」の
+  // ようなトリビアルな一致を生みランキングのノイズになるため、両側とも一定曲数
+  // 以上の公演のみを類似度計算の対象にする。
+  const MIN_SONGS_FOR_SIMILARITY = 5;
+  const liveItemUuidsForSimilarity = Array.from(songSetByLiveItem.keys());
+  const similarityByLiveItem: Record<
+    string,
+    {
+      liveItemUuid: string;
+      liveItemSlug: string;
+      liveTitle: string;
+      liveItemName: string | null;
+      date: string;
+      place: string | null;
+      sharedCount: number;
+      score: number;
+      sharedSongUuids: string[];
+    }[]
+  > = {};
+  for (const aId of liveItemUuidsForSimilarity) {
+    const a = songSetByLiveItem.get(aId)!;
+    const metaA = playMetaByLiveItem.get(aId);
+    if (!metaA || a.size < MIN_SONGS_FOR_SIMILARITY) continue;
+    const cands: (typeof similarityByLiveItem)[string] = [];
+    for (const bId of liveItemUuidsForSimilarity) {
+      if (bId === aId) continue;
+      const b = songSetByLiveItem.get(bId)!;
+      if (b.size < MIN_SONGS_FOR_SIMILARITY) continue;
+      const shared: string[] = [];
+      for (const id of a) if (b.has(id)) shared.push(id);
+      if (shared.length === 0) continue;
+      const union = new Set<string>([...a, ...b]).size;
+      const score = shared.length / union; // Jaccard
+      const metaB = playMetaByLiveItem.get(bId);
+      if (!metaB) continue;
+      cands.push({
+        liveItemUuid: bId,
+        liveItemSlug: metaB.liveItemSlug,
+        liveTitle: metaB.liveTitle,
+        liveItemName: metaB.liveItemName,
+        date: metaB.date,
+        place: metaB.place,
+        sharedCount: shared.length,
+        score: Math.round(score * 1000) / 1000,
+        sharedSongUuids: shared,
+      });
+    }
+    cands.sort((x, y) => y.score - x.score || y.sharedCount - x.sharedCount);
+    similarityByLiveItem[aId] = cands.slice(0, 5);
+  }
+
+  await writeDataJson("liveItemSimilarity.json", similarityByLiveItem);
+  console.log(
+    `[liveItemSimilarity] ${liveItemUuidsForSimilarity.length} performances indexed, top5 each`
+  );
+
+  // ----- セトリ類似度ランキング(全体) -----
+  // 公演ペアのうち類似度が高い上位N組を、サイト横断のランキングとして書き出す。
+  // 同一ツアー内の連日公演(セトリがほぼ同じで当然に類似度が高い)がランキングを
+  // 埋め尽くさないよう、同一liveUuid同士のペアは除外する。
+  type SimilarityPair = {
+    a: { liveItemUuid: string; liveItemSlug: string; liveTitle: string; liveItemName: string | null; date: string; place: string | null };
+    b: { liveItemUuid: string; liveItemSlug: string; liveTitle: string; liveItemName: string | null; date: string; place: string | null };
+    sharedCount: number;
+    score: number;
+  };
+  const seenPairs = new Set<string>();
+  const allPairs: SimilarityPair[] = [];
+  for (const aId of liveItemUuidsForSimilarity) {
+    const metaA = playMetaByLiveItem.get(aId);
+    if (!metaA) continue;
+    const liveUuidA = liveUuidByItemUuid.get(aId);
+    for (const cand of similarityByLiveItem[aId] ?? []) {
+      const liveUuidB = liveUuidByItemUuid.get(cand.liveItemUuid);
+      if (liveUuidA && liveUuidB && liveUuidA === liveUuidB) continue;
+      const pairKey = [aId, cand.liveItemUuid].sort().join("::");
+      if (seenPairs.has(pairKey)) continue;
+      seenPairs.add(pairKey);
+      allPairs.push({
+        a: {
+          liveItemUuid: aId,
+          liveItemSlug: metaA.liveItemSlug,
+          liveTitle: metaA.liveTitle,
+          liveItemName: metaA.liveItemName,
+          date: metaA.date,
+          place: metaA.place,
+        },
+        b: {
+          liveItemUuid: cand.liveItemUuid,
+          liveItemSlug: cand.liveItemSlug,
+          liveTitle: cand.liveTitle,
+          liveItemName: cand.liveItemName,
+          date: cand.date,
+          place: cand.place,
+        },
+        sharedCount: cand.sharedCount,
+        score: cand.score,
+      });
+    }
+  }
+  allPairs.sort((x, y) => y.score - x.score || y.sharedCount - x.sharedCount);
+  const similarityRanking = allPairs.slice(0, 50);
+  await writeDataJson("similarityRanking.json", similarityRanking);
+  console.log(
+    `[similarityRanking] ${allPairs.length} cross-tour pairs, top${similarityRanking.length} kept`
+  );
+
+  // ----- 新規コンテンツ案H「セトリの文法解析」用の事前集計 -----
+  // (plan/legit-improvement-plan.md 5章)。曲の隣接関係・出現ポジション・
+  // 年別のオープニング傾向・ツアー内の変化を、既存のsongStats算出と同じ
+  // 名寄せ(canonicalUuidMap)を通してから集計する。
+  {
+    const resolveSongIdentity = (
+      s: LiveItemSong
+    ): { uuid: string; name: string } | null => {
+      if (s.type === "segment") return null;
+      const matched = resolveTrustedSongUuid(
+        s.songUuid,
+        s.liveItemSongName,
+        songNameByUuid,
+        songIndex
+      ).songUuid;
+      if (!matched) return null;
+      const resolvedUuid = canonicalUuidMap.get(matched) ?? matched;
+      const songMeta = songs.find((sg) => sg.songUuid === resolvedUuid);
+      return { uuid: resolvedUuid, name: songMeta?.songName ?? s.liveItemSongName };
+    };
+
+    // liveItemUuid → 演奏順(liveItemSongUuid昇順 = 他ページと同じ並び順ルール)
+    const rawByItem = new Map<string, LiveItemSong[]>();
+    for (const s of liveItemSongs) {
+      const list = rawByItem.get(s.liveItemUuid) ?? [];
+      list.push(s);
+      rawByItem.set(s.liveItemUuid, list);
+    }
+    for (const list of rawByItem.values()) {
+      list.sort((a, b) => a.liveItemSongUuid.localeCompare(b.liveItemSongUuid));
+    }
+
+    // 同一ツアー(liveUuid)内の複数日程は基本的にセトリがほぼ同じため、隣接・
+    // 定位置・年別集計を日程ごとに数えると長期ツアーが過剰にカウントされる。
+    // 各ツアーにつき最も早い日程(初日)1公演だけを代表として使う
+    // (ツアー内の入れ替わり比較は別途この後で初日・最終日を突き合わせるので対象外)。
+    const representativeItemUuidByLive = new Map<string, string>();
+    for (const it of liveItems) {
+      if (!it.date) continue;
+      const curUuid = representativeItemUuidByLive.get(it.liveUuid);
+      const curItem = curUuid ? itemMap.get(curUuid) : null;
+      if (!curItem || !curItem.date || it.date < curItem.date) {
+        representativeItemUuidByLive.set(it.liveUuid, it.liveItemUuid);
+      }
+    }
+    const representativeItemUuids = new Set(
+      representativeItemUuidByLive.values()
+    );
+
+    // 「何を数えたか」をクリックで確認できるように、集計の内訳(どのツアーが
+    // カウントされたか)もソースとして残しておく。
+    type GrammarSource = { liveTitle: string; liveSlug: string; date: string };
+
+    const pairCounts = new Map<string, number>();
+    const pairNames = new Map<string, [string, string]>();
+    const pairSources = new Map<string, GrammarSource[]>();
+    const songAppearanceCount = new Map<string, number>();
+    const openerCount = new Map<string, number>();
+    const openerSources = new Map<string, GrammarSource[]>();
+    const closerCount = new Map<string, number>();
+    const closerSources = new Map<string, GrammarSource[]>();
+    const middleCount = new Map<string, number>();
+    const yearlyOpeners = new Map<string, Map<string, number>>();
+    const yearlyOpenerSources = new Map<string, GrammarSource[]>();
+    const nameByUuid = new Map<string, string>();
+
+    for (const [liveItemUuid, rawList] of rawByItem) {
+      if (!representativeItemUuids.has(liveItemUuid)) continue;
+      const item = itemMap.get(liveItemUuid);
+      if (!item || !item.date) continue;
+      const year = item.date.slice(0, 4);
+      const live = liveByUuid.get(item.liveUuid);
+      const source: GrammarSource = {
+        liveTitle: live?.title ?? "",
+        liveSlug: live?.slug ?? "",
+        date: item.date,
+      };
+      const pushSource = (map: Map<string, GrammarSource[]>, key: string) => {
+        const list = map.get(key) ?? [];
+        list.push(source);
+        map.set(key, list);
+      };
+
+      const resolved = rawList.map((s) => resolveSongIdentity(s));
+      const songOnly: { uuid: string; name: string }[] = [];
+      for (let i = 0; i < resolved.length; i++) {
+        const cur = resolved[i];
+        if (!cur) continue;
+        songOnly.push(cur);
+        songAppearanceCount.set(cur.uuid, (songAppearanceCount.get(cur.uuid) ?? 0) + 1);
+        nameByUuid.set(cur.uuid, cur.name);
+        // 隣接判定: 生の並びで直前がsegment/未マッチだった場合は連続とみなさない
+        const prev = i > 0 ? resolved[i - 1] : null;
+        if (prev) {
+          const key = `${prev.uuid}>>${cur.uuid}`;
+          pairCounts.set(key, (pairCounts.get(key) ?? 0) + 1);
+          pairNames.set(key, [prev.name, cur.name]);
+          pushSource(pairSources, key);
+        }
+      }
+
+      if (songOnly.length === 0) continue;
+      const opener = songOnly[0];
+      const closer = songOnly[songOnly.length - 1];
+      openerCount.set(opener.uuid, (openerCount.get(opener.uuid) ?? 0) + 1);
+      pushSource(openerSources, opener.uuid);
+      closerCount.set(closer.uuid, (closerCount.get(closer.uuid) ?? 0) + 1);
+      pushSource(closerSources, closer.uuid);
+      for (let i = 1; i < songOnly.length - 1; i++) {
+        const mid = songOnly[i];
+        middleCount.set(mid.uuid, (middleCount.get(mid.uuid) ?? 0) + 1);
+      }
+
+      const yearMap = yearlyOpeners.get(year) ?? new Map<string, number>();
+      yearMap.set(opener.name, (yearMap.get(opener.name) ?? 0) + 1);
+      yearlyOpeners.set(year, yearMap);
+      pushSource(yearlyOpenerSources, `${year}::${opener.name}`);
+    }
+
+    const topPairs = Array.from(pairCounts.entries())
+      .map(([key, count]) => {
+        const [prevUuid] = key.split(">>");
+        const total = songAppearanceCount.get(prevUuid) ?? count;
+        const [from, to] = pairNames.get(key) as [string, string];
+        return {
+          from,
+          to,
+          count,
+          total,
+          rate: total > 0 ? count / total : 0,
+          sources: pairSources.get(key) ?? [],
+        };
+      })
+      .filter((p) => p.count >= 3)
+      .sort((a, b) => b.rate - a.rate || b.count - a.count)
+      .slice(0, 20);
+
+    const topOpeners = Array.from(openerCount.entries())
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: openerSources.get(uuid) ?? [],
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    const topClosers = Array.from(closerCount.entries())
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: closerSources.get(uuid) ?? [],
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    // オープナー/クローザー「専任」曲(中盤・逆側の役割には出ない)
+    const openerSpecialists = Array.from(openerCount.entries())
+      .filter(
+        ([uuid, count]) =>
+          count >= 2 && !middleCount.has(uuid) && !closerCount.has(uuid)
+      )
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: openerSources.get(uuid) ?? [],
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+    const closerSpecialists = Array.from(closerCount.entries())
+      .filter(
+        ([uuid, count]) =>
+          count >= 2 && !middleCount.has(uuid) && !openerCount.has(uuid)
+      )
+      .map(([uuid, count]) => ({
+        name: nameByUuid.get(uuid) ?? uuid,
+        count,
+        sources: closerSources.get(uuid) ?? [],
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
+    const yearlyOpenerTop = Array.from(yearlyOpeners.entries())
+      .map(([year, m]) => {
+        const sorted = Array.from(m.entries()).sort((a, b) => b[1] - a[1]);
+        const topSong = sorted[0]?.[0] ?? null;
+        return {
+          year,
+          topSong,
+          count: sorted[0]?.[1] ?? 0,
+          sources: topSong
+            ? yearlyOpenerSources.get(`${year}::${topSong}`) ?? []
+            : [],
+        };
+      })
+      .sort((a, b) => a.year.localeCompare(b.year));
+
+    // ツアー内の変化: 同一liveUuid配下で複数日程がある場合、初日と最終日の
+    // セトリを比較し、入れ替わった曲を抽出する。
+    const itemsByLive = new Map<string, typeof liveItems>();
+    for (const it of liveItems) {
+      const list = itemsByLive.get(it.liveUuid) ?? [];
+      list.push(it);
+      itemsByLive.set(it.liveUuid, list);
+    }
+    const tourDiffs: {
+      liveTitle: string;
+      liveSlug: string;
+      firstDate: string;
+      lastDate: string;
+      added: string[];
+      removed: string[];
+    }[] = [];
+    for (const [liveUuid, items] of itemsByLive) {
+      const dated = items
+        .filter((it) => !!it.date)
+        .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+      if (dated.length < 2) continue;
+      const first = dated[0];
+      const last = dated[dated.length - 1];
+      const namesOf = (itemUuid: string): Set<string> =>
+        new Set(
+          (rawByItem.get(itemUuid) ?? [])
+            .map((s) => resolveSongIdentity(s))
+            .filter((x): x is { uuid: string; name: string } => !!x)
+            .map((x) => x.name)
+        );
+      const firstNames = namesOf(first.liveItemUuid);
+      const lastNames = namesOf(last.liveItemUuid);
+      const added = Array.from(lastNames).filter((n) => !firstNames.has(n));
+      const removed = Array.from(firstNames).filter((n) => !lastNames.has(n));
+      if (added.length === 0 && removed.length === 0) continue;
+      const live = liveByUuid.get(liveUuid);
+      if (!live) continue;
+      tourDiffs.push({
+        liveTitle: live.title,
+        liveSlug: live.slug,
+        firstDate: first.date as string,
+        lastDate: last.date as string,
+        added,
+        removed,
+      });
+    }
+    tourDiffs.sort(
+      (a, b) => b.added.length + b.removed.length - (a.added.length + a.removed.length)
+    );
+
+    // ----- 作品別のライブ採用傾向 -----
+    // songStats(代表曲・演奏統計)を discographyUuid でグルーピングし、
+    // 作品ごとの「ライブ再現率(収録曲のうち何曲がライブ演奏されたか)」と
+    // 総演奏回数・初演奏日/最終演奏日を集計する。
+    const discByUuidForTrends = new Map(
+      discographies.map((d) => [d.discographyUuid, d])
+    );
+    type WorkTrend = {
+      discographyUuid: string;
+      discographyTitle: string;
+      discographySlug: string;
+      releaseDate: string | null;
+      songCount: number;
+      playedSongCount: number;
+      totalPlays: number;
+      firstPlayedDate: string | null;
+      lastPlayedDate: string | null;
+    };
+    const workTrendsMap = new Map<string, WorkTrend>();
+    for (const stat of songStats) {
+      if (!stat.discographyUuid) continue;
+      const disc = discByUuidForTrends.get(stat.discographyUuid);
+      if (!disc) continue;
+      const cur: WorkTrend = workTrendsMap.get(stat.discographyUuid) ?? {
+        discographyUuid: stat.discographyUuid,
+        discographyTitle: disc.title,
+        discographySlug: disc.slug,
+        releaseDate: disc.releaseDate ?? null,
+        songCount: 0,
+        playedSongCount: 0,
+        totalPlays: 0,
+        firstPlayedDate: null,
+        lastPlayedDate: null,
+      };
+      cur.songCount += 1;
+      if (stat.totalPlays > 0) {
+        cur.playedSongCount += 1;
+        cur.totalPlays += stat.totalPlays;
+        if (!cur.firstPlayedDate || (stat.firstPlayedDate && stat.firstPlayedDate < cur.firstPlayedDate)) {
+          cur.firstPlayedDate = stat.firstPlayedDate;
+        }
+        if (!cur.lastPlayedDate || (stat.lastPlayedDate && stat.lastPlayedDate > cur.lastPlayedDate)) {
+          cur.lastPlayedDate = stat.lastPlayedDate;
+        }
+      }
+      workTrendsMap.set(stat.discographyUuid, cur);
+    }
+    const workTrends = Array.from(workTrendsMap.values())
+      .map((w) => ({
+        ...w,
+        coverageRate: w.songCount === 0 ? 0 : Math.round((w.playedSongCount / w.songCount) * 1000) / 1000,
+      }))
+      .sort((a, b) => b.totalPlays - a.totalPlays);
+
+    await writeDataJson("setlist-grammar.json", {
+      topPairs,
+      topOpeners,
+      topClosers,
+      openerSpecialists,
+      closerSpecialists,
+      yearlyOpenerTop,
+      tourDiffs: tourDiffs.slice(0, 15),
+      workTrends,
+    });
+    console.log(
+      `[setlist-grammar] pairs=${pairCounts.size} openers=${openerCount.size} closers=${closerCount.size} tourDiffs=${tourDiffs.length} workTrends=${workTrends.length}`
+    );
+  }
 };
 
 /**
@@ -695,6 +1505,11 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       themeColorSecondary: String
     }
 
+    # 楽曲ソーターのジャケット画像URL(全曲nullのビルドでもクエリできるよう明示定義)
+    type SongStatsSongStats {
+      artworkUrl: String
+    }
+
     type LiveLiveInfos {
       themeColorPrimary: String
       themeColorSecondary: String
@@ -732,6 +1547,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
       createRecommendNodes(sheet, args),
       createPlaceNodes(sheet, args),
       createRelationsNodes(args),
+      createPostsIndexNode(sheet, args),
     ]);
     // disc/live のロード後に楽曲×ライブのインデックスを作る
     await createSongStatsNodes(sheet, args);
@@ -861,6 +1677,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           liveItemSlug: string;
           liveItemName: string | null;
           liveItemSongUuid: string;
+          youtubeVideoId: string | null;
         }[];
       }[];
     } | null;
@@ -914,6 +1731,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             liveItemSlug
             liveItemName
             liveItemSongUuid
+            youtubeVideoId
           }
         }
       }
@@ -1062,6 +1880,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         title: string;
         name: string;
         spotifyPlaylistId: string | null;
+        youtubeVideoId: string | null;
         reports: {
           liveReportUuid: string;
           liveReportName: string;
@@ -1077,11 +1896,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
           address: string | null;
           googleMapsUrl: string | null;
           spotifyPlaylistId: string | null;
+          youtubeVideoId: string | null;
           setList: {
             liveItemSongUuid: string;
             liveItemSongName: string;
             songUuid: string | null;
             type: LiveItemSong["type"] | null;
+            youtubeVideoId: string | null;
           }[];
           posts: {
             liveItemPostUuid: string;
@@ -1103,6 +1924,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           title
           name
           spotifyPlaylistId
+          youtubeVideoId
           reports {
             liveReportUuid
             liveReportName
@@ -1118,11 +1940,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
             address
             googleMapsUrl
             spotifyPlaylistId
+            youtubeVideoId
             setList {
               liveItemSongUuid
               liveItemSongName
               songUuid
               type
+              youtubeVideoId
             }
             posts {
               liveItemPostUuid
@@ -1171,6 +1995,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           liveItemSongUuid: s.liveItemSongUuid,
           liveItemSongName: s.liveItemSongName,
           type: s.type ?? null,
+          youtubeVideoId: s.youtubeVideoId ?? null,
           slug: s.songUuid
             ? statsSlugByUuid.get(s.songUuid) ??
               statsSlugByName.get(s.liveItemSongName) ??
@@ -1194,6 +2019,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             address: item.address,
             googleMapsUrl: item.googleMapsUrl,
             spotifyPlaylistId: item.spotifyPlaylistId || live.spotifyPlaylistId,
+            youtubeVideoId: item.youtubeVideoId || live.youtubeVideoId || null,
             setList,
             posts: item.posts,
             reports: live.reports,
@@ -1204,5 +2030,219 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     });
     console.log(`[live] generated ${liveItemPageCount} live item pages`);
+  }
+
+  // ----- On This Day 個別ページ(/on-this-day/MM-DD/) -----
+  // ホームの OnThisDay ウィジェット(src/components/index/OnThisDay.tsx)と同じ
+  // ソース(discography の releaseDate / liveItems の date)から月日(MM-DD)ごとに
+  // 出来事を集約し、365日ぶんの静的ページを生成する。イベントが無い日も
+  // ページ自体は作り(前日/翌日ナビが途切れないように)、「記録なし」を明示する。
+  {
+    const onThisDayResult = await graphql<{
+      discography: {
+        discographyWithSongs: {
+          title: string;
+          slug: string;
+          releaseDate: string | null;
+          format: string | null;
+          songs: {
+            songUuid: string;
+            songName: string;
+            slug: string;
+            musicVideoUrl: string | null;
+          }[];
+        }[];
+      } | null;
+      live: {
+        liveInfos: {
+          title: string;
+          type: string;
+          items: {
+            slug: string;
+            date: string | null;
+            place: string | null;
+            setList: {
+              liveItemSongUuid: string;
+              liveItemSongName: string;
+              type: string | null;
+            }[];
+          }[];
+        }[];
+      } | null;
+    }>(`
+      query OnThisDayPagesData {
+        discography {
+          discographyWithSongs {
+            title
+            slug
+            releaseDate
+            format
+            songs {
+              songUuid
+              songName
+              slug
+              musicVideoUrl
+            }
+          }
+        }
+        live {
+          liveInfos {
+            title
+            type
+            items {
+              slug
+              date
+              place
+              setList {
+                liveItemSongUuid
+                liveItemSongName
+                type
+              }
+            }
+          }
+        }
+      }
+    `);
+    if (onThisDayResult.errors) {
+      throw onThisDayResult.errors;
+    }
+
+    // ライブのセトリ曲名 → 楽曲slug の解決用。「今日は何の日」限定の簡易解決で、
+    // 副題違い等の名寄せ(buildCanonicalUuidMap)までは行わない。一致しない場合は
+    // 単にリンク無し(プレーンテキスト)で表示するだけなので、誤リンクの実害は無い。
+    const songSlugByName = new Map<string, string>();
+    for (const disc of onThisDayResult.data?.discography?.discographyWithSongs ??
+      []) {
+      for (const s of disc.songs) {
+        songSlugByName.set(s.songName, s.slug);
+      }
+    }
+
+    const parseMonthDay = (
+      value: string | null | undefined
+    ): { year: number; monthDay: string } | null => {
+      if (!value) return null;
+      const m = value.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+      if (!m) return null;
+      return {
+        year: parseInt(m[1], 10),
+        monthDay: `${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`,
+      };
+    };
+
+    const LIVE_TYPE_LABEL: Record<string, string> = {
+      oneman: "ワンマン",
+      event: "イベント",
+    };
+
+    type OnThisDayEvent = {
+      kind: "release" | "live";
+      year: number;
+      label: string;
+      suffix: string;
+      to: string;
+      meta: string | null;
+      /** リリースイベント: MVがある楽曲だけを列挙 */
+      musicVideos: { name: string; slug: string; url: string }[];
+      /** ライブイベント: セトリ(MC等のsegmentは除く) */
+      setlist: { name: string; slug: string | null }[];
+    };
+    const eventsByMonthDay = new Map<string, OnThisDayEvent[]>();
+    const pushOnThisDayEvent = (monthDay: string, ev: OnThisDayEvent) => {
+      const list = eventsByMonthDay.get(monthDay) ?? [];
+      list.push(ev);
+      eventsByMonthDay.set(monthDay, list);
+    };
+
+    for (const disc of onThisDayResult.data?.discography?.discographyWithSongs ??
+      []) {
+      const d = parseMonthDay(disc.releaseDate);
+      if (!d) continue;
+      const metaParts = [disc.format, `${disc.songs.length}曲収録`].filter(
+        (v): v is string => !!v
+      );
+      const musicVideos = disc.songs
+        .filter((s) => !!s.musicVideoUrl)
+        .map((s) => ({
+          name: s.songName,
+          slug: s.slug,
+          url: s.musicVideoUrl as string,
+        }));
+      pushOnThisDayEvent(d.monthDay, {
+        kind: "release",
+        year: d.year,
+        label: `『${disc.title}』`,
+        suffix: "リリース",
+        to: `/discography/#disc-${disc.slug}`,
+        meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+        musicVideos,
+        setlist: [],
+      });
+    }
+    for (const live of onThisDayResult.data?.live?.liveInfos ?? []) {
+      for (const item of live.items ?? []) {
+        const d = parseMonthDay(item.date);
+        if (!d) continue;
+        // liveItemSongName が空文字のエントリは「セトリ未登録」のプレースホルダー
+        // (segment同様、実際の演奏曲としては扱わない)。
+        const songs = item.setList.filter(
+          (s) => !!s.liveItemSongName && s.type !== "segment"
+        );
+        const mcCount = item.setList.filter(
+          (s) => s.type === "segment"
+        ).length;
+        const metaParts = [
+          LIVE_TYPE_LABEL[live.type] ?? live.type,
+          songs.length > 0
+            ? `${songs.length}曲${mcCount > 0 ? `(MC ${mcCount})` : ""}`
+            : null,
+        ].filter((v): v is string => !!v);
+        pushOnThisDayEvent(d.monthDay, {
+          kind: "live",
+          year: d.year,
+          label: live.title,
+          suffix: item.place ? ` @ ${item.place}` : "",
+          to: `/live/#live-item-${item.slug}`,
+          meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+          musicVideos: [],
+          setlist: songs.map((s) => ({
+            name: s.liveItemSongName,
+            slug: songSlugByName.get(s.liveItemSongName) ?? null,
+          })),
+        });
+      }
+    }
+
+    const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const onThisDayTemplate = path.resolve("./src/templates/on-this-day.tsx");
+    let onThisDayPageCount = 0;
+    for (let month = 1; month <= 12; month++) {
+      for (let day = 1; day <= DAYS_IN_MONTH[month - 1]; day++) {
+        const monthDay = `${String(month).padStart(2, "0")}-${String(
+          day
+        ).padStart(2, "0")}`;
+        const events = (eventsByMonthDay.get(monthDay) ?? []).sort(
+          (a, b) => a.year - b.year
+        );
+        createPage({
+          path: `/on-this-day/${monthDay}/`,
+          component: onThisDayTemplate,
+          context: { monthDay, events },
+        });
+        onThisDayPageCount += 1;
+      }
+    }
+    // カレンダーUI用の軽量インデックス(MM-DD → イベント件数)。個々の日ページの
+    // pageContextには自分の月の365日ぶんを重複して埋め込みたくないため、
+    // 別ファイルとしてクライアント側からfetchする。
+    const calendarIndex: Record<string, number> = {};
+    for (const [monthDay, events] of eventsByMonthDay) {
+      calendarIndex[monthDay] = events.length;
+    }
+    await writeDataJson("on-this-day-index.json", calendarIndex);
+
+    console.log(
+      `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`
+    );
   }
 };

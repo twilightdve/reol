@@ -16,7 +16,7 @@
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "start-build": "http-server public/",
-    "predeploy": "gatsby clean && gatsby build && echo 'reol.twilightea.com' > ./public/CNAME",
+    "predeploy": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/check-deploy-ready.ts && npm run build",
     "deploy": "gh-pages -d public",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "typegen:scss": "typed-scss-modules src",

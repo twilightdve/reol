@@ -15,15 +15,18 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-b450-7304-88a4-ef4a5d9b8cdc_entry_019e82a6-ff8d-7a6a-b598-50fc647776f9",
       "order": 1,
-      "rawTitle": "",
-      "displayTitle": "",
-      "normalizedTitle": "",
-      "policy": "se",
-      "afterglowTailSec": 4,
-      "note": "placeholder",
+      "rawTitle": "第六感",
+      "displayTitle": "第六感",
+      "normalizedTitle": "第六感",
+      "policy": "required",
+      "trackId": "song_019e8282-b248-7b59-943b-c6976419cc36",
+      "aliases": [],
+      "expectedDurationSec": 191.9,
+      "afterglowTailSec": 16,
       "match": {
-        "status": "special",
-        "reason": "placeholder"
+        "status": "matched",
+        "score": 1,
+        "reason": "source_song_uuid:sheet"
       }
     }
   ]

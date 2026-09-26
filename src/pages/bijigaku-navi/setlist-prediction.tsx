@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, HeadFC } from 'gatsby'
-import { AuthProvider } from '../../contexts/AuthContext'
 import { LanguageProvider } from '../../i18n/LanguageContext'
 import { useTranslation } from 'react-i18next'
 import { Toaster } from 'react-hot-toast'
@@ -123,10 +122,8 @@ const SetlistPredictionPage = ({ data }: any) => {
 
   return (
     <LanguageProvider>
-      <AuthProvider>
-        <Toaster position="top-center" />
-        <SetlistPredictionContent discographyGroups={discographyGroups} />
-      </AuthProvider>
+      <Toaster position="top-center" />
+      <SetlistPredictionContent discographyGroups={discographyGroups} />
     </LanguageProvider>
   )
 }

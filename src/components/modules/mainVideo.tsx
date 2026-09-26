@@ -24,6 +24,19 @@ const isSecondLevelPath = (pathname: string): boolean => {
   return segments.length >= 2;
 };
 
+// 相関図 (/cgraph) と開催地マップ (/live/heatmap) はフルスクリーンの
+// グラフ/マップ描画ページ。body.tsx の isCGraphPath / isLiveHeatmapPath と
+// 同じ判定を用いて、フル表示の動画が描画領域を圧迫しないよう常にミニ表示に固定する。
+const isFullscreenVizPath = (pathname: string): boolean => {
+  if (!pathname) return false;
+  return (
+    pathname === "/cgraph" ||
+    pathname.startsWith("/cgraph/") ||
+    pathname === "/live/heatmap" ||
+    pathname.startsWith("/live/heatmap/")
+  );
+};
+
 const defaultOpts: Options = {
   height: "180",
   width: "320",
@@ -82,6 +95,21 @@ const MainVideo: React.FC<Props> = ({
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
   const reducedMotion = useReducedMotion();
 
+  // 強制ミニ表示(forceMini)のページでは動画を閉じる(=フル表示に戻す)先が
+  // 無いため、「非表示にする」明示的な離脱手段としてセッション中だけ記憶する。
+  const PIP_DISMISSED_KEY = "reol-mainvideo-pip-dismissed";
+  const [dismissed, setDismissed] = useState(
+    isBrowser && window.sessionStorage.getItem(PIP_DISMISSED_KEY) === "1"
+  );
+  const handleDismiss = useCallback(() => {
+    setDismissed(true);
+    try {
+      window.sessionStorage.setItem(PIP_DISMISSED_KEY, "1");
+    } catch (_) {
+      // ignore (Safari Private mode 等)
+    }
+  }, []);
+
   // "/live/xxxx/" のような2階層目(詳細ページ)では、常に縮小表示(ミニプレイヤー)に固定する。
   const [pathname, setPathname] = useState(
     isBrowser ? window.location.pathname : ""
@@ -92,7 +120,7 @@ const MainVideo: React.FC<Props> = ({
     });
     return () => unlisten();
   }, []);
-  const forceMini = isSecondLevelPath(pathname);
+  const forceMini = isSecondLevelPath(pathname) || isFullscreenVizPath(pathname);
   // 実際に「縮小表示として描画するか」。スクロール連動の縮小(isShrinked && onPlaying)
   // に加え、2階層目のページでは常にミニ表示を強制する。
   const isMini = (isShrinked && onPlaying) || forceMini;
@@ -265,6 +293,10 @@ const MainVideo: React.FC<Props> = ({
     [onError, currentVideoId, handleEnd]
   );
 
+  // ユーザーがPiP(ミニ表示)を明示的に閉じていたら、フル表示に戻れない
+  // 強制ミニ表示ページでは再表示のしようがないため、このセッション中は描画しない。
+  if (dismissed && isMini) return null;
+
   try {
     const playlistVideos = playlist
       .filter((item) => item.xfdUrl)
@@ -282,7 +314,17 @@ const MainVideo: React.FC<Props> = ({
             ? // position:fixedはビューポート基準のため、ヘッダー(h-16=4rem, z-40)が
               // まだ画面上部にある間(nearTop)はその下に、スクロールでヘッダーが
               // 画面外に出たら本来の右上端(top-1)に寄せる。
-              `fixed w-[min(30vw,13rem)] ${nearTop ? "top-[4.25rem]" : "top-1"} right-1 -translate-x-1 rounded-lg`
+              // 相関図/開催地マップはスクロールしない固定ビューポートページなので
+              // nearTopが常にtrueのまま維持され、素朴に4.25remだと自前のツールバー
+              // (検索/絞り込み/Six Degreesボタン)に重なってしまうため、
+              // その高さ分さらに下にオフセットする。
+              `fixed w-[min(30vw,13rem)] ${
+                isFullscreenVizPath(pathname)
+                  ? "top-[7.5rem]"
+                  : nearTop
+                  ? "top-[4.25rem]"
+                  : "top-1"
+              } right-1 -translate-x-1 rounded-lg`
             : "w-full top-0 right-0 left-full translate-x-0 rounded-none"
         }`}
       >
@@ -293,6 +335,17 @@ const MainVideo: React.FC<Props> = ({
             onClick={handleExpand}
             className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
             aria-label="動画を横幅フル表示に戻す"
+          >
+            <IoClose className="text-white text-xl" />
+          </button>
+        )}
+        {/* forceMini(2階層目/相関図/開催地マップ)には「フル表示に戻す」先が無いため、
+            代わりにこのセッション中だけ非表示にできる閉じるボタンを出す。 */}
+        {forceMini && (
+          <button
+            onClick={handleDismiss}
+            className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
+            aria-label="動画を閉じる"
           >
             <IoClose className="text-white text-xl" />
           </button>

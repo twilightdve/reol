@@ -150,6 +150,21 @@ const Live: React.FC<LiveProps> = ({ data }) => {
     [currentNames, currentYears, currentTypes, toggleTag, filterNextList]
   );
 
+  // 年ごとにグループ化(降順)。開催日は範囲表記("2026-03-14〜2026-07-18")の
+  // こともあるため、文字列中の最初の4桁を開始年として使う
+  const groupedByYear = React.useMemo(() => {
+    const grouped = new Map<string, LiveInfo[]>();
+    for (const live of currentList) {
+      const year = live.date?.match(/\d{4}/)?.[0] || "不明";
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year)!.push(live);
+    }
+    const sortedYears = Array.from(grouped.keys()).sort((a, b) =>
+      b.localeCompare(a)
+    );
+    return sortedYears.map((year) => ({ year, items: grouped.get(year)! }));
+  }, [currentList]);
+
   return (
     <div className="w-full pt-2 px-2 sm:px-10">
       <div className="flex flex-wrap gap-1 text-xs font-bold pb-4">
@@ -202,14 +217,41 @@ const Live: React.FC<LiveProps> = ({ data }) => {
         })}
       </div>
       <p className="text-xs text-right text-bx-ink2">{currentList.length}件</p>
+
+      {/* 年ジャンプ索引(スティッキー) */}
+      {groupedByYear.length > 1 && (
+        <div className="sticky top-0 z-20 -mx-2 sm:-mx-10 px-2 sm:px-10 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line overflow-x-auto whitespace-nowrap">
+          {groupedByYear.map(({ year }) => (
+            <a
+              key={`live-year-jump-${year}`}
+              href={`#live-year-${year}`}
+              className="inline-block px-2 py-1 mr-1 text-xs font-bold rounded-md text-bx-ink3 hover:text-bx-blue hover:bg-bx-surface/5 transition-colors"
+            >
+              {year}
+            </a>
+          ))}
+        </div>
+      )}
+
       <div style={{ isolation: "isolate" }}>
-        <Timeline theme={timelineRootTheme}>
-          {currentList.map((live) => {
-            return (
-              <EnhancedLiveTimelineItem key={`timeline-item-${live.liveUuid}`} live={live} />
-            );
-          })}
-        </Timeline>
+        {groupedByYear.map(({ year, items }) => (
+          <div key={`live-year-${year}`}>
+            <h2
+              id={`live-year-${year}`}
+              className="scroll-mt-24 pt-6 pb-2 text-2xl sm:text-3xl font-bold text-bx-ink"
+            >
+              {year}
+              <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">
+                {items.length}件
+              </span>
+            </h2>
+            <Timeline theme={timelineRootTheme}>
+              {items.map((live) => (
+                <EnhancedLiveTimelineItem key={`timeline-item-${live.liveUuid}`} live={live} />
+              ))}
+            </Timeline>
+          </div>
+        ))}
       </div>
     </div>
   );

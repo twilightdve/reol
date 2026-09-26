@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import { User, LogIn, UserPlus, X, Eye, EyeOff } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { useBodyScrollLock } from '../../hooks/useBodyScrollLock'
 
 interface SimpleAuthProps {
   onClose?: () => void
@@ -17,6 +18,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
   const [xVerificationStatus, setXVerificationStatus] = useState<'none' | 'checking' | 'verified' | 'failed'>('none')
+  useBodyScrollLock()
 
   // Xアカウント形式の有効性をチェック（簡易版）
   const checkXAccount = async (xUsername: string) => {
@@ -129,26 +131,26 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 relative">
+      <div className="bg-bx-bg border border-bx-line rounded-lg p-8 max-w-md w-full mx-4 relative">
         {onClose && (
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            className="absolute top-4 right-4 text-bx-ink2 hover:text-bx-ink"
           >
             <X className="h-5 w-5" />
           </button>
         )}
-        
+
         <div className="text-center mb-6">
-          <div className="mx-auto w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-4">
-            <User className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+          <div className="mx-auto w-12 h-12 bg-bx-surface/10 rounded-full flex items-center justify-center mb-4">
+            <User className="h-6 w-6 text-bx-blue" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-2xl font-bold text-bx-ink mb-2">
             {mode === 'login' ? 'ログイン' : 'アカウント作成'}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            {mode === 'login' 
-              ? 'ユーザーIDでログインしてください' 
+          <p className="text-bx-ink2">
+            {mode === 'login'
+              ? 'ユーザーIDでログインしてください'
               : '新しいアカウントを作成してください'
             }
           </p>
@@ -156,7 +158,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
 
         <form onSubmit={handleSubmit} className="space-y-4" autoComplete="on">
           <div>
-            <label htmlFor="userId" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="userId" className="block text-sm font-medium text-bx-ink2 mb-2">
               ユーザー ID（XのユーザID）
             </label>
             <input
@@ -167,11 +169,11 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
               onChange={(e) => setUserId(e.target.value.replace(/@/g, ''))}
               placeholder="例: reol_fan_123"
               autoComplete="username"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-3 py-2 border border-bx-line rounded-md bg-bx-bg text-bx-ink focus:outline-none focus:ring-2 focus:ring-bx-blue"
               required
             />
             <div className="flex items-center justify-between mt-1">
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-bx-ink3">
                 英数字とアンダースコアのみ使用可能（@は入力不可）
                 {mode === 'register' && <span className="block">※Xのユーザーをお持ちの場合、XのIDと同じにしてください（例：@RRReol → RRReol）</span>}
               </p>
@@ -179,8 +181,8 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
                 <div className="flex items-center space-x-1">
                   {xVerificationStatus === 'checking' && (
                     <>
-                      <div className="animate-spin rounded-full h-3 w-3 border-b border-blue-500"></div>
-                      <span className="text-xs text-blue-600">形式チェック中...</span>
+                      <div className="animate-spin rounded-full h-3 w-3 border-b border-bx-blue"></div>
+                      <span className="text-xs text-bx-blue">形式チェック中...</span>
                     </>
                   )}
                   {xVerificationStatus === 'verified' && (
@@ -190,7 +192,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
                   )}
                   {xVerificationStatus === 'failed' && (
                     <>
-                      <span className="text-xs text-gray-500">一般ユーザーID</span>
+                      <span className="text-xs text-bx-ink3">一般ユーザーID</span>
                     </>
                   )}
                 </div>
@@ -199,7 +201,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-bx-ink2 mb-2">
               パスワード
             </label>
             <div className="relative">
@@ -211,26 +213,26 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="8文字以上"
                 autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white"
+                className="w-full px-3 py-2 pr-10 border border-bx-line rounded-md bg-bx-bg text-bx-ink focus:outline-none focus:ring-2 focus:ring-bx-blue"
                 required
                 minLength={8}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-bx-ink2 hover:text-bx-ink"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-xs text-bx-ink3 mt-1">
               8文字以上で入力してください
             </p>
           </div>
 
           {mode === 'register' && (
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="username" className="block text-sm font-medium text-bx-ink2 mb-2">
                 表示名
               </label>
               <input
@@ -239,7 +241,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="例: Reol れをる"
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white"
+                className="w-full px-3 py-2 border border-bx-line rounded-md bg-bx-bg text-bx-ink focus:outline-none focus:ring-2 focus:ring-bx-blue"
                 required
               />
             </div>
@@ -248,10 +250,10 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded-md font-medium transition-colors"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-bx-yellow hover:opacity-90 disabled:opacity-50 text-bx-bg rounded-md font-medium transition-opacity"
           >
             {loading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-bx-bg" />
             ) : mode === 'login' ? (
               <LogIn className="h-5 w-5" />
             ) : (
@@ -265,17 +267,17 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
           <button
             type="button"
             onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
-            className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
+            className="text-sm text-bx-blue hover:opacity-80"
           >
-            {mode === 'login' 
-              ? 'アカウントをお持ちでない方はこちら' 
+            {mode === 'login'
+              ? 'アカウントをお持ちでない方はこちら'
               : '既にアカウントをお持ちの方はこちら'
             }
           </button>
         </div>
 
-        <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-md">
-          <p className="text-xs text-gray-600 dark:text-gray-400">
+        <div className="mt-4 p-3 bg-bx-bg border border-bx-line rounded-md">
+          <p className="text-xs text-bx-ink3">
             📝 メールアドレスは不要です。覚えやすいユーザーIDを設定してください。
           </p>
         </div>

@@ -9,6 +9,7 @@ import Body from "./src/components/modules/body";
 import { GatsbyBrowser } from "gatsby";
 import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
+import { AuthProvider } from "./src/contexts/AuthContext";
 
 // iOS環境でbodyにクラスを追加
 export const onClientEntry: GatsbyBrowser["onClientEntry"] = () => {
@@ -23,7 +24,9 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
 }) => {
   return (
     <Provider store={store}>
-      <Body>{element}</Body>
+      <AuthProvider>
+        <Body>{element}</Body>
+      </AuthProvider>
     </Provider>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
 import { FaCompactDisc, FaCirclePlay } from "react-icons/fa6";
-import { GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { GoListUnordered } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import Discography from "../discography/discography";
 import { DiscographyWithSongs } from "../../../types/discography";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 
 interface DiscographySectionProps {
   discographies: DiscographyWithSongs[];
@@ -13,6 +13,15 @@ interface DiscographySectionProps {
 const DiscographySection: React.FC<DiscographySectionProps> = ({
   discographies,
 }) => {
+  // 新規コンテンツ案C「コレクション台帳」。個別の所有/視聴済みチェックは各カード
+  // (enhanced-timeline-item.tsx)側、ここでは全体のコンプ率だけをまとめて表示する。
+  const { owned, mounted } = useCollectionOwned();
+  const ownedCount = mounted
+    ? discographies.filter((d) => owned.has(d.discographyUuid)).length
+    : 0;
+  const totalCount = discographies.length;
+  const rate = totalCount > 0 ? Math.round((ownedCount / totalCount) * 100) : 0;
+
   return (
     <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
       <div className="pt-6 pb-2 px-2 sm:pt-12">
@@ -25,14 +34,24 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
           DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。
         </div>
-        <div className="pt-2">
-          <Link
-            to="/cgraph"
-            className="inline-flex items-center gap-1 px-3 py-1 text-xs sm:text-sm rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
-          >
-            相関図を見る
-            <GoLinkExternal className="inline" />
-          </Link>
+        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs text-bx-ink3">
+              コレクション(所有/視聴済み)
+            </span>
+            <span className="text-sm font-bold text-bx-blue tabular-nums">
+              {ownedCount} / {totalCount} ・ {rate}%
+            </span>
+          </div>
+          <div className="h-1.5 rounded-full bg-bx-line/50 overflow-hidden">
+            <div
+              className="h-full bg-bx-blue transition-all"
+              style={{ width: `${rate}%` }}
+            />
+          </div>
+          <p className="mt-1.5 text-[10px] text-bx-ink3">
+            各カードの「✓」で所有/視聴済みを記録できます(この端末のブラウザ内のみに保存)
+          </p>
         </div>
       </div>
       <Discography data={discographies} />

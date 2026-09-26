@@ -14,14 +14,6 @@ export const hashPassword = async (password: string): Promise<string> => {
 }
 
 /**
- * パスワードを検証
- */
-export const verifyPassword = async (password: string, hash: string): Promise<boolean> => {
-  const inputHash = await hashPassword(password)
-  return inputHash === hash
-}
-
-/**
  * ユーザー登録
  */
 export const signUpUser = async (
@@ -50,7 +42,7 @@ export const signUpUser = async (
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     })
-    .select()
+    .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
     .single()
 
   if (error) {
@@ -68,28 +60,22 @@ export const signUpUser = async (
  */
 export const signInUser = async (userId: string, password: string) => {
   if (!supabase) throw new Error('Supabaseが初期化されていません')
-  
-  // ユーザー情報を取得
-  const { data: profile, error } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', userId)
-    .single()
 
-  if (error || !profile) {
+  // パスワード検証はRPC側で行う（password_hash列は直接SELECT不可のため）
+  const { data, error } = await supabase.rpc('verify_user_login', {
+    p_user_id: userId,
+    p_password: password,
+  })
+
+  if (error) {
     throw new Error('ユーザーIDまたはパスワードが正しくありません')
   }
 
-  // パスワード検証
-  const isValid = await verifyPassword(password, profile.password_hash)
-  
-  if (!isValid) {
-    throw new Error('ユーザーIDまたはパスワードが正しくありません')
+  if (!data?.success) {
+    throw new Error(data?.error || 'ユーザーIDまたはパスワードが正しくありません')
   }
 
-  // パスワードハッシュを除外して返す
-  const { password_hash, ...userProfile } = profile
-  return userProfile
+  return data.profile
 }
 
 /**
@@ -97,38 +83,20 @@ export const signInUser = async (userId: string, password: string) => {
  */
 export const updatePassword = async (userId: string, oldPassword: string, newPassword: string) => {
   if (!supabase) throw new Error('Supabaseが初期化されていません')
-  
-  // 現在のパスワードを検証
-  const { data: profile, error } = await supabase
-    .from('profiles')
-    .select('password_hash')
-    .eq('id', userId)
-    .single()
 
-  if (error || !profile) {
-    throw new Error('ユーザーが見つかりません')
+  // パスワード検証・更新はRPC側で行う（password_hash列は直接UPDATE不可のため）
+  const { data, error } = await supabase.rpc('update_user_password', {
+    p_user_id: userId,
+    p_old_password: oldPassword,
+    p_new_password: newPassword,
+  })
+
+  if (error) {
+    throw new Error(`パスワード更新に失敗しました: ${error.message}`)
   }
 
-  const isValid = await verifyPassword(oldPassword, profile.password_hash)
-  
-  if (!isValid) {
-    throw new Error('現在のパスワードが正しくありません')
-  }
-
-  // 新しいパスワードをハッシュ化
-  const newPasswordHash = await hashPassword(newPassword)
-
-  // パスワードを更新
-  const { error: updateError } = await supabase
-    .from('profiles')
-    .update({ 
-      password_hash: newPasswordHash,
-      updated_at: new Date().toISOString()
-    })
-    .eq('id', userId)
-
-  if (updateError) {
-    throw new Error(`パスワード更新に失敗しました: ${updateError.message}`)
+  if (!data?.success) {
+    throw new Error(data?.error || 'パスワード更新に失敗しました')
   }
 
   return true
@@ -153,13 +121,10 @@ export const changeUserId = async (oldId: string, newId: string, password: strin
     throw new Error('現在のIDと同じです')
   }
 
-  // パスワードをハッシュ化して送信
-  const passwordHash = await hashPassword(password)
-
   const { data, error } = await supabase.rpc('change_user_id', {
     p_old_id: oldId,
     p_new_id: newId,
-    p_password_hash: passwordHash,
+    p_password: password,
   })
 
   if (error) {
@@ -179,12 +144,9 @@ export const changeUserId = async (oldId: string, newId: string, password: strin
 export const deleteAccount = async (userId: string, password: string) => {
   if (!supabase) throw new Error('Supabaseが初期化されていません')
 
-  // パスワードをハッシュ化して送信
-  const passwordHash = await hashPassword(password)
-
   const { data, error } = await supabase.rpc('delete_account', {
     p_user_id: userId,
-    p_password_hash: passwordHash,
+    p_password: password,
   })
 
   if (error) {

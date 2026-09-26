@@ -10,6 +10,8 @@ export type Live = {
   name: string;
   date: string;
   siteUrl: string | null;
+  /** ツアー全体の代表YouTube動画ID(URLではなく生ID)。任意項目 */
+  youtubeVideoId: string | null;
   spotifyPlaylistId: string | null;
   imageUrl?: string | null;
   themeColorPrimary?: string | null;
@@ -34,6 +36,8 @@ export type LiveItem = {
   address: string | null;
   googleMapsUrl: string | null;
   spotifyPlaylistId: string | null;
+  /** 公演(日程)ごとのアーカイブ配信等のYouTube動画ID(URLではなく生ID)。任意項目 */
+  youtubeVideoId: string | null;
 };
 
 export type LiveItemSongType =
@@ -49,6 +53,8 @@ export type LiveItemSong = {
   liveItemUuid: string;
   liveItemSongName: string;
   type?: LiveItemSongType | null;
+  /** その公演でのこの曲の演奏映像YouTube動画ID(生ID)。任意項目 */
+  youtubeVideoId?: string | null;
   /** songMatcher で解決された Discography 上の楽曲 UUID。未解決時は null */
   songUuid?: string | null;
   /** 解決経路 (sheet / exact / alias / stripped / normalized / stripped+normalized / none) */

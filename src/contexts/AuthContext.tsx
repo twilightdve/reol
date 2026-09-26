@@ -1,5 +1,118 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 
+type CollectionNamespace = 'owned' | 'attended' | 'visited'
+const COLLECTION_NAMESPACES: CollectionNamespace[] = ['owned', 'attended', 'visited']
+const COLLECTION_BASE_KEYS: Record<CollectionNamespace, string> = {
+  owned: 'reol-collection-owned',
+  attended: 'reol-collection-attended',
+  visited: 'reol-collection-visited',
+}
+
+/**
+ * コレクション台帳(owned/attended/visited)をDBから取り直し、ユーザー専用の
+ * localStorageキャッシュを最新化する。
+ *
+ * ログイン時(mergeGuestData=true)はゲスト時のローカル分をDBにまだ無ければ
+ * push した上で合流させる。それ以外(セッション復元時、mergeGuestData=false)は
+ * 複数端末間の同期のため、単純にDBを正としてキャッシュを上書きする
+ * (別端末で行った変更をこの端末にも反映するため。ログイン状態はlocalStorageの
+ * セッション復元だけで継続し、明示的なsignIn()は最初の1回しか呼ばれないため、
+ * ここで定期的にDBを見に行かないと他端末の変更が反映されなかった)。
+ */
+const syncCollectionsFromDb = async (userId: string, mergeGuestData: boolean) => {
+  if (typeof window === 'undefined') return
+  try {
+    const { supabase } = await import('../lib/supabase')
+    if (!supabase) return
+
+    const { data: dbRows, error: fetchError } = await supabase
+      .from('user_collections')
+      .select('namespace, item_uuid')
+      .eq('user_id', userId)
+
+    if (fetchError) return
+
+    const dbByNs: Record<CollectionNamespace, Set<string>> = {
+      owned: new Set(),
+      attended: new Set(),
+      visited: new Set(),
+    }
+    ;(dbRows || []).forEach((row: { namespace: string; item_uuid: string }) => {
+      if (dbByNs[row.namespace as CollectionNamespace]) {
+        dbByNs[row.namespace as CollectionNamespace].add(row.item_uuid)
+      }
+    })
+
+    for (const ns of COLLECTION_NAMESPACES) {
+      const userKey = `${COLLECTION_BASE_KEYS[ns]}:${userId}`
+      const dbSet = dbByNs[ns]
+
+      if (mergeGuestData) {
+        const guestKey = COLLECTION_BASE_KEYS[ns]
+        let guestSet = new Set<string>()
+        try {
+          const raw = localStorage.getItem(guestKey)
+          if (raw) {
+            const arr = JSON.parse(raw)
+            if (Array.isArray(arr)) guestSet = new Set(arr)
+          }
+        } catch {
+          // ignore
+        }
+
+        const toPush = Array.from(guestSet).filter((uuid) => !dbSet.has(uuid))
+        if (toPush.length > 0) {
+          const { error: upsertError } = await supabase
+            .from('user_collections')
+            .upsert(
+              toPush.map((uuid) => ({ user_id: userId, namespace: ns, item_uuid: uuid })),
+              { onConflict: 'user_id,namespace,item_uuid', ignoreDuplicates: true }
+            )
+          if (upsertError) {
+            console.error(`collection sync error (${ns}):`, upsertError)
+          } else {
+            toPush.forEach((uuid) => dbSet.add(uuid))
+          }
+        }
+      }
+
+      localStorage.setItem(userKey, JSON.stringify(Array.from(dbSet)))
+    }
+
+    window.dispatchEvent(new Event('reol-collection-changed'))
+    window.dispatchEvent(new Event('reol-collection-attended-changed'))
+    window.dispatchEvent(new Event('reol-collection-visited-changed'))
+  } catch (e) {
+    console.error('collection sync error:', e)
+  }
+}
+
+/**
+ * プロフィール(ニックネーム等)をDBから取り直す。複数端末間の同期のため、
+ * セッション復元時にlocalStorageのキャッシュだけでなくDBの最新値を反映する
+ * (別端末でニックネームを変更しても、この端末はローカルキャッシュを
+ * 読むだけで再ログインもしないため、DBを見に行かないと反映されなかった)。
+ */
+const fetchProfileFromDb = async (userId: string): Promise<Profile | null> => {
+  if (typeof window === 'undefined') return null
+  try {
+    const { supabase } = await import('../lib/supabase')
+    if (!supabase) return null
+
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
+      .eq('id', userId)
+      .single()
+
+    if (error || !data) return null
+    return data as Profile
+  } catch (e) {
+    console.error('profile sync error:', e)
+    return null
+  }
+}
+
 interface Profile {
   id: string
   username: string
@@ -78,7 +191,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           // 既存プロフィールを取得
           const { data: existingProfile, error: fetchError } = await supabase
             .from('profiles')
-            .select('*')
+            .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
             .eq('id', userId)
             .single()
 
@@ -98,7 +211,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString()
               })
-              .select()
+              .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
               .single()
 
             if (createError) {
@@ -124,12 +237,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
     }
 
+    // === コレクション台帳(owned/attended/visited) ログイン時の合流 ===
+    // setUser()より前に完了させる: useCollectionOwnedはuserIdの変化を検知した
+    // 瞬間にユーザー専用キーを読みに行くため、後で合流させるとその一瞬だけ
+    // 空/ゲスト状態を読んでしまい、直後のトグル操作が合流処理に上書きされうる。
+    await syncCollectionsFromDb(userId, true)
+
     const userData: SimpleUser = {
       id: userId,
       username: profileData.username,
       createdAt: new Date().toISOString()
     }
-    
+
     setUser(userData)
     setProfile(profileData)
 
@@ -403,8 +522,28 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (savedUser) {
         const userData = JSON.parse(savedUser) as SimpleUser
         setUser(userData)
+
+        // 複数端末間の同期のため、セッション復元時(=既にログイン済みの状態で
+        // サイトを開き直した時)もコレクション台帳をDBから取り直す。
+        // signIn()内の合流はアカウントへの明示ログイン時にしか走らないため、
+        // これが無いと別端末で行った変更がこの端末にいつまでも反映されなかった。
+        void syncCollectionsFromDb(userData.id, false)
+
+        // 同様の理由で、プロフィール(ニックネーム等)もDBから取り直す。
+        // 別端末でニックネームを変更しても、ローカルキャッシュのままだと
+        // この端末には反映されなかった。
+        fetchProfileFromDb(userData.id).then((freshProfile) => {
+          if (!freshProfile) return
+          setProfile(freshProfile)
+          setUser((prev) => (prev ? { ...prev, username: freshProfile.username } : prev))
+          localStorage.setItem('reol_user_profile', JSON.stringify(freshProfile))
+          localStorage.setItem(
+            'reol_user_session',
+            JSON.stringify({ ...userData, username: freshProfile.username })
+          )
+        })
       }
-      
+
       if (savedProfile) {
         const profileData = JSON.parse(savedProfile) as Profile
         setProfile(profileData)

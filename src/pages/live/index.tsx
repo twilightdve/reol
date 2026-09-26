@@ -64,6 +64,7 @@ export const query = graphql`
         name
         date
         siteUrl
+        youtubeVideoId
         spotifyPlaylistId
         themeColorPrimary
         themeColorSecondary
@@ -90,6 +91,7 @@ export const query = graphql`
           address
           googleMapsUrl
           spotifyPlaylistId
+          youtubeVideoId
           setList {
             liveItemSongUuid
             liveItemUuid

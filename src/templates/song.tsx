@@ -12,9 +12,9 @@
  * ヘッダー/フッター/背景は Body (wrapRootElement) 側で既にダークテーマ適用済みのため、
  * ここでは <main> 配下の見た目のみを bx トークンで揃える。
  */
-import React from "react";
+import React, { useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
-import { FiMic } from "react-icons/fi";
+import { FiMic, FiPlay, FiX } from "react-icons/fi";
 import { GoLinkExternal } from "react-icons/go";
 import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
@@ -24,7 +24,13 @@ import LazyComponent from "../components/modules/LazyComponent";
 import Tweets from "../components/modules/tweets";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
-import { buildBreadcrumbList, buildMusicRecording } from "../utils/jsonLd";
+import {
+  buildBreadcrumbList,
+  buildMusicRecording,
+  buildMusicEvent,
+  buildMusicEventItemList,
+  isValidIsoDate,
+} from "../utils/jsonLd";
 
 // YouTubeのビデオIDを抽出する共通関数(discography/liveの実装と同様)
 const getYouTubeVideoId = (url: string | null | undefined): string | null => {
@@ -54,6 +60,7 @@ type Play = {
   liveItemSlug: string;
   liveItemName: string | null;
   liveItemSongUuid: string;
+  youtubeVideoId: string | null;
 };
 
 export interface SongPageContext {
@@ -114,6 +121,24 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
   } = pageContext;
 
   const sortedPlays = [...plays].sort((a, b) => b.date.localeCompare(a.date));
+
+  // 演奏履歴内のYouTube映像(演奏映像)はクリックで展開する
+  const [expandedPlayVideos, setExpandedPlayVideos] = useState<Set<string>>(
+    new Set()
+  );
+  const togglePlayVideo = (key: string) => {
+    setExpandedPlayVideos((prev) => {
+      // 同時に複数の動画が自動再生されて音声が二重にならないよう、
+      // 開く際は他を全て閉じて常に最大1件だけ展開する
+      if (prev.has(key)) return new Set();
+      trackEvent("song_play_video_toggle", {
+        category: "engagement",
+        label: key,
+      });
+      const next = new Set([key]);
+      return next;
+    });
+  };
 
   // Xシェア: intentリンク(外部サービスへの送信はユーザーのクリック起点)
   const shareUrl = `https://reol.twilightea.com/songs/${slug}/`;
@@ -395,6 +420,44 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                         )}
                       </p>
                     </Link>
+                    {p.youtubeVideoId && (
+                      <button
+                        type="button"
+                        onClick={() => togglePlayVideo(p.liveItemSongUuid)}
+                        aria-expanded={expandedPlayVideos.has(p.liveItemSongUuid)}
+                        className="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-bx-blue hover:opacity-80 transition-opacity"
+                      >
+                        {expandedPlayVideos.has(p.liveItemSongUuid) ? (
+                          <>
+                            <FiX className="w-3 h-3" />
+                            閉じる
+                          </>
+                        ) : (
+                          <>
+                            <FiPlay className="w-3 h-3" />
+                            映像を見る
+                          </>
+                        )}
+                      </button>
+                    )}
+                    {p.youtubeVideoId &&
+                      expandedPlayVideos.has(p.liveItemSongUuid) && (
+                        <div
+                          className="mt-2 rounded-lg border border-bx-line overflow-hidden"
+                          style={{ aspectRatio: "16 / 9" }}
+                        >
+                          <YouTube
+                            videoId={p.youtubeVideoId}
+                            opts={{
+                              width: "100%",
+                              height: "100%",
+                              playerVars: { autoplay: 1 },
+                            }}
+                            style={{ width: "100%", height: "100%" }}
+                            className="w-full h-full"
+                          />
+                        </div>
+                      )}
                   </div>
                 );
               })}
@@ -498,7 +561,21 @@ const buildDescription = (ctx: SongPageContext): string => {
 };
 
 export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
-  const { songName, discographyTitle, slug } = pageContext;
+  const { songName, discographyTitle, slug, plays } = pageContext;
+
+  // 演奏履歴(日付が正しいものだけ)をMusicEventのItemListとして構造化データ化する。
+  // 「この曲はいつ初披露/最後に演奏されたか」に生成AIが直接答えられるようにするため。
+  const performanceEvents = [...plays]
+    .filter((p) => isValidIsoDate(p.date))
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map((p) =>
+      buildMusicEvent({
+        name: p.liveItemName ? `${p.liveTitle} / ${p.liveItemName}` : p.liveTitle,
+        startDate: p.date,
+        place: p.place,
+      })
+    );
+
   return (
     <SEO
       title={`${songName}(Reol)`}
@@ -512,6 +589,7 @@ export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
           { name: "楽曲統計", path: "/songs/stats/" },
           { name: songName },
         ]),
+        ...(performanceEvents.length > 0 ? [buildMusicEventItemList(performanceEvents)] : []),
       ]}
     />
   );

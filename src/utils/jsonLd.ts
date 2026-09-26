@@ -8,11 +8,19 @@
 
 const SITE_URL = "https://reol.twilightea.com";
 
-/** アーティスト参照用の MusicGroup(非公式サイトなので本人を名乗らず sameAs で紐付けるのみ) */
+/**
+ * アーティスト参照用の MusicGroup(非公式サイトなので本人を名乗らず sameAs で紐付けるのみ)。
+ * sameAs はユーザー確認済みの公式リンクのみ列挙する(未確認のリンクを推測で追加しない)。
+ */
 export const REOL_PERFORMER = {
   "@type": "MusicGroup",
   name: "Reol",
-  sameAs: "https://reol.jp/",
+  sameAs: [
+    "https://reol.jp/",
+    "https://www.youtube.com/@reolch",
+    "https://twitter.com/RRReol",
+    "https://www.instagram.com/rrreol999/",
+  ],
 } as const;
 
 /** トップページ用の WebSite スキーマ(サイト内検索の SearchAction 付き) */
@@ -99,4 +107,68 @@ export const buildMusicRecording = ({ name, albumName }: MusicRecordingInput) =>
   name,
   byArtist: REOL_PERFORMER,
   ...(albumName ? { inAlbum: { "@type": "MusicAlbum", name: albumName } } : {}),
+});
+
+export type MusicAlbumInput = {
+  name: string;
+  /** YYYY-MM-DD 形式を想定。不正/欠損の場合は付与しない */
+  datePublished?: string | null;
+  /** このリリースを説明する自サイト内のURL(例: DISCOGRAPHYページのアンカー) */
+  url?: string | null;
+  /** 収録曲名(代表曲ページへのリンク解決は呼び出し側の責務。ここでは名前のみ扱う) */
+  trackNames?: string[];
+};
+
+/** DISCOGRAPHY一覧用の MusicAlbum を生成する(「アルバムYの収録曲」に答えるため) */
+export const buildMusicAlbum = ({ name, datePublished, url, trackNames }: MusicAlbumInput) => ({
+  "@type": "MusicAlbum",
+  name,
+  byArtist: REOL_PERFORMER,
+  ...(isValidIsoDate(datePublished) ? { datePublished } : {}),
+  ...(url ? { url } : {}),
+  ...(trackNames && trackNames.length > 0
+    ? {
+        track: trackNames.map((trackName) => ({
+          "@type": "MusicRecording",
+          name: trackName,
+          byArtist: REOL_PERFORMER,
+        })),
+      }
+    : {}),
+});
+
+/** MusicAlbum の配列から ItemList を生成する */
+export const buildMusicAlbumItemList = (albums: ReturnType<typeof buildMusicAlbum>[]) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: albums.map((album, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: album,
+  })),
+});
+
+export type FaqEntry = {
+  /** ページ上に実際に見出しとして表示している質問文と一致させること */
+  question: string;
+  /** 回答本文(プレーンテキスト。ページ上の説明の要約) */
+  answer: string;
+};
+
+/**
+ * FAQPage を生成する。schema.org/Googleのガイドラインにより、
+ * ここに渡す question/answer はページ上に実際に見える内容と一致させること
+ * (見出しだけ質問形式に言い換えて中身は別、のような乖離を作らない)。
+ */
+export const buildFaqPage = (entries: FaqEntry[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: entries.map((entry) => ({
+    "@type": "Question",
+    name: entry.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: entry.answer,
+    },
+  })),
 });

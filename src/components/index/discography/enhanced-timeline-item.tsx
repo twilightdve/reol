@@ -5,7 +5,10 @@ import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaMusic } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
+import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { supabase } from "../../../lib/supabase";
 import { addAlpha } from "../../../utils/colorExtractor";
 import YouTube from "react-youtube";
 import Tweets from "../../modules/tweets";
@@ -88,6 +91,51 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const [isExpand, setIsExpand] = useState(false);
 
+  // 収録曲一覧のクリップボードコピー
+  const [songsCopied, setSongsCopied] = useState(false);
+  const handleCopySongs = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      const lines = item.songs.map(
+        (song, i) => `${i + 1}. ${song.songName}`
+      );
+      const text = [
+        item.title,
+        ...lines,
+        "",
+        `https://reol.twilightea.com/discography/#disc-${item.slug}`,
+      ].join("\n");
+      navigator.clipboard.writeText(text).then(() => {
+        setSongsCopied(true);
+        setTimeout(() => setSongsCopied(false), 2000);
+      });
+    },
+    [item.songs, item.title, item.slug]
+  );
+
+  // コレクション台帳(所有/視聴済み記録。未ログインはlocalStorageのみ、ログイン時はDBにも保存)
+  const { owned, mounted, toggle } = useCollectionOwned();
+  const isOwned = mounted && owned.has(item.discographyUuid);
+  const handleToggleOwned = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      toggle(item.discographyUuid);
+    },
+    [toggle, item.discographyUuid]
+  );
+
+  // 「N人が所有/視聴済み」の集計表示。カードを展開した時だけ取得する(94件全カード分を
+  // 常時取得すると無駄なリクエストが大量発生するため)。個人の特定はできない集計値のみ。
+  const [ownedCount, setOwnedCount] = useState<number | null>(null);
+  useEffect(() => {
+    if (!isExpand || ownedCount !== null || !supabase) return;
+    supabase
+      .rpc("get_collection_count", { p_namespace: "owned", p_item_uuid: item.discographyUuid })
+      .then(({ data, error }: { data: number | null; error: unknown }) => {
+        if (!error && typeof data === "number") setOwnedCount(data);
+      });
+  }, [isExpand, ownedCount, item.discographyUuid]);
+
   // 曲行の「詳細」リンク先を代表曲(songStats)のslugへ解決するためのマップ
   const songSlugData = useStaticQuery(graphql`
     query DiscographySongSlugMap {
@@ -166,6 +214,24 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const youtubeVideoId = getYouTubeVideoId(item.xfdUrl);
 
+  // コレクション台帳の所有/視聴済みトグル(カード全体のクリック=展開と競合しないようstopPropagation)
+  const ownedToggleButton = (
+    <button
+      type="button"
+      onClick={handleToggleOwned}
+      aria-pressed={isOwned}
+      aria-label={isOwned ? "所有済みから外す" : "所有/視聴済みにする"}
+      title={isOwned ? "所有済み" : "所有/視聴済みにする"}
+      className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+        isOwned
+          ? "border-bx-blue bg-bx-blue text-bx-bg"
+          : "border-bx-line text-transparent hover:border-bx-blue"
+      }`}
+    >
+      ✓
+    </button>
+  );
+
   return (
     <div className="mb-4">
       {/* カード本体 */}
@@ -179,36 +245,48 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
           {/* コンテンツ情報 */}
           <div className="w-full">
             {!isExpand ? (
-              // 非展開時：コンパクトな2行レイアウト
-              <div className="space-y-1">
-                {/* 1行目：日付　タグ */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-medium text-bx-ink2">
-                    {item.releaseDate?.replaceAll("-", "/")}
-                  </span>
-                  <div className="flex gap-1">
-                    {item?.format && (
-                      <span
-                        className="px-2 py-0.5 text-xs font-semibold rounded-md border"
-                        style={{
-                          backgroundColor: addAlpha(colorPalette.secondary, 0.15),
-                          color: colorPalette.secondary,
-                          borderColor: addAlpha(colorPalette.secondary, 0.4),
-                        }}
-                      >
-                        {item.format}
-                      </span>
-                    )}
+              // 非展開時：左にサムネイル(48px)＋右にコンパクトな2行レイアウト
+              <div className="flex items-center gap-3">
+                {youtubeVideoId ? (
+                  <img
+                    src={`https://i.ytimg.com/vi/${youtubeVideoId}/mqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    className="w-12 h-12 flex-shrink-0 object-cover rounded bg-bx-surface/5"
+                  />
+                ) : (
+                  <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
+                    <FaMusic className="text-lg" aria-hidden="true" />
                   </div>
-                </div>
+                )}
+                <div className="flex-1 min-w-0 space-y-1">
+                  {/* 1行目：日付　タグ */}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-medium text-bx-ink2">
+                      {item.releaseDate?.replaceAll("-", "/")}
+                    </span>
+                    <div className="flex gap-1">
+                      {item?.format && (
+                        <span
+                          className="px-2 py-0.5 text-xs font-semibold rounded-md border"
+                          style={{
+                            backgroundColor: addAlpha(colorPalette.secondary, 0.15),
+                            color: colorPalette.secondary,
+                            borderColor: addAlpha(colorPalette.secondary, 0.4),
+                          }}
+                        >
+                          {item.format}
+                        </span>
+                      )}
+                    </div>
+                  </div>
 
-                {/* 2行目：タイトル　展開ボタン */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1 flex-1 min-w-0">
-                    <FaMusic className="w-3 h-3 flex-shrink-0 text-bx-ink2" />
-                    <h3 className="text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
+                  {/* 2行目：タイトル　所有トグル */}
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="flex-1 min-w-0 text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
                       {item.title}
                     </h3>
+                    {ownedToggleButton}
                   </div>
                 </div>
               </div>
@@ -220,12 +298,19 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                 </div>
 
                 <div className="flex flex-col font-semibold">
-                  <div className="flex items-center gap-1 mb-0">
-                    <FaMusic className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
-                    <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
-                      {item.title}
-                    </h3>
+                  <div className="flex items-center justify-between gap-2 mb-0">
+                    <div className="flex items-center gap-1 min-w-0">
+                      <FaMusic className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
+                      <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
+                        {item.title}
+                      </h3>
+                    </div>
+                    {ownedToggleButton}
                   </div>
+
+                  {ownedCount !== null && ownedCount > 0 && (
+                    <p className="text-xs text-bx-ink3 mt-1">{ownedCount}人が所有/視聴済み</p>
+                  )}
 
                   {/* メタデータ */}
                   <div className="flex flex-wrap gap-2 text-xs mt-3">
@@ -288,6 +373,26 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   )}
                   {item.songs.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
+                      <div className="flex items-center justify-between pb-3">
+                        <h4 className="text-sm font-bold text-bx-ink">収録曲</h4>
+                        <button
+                          type="button"
+                          onClick={handleCopySongs}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-bx-ink2 hover:text-bx-blue transition-colors"
+                        >
+                          {songsCopied ? (
+                            <>
+                              <FiCheck className="w-3.5 h-3.5" />
+                              コピーしました
+                            </>
+                          ) : (
+                            <>
+                              <FiCopy className="w-3.5 h-3.5" />
+                              曲名をコピー
+                            </>
+                          )}
+                        </button>
+                      </div>
                       <ul className="space-y-2">
                         {item.songs.map((song, index) => (
                           <SongCard
