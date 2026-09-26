@@ -4,6 +4,7 @@ import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { GlassCard, Kicker } from "../components/redesign";
+import { shiftMonthDay, formatMonthDayLabel } from "../utils/monthDay";
 
 /** "https://youtu.be/xxxx" / "https://www.youtube.com/watch?v=xxxx" からvideoIdを抽出 */
 const getYouTubeVideoId = (url: string): string | null => {
@@ -25,26 +26,22 @@ type OnThisDayEvent = {
   setlist: { name: string; slug: string | null }[];
 };
 
+/** 出来事が無い日に表示する「近い日の出来事」(前後7日以内) */
+type NearbyEvent = {
+  monthDay: string; // "MM-DD"
+  kind: "release" | "live";
+  year: number;
+  label: string;
+  suffix: string;
+  to: string;
+};
+
 type OnThisDayPageContext = {
   monthDay: string; // "MM-DD"
   events: OnThisDayEvent[];
-};
-
-const DAY_MS = 86400000;
-
-/** "MM-DD" を閏年の影響を受けない基準年(2001年)での通日に変換して前後にずらし、"MM-DD" へ戻す。 */
-const shiftMonthDay = (monthDay: string, deltaDays: number): string => {
-  const [mo, d] = monthDay.split("-").map((v) => parseInt(v, 10));
-  const base = Date.UTC(2001, mo - 1, d);
-  const shifted = new Date(base + deltaDays * DAY_MS);
-  const nextMo = String(shifted.getUTCMonth() + 1).padStart(2, "0");
-  const nextD = String(shifted.getUTCDate()).padStart(2, "0");
-  return `${nextMo}-${nextD}`;
-};
-
-const formatMonthDayLabel = (monthDay: string): string => {
-  const [mo, d] = monthDay.split("-").map((v) => parseInt(v, 10));
-  return `${mo}月${d}日`;
+  /** 出来事が無い日は検索結果に出さない(サイトマップからも除外) */
+  noindex: boolean;
+  nearbyEvents: NearbyEvent[];
 };
 
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -131,7 +128,7 @@ const MonthCalendar: React.FC<{
 const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
   pageContext,
 }) => {
-  const { monthDay, events } = pageContext;
+  const { monthDay, events, nearbyEvents } = pageContext;
   const prevMonthDay = shiftMonthDay(monthDay, -1);
   const nextMonthDay = shiftMonthDay(monthDay, 1);
   const label = formatMonthDayLabel(monthDay);
@@ -209,9 +206,40 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
         />
 
         {events.length === 0 ? (
-          <p className="text-sm text-bx-ink3 border-t border-bx-line pt-6">
-            {label}の記録はまだありません。
-          </p>
+          <div className="border-t border-bx-line pt-6">
+            <p className="text-sm text-bx-ink3">{label}の記録はまだありません。</p>
+            {nearbyEvents.length > 0 && (
+              <section className="mt-6">
+                <h2 className="text-sm font-bold text-bx-ink mb-3">近い日の出来事</h2>
+                <ul className="space-y-2">
+                  {nearbyEvents.map((ev, i) => (
+                    <li key={`nearby-${i}`}>
+                      <GlassCard
+                        accent={ev.kind === "release" ? "blueLight" : "yellow"}
+                        className="p-3"
+                      >
+                        <Link
+                          to={`/on-this-day/${ev.monthDay}/`}
+                          className="text-xs font-bold text-bx-blueLight hover:text-bx-blue"
+                        >
+                          {formatMonthDayLabel(ev.monthDay)}
+                        </Link>
+                        <span className="ml-2 text-xs text-bx-ink3 tabular-nums">{ev.year}年</span>
+                        <Link
+                          to={ev.to}
+                          className="block mt-0.5 text-[13px] text-bx-ink hover:text-bx-blue transition-colors truncate"
+                        >
+                          {ev.kind === "release" ? "♪ " : "🎤 "}
+                          {ev.label}
+                          {ev.suffix}
+                        </Link>
+                      </GlassCard>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </div>
         ) : (
           <ul className="space-y-3 border-t border-bx-line pt-6">
             {events.map((ev, i) => (
@@ -368,10 +396,13 @@ export const Head: HeadFC<object, OnThisDayPageContext> = ({
 }) => {
   const label = formatMonthDayLabel(pageContext.monthDay);
   return (
-    <SEO
-      title={`${label}は何の日`}
-      description={`Reolのリリース・ライブ公演から、${label}に起きた出来事を年代順にまとめています。`}
-      path={`/on-this-day/${pageContext.monthDay}/`}
-    />
+    <>
+      <SEO
+        title={`${label}は何の日`}
+        description={`Reolのリリース・ライブ公演から、${label}に起きた出来事を年代順にまとめています。`}
+        path={`/on-this-day/${pageContext.monthDay}/`}
+      />
+      {pageContext.noindex && <meta name="robots" content="noindex,follow" />}
+    </>
   );
 };
