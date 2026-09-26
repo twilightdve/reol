@@ -284,7 +284,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             </p>
             <h2 className="mt-2 text-[15px] font-bold text-bx-ink">楽曲ソーター</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              2曲ずつ好きな方を選んで、あなただけの楽曲ランキングを作成。
+              2曲ずつ勝ち抜き戦。あなたの一番好きな曲を決めるトーナメント。
             </p>
           </GlassCard>
 

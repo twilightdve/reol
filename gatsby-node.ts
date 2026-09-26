@@ -23,6 +23,7 @@ import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
+import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
   Record as MbRecord,
@@ -627,16 +628,32 @@ const createSongStatsNodes = async (
         discographySlug: song.discographyUuid
           ? discSlugByUuid.get(song.discographyUuid) ?? null
           : null,
+        spotifyTrackId: song.spotifyTrackId ?? null,
         totalPlays: plays.length,
         firstPlayedDate: sorted[0]?.date ?? null,
         lastPlayedDate: sorted[sorted.length - 1]?.date ?? null,
         // 公式送客用リンク(統計ページの行展開から公式MV/配信へ誘導する)
         musicVideoUrl: song.musicVideoUrl ?? null,
         downloadUrl: song.downloadUrl ?? null,
+        // 楽曲ソーターの共有カード用ジャケット画像URL(Spotify画像CDN)。下で解決して埋める
+        artworkUrl: null as string | null,
         plays: sorted,
       };
     })
     .sort((a, b) => b.totalPlays - a.totalPlays);
+
+  // 楽曲ソーターのブラケット共有カード用ジャケット画像のURL。画像は自サイトに保存せず、
+  // ブラウザがSpotifyの画像CDNから直接読み込む。spotifyTrackIdが無い/解決に失敗した曲は
+  // null のままで、フロント側はプレースホルダー描画にフォールバックする。
+  const songArtwork = await resolveSongArtworkUrls(
+    songStats.map((s) => ({ slug: s.slug, spotifyTrackId: s.spotifyTrackId }))
+  );
+  for (const s of songStats) {
+    s.artworkUrl = songArtwork.urlBySlug.get(s.slug) ?? null;
+  }
+  console.log(
+    `[song-artwork] resolved=${songArtwork.resolved}, failed=${songArtwork.failed} (songs=${songStats.length})`
+  );
 
   for (const [name, info] of unmatchedAgg) {
     unmatched.push({ name, ...info });
@@ -1486,6 +1503,11 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type DiscographyDiscographyWithSongs {
       themeColorPrimary: String
       themeColorSecondary: String
+    }
+
+    # 楽曲ソーターのジャケット画像URL(全曲nullのビルドでもクエリできるよう明示定義)
+    type SongStatsSongStats {
+      artworkUrl: String
     }
 
     type LiveLiveInfos {
