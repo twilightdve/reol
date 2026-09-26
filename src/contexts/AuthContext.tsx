@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import toast from 'react-hot-toast'
 
 type CollectionNamespace = 'owned' | 'attended' | 'visited'
 const COLLECTION_NAMESPACES: CollectionNamespace[] = ['owned', 'attended', 'visited']
@@ -137,7 +138,7 @@ interface AuthContextType {
   user: SimpleUser | null
   profile: Profile | null
   loading: boolean
-  signIn: (userId: string, username: string, isNewUser?: boolean) => Promise<void>
+  signIn: (userId: string, username: string) => Promise<void>
   signInWithPassword: (userId: string, password: string) => Promise<void>
   signUpWithPassword: (userId: string, password: string, username: string, xAccountUrl?: string) => Promise<void>
   updatePassword: (oldPassword: string, newPassword: string) => Promise<void>
@@ -145,7 +146,6 @@ interface AuthContextType {
   deleteAccount: (password: string) => Promise<void>
   signOut: () => Promise<void>
   updateProfile: (updates: Partial<Profile>) => Promise<void>
-  createProfileInSupabase: () => Promise<void>
   isDevMode?: boolean
 }
 
@@ -180,10 +180,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const isDevMode = typeof window !== 'undefined' && 
     process.env.GATSBY_REOLMAP_DEV_MODE === 'true'
 
-  const signIn = async (userId: string, username: string, isNewUser: boolean = false) => {
+  const signIn = async (userId: string, username: string) => {
     let profileData: Profile | null = null
 
-    // Supabaseから既存プロフィールを取得または新規作成
+    // Supabaseからプロフィールを取得(新規作成は sign_up_user RPC が行う)
     if (typeof window !== 'undefined') {
       try {
         const { supabase } = await import('../lib/supabase')
@@ -196,30 +196,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             .single()
 
           if (existingProfile && !fetchError) {
-            // 既存ユーザー: プロフィールを取得
-            console.log('Existing user found:', existingProfile)
             profileData = existingProfile as Profile
-          } else if (isNewUser) {
-            // 新規ユーザー: プロフィールを作成
-            console.log('Creating new profile in Supabase:', { userId, username })
-            const { data: newProfile, error: createError } = await supabase
-              .from('profiles')
-              .insert({
-                id: userId,
-                username: username,
-                full_name: null,
-                created_at: new Date().toISOString(),
-                updated_at: new Date().toISOString()
-              })
-              .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
-              .single()
-
-            if (createError) {
-              console.error('Error creating profile:', createError)
-            } else if (newProfile) {
-              console.log('Profile created successfully:', newProfile)
-              profileData = newProfile as Profile
-            }
           }
         }
       } catch (error) {
@@ -290,10 +267,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const { signUpUser } = await import('../services/authService')
       
       // ユーザー登録
-      const profile = await signUpUser(userId, username, password, username)
+      const profile = await signUpUser(userId, username, password)
       
       // ログイン状態をセット
-      await signIn(profile.id, profile.username, true)
+      await signIn(profile.id, profile.username)
       
     } catch (error) {
       console.error('Sign up error:', error)
@@ -310,7 +287,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const profile = await signInUser(userId, password)
       
       // ログイン状態をセット
-      await signIn(profile.id, profile.username, false)
+      await signIn(profile.id, profile.username)
       
     } catch (error) {
       console.error('Sign in error:', error)
@@ -380,14 +357,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }
 
-  const signOut = async () => {
+  const clearLocalSession = () => {
     setUser(null)
     setProfile(null)
-    
+
     if (typeof window !== 'undefined') {
       localStorage.removeItem('reol_user_session')
       localStorage.removeItem('reol_user_profile')
     }
+  }
+
+  const signOut = async () => {
+    if (typeof window !== 'undefined') {
+      const { signOutSession } = await import('../services/authService')
+      await signOutSession()
+    }
+    clearLocalSession()
   }
 
   const updateProfile = async (updates: Partial<Profile>) => {
@@ -464,39 +449,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }
 
-  const createProfileInSupabase = async () => {
-    if (!user) {
-      console.warn('No user logged in')
-      return
-    }
-
-    try {
-      const { supabase } = await import('../lib/supabase')
-      if (supabase) {
-        console.log('Manually creating profile in Supabase:', { userId: user.id, username: user.username })
-        
-        // 直接upsertを使用
-        const { data, error } = await supabase
-          .from('profiles')
-          .upsert({
-            id: user.id,
-            username: user.username,
-            full_name: null,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString()
-          })
-        
-        if (error) {
-          console.error('Error manually creating profile:', error)
-        } else {
-          console.log('Profile manually created successfully:', data)
-        }
-      }
-    } catch (error) {
-      console.error('Error in createProfileInSupabase:', error)
-    }
-  }
-
   useEffect(() => {
     if (typeof window === 'undefined') {
       setLoading(false)
@@ -523,16 +475,35 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         const userData = JSON.parse(savedUser) as SimpleUser
         setUser(userData)
 
-        // 複数端末間の同期のため、セッション復元時(=既にログイン済みの状態で
-        // サイトを開き直した時)もコレクション台帳をDBから取り直す。
-        // signIn()内の合流はアカウントへの明示ログイン時にしか走らないため、
-        // これが無いと別端末で行った変更がこの端末にいつまでも反映されなかった。
-        void syncCollectionsFromDb(userData.id, false)
+        void (async () => {
+          // サーバー発行のセッショントークンが無い/無効なら、書き込みはすべてサーバーで
+          // 拒否されるため、ログイン状態を解除して再ログインしてもらう。
+          // (トークン導入前にログインしたユーザーはトークンを持っていない)
+          const { getSessionToken, clearSessionToken } = await import('../lib/supabase')
+          if (!getSessionToken()) {
+            clearLocalSession()
+            toast('セキュリティ強化のため、お手数ですが再度ログインしてください')
+            return
+          }
+          const { fetchSessionUserId } = await import('../services/authService')
+          const sessionUserId = await fetchSessionUserId()
+          if (sessionUserId !== undefined && sessionUserId !== userData.id) {
+            clearSessionToken()
+            clearLocalSession()
+            toast('ログインの有効期限が切れました。再度ログインしてください')
+            return
+          }
 
-        // 同様の理由で、プロフィール(ニックネーム等)もDBから取り直す。
-        // 別端末でニックネームを変更しても、ローカルキャッシュのままだと
-        // この端末には反映されなかった。
-        fetchProfileFromDb(userData.id).then((freshProfile) => {
+          // 複数端末間の同期のため、セッション復元時(=既にログイン済みの状態で
+          // サイトを開き直した時)もコレクション台帳をDBから取り直す。
+          // signIn()内の合流はアカウントへの明示ログイン時にしか走らないため、
+          // これが無いと別端末で行った変更がこの端末にいつまでも反映されなかった。
+          void syncCollectionsFromDb(userData.id, false)
+
+          // 同様の理由で、プロフィール(ニックネーム等)もDBから取り直す。
+          // 別端末でニックネームを変更しても、ローカルキャッシュのままだと
+          // この端末には反映されなかった。
+          const freshProfile = await fetchProfileFromDb(userData.id)
           if (!freshProfile) return
           setProfile(freshProfile)
           setUser((prev) => (prev ? { ...prev, username: freshProfile.username } : prev))
@@ -541,7 +512,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             'reol_user_session',
             JSON.stringify({ ...userData, username: freshProfile.username })
           )
-        })
+        })()
       }
 
       if (savedProfile) {
@@ -567,7 +538,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     deleteAccount,
     signOut,
     updateProfile,
-    createProfileInSupabase,
     isDevMode,
   }
 

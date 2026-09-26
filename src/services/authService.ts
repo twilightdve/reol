@@ -1,58 +1,32 @@
-import { supabase } from '../lib/supabase'
+import { supabase, setSessionToken, clearSessionToken } from '../lib/supabase'
 
 /**
- * パスワードをハッシュ化（Web Crypto API使用）
+ * ユーザー登録(Supabase RPC経由)
+ * パスワードはサーバー側でbcrypt化され、成功時にセッショントークンが発行される。
  */
-export const hashPassword = async (password: string): Promise<string> => {
-  // 開発用: 簡易ハッシュ（本番ではbcryptを使用すべき）
-  // TODO: bcryptjsをインストールして実装
-  const encoder = new TextEncoder()
-  const data = encoder.encode(password)
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data)
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
-}
-
-/**
- * ユーザー登録
- */
-export const signUpUser = async (
-  userId: string,
-  username: string,
-  password: string,
-  fullName?: string
-) => {
+export const signUpUser = async (userId: string, username: string, password: string) => {
   if (!supabase) throw new Error('Supabaseが初期化されていません')
 
   if (userId.includes('@')) {
     throw new Error('ユーザーIDに「@」は使用できません')
   }
-  
-  // パスワードをハッシュ化
-  const passwordHash = await hashPassword(password)
 
-  // プロフィール作成
-  const { data, error } = await supabase
-    .from('profiles')
-    .insert({
-      id: userId,
-      username: username,
-      password_hash: passwordHash,
-      full_name: fullName || null,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
-    })
-    .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
-    .single()
+  const { data, error } = await supabase.rpc('sign_up_user', {
+    p_user_id: userId,
+    p_username: username,
+    p_password: password,
+  })
 
   if (error) {
-    if (error.code === '23505') { // Unique constraint violation
-      throw new Error('このユーザーIDは既に使用されています')
-    }
     throw new Error(`アカウント作成に失敗しました: ${error.message}`)
   }
 
-  return data
+  if (!data?.success) {
+    throw new Error(data?.error || 'アカウント作成に失敗しました')
+  }
+
+  if (data.session_token) setSessionToken(data.session_token)
+  return data.profile
 }
 
 /**
@@ -75,7 +49,32 @@ export const signInUser = async (userId: string, password: string) => {
     throw new Error(data?.error || 'ユーザーIDまたはパスワードが正しくありません')
   }
 
+  if (data.session_token) setSessionToken(data.session_token)
   return data.profile
+}
+
+/**
+ * ログアウト: サーバー側のセッションを消してからトークンを破棄する
+ */
+export const signOutSession = async () => {
+  try {
+    if (supabase) await supabase.rpc('sign_out')
+  } catch (e) {
+    console.error('Sign out error:', e)
+  } finally {
+    clearSessionToken()
+  }
+}
+
+/**
+ * 保存済みトークンのセッションが有効か確認する。
+ * 戻り値: セッションのユーザーID / 無効なら null / 確認できなかった(通信エラー等)なら undefined
+ */
+export const fetchSessionUserId = async (): Promise<string | null | undefined> => {
+  if (!supabase) return undefined
+  const { data, error } = await supabase.rpc('request_session_user_id')
+  if (error) return undefined
+  return (data as string | null) ?? null
 }
 
 /**
@@ -157,5 +156,7 @@ export const deleteAccount = async (userId: string, password: string) => {
     throw new Error(data?.error || 'アカウント削除に失敗しました')
   }
 
+  // サーバー側のセッションはプロフィール削除に連動して消えるので、手元のトークンも破棄する
+  clearSessionToken()
   return data
 }

@@ -19,6 +19,50 @@ const getSupabaseAnonKey = () => {
 const supabaseUrl = getSupabaseUrl()
 const supabaseAnonKey = getSupabaseAnonKey()
 
+// ログイン/新規登録時にサーバーが発行するセッショントークン。
+// DB側のRLSは x-session-token ヘッダーのトークンから「誰のリクエストか」を判定するため、
+// 全リクエストに付けて送る(supabase-session-token-phase-a.sql / phase-b.sql)。
+const SESSION_TOKEN_KEY = 'reol_session_token'
+
+export const getSessionToken = (): string | null => {
+  if (typeof window === 'undefined') return null
+  try {
+    return localStorage.getItem(SESSION_TOKEN_KEY)
+  } catch {
+    return null
+  }
+}
+
+export const setSessionToken = (token: string) => {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.setItem(SESSION_TOKEN_KEY, token)
+  } catch {
+    // localStorageが使えない環境ではトークンを保持できない(書き込みはサーバーで拒否される)
+  }
+}
+
+export const clearSessionToken = () => {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.removeItem(SESSION_TOKEN_KEY)
+  } catch {
+    // ignore
+  }
+}
+
+export const fetchWithSessionToken: typeof fetch = (input, init) => {
+  const token = getSessionToken()
+  if (!token) return fetch(input, init)
+  // 第1引数が Request の場合、init にヘッダーが無ければ Request 側のヘッダーを引き継ぐ
+  const baseHeaders =
+    init?.headers ??
+    (typeof Request !== 'undefined' && input instanceof Request ? input.headers : undefined)
+  const headers = new Headers(baseHeaders)
+  headers.set('x-session-token', token)
+  return fetch(input, { ...init, headers })
+}
+
 // 開発モードまたは環境変数が設定されていない場合はnullクライアントを返す
 const createSupabaseClient = () => {
   if (!supabaseUrl || !supabaseAnonKey) {
@@ -31,7 +75,10 @@ const createSupabaseClient = () => {
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: true
-    }
+    },
+    global: {
+      fetch: fetchWithSessionToken,
+    },
   })
 }
 
