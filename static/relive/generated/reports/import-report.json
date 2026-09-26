@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T18:23:44.379Z",
+  "generatedAt": "2026-09-01T21:39:25.122Z",
   "counts": {
     "sourceLives": 76,
     "sourceLiveItems": 170,
-    "sourceSetlistEntries": 2156,
+    "sourceSetlistEntries": 2271,
     "sourceDiscographies": 94,
     "sourceSongs": 251,
     "generatedTracks": 251,
@@ -12,22 +12,22 @@
     "generatedVenues": 116,
     "verifiedVenueCapacities": 21,
     "venueCapacitiesNeedingVerification": 95,
-    "matchedEntries": 1875,
+    "matchedEntries": 1982,
     "candidateEntries": 12,
     "specialEntries": 124,
-    "unmatchedEntries": 145
+    "unmatchedEntries": 153
   },
   "unmatchedRawTitles": [
     {
       "rawTitle": "港のヨーコ・ヨコハマ・ヨコスカ",
       "normalizedTitle": "港のヨーコヨコハマヨコスカ",
-      "count": 22,
+      "count": 27,
       "exampleSetlistIds": [
+        "live_item_019e8284-f2b9-7086-94cd-4756bc3a8a38",
+        "live_item_019f53e2-dc4e-775d-828b-8839c883f961",
+        "live_item_019e8284-f332-7d51-a5a3-f8a90b94113c",
         "live_item_019e8284-f255-7f05-a5de-574ac6f9b6f6",
-        "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221",
-        "live_item_019e8284-f189-7ebe-8773-0c2f7f9259fd",
-        "live_item_019e8284-f128-7e46-8a9f-134032da24f1",
-        "live_item_019e8284-f0d0-7c4c-b463-efb128b466db"
+        "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221"
       ],
       "reason": "no_discography_match"
     },
@@ -61,6 +61,17 @@
         "live_item_019e8284-df9c-7077-9032-3ff96d8ff44d",
         "live_item_019e8284-df39-730e-afd3-a575664f8694",
         "live_item_019e8284-decf-7fec-8307-c5845b9552e4"
+      ],
+      "reason": "no_discography_match"
+    },
+    {
+      "rawTitle": "木綿のハンカチーフ",
+      "normalizedTitle": "木綿のハンカチーフ",
+      "count": 3,
+      "exampleSetlistIds": [
+        "live_item_019e8284-acc2-7e20-8699-e0223343a086",
+        "live_item_019e8284-ac60-7813-98eb-70bbaa71b61a",
+        "live_item_019e8284-abf6-7eed-be01-8b053a8f7927"
       ],
       "reason": "no_discography_match"
     },
