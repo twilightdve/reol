@@ -19,6 +19,13 @@ export const onClientEntry: GatsbyBrowser["onClientEntry"] = () => {
   }
 };
 
+// gatsby-plugin-offline(Service Worker)が新しい版を検出したら即座に再読み込みする。
+// これが無いと、デプロイ後も古いHTML/JSで動き続けるタブが残る(サーバー側の変更と
+// 食い違った古いクライアントからの書き込みが失敗し続ける)。
+export const onServiceWorkerUpdateReady: GatsbyBrowser["onServiceWorkerUpdateReady"] = () => {
+  window.location.reload();
+};
+
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   element,
 }) => {

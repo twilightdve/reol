@@ -82,9 +82,57 @@ END;
 $$;
 
 -- ============================================================
--- 4. ログイン: 試行回数制限 + セッション発行
+-- 4. パスワード照合 + 試行回数制限(内部用)
 -- ============================================================
--- rate_limits を「login:<ユーザーID>」をキーに使い、15分間に10回失敗したら拒否する。
+-- パスワードを照合するすべての経路(ログイン・パスワード変更・ID変更・退会)で使う。
+-- rate_limits を「login:<ユーザーID>」をキーに使い、15分間に10回失敗したら、
+-- 正しいパスワードでも15分間は拒否する。
+-- 失敗の記録は実在するユーザーIDのみ(存在しないIDで行が増え続けないように)。
+-- 戻り値: 'ok' / 'invalid' / 'locked'
+CREATE OR REPLACE FUNCTION public._verify_password_with_limit(p_user_id TEXT, p_password TEXT)
+RETURNS TEXT
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions, pg_temp
+AS $$
+DECLARE
+  v_key TEXT := 'login:' || coalesce(p_user_id, '');
+  v_count INTEGER;
+  v_start TIMESTAMPTZ;
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_user_id) THEN
+    RETURN 'invalid';
+  END IF;
+
+  SELECT request_count, window_start INTO v_count, v_start
+  FROM public.rate_limits WHERE ip_address = v_key;
+  IF FOUND AND v_start > now() - interval '15 minutes' AND v_count >= 10 THEN
+    RETURN 'locked';
+  END IF;
+
+  IF public._verify_and_upgrade_password(p_user_id, p_password) THEN
+    DELETE FROM public.rate_limits WHERE ip_address = v_key;
+    RETURN 'ok';
+  END IF;
+
+  INSERT INTO public.rate_limits AS rl (ip_address, request_count, window_start)
+  VALUES (v_key, 1, now())
+  ON CONFLICT (ip_address) DO UPDATE SET
+    request_count = CASE WHEN rl.window_start <= now() - interval '15 minutes'
+                         THEN 1 ELSE rl.request_count + 1 END,
+    window_start  = CASE WHEN rl.window_start <= now() - interval '15 minutes'
+                         THEN now() ELSE rl.window_start END;
+  -- 1日以上前の記録は掃除する
+  DELETE FROM public.rate_limits
+  WHERE ip_address LIKE 'login:%' AND window_start < now() - interval '1 day';
+
+  RETURN 'invalid';
+END;
+$$;
+
+-- ============================================================
+-- 4b. ログイン: 試行回数制限つき照合 + セッション発行
+-- ============================================================
 CREATE OR REPLACE FUNCTION public.verify_user_login(p_user_id TEXT, p_password TEXT)
 RETURNS JSONB
 LANGUAGE plpgsql
@@ -93,31 +141,17 @@ SET search_path = public, extensions, pg_temp
 AS $$
 DECLARE
   v_profile RECORD;
-  v_key TEXT := 'login:' || coalesce(p_user_id, '');
-  v_count INTEGER;
-  v_start TIMESTAMPTZ;
+  v_result TEXT;
   v_token TEXT;
 BEGIN
-  SELECT request_count, window_start INTO v_count, v_start
-  FROM public.rate_limits WHERE ip_address = v_key;
-  IF FOUND AND v_start > now() - interval '15 minutes' AND v_count >= 10 THEN
+  v_result := public._verify_password_with_limit(p_user_id, p_password);
+  IF v_result = 'locked' THEN
     RETURN jsonb_build_object('success', false, 'error', 'ログインの試行回数が多すぎます。15分ほど待ってから再度お試しください');
-  END IF;
-
-  SELECT * INTO v_profile FROM profiles WHERE id = p_user_id;
-
-  IF NOT FOUND OR NOT public._verify_and_upgrade_password(p_user_id, p_password) THEN
-    INSERT INTO public.rate_limits AS rl (ip_address, request_count, window_start)
-    VALUES (v_key, 1, now())
-    ON CONFLICT (ip_address) DO UPDATE SET
-      request_count = CASE WHEN rl.window_start <= now() - interval '15 minutes'
-                           THEN 1 ELSE rl.request_count + 1 END,
-      window_start  = CASE WHEN rl.window_start <= now() - interval '15 minutes'
-                           THEN now() ELSE rl.window_start END;
+  ELSIF v_result <> 'ok' THEN
     RETURN jsonb_build_object('success', false, 'error', 'ユーザーIDまたはパスワードが正しくありません');
   END IF;
 
-  DELETE FROM public.rate_limits WHERE ip_address = v_key;
+  SELECT * INTO v_profile FROM profiles WHERE id = p_user_id;
   v_token := public._issue_session(p_user_id);
 
   RETURN jsonb_build_object(
@@ -190,12 +224,17 @@ LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public, extensions, pg_temp
 AS $$
+DECLARE
+  v_result TEXT;
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_user_id) THEN
     RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
   END IF;
 
-  IF NOT public._verify_and_upgrade_password(p_user_id, p_old_password) THEN
+  v_result := public._verify_password_with_limit(p_user_id, p_old_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
     RETURN jsonb_build_object('success', false, 'error', '現在のパスワードが正しくありません');
   END IF;
 
@@ -232,11 +271,15 @@ SET search_path = public, extensions, pg_temp
 AS $$
 DECLARE
   v_profile RECORD;
+  v_result TEXT;
 BEGIN
-  IF NOT public._verify_and_upgrade_password(p_old_id, p_password) THEN
-    IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_old_id) THEN
-      RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
-    END IF;
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_old_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
+  END IF;
+  v_result := public._verify_password_with_limit(p_old_id, p_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
     RETURN jsonb_build_object('success', false, 'error', 'パスワードが正しくありません');
   END IF;
 
@@ -279,17 +322,56 @@ END;
 $$;
 
 -- ============================================================
+-- 8b. 退会: 試行回数制限つきの照合に変更(削除処理は従来どおり、残りは連鎖削除)
+-- ============================================================
+CREATE OR REPLACE FUNCTION public.delete_account(p_user_id TEXT, p_password TEXT)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions, pg_temp
+AS $$
+DECLARE
+  v_result TEXT;
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_user_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
+  END IF;
+  v_result := public._verify_password_with_limit(p_user_id, p_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードが正しくありません');
+  END IF;
+
+  DELETE FROM venue_attendances WHERE user_id = p_user_id;
+  DELETE FROM comments WHERE user_id = p_user_id;
+  DELETE FROM setlist_votes WHERE user_id = p_user_id;
+  -- user_collections / venue_checkins / venue_checklists / encounter_wants /
+  -- user_sessions は profiles への外部キー(ON DELETE CASCADE)で削除される
+  DELETE FROM profiles WHERE id = p_user_id;
+
+  RETURN jsonb_build_object('success', true);
+
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('success', false, 'error', SQLERRM);
+END;
+$$;
+
+-- ============================================================
 -- 9. 実行権限
 -- ============================================================
 -- PostgreSQL は関数の EXECUTE を既定で PUBLIC に与えるため、明示的に絞る。
 REVOKE EXECUTE ON FUNCTION public._request_token_hash() FROM PUBLIC, anon, authenticated;
 REVOKE EXECUTE ON FUNCTION public._issue_session(TEXT) FROM PUBLIC, anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public._verify_password_with_limit(TEXT, TEXT) FROM PUBLIC, anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public._verify_and_upgrade_password(TEXT, TEXT) FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.request_session_user_id() TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.sign_up_user(TEXT, TEXT, TEXT) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.sign_out() TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.verify_user_login(TEXT, TEXT) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.update_user_password(TEXT, TEXT, TEXT) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.change_user_id(TEXT, TEXT, TEXT) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.delete_account(TEXT, TEXT) TO anon, authenticated;
 
 -- クライアントが使わない管理用関数は anon/authenticated から外す
 REVOKE EXECUTE ON FUNCTION public.cleanup_old_rate_limits() FROM PUBLIC, anon, authenticated;

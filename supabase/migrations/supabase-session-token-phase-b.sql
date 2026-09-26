@@ -156,4 +156,151 @@ BEGIN
 END;
 $$;
 
+-- ============================================================
+-- パスワード変更・ID変更・退会: 本人のセッションからのリクエストのみ受け付ける
+-- (フェーズAの定義に本人確認を足したもの。パスワード照合と試行回数制限は従来どおり)
+-- ============================================================
+CREATE OR REPLACE FUNCTION public.update_user_password(p_user_id TEXT, p_old_password TEXT, p_new_password TEXT)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions, pg_temp
+AS $$
+DECLARE
+  v_result TEXT;
+BEGIN
+  -- 本人のセッションからのリクエストのみ受け付ける
+  IF p_user_id IS DISTINCT FROM public.request_session_user_id() THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ログインの有効期限が切れています。再度ログインしてください');
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_user_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
+  END IF;
+
+  v_result := public._verify_password_with_limit(p_user_id, p_old_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
+    RETURN jsonb_build_object('success', false, 'error', '現在のパスワードが正しくありません');
+  END IF;
+
+  IF p_new_password IS NULL OR length(p_new_password) < 8 THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードは8文字以上で入力してください');
+  END IF;
+
+  UPDATE profiles
+  SET password_hash = crypt(p_new_password, gen_salt('bf')),
+      updated_at = now()
+  WHERE id = p_user_id;
+
+  DELETE FROM public.user_sessions
+  WHERE user_id = p_user_id
+    AND token_hash IS DISTINCT FROM public._request_token_hash();
+
+  RETURN jsonb_build_object('success', true);
+
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('success', false, 'error', SQLERRM);
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION public.change_user_id(p_old_id TEXT, p_new_id TEXT, p_password TEXT)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions, pg_temp
+AS $$
+DECLARE
+  v_profile RECORD;
+  v_result TEXT;
+BEGIN
+  -- 本人のセッションからのリクエストのみ受け付ける
+  IF p_old_id IS DISTINCT FROM public.request_session_user_id() THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ログインの有効期限が切れています。再度ログインしてください');
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_old_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
+  END IF;
+  v_result := public._verify_password_with_limit(p_old_id, p_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードが正しくありません');
+  END IF;
+
+  IF p_new_id !~ '^[A-Za-z0-9_]{1,30}$' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'IDは英数字とアンダースコアのみ、1〜30文字で入力してください');
+  END IF;
+
+  IF EXISTS (SELECT 1 FROM profiles WHERE id = p_new_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'このIDは既に使用されています');
+  END IF;
+
+  SELECT * INTO v_profile FROM profiles WHERE id = p_old_id;
+
+  INSERT INTO profiles (
+    id, username, full_name, avatar_url, password_hash, created_at, updated_at,
+    is_public, encounter_policy, reol_type, meta_tags, favorite_song
+  ) VALUES (
+    p_new_id, v_profile.username, v_profile.full_name, v_profile.avatar_url, v_profile.password_hash,
+    v_profile.created_at, now(),
+    v_profile.is_public, v_profile.encounter_policy, v_profile.reol_type, v_profile.meta_tags, v_profile.favorite_song
+  );
+
+  UPDATE venue_attendances SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE comments          SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE user_collections  SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE setlist_votes     SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE venue_checkins    SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE venue_checklists  SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE encounter_wants   SET user_id = p_new_id WHERE user_id = p_old_id;
+  UPDATE encounter_wants   SET target_user_id = p_new_id WHERE target_user_id = p_old_id;
+  UPDATE public.user_sessions SET user_id = p_new_id WHERE user_id = p_old_id;
+
+  DELETE FROM profiles WHERE id = p_old_id;
+
+  RETURN jsonb_build_object('success', true, 'new_id', p_new_id);
+
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('success', false, 'error', SQLERRM);
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION public.delete_account(p_user_id TEXT, p_password TEXT)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions, pg_temp
+AS $$
+DECLARE
+  v_result TEXT;
+BEGIN
+  -- 本人のセッションからのリクエストのみ受け付ける
+  IF p_user_id IS DISTINCT FROM public.request_session_user_id() THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ログインの有効期限が切れています。再度ログインしてください');
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE id = p_user_id) THEN
+    RETURN jsonb_build_object('success', false, 'error', 'ユーザーが見つかりません');
+  END IF;
+  v_result := public._verify_password_with_limit(p_user_id, p_password);
+  IF v_result = 'locked' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードの試行回数が多すぎます。15分ほど待ってから再度お試しください');
+  ELSIF v_result <> 'ok' THEN
+    RETURN jsonb_build_object('success', false, 'error', 'パスワードが正しくありません');
+  END IF;
+
+  DELETE FROM venue_attendances WHERE user_id = p_user_id;
+  DELETE FROM comments WHERE user_id = p_user_id;
+  DELETE FROM setlist_votes WHERE user_id = p_user_id;
+  -- user_collections / venue_checkins / venue_checklists / encounter_wants /
+  -- user_sessions は profiles への外部キー(ON DELETE CASCADE)で削除される
+  DELETE FROM profiles WHERE id = p_user_id;
+
+  RETURN jsonb_build_object('success', true);
+
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('success', false, 'error', SQLERRM);
+END;
+$$;
+
 COMMIT;
