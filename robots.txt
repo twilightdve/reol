@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /relive/
 Disallow: /relive
-Sitemap: https://reol.twilightea.com/sitemap.xml
+Sitemap: https://reol.twilightea.com/sitemap-index.xml
 Host: https://reol.twilightea.com
