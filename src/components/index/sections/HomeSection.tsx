@@ -54,9 +54,13 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           <span aria-hidden className="inline-block h-px w-16 bg-bx-blue opacity-60" />
         </p>
         <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-[1.22] text-bx-ink">
-          Reolのこれまでを、
-          <br />
-          <span className="text-bx-yellow">まるっと</span>遡れる。
+          <span className="block text-left">
+            Reolの<span className="text-bx-blue">これまで</span>と、
+          </span>
+          <span className="block text-left">
+            <span className="invisible" aria-hidden="true">Reolの</span>
+            <span className="text-bx-yellow">これから</span>を知る。
+          </span>
         </h1>
         <p className="mt-4 text-sm max-w-lg leading-relaxed text-bx-ink2">
           楽曲・ライブ・セトリ・ロケ地。れをる時代から現在まで、

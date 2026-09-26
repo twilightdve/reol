@@ -7,7 +7,7 @@ import { Kicker } from "../redesign";
  *
  * リリース日(discography)と公演日(live items)から、今日と同じ月日の
  * 過去の出来事を「N年前の今日」として表示する。
- * 完全一致がない日は段階フォールバック(±3日以内 → 同月 → 直近の未来の記念日)で
+ * 完全一致がない日は段階フォールバック(±2日以内 → 同月 → 直近の未来の記念日)で
  * 何らかの表示を維持し、空表示になる日をなくす。
  *
  * サイトはSSG(ビルド時静的生成)のため「今日」をHTMLに焼き込めない。
@@ -151,7 +151,7 @@ const OnThisDay: React.FC = () => {
 
   if (displayEvents.length === 0) {
     const near = withDelta.filter(
-      (e) => (e.forward > 0 && e.forward <= 3) || (e.backward > 0 && e.backward <= 3)
+      (e) => (e.forward > 0 && e.forward <= 2) || (e.backward > 0 && e.backward <= 2)
     );
     if (near.length > 0) {
       mode = "near";
@@ -190,9 +190,9 @@ const OnThisDay: React.FC = () => {
             headline = `${anniversary}年前の今日`;
           } else if (mode === "near") {
             headline =
-              ev.backward > 0
-                ? `${relativeDayLabel(ev.backward, "past")}が${anniversary}周年`
-                : `${relativeDayLabel(ev.forward, "future")}で${anniversary}周年`;
+              ev.forward > 0 && ev.forward <= 2
+                ? `${relativeDayLabel(ev.forward, "future")}で${anniversary}周年`
+                : `${relativeDayLabel(ev.backward, "past")}が${anniversary}周年`;
           } else if (mode === "month") {
             headline = `${ev.monthDay.replace("-", "/")}（${anniversary}年前）`;
           } else {
