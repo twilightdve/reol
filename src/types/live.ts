@@ -53,6 +53,8 @@ export type LiveItemSong = {
   liveItemUuid: string;
   liveItemSongName: string;
   type?: LiveItemSongType | null;
+  /** その公演でのこの曲の演奏映像YouTube動画ID(生ID)。任意項目 */
+  youtubeVideoId?: string | null;
   /** songMatcher で解決された Discography 上の楽曲 UUID。未解決時は null */
   songUuid?: string | null;
   /** 解決経路 (sheet / exact / alias / stripped / normalized / stripped+normalized / none) */

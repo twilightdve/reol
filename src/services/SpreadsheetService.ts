@@ -128,6 +128,7 @@ const COL = {
     range: "live_item_song!A2:N",
     liveItemSongName: 6,
     type: 7,
+    youtubeVideoId: 8,
     uuid: 11,
     liveItemUuid: 12,
     songUuid: 13,
@@ -430,6 +431,7 @@ export class SheetService {
           liveItemUuid: str(row[COL.liveItemSong.liveItemUuid]),
           liveItemSongName: str(row[COL.liveItemSong.liveItemSongName]),
           type,
+          youtubeVideoId: strOrNull(row[COL.liveItemSong.youtubeVideoId]),
           songUuid: strOrNull(row[COL.liveItemSong.songUuid]),
         };
       })

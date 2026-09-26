@@ -524,6 +524,7 @@ const createSongStatsNodes = async (
     rawName: string;
     type: LiveItemSong["type"];
     matchSource: string;
+    youtubeVideoId: string | null;
   };
   const playsBySong = new Map<string, Play[]>();
   // 副題違いの楽曲マスタ重複("煽げや尊し(Agitate)" / "煽げや尊し" 等)を
@@ -583,6 +584,7 @@ const createSongStatsNodes = async (
         rawName: s.liveItemSongName,
         type: s.type ?? null,
         matchSource,
+        youtubeVideoId: s.youtubeVideoId ?? null,
       });
       playsBySong.set(resolvedUuid, list);
     } else {
@@ -1474,6 +1476,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           liveItemSlug: string;
           liveItemName: string | null;
           liveItemSongUuid: string;
+          youtubeVideoId: string | null;
         }[];
       }[];
     } | null;
@@ -1527,6 +1530,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             liveItemSlug
             liveItemName
             liveItemSongUuid
+            youtubeVideoId
           }
         }
       }
@@ -1697,6 +1701,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             liveItemSongName: string;
             songUuid: string | null;
             type: LiveItemSong["type"] | null;
+            youtubeVideoId: string | null;
           }[];
           posts: {
             liveItemPostUuid: string;
@@ -1740,6 +1745,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               liveItemSongName
               songUuid
               type
+              youtubeVideoId
             }
             posts {
               liveItemPostUuid
@@ -1788,6 +1794,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           liveItemSongUuid: s.liveItemSongUuid,
           liveItemSongName: s.liveItemSongName,
           type: s.type ?? null,
+          youtubeVideoId: s.youtubeVideoId ?? null,
           slug: s.songUuid
             ? statsSlugByUuid.get(s.songUuid) ??
               statsSlugByName.get(s.liveItemSongName) ??
