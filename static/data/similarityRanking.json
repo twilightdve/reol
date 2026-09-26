@@ -1,0 +1,1002 @@
+[
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveItemSlug": "bosuton",
+      "liveTitle": "Anime Boston",
+      "liveItemName": "ボストン",
+      "date": "2025-05-23-2025-05-25",
+      "place": "Hynes Convention Center in Boston"
+    },
+    "sharedCount": 13,
+    "score": 1
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-db09-75c5-8464-3176f8b63fb0",
+      "liveItemSlug": "no-title",
+      "liveTitle": "Reol Oneman Live「No title」",
+      "liveItemName": null,
+      "date": "2024-08-17",
+      "place": "日本武道館"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e456-75bb-aea4-a4de231dca9a",
+      "liveItemSlug": "shanhai-3",
+      "liveTitle": "Reol Oneman Live 'No title' in SHANGHAI",
+      "liveItemName": "上海",
+      "date": "2025-08-17",
+      "place": "静安体育中心"
+    },
+    "sharedCount": 27,
+    "score": 0.931
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
+      "liveItemSlug": "ousaka-8",
+      "liveTitle": "Namba Culture Terminal 2024  -1st Anniversary-",
+      "liveItemName": "大阪",
+      "date": "2024-10-26",
+      "place": "Yogibo META VALLEY"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveItemSlug": "chuugoku",
+      "liveTitle": "XIHU MUSIC FESTIVAL",
+      "liveItemName": "中国",
+      "date": "2024-11-02",
+      "place": "中杭州太子湾公園（中国）"
+    },
+    "sharedCount": 11,
+    "score": 0.733
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+      "liveItemSlug": "jaiga-ousaka-2",
+      "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "liveItemName": null,
+      "date": "2023-07-22",
+      "place": "舞洲スポーツアイランド"
+    },
+    "sharedCount": 7,
+    "score": 0.7
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e310-7509-9ed2-1faafc189aae",
+      "liveItemSlug": "kawasaki",
+      "liveTitle": "DEAD POP FESTiVAL 2025",
+      "liveItemName": "川崎",
+      "date": "2025-06-28",
+      "place": "川崎市東扇島東公園特設会場"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveItemSlug": "chiba",
+      "liveTitle": "Sammy presents NEW HORIZON FEST",
+      "liveItemName": "千葉",
+      "date": "2025-08-02",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 7,
+    "score": 0.7
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e654-7d1d-9a67-1a419c63a86e",
+      "liveItemSlug": "taiwan",
+      "liveTitle": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
+      "liveItemName": "台湾",
+      "date": "2025-12-06",
+      "place": "新北市・新北大都会公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e6d4-7a6f-b41f-30ae6d8d5b49",
+      "liveItemSlug": "countdown-japan-4",
+      "liveTitle": "COUNTDOWN JAPAN 25/26",
+      "liveItemName": null,
+      "date": "2025-12-28",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 7,
+    "score": 0.7
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveItemSlug": "osaka-3",
+      "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "liveItemName": null,
+      "date": "2023-05-14",
+      "place": "海とのふれあい広場"
+    },
+    "sharedCount": 6,
+    "score": 0.667
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveItemSlug": "chuugoku",
+      "liveTitle": "XIHU MUSIC FESTIVAL",
+      "liveItemName": "中国",
+      "date": "2024-11-02",
+      "place": "中杭州太子湾公園（中国）"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
+      "liveItemSlug": "kankoku-2",
+      "liveTitle": "WONDERLIVET2024",
+      "liveItemName": "韓国",
+      "date": "2024-11-10",
+      "place": "KINTEX HALL"
+    },
+    "sharedCount": 8,
+    "score": 0.615
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-9e35-7021-9816-80e8102d0a47",
+      "liveItemSlug": "tokyo",
+      "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "liveItemName": "TOKYO",
+      "date": "2017-02-26",
+      "place": "Zepp Tokyo"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-a20c-7fa9-8858-b25b14d2993a",
+      "liveItemSlug": "osaka-2",
+      "liveTitle": "REOL LAST LIVE「終楽章」",
+      "liveItemName": "OSAKA",
+      "date": "2017-10-20",
+      "place": "Zepp Namba"
+    },
+    "sharedCount": 15,
+    "score": 0.556
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-9e35-7021-9816-80e8102d0a47",
+      "liveItemSlug": "tokyo",
+      "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "liveItemName": "TOKYO",
+      "date": "2017-02-26",
+      "place": "Zepp Tokyo"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-a2ce-7636-a86a-6b2e5d88a5d2",
+      "liveItemSlug": "tokyo-2",
+      "liveTitle": "REOL LAST LIVE「終楽章」",
+      "liveItemName": "TOKYO",
+      "date": "2017-10-22",
+      "place": "豊洲PIT"
+    },
+    "sharedCount": 15,
+    "score": 0.556
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-be0d-7313-9126-280dce017540",
+      "liveItemSlug": "rock-japan-2",
+      "liveTitle": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+      "liveItemName": null,
+      "date": "2022-08-06",
+      "place": "千葉市蘇我スポーツ公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-be85-772d-b969-a3665639b344",
+      "liveItemSlug": "ousakajou",
+      "liveTitle": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+      "liveItemName": null,
+      "date": "2022-10-15",
+      "place": "大阪城音楽堂"
+    },
+    "sharedCount": 6,
+    "score": 0.545
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-9e9a-74b6-8004-255ecae3cc6a",
+      "liveItemSlug": "osaka",
+      "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "liveItemName": "OSAKA",
+      "date": "2017-03-05",
+      "place": "なんばHatch"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-a20c-7fa9-8858-b25b14d2993a",
+      "liveItemSlug": "osaka-2",
+      "liveTitle": "REOL LAST LIVE「終楽章」",
+      "liveItemName": "OSAKA",
+      "date": "2017-10-20",
+      "place": "Zepp Namba"
+    },
+    "sharedCount": 14,
+    "score": 0.538
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-9e9a-74b6-8004-255ecae3cc6a",
+      "liveItemSlug": "osaka",
+      "liveTitle": "REOLワンマンライブ 『テンカイ ノ コウシキ』",
+      "liveItemName": "OSAKA",
+      "date": "2017-03-05",
+      "place": "なんばHatch"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-a2ce-7636-a86a-6b2e5d88a5d2",
+      "liveItemSlug": "tokyo-2",
+      "liveTitle": "REOL LAST LIVE「終楽章」",
+      "liveItemName": "TOKYO",
+      "date": "2017-10-22",
+      "place": "豊洲PIT"
+    },
+    "sharedCount": 14,
+    "score": 0.538
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveItemSlug": "chuugoku",
+      "liveTitle": "XIHU MUSIC FESTIVAL",
+      "liveItemName": "中国",
+      "date": "2024-11-02",
+      "place": "中杭州太子湾公園（中国）"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 8,
+    "score": 0.5
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveItemSlug": "chuugoku",
+      "liveTitle": "XIHU MUSIC FESTIVAL",
+      "liveItemName": "中国",
+      "date": "2024-11-02",
+      "place": "中杭州太子湾公園（中国）"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveItemSlug": "bosuton",
+      "liveTitle": "Anime Boston",
+      "liveItemName": "ボストン",
+      "date": "2025-05-23-2025-05-25",
+      "place": "Hynes Convention Center in Boston"
+    },
+    "sharedCount": 8,
+    "score": 0.5
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "sharedCount": 6,
+    "score": 0.5
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveItemSlug": "furederikku",
+      "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+      "liveItemName": null,
+      "date": "2024-06-22",
+      "place": "福岡　スカラエスパシオ"
+    },
+    "sharedCount": 6,
+    "score": 0.5
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveItemSlug": "osaka-3",
+      "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "liveItemName": null,
+      "date": "2023-05-14",
+      "place": "海とのふれあい広場"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "sharedCount": 5,
+    "score": 0.5
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
+      "liveItemSlug": "ousaka-8",
+      "liveTitle": "Namba Culture Terminal 2024  -1st Anniversary-",
+      "liveItemName": "大阪",
+      "date": "2024-10-26",
+      "place": "Yogibo META VALLEY"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
+      "liveItemSlug": "kankoku-2",
+      "liveTitle": "WONDERLIVET2024",
+      "liveItemName": "韓国",
+      "date": "2024-11-10",
+      "place": "KINTEX HALL"
+    },
+    "sharedCount": 8,
+    "score": 0.471
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+      "liveItemSlug": "jaiga-ousaka-2",
+      "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "liveItemName": null,
+      "date": "2023-07-22",
+      "place": "舞洲スポーツアイランド"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveItemSlug": "furederikku",
+      "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+      "liveItemName": null,
+      "date": "2024-06-22",
+      "place": "福岡　スカラエスパシオ"
+    },
+    "sharedCount": 6,
+    "score": 0.462
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c91b-7a1b-af1e-40bda47b0c1c",
+      "liveItemSlug": "shinpururaifu",
+      "liveTitle": "Simple Life Shanghai 上海簡単生活節",
+      "liveItemName": null,
+      "date": "2023-10-05",
+      "place": "中国上海・森蘭緑地（Sen Lan Green Park)"
+    },
+    "sharedCount": 6,
+    "score": 0.462
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-be0d-7313-9126-280dce017540",
+      "liveItemSlug": "rock-japan-2",
+      "liveTitle": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+      "liveItemName": null,
+      "date": "2022-08-06",
+      "place": "千葉市蘇我スポーツ公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "sharedCount": 5,
+    "score": 0.455
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "sharedCount": 5,
+    "score": 0.455
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-b4b7-7050-a79a-0d20c96c5af1",
+      "liveItemSlug": "onrain",
+      "liveTitle": "JAPAN ONLINE FESTIVAL 2020",
+      "liveItemName": "オンライン",
+      "date": "2020-11-07",
+      "place": null
+    },
+    "b": {
+      "liveItemUuid": "019e8284-b5ee-7bd0-9205-4618262b06af",
+      "liveItemSlug": "onrain-2",
+      "liveTitle": "LIVE YEAH!!! vol.3~みんなで作るサイコーPARTY!!!~",
+      "liveItemName": "オンライン",
+      "date": "2021-03-04",
+      "place": null
+    },
+    "sharedCount": 4,
+    "score": 0.444
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+      "liveItemSlug": "yokohama",
+      "liveTitle": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+      "liveItemName": "横浜",
+      "date": "2025-04-05",
+      "place": "KT Zepp Yokohama"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "sharedCount": 4,
+    "score": 0.444
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+      "liveItemSlug": "yokohama",
+      "liveTitle": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+      "liveItemName": "横浜",
+      "date": "2025-04-05",
+      "place": "KT Zepp Yokohama"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e310-7509-9ed2-1faafc189aae",
+      "liveItemSlug": "kawasaki",
+      "liveTitle": "DEAD POP FESTiVAL 2025",
+      "liveItemName": "川崎",
+      "date": "2025-06-28",
+      "place": "川崎市東扇島東公園特設会場"
+    },
+    "sharedCount": 4,
+    "score": 0.444
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
+      "liveItemSlug": "kankoku-2",
+      "liveTitle": "WONDERLIVET2024",
+      "liveItemName": "韓国",
+      "date": "2024-11-10",
+      "place": "KINTEX HALL"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 7,
+    "score": 0.438
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
+      "liveItemSlug": "kankoku-2",
+      "liveTitle": "WONDERLIVET2024",
+      "liveItemName": "韓国",
+      "date": "2024-11-10",
+      "place": "KINTEX HALL"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveItemSlug": "bosuton",
+      "liveTitle": "Anime Boston",
+      "liveItemName": "ボストン",
+      "date": "2025-05-23-2025-05-25",
+      "place": "Hynes Convention Center in Boston"
+    },
+    "sharedCount": 7,
+    "score": 0.438
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+      "liveItemSlug": "jaiga-ousaka-2",
+      "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "liveItemName": null,
+      "date": "2023-07-22",
+      "place": "舞洲スポーツアイランド"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c7fa-7f44-859b-c2c844e5fe35",
+      "liveItemSlug": "impactnation",
+      "liveTitle": "Impactnation Japan Festival 2023",
+      "liveItemName": null,
+      "date": "2023-07-30",
+      "place": "Istora Gelora Bung Karno Jakarta, Indonesia."
+    },
+    "sharedCount": 6,
+    "score": 0.429
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveItemSlug": "osaka-3",
+      "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "liveItemName": null,
+      "date": "2023-05-14",
+      "place": "海とのふれあい広場"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "sharedCount": 5,
+    "score": 0.417
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveItemSlug": "chiba",
+      "liveTitle": "Sammy presents NEW HORIZON FEST",
+      "liveItemName": "千葉",
+      "date": "2025-08-02",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 5,
+    "score": 0.417
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+      "liveItemSlug": "jaiga-ousaka-2",
+      "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "liveItemName": null,
+      "date": "2023-07-22",
+      "place": "舞洲スポーツアイランド"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c5dd-7801-a88e-dd2b973f0b77",
+      "liveItemSlug": "arabaki-rock",
+      "liveTitle": "ARABAKI ROCK FEST. 2023",
+      "liveItemName": null,
+      "date": "2023-04-30",
+      "place": "みちのく公園 北地区"
+    },
+    "sharedCount": 5,
+    "score": 0.417
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c84c-7b17-b592-fc88201ab426",
+      "liveItemSlug": "summer-sonic",
+      "liveTitle": "SUMMER SONIC 2023",
+      "liveItemName": null,
+      "date": "2023-08-19",
+      "place": "幕張メッセ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "sharedCount": 5,
+    "score": 0.417
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
+      "liveItemSlug": "ousaka-8",
+      "liveTitle": "Namba Culture Terminal 2024  -1st Anniversary-",
+      "liveItemName": "大阪",
+      "date": "2024-10-26",
+      "place": "Yogibo META VALLEY"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 8,
+    "score": 0.4
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-dd72-7b0f-a168-892a0ff78b01",
+      "liveItemSlug": "ousaka-8",
+      "liveTitle": "Namba Culture Terminal 2024  -1st Anniversary-",
+      "liveItemName": "大阪",
+      "date": "2024-10-26",
+      "place": "Yogibo META VALLEY"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveItemSlug": "bosuton",
+      "liveTitle": "Anime Boston",
+      "liveItemName": "ボストン",
+      "date": "2025-05-23-2025-05-25",
+      "place": "Hynes Convention Center in Boston"
+    },
+    "sharedCount": 8,
+    "score": 0.4
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 6,
+    "score": 0.4
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e297-7eeb-bcf2-529cdbb8896c",
+      "liveItemSlug": "bosuton",
+      "liveTitle": "Anime Boston",
+      "liveItemName": "ボストン",
+      "date": "2025-05-23-2025-05-25",
+      "place": "Hynes Convention Center in Boston"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "sharedCount": 6,
+    "score": 0.4
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e1b2-76cb-a62c-ddae3cac9f98",
+      "liveItemSlug": "yokohama",
+      "liveTitle": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL",
+      "liveItemName": "横浜",
+      "date": "2025-04-05",
+      "place": "KT Zepp Yokohama"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveItemSlug": "chiba",
+      "liveTitle": "Sammy presents NEW HORIZON FEST",
+      "liveItemName": "千葉",
+      "date": "2025-08-02",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 4,
+    "score": 0.4
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-be0d-7313-9126-280dce017540",
+      "liveItemSlug": "rock-japan-2",
+      "liveTitle": "ROCK IN JAPAN FESTIVAL 2022 HILLSIDE STAGE",
+      "liveItemName": null,
+      "date": "2022-08-06",
+      "place": "千葉市蘇我スポーツ公園"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveItemSlug": "furederikku",
+      "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+      "liveItemName": null,
+      "date": "2024-06-22",
+      "place": "福岡　スカラエスパシオ"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-be85-772d-b969-a3665639b344",
+      "liveItemSlug": "ousakajou",
+      "liveTitle": "大阪城天守閣復興90周年記念イベント 「大阪城夢祭～LIVE GUMBO PARK～ OSAKA GIGANTIC MUSIC FESTIVAL2022 SPIN-OFF THE BONDS 2022 -EXCITEMENT OSAKA-」",
+      "liveItemName": null,
+      "date": "2022-10-15",
+      "place": "大阪城音楽堂"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveItemSlug": "chiba",
+      "liveTitle": "Sammy presents NEW HORIZON FEST",
+      "liveItemName": "千葉",
+      "date": "2025-08-02",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveItemSlug": "osaka-3",
+      "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "liveItemName": null,
+      "date": "2023-05-14",
+      "place": "海とのふれあい広場"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c7fa-7f44-859b-c2c844e5fe35",
+      "liveItemSlug": "impactnation",
+      "liveTitle": "Impactnation Japan Festival 2023",
+      "liveItemName": null,
+      "date": "2023-07-30",
+      "place": "Istora Gelora Bung Karno Jakarta, Indonesia."
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c6bf-790d-bda0-a7a4977b1503",
+      "liveItemSlug": "osaka-3",
+      "liveTitle": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "liveItemName": null,
+      "date": "2023-05-14",
+      "place": "海とのふれあい広場"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-dde9-7f3d-aa46-c54b3a9f6a3b",
+      "liveItemSlug": "chuugoku",
+      "liveTitle": "XIHU MUSIC FESTIVAL",
+      "liveItemName": "中国",
+      "date": "2024-11-02",
+      "place": "中杭州太子湾公園（中国）"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c7fa-7f44-859b-c2c844e5fe35",
+      "liveItemSlug": "impactnation",
+      "liveTitle": "Impactnation Japan Festival 2023",
+      "liveItemName": null,
+      "date": "2023-07-30",
+      "place": "Istora Gelora Bung Karno Jakarta, Indonesia."
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c84c-7b17-b592-fc88201ab426",
+      "liveItemSlug": "summer-sonic",
+      "liveTitle": "SUMMER SONIC 2023",
+      "liveItemName": null,
+      "date": "2023-08-19",
+      "place": "幕張メッセ"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-d57d-78b7-948b-c1fb96e15a7e",
+      "liveItemSlug": "countdown-japan-3",
+      "liveTitle": "COUNTDOWN JAPAN 23/24",
+      "liveItemName": null,
+      "date": "2023-12-29",
+      "place": "幕張メッセ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveItemSlug": "furederikku",
+      "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+      "liveItemName": null,
+      "date": "2024-06-22",
+      "place": "福岡　スカラエスパシオ"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-d978-7444-bec2-7ce4b9e8cba0",
+      "liveItemSlug": "chou-ongaku-sai",
+      "liveTitle": "超音楽祭 in ニコニコ超会議2024",
+      "liveItemName": null,
+      "date": "2024-04-27",
+      "place": "幕張メッセ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c8ba-7fac-bb0e-991e29f13957",
+      "liveItemSlug": "mirrorball",
+      "liveTitle": "MIRRORBALL PARADE vol.3",
+      "liveItemName": null,
+      "date": "2023-09-10",
+      "place": "新潟テルサ"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-d9da-7681-9fb4-337a29b66f3d",
+      "liveItemSlug": "furederikku",
+      "liveTitle": "#フレデリック「UMIMOYASU 2024 -WAVE-」",
+      "liveItemName": null,
+      "date": "2024-06-22",
+      "place": "福岡　スカラエスパシオ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-c728-7cc6-a77e-2978c04ea33f",
+      "liveItemSlug": "luckyfes23",
+      "liveTitle": "LuckyFes'23",
+      "liveItemName": null,
+      "date": "2023-07-16",
+      "place": "国営ひたち海浜公園"
+    },
+    "sharedCount": 5,
+    "score": 0.385
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-c793-7d38-804e-ee0da3207283",
+      "liveItemSlug": "jaiga-ousaka-2",
+      "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "liveItemName": null,
+      "date": "2023-07-22",
+      "place": "舞洲スポーツアイランド"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 6,
+    "score": 0.375
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-db67-7983-b404-0dff42e5887c",
+      "liveItemSlug": "ousaka-7",
+      "liveTitle": "軌道共鳴2024",
+      "liveItemName": "大阪",
+      "date": "2024-09-20",
+      "place": "なんばHatch"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-de55-75b3-97dc-27fec072c212",
+      "liveItemSlug": "kankoku-2",
+      "liveTitle": "WONDERLIVET2024",
+      "liveItemName": "韓国",
+      "date": "2024-11-10",
+      "place": "KINTEX HALL"
+    },
+    "sharedCount": 6,
+    "score": 0.375
+  },
+  {
+    "a": {
+      "liveItemUuid": "019e8284-e3f3-7743-9070-2ea12d1841a8",
+      "liveItemSlug": "chiba",
+      "liveTitle": "Sammy presents NEW HORIZON FEST",
+      "liveItemName": "千葉",
+      "date": "2025-08-02",
+      "place": "幕張メッセ"
+    },
+    "b": {
+      "liveItemUuid": "019e8284-e221-77bc-aaa9-1d70e433ad82",
+      "liveItemSlug": "shiatoru",
+      "liveTitle": "Sakura-Con 2025",
+      "liveItemName": "シアトル",
+      "date": "2025-04-18〜2025-04-20",
+      "place": "Seattle Convention Center"
+    },
+    "sharedCount": 6,
+    "score": 0.375
+  }
+]

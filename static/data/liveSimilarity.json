@@ -3475,12 +3475,13 @@
       "liveSlug": "osaka-gigantic-music-festival-2026",
       "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
       "date": "2026-08-01",
-      "sharedCount": 7,
-      "score": 0.233,
+      "sharedCount": 8,
+      "score": 0.267,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-ee94-77a8-b274-270d4d301d22",
         "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
         "019e8282-9e1a-7177-9501-7ac3e24ed303",
@@ -3494,16 +3495,46 @@
       "liveSlug": "reol-oneman-live-2026",
       "title": "Reol Oneman Live 2026 美辞学",
       "date": "2026-03-14〜2026-07-18",
-      "sharedCount": 7,
-      "score": 0.233,
+      "sharedCount": 8,
+      "score": 0.267,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-ee36-7d02-919b-36babd0173f5",
         "019e8282-ee94-77a8-b274-270d4d301d22",
         "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
         "019e8282-9e1a-7177-9501-7ac3e24ed303",
         "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+      "liveSlug": "countdown-japan-2526",
+      "title": "COUNTDOWN JAPAN 25/26",
+      "date": "2025-12-28",
+      "sharedCount": 3,
+      "score": 0.214,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-ee36-7d02-919b-36babd0173f5"
+      ]
+    },
+    {
+      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
+      "liveSlug": "reol-oneman-live-in-yokohama-arena",
+      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
+      "date": "2025-11-09",
+      "sharedCount": 6,
+      "score": 0.2,
+      "sharedSongUuids": [
+        "019e8282-b248-7b59-943b-c6976419cc36",
+        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
+        "019e8282-f23c-7c2b-a500-b62ec40367d4",
+        "019e8282-ee36-7d02-919b-36babd0173f5",
+        "019e8282-ee94-77a8-b274-270d4d301d22",
+        "019e8282-9e1a-7177-9501-7ac3e24ed303"
       ]
     },
     {
@@ -3512,7 +3543,7 @@
       "title": "DEAD POP FESTiVAL 2025",
       "date": "2025-06-28",
       "sharedCount": 3,
-      "score": 0.214,
+      "score": 0.2,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
@@ -3525,39 +3556,11 @@
       "title": "Sammy presents NEW HORIZON FEST",
       "date": "2025-08-02",
       "sharedCount": 3,
-      "score": 0.2,
+      "score": 0.188,
       "sharedSongUuids": [
         "019e8282-b248-7b59-943b-c6976419cc36",
         "019e8282-defc-71bb-a384-f0f8f9f8d84d",
         "019e8282-91d8-7397-a5fd-4aa163c238ca"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-7ee4-7dd4-9e91-d496d0794669",
-      "liveSlug": "impactnation-japan-festival-2023",
-      "title": "Impactnation Japan Festival 2023",
-      "date": "2023-07-30",
-      "sharedCount": 3,
-      "score": 0.176,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
-        "019e8282-980c-7897-af8d-f29a00eea377"
-      ]
-    },
-    {
-      "liveUuid": "019e8284-9004-71cd-8d29-3e1b6cb843be",
-      "liveSlug": "reol-oneman-live-in-yokohama-arena",
-      "title": "Reol Oneman Live in YOKOHAMA ARENA「無題」",
-      "date": "2025-11-09",
-      "sharedCount": 5,
-      "score": 0.167,
-      "sharedSongUuids": [
-        "019e8282-b248-7b59-943b-c6976419cc36",
-        "019e8282-defc-71bb-a384-f0f8f9f8d84d",
-        "019e8282-f23c-7c2b-a500-b62ec40367d4",
-        "019e8282-ee94-77a8-b274-270d4d301d22",
-        "019e8282-9e1a-7177-9501-7ac3e24ed303"
       ]
     }
   ],

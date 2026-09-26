@@ -133,8 +133,8 @@
             "liveItemSongName": "うつくしじごく (Utsukushi Jigoku)",
             "type": "song",
             "youtubeVideoId": null,
-            "songUuid": "019e8282-f23c-7c2b-a500-b62ec40367d4",
-            "matchSource": "sheet"
+            "songUuid": "019e8282-ee36-7d02-919b-36babd0173f5",
+            "matchSource": "exact"
           },
           {
             "liveItemSongUuid": "019fd26c-9fac-75cd-b351-44ad9f16d7b6",

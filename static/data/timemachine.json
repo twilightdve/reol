@@ -4254,6 +4254,27 @@
         }
       ],
       "newSongs": []
+    },
+    {
+      "month": "2026-09",
+      "songCount": 113,
+      "liveItemCount": 166,
+      "performanceCount": 2229,
+      "latestRelease": {
+        "title": "COCOON",
+        "slug": "cocoon",
+        "releaseDate": "2026-07-11"
+      },
+      "nextLive": {
+        "title": "Reol Secret Live #極秘LEGIT #2",
+        "itemName": "大阪",
+        "date": "2026-11-29",
+        "place": "GORILLA HALL OSAKA",
+        "liveSlug": "reol-secret-live-legit-2"
+      },
+      "releases": [],
+      "lives": [],
+      "newSongs": []
     }
   ]
 }

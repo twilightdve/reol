@@ -672,27 +672,6 @@
       ]
     },
     {
-      "name": "美辞目録 (Rhetoric Index)",
-      "count": 3,
-      "sources": [
-        {
-          "liveTitle": "樂團祭 𝗕𝗮𝗻𝗱𝘀𝘁𝗶𝘃𝗮𝗹 新世紀的決心",
-          "liveSlug": "bandstival",
-          "date": "2025-12-06"
-        },
-        {
-          "liveTitle": "COUNTDOWN JAPAN 25/26",
-          "liveSlug": "countdown-japan-2526",
-          "date": "2025-12-28"
-        },
-        {
-          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
-          "liveSlug": "osaka-gigantic-music-festival-2026",
-          "date": "2026-08-01"
-        }
-      ]
-    },
-    {
       "name": "ギガンティックO.T.N",
       "count": 2,
       "sources": [
@@ -721,6 +700,22 @@
           "liveTitle": "COUNTDOWN JAPAN 19/20",
           "liveSlug": "countdown-japan-1920",
           "date": "2019-12-29"
+        }
+      ]
+    },
+    {
+      "name": "宵々古今",
+      "count": 2,
+      "sources": [
+        {
+          "liveTitle": "REOL LAST LIVE「終楽章」",
+          "liveSlug": "reol-last-live",
+          "date": "2017-10-20"
+        },
+        {
+          "liveTitle": "ROCK IN JAPAN FESTIVAL 2019 BUZZ STAGE",
+          "liveSlug": "rock-in-japan-festival-2019-buzz-stage",
+          "date": "2019-08-03"
         }
       ]
     }
@@ -1208,12 +1203,17 @@
     {
       "year": "2026",
       "topSong": "うつくしじごく (Utsukushi Jigoku)",
-      "count": 1,
+      "count": 2,
       "sources": [
         {
           "liveTitle": "Reol Oneman Live 2026 美辞学",
           "liveSlug": "reol-oneman-live-2026",
           "date": "2026-03-14"
+        },
+        {
+          "liveTitle": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
+          "liveSlug": "osaka-gigantic-music-festival-2026",
+          "date": "2026-08-01"
         }
       ]
     }
@@ -1475,6 +1475,512 @@
         "アストロノーツ"
       ],
       "removed": []
+    }
+  ],
+  "workTrends": [
+    {
+      "discographyUuid": "019e8282-6459-7811-ba95-f6f9b929a304",
+      "discographyTitle": "極彩色",
+      "discographySlug": "gokusaishoku-2",
+      "releaseDate": "2015-07-29",
+      "songCount": 16,
+      "playedSongCount": 16,
+      "totalPlays": 164,
+      "firstPlayedDate": "2015-11-26",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-63f7-788b-9423-89cba3226638",
+      "discographyTitle": "No title-",
+      "discographySlug": "no-title-2",
+      "releaseDate": "2014-08-17",
+      "songCount": 11,
+      "playedSongCount": 10,
+      "totalPlays": 153,
+      "firstPlayedDate": "2015-11-26",
+      "lastPlayedDate": "2026-05-31",
+      "coverageRate": 0.909
+    },
+    {
+      "discographyUuid": "019e8282-64e9-795d-804b-f73e051824ac",
+      "discographyTitle": "Σ",
+      "discographySlug": "siguma",
+      "releaseDate": "2016-10-19",
+      "songCount": 13,
+      "playedSongCount": 13,
+      "totalPlays": 144,
+      "firstPlayedDate": "2017-02-26",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6974-7fe5-8d1f-f7e2364dc2b0",
+      "discographyTitle": "事実上",
+      "discographySlug": "jijitsujou",
+      "releaseDate": "2018-10-17",
+      "songCount": 10,
+      "playedSongCount": 9,
+      "totalPlays": 139,
+      "firstPlayedDate": "2018-11-30",
+      "lastPlayedDate": "2025-12-28",
+      "coverageRate": 0.9
+    },
+    {
+      "discographyUuid": "019e8282-6ba8-7f5a-a24f-e77eeed01722",
+      "discographyTitle": "金字塔",
+      "discographySlug": "kinjitou",
+      "releaseDate": "2020-01-22",
+      "songCount": 9,
+      "playedSongCount": 9,
+      "totalPlays": 136,
+      "firstPlayedDate": "2019-12-29",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7c9d-77bc-aa8d-1d02ca304c69",
+      "discographyTitle": "美辞学 (Rhetoric) ",
+      "discographySlug": "rhetoric",
+      "releaseDate": "2026-01-21",
+      "songCount": 6,
+      "playedSongCount": 5,
+      "totalPlays": 130,
+      "firstPlayedDate": "2025-11-09",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 0.833
+    },
+    {
+      "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+      "discographyTitle": "BLACK BOX",
+      "discographySlug": "black-box",
+      "releaseDate": "2023-10-18",
+      "songCount": 7,
+      "playedSongCount": 6,
+      "totalPlays": 107,
+      "firstPlayedDate": "2023-01-26",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 0.857
+    },
+    {
+      "discographyUuid": "019e8282-6c4f-78a7-8a70-d83f2b33d38b",
+      "discographyTitle": "第六感",
+      "discographySlug": "dairokkan",
+      "releaseDate": "2020-07-29",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 93,
+      "firstPlayedDate": "2020-08-16",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-69de-70bd-a74f-23c7d5ea84f7",
+      "discographyTitle": "文明EP",
+      "discographySlug": "ep-2",
+      "releaseDate": "2019-03-20",
+      "songCount": 4,
+      "playedSongCount": 4,
+      "totalPlays": 65,
+      "firstPlayedDate": "2019-07-13",
+      "lastPlayedDate": "2025-11-09",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7b58-7b03-b9f3-e76cb487fb5d",
+      "discographyTitle": "Reol Oneman Live 'No title' in NIPPON BUDOKAN",
+      "discographySlug": "reol-oneman-live-no-title-in-nippon-budokan",
+      "releaseDate": "2025-01-15",
+      "songCount": 3,
+      "playedSongCount": 2,
+      "totalPlays": 60,
+      "firstPlayedDate": "2013-09-23",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 0.667
+    },
+    {
+      "discographyUuid": "019e8282-654b-730d-b992-f93b7917576a",
+      "discographyTitle": "エンドレスEP",
+      "discographySlug": "ep",
+      "releaseDate": "2017-10-11",
+      "songCount": 4,
+      "playedSongCount": 4,
+      "totalPlays": 57,
+      "firstPlayedDate": "2016-01-09",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-715a-79c1-a9cc-df04477e2747",
+      "discographyTitle": "煽げや尊し(Agitate)",
+      "discographySlug": "agitate",
+      "releaseDate": "2022-07-27",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 56,
+      "firstPlayedDate": "2022-08-06",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7093-722f-90f0-156233c1d91a",
+      "discographyTitle": "赤裸裸(NAKED)",
+      "discographySlug": "naked",
+      "releaseDate": "2022-05-18",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 55,
+      "firstPlayedDate": "2022-04-27",
+      "lastPlayedDate": "2026-05-31",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-65b9-7ba5-850f-a814d3f0fde3",
+      "discographyTitle": "平面鏡",
+      "discographySlug": "heimenkyo",
+      "releaseDate": "2018-01-09",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 54,
+      "firstPlayedDate": "2018-03-17",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6625-7bba-9205-f2afc5eaba07",
+      "discographyTitle": "虚構集",
+      "discographySlug": "kyokou-shuu",
+      "releaseDate": "2018-03-14",
+      "songCount": 4,
+      "playedSongCount": 4,
+      "totalPlays": 47,
+      "firstPlayedDate": "2018-03-17",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-780c-7488-b7d0-eaaa2772bbe8",
+      "discographyTitle": "感情御中 -WANT U LUV IT",
+      "discographySlug": "want-u-luv-it",
+      "releaseDate": "2024-03-20",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 44,
+      "firstPlayedDate": "2024-03-20",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6f69-7468-b8d3-dd7133fa6d75",
+      "discographyTitle": "白夜(White Midnight)",
+      "discographySlug": "white-midnight",
+      "releaseDate": "2021-07-28",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 42,
+      "firstPlayedDate": "2021-06-26",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7527-7765-91b7-ed528cde4667",
+      "discographyTitle": "SCORPION",
+      "discographySlug": "scorpion",
+      "releaseDate": "2022-10-28",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 41,
+      "firstPlayedDate": "2022-12-23",
+      "lastPlayedDate": "2025-11-09",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6687-73c7-882a-0ea8735912fb",
+      "discographyTitle": "サイサキ",
+      "discographySlug": "saisaki",
+      "releaseDate": "2018-05-16",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 38,
+      "firstPlayedDate": "2018-06-01",
+      "lastPlayedDate": "2026-05-23",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6fcf-7e19-a929-db7fcb6a2146",
+      "discographyTitle": "Boy",
+      "discographySlug": "boy",
+      "releaseDate": "2021-10-24",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 38,
+      "firstPlayedDate": "2022-04-27",
+      "lastPlayedDate": "2026-05-31",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7a2b-7261-a873-761451702a1c",
+      "discographyTitle": "RE RESCUE",
+      "discographySlug": "re-rescue",
+      "releaseDate": "2024-10-06",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 37,
+      "firstPlayedDate": "2024-08-17",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-765c-7fd1-8ac4-ab571e47154c",
+      "discographyTitle": "切っ先(Edge)",
+      "discographySlug": "edge",
+      "releaseDate": "2023-07-07",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 34,
+      "firstPlayedDate": "2023-07-22",
+      "lastPlayedDate": "2025-12-06",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
+      "discographyTitle": "第六感",
+      "discographySlug": "dairokkan-2",
+      "releaseDate": "2021-12-15",
+      "songCount": 3,
+      "playedSongCount": 3,
+      "totalPlays": 33,
+      "firstPlayedDate": "2022-04-27",
+      "lastPlayedDate": "2024-10-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-75fe-7b0b-a80a-8f786730c963",
+      "discographyTitle": "綺羅綺羅(Glitter)",
+      "discographySlug": "glitter",
+      "releaseDate": "2023-05-24",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 32,
+      "firstPlayedDate": "2023-04-30",
+      "lastPlayedDate": "2025-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7956-7e4e-ab1b-48aca3abe472",
+      "discographyTitle": "ディア",
+      "discographySlug": "dia",
+      "releaseDate": "2024-08-18",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 32,
+      "firstPlayedDate": "2024-08-17",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7590-798e-9cd2-d275e8de457a",
+      "discographyTitle": "COLORED DISC",
+      "discographySlug": "colored-disc",
+      "releaseDate": "2022-11-16",
+      "songCount": 2,
+      "playedSongCount": 1,
+      "totalPlays": 30,
+      "firstPlayedDate": "2022-12-29",
+      "lastPlayedDate": "2025-02-02",
+      "coverageRate": 0.5
+    },
+    {
+      "discographyUuid": "019e8282-79bd-743c-b866-15bc14a32adb",
+      "discographyTitle": "ULTRA C",
+      "discographySlug": "ultra-c",
+      "releaseDate": "2024-09-18",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 27,
+      "firstPlayedDate": "2025-01-19",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7af1-7f98-999d-09232d2ba3c3",
+      "discographyTitle": "SHINOBI",
+      "discographySlug": "shinobi",
+      "releaseDate": "2024-12-27",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 27,
+      "firstPlayedDate": "2025-01-19",
+      "lastPlayedDate": "2026-07-26",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6ac8-7ed7-abd4-1e883a2cba06",
+      "discographyTitle": "ゆーれいずみー",
+      "discographySlug": "yureizumi",
+      "releaseDate": "2019-07-24",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 19,
+      "firstPlayedDate": "2019-07-13",
+      "lastPlayedDate": "2024-04-06",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6b3c-7a32-9a9b-a57d5095c4be",
+      "discographyTitle": "HYPE MODE",
+      "discographySlug": "hype-mode",
+      "releaseDate": "2019-10-20",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 17,
+      "firstPlayedDate": "2019-10-06",
+      "lastPlayedDate": "2024-04-17",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6cae-7c1e-b86a-3ce6f91ae023",
+      "discographyTitle": "Q?",
+      "discographySlug": "q",
+      "releaseDate": "2020-11-04",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 9,
+      "firstPlayedDate": "2020-11-07",
+      "lastPlayedDate": "2025-02-16",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019f545f-7df0-7f3d-9e1b-c5524f33fe6c",
+      "discographyTitle": "COCOON",
+      "discographySlug": "cocoon",
+      "releaseDate": "2026-07-11",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 9,
+      "firstPlayedDate": "2026-06-12",
+      "lastPlayedDate": "2026-08-01",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-6723-7295-a6a7-e8d7891ee6bd",
+      "discographyTitle": "SAIREN",
+      "discographySlug": "sairen",
+      "releaseDate": "2018-07-17",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 6,
+      "firstPlayedDate": "2018-11-30",
+      "lastPlayedDate": "2025-02-02",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+      "discographyTitle": "秘色録",
+      "discographySlug": "hiiro-roku",
+      "releaseDate": "2024-11-13",
+      "songCount": 2,
+      "playedSongCount": 2,
+      "totalPlays": 6,
+      "firstPlayedDate": "2025-01-19",
+      "lastPlayedDate": "2025-02-02",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019f2411-aa87-7995-9dde-d8aff5ec83b9",
+      "discographyTitle": "Reol Oneman Live '美辞学' in YOKOHAMA ARENA",
+      "discographySlug": "reol-oneman-live-in-yokohama-arena",
+      "releaseDate": "2026-06-03",
+      "songCount": 4,
+      "playedSongCount": 2,
+      "totalPlays": 4,
+      "firstPlayedDate": "2015-07-11",
+      "lastPlayedDate": "2025-11-09",
+      "coverageRate": 0.5
+    },
+    {
+      "discographyUuid": "019e8282-74c4-7ccc-89ae-85d89c764bea",
+      "discographyTitle": "No title - Seaside Remix",
+      "discographySlug": "no-title-seaside-remix",
+      "releaseDate": "2022-08-17",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 3,
+      "firstPlayedDate": "2025-11-09",
+      "lastPlayedDate": "2025-12-28",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-77a6-767a-bb1a-cb8495efe90d",
+      "discographyTitle": "Danger Danger",
+      "discographySlug": "danger-danger",
+      "releaseDate": "2024-02-28",
+      "songCount": 2,
+      "playedSongCount": 1,
+      "totalPlays": 1,
+      "firstPlayedDate": "2024-07-20",
+      "lastPlayedDate": "2024-07-20",
+      "coverageRate": 0.5
+    },
+    {
+      "discographyUuid": "019e8282-7bc5-788e-b1dd-ae8c0d910051",
+      "discographyTitle": "オオエドランヴ feat. nqrse -十年物 Edition-",
+      "discographySlug": "feat-nqrse-edition",
+      "releaseDate": "2025-11-09",
+      "songCount": 1,
+      "playedSongCount": 1,
+      "totalPlays": 1,
+      "firstPlayedDate": "2025-08-17",
+      "lastPlayedDate": "2025-08-17",
+      "coverageRate": 1
+    },
+    {
+      "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+      "discographyTitle": "切っ先(Edge)",
+      "discographySlug": "edge-2",
+      "releaseDate": "2023-08-30",
+      "songCount": 2,
+      "playedSongCount": 0,
+      "totalPlays": 0,
+      "firstPlayedDate": null,
+      "lastPlayedDate": null,
+      "coverageRate": 0
+    },
+    {
+      "discographyUuid": "019e8e7b-265e-72ff-82c3-1a32dd3a1fe9",
+      "discographyTitle": "BBBang",
+      "discographySlug": "bbbang",
+      "releaseDate": "2024-02-09",
+      "songCount": 1,
+      "playedSongCount": 0,
+      "totalPlays": 0,
+      "firstPlayedDate": null,
+      "lastPlayedDate": null,
+      "coverageRate": 0
+    },
+    {
+      "discographyUuid": "019e8282-7c2e-7bfc-bc78-1e14d19839eb",
+      "discographyTitle": "No title' in NIPPON BUDOKAN",
+      "discographySlug": "no-title-in-nippon-budokan",
+      "releaseDate": "2025-08-27",
+      "songCount": 2,
+      "playedSongCount": 0,
+      "totalPlays": 0,
+      "firstPlayedDate": null,
+      "lastPlayedDate": null,
+      "coverageRate": 0
+    },
+    {
+      "discographyUuid": "019e8e6c-30d9-722e-859b-d287d57c417d",
+      "discographyTitle": "Play On！",
+      "discographySlug": "play-on",
+      "releaseDate": "2026-04-26",
+      "songCount": 1,
+      "playedSongCount": 0,
+      "totalPlays": 0,
+      "firstPlayedDate": null,
+      "lastPlayedDate": null,
+      "coverageRate": 0
     }
   ]
 }
