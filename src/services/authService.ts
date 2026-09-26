@@ -42,7 +42,7 @@ export const signUpUser = async (
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     })
-    .select()
+    .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
     .single()
 
   if (error) {
