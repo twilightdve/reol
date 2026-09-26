@@ -241,6 +241,9 @@ const Live: React.FC<LiveProps> = ({ data }) => {
               className="scroll-mt-24 pt-6 pb-2 text-2xl sm:text-3xl font-bold text-bx-ink"
             >
               {year}
+              <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">
+                {items.length}件
+              </span>
             </h2>
             <Timeline theme={timelineRootTheme}>
               {items.map((live) => (

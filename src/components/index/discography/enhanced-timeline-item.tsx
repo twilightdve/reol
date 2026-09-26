@@ -5,8 +5,10 @@ import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaMusic } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
+import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { supabase } from "../../../lib/supabase";
 import { addAlpha } from "../../../utils/colorExtractor";
 import YouTube from "react-youtube";
 import Tweets from "../../modules/tweets";
@@ -89,7 +91,29 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
   const [isExpand, setIsExpand] = useState(false);
 
-  // コレクション台帳(所有/視聴済み記録、localStorage完結)
+  // 収録曲一覧のクリップボードコピー
+  const [songsCopied, setSongsCopied] = useState(false);
+  const handleCopySongs = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      const lines = item.songs.map(
+        (song, i) => `${i + 1}. ${song.songName}`
+      );
+      const text = [
+        item.title,
+        ...lines,
+        "",
+        `https://reol.twilightea.com/discography/#disc-${item.slug}`,
+      ].join("\n");
+      navigator.clipboard.writeText(text).then(() => {
+        setSongsCopied(true);
+        setTimeout(() => setSongsCopied(false), 2000);
+      });
+    },
+    [item.songs, item.title, item.slug]
+  );
+
+  // コレクション台帳(所有/視聴済み記録。未ログインはlocalStorageのみ、ログイン時はDBにも保存)
   const { owned, mounted, toggle } = useCollectionOwned();
   const isOwned = mounted && owned.has(item.discographyUuid);
   const handleToggleOwned = useCallback(
@@ -99,6 +123,18 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     },
     [toggle, item.discographyUuid]
   );
+
+  // 「N人が所有/視聴済み」の集計表示。カードを展開した時だけ取得する(94件全カード分を
+  // 常時取得すると無駄なリクエストが大量発生するため)。個人の特定はできない集計値のみ。
+  const [ownedCount, setOwnedCount] = useState<number | null>(null);
+  useEffect(() => {
+    if (!isExpand || ownedCount !== null || !supabase) return;
+    supabase
+      .rpc("get_collection_count", { p_namespace: "owned", p_item_uuid: item.discographyUuid })
+      .then(({ data, error }: { data: number | null; error: unknown }) => {
+        if (!error && typeof data === "number") setOwnedCount(data);
+      });
+  }, [isExpand, ownedCount, item.discographyUuid]);
 
   // 曲行の「詳細」リンク先を代表曲(songStats)のslugへ解決するためのマップ
   const songSlugData = useStaticQuery(graphql`
@@ -272,6 +308,10 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                     {ownedToggleButton}
                   </div>
 
+                  {ownedCount !== null && ownedCount > 0 && (
+                    <p className="text-xs text-bx-ink3 mt-1">{ownedCount}人が所有/視聴済み</p>
+                  )}
+
                   {/* メタデータ */}
                   <div className="flex flex-wrap gap-2 text-xs mt-3">
                     {item?.name && (
@@ -333,6 +373,26 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   )}
                   {item.songs.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
+                      <div className="flex items-center justify-between pb-3">
+                        <h4 className="text-sm font-bold text-bx-ink">収録曲</h4>
+                        <button
+                          type="button"
+                          onClick={handleCopySongs}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-bx-ink2 hover:text-bx-blue transition-colors"
+                        >
+                          {songsCopied ? (
+                            <>
+                              <FiCheck className="w-3.5 h-3.5" />
+                              コピーしました
+                            </>
+                          ) : (
+                            <>
+                              <FiCopy className="w-3.5 h-3.5" />
+                              曲名をコピー
+                            </>
+                          )}
+                        </button>
+                      </div>
                       <ul className="space-y-2">
                         {item.songs.map((song, index) => (
                           <SongCard

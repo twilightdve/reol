@@ -4,11 +4,13 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
 import YouTube from "react-youtube";
 import { trackEvent } from "../../../utils/analytics";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { supabase } from "../../../lib/supabase";
 import {
   timelineItemTheme,
   timelinePointTheme,
@@ -28,13 +30,14 @@ const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
 // セットカードコンポーネント
 type SetCardProps = {
   setlist: MergedLiveItem;
+  liveTitle: string;
   index: number;
   isSetExpanded: boolean;
   songSlugByUuid: { byUuid: Map<string, string>; byName: Map<string, string> };
   onToggleExpand: (e: React.MouseEvent) => void;
 };
 
-const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
+const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
   // コレクション台帳(参戦済み記録、localStorage完結)。DISCOGRAPHYの
   // 所有/視聴済みとは別の記録(namespace="attended")なので混ざらない。
   const { owned: attended, mounted, toggle } = useCollectionOwned("attended");
@@ -42,6 +45,42 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
   const handleToggleAttended = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggle(setlist.liveItemUuid);
+  };
+
+  // 「N人が参戦済み」の集計表示。この公演を展開した時だけ取得する。個人の特定はできない集計値のみ。
+  const [attendedCount, setAttendedCount] = useState<number | null>(null);
+  useEffect(() => {
+    if (!isSetExpanded || attendedCount !== null || !supabase) return;
+    supabase
+      .rpc("get_collection_count", { p_namespace: "attended", p_item_uuid: setlist.liveItemUuid })
+      .then(({ data, error }: { data: number | null; error: unknown }) => {
+        if (!error && typeof data === "number") setAttendedCount(data);
+      });
+  }, [isSetExpanded, attendedCount, setlist.liveItemUuid]);
+
+  // セットリストのクリップボードコピー
+  const [setlistCopied, setSetlistCopied] = useState(false);
+  const handleCopySetlist = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const lines = (setlist.setList ?? []).map((song, i) => {
+      const name = (song.liveItemSongName ?? "")
+        .replace(/<br\s*\/?>/gi, " / ")
+        .trim();
+      return `${i + 1}. ${name}`;
+    });
+    const title = setlist.liveItemName
+      ? `${liveTitle} ${setlist.liveItemName}`
+      : liveTitle;
+    const text = [
+      `${title} セットリスト`,
+      ...lines,
+      "",
+      `https://reol.twilightea.com/live/${setlist.slug}/`,
+    ].join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      setSetlistCopied(true);
+      setTimeout(() => setSetlistCopied(false), 2000);
+    });
   };
 
   return (
@@ -158,11 +197,35 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, index, isSetExpanded, songSl
               </div>
             </div>
           )}
+          {attendedCount !== null && attendedCount > 0 && (
+            <p className="text-xs text-bx-ink3 mb-2">{attendedCount}人が参戦済み</p>
+          )}
           {/* Setlist */}
           <div className="mb-3">
-            <h5 className="text-sm font-semibold mb-2 pb-1 border-b border-bx-line text-bx-ink">
-              セットリスト
-            </h5>
+            <div className="flex items-center justify-between mb-2 pb-1 border-b border-bx-line">
+              <h5 className="text-sm font-semibold text-bx-ink">
+                セットリスト
+              </h5>
+              {setlist.setList && setlist.setList.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleCopySetlist}
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-bx-ink2 hover:text-bx-blue transition-colors flex-shrink-0"
+                >
+                  {setlistCopied ? (
+                    <>
+                      <FiCheck className="w-3.5 h-3.5" />
+                      コピーしました
+                    </>
+                  ) : (
+                    <>
+                      <FiCopy className="w-3.5 h-3.5" />
+                      コピー
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
             {setlist.setList && setlist.setList.length > 0 ? (
               <ol className="space-y-1 text-xs list-decimal list-inside text-bx-ink" style={{ whiteSpace: "pre-line" }}>
                 {setlist.setList.map((song, songIndex) => {
@@ -587,6 +650,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                           <SetCard
                             key={originalIndex}
                             setlist={setlist}
+                            liveTitle={live.title}
                             index={sortedIndex}
                             isSetExpanded={isSetExpanded}
                             songSlugByUuid={songSlugByUuid}
