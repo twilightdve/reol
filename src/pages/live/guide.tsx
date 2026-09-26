@@ -9,7 +9,7 @@
 import React from "react";
 import { HeadFC, Link } from "gatsby";
 import SEO from "../../components/SEO";
-import { buildBreadcrumbList } from "../../utils/jsonLd";
+import { buildBreadcrumbList, buildFaqPage } from "../../utils/jsonLd";
 import { Kicker } from "../../components/redesign";
 import { trackEvent } from "../../utils/analytics";
 
@@ -39,7 +39,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* 持ち物チェックリスト */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>持ち物チェックリスト(入場時)</h2>
+        <h2 className={h2Cls}>ライヴには何を持っていけばいいですか？</h2>
 
         <h3 className={h3Cls}>必須</h3>
         <ul className={ulCls}>
@@ -114,7 +114,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* 服装のポイント */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>服装のポイント</h2>
+        <h2 className={h2Cls}>ライヴにはどんな服装で行けばいいですか？</h2>
         <p className={pCls + " mb-2"}>
           スタンディングの場合は動きやすい服装が基本。ホール公演ではもう少しラフでも大丈夫ですが、いずれにしても以下がポイントです。
         </p>
@@ -134,7 +134,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* スタンディングの立ち位置 */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>スタンディングの立ち位置</h2>
+        <h2 className={h2Cls}>スタンディングではどこに立てばいいですか？</h2>
         <p className={pCls + " mb-3"}>
           スタンディングの場合、チケットの整理番号順に入場した後は立ち位置を自分の好みで決められるため、どこで見るかで体験が大きく変わります。会場によっては大きな柱などがあり見えにくい場所や音が届きにくい場所があることもあるので、事前に会場レイアウトを確認しておくと安心です。
         </p>
@@ -172,7 +172,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* 会場への到着時間 */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>会場への到着時間</h2>
+        <h2 className={h2Cls}>会場にはいつ到着すればいいですか？</h2>
         <p className={pCls + " mb-2"}>
           チケットには「開場」と「開演」の2つの時間が書かれています。「開場」は会場に入れる時間、「開演」はライヴが始まる時間です。
         </p>
@@ -185,7 +185,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* ライヴ中のマナー */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>ライヴ中のマナー</h2>
+        <h2 className={h2Cls}>ライヴ中に気をつけることはありますか？</h2>
         <ul className={ulCls}>
           <li>📱 撮影・録音は禁止(公式アナウンスがある場合を除く)</li>
           <li>🗣 MC中や静かなパートでは周囲に配慮</li>
@@ -203,7 +203,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* ライヴの楽しみ方 */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>ライヴの楽しみ方</h2>
+        <h2 className={h2Cls}>ライヴはどうやって楽しめばいいですか？</h2>
         <p className={pCls + " mb-2"}>
           楽しみ方は人それぞれ。自分のペースで、好きなように楽しむのが一番です。以下は一例ですが、参考にしてみてください。
         </p>
@@ -218,7 +218,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* 終演後の過ごし方 */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>終演後の過ごし方</h2>
+        <h2 className={h2Cls}>ライヴが終わった後はどう過ごせばいいですか？</h2>
         <p className={pCls}>
           余韻に浸りながら、近くのお店で感想を語り合うのも楽しみのひとつ。お店によってはライヴ帰りのファンで混雑することもあるので、事前に予約しておくと安心です。
         </p>
@@ -229,7 +229,7 @@ const LiveGuidePage: React.FC = () => {
 
       {/* 遠征のコツ */}
       <section className={containerCls}>
-        <h2 className={h2Cls}>遠征のコツ</h2>
+        <h2 className={h2Cls}>遠征のコツはありますか？</h2>
         <p className={pCls + " mb-2"}>
           複数公演への参戦や遠方の公演に参戦する場合の、移動手段・予算・スケジュールの考え方です。
         </p>
@@ -320,15 +320,63 @@ const LiveGuidePage: React.FC = () => {
 
 export default LiveGuidePage;
 
+// FAQPageの質問文はページ上の見出しと一致させている(schema.org/Googleのガイドライン対応)。
+// 回答は各セクションの内容を要約したプレーンテキスト。
+const faqEntries = [
+  {
+    question: "ライヴには何を持っていけばいいですか？",
+    answer:
+      "必須はチケット・現金(ドリンクチケット用に600円程度)・飲み物です。あると便利なものとして小さめバッグ・タオル・耳栓・履き慣れたスニーカーがあります。大きなバッグやモバイルバッテリーはロッカーに預けるか持って行かないことをおすすめします。",
+  },
+  {
+    question: "ライヴにはどんな服装で行けばいいですか？",
+    answer:
+      "スタンディングの場合は動きやすい服装が基本です。厚底・ヒールの高い靴は避け、大きなアクセサリーや帽子は外し、会場内は暑くなりやすいので脱ぎ着しやすい重ね着がおすすめです。荷物はコインロッカーに預けて身軽にしましょう。",
+  },
+  {
+    question: "スタンディングではどこに立てばいいですか？",
+    answer:
+      "前方中央エリアは臨場感が高い一方で人が密集しやすく、中間〜後方エリアは比較的ゆったり楽しめて初めてのライヴにもおすすめです。左右のエリアは比較的空いていますが角度によってはステージが見えにくいことがあります。2F席がある会場では視界が広く音響のバランスも良い傾向があります。",
+  },
+  {
+    question: "会場にはいつ到着すればいいですか？",
+    answer:
+      "整理番号順の入場(スタンディング)の場合は開場30分前には会場周辺にいると安心です。指定席の場合は開場時間に合わせればOKです。グッズ購入をしたい場合は会場ごとの販売開始時間を事前にチェックしましょう。",
+  },
+  {
+    question: "ライヴ中に気をつけることはありますか？",
+    answer:
+      "撮影・録音は公式アナウンスがある場合を除き禁止です。MC中や静かなパートでは周囲に配慮し、モッシュ・ダイブは原則禁止です。大きな荷物は必ずロッカーに預け、周囲のファンと協力して楽しい空間を作りましょう。",
+  },
+  {
+    question: "ライヴはどうやって楽しめばいいですか？",
+    answer:
+      "楽しみ方は人それぞれです。迷惑にならない範囲で自分の好きなスタイルで楽しむのが一番で、アーティストとの一体感、演出や照明・音響、周りのファンとの一体感などを楽しむのがおすすめです。",
+  },
+  {
+    question: "ライヴが終わった後はどう過ごせばいいですか？",
+    answer:
+      "余韻に浸りながら近くのお店で感想を語り合うのも楽しみのひとつです。混雑することもあるので事前予約がおすすめです。耳鳴りや耳の違和感が続く場合は早めに耳鼻科を受診してください。",
+  },
+  {
+    question: "遠征のコツはありますか？",
+    answer:
+      "移動手段は距離と予算で使い分けます(飛行機・新幹線・高速バス・車)。日帰り遠征は7,000〜18,000円、1泊遠征は18,000〜45,000円が目安です。早割航空券やホテルの早期予約、夜行バスの活用、連日公演のセット参戦が節約のコツです。",
+  },
+];
+
 export const Head: HeadFC = () => (
   <SEO
     title="ライヴ参戦ガイド"
     description="Reolのライヴに初めて参加する方向けの持ち物・服装・マナーガイドと、遠征の移動手段・予算・スケジュールの立て方をまとめました。"
     path="/live/guide/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "LIVE", path: "/live/" },
-      { name: "ライヴ参戦ガイド", path: "/live/guide/" },
-    ])}
+    jsonLd={[
+      buildBreadcrumbList([
+        { name: "ホーム", path: "/" },
+        { name: "LIVE", path: "/live/" },
+        { name: "ライヴ参戦ガイド", path: "/live/guide/" },
+      ]),
+      buildFaqPage(faqEntries),
+    ]}
   />
 );

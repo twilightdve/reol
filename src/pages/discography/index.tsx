@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { useDispatch } from "react-redux";
 import SEO from "../../components/SEO";
-import { buildBreadcrumbList } from "../../utils/jsonLd";
+import { buildBreadcrumbList, buildMusicAlbum, buildMusicAlbumItemList } from "../../utils/jsonLd";
 import BackToTopButton from "../../components/common/BackToTopButton";
 import { DiscographySection } from "../../components/index/sections";
 import { DiscographyWithSongs } from "../../types/discography";
@@ -114,14 +114,31 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<DiscographyPageData> = () => (
-  <SEO
-    title="DISCOGRAPHY"
-    description="Reol のこれまでのリリース情報や歌ってみた動画などを時間軸で掲載。各楽曲のリンクや楽曲解析情報も確認できます。"
-    path="/discography/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "DISCOGRAPHY", path: "/discography/" },
-    ])}
-  />
-);
+export const Head: HeadFC<DiscographyPageData> = ({ data }) => {
+  // リリースごとの収録曲一覧をMusicAlbumとして構造化データ化する。「アルバムYの収録曲」に
+  // 生成AIが直接答えられるようにするため。曲ページへのリンク解決は行わず曲名のみ扱う
+  // (収録盤内の生データslugは代表曲ページのslugと一致しない場合があるため)。
+  const albums = (data.discography.discographyWithSongs ?? []).map((disc) =>
+    buildMusicAlbum({
+      name: disc.title,
+      datePublished: disc.releaseDate ?? null,
+      url: `https://reol.twilightea.com/discography/#disc-${disc.slug}`,
+      trackNames: (disc.songs ?? []).map((song) => song.songName),
+    })
+  );
+
+  return (
+    <SEO
+      title="DISCOGRAPHY"
+      description="Reol のこれまでのリリース情報や歌ってみた動画などを時間軸で掲載。各楽曲のリンクや楽曲解析情報も確認できます。"
+      path="/discography/"
+      jsonLd={[
+        buildBreadcrumbList([
+          { name: "ホーム", path: "/" },
+          { name: "DISCOGRAPHY", path: "/discography/" },
+        ]),
+        ...(albums.length > 0 ? [buildMusicAlbumItemList(albums)] : []),
+      ]}
+    />
+  );
+};

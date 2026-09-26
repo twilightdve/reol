@@ -24,7 +24,13 @@ import LazyComponent from "../components/modules/LazyComponent";
 import Tweets from "../components/modules/tweets";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
-import { buildBreadcrumbList, buildMusicRecording } from "../utils/jsonLd";
+import {
+  buildBreadcrumbList,
+  buildMusicRecording,
+  buildMusicEvent,
+  buildMusicEventItemList,
+  isValidIsoDate,
+} from "../utils/jsonLd";
 
 // YouTubeのビデオIDを抽出する共通関数(discography/liveの実装と同様)
 const getYouTubeVideoId = (url: string | null | undefined): string | null => {
@@ -555,7 +561,21 @@ const buildDescription = (ctx: SongPageContext): string => {
 };
 
 export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
-  const { songName, discographyTitle, slug } = pageContext;
+  const { songName, discographyTitle, slug, plays } = pageContext;
+
+  // 演奏履歴(日付が正しいものだけ)をMusicEventのItemListとして構造化データ化する。
+  // 「この曲はいつ初披露/最後に演奏されたか」に生成AIが直接答えられるようにするため。
+  const performanceEvents = [...plays]
+    .filter((p) => isValidIsoDate(p.date))
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map((p) =>
+      buildMusicEvent({
+        name: p.liveItemName ? `${p.liveTitle} / ${p.liveItemName}` : p.liveTitle,
+        startDate: p.date,
+        place: p.place,
+      })
+    );
+
   return (
     <SEO
       title={`${songName}(Reol)`}
@@ -569,6 +589,7 @@ export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
           { name: "楽曲統計", path: "/songs/stats/" },
           { name: songName },
         ]),
+        ...(performanceEvents.length > 0 ? [buildMusicEventItemList(performanceEvents)] : []),
       ]}
     />
   );

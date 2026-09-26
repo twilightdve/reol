@@ -530,7 +530,7 @@ const buildDescription = (ctx: LiveItemPageContext): string => {
 };
 
 export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
-  const { liveTitle, liveItemName, place, date, slug } = pageContext;
+  const { liveTitle, liveItemName, place, date, slug, setList } = pageContext;
   const heading = liveItemName || liveTitle;
   const jsonLd: object[] = [
     buildBreadcrumbList([
@@ -540,7 +540,18 @@ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
     ]),
   ];
   if (isValidIsoDate(date)) {
-    jsonLd.push(buildMusicEvent({ name: heading, startDate: date, place }));
+    const event = buildMusicEvent({ name: heading, startDate: date, place });
+    // セットリスト(MC等は除く)を構造化データ化する。「この公演で何を演奏したか」に
+    // 生成AIが直接答えられるようにするため。楽曲詳細ページがある曲はurlで紐付ける。
+    const workPerformed = setList
+      .filter((song) => !isNonSongItem(song))
+      .map((song) => ({
+        "@type": "MusicRecording" as const,
+        name: song.liveItemSongName.replace(/<br\s*\/?>/gi, " / "),
+        byArtist: REOL_PERFORMER,
+        ...(song.slug ? { url: `https://reol.twilightea.com/songs/${song.slug}/` } : {}),
+      }));
+    jsonLd.push(workPerformed.length > 0 ? { ...event, workPerformed } : event);
   }
   return (
     <SEO
