@@ -34,7 +34,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [24-ga4-content-reassessment-and-new-content-ideas.md](./24-ga4-content-reassessment-and-new-content-ideas.md) | GA4再評価(実データ取得済み)+コード実査によるコンテンツギャップ洗い出し+新規コンテンツ提案4件(音響特性チャート復活/演奏履歴映像バッジ/マイコレクション統合/診断結果パーソナライズ)。Spotify Audio Features API復活なしを確認 — 提案段階 |
 | [25-collection-based-content-ideas.md](./25-collection-based-content-ideas.md) | コレクション台帳のDB永続化(`user_collections`実装済み)を受けた新規コンテンツ提案7件(達成率サマリー/ギャップ表示/年代別コンプリート率/バッジ/集計カウンター/シェアカード/ランキング) — 提案段階 |
 | [26-geo-structured-data-gaps.md](./26-geo-structured-data-gaps.md) | GEO(生成AI最適化)向けJSON-LD構造化データの現状監査+ギャップ5件(演奏履歴/セットリスト/MusicAlbum/FAQPage/sameAs拡充) — 調査完了、提案段階 |
-| [27-site-audit-2026-09.md](./27-site-audit-2026-09.md) | サイト課題の棚卸しと改善プラン(2026-09-27): 本番の作業ツリー依存デプロイ/認可設計の見直し/On This Day空ページ172件のindex/全ページ約1MBのインラインCSS(base64フォント)/静的HTMLとクライアント描画の不一致/Tailwind content漏れ等と実行順プラン — ステップ0完了、ほかは提案段階 |
+| [27-site-audit-2026-09.md](./27-site-audit-2026-09.md) | サイト課題の棚卸しと改善プラン(2026-09-27): 本番の作業ツリー依存デプロイ/認可設計の見直し/On This Day空ページ172件のindex/全ページ約1MBのインラインCSS(base64フォント)/静的HTMLとクライアント描画の不一致/Tailwind content漏れ等と実行順プラン — ステップ0・1完了、ほかは提案段階 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
