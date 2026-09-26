@@ -310,6 +310,69 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           </GlassCard>
 
           <GlassCard
+            to="/live/compare/"
+            accent="blueLight"
+            className="p-4"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "セトリ比較",
+                card_type: "setlist_compare",
+              })
+            }
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              SETLIST COMPARE
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリ比較</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              2公演のセットリストを比較し、共通曲・差分・曲順の変化を可視化。
+            </p>
+          </GlassCard>
+
+          <GlassCard
+            to="/live/tour-heatmap/"
+            accent="blueLight"
+            className="p-4"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "ツアーヒートマップ",
+                card_type: "tour_heatmap",
+              })
+            }
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              TOUR HEATMAP
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ツアーヒートマップ</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              1ツアーの全公演を横断し、楽曲ごとの演奏有無・曲順を一覧表示。
+            </p>
+          </GlassCard>
+
+          <GlassCard
+            to="/live/similarity-ranking/"
+            accent="blueLight"
+            className="p-4"
+            onClick={() =>
+              trackEvent("entry_card_click", {
+                category: "navigation",
+                label: "セトリ類似度ランキング",
+                card_type: "similarity_ranking",
+              })
+            }
+          >
+            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
+              SIMILARITY RANKING
+            </p>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリ類似度ランキング</h2>
+            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
+              異なるツアー同士でセトリが特に似ている公演ペアをランキング。
+            </p>
+          </GlassCard>
+
+          <GlassCard
             to="/posts/"
             accent="blueLight"
             className="p-4"

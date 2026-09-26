@@ -943,6 +943,130 @@ const createSongStatsNodes = async (
     `[liveSimilarity] ${liveUuids.length} lives indexed, top5 each`
   );
 
+  // ----- 公演(liveItem)単位のセトリ類似度(Jaccard係数)の事前計算 -----
+  // 上のliveSimilarityはツアー(liveUuid)単位でまとめて比較するため、同一ツアー内の
+  // 日程違いはほぼ同じセトリになりノイズになりやすい。セトリ比較(/live/compare/)や
+  // 類似度ランキングでは「個別の公演」同士を比較したいため、liveItemUuid単位でも
+  // 別途計算する。
+  const songSetByLiveItem = new Map<string, Set<string>>();
+  const playMetaByLiveItem = new Map<string, Play>();
+  for (const stat of songStats) {
+    for (const p of stat.plays) {
+      const set = songSetByLiveItem.get(p.liveItemUuid) ?? new Set<string>();
+      set.add(stat.songUuid);
+      songSetByLiveItem.set(p.liveItemUuid, set);
+      if (!playMetaByLiveItem.has(p.liveItemUuid)) {
+        playMetaByLiveItem.set(p.liveItemUuid, p);
+      }
+    }
+  }
+  // ゲスト出演1曲のみ等、極端に少ない曲数の公演同士は「共通1曲=類似度100%」の
+  // ようなトリビアルな一致を生みランキングのノイズになるため、両側とも一定曲数
+  // 以上の公演のみを類似度計算の対象にする。
+  const MIN_SONGS_FOR_SIMILARITY = 5;
+  const liveItemUuidsForSimilarity = Array.from(songSetByLiveItem.keys());
+  const similarityByLiveItem: Record<
+    string,
+    {
+      liveItemUuid: string;
+      liveItemSlug: string;
+      liveTitle: string;
+      liveItemName: string | null;
+      date: string;
+      place: string | null;
+      sharedCount: number;
+      score: number;
+      sharedSongUuids: string[];
+    }[]
+  > = {};
+  for (const aId of liveItemUuidsForSimilarity) {
+    const a = songSetByLiveItem.get(aId)!;
+    const metaA = playMetaByLiveItem.get(aId);
+    if (!metaA || a.size < MIN_SONGS_FOR_SIMILARITY) continue;
+    const cands: (typeof similarityByLiveItem)[string] = [];
+    for (const bId of liveItemUuidsForSimilarity) {
+      if (bId === aId) continue;
+      const b = songSetByLiveItem.get(bId)!;
+      if (b.size < MIN_SONGS_FOR_SIMILARITY) continue;
+      const shared: string[] = [];
+      for (const id of a) if (b.has(id)) shared.push(id);
+      if (shared.length === 0) continue;
+      const union = new Set<string>([...a, ...b]).size;
+      const score = shared.length / union; // Jaccard
+      const metaB = playMetaByLiveItem.get(bId);
+      if (!metaB) continue;
+      cands.push({
+        liveItemUuid: bId,
+        liveItemSlug: metaB.liveItemSlug,
+        liveTitle: metaB.liveTitle,
+        liveItemName: metaB.liveItemName,
+        date: metaB.date,
+        place: metaB.place,
+        sharedCount: shared.length,
+        score: Math.round(score * 1000) / 1000,
+        sharedSongUuids: shared,
+      });
+    }
+    cands.sort((x, y) => y.score - x.score || y.sharedCount - x.sharedCount);
+    similarityByLiveItem[aId] = cands.slice(0, 5);
+  }
+
+  await writeDataJson("liveItemSimilarity.json", similarityByLiveItem);
+  console.log(
+    `[liveItemSimilarity] ${liveItemUuidsForSimilarity.length} performances indexed, top5 each`
+  );
+
+  // ----- セトリ類似度ランキング(全体) -----
+  // 公演ペアのうち類似度が高い上位N組を、サイト横断のランキングとして書き出す。
+  // 同一ツアー内の連日公演(セトリがほぼ同じで当然に類似度が高い)がランキングを
+  // 埋め尽くさないよう、同一liveUuid同士のペアは除外する。
+  type SimilarityPair = {
+    a: { liveItemUuid: string; liveItemSlug: string; liveTitle: string; liveItemName: string | null; date: string; place: string | null };
+    b: { liveItemUuid: string; liveItemSlug: string; liveTitle: string; liveItemName: string | null; date: string; place: string | null };
+    sharedCount: number;
+    score: number;
+  };
+  const seenPairs = new Set<string>();
+  const allPairs: SimilarityPair[] = [];
+  for (const aId of liveItemUuidsForSimilarity) {
+    const metaA = playMetaByLiveItem.get(aId);
+    if (!metaA) continue;
+    const liveUuidA = liveUuidByItemUuid.get(aId);
+    for (const cand of similarityByLiveItem[aId] ?? []) {
+      const liveUuidB = liveUuidByItemUuid.get(cand.liveItemUuid);
+      if (liveUuidA && liveUuidB && liveUuidA === liveUuidB) continue;
+      const pairKey = [aId, cand.liveItemUuid].sort().join("::");
+      if (seenPairs.has(pairKey)) continue;
+      seenPairs.add(pairKey);
+      allPairs.push({
+        a: {
+          liveItemUuid: aId,
+          liveItemSlug: metaA.liveItemSlug,
+          liveTitle: metaA.liveTitle,
+          liveItemName: metaA.liveItemName,
+          date: metaA.date,
+          place: metaA.place,
+        },
+        b: {
+          liveItemUuid: cand.liveItemUuid,
+          liveItemSlug: cand.liveItemSlug,
+          liveTitle: cand.liveTitle,
+          liveItemName: cand.liveItemName,
+          date: cand.date,
+          place: cand.place,
+        },
+        sharedCount: cand.sharedCount,
+        score: cand.score,
+      });
+    }
+  }
+  allPairs.sort((x, y) => y.score - x.score || y.sharedCount - x.sharedCount);
+  const similarityRanking = allPairs.slice(0, 50);
+  await writeDataJson("similarityRanking.json", similarityRanking);
+  console.log(
+    `[similarityRanking] ${allPairs.length} cross-tour pairs, top${similarityRanking.length} kept`
+  );
+
   // ----- 新規コンテンツ案H「セトリの文法解析」用の事前集計 -----
   // (plan/legit-improvement-plan.md 5章)。曲の隣接関係・出現ポジション・
   // 年別のオープニング傾向・ツアー内の変化を、既存のsongStats算出と同じ
