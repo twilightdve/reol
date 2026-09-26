@@ -75,6 +75,8 @@ const SEO: React.FC<SEOProps> = ({
   const resolvedTitle = pageTitle ? `${pageTitle} | ${TITLE_SUFFIX}` : TOP_TITLE
   const resolvedDescription = sectionMeta?.description ?? description
   const url = `${SITE_URL}${path}${section ? `?section=${section}` : ''}`
+  // 正規URLはクエリ(?section= 等)を含めないページ本体のURL。path 未指定では出さない
+  const canonicalUrl = path ? `${SITE_URL}${path}` : null
   const ogImage = image || OG_IMAGE
   // jsonLd は単体/配列どちらでも受け取れるようにし、script タグを1つずつ出力する
   const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []
@@ -84,6 +86,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{resolvedTitle}</title>
       <meta name="description" content={resolvedDescription} />
       <meta name="theme-color" content={THEME_COLOR} />
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph */}
       <meta property="og:title" content={resolvedTitle} />

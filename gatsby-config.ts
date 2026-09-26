@@ -46,7 +46,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: siteUrl,
-        sitemap: `${siteUrl}/sitemap.xml`,
+        // gatsby-plugin-sitemap の出力は sitemap-index.xml(sitemap.xml は存在しない)
+        sitemap: `${siteUrl}/sitemap-index.xml`,
         // /relive/ はローカル音源前提の私的再生室なのでクロール対象から外す。
         policy: [{ userAgent: "*", allow: "/", disallow: ["/relive/", "/relive"] }],
       },
@@ -63,8 +64,21 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        // /relive/ は noindex なのでサイトマップにも載せない。
-        excludes: ["/relive/", "/relive"],
+        // noindex のページはサイトマップにも載せない。
+        // /relive/ は私的再生室、/cgraph/ と /quiz/bbq2025 系はページ側で noindex。
+        excludes: ["/relive/", "/relive", "/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**"],
+        // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する
+        query: `
+          {
+            site { siteMetadata { siteUrl } }
+            allSitePage { nodes { path pageContext } }
+          }
+        `,
+        resolvePages: ({
+          allSitePage: { nodes },
+        }: {
+          allSitePage: { nodes: { path: string; pageContext?: { noindex?: boolean } }[] };
+        }) => nodes.filter((page) => !page.pageContext?.noindex),
       },
     },
     {

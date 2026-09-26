@@ -19,6 +19,7 @@ import {
   buildCanonicalUuidMap,
   resolveTrustedSongUuid,
 } from "./src/utils/songMatcher";
+import { shiftMonthDay } from "./src/utils/monthDay";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
@@ -1606,6 +1607,13 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 // ----- 記事 & 会場の静的ページを生成 -----
+// リデザイン比較用の /design-preview/ は開発時のみ生成し、本番ビルドには含めない
+export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
+  if (process.env.NODE_ENV === "production" && page.path.startsWith("/design-preview")) {
+    actions.deletePage(page);
+  }
+};
+
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
@@ -2224,10 +2232,41 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const events = (eventsByMonthDay.get(monthDay) ?? []).sort(
           (a, b) => a.year - b.year
         );
+        // 出来事が無い日は noindex にし(サイトマップからも除外)、行き止まりに
+        // ならないよう前後7日以内の近い日の出来事を最大5件まで載せる。
+        const nearbyEvents: {
+          monthDay: string;
+          kind: OnThisDayEvent["kind"];
+          year: number;
+          label: string;
+          suffix: string;
+          to: string;
+        }[] = [];
+        if (events.length === 0) {
+          for (let delta = 1; delta <= 7 && nearbyEvents.length < 5; delta++) {
+            for (const shift of [delta, -delta]) {
+              const nearMonthDay = shiftMonthDay(monthDay, shift);
+              const nearEvents = [...(eventsByMonthDay.get(nearMonthDay) ?? [])].sort(
+                (a, b) => a.year - b.year
+              );
+              for (const ev of nearEvents) {
+                if (nearbyEvents.length >= 5) break;
+                nearbyEvents.push({
+                  monthDay: nearMonthDay,
+                  kind: ev.kind,
+                  year: ev.year,
+                  label: ev.label,
+                  suffix: ev.suffix,
+                  to: ev.to,
+                });
+              }
+            }
+          }
+        }
         createPage({
           path: `/on-this-day/${monthDay}/`,
           component: onThisDayTemplate,
-          context: { monthDay, events },
+          context: { monthDay, events, noindex: events.length === 0, nearbyEvents },
         });
         onThisDayPageCount += 1;
       }
