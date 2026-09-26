@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from "gatsby";
 // useLocation() は使えない (LocationContext.Provider not found エラー)。
 // 代わりに globalHistory を直接購読してパスを取得する。
 import { globalHistory } from "@gatsbyjs/reach-router";
+import { Toaster } from "react-hot-toast";
 import Layout from "./layout";
 import TopHeader from "./header";
 import PersistentMainVideo from "./persistentMainVideo";
@@ -176,6 +177,7 @@ const Body: FC<Props> = ({ children }) => {
         順序を TopHeader → PersistentMainVideo にして、ヘッダーが常に動画の上に位置するようにしている。
       */}
       <TopHeader title={data.site.siteMetadata.title} />
+      <Toaster position="top-center" />
       <PersistentMainVideo />
       <div
         className={

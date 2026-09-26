@@ -34,7 +34,7 @@ export const debugDatabase = async () => {
   try {
     const { data: profiles, error: profileError } = await supabase
       .from('profiles')
-      .select('*')
+      .select('id, username, full_name, avatar_url, is_public, encounter_policy, reol_type, meta_tags, favorite_song, created_at, updated_at')
       .limit(5)
     
     console.log('profiles table:', { data: profiles, error: profileError })

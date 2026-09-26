@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AuthProvider, useAuth } from '../../../contexts/AuthContext'
+import { useAuth } from '../../../contexts/AuthContext'
 import { LanguageProvider, useLanguage } from '../../../i18n/LanguageContext'
 import { useTranslation } from 'react-i18next'
 import { Toaster } from 'react-hot-toast'
@@ -544,23 +544,21 @@ const ReolMapContent: React.FC = () => {
   )
 }
 
-// メインコンポーネント：AuthProviderとLanguageProviderでラップ
+// メインコンポーネント：LanguageProviderでラップ(AuthProviderはルートで提供済み)
 const ReolMapLayout: React.FC = () => {
   return (
     <LanguageProvider>
-      <AuthProvider>
-        <ReolMapContent />
-        <Toaster 
-          position="top-right"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: COLORS.TOAST_BG,
-              color: COLORS.TOAST_TEXT,
-            },
-          }}
-        />
-      </AuthProvider>
+      <ReolMapContent />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: COLORS.TOAST_BG,
+            color: COLORS.TOAST_TEXT,
+          },
+        }}
+      />
     </LanguageProvider>
   )
 }
