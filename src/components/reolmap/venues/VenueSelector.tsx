@@ -108,24 +108,6 @@ const VenueSelector: React.FC = () => {
     // Supabaseにも保存（ログイン済みの場合）
     if (user && supabase) {
       try {
-        // まずプロフィールが存在するか確認・作成
-        console.log('Upserting profile:', { userId: user.id, username: user.username })
-        const { data: profileData, error: profileError } = await supabase
-          .from('profiles')
-          .upsert({
-            id: user.id,
-            username: user.username,
-            full_name: user.username,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString()
-          })
-        
-        if (profileError) {
-          console.error('Error upserting profile:', profileError)
-        } else {
-          console.log('Profile upserted successfully:', profileData)
-        }
-
         if (isCurrentlySelected) {
           // 参加表明を削除
           const { error } = await supabase

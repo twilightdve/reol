@@ -32,7 +32,7 @@ import HelpGuideModal from './HelpGuideModal'
 import EncounterOnboardingModal from '../encounter/EncounterOnboardingModal'
 
 const ReolMapContent: React.FC = () => {
-  const { user, profile, loading, createProfileInSupabase, updateProfile } = useAuth()
+  const { user, profile, loading, updateProfile } = useAuth()
   const { language } = useLanguage()
   const { t, i18n } = useTranslation('common')
   const [activeTab, setActiveTab] = useState<'venues' | 'overview'>('overview')
