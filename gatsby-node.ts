@@ -1637,6 +1637,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions;
 
+  // 多言語ページ(plan/28): onCreatePage はサイト自身の createPages で作ったページには呼ばれないため、
+  // テンプレートのページはここで翻訳済みルートを言語ごとに複製する。
+  const createPageWithLocales = (page: Parameters<typeof createPage>[0]) => {
+    createPage(page);
+    if (!isLocalizedRoute(page.path)) return;
+    for (const lang of ENABLED_LANGS) {
+      createPage({
+        ...page,
+        path: localizePath(page.path, lang),
+        context: { ...(page.context ?? {}), lang },
+      });
+    }
+  };
+
   // 記事ページ — slugは記事データと同期が必要（markdownインポートを含むため直接import不可）
   const articleSlugs = [
     "live-tips-first-timer",
@@ -1863,7 +1877,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       const albumPosts = song.discographyUuid
         ? postsByDiscUuid.get(song.discographyUuid) ?? []
         : [];
-      createPage({
+      createPageWithLocales({
         path: `/songs/${song.slug}/`,
         component: songTemplate,
         context: {
@@ -2028,7 +2042,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             : null,
         }));
 
-        createPage({
+        createPageWithLocales({
           path: `/live/${item.slug}/`,
           component: liveItemTemplate,
           context: {

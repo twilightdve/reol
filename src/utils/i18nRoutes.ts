@@ -7,7 +7,10 @@ import { DEFAULT_LANG, ENABLED_LANGS, SITE_LANGS, SiteLang } from "../i18n/site/
 const LOCALIZED_EXACT = new Set<string>(["/", "/discography/", "/live/", "/songs/stats/"]);
 
 /** 翻訳済みのルート(パターン)。例: 曲詳細 /^\/songs\/[^/]+\/$/ */
-const LOCALIZED_PATTERNS: RegExp[] = [];
+const LOCALIZED_PATTERNS: RegExp[] = [
+  /^\/songs\/[^/]+\/$/, // 曲詳細
+  /^\/live\/[^/]+\/$/, // 公演詳細(ツール系ページは LOCALIZED_EXCLUDED で除外)
+];
 
 /** パターンに一致しても翻訳対象外のルート */
 const LOCALIZED_EXCLUDED = new Set<string>([

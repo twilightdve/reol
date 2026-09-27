@@ -9,7 +9,7 @@
  * 同じセクション構成(ヒーロー→導線ボタン→本編→回遊)に揃えている。
  */
 import React, { useState } from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 import { GoLinkExternal } from "react-icons/go";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
@@ -20,6 +20,10 @@ import YouTube from "react-youtube";
 import { FiMusic, FiPlay, FiX, FiCopy, FiCheck } from "react-icons/fi";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent } from "../utils/analytics";
+import { LangLink, useDict, useSiteLang } from "../i18n/site/SiteLangContext";
+import { getDict, SiteDict } from "../i18n/site/dict";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
+import { localizePath } from "../utils/i18nRoutes";
 import { buildBreadcrumbList, buildMusicEvent, isValidIsoDate, REOL_PERFORMER } from "../utils/jsonLd";
 
 type SetListSong = {
@@ -77,6 +81,8 @@ export interface LiveItemPageContext {
 const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
   pageContext,
 }) => {
+  const lang = useSiteLang();
+  const t = useDict().show;
   const {
     slug,
     liveSlug,
@@ -131,7 +137,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
     }
     const title = liveItemName ? `${liveTitle} ${liveItemName}` : liveTitle;
     const text = [
-      `${title} セットリスト`,
+      t.setlistCopyTitle(title),
       ...numberedLines,
       "",
       `https://reol.twilightea.com/live/${slug}/`,
@@ -143,8 +149,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
   };
 
   // Xシェア: intentリンク(外部サービスへの送信はユーザーのクリック起点)
-  const shareUrl = `https://reol.twilightea.com/live/${slug}/`;
-  const shareText = `Reol「${heading}」のセットリスト・会場情報 | !Legit(非公式ファンサイト)`;
+  const shareUrl = `https://reol.twilightea.com${localizePath(`/live/${slug}/`, lang)}`;
+  const shareText = t.shareText(heading);
   const shareIntentUrl = `https://x.com/intent/post?text=${encodeURIComponent(
     shareText
   )}&url=${encodeURIComponent(shareUrl)}`;
@@ -154,13 +160,13 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
       <main className="container mx-auto px-4 sm:px-6 py-8 max-w-3xl text-bx-ink">
         {/* パンくず */}
         <p className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-bx-ink3">
-          <Link to="/" className="hover:text-bx-blue transition-colors">
+          <LangLink to="/" className="hover:text-bx-blue transition-colors">
             HOME
-          </Link>
+          </LangLink>
           <span aria-hidden>/</span>
-          <Link to="/live/" className="hover:text-bx-blue transition-colors">
+          <LangLink to="/live/" className="hover:text-bx-blue transition-colors">
             LIVE
-          </Link>
+          </LangLink>
           <span aria-hidden>/</span>
           <span className="text-bx-ink">{heading}</span>
         </p>
@@ -173,17 +179,17 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           </h1>
           <p className="mt-4 text-[13px] text-bx-ink3">
             {liveTitle !== heading && (
-              <Link
+              <LangLink
                 to={`/live/#live-item-${slug}`}
                 className="text-bx-blue hover:text-bx-blueLight underline underline-offset-2"
               >
                 {liveTitle}
-              </Link>
+              </LangLink>
             )}
           </p>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-bx-ink3">
             <span>{date?.replaceAll("-", "/")}</span>
-            {place && <span>会場: {place}</span>}
+            {place && <span>{t.venue}: {place}</span>}
           </div>
         </header>
 
@@ -199,20 +205,20 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               }
               className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
             >
-              会場サイトを見る
+              {t.venueSite}
             </a>
           )}
           {setList.length > 0 && (
-            <Link
+            <LangLink
               to={`/relive/?setlistId=${slug}`}
               onClick={() =>
                 trackEvent("relive_player_click", { category: "engagement", label: heading })
               }
               className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
-              title="Relive Player (β) — このセットリストをローカル音源で再生します"
+              title={t.reliveTitle}
             >
-              Relive Playerで聴く (β)
-            </Link>
+              {t.relive}
+            </LangLink>
           )}
           <a
             href={shareIntentUrl}
@@ -222,9 +228,9 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               trackEvent("live_item_share", { category: "share", label: heading })
             }
             className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink3 hover:border-bx-blue hover:text-bx-ink transition-colors"
-            title="この公演のページをXでシェア"
+            title={t.shareTitle}
           >
-            Xでシェア
+            {t.share}
           </a>
         </section>
 
@@ -239,7 +245,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                   height="240"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`会場マップ - ${heading}`}
+                  title={t.mapTitle(heading)}
                 />
               </div>
               {address && <p className="mt-2 text-[12px] text-bx-ink3">{address}</p>}
@@ -273,8 +279,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
         <section className="mb-10">
           <div className="flex items-center justify-between gap-2 mb-4">
             <Kicker className="mb-0">
-              SETLIST — {songCount}曲
-              {mcCount > 0 ? `（MC ${mcCount}）` : ""}
+              {t.setlistKicker(songCount)}
+              {mcCount > 0 ? t.mcCount(mcCount) : ""}
             </Kicker>
             {setList.length > 0 && (
               <button
@@ -285,12 +291,12 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                 {setListCopied ? (
                   <>
                     <FiCheck className="w-3.5 h-3.5" />
-                    コピーしました
+                    {t.copied}
                   </>
                 ) : (
                   <>
                     <FiCopy className="w-3.5 h-3.5" />
-                    コピー
+                    {t.copy}
                   </>
                 )}
               </button>
@@ -300,8 +306,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
             <EmptyState
               icon={<FiMusic />}
               tone="dark"
-              title="セットリスト情報は現在登録されていません"
-              description="情報が確認でき次第、追加します。"
+              title={t.noSetlistTitle}
+              description={t.noSetlistDesc}
             />
           ) : (
             <ul className="space-y-1 text-sm list-none text-bx-ink">
@@ -326,12 +332,12 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                     <li key={song.liveItemSongUuid} className="leading-relaxed pl-1">
                       <span className="inline-block w-6 text-bx-ink3">{songIndex}.</span>
                       {song.slug ? (
-                        <Link
+                        <LangLink
                           to={`/songs/${song.slug}/`}
                           className="hover:text-bx-blue underline underline-offset-2 decoration-dotted transition-colors"
                         >
                           {song.liveItemSongName}
-                        </Link>
+                        </LangLink>
                       ) : (
                         song.liveItemSongName
                       )}
@@ -345,12 +351,12 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                           {isVideoExpanded ? (
                             <>
                               <FiX className="w-3 h-3" />
-                              閉じる
+                              {t.closeVideo}
                             </>
                           ) : (
                             <>
                               <FiPlay className="w-3 h-3" />
-                              映像を見る
+                              {t.watchVideo}
                             </>
                           )}
                         </button>
@@ -445,19 +451,19 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                     aria-hidden
                     className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-bx-yellow"
                   />
-                  <Link to={`/live/${s.slug}/`} className="group block">
+                  <LangLink to={`/live/${s.slug}/`} className="group block">
                     <span className="text-sm font-extrabold text-bx-yellow tabular-nums">
                       {s.date?.replaceAll("-", "/")}
                     </span>
                     <p className="mt-1 text-[15px] font-bold text-bx-ink group-hover:text-bx-blue transition-colors">
-                      {s.place ?? "会場未定"}
+                      {s.place ?? t.venueTbd}
                       {s.liveItemName && (
                         <span className="ml-2 text-[11px] font-normal text-bx-ink3">
                           {s.liveItemName}
                         </span>
                       )}
                     </p>
-                  </Link>
+                  </LangLink>
                 </div>
               ))}
             </div>
@@ -467,7 +473,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
         {/* ⑤''''関連ポスト */}
         {posts.length > 0 && (
           <section className="mb-8">
-            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Kicker className="mb-4">{t.relatedPosts}</Kicker>
             <Tweets
               parentId={`live-item-${slug}`}
               posts={posts.map((post) => ({
@@ -485,29 +491,29 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               ARCHIVE
             </p>
             <h2 className="mt-2 text-[15px] font-bold text-bx-ink">
-              LIVEアーカイブ一覧へ
+              {t.toArchiveTitle}
             </h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              歴代ライブのセットリスト・公演情報をまとめて見る。
+              {t.toArchiveDesc}
             </p>
           </GlassCard>
           <GlassCard to="/search/" accent="yellow" className="p-4">
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow">
               SEARCH
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">横断検索へ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.toSearchTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              楽曲・ライブ・ロケ地を横断してキーワード検索。
+              {t.toSearchDesc}
             </p>
           </GlassCard>
         </section>
         <p className="text-right">
-          <Link
+          <LangLink
             to="/"
             className="text-[11.5px] font-bold text-bx-ink3 hover:text-bx-blue transition-colors"
           >
-            トップに戻る
-          </Link>
+            {t.backToTop}
+          </LangLink>
         </p>
       </main>
     </Layout>
@@ -519,12 +525,12 @@ export default LiveItemPage;
 /**
  * 機械生成の description(登録データから導出できる事実のみ)。
  */
-const buildDescription = (ctx: LiveItemPageContext): string => {
-  const parts = [`Reol「${ctx.liveItemName || ctx.liveTitle}」の公演情報。`];
-  if (ctx.place) parts.push(`会場: ${ctx.place}。`);
+const buildDescription = (ctx: LiveItemPageContext, t: SiteDict["show"]): string => {
+  const parts = [t.metaLead(ctx.liveItemName || ctx.liveTitle)];
+  if (ctx.place) parts.push(t.metaVenue(ctx.place));
   const songCount = ctx.setList.filter((s) => !isNonSongItem(s)).length;
   if (songCount > 0) {
-    parts.push(`セットリスト${songCount}曲を掲載。`);
+    parts.push(t.metaSetlist(songCount));
   }
   return parts.join("");
 };
@@ -532,10 +538,13 @@ const buildDescription = (ctx: LiveItemPageContext): string => {
 export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
   const { liveTitle, liveItemName, place, date, slug, setList } = pageContext;
   const heading = liveItemName || liveTitle;
+  const langCtx = (pageContext as { lang?: unknown }).lang;
+  const lang = isSiteLang(langCtx) ? langCtx : DEFAULT_LANG;
+  const dict = getDict(lang);
   const jsonLd: object[] = [
     buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "LIVE", path: "/live/" },
+      { name: dict.site.breadcrumbHome, path: localizePath("/", lang) },
+      { name: "LIVE", path: localizePath("/live/", lang) },
       { name: heading },
     ]),
   ];
@@ -556,8 +565,9 @@ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
   return (
     <SEO
       title={`${heading}(Reol)`}
-      description={buildDescription(pageContext)}
+      description={buildDescription(pageContext, dict.show)}
       path={`/live/${slug}/`}
+      lang={lang}
       jsonLd={jsonLd}
     />
   );
