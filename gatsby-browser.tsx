@@ -9,6 +9,8 @@ import { GatsbyBrowser } from "gatsby";
 import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
 import { AuthProvider } from "./src/contexts/AuthContext";
+import { SiteLangProvider } from "./src/i18n/site/SiteLangContext";
+import { isSiteLang, DEFAULT_LANG } from "./src/i18n/site/langs";
 
 // iOS環境でbodyにクラスを追加
 export const onClientEntry: GatsbyBrowser["onClientEntry"] = () => {
@@ -38,9 +40,15 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   );
 };
 
-// MainVideo と TopHeader は Body 内で wrapRootElement に載っているため
-// wrapPageElement では何も追加せずそのまま返す。
+// MainVideo と TopHeader は Body 内で wrapRootElement に載っている。
+// ページ本体には pageContext.lang の言語を渡す(多言語ページ: plan/28)。
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,
-}) => element;
+  props,
+}) => {
+  const lang = (props.pageContext as { lang?: unknown })?.lang;
+  return (
+    <SiteLangProvider lang={isSiteLang(lang) ? lang : DEFAULT_LANG}>{element}</SiteLangProvider>
+  );
+};
 

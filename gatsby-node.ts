@@ -20,6 +20,8 @@ import {
   resolveTrustedSongUuid,
 } from "./src/utils/songMatcher";
 import { shiftMonthDay } from "./src/utils/monthDay";
+import { isLocalizedRoute, localizePath } from "./src/utils/i18nRoutes";
+import { ENABLED_LANGS } from "./src/i18n/site/langs";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
@@ -1607,10 +1609,25 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 // ----- 記事 & 会場の静的ページを生成 -----
-// リデザイン比較用の /design-preview/ は開発時のみ生成し、本番ビルドには含めない
 export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
+  // リデザイン比較用の /design-preview/ は開発時のみ生成し、本番ビルドには含めない
   if (process.env.NODE_ENV === "production" && page.path.startsWith("/design-preview")) {
     actions.deletePage(page);
+    return;
+  }
+
+  // 多言語ページ(plan/28): 翻訳済みのルートを言語ごとに /<lang>/... として複製する。
+  // onCreatePage はテンプレートから作ったページでも呼ばれるので、曲詳細等もここで複製できる。
+  // 複製したページでも再び呼ばれるため、context.lang を持つページ(=複製済み)は何もしない。
+  const context = (page.context ?? {}) as Record<string, unknown>;
+  if (context.lang) return;
+  if (!isLocalizedRoute(page.path)) return;
+  for (const lang of ENABLED_LANGS) {
+    actions.createPage({
+      ...page,
+      path: localizePath(page.path, lang),
+      context: { ...context, lang },
+    });
   }
 };
 

@@ -5,6 +5,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 // body.tsx と同様、wrapRootElement 配下(Router外)からでもルート変化を検知するため
 // useLocation() ではなく globalHistory を直接購読する。
 import { globalHistory } from "@gatsbyjs/reach-router";
+import { stripLangPrefix } from "../../utils/i18nRoutes";
+import { useDict } from "../../i18n/site/SiteLangContext";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   setNextVideo,
@@ -19,16 +21,18 @@ import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 // "/live/xxxx/" のような2階層目(詳細ページ)かどうかを判定する。
 // 例: "/" → [] (0階層) / "/live/" → ["live"] (1階層) / "/live/xxxx/" → ["live","xxxx"] (2階層)
+// 多言語ページ(/en/... 等)では言語プレフィックスを除いた階層で判定する(plan/28)
 const isSecondLevelPath = (pathname: string): boolean => {
-  const segments = pathname.split("/").filter(Boolean);
+  const segments = stripLangPrefix(pathname).path.split("/").filter(Boolean);
   return segments.length >= 2;
 };
 
 // 相関図 (/cgraph) と開催地マップ (/live/heatmap) はフルスクリーンの
 // グラフ/マップ描画ページ。body.tsx の isCGraphPath / isLiveHeatmapPath と
 // 同じ判定を用いて、フル表示の動画が描画領域を圧迫しないよう常にミニ表示に固定する。
-const isFullscreenVizPath = (pathname: string): boolean => {
-  if (!pathname) return false;
+const isFullscreenVizPath = (rawPathname: string): boolean => {
+  if (!rawPathname) return false;
+  const pathname = stripLangPrefix(rawPathname).path;
   return (
     pathname === "/cgraph" ||
     pathname.startsWith("/cgraph/") ||
@@ -75,6 +79,7 @@ const MainVideo: React.FC<Props> = ({
   onError,
 }) => {
   const dispatch = useAppDispatch();
+  const dict = useDict();
   const { currentVideoId, isLoaded, isShrinked, playerRef } = useAppSelector(
     (state) => state.player
   );
@@ -344,7 +349,7 @@ const MainVideo: React.FC<Props> = ({
           <button
             onClick={handleExpand}
             className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
-            aria-label="動画を横幅フル表示に戻す"
+            aria-label={dict.video.expand}
           >
             <IoClose className="text-white text-xl" />
           </button>
@@ -355,7 +360,7 @@ const MainVideo: React.FC<Props> = ({
           <button
             onClick={handleDismiss}
             className="absolute top-1 right-1 z-30 bg-black/50 hover:bg-black/70 rounded-full p-1 transition-all"
-            aria-label="動画を閉じる"
+            aria-label={dict.video.close}
           >
             <IoClose className="text-white text-xl" />
           </button>
@@ -366,7 +371,7 @@ const MainVideo: React.FC<Props> = ({
             className={`absolute z-30 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-all ${
               isMini ? "bottom-1 left-1" : "bottom-2 left-2"
             }`}
-            aria-label={isMuted ? "ミュート解除" : "ミュート"}
+            aria-label={isMuted ? dict.video.unmute : dict.video.mute}
           >
             {isMuted ? (
               <IoVolumeMute className="text-white text-lg" />
@@ -379,7 +384,7 @@ const MainVideo: React.FC<Props> = ({
           <button
             type="button"
             onClick={handleExpand}
-            aria-label="動画を横幅フル表示に戻す"
+            aria-label={dict.video.expand}
             className="absolute inset-0 z-[25] w-full h-full cursor-pointer"
           />
         )}
@@ -388,7 +393,7 @@ const MainVideo: React.FC<Props> = ({
             <button
               type="button"
               onClick={handleActivate}
-              aria-label="動画を再生"
+              aria-label={dict.video.play}
               // aspect-w/aspect-h(paddingハック)はsm:max-h-80との併用時に
               // 実際の高さより大きい箱を作ってしまい、中央寄せの再生ボタンが
               // クリップされた可視範囲の外に落ちる。実CSSのaspect-ratioを使うことで

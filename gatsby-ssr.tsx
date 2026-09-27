@@ -4,6 +4,9 @@ import Body from "./src/components/modules/body";
 import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
 import { AuthProvider } from "./src/contexts/AuthContext";
+import { SiteLangProvider } from "./src/i18n/site/SiteLangContext";
+import { isSiteLang, DEFAULT_LANG, HTML_LANG } from "./src/i18n/site/langs";
+import { stripLangPrefix } from "./src/utils/i18nRoutes";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathname }) => {
   return (
@@ -15,9 +18,14 @@ export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathnam
   );
 };
 
-// MainVideo と TopHeader は Body 内で wrapRootElement に載っているため
-// wrapPageElement では何も追加せずそのまま返す。
-export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => element;
+// MainVideo と TopHeader は Body 内で wrapRootElement に載っている。
+// ページ本体には pageContext.lang の言語を渡す(多言語ページ: plan/28)。
+export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element, props }) => {
+  const lang = (props.pageContext as { lang?: unknown })?.lang;
+  return (
+    <SiteLangProvider lang={isSiteLang(lang) ? lang : DEFAULT_LANG}>{element}</SiteLangProvider>
+  );
+};
 
 // Gatsby は本番ビルドでグローバルCSSを全ページの <style> にインライン展開する。
 // CSS が大きく(数百KB)、ページ間で共通なので、ハッシュ付きの外部CSSへの <link> に
@@ -42,10 +50,12 @@ export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
 };
 
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
+  pathname,
   setHtmlAttributes,
   setPreBodyComponents,
 }) => {
-  setHtmlAttributes({ lang: "ja" });
+  // 多言語ページ(/en/... 等)は URL の言語を <html lang> にする(plan/28)
+  setHtmlAttributes({ lang: HTML_LANG[stripLangPrefix(pathname).lang] });
   // ライトモード設定 (localStorage) を初回描画前に <html> へ反映する (FOUC 対策)。
   // useTheme フックの STORAGE_KEY/クラス名と一致させること。
   setPreBodyComponents([
