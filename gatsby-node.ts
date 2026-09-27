@@ -20,6 +20,8 @@ import {
   resolveTrustedSongUuid,
 } from "./src/utils/songMatcher";
 import { shiftMonthDay } from "./src/utils/monthDay";
+import { isLocalizedRoute, localizePath } from "./src/utils/i18nRoutes";
+import { ENABLED_LANGS } from "./src/i18n/site/langs";
 import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
@@ -1607,10 +1609,25 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 // ----- 記事 & 会場の静的ページを生成 -----
-// リデザイン比較用の /design-preview/ は開発時のみ生成し、本番ビルドには含めない
 export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
+  // リデザイン比較用の /design-preview/ は開発時のみ生成し、本番ビルドには含めない
   if (process.env.NODE_ENV === "production" && page.path.startsWith("/design-preview")) {
     actions.deletePage(page);
+    return;
+  }
+
+  // 多言語ページ(plan/28): 翻訳済みのルートを言語ごとに /<lang>/... として複製する。
+  // onCreatePage はテンプレートから作ったページでも呼ばれるので、曲詳細等もここで複製できる。
+  // 複製したページでも再び呼ばれるため、context.lang を持つページ(=複製済み)は何もしない。
+  const context = (page.context ?? {}) as Record<string, unknown>;
+  if (context.lang) return;
+  if (!isLocalizedRoute(page.path)) return;
+  for (const lang of ENABLED_LANGS) {
+    actions.createPage({
+      ...page,
+      path: localizePath(page.path, lang),
+      context: { ...context, lang },
+    });
   }
 };
 
@@ -1619,6 +1636,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
 }) => {
   const { createPage } = actions;
+
+  // 多言語ページ(plan/28): onCreatePage はサイト自身の createPages で作ったページには呼ばれないため、
+  // テンプレートのページはここで翻訳済みルートを言語ごとに複製する。
+  const createPageWithLocales = (page: Parameters<typeof createPage>[0]) => {
+    createPage(page);
+    if (!isLocalizedRoute(page.path)) return;
+    for (const lang of ENABLED_LANGS) {
+      createPage({
+        ...page,
+        path: localizePath(page.path, lang),
+        context: { ...(page.context ?? {}), lang },
+      });
+    }
+  };
 
   // 記事ページ — slugは記事データと同期が必要（markdownインポートを含むため直接import不可）
   const articleSlugs = [
@@ -1846,7 +1877,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       const albumPosts = song.discographyUuid
         ? postsByDiscUuid.get(song.discographyUuid) ?? []
         : [];
-      createPage({
+      createPageWithLocales({
         path: `/songs/${song.slug}/`,
         component: songTemplate,
         context: {
@@ -2011,7 +2042,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             : null,
         }));
 
-        createPage({
+        createPageWithLocales({
           path: `/live/${item.slug}/`,
           component: liveItemTemplate,
           context: {

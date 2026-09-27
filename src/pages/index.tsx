@@ -5,6 +5,7 @@ import SEO from '../components/SEO'
 import { buildWebSite } from "../utils/jsonLd";
 import { Recommend } from "../types/recommend";
 import { SiteStats } from "../components/index/sections/HomeSection";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
 
 type siteMetadata = {
   title: string;
@@ -62,8 +63,9 @@ const IndexPage: FC<PageProps<any>> = ({ data }) => {
 
 export default IndexPage;
 
-export const Head: HeadFC<any> = ({ data }) => {
+export const Head: HeadFC<any, { lang?: string }> = ({ data, pageContext }) => {
   const siteMetadata: siteMetadata = data.site.siteMetadata;
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
   // ?section=place などのクエリがあればセクション別タイトル/OGに反映
   // Gatsby v5 の Head の location は pathname しか持たないため、ブラウザ側で
   // 取得できる場合のみ参照する
@@ -77,10 +79,12 @@ export const Head: HeadFC<any> = ({ data }) => {
   })();
   return (
     <SEO
-      description={siteMetadata.description}
+      // 日本語以外は SEO 側の言語別の既定 description を使う(siteMetadata は日本語)
+      description={lang === DEFAULT_LANG ? siteMetadata.description : undefined}
       path="/"
-      section={section}
+      section={lang === DEFAULT_LANG ? section : undefined}
       jsonLd={buildWebSite()}
+      lang={lang}
     />
   );
 };

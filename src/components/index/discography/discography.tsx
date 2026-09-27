@@ -7,9 +7,13 @@ import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Ti
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
 import EnhancedTimelineItem from "./enhanced-timeline-item";
+import { useDict } from "../../../i18n/site/SiteLangContext";
+import { formatLabel, SiteDict } from "../../../i18n/site/dict";
 
 type Props = {
   data: DiscographyWithSongs[];
+  /** 表示言語の辞書(クラスコンポーネントのためラッパーから渡す) */
+  dict: SiteDict;
   isLoaded: any;
   currentVideoId: any;
   isShrinked: any;
@@ -151,7 +155,7 @@ class Discography extends Component<Props, State> {
   groupByYear(list: DiscographyWithSongs[]) {
     const grouped = new Map<string, DiscographyWithSongs[]>();
     for (const item of list) {
-      const year = item.releaseDate?.split("-")[0] || "不明";
+      const year = item.releaseDate?.split("-")[0] || this.props.dict.discography.unknownYear;
       if (!grouped.has(year)) grouped.set(year, []);
       grouped.get(year)!.push(item);
     }
@@ -252,12 +256,12 @@ class Discography extends Component<Props, State> {
                   });
                 }}
               >
-                #{tag}
+                #{formatLabel(this.props.dict, tag)}
               </span>
             );
           })}
         </div>
-        <p className="text-xs text-right pt-2 text-bx-ink2">{list.length}件</p>
+        <p className="text-xs text-right pt-2 text-bx-ink2">{this.props.dict.discography.count(list.length)}</p>
 
         {/* 年ジャンプ索引(スティッキー) */}
         {groupedByYear.length > 1 && (
@@ -283,7 +287,7 @@ class Discography extends Component<Props, State> {
               >
                 {year}
                 <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">
-                  {items.length}件
+                  {this.props.dict.discography.count(items.length)}
                 </span>
               </h2>
               <Timeline theme={timelineRootTheme}>
@@ -307,4 +311,11 @@ class Discography extends Component<Props, State> {
 
 const mapStateToProps = (state: RouteState) => state.player;
 
-export default connect(mapStateToProps)(Discography);
+const ConnectedDiscography = connect(mapStateToProps)(Discography);
+
+// クラスコンポーネントでは useDict を使えないため、辞書をラッパーから props で渡す
+const DiscographyWithDict: React.FC<{ data: DiscographyWithSongs[] }> = ({ data }) => (
+  <ConnectedDiscography data={data} dict={useDict()} />
+);
+
+export default DiscographyWithDict;

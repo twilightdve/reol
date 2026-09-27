@@ -5,6 +5,7 @@ import { BiCommentDetail } from "react-icons/bi";
 import Discography from "../discography/discography";
 import { DiscographyWithSongs } from "../../../types/discography";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { useDict } from "../../../i18n/site/SiteLangContext";
 
 interface DiscographySectionProps {
   discographies: DiscographyWithSongs[];
@@ -16,6 +17,7 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
   // 新規コンテンツ案C「コレクション台帳」。個別の所有/視聴済みチェックは各カード
   // (enhanced-timeline-item.tsx)側、ここでは全体のコンプ率だけをまとめて表示する。
   const { owned, mounted } = useCollectionOwned();
+  const t = useDict().discography;
   const ownedCount = mounted
     ? discographies.filter((d) => owned.has(d.discographyUuid)).length
     : 0;
@@ -32,12 +34,12 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
           </span>
         </h2>
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
-          DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。
+          {t.intro}
         </div>
         <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs text-bx-ink3">
-              コレクション(所有/視聴済み)
+              {t.collectionLabel}
             </span>
             <span className="text-sm font-bold text-bx-blue tabular-nums">
               {ownedCount} / {totalCount} ・ {rate}%
@@ -50,7 +52,7 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
             />
           </div>
           <p className="mt-1.5 text-[10px] text-bx-ink3">
-            各カードの「✓」で所有/視聴済みを記録できます(この端末のブラウザ内のみに保存)
+            {t.collectionHint}
           </p>
         </div>
       </div>
@@ -58,24 +60,24 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
       <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 rounded-lg border border-bx-line">
         <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
           <li>
-            上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます
+            {t.helpFilter}
             <br />
-            例）「#れをる」を押下すると「れをる」名義の情報のみが表示されます
+            {t.helpFilterExample}
           </li>
           <li>
-            タイトル左の
+            {t.helpPlayBefore}
             <FaCirclePlay className="inline" />
-            をタップすると画面上部のプレイヤーで動画を再生します
+            {t.helpPlayAfter}
           </li>
           <li>
-            「
+            {t.helpOpenBefore}
             <GoListUnordered className="inline" />
-            開く」を押すと収録曲一覧や楽曲ごとの各種リンクが表示されます
+            {t.helpOpenAfter}
           </li>
           <li>
-            曲名の右隣に「
+            {t.helpCommentBefore}
             <BiCommentDetail className="inline" />
-            」が表示されている場合、クリックするとSpotifyのリンクや楽曲の解析情報が表示されます
+            {t.helpCommentAfter}
           </li>
         </ul>
       </div>

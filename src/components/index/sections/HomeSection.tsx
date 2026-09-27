@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
 import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
@@ -39,6 +39,8 @@ const formatMonthDay = (iso: string | null): string => {
 
 const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
   const { songCount, liveItemCount, performanceCount, nextLive } = siteStats;
+  const dict = useDict();
+  const t = dict.home;
   const stats = [
     { value: songCount, label: "SONGS" },
     { value: liveItemCount, label: "LIVES" },
@@ -55,16 +57,19 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </p>
         <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-[1.22] text-bx-ink">
           <span className="block text-left">
-            Reolの<span className="text-bx-blue">これまで</span>と、
+            {t.heroLine1Before}
+            <span className="text-bx-blue">{t.heroLine1Accent}</span>
+            {t.heroLine1After}
           </span>
           <span className="block text-left">
-            <span className="invisible" aria-hidden="true">Reolの</span>
-            <span className="text-bx-yellow">これから</span>を知る。
+            <span className="invisible" aria-hidden="true">{t.heroLine2Indent}</span>
+            <span className="text-bx-yellow">{t.heroLine2Accent}</span>
+            {t.heroLine2After}
           </span>
         </h1>
         <p className="mt-4 text-sm max-w-lg leading-relaxed text-bx-ink2">
-          楽曲・ライブ・セトリ・ロケ地。れをる時代から現在まで、
-          公式コンテンツへの案内板を兼ねた非公式アーカイブ。
+          {t.heroLead1}{" "}
+          {t.heroLead2}
         </p>
 
         {/* 統計3枚 */}
@@ -106,7 +111,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
               onClick={() => trackOfficialLinkClick("site")}
               className="ml-auto font-extrabold tracking-wide rounded-full px-4 py-1.5 border border-bx-yellow text-bx-yellow"
             >
-              公式サイトでチケット →
+              {t.ticketCta}
             </a>
           </div>
         )}
@@ -138,15 +143,15 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow">
             START HERE
           </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">はじめてのReol</h2>
+          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.welcomeTitle}</h2>
           <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            代表曲と年代別ガイド。どのeraから入っても迷わない。
+            {t.welcomeDesc}
           </p>
         </GlassCard>
 
         {/* ライブに行く（カード内に初参加ガイドへのサブリンクを併設） */}
         <GlassCard accent="blue" className="h-full flex flex-col overflow-hidden">
-          <Link
+          <LangLink
             to="/live/"
             onClick={() =>
               trackEvent("entry_card_click", {
@@ -160,12 +165,12 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blue">
               LIVE & SETLIST
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ライブに行く</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.liveTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {liveItemCount}公演のセトリアーカイブと初参加ガイド。
+              {t.liveDesc(liveItemCount)}
             </p>
-          </Link>
-          <Link
+          </LangLink>
+          <LangLink
             to="/live/guide/"
             onClick={() =>
               trackEvent("entry_card_click", {
@@ -176,8 +181,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             }
             className="block text-center text-[10px] sm:text-xs text-bx-ink3 border-t border-bx-line py-1.5 hover:text-bx-blueLight transition-colors"
           >
-            初参加ガイドを読む →
-          </Link>
+            {t.liveGuideLink}
+          </LangLink>
         </GlassCard>
 
         {/* データを掘る */}
@@ -196,9 +201,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
             DATA
           </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">データを掘る</h2>
+          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.dataTitle}</h2>
           <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            {songCount}曲の演奏回数・初披露・最終演奏を全曲収録。
+            {t.dataDesc(songCount)}
           </p>
         </GlassCard>
 
@@ -218,9 +223,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-ink">
             TIME MACHINE
           </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">タイムマシン</h2>
+          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.timemachineTitle}</h2>
           <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            年月スライダーで、当時の楽曲数・ライブ数・演奏数を再現。
+            {t.timemachineDesc}
           </p>
         </GlassCard>
       </div>
@@ -244,9 +249,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               CREATOR RELATIONS
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">相関図</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.cgraphTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              楽曲に関わったクリエイター同士のつながりを可視化。
+              {t.cgraphDesc}
             </p>
           </GlassCard>
 
@@ -265,9 +270,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               LIVE HEATMAP
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">開催地マップ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.heatmapTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              都道府県別の公演数を色分けしたヒートマップ。
+              {t.heatmapDesc}
             </p>
           </GlassCard>
 
@@ -286,9 +291,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               SONG SORTER
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">楽曲ソーター</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.sorterTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              2曲ずつ勝ち抜き戦。あなたの一番好きな曲を決めるトーナメント。
+              {t.sorterDesc}
             </p>
           </GlassCard>
 
@@ -307,9 +312,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               SETLIST GRAMMAR
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリの文法</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.grammarTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              曲の隣接関係・定位置・年別傾向をデータで解析。
+              {t.grammarDesc}
             </p>
           </GlassCard>
 
@@ -328,9 +333,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               SETLIST COMPARE
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリ比較</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.compareTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              2公演のセットリストを比較し、共通曲・差分・曲順の変化を可視化。
+              {t.compareDesc}
             </p>
           </GlassCard>
 
@@ -349,9 +354,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               TOUR HEATMAP
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ツアーヒートマップ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.tourHeatmapTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              1ツアーの全公演を横断し、楽曲ごとの演奏有無・曲順を一覧表示。
+              {t.tourHeatmapDesc}
             </p>
           </GlassCard>
 
@@ -370,9 +375,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               SIMILARITY RANKING
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">セトリ類似度ランキング</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.similarityTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              異なるツアー同士でセトリが特に似ている公演ペアをランキング。
+              {t.similarityDesc}
             </p>
           </GlassCard>
 
@@ -391,9 +396,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               POSTS
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">関連ポスト</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.postsTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              楽曲・ライブ・各公演の関連ポストを時系列で横断表示。
+              {t.postsDesc}
             </p>
           </GlassCard>
         </div>
@@ -409,9 +414,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               FAN TYPE QUIZ
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">Reolファンタイプ診断</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.quizTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              全20問の質問であなたのファンタイプを診断！
+              {t.quizDesc}
             </p>
           </div>
           <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
@@ -434,9 +439,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               LIVE GUIDE
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">ライヴ参戦ガイド</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.guideTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              持ち物・服装・マナーから遠征のコツまで
+              {t.guideDesc}
             </p>
           </div>
           <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>

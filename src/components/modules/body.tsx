@@ -12,6 +12,8 @@ import PersistentMainVideo from "./persistentMainVideo";
 import OfficialFooter from "./officialFooter";
 import TrackingFooter from "./trackingFooter";
 import WashiBackgroundImage from "../../images/washi-background.png";
+import { SiteLangProvider } from "../../i18n/site/SiteLangContext";
+import { stripLangPrefix } from "../../utils/i18nRoutes";
 
 type Props = {
   children: ReactNode;
@@ -121,19 +123,21 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     };
   }, []);
 
-  const isBijigakuNavi = isBijigakuNaviPath(pathname);
-  const isReolTypeQuiz = isReolTypeQuizPath(pathname);
-  const isCGraph = isCGraphPath(pathname);
-  const isLiveHeatmap = isLiveHeatmapPath(pathname);
-  const isRelive = isRelivePath(pathname);
-  const isDesignPreview = isDesignPreviewPath(pathname);
+  // 多言語ページ(/en/... 等)では言語プレフィックスを除いたパスで判定する(plan/28)
+  const { lang, path: basePath } = stripLangPrefix(pathname);
+  const isBijigakuNavi = isBijigakuNaviPath(basePath);
+  const isReolTypeQuiz = isReolTypeQuizPath(basePath);
+  const isCGraph = isCGraphPath(basePath);
+  const isLiveHeatmap = isLiveHeatmapPath(basePath);
+  const isRelive = isRelivePath(basePath);
+  const isDesignPreview = isDesignPreviewPath(basePath);
 
   if (isBijigakuNavi) {
     // 美辞学ナビは独自のテーマ・ヘッダーを ReolMapLayout 側で持っているので
     // ファンサイト側のヘッダー / 動画は出さず、
     // 背景には和紙テクスチャを敷いて別サイトの雰囲気を出す。
     return (
-      <>
+      <SiteLangProvider lang={lang}>
         <div
           aria-hidden
           style={{ backgroundImage: `url(${WashiBackgroundImage})` }}
@@ -141,14 +145,18 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
         />
         <Layout title={data.site.siteMetadata.title} children={children} />
         <OfficialFooter />
-      </>
+      </SiteLangProvider>
     );
   }
 
   if (isReolTypeQuiz || isRelive || isDesignPreview) {
     // ファンタイプ診断 / Relive Player / デザインプレビューはページ内で独自の背景・レイアウトを持つため
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
-    return <Layout title={data.site.siteMetadata.title} children={children} />;
+    return (
+      <SiteLangProvider lang={lang}>
+        <Layout title={data.site.siteMetadata.title} children={children} />
+      </SiteLangProvider>
+    );
   }
 
   // 相関図 / 開催地マップはフルスクリーンのビジュアライゼーションのため、
@@ -162,7 +170,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
   const isFullscreenViz = isCGraph || isLiveHeatmap;
 
   return (
-    <>
+    <SiteLangProvider lang={lang}>
       {!isFullscreenViz && (
         <>
           {/*
@@ -185,7 +193,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
         ページ本体 (Layout > children) の上に出している。
         順序を TopHeader → PersistentMainVideo にして、ヘッダーが常に動画の上に位置するようにしている。
       */}
-      <TopHeader title={data.site.siteMetadata.title} />
+      <TopHeader title={data.site.siteMetadata.title} pathname={pathname} />
       <Toaster position="top-center" />
       <PersistentMainVideo initialPathname={pathname} />
       <div
@@ -201,7 +209,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
       </div>
       {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(quiz/cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
       {!isFullscreenViz && <TrackingFooter />}
-    </>
+    </SiteLangProvider>
   );
 };
 

@@ -13,7 +13,7 @@
  * ここでは <main> 配下の見た目のみを bx トークンで揃える。
  */
 import React, { useState } from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 import { FiMic, FiPlay, FiX } from "react-icons/fi";
 import { GoLinkExternal } from "react-icons/go";
 import YouTube from "react-youtube";
@@ -24,6 +24,10 @@ import LazyComponent from "../components/modules/LazyComponent";
 import Tweets from "../components/modules/tweets";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
+import { LangLink, useDict, useSiteLang } from "../i18n/site/SiteLangContext";
+import { getDict, SiteDict } from "../i18n/site/dict";
+import { DEFAULT_LANG, INTL_LOCALE, isSiteLang } from "../i18n/site/langs";
+import { localizePath } from "../utils/i18nRoutes";
 import {
   buildBreadcrumbList,
   buildMusicRecording,
@@ -98,6 +102,9 @@ export interface SongPageContext {
 }
 
 const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext }) => {
+  const lang = useSiteLang();
+  const t = useDict().song;
+  const locale = INTL_LOCALE[lang];
   const {
     songName,
     slug,
@@ -141,8 +148,8 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
   };
 
   // Xシェア: intentリンク(外部サービスへの送信はユーザーのクリック起点)
-  const shareUrl = `https://reol.twilightea.com/songs/${slug}/`;
-  const shareText = `Reol「${songName}」の演奏統計・MV・配信リンク | !Legit(非公式ファンサイト)`;
+  const shareUrl = `https://reol.twilightea.com${localizePath(`/songs/${slug}/`, lang)}`;
+  const shareText = t.shareText(songName);
   const shareIntentUrl = `https://x.com/intent/post?text=${encodeURIComponent(
     shareText
   )}&url=${encodeURIComponent(shareUrl)}`;
@@ -162,9 +169,9 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     .filter((v) => v.youTubeId || v.bvid);
 
   const statCards = [
-    { label: "通算演奏", value: `${totalPlays.toLocaleString()}回` },
-    { label: "初披露", value: firstPlayedDate ?? "―" },
-    { label: "最終演奏", value: lastPlayedDate ?? "―" },
+    { label: t.totalPlays, value: t.playsValue(totalPlays.toLocaleString(locale)) },
+    { label: t.firstPlayed, value: firstPlayedDate ?? "―" },
+    { label: t.lastPlayed, value: lastPlayedDate ?? "―" },
   ];
 
   return (
@@ -172,13 +179,13 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
       <main className="container mx-auto px-4 sm:px-6 py-8 max-w-3xl text-bx-ink">
         {/* パンくず */}
         <p className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-bx-ink3">
-          <Link to="/" className="hover:text-bx-blue transition-colors">
+          <LangLink to="/" className="hover:text-bx-blue transition-colors">
             HOME
-          </Link>
+          </LangLink>
           <span aria-hidden>/</span>
-          <Link to="/songs/stats/" className="hover:text-bx-blue transition-colors">
+          <LangLink to="/songs/stats/" className="hover:text-bx-blue transition-colors">
             SONGS
-          </Link>
+          </LangLink>
           <span aria-hidden>/</span>
           <span className="text-bx-ink">{songName}</span>
         </p>
@@ -191,19 +198,19 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
           </h1>
           {discographyTitle && discographySlug && (
             <p className="mt-4 text-[13px] text-bx-ink3">
-              収録アルバム:{" "}
-              <Link
+              {t.album}{" "}
+              <LangLink
                 to={`/discography/#disc-${discographySlug}`}
                 className="text-bx-blue hover:text-bx-blueLight underline underline-offset-2"
               >
                 {discographyTitle}
-              </Link>
+              </LangLink>
             </p>
           )}
           {(lyricMember || musicMember) && (
             <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-bx-ink3">
-              {lyricMember && <span>作詞: {lyricMember}</span>}
-              {musicMember && <span>作曲: {musicMember}</span>}
+              {lyricMember && <span>{t.lyrics}: {lyricMember}</span>}
+              {musicMember && <span>{t.music}: {musicMember}</span>}
             </div>
           )}
         </header>
@@ -237,7 +244,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 onClick={() => trackOfficialLinkClick("streaming")}
                 className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
               >
-                配信で聴く
+                {t.stream}
               </a>
             )}
             {lyricUrl && (
@@ -248,7 +255,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 onClick={() => trackOfficialLinkClick("lyrics")}
                 className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
               >
-                歌詞を見る(歌ネット)
+                {t.lyricsLink}
               </a>
             )}
             {musicVideoUrl && (
@@ -259,7 +266,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 onClick={() => trackOfficialLinkClick("youtube_mv")}
                 className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
               >
-                公式MVを見る
+                {t.watchMv}
               </a>
             )}
             <a
@@ -270,9 +277,9 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 trackEvent("song_share", { category: "share", label: songName })
               }
               className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink3 hover:border-bx-blue hover:text-bx-ink transition-colors"
-              title="この曲のページをXでシェア"
+              title={t.shareTitle}
             >
-              Xでシェア
+              {t.share}
             </a>
           </section>
 
@@ -377,15 +384,15 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
             前に置く。逆順だと関連ポストの後がスクロールで到達されにくいため。 */}
         <section className="mb-10">
           <Kicker className="mb-4">
-            PERFORMANCE HISTORY — {totalPlays.toLocaleString()}件
+            {t.historyKicker(totalPlays.toLocaleString(locale))}
           </Kicker>
 
           {sortedPlays.length === 0 ? (
             <EmptyState
               icon={<FiMic />}
               tone="dark"
-              title="ライブ演奏の記録はまだありません"
-              description="今後のライブで披露された際にはここに演奏履歴が追加されます。"
+              title={t.noHistoryTitle}
+              description={t.noHistoryDesc}
             />
           ) : (
             <div className="relative pl-6">
@@ -401,7 +408,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                       aria-hidden
                       className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-bx-yellow"
                     />
-                    <Link
+                    <LangLink
                       to={`/live/#live-item-${p.liveItemSlug}`}
                       className="group block"
                     >
@@ -412,14 +419,14 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                         <span className="text-[11px] text-bx-ink3">{p.liveTitle}</span>
                       </div>
                       <p className="mt-1 text-[15px] font-bold text-bx-ink group-hover:text-bx-blue transition-colors">
-                        {p.place ?? "会場未定"}
+                        {p.place ?? t.venueTbd}
                         {p.liveItemName && (
                           <span className="ml-2 text-[11px] font-normal text-bx-ink3">
                             {p.liveItemName}
                           </span>
                         )}
                       </p>
-                    </Link>
+                    </LangLink>
                     {p.youtubeVideoId && (
                       <button
                         type="button"
@@ -430,12 +437,12 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                         {expandedPlayVideos.has(p.liveItemSongUuid) ? (
                           <>
                             <FiX className="w-3 h-3" />
-                            閉じる
+                            {t.closeVideo}
                           </>
                         ) : (
                           <>
                             <FiPlay className="w-3 h-3" />
-                            映像を見る
+                            {t.watchVideo}
                           </>
                         )}
                       </button>
@@ -468,7 +475,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
         {/* ④''収録アルバムの関連ポスト */}
         {albumPosts && albumPosts.length > 0 && (
           <section className="mb-8">
-            <Kicker className="mb-4">関連ポスト</Kicker>
+            <Kicker className="mb-4">{t.relatedPosts}</Kicker>
             <Tweets
               parentId={`song-${slug}`}
               posts={albumPosts.map((post) => ({
@@ -489,12 +496,12 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
               {otherAlbumSongs.map((s, i) =>
                 s.slug ? (
                   <li key={`${s.slug}-${i}`}>
-                    <Link
+                    <LangLink
                       to={`/songs/${s.slug}/`}
                       className="inline-block text-[12px] font-semibold rounded-full px-3.5 py-1.5 border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
                     >
                       {s.songName}
-                    </Link>
+                    </LangLink>
                   </li>
                 ) : (
                   <li key={`nolink-${i}`}>
@@ -515,28 +522,28 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
               DATA
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">楽曲統計へ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.toStatsTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              全曲の演奏回数・初披露・最終演奏をまとめて見る。
+              {t.toStatsDesc}
             </p>
           </GlassCard>
           <GlassCard to="/search/" accent="yellow" className="p-4">
             <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow">
               SEARCH
             </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">横断検索へ</h2>
+            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.toSearchTitle}</h2>
             <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              楽曲・ライブ・ロケ地を横断してキーワード検索。
+              {t.toSearchDesc}
             </p>
           </GlassCard>
         </section>
         <p className="text-right">
-          <Link
+          <LangLink
             to="/"
             className="text-[11.5px] font-bold text-bx-ink3 hover:text-bx-blue transition-colors"
           >
-            トップに戻る
-          </Link>
+            {t.backToTop}
+          </LangLink>
         </p>
       </main>
     </Layout>
@@ -549,19 +556,22 @@ export default SongPage;
  * 機械生成の description(演奏統計から導出できる事実のみ)。
  * SSGでの翻訳キー露出を避けるため、Head では react-i18next の t() を使用しない。
  */
-const buildDescription = (ctx: SongPageContext): string => {
-  const parts = [`Reol「${ctx.songName}」のライブ演奏統計。`];
+const buildDescription = (ctx: SongPageContext, t: SiteDict["song"]): string => {
+  const parts = [t.metaLead(ctx.songName)];
   if (ctx.totalPlays > 0) {
-    parts.push(`通算${ctx.totalPlays}回演奏、初披露は${ctx.firstPlayedDate ?? "不明"}。`);
+    parts.push(t.metaPlays(ctx.totalPlays, ctx.firstPlayedDate));
   } else {
-    parts.push("ライブでの演奏記録は確認されていません。");
+    parts.push(t.metaNoPlays);
   }
-  parts.push("演奏履歴・公式MV・配信リンクを掲載。");
+  parts.push(t.metaTail);
   return parts.join("");
 };
 
 export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
   const { songName, discographyTitle, slug, plays } = pageContext;
+  const langCtx = (pageContext as { lang?: unknown }).lang;
+  const lang = isSiteLang(langCtx) ? langCtx : DEFAULT_LANG;
+  const dict = getDict(lang);
 
   // 演奏履歴(日付が正しいものだけ)をMusicEventのItemListとして構造化データ化する。
   // 「この曲はいつ初披露/最後に演奏されたか」に生成AIが直接答えられるようにするため。
@@ -579,14 +589,15 @@ export const Head: HeadFC<object, SongPageContext> = ({ pageContext }) => {
   return (
     <SEO
       title={`${songName}(Reol)`}
-      description={buildDescription(pageContext)}
+      description={buildDescription(pageContext, dict.song)}
       path={`/songs/${slug}/`}
+      lang={lang}
       image={`https://reol.twilightea.com/og/songs/${slug}.png`}
       jsonLd={[
         buildMusicRecording({ name: songName, albumName: discographyTitle }),
         buildBreadcrumbList([
-          { name: "ホーム", path: "/" },
-          { name: "楽曲統計", path: "/songs/stats/" },
+          { name: dict.site.breadcrumbHome, path: localizePath("/", lang) },
+          { name: dict.song.breadcrumbStats, path: localizePath("/songs/stats/", lang) },
           { name: songName },
         ]),
         ...(performanceEvents.length > 0 ? [buildMusicEventItemList(performanceEvents)] : []),

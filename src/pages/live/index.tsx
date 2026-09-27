@@ -15,6 +15,9 @@ import { AppDispatch } from "../../redux/store";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { ROUTE_NAMES } from "../../types/common";
 import { useDeepLinkScroll } from "../../hooks/useDeepLinkScroll";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type LivePageData = {
   site: { siteMetadata: { title: string; description: string; siteUrl: string } };
@@ -111,7 +114,9 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<LivePageData> = ({ data }) => {
+export const Head: HeadFC<LivePageData, { lang?: string }> = ({ data, pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const dict = getDict(lang);
   // 各公演(liveItem)単位で MusicEvent を組み立てる。
   // ライブ(親)側の date はツアーの場合「2026-03-14〜2026-07-18」のような
   // 範囲表記になるため使わず、公演ごとの単一日付のみ採用し、不正/欠損はスキップ。
@@ -130,12 +135,13 @@ export const Head: HeadFC<LivePageData> = ({ data }) => {
   return (
     <SEO
       title="LIVE"
-      description="Reol が過去に出演したワンマンライヴ・ツアー・フェスなどの情報。各ライヴごとのセトリ、レポート、関連ポストを掲載しています。"
+      description={dict.live.metaDescription}
       path="/live/"
+      lang={lang}
       jsonLd={[
         buildBreadcrumbList([
-          { name: "ホーム", path: "/" },
-          { name: "LIVE", path: "/live/" },
+          { name: dict.site.breadcrumbHome, path: localizePath("/", lang) },
+          { name: "LIVE", path: localizePath("/live/", lang) },
         ]),
         buildMusicEventItemList(events),
       ]}

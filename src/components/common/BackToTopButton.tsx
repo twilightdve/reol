@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa6";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { useDict } from "../../i18n/site/SiteLangContext";
 
 interface BackToTopButtonProps {
   /** 表示し始めるスクロール量 (px) */
@@ -19,6 +20,7 @@ const BackToTopButton: React.FC<BackToTopButtonProps> = ({
   threshold = 400,
   className = "",
 }) => {
+  const dict = useDict();
   const [visible, setVisible] = useState(false);
   const reducedMotion = useReducedMotion();
 
@@ -49,7 +51,7 @@ const BackToTopButton: React.FC<BackToTopButtonProps> = ({
     <button
       type="button"
       onClick={handleClick}
-      aria-label="ページの先頭へ戻る"
+      aria-label={dict.common.backToTop}
       className={`fixed right-3 bottom-20 z-[55] min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-bx-yellow text-bx-bg flex items-center justify-center transition-opacity duration-300 motion-reduce:transition-none hover:opacity-90 active:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2 ${
         visible
           ? "opacity-100 pointer-events-auto"

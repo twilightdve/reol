@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { graphql, HeadFC, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 import ErrorRetry from "../../components/common/ErrorRetry";
 import { Kicker } from "../../components/redesign";
 import { trackOfficialLinkClick } from "../../utils/analytics";
+import { LangLink, useDict, useSiteLang } from "../../i18n/site/SiteLangContext";
+import { getDict } from "../../i18n/site/dict";
+import { DEFAULT_LANG, INTL_LOCALE, isSiteLang } from "../../i18n/site/langs";
 
 type Play = {
   liveUuid: string;
@@ -85,6 +88,8 @@ export const query = graphql`
 const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
   const songStats = data.songStats.songStats;
   const summary = data.songStats.summary;
+  const dict = useDict();
+  const locale = INTL_LOCALE[useSiteLang()];
 
   const [keyword, setKeyword] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("plays");
@@ -189,35 +194,33 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
   }, [songStats, keyword, sortKey]);
 
   return (
-    <Layout title="楽曲統計">
+    <Layout title={dict.stats.title}>
       <main className="container mx-auto px-3 sm:px-4 py-4 text-bx-ink max-w-4xl">
         <header className="mb-5">
           <Kicker color="text-bx-blue" className="mb-2">
             DATA
           </Kicker>
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            楽曲統計
+            {dict.stats.title}
           </h1>
-          <p className="text-xs text-bx-ink3">
-            LIVEで演奏された楽曲の通算演奏回数・初出 / 最終演奏日を一覧します。
-          </p>
-          <Link
+          <p className="text-xs text-bx-ink3">{dict.stats.lead}</p>
+          <LangLink
             to="/about/data/"
             className="inline-block mt-1.5 text-xs text-bx-blue hover:text-bx-blueLight underline underline-offset-2"
           >
-            集計ルールについて →
-          </Link>
+            {dict.stats.rulesLink}
+          </LangLink>
         </header>
 
         <section className="mb-5 grid grid-cols-2 gap-2 sm:gap-3">
           <Card
-            label="演奏数 (述べ)"
-            value={summary.matchedInstances.toLocaleString()}
+            label={dict.stats.totalPlays}
+            value={summary.matchedInstances.toLocaleString(locale)}
             accent="blue"
           />
           <Card
-            label="ユニーク楽曲"
-            value={summary.uniqueSongsPlayed.toLocaleString()}
+            label={dict.stats.uniqueSongs}
+            value={summary.uniqueSongsPlayed.toLocaleString(locale)}
             accent="yellow"
           />
         </section>
@@ -228,7 +231,7 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
               type="search"
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
-              placeholder="🔍 曲名で検索"
+              placeholder={dict.stats.searchPlaceholder}
               className="flex-1 min-w-[160px] px-3 py-1.5 text-base sm:text-sm rounded-md bg-bx-surface/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
             />
             <select
@@ -236,13 +239,13 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
               onChange={(e) => setSortKey(e.target.value as SortKey)}
               className="px-2 py-1.5 text-base sm:text-sm rounded-md bg-bx-surface/5 border border-bx-line text-bx-ink focus:outline-none focus:border-bx-blue"
             >
-              <option value="plays">演奏回数 (多)</option>
-              <option value="last">最終演奏 (新)</option>
-              <option value="first">初演奏 (古)</option>
-              <option value="name">曲名 (あいうえお)</option>
+              <option value="plays">{dict.stats.sortPlays}</option>
+              <option value="last">{dict.stats.sortLast}</option>
+              <option value="first">{dict.stats.sortFirst}</option>
+              <option value="name">{dict.stats.sortName}</option>
             </select>
             <span className="text-xs font-medium text-bx-ink2 ml-auto whitespace-nowrap">
-              {filteredSorted.length.toLocaleString()} 曲
+              {dict.stats.songCount(filteredSorted.length.toLocaleString(locale))}
             </span>
           </div>
         </section>
@@ -302,14 +305,14 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                         {rankLabel}
                       </td>
                       <td className="px-4 py-3 font-bold text-bx-ink whitespace-nowrap">
-                        <Link
+                        <LangLink
                           to={`/songs/${s.slug}/`}
                           onClick={(e) => e.stopPropagation()}
                           className="hover:text-bx-blue hover:underline underline-offset-2"
-                          title="楽曲詳細ページへ"
+                          title={dict.stats.toSongPageTitle}
                         >
                           {s.songName}
-                        </Link>
+                        </LangLink>
                         <span
                           aria-hidden
                           className={`ml-2 inline-block text-[10px] text-bx-ink3 transition-transform group-hover:text-bx-blue ${
@@ -335,31 +338,31 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                         <td colSpan={5} className="px-4 pt-3 pb-4 text-xs">
                           <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-bx-ink3">
                             <span>
-                              <span className="text-bx-ink3">初演奏</span>{" "}
+                              <span className="text-bx-ink3">{dict.stats.firstPlayed}</span>{" "}
                               <span className="font-medium text-bx-ink">
                                 {s.firstPlayedDate ?? "?"}
                               </span>
                             </span>
                             <span>
-                              <span className="text-bx-ink3">最新</span>{" "}
+                              <span className="text-bx-ink3">{dict.stats.lastPlayed}</span>{" "}
                               <span className="font-medium text-bx-ink">
                                 {s.lastPlayedDate ?? "?"}
                               </span>
                             </span>
                             {s.discographySlug !== null && (
-                              <Link
+                              <LangLink
                                 to={`/discography/#disc-${s.discographySlug}`}
                                 className="text-bx-blue hover:text-bx-blueLight underline"
                               >
-                                収録アルバムを見る →
-                              </Link>
+                                {dict.stats.toAlbum}
+                              </LangLink>
                             )}
-                            <Link
+                            <LangLink
                               to={`/songs/${s.slug}/`}
                               className="text-bx-blue hover:text-bx-blueLight underline"
                             >
-                              この曲のページへ →
-                            </Link>
+                              {dict.stats.toSongPage}
+                            </LangLink>
                           </div>
                           {/* 公式送客: 統計から「聴く」への導線(公式MV/公式配信リンクのみ) */}
                           {(s.musicVideoUrl || s.downloadUrl) && (
@@ -372,7 +375,7 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                                   onClick={() => trackOfficialLinkClick("youtube_mv")}
                                   className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-bx-line text-bx-ink text-[11px] font-bold hover:border-bx-blue transition-colors"
                                 >
-                                  ▶ 公式MVを見る
+                                  {dict.stats.watchMv}
                                 </a>
                               )}
                               {s.downloadUrl && (
@@ -383,16 +386,16 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
                                   onClick={() => trackOfficialLinkClick("streaming")}
                                   className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-bx-yellow text-bx-bg text-[11px] font-extrabold hover:opacity-90 transition-opacity"
                                 >
-                                  ♪ 配信で聴く
+                                  {dict.stats.stream}
                                 </a>
                               )}
                             </div>
                           )}
                           <div className="font-semibold text-bx-ink2 mb-2 flex items-center gap-2">
                             <span className="inline-block w-1 h-4 bg-bx-yellow rounded" />
-                            演奏履歴
+                            {dict.stats.history}
                             <span className="text-[10px] font-normal text-bx-ink3">
-                              ({s.totalPlays}件)
+                              {dict.stats.historyCount(s.totalPlays)}
                             </span>
                           </div>
                           <PlayHistory
@@ -413,13 +416,13 @@ const SongStatsPage: React.FC<PageProps<SongStatsPageData>> = ({ data }) => {
         </div>
 
         {filteredSorted.length === 0 && (
-          <p className="text-center text-bx-ink3 text-sm py-8">該当する楽曲が見つかりません</p>
+          <p className="text-center text-bx-ink3 text-sm py-8">{dict.stats.noMatch}</p>
         )}
 
         <div className="mt-6 text-xs text-bx-ink3">
-          <Link to="/" className="underline hover:text-bx-ink">
-            ← トップに戻る
-          </Link>
+          <LangLink to="/" className="underline hover:text-bx-ink">
+            {dict.stats.backToTop}
+          </LangLink>
         </div>
       </main>
     </Layout>
@@ -437,10 +440,11 @@ const PlayHistory: React.FC<{
   error: string | null;
   onRetry: () => void;
 }> = ({ songUuid, status, playsMap, error, onRetry }) => {
+  const dict = useDict();
   if (status === "error") {
     return (
       <ErrorRetry
-        title="演奏履歴の読み込みに失敗しました"
+        title={dict.stats.historyLoadError}
         description={error ?? undefined}
         onRetry={onRetry}
         tone="dark"
@@ -453,14 +457,14 @@ const PlayHistory: React.FC<{
         rows={3}
         rowHeightClassName="h-14"
         rowClassName="border border-bx-line bg-bx-surface/5"
-        label="演奏履歴を読み込み中..."
+        label={dict.stats.historyLoading}
       />
     );
   }
 
   const plays = playsMap.get(songUuid) ?? [];
   if (plays.length === 0) {
-    return <p className="text-bx-ink3">演奏履歴がありません</p>;
+    return <p className="text-bx-ink3">{dict.stats.historyEmpty}</p>;
   }
 
   return (
@@ -474,7 +478,7 @@ const PlayHistory: React.FC<{
             dateParts.length >= 3 ? `${dateParts[1]}/${dateParts[2]}` : p.date;
           return (
             <li key={p.liveItemSongUuid}>
-              <Link
+              <LangLink
                 to={`/live/#live-item-${p.liveItemSlug}`}
                 className="group flex items-stretch gap-2 sm:gap-3 rounded-md border border-bx-line bg-bx-surface/5 hover:border-bx-blue hover:bg-bx-surface/[0.08] transition-all overflow-hidden"
               >
@@ -510,7 +514,7 @@ const PlayHistory: React.FC<{
                 <div className="flex items-center pr-2 text-bx-ink3 group-hover:text-bx-blue">
                   →
                 </div>
-              </Link>
+              </LangLink>
             </li>
           );
         })}
@@ -542,10 +546,15 @@ const Card: React.FC<{ label: string; value: string; accent?: "blue" | "yellow" 
 
 export default SongStatsPage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="楽曲統計"
-    description="Reolの全楽曲のライブ演奏統計。通算演奏回数・初披露日・最終演奏日を一覧できます。"
-    path="/songs/stats/"
-  />
-);
+export const Head: HeadFC<SongStatsPageData, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const dict = getDict(lang);
+  return (
+    <SEO
+      title={dict.stats.title}
+      description={dict.stats.metaDescription}
+      path="/songs/stats/"
+      lang={lang}
+    />
+  );
+};

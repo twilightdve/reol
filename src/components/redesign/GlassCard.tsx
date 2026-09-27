@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { LangLink } from "../../i18n/site/SiteLangContext";
 
 /**
  * B案「BLACKBOX / CHRONICLE」共通のダークガラスカード。
@@ -49,9 +49,9 @@ const GlassCard: React.FC<GlassCardProps> = ({
 
   if (to) {
     return (
-      <Link to={to} onClick={onClick} className={baseClassName}>
+      <LangLink to={to} onClick={onClick} className={baseClassName}>
         {children}
-      </Link>
+      </LangLink>
     );
   }
 

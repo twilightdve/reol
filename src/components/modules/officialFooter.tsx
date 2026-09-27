@@ -8,6 +8,8 @@ import {
 } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
 import { trackOfficialLinkClick } from "../../utils/analytics";
+import { useDict } from "../../i18n/site/SiteLangContext";
+import type { SiteDict } from "../../i18n/site/dict";
 
 /**
  * 全ページ共通の公式送客フッター。
@@ -17,7 +19,8 @@ import { trackOfficialLinkClick } from "../../utils/analytics";
 
 type OfficialLink = {
   type: string;
-  label: string;
+  /** 表示名(言語ごとに変わるものは辞書から引く) */
+  label: string | ((dict: SiteDict) => string);
   href: string;
   icon: React.ReactNode;
 };
@@ -25,7 +28,7 @@ type OfficialLink = {
 const OFFICIAL_LINKS: OfficialLink[] = [
   {
     type: "site",
-    label: "公式サイト",
+    label: (dict) => dict.footer.officialSite,
     href: "https://reol.jp/",
     icon: <FaGlobe />,
   },
@@ -49,13 +52,14 @@ const OFFICIAL_LINKS: OfficialLink[] = [
   },
   {
     type: "goods",
-    label: "グッズ",
+    label: (dict) => dict.footer.goods,
     href: "https://reol.ec-front.jp/",
     icon: <FaBagShopping />,
   },
 ];
 
 const OfficialFooter: React.FC = () => {
+  const dict = useDict();
   return (
     <footer className="relative bg-bx-bg border-t border-bx-line text-bx-ink pt-6 pb-4 px-4">
       <h2 className="text-center text-xs font-bold tracking-[0.3em] text-bx-ink2 mb-3">
@@ -72,7 +76,7 @@ const OfficialFooter: React.FC = () => {
               onClick={() => trackOfficialLinkClick(link.type)}
             >
               <span className="text-sm">{link.icon}</span>
-              <span>{link.label}</span>
+              <span>{typeof link.label === "function" ? link.label(dict) : link.label}</span>
               <GoLinkExternal className="text-[10px] opacity-70" />
             </a>
           </li>
@@ -90,8 +94,7 @@ const OfficialFooter: React.FC = () => {
         </li>
       </ul>
       <p className="text-center text-[11px] leading-relaxed text-bx-ink3 max-w-xl mx-auto mb-3">
-        本サイトはReol公式とは関係のない非公式ファンサイトです。
-        楽曲・映像は公式の埋め込み/リンクのみ使用しています。
+        {dict.footer.disclaimer}
       </p>
       <div className="flex justify-center items-center gap-2 text-[11px] text-bx-ink3">
         <a
@@ -101,7 +104,7 @@ const OfficialFooter: React.FC = () => {
           className="flex items-center gap-1 hover:text-bx-ink transition-colors"
         >
           <FaXTwitter />
-          <span>運営(非公式ファンサイト)</span>
+          <span>{dict.footer.operator}</span>
           <GoLinkExternal className="text-[10px]" />
         </a>
         <span aria-hidden>|</span>

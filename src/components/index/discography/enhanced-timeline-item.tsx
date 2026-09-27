@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { Timeline } from "flowbite-react";
 import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -18,6 +18,8 @@ import {
   timelineContentTheme,
 } from "./enhanced-discography";
 import { trackEvent } from "../../../utils/analytics";
+import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
+import { formatLabel } from "../../../i18n/site/dict";
 
 type Props = {
   item: DiscographyWithSongs;
@@ -46,6 +48,7 @@ type SongCardProps = {
 };
 
 const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
+  const t = useDict().discography;
   // song.slug はこの収録盤(ライブ映像作品等の副次的な収録リストを含む)内での
   // 生データのslugであり、楽曲詳細ページ(/songs/<slug>/)は代表曲にしか存在しない
   // ため、そのまま使うと非代表の重複収録で404になる。songStatsの代表slugへ解決する
@@ -68,13 +71,13 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
         </span>
         <span className="flex-1 font-medium text-bx-ink">{song.songName}</span>
         {detailSlug && (
-          <Link
+          <LangLink
             to={`/songs/${detailSlug}/`}
             className="inline-flex items-center gap-1 text-xs font-extrabold flex-shrink-0 rounded-full px-2.5 py-1 border border-bx-yellow text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg transition-colors"
-            title="楽曲詳細ページ(演奏統計・MV・関連ポスト)を見る"
+            title={t.detailTitle}
           >
-            詳細
-          </Link>
+            {t.detail}
+          </LangLink>
         )}
       </div>
     </li>
@@ -84,6 +87,8 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
 SongCard.displayName = 'SongCard';
 
 const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
+  const dict = useDict();
+  const t = dict.discography;
   const dispatch = useAppDispatch();
   const { isLoaded, currentVideoId, isShrinked, playerRef } = useAppSelector(
     (state) => state.player
@@ -220,8 +225,8 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
       type="button"
       onClick={handleToggleOwned}
       aria-pressed={isOwned}
-      aria-label={isOwned ? "所有済みから外す" : "所有/視聴済みにする"}
-      title={isOwned ? "所有済み" : "所有/視聴済みにする"}
+      aria-label={isOwned ? t.unmarkOwned : t.markOwned}
+      title={isOwned ? t.owned : t.markOwned}
       className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
         isOwned
           ? "border-bx-blue bg-bx-blue text-bx-bg"
@@ -275,7 +280,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                             borderColor: addAlpha(colorPalette.secondary, 0.4),
                           }}
                         >
-                          {item.format}
+                          {formatLabel(dict, item.format)}
                         </span>
                       )}
                     </div>
@@ -309,7 +314,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   </div>
 
                   {ownedCount !== null && ownedCount > 0 && (
-                    <p className="text-xs text-bx-ink3 mt-1">{ownedCount}人が所有/視聴済み</p>
+                    <p className="text-xs text-bx-ink3 mt-1">{t.ownedCount(ownedCount)}</p>
                   )}
 
                   {/* メタデータ */}
@@ -374,7 +379,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {item.songs.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
                       <div className="flex items-center justify-between pb-3">
-                        <h4 className="text-sm font-bold text-bx-ink">収録曲</h4>
+                        <h4 className="text-sm font-bold text-bx-ink">{t.tracks}</h4>
                         <button
                           type="button"
                           onClick={handleCopySongs}
@@ -383,12 +388,12 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                           {songsCopied ? (
                             <>
                               <FiCheck className="w-3.5 h-3.5" />
-                              コピーしました
+                              {t.copied}
                             </>
                           ) : (
                             <>
                               <FiCopy className="w-3.5 h-3.5" />
-                              曲名をコピー
+                              {t.copyTitles}
                             </>
                           )}
                         </button>
@@ -410,7 +415,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {item.reports && item.reports.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
                       <h4 className="text-sm font-bold pb-3 text-bx-ink">
-                        インタビュー
+                        {t.interview}
                       </h4>
                       <ul className="list-disc pl-5 text-xs space-y-1">
                         {item.reports.map((report) => (
@@ -443,7 +448,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {item.posts && item.posts.length > 0 && (
                     <div className="mt-4 transition-all duration-300">
                       <h4 className="text-sm font-bold pb-3 text-bx-ink">
-                        関連ポスト
+                        {t.relatedPosts}
                       </h4>
                       <Tweets
                         parentId={`${item.discographyUuid}`}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { Kicker } from "../redesign";
+import { LangLink, useDict } from "../../i18n/site/SiteLangContext";
+import type { SiteDict } from "../../i18n/site/dict";
 
 /**
  * 「今日は何の日」ウィジェット(トップページ用)。
@@ -54,18 +56,23 @@ const monthDayToDoy = (monthDay: string): number => {
   );
 };
 
-const relativeDayLabel = (n: number, direction: "past" | "future"): string => {
+const relativeDayLabel = (
+  n: number,
+  direction: "past" | "future",
+  t: SiteDict["otd"]
+): string => {
   if (direction === "past") {
-    if (n === 1) return "昨日";
-    if (n === 2) return "一昨日";
-    return `${n}日前`;
+    if (n === 1) return t.yesterday;
+    if (n === 2) return t.dayBeforeYesterday;
+    return t.daysAgo(n);
   }
-  if (n === 1) return "明日";
-  if (n === 2) return "明後日";
-  return `${n}日後`;
+  if (n === 1) return t.tomorrow;
+  if (n === 2) return t.dayAfterTomorrow;
+  return t.daysLater(n);
 };
 
 const OnThisDay: React.FC = () => {
+  const t = useDict().otd;
   const data = useStaticQuery(graphql`
     query OnThisDayEvents {
       discography {
@@ -114,8 +121,8 @@ const OnThisDay: React.FC = () => {
       allEvents.push({
         year: d.year,
         monthDay: d.monthDay,
-        label: `『${disc.title}』`,
-        suffix: "リリース",
+        label: t.releaseTitle(disc.title),
+        suffix: t.releaseSuffix,
         to: `/discography/#disc-${disc.slug}`,
       });
     }
@@ -177,7 +184,7 @@ const OnThisDay: React.FC = () => {
   displayEvents = [...displayEvents].sort((a, b) => a.year - b.year);
 
   const kickerLabel =
-    mode === "month" ? "ON THIS MONTH — 今月の出来事" : "ON THIS DAY — 今日は何の日";
+    mode === "month" ? t.kickerMonth : t.kickerDay;
 
   return (
     <section className="px-2 sm:px-4 pt-12">
@@ -187,21 +194,21 @@ const OnThisDay: React.FC = () => {
           const anniversary = today.year - ev.year;
           let headline: string;
           if (mode === "exact") {
-            headline = `${anniversary}年前の今日`;
+            headline = t.yearsAgoToday(anniversary);
           } else if (mode === "near") {
             headline =
               ev.forward > 0 && ev.forward <= 2
-                ? `${relativeDayLabel(ev.forward, "future")}で${anniversary}周年`
-                : `${relativeDayLabel(ev.backward, "past")}が${anniversary}周年`;
+                ? t.anniversaryIn(relativeDayLabel(ev.forward, "future", t), anniversary)
+                : t.anniversaryWas(relativeDayLabel(ev.backward, "past", t), anniversary);
           } else if (mode === "month") {
-            headline = `${ev.monthDay.replace("-", "/")}（${anniversary}年前）`;
+            headline = t.monthEntry(ev.monthDay.replace("-", "/"), anniversary);
           } else {
-            headline = `あと${ev.forward}日で${anniversary}周年`;
+            headline = t.upcoming(ev.forward, anniversary);
           }
 
           return (
             <li key={`otd-${i}`}>
-              <Link
+              <LangLink
                 to={ev.to}
                 className="group flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
               >
@@ -215,17 +222,17 @@ const OnThisDay: React.FC = () => {
                     ({ev.year})
                   </span>
                 </span>
-              </Link>
+              </LangLink>
             </li>
           );
         })}
       </ul>
-      <Link
+      <LangLink
         to={`/on-this-day/${today.monthDay}/`}
         className="mt-3 inline-block text-[11px] text-bx-ink3 hover:text-bx-blueLight transition-colors"
       >
-        この日の全記録を見る →
-      </Link>
+        {t.seeAll}
+      </LangLink>
     </section>
   );
 };

@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { navigate } from "gatsby";
 import { AppDispatch } from "../redux/store";
 import { setRoute } from "../redux/slices/routeSlice";
+import { useSiteLang } from "../i18n/site/SiteLangContext";
+import { localizePath } from "../utils/i18nRoutes";
 
 interface NavigationOptions {
   scrollToTop?: boolean;
@@ -22,12 +24,16 @@ const ROUTE_PATHS: Record<string, string> = {
 export const useNavigation = (options: NavigationOptions = {}) => {
   const dispatch = useDispatch<AppDispatch>();
   const { scrollToTop = true, updateHistory = true } = options;
+  // 多言語ページでは、翻訳済みの遷移先は同じ言語のURLにする(plan/28)
+  const lang = useSiteLang();
 
   const navigateToRoute = useCallback(
     (route: string) => {
       try {
         // 独立ページに切り出されたルートは Gatsby の navigate を使う
-        const dedicatedPath = ROUTE_PATHS[route];
+        const dedicatedPath = ROUTE_PATHS[route]
+          ? localizePath(ROUTE_PATHS[route], lang)
+          : undefined;
         if (dedicatedPath) {
           if (scrollToTop) {
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -39,9 +45,10 @@ export const useNavigation = (options: NavigationOptions = {}) => {
           return;
         }
 
-        const url = route === "HOME" ? "/" : `/#${route}`;
+        const home = localizePath("/", lang);
+        const url = route === "HOME" ? home : `${home}#${route}`;
 
-        if ("/" === location.pathname || location.pathname.startsWith("/#")) {
+        if (home === location.pathname || location.pathname.startsWith(`${home}#`)) {
           if (scrollToTop) {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }
@@ -66,7 +73,7 @@ export const useNavigation = (options: NavigationOptions = {}) => {
         throw error; // Re-throw for error boundary
       }
     },
-    [dispatch, scrollToTop, updateHistory]
+    [dispatch, scrollToTop, updateHistory, lang]
   );
 
   return { navigateToRoute };
