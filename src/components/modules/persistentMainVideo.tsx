@@ -11,7 +11,12 @@ import { DiscographyWithSongs } from "../../types/discography";
  * MainVideo は xfdUrl 付き discographies のみを必要とするため、
  * 必要最小限のフィールドだけを useStaticQuery で取得する。
  */
-const PersistentMainVideo: React.FC = () => {
+type Props = {
+  /** 初回描画時のパス。静的HTML生成時と hydrate 時で同じ画面にするため Body から渡す */
+  initialPathname?: string;
+};
+
+const PersistentMainVideo: React.FC<Props> = ({ initialPathname }) => {
   const data = useStaticQuery(graphql`
     query PersistentMainVideoPlaylist {
       discography {
@@ -28,7 +33,7 @@ const PersistentMainVideo: React.FC = () => {
     data?.discography?.discographyWithSongs ?? []
   ).filter((item: DiscographyWithSongs) => item?.xfdUrl);
 
-  return <MainVideo playlist={playlist} />;
+  return <MainVideo playlist={playlist} initialPathname={initialPathname} />;
 };
 
 export default PersistentMainVideo;

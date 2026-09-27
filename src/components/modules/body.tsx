@@ -15,6 +15,13 @@ import WashiBackgroundImage from "../../images/washi-background.png";
 
 type Props = {
   children: ReactNode;
+  /**
+   * 初回描画時のパス。wrapRootElement の pathname を渡す。
+   * ビルド時の静的HTML生成では window が無いため、これが無いと全ページが
+   * 通常ページ扱い("")で描画され、ブラウザでの hydrate 時に別の画面へ
+   * 描き直すことになる(ハイドレーション不一致)。
+   */
+  initialPathname?: string;
 };
 
 /**
@@ -87,7 +94,7 @@ const getInitialPathname = (): string => {
   return "";
 };
 
-const Body: FC<Props> = ({ children }) => {
+const Body: FC<Props> = ({ children, initialPathname }) => {
   const data = useStaticQuery(graphql`
     query SiteTitle {
       site {
@@ -98,7 +105,9 @@ const Body: FC<Props> = ({ children }) => {
     }
   `);
 
-  const [pathname, setPathname] = useState<string>(getInitialPathname);
+  const [pathname, setPathname] = useState<string>(
+    () => initialPathname ?? getInitialPathname()
+  );
 
   useEffect(() => {
     // ページ遷移ごとに pathname を更新してテーマの出し分けを再評価する
@@ -178,7 +187,7 @@ const Body: FC<Props> = ({ children }) => {
       */}
       <TopHeader title={data.site.siteMetadata.title} />
       <Toaster position="top-center" />
-      <PersistentMainVideo />
+      <PersistentMainVideo initialPathname={pathname} />
       <div
         className={
           isFullscreenViz

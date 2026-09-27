@@ -27,11 +27,12 @@ export const onServiceWorkerUpdateReady: GatsbyBrowser["onServiceWorkerUpdateRea
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   element,
+  pathname,
 }) => {
   return (
     <Provider store={store}>
       <AuthProvider>
-        <Body>{element}</Body>
+        <Body initialPathname={pathname}>{element}</Body>
       </AuthProvider>
     </Provider>
   );
