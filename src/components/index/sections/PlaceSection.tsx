@@ -14,6 +14,8 @@ import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
 import { Kicker } from "../../redesign";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
+import { usePageDict } from "../../../i18n/site/SiteLangContext";
+import { placeDict } from "../../../i18n/site/pages/place";
 
 // Leaflet は SSR で動かないので動的読み込み
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -100,6 +102,7 @@ const TYPE_KEYS = ["ALL", "MV", "CM", "TV", "XFD", "OTHER"] as const;
 const VIEW_KEYS = ["type", "prefecture"] as const;
 
 const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
+  const t = usePageDict(placeDict);
   const [expandedPlaceIds, setExpandedPlaceIds] = useState<Set<string>>(
     new Set()
   );
@@ -262,7 +265,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
     >();
     for (const place of filteredPlaces) {
       for (const item of place.items ?? []) {
-        const pref = extractPrefecture(item.address) ?? "その他";
+        const pref = extractPrefecture(item.address) ?? t.otherPrefecture;
         if (!groups.has(pref)) groups.set(pref, []);
         groups.get(pref)!.push({ place, item });
       }
@@ -321,12 +324,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         <div className="flex gap-1 flex-shrink-0">
           {item.needsCost && (
             <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-              要費用
+              {t.needsCost}
             </span>
           )}
           {item.needsPermission && (
             <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
-              要許可
+              {t.needsPermission}
             </span>
           )}
         </div>
@@ -341,7 +344,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center mt-1 text-xs text-bx-blue hover:underline min-h-[36px]"
         >
-          Google Maps で開く
+          {t.openInGoogleMaps}
           <GoLinkExternal className="ml-1" aria-hidden="true" />
         </a>
       )}
@@ -354,12 +357,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         <Kicker color="text-bx-blue" className="mb-1">PLACE</Kicker>
         <h2 className="flex items-center font-bold text-lg text-bx-ink">
           <TbMapPinHeart className="text-lg mr-2" />
-          <span>聖地</span>
+          <span>{t.heading}</span>
         </h2>
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
-          PLACEではReolが過去にMV撮影やTV番組の収録等で訪れたことのあるいわゆる「聖地」の情報を掲載しております。
+          {t.intro1}
           <br />
-          聖地巡礼の参考情報としてご覧ください（掲載されていない情報があればぜひ教えていただけますと幸いです）。
+          {t.intro2}
         </div>
 
         <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
@@ -370,7 +373,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             aria-controls="place-stamp-book-grid"
             className="w-full flex items-center justify-between"
           >
-            <span className="text-xs text-bx-ink3">聖地スタンプ帳</span>
+            <span className="text-xs text-bx-ink3">{t.stampBook}</span>
             <span className="flex items-center gap-1.5">
               <span className="text-sm font-bold text-bx-blue tabular-nums">
                 {visitedCount} / {totalPlaceCount}
@@ -415,24 +418,24 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           )}
           {visitedRate >= 100 && totalPlaceCount > 0 && (
             <p className="mt-3 text-center text-[11px] font-bold text-bx-yellow">
-              🏆 全{totalPlaceCount}箇所制覇！
+              {t.allComplete(totalPlaceCount)}
             </p>
           )}
           <p className="mt-2 text-[10px] text-bx-ink3">
-            各カードの「✓」で巡礼済みを記録できます(この端末のブラウザ内のみに保存)
+            {t.stampHint}
           </p>
         </div>
       </div>
 
       {/* マップ: 見出し直下にフルブリードで常時表示(このページの主役のため大きく) */}
-      <div className="pb-3" aria-label="聖地マップ">
+      <div className="pb-3" aria-label={t.mapAria}>
         {typeof window === "undefined" ? null : markers.length === 0 ? (
           <div className="px-2">
             <EmptyState
               icon="📍"
-              title="表示できるマーカーがありません"
-              description="タイプ・検索条件をクリアしてもう一度お試しください。"
-              actionLabel="条件をクリア"
+              title={t.noMarkersTitle}
+              description={t.noMarkersDesc}
+              actionLabel={t.clear}
               onAction={clearFilters}
               tone="dark"
             />
@@ -440,8 +443,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         ) : mapLoadError ? (
           <div className="px-2">
             <ErrorRetry
-              title="マップの読み込みに失敗しました"
-              description="通信状況をご確認のうえ、再試行してください。"
+              title={t.mapErrorTitle}
+              description={t.mapErrorDesc}
               onRetry={retryMapLoad}
               tone="dark"
             />
@@ -455,7 +458,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               rowHeightClassName="h-[60vh]"
               gapClassName=""
               rowClassName="border-0"
-              label="マップを読み込み中..."
+              label={t.mapLoading}
             />
           </div>
         ) : (
@@ -473,12 +476,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
       {/* 絞り込みバー（sticky / 下方向スクロールでコンパクト化） */}
       <div
         role="region"
-        aria-label="聖地の絞り込み"
+        aria-label={t.filterAria}
         className="sticky top-0 z-30 -mx-2 px-2 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line space-y-2 transition-[padding] duration-200 motion-reduce:transition-none"
       >
         {/* 1行目: ビューモード（コンパクト時は隠す） */}
         {!compactBar && (
-          <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="表示モード">
+          <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.viewModeAria}>
             {VIEW_MODES.map((m) => {
               const active = viewMode === m.key;
               return (
@@ -494,7 +497,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                       : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                   }`}
                 >
-                  {m.label}
+                  {m.key === "type" ? t.viewType : t.viewPrefecture}
                 </button>
               );
             })}
@@ -502,7 +505,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         )}
 
         {/* 2行目: タイプフィルタ（常に表示） */}
-        <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="タイプで絞り込み">
+        <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.typeFilterAria}>
           {TYPE_FILTERS.map((f) => {
             const active = typeFilter === f.key;
             return (
@@ -518,7 +521,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                 }`}
               >
-                {f.label}
+                {f.key === "OTHER" ? t.typeOther : f.label}
               </button>
             );
           })}
@@ -527,12 +530,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         {/* 3行目: 検索入力（コンパクト時は隠す） */}
         {!compactBar && (
           <label className="block">
-            <span className="sr-only">聖地を検索</span>
+            <span className="sr-only">{t.searchLabel}</span>
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="例: 武道館 / 東京 / 第六感"
+              placeholder={t.searchPlaceholder}
               style={NO_ZOOM_STYLE}
               className="block w-full min-h-[44px] px-3 py-2 bg-bx-surface/5 border border-bx-line text-bx-ink rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1"
             />
@@ -541,7 +544,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
 
         <div className="flex items-center justify-between text-[11px] text-bx-ink2">
           <span>
-            {filteredPlaces.length} / {places.length} 件
+            {t.count(filteredPlaces.length, places.length)}
           </span>
           {(typeFilter !== "ALL" || query.length > 0) && (
             <button
@@ -549,7 +552,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               onClick={clearFilters}
               className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
             >
-              条件をクリア
+              {t.clear}
             </button>
           )}
         </div>
@@ -562,9 +565,9 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <div className="space-y-2">
               {filteredPlaces.length === 0 ? (
                 <EmptyState
-                  title="該当する聖地が見つかりませんでした"
-                  description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
-                  actionLabel="条件をクリア"
+                  title={t.noMatchTitle}
+                  description={t.noMatchDesc}
+                  actionLabel={t.clear}
                   onAction={clearFilters}
                   tone="dark"
                 />
@@ -612,8 +615,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                               type="button"
                               onClick={handleToggleVisited}
                               aria-pressed={isVisited}
-                              aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
-                              title={isVisited ? "巡礼済み" : "巡礼済みにする"}
+                              aria-label={isVisited ? t.unmarkVisited : t.markVisited}
+                              title={isVisited ? t.visited : t.markVisited}
                               className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
                                 isVisited
                                   ? "border-bx-blue bg-bx-blue text-bx-bg"
@@ -646,11 +649,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                 </span>
                               </div>
                               <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[11px] text-bx-ink2">
-                                <span>{itemCount} スポット</span>
+                                <span>{t.spots(itemCount)}</span>
                                 {prefectures.length > 0 && (
                                   <span className="truncate">
-                                    {prefectures.slice(0, 3).join("・")}
-                                    {prefectures.length > 3 ? ` 他${prefectures.length - 3}` : ""}
+                                    {prefectures.slice(0, 3).join(t.prefectureSeparator)}
+                                    {prefectures.length > 3 ? t.morePrefectures(prefectures.length - 3) : ""}
                                   </span>
                                 )}
                               </div>
@@ -667,8 +670,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   type="button"
                                   onClick={handleToggleVisited}
                                   aria-pressed={isVisited}
-                                  aria-label={isVisited ? "巡礼済みから外す" : "巡礼済みにする"}
-                                  title={isVisited ? "巡礼済み" : "巡礼済みにする"}
+                                  aria-label={isVisited ? t.unmarkVisited : t.markVisited}
+                                  title={isVisited ? t.visited : t.markVisited}
                                   className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
                                     isVisited
                                       ? "border-bx-blue bg-bx-blue text-bx-bg"
@@ -686,7 +689,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   {place.title}
                                 </span>
                                 <span className="text-[11px] text-bx-ink2 flex-shrink-0">
-                                  {itemCount} スポット
+                                  {t.spots(itemCount)}
                                 </span>
                               </div>
                               <GoChevronUp className="flex-shrink-0 ml-2 text-bx-ink3" aria-hidden="true" />
@@ -743,12 +746,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   <div className="flex flex-wrap gap-1 flex-shrink-0">
                                     {item.needsCost && (
                                       <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                                        要費用
+                                        {t.needsCost}
                                       </span>
                                     )}
                                     {item.needsPermission && (
                                       <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
-                                        要許可
+                                        {t.needsPermission}
                                       </span>
                                     )}
                                   </div>
@@ -776,11 +779,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                     />
                                   ) : (
                                     <div className="w-full h-full flex items-center justify-center text-bx-ink3 text-xs">
-                                      地図データなし
+                                      {t.noMapData}
                                     </div>
                                   )}
                                   <span className="absolute bottom-1 right-1 px-2 py-1 text-[11px] font-bold rounded bg-bx-bg/90 text-bx-yellow border border-bx-line group-hover/map:bg-bx-yellow group-hover/map:text-bx-bg transition-colors">
-                                    地図で開く ↗
+                                    {t.openInMap}
                                   </span>
                                 </a>
                                 <p className="text-xs text-bx-ink2">{item.address}</p>
@@ -801,9 +804,9 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <div className="space-y-4">
               {prefectureGroups.length === 0 ? (
                 <EmptyState
-                  title="該当する聖地が見つかりませんでした"
-                  description="タイプを ALL にしたり、検索キーワードを短くしてみてください。"
-                  actionLabel="条件をクリア"
+                  title={t.noMatchTitle}
+                  description={t.noMatchDesc}
+                  actionLabel={t.clear}
                   onAction={clearFilters}
                   tone="dark"
                 />
@@ -827,7 +830,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         </div>
 
         <p className="text-xs py-2 text-bx-ink3">
-          ※ここに載っていない聖地情報いつでもお待ちしております
+          {t.footerNote}
         </p>
       </div>
     </section>

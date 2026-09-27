@@ -10,6 +10,11 @@ import { AppDispatch } from "../../redux/store";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { ROUTE_NAMES } from "../../types/common";
 import { useDeepLinkScroll } from "../../hooks/useDeepLinkScroll";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { pageDictFor } from "../../i18n/site/SiteLangContext";
+import { placeDict } from "../../i18n/site/pages/place";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type PlacePageData = {
   site: { siteMetadata: { title: string; description: string; siteUrl: string } };
@@ -77,14 +82,19 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<PlacePageData> = () => (
-  <SEO
-    title="PLACE(聖地)"
-    description="Reol の MV / CM / TV ロケ地や聖地などを地図とリストで紹介します。"
-    path="/place/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "PLACE(聖地)", path: "/place/" },
-    ])}
-  />
-);
+export const Head: HeadFC<PlacePageData, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(placeDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/place/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/place/", lang) },
+      ])}
+    />
+  );
+};
