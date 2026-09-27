@@ -39,6 +39,8 @@ const zhHant: SiteDict = {
     heroLine2Indent: "認識 Reol 的",
     heroLine2Accent: "未來",
     heroLine2After: "。",
+    heroEmMobile: 8.6,
+    heroEmWide: 8.6,
     heroLead1: "歌曲、演唱會、歌單、取景地。從「れをる」時期至今，",
     heroLead2: "同時也是引導你前往官方內容的非官方資料庫。",
     ticketCta: "前往官方網站購票 →",

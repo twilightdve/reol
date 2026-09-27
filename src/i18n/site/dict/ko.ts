@@ -39,6 +39,8 @@ const ko: SiteDict = {
     heroLine2Indent: "Reol의 ",
     heroLine2Accent: "앞으로",
     heroLine2After: "를 만나다.",
+    heroEmMobile: 7.6,
+    heroEmWide: 9.8,
     heroLead1: "곡·라이브·세트리스트·촬영지. 「れをる」 시절부터 현재까지,",
     heroLead2: "공식 콘텐츠로 안내하는 역할도 겸한 비공식 아카이브.",
     ticketCta: "공식 사이트에서 티켓 →",

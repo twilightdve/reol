@@ -39,6 +39,8 @@ const en: SiteDict = {
     heroLine2Indent: "Reol — ",
     heroLine2Accent: "where it's heading",
     heroLine2After: ".",
+    heroEmMobile: 10.7,
+    heroEmWide: 12.4,
     heroLead1: "Songs, live shows, setlists and filming locations, from the れをる era to today.",
     heroLead2: "An unofficial archive that also points you to official content.",
     ticketCta: "Tickets on the official site →",
