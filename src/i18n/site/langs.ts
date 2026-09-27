@@ -7,7 +7,7 @@ export type SiteLang = (typeof SITE_LANGS)[number];
 export const DEFAULT_LANG: SiteLang = "ja";
 
 /** 実際にページを生成する言語(日本語以外)。段階的に追加する */
-export const ENABLED_LANGS: SiteLang[] = ["en"];
+export const ENABLED_LANGS: SiteLang[] = ["en", "zh-hant", "zh-hans", "ko"];
 
 /** hreflang / <html lang> に使う BCP47 の値 */
 export const HTML_LANG: Record<SiteLang, string> = {

@@ -68,7 +68,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           </span>
         </h1>
         <p className="mt-4 text-sm max-w-lg leading-relaxed text-bx-ink2">
-          {t.heroLead1}
+          {t.heroLead1}{" "}
           {t.heroLead2}
         </p>
 
