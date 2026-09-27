@@ -1,7 +1,7 @@
 # 27. サイト課題の棚卸しと改善プラン(2026-09-27)
 
 作成日: 2026-09-27
-ステータス: ステップ0〜2 完了(2026-09-27)。ほかは提案段階
+ステータス: ステップ0〜3 完了(2026-09-27〜28)。ステップ3b の Service Worker 対応も完了。ほかは提案段階
 
 ## 0. 前提と方法
 
@@ -48,7 +48,7 @@
 - noindex を付けた `/design-preview/*`(5ページ)、`/cgraph/`、`/quiz/bbq2025*` がサイトマップに載っている。`gatsby-config.ts` の sitemap の `excludes` は /relive/ だけ
 - `SEO.tsx` に canonical が無いため、`?section=` 付きURLが重複扱いされうる
 
-### P1-1 全ページに約1MBのCSSがインラインで入っている【確定(原因の一部は推定)】
+### P1-1 全ページに約1MBのCSSがインラインで入っている【確定(原因の一部は推定)】【2026-09-28 対応済み】
 
 - 全ページのHTMLが1.04〜1.29MBあり、gzip 後でもトップは568KB
   - base64 のフォントが約590KB(Noto Sans JP 430KB / Klee One 143KB / Cormorant / Niconne)
@@ -88,7 +88,7 @@
 - テンプレートの13クラスは、design-preview がたまたま同じクラスを使っているおかげで生成されている。**design-preview を外す前に content を直す必要がある**
 - `darkMode` が未指定(= media)なので、`dark:` の721か所はサイトのテーマ切り替えではなく OS の設定に従う。テーマ切り替えとの関係は要確認
 
-### P1-4 Service Worker が古い版を出し続ける【コードで確定/体感は要確認】
+### P1-4 Service Worker が古い版を出し続ける【コードで確定/体感は要確認】【2026-09-27 対応済み: onServiceWorkerUpdateReady で再読み込み】
 
 - gatsby-plugin-offline に `onServiceWorkerUpdateReady` が無いため、デプロイ後も古いHTMLやデータが表示されうる
 - 1MBを超えるHTMLがそのままキャッシュされる
@@ -186,7 +186,24 @@
    - テンプレートの Head に `noindex,follow` を出し、サイトマップからも外す
    - 本文には既存の `shiftMonthDay` を使って「前後±7日の出来事」を表示し、行き止まりをなくす
 
-### ステップ3: CSS・フォント・共通JSの軽量化(1日)
+### ステップ3: CSS・フォント・共通JSの軽量化(1日)【2026-09-28 完了】
+
+実施結果:
+
+| 項目 | 変更前 | 変更後 |
+|---|---|---|
+| トップのHTML | 1,061,624B(gzip 568KB) | 51,869B(gzip 11KB) |
+| base64フォント | 58件 | 0件 |
+| 共通CSS | 各HTMLにインライン | 外部CSS 209KB(gzip 37KB)。キャッシュ可能 |
+| app.js(gzip) | 230KB | 169KB |
+
+supabase-js と flowbite 本体は共通JSから外した。
+
+未実施のもの:
+- flowbite-react の glob の絞り込み
+- i18next を美辞学ナビ配下に限定すること
+- qrcode.react の遅延読み込み
+- leaflet・relive・cgraph の CSS のページ単位化
 
 1. `gatsby-browser.tsx:1-4` の @fontsource の import を削除する
 2. `gatsby-config.ts` の webfonts 設定から、使っていない Noto Serif JP を削除する
