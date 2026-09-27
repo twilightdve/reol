@@ -27,10 +27,10 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-6cc2122b5488aeed7e09.js"
+    "url": "webpack-runtime-fc8c1bcc0a35f15fd6d2.js"
   },
   {
-    "url": "styles.9f6a2472f88fa1f78b46.css"
+    "url": "styles.a50548587e460c5537e3.css"
   },
   {
     "url": "framework-cc19ca856aa2008e4305.js"
@@ -57,23 +57,17 @@ self.__precacheManifest = [
     "url": "0c428ae2-9a1c799a336720a8b6ba.js"
   },
   {
-    "url": "app-151f656d17b41c40d6b0.js"
+    "url": "app-43f7004068191510f43a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "ea5682a17ca8d1572f1f0a593854897c"
+    "revision": "87a2f1be0dc6a98d50e649e1b096e7c4"
   },
   {
     "url": "static/webfonts/s/cormorant/v24/H4c2BXOCl9bbnla_nHIA47NMUjsNbCVrFhFTc7Nq7Q.woff2"
   },
   {
     "url": "static/webfonts/s/cormorant/v24/H4c2BXOCl9bbnla_nHIA47NMUjsNbCVrFiNTc7Nq7Q.woff2"
-  },
-  {
-    "url": "static/webfonts/s/notoserifjp/v33/xn71YHs72GKoTvER4Gn3b5eMRtWGkp6o7MjQ2bwxOtbHKrI.woff2"
-  },
-  {
-    "url": "static/webfonts/s/notoserifjp/v33/xn71YHs72GKoTvER4Gn3b5eMRtWGkp6o7MjQ2bwDOtbHKrI.woff2"
   },
   {
     "url": "manifest.webmanifest",
@@ -187,7 +181,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-151f656d17b41c40d6b0.js`))) {
+  if (!resources || !(await caches.match(`/app-43f7004068191510f43a.js`))) {
     return await fetch(event.request)
   }
 
