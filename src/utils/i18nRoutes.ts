@@ -11,6 +11,9 @@ const LOCALIZED_EXACT = new Set<string>([
   "/songs/stats/",
   // 第2弾
   "/place/",
+  "/about/data/",
+  "/photos/",
+  "/search/",
 ]);
 
 /** 翻訳済みのルート(パターン)。例: 曲詳細 /^\/songs\/[^/]+\/$/ */
