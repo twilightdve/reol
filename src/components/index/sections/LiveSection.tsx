@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { Link } from "gatsby";
+import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
+import { stripLangPrefix } from "../../../utils/i18nRoutes";
 import { BsSpeakerFill } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
 import Live from "../live/live";
@@ -44,6 +45,7 @@ const formatDate = (d: Date): string =>
   `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")}`;
 
 const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
+  const t = useDict().live;
   const nextLive = findNextLive(liveInfos);
 
   // 新規コンテンツ案K「参戦履歴トラッカー」寄りの機能。個別の参戦済みチェックは
@@ -72,13 +74,13 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
           <span>LIVE</span>
         </h2>
         <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
-          LIVEでは過去に出演したワンマンライヴやツアー、フェスなどの情報を掲載しています。
+          {t.intro1}
           <br />
-          ライヴごとのセトリや関連ポスト、ライヴレポートなどを載せていますので、参加できなかったライヴもどんな雰囲気だったのか少しでも感じ取れる様な情報を掲載しています。
+          {t.intro2}
         </div>
         <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs text-bx-ink3">参戦記録</span>
+            <span className="text-xs text-bx-ink3">{t.attendanceLabel}</span>
             <span className="text-sm font-bold text-bx-blue tabular-nums">
               {attendedCount} / {totalItemCount} ・ {attendedRate}%
             </span>
@@ -90,11 +92,11 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
             />
           </div>
           <p className="mt-1.5 text-[10px] text-bx-ink3">
-            各公演カードの「✓」で参戦済みを記録できます(この端末のブラウザ内のみに保存)
+            {t.attendanceHint}
           </p>
         </div>
         {nextLive && (
-          <Link
+          <LangLink
             to={`/live/#live-${nextLive.live.slug}`}
             onClick={() => {
               trackEvent("next_live_banner_click", {
@@ -104,7 +106,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
               // 既に /live/ 上にいる場合、client-side router はページを再マウントしないため
               // ハッシュ変化だけではライブカードの自動展開(enhanced-timeline-item.tsx側)が
               // 発火しない。カスタムイベントで直接通知する。
-              if (window.location.pathname === "/live/") {
+              if (stripLangPrefix(window.location.pathname).path === "/live/") {
                 window.dispatchEvent(
                   new CustomEvent("live-deep-link", { detail: `live-${nextLive.live.slug}` })
                 );
@@ -113,7 +115,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
             className="mt-3 flex items-center gap-3 rounded-lg border border-bx-yellow/60 bg-bx-yellow/10 px-4 py-3 hover:border-bx-yellow transition-colors"
           >
             <span className="shrink-0 text-[11px] font-extrabold tracking-wide px-2 py-1 rounded-full bg-bx-yellow text-bx-bg">
-              {nextLive.isOngoing ? "開催中" : "直近の開催予定"}
+              {nextLive.isOngoing ? t.ongoing : t.upcoming}
             </span>
             <span className="min-w-0 text-sm text-bx-ink truncate">
               {nextLive.live.title || nextLive.live.name}
@@ -122,21 +124,21 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
                 {nextLive.end.getTime() !== nextLive.start.getTime() && ` 〜 ${formatDate(nextLive.end)}`}
               </span>
             </span>
-          </Link>
+          </LangLink>
         )}
       </div>
       <Live data={liveInfos} key="live" />
       <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 border border-bx-line rounded-lg">
         <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
           <li>
-            上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます
+            {t.helpFilter}
             <br />
-            例）「#れをる」を押下すると「れをる」名義の情報のみが表示されます
+            {t.helpFilterExample}
           </li>
           <li>
-            「
+            {t.helpDetailBefore}
             <GoListUnordered className="inline" />
-            &nbsp;詳細」を押すとライヴレポートや開催場所、セトリ、関連ポストなどの情報が表示されます
+            {t.helpDetailAfter}
           </li>
         </ul>
       </div>

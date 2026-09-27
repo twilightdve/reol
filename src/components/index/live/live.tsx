@@ -5,6 +5,7 @@ import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
 import { LiveInfo } from "../../../types/live";
 import EnhancedLiveTimelineItem from "./enhanced-timeline-item";
+import { useDict } from "../../../i18n/site/SiteLangContext";
 
 interface LiveProps {
   data: LiveInfo[];
@@ -78,6 +79,7 @@ const tags = {
 };
 
 const Live: React.FC<LiveProps> = ({ data }) => {
+  const t = useDict().live;
   const [currentList, setCurrentList] = useState<LiveInfo[]>(data);
   const [currentNames, setCurrentNames] = useState<string[]>([]);
   const [currentYears, setCurrentYears] = useState<string[]>([]);
@@ -155,7 +157,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
   const groupedByYear = React.useMemo(() => {
     const grouped = new Map<string, LiveInfo[]>();
     for (const live of currentList) {
-      const year = live.date?.match(/\d{4}/)?.[0] || "不明";
+      const year = live.date?.match(/\d{4}/)?.[0] || t.unknownYear;
       if (!grouped.has(year)) grouped.set(year, []);
       grouped.get(year)!.push(live);
     }
@@ -163,7 +165,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
       b.localeCompare(a)
     );
     return sortedYears.map((year) => ({ year, items: grouped.get(year)! }));
-  }, [currentList]);
+  }, [currentList, t.unknownYear]);
 
   return (
     <div className="w-full pt-2 px-2 sm:px-10">
@@ -211,12 +213,12 @@ const Live: React.FC<LiveProps> = ({ data }) => {
               }`}
               onClick={() => handleTypeTagClick(tag)}
             >
-              #{tag === "event" ? "イベント出演" : "ワンマンライヴ"}
+              #{tag === "event" ? t.tagEvent : t.tagOneman}
             </span>
           );
         })}
       </div>
-      <p className="text-xs text-right text-bx-ink2">{currentList.length}件</p>
+      <p className="text-xs text-right text-bx-ink2">{t.count(currentList.length)}</p>
 
       {/* 年ジャンプ索引(スティッキー) */}
       {groupedByYear.length > 1 && (
@@ -242,7 +244,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
             >
               {year}
               <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">
-                {items.length}件
+                {t.count(items.length)}
               </span>
             </h2>
             <Timeline theme={timelineRootTheme}>

@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Timeline } from "flowbite-react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
@@ -38,6 +39,7 @@ type SetCardProps = {
 };
 
 const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpanded, songSlugByUuid, onToggleExpand }) => {
+  const t = useDict().live;
   // コレクション台帳(参戦済み記録、localStorage完結)。DISCOGRAPHYの
   // 所有/視聴済みとは別の記録(namespace="attended")なので混ざらない。
   const { owned: attended, mounted, toggle } = useCollectionOwned("attended");
@@ -72,7 +74,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
       ? `${liveTitle} ${setlist.liveItemName}`
       : liveTitle;
     const text = [
-      `${title} セットリスト`,
+      t.setlistCopyTitle(title),
       ...lines,
       "",
       `https://reol.twilightea.com/live/${setlist.slug}/`,
@@ -106,9 +108,9 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
             onClick={handleToggleAttended}
             aria-pressed={isAttended}
             aria-label={
-              isAttended ? "参戦済みから外す" : "参戦済みにする"
+              isAttended ? t.unmarkAttended : t.markAttended
             }
-            title={isAttended ? "参戦済み" : "参戦済みにする"}
+            title={isAttended ? t.attended : t.markAttended}
             className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
               isAttended
                 ? "border-bx-blue bg-bx-blue text-bx-bg"
@@ -138,19 +140,19 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
               ) : (
                 <span className="hidden sm:inline-flex items-center gap-1">
                   <GoListUnordered className="w-4 h-4" />
-                  {setlist.setList.length}曲
+                  {t.songCount(setlist.setList.length)}
                 </span>
               )}
             </span>
           )}
-          <Link
+          <LangLink
             to={`/live/${setlist.slug}/`}
             onClick={(e) => e.stopPropagation()}
             className="inline-flex items-center gap-1 text-xs font-extrabold flex-shrink-0 rounded-full px-2.5 py-1 border border-bx-yellow text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg transition-colors"
-            title="この公演の詳細ページ(セットリスト・会場・関連ポスト)を見る"
+            title={t.detailTitle}
           >
-            詳細
-          </Link>
+            {t.detail}
+          </LangLink>
         </div>
       </div>
 
@@ -174,7 +176,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
                 {isYoutubePlaylistId(setlist.youtubeVideoId) ? (
                   <iframe
                     src={`https://www.youtube-nocookie.com/embed/videoseries?list=${setlist.youtubeVideoId}`}
-                    title="YouTubeプレイリスト"
+                    title={t.youtubePlaylist}
                     loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -198,13 +200,13 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
             </div>
           )}
           {attendedCount !== null && attendedCount > 0 && (
-            <p className="text-xs text-bx-ink3 mb-2">{attendedCount}人が参戦済み</p>
+            <p className="text-xs text-bx-ink3 mb-2">{t.attendedCount(attendedCount)}</p>
           )}
           {/* Setlist */}
           <div className="mb-3">
             <div className="flex items-center justify-between mb-2 pb-1 border-b border-bx-line">
               <h5 className="text-sm font-semibold text-bx-ink">
-                セットリスト
+                {t.setlist}
               </h5>
               {setlist.setList && setlist.setList.length > 0 && (
                 <button
@@ -215,12 +217,12 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
                   {setlistCopied ? (
                     <>
                       <FiCheck className="w-3.5 h-3.5" />
-                      コピーしました
+                      {t.copied}
                     </>
                   ) : (
                     <>
                       <FiCopy className="w-3.5 h-3.5" />
-                      コピー
+                      {t.copy}
                     </>
                   )}
                 </button>
@@ -244,17 +246,17 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
                   return (
                     <li key={song.liveItemSongUuid ?? songIndex} className="leading-relaxed">
                       {linkable ? (
-                        <Link
+                        <LangLink
                           to={
                             slug
                               ? `/songs/${slug}/`
                               : `/songs/stats/?songUuid=${song.songUuid}#song-${song.songUuid}`
                           }
                           className="underline underline-offset-2 decoration-dotted hover:opacity-80"
-                          title={slug ? "楽曲詳細ページを見る" : "楽曲統計ページで演奏履歴を見る"}
+                          title={slug ? t.songPageTitle : t.songStatsTitle}
                         >
                           {text}
-                        </Link>
+                        </LangLink>
                       ) : (
                         text
                       )}
@@ -264,18 +266,18 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
               </ol>
             ) : (
               <p className="text-xs text-bx-ink2">
-                セットリスト情報は現在登録されていません
+                {t.noSetlist}
               </p>
             )}
             <div className="mt-3">
-              <Link
+              <LangLink
                 to={`/live/${setlist.slug}/`}
                 onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-bx-yellow text-bx-bg transition-opacity hover:opacity-90"
               >
-                公演詳細ページを見る
+                {t.toShowPage}
                 <GoLinkExternal className="text-[10px]" />
-              </Link>
+              </LangLink>
             </div>
           </div>
         </div>
@@ -287,6 +289,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
 SetCard.displayName = 'SetCard';
 
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
+  const t = useDict().live;
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
 
@@ -490,7 +493,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 ) : youtubeVideoId ? (
                   <div
                     className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3"
-                    title="YouTubeプレイリスト"
+                    title={t.youtubePlaylist}
                   >
                     <GoListUnordered className="text-lg" aria-hidden="true" />
                   </div>
@@ -513,9 +516,9 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                             color: "#92400E",
                             border: "1px solid #F59E0B",
                           }}
-                          title="開催中のツアー。セットリストはネタバレ注意"
+                          title={t.spoilerBadgeTitle}
                         >
-                          ⚠ ネタバレ注意
+                          {t.spoilerBadge}
                         </span>
                       )}
                     </div>
@@ -529,7 +532,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   <button
                     onClick={handleTitleClick}
                     className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
-                    aria-label="展開"
+                    aria-label={t.expand}
                   >
                     <GoChevronUp
                       className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
@@ -584,7 +587,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                     {isYoutubePlaylistId(youtubeVideoId) ? (
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`}
-                        title="YouTubeプレイリスト"
+                        title={t.youtubePlaylist}
                         loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
@@ -621,11 +624,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                       color: "#7C2D12",
                     }}
                   >
-                    <p className="text-sm font-bold mb-1">⚠ ネタバレ注意</p>
+                    <p className="text-sm font-bold mb-1">{t.spoilerNoticeTitle}</p>
                     <p className="text-xs leading-relaxed mb-3">
-                      このツアーは現在開催中です。<br />
-                      セットリストや関連投稿にはネタバレが含まれます。<br />
-                      内容を確認した上でご覧ください。
+                      {t.spoilerNotice1}<br />
+                      {t.spoilerNotice2}<br />
+                      {t.spoilerNotice3}
                     </p>
                     <button
                       type="button"
@@ -636,7 +639,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                         color: "#FFFBEB",
                       }}
                     >
-                      ネタバレを承知の上で表示する
+                      {t.showSpoiler}
                     </button>
                   </div>
                 ) : (
@@ -711,7 +714,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
             {live.posts && live.posts.length > 0 && (
               <div className="mt-4 transition-all duration-300">
                 <h4 className="text-sm font-bold pb-3 text-bx-ink">
-                  関連ポスト
+                  {t.relatedPosts}
                 </h4>
                 <Tweets
                   parentId={`${live.liveUuid}`}

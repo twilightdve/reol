@@ -4,7 +4,7 @@
 import { DEFAULT_LANG, ENABLED_LANGS, SITE_LANGS, SiteLang } from "../i18n/site/langs";
 
 /** 翻訳済みのルート(完全一致)。段階的に追加する */
-const LOCALIZED_EXACT = new Set<string>(["/", "/discography/", "/songs/stats/"]);
+const LOCALIZED_EXACT = new Set<string>(["/", "/discography/", "/live/", "/songs/stats/"]);
 
 /** 翻訳済みのルート(パターン)。例: 曲詳細 /^\/songs\/[^/]+\/$/ */
 const LOCALIZED_PATTERNS: RegExp[] = [];
