@@ -1,7 +1,6 @@
-import "@fontsource/noto-sans-jp";
-import "@fontsource/cormorant";
-import "@fontsource/klee-one";
-import "@fontsource/niconne";
+// フォントは全ページ共通CSSに入れない(以前は @fontsource の4書体が base64 で全HTMLに
+// 約590KB埋め込まれていた)。本文はシステムフォント、ロゴの Cormorant は
+// gatsby-plugin-webfonts でセルフホスト、Klee One は bbq2025 のページ側で読み込む。
 import "./src/styles/global.scss";
 import "./src/i18n/config";
 import React from "react";

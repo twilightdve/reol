@@ -74,6 +74,10 @@ export const Head = () => (
       path="/quiz/bbq2025/result/"
     />
     <meta name="robots" content="noindex" />
+    {/* 手書き風フォント(font-tegaki)はこのクイズでしか使わないため、全ページ共通CSSではなくここで読み込む */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" />
   </>
 );
 
