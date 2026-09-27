@@ -7,6 +7,7 @@ import { AppDispatch, RouteState } from "../../redux/store";
 import { ROUTE_NAMES } from "../../types/common";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { trackSectionView } from "../../utils/analytics";
+import { useLocalizePath } from "../../i18n/site/SiteLangContext";
 import { HomeSection } from "./sections";
 import { SiteStats } from "./sections/HomeSection";
 
@@ -21,6 +22,8 @@ const IndexContents: React.FC<IndexContentsProps> = ({
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { currentRoute } = useSelector((state: RouteState) => state.route);
+  // 多言語ページでは、翻訳済みのリダイレクト先を同じ言語のURLにする(plan/28)
+  const localize = useLocalizePath();
 
   useEffect(() => {
     if (location.hash.length > 0) {
@@ -35,21 +38,21 @@ const IndexContents: React.FC<IndexContentsProps> = ({
         PHOTOS: "/photos/",
       };
       if (sectionRedirects[raw]) {
-        navigate(sectionRedirects[raw], { replace: true });
+        navigate(localize(sectionRedirects[raw]), { replace: true });
         return;
       }
 
       // ディープリンク: #disc-<slug> / #live-<slug> / #live-item-<slug> / #place-<slug> も独立ページへ
       if (/^live-(item-)?[\w-]+/.test(raw)) {
-        navigate(`/live/#${raw}`, { replace: true });
+        navigate(localize(`/live/#${raw}`), { replace: true });
         return;
       }
       if (/^disc-[\w-]+/.test(raw)) {
-        navigate(`/discography/#${raw}`, { replace: true });
+        navigate(localize(`/discography/#${raw}`), { replace: true });
         return;
       }
       if (/^place-[\w-]+/.test(raw)) {
-        navigate(`/place/#${raw}`, { replace: true });
+        navigate(localize(`/place/#${raw}`), { replace: true });
         return;
       }
 

@@ -2,6 +2,8 @@ import React from "react";
 import GlassCard, { GlassCardAccent } from "./GlassCard";
 import Kicker from "./Kicker";
 import { trackEvent } from "../../utils/analytics";
+import { useDict } from "../../i18n/site/SiteLangContext";
+import type { SiteDict } from "../../i18n/site/dict";
 
 /**
  * B案「BLACKBOX / CHRONICLE」の EXPLORE セクション。
@@ -9,7 +11,10 @@ import { trackEvent } from "../../utils/analytics";
  */
 interface ExploreItem {
   label: string;
+  /** 計測用ラベル(GA4 で集計するため日本語のまま) */
   jp: string;
+  /** 表示用の説明(言語ごと) */
+  desc: (dict: SiteDict) => string;
   to: string;
   accent: GlassCardAccent;
 }
@@ -18,24 +23,28 @@ const SECTIONS: ExploreItem[] = [
   {
     label: "DISCOGRAPHY",
     jp: "リリースと全曲情報",
+    desc: (d) => d.explore.discography,
     to: "/discography/",
     accent: "blue",
   },
   {
     label: "LIVE",
     jp: "公演情報・セトリ",
+    desc: (d) => d.explore.live,
     to: "/live/",
     accent: "yellow",
   },
   {
     label: "PLACE",
     jp: "ロケ地マップ",
+    desc: (d) => d.explore.place,
     to: "/place/",
     accent: "blueLight",
   },
   {
     label: "PHOTO",
     jp: "フォトギャラリー",
+    desc: (d) => d.explore.photo,
     to: "/photos/",
     accent: "ink",
   },
@@ -57,9 +66,11 @@ const ACCENT_TEXT: Record<GlassCardAccent, string> = {
   ink: "text-bx-ink",
 };
 
-const ExploreGrid: React.FC = () => (
+const ExploreGrid: React.FC = () => {
+  const dict = useDict();
+  return (
   <section>
-    <Kicker>EXPLORE — 主要コンテンツ</Kicker>
+    <Kicker>{dict.explore.kicker}</Kicker>
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-3.5">
       {SECTIONS.map((section) => (
         <GlassCard
@@ -83,7 +94,7 @@ const ExploreGrid: React.FC = () => (
             {section.label}
           </span>
           <span className="block mt-1 text-[11px] leading-relaxed text-bx-ink3">
-            {section.jp}
+            {section.desc(dict)}
           </span>
           <span
             className={`absolute right-4 bottom-4 font-extrabold ${ACCENT_TEXT[section.accent]}`}
@@ -94,6 +105,7 @@ const ExploreGrid: React.FC = () => (
       ))}
     </div>
   </section>
-);
+  );
+};
 
 export default ExploreGrid;

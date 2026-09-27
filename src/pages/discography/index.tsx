@@ -10,6 +10,9 @@ import { AppDispatch } from "../../redux/store";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { ROUTE_NAMES } from "../../types/common";
 import { useDeepLinkScroll } from "../../hooks/useDeepLinkScroll";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type DiscographyPageData = {
   site: { siteMetadata: { title: string; description: string; siteUrl: string } };
@@ -114,7 +117,9 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<DiscographyPageData> = ({ data }) => {
+export const Head: HeadFC<DiscographyPageData, { lang?: string }> = ({ data, pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const dict = getDict(lang);
   // リリースごとの収録曲一覧をMusicAlbumとして構造化データ化する。「アルバムYの収録曲」に
   // 生成AIが直接答えられるようにするため。曲ページへのリンク解決は行わず曲名のみ扱う
   // (収録盤内の生データslugは代表曲ページのslugと一致しない場合があるため)。
@@ -130,12 +135,13 @@ export const Head: HeadFC<DiscographyPageData> = ({ data }) => {
   return (
     <SEO
       title="DISCOGRAPHY"
-      description="Reol のこれまでのリリース情報や歌ってみた動画などを時間軸で掲載。各楽曲のリンクや楽曲解析情報も確認できます。"
+      description={dict.discography.metaDescription}
       path="/discography/"
+      lang={lang}
       jsonLd={[
         buildBreadcrumbList([
-          { name: "ホーム", path: "/" },
-          { name: "DISCOGRAPHY", path: "/discography/" },
+          { name: dict.site.breadcrumbHome, path: localizePath("/", lang) },
+          { name: "DISCOGRAPHY", path: localizePath("/discography/", lang) },
         ]),
         ...(albums.length > 0 ? [buildMusicAlbumItemList(albums)] : []),
       ]}

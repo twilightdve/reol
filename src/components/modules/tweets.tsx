@@ -4,6 +4,7 @@ import { Spinner, TabsRef } from "flowbite-react";
 import UtilityService from "../../services/UtilityService";
 import LazyComponent from "./LazyComponent";
 import { useTheme } from "../../hooks/useTheme";
+import { useDict } from "../../i18n/site/SiteLangContext";
 
 interface TweetsProps {
   parentId: string;
@@ -16,6 +17,7 @@ interface TweetsProps {
 const INITIAL_SHOW_COUNT = 3;
 
 const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
+  const dict = useDict();
   const tweetRef = useRef<TabsRef>(null);
   const { theme } = useTheme();
   const [active, setActive] = useState(0);
@@ -105,7 +107,7 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
             onClick={handleShowMore}
             className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors font-medium"
           >
-            もっと見る ({posts.length - INITIAL_SHOW_COUNT}件)
+            {dict.common.showMore(posts.length - INITIAL_SHOW_COUNT)}
           </button>
         </div>
       )}
