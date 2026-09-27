@@ -19,6 +19,28 @@ export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
 // wrapPageElement では何も追加せずそのまま返す。
 export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => element;
 
+// Gatsby は本番ビルドでグローバルCSSを全ページの <style> にインライン展開する。
+// CSS が大きく(数百KB)、ページ間で共通なので、ハッシュ付きの外部CSSへの <link> に
+// 置き換えてブラウザ/Service Worker にキャッシュさせる(ページ遷移ごとの再ダウンロードを避ける)。
+export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
+  getHeadComponents,
+  replaceHeadComponents,
+}) => {
+  if (process.env.NODE_ENV !== "production") return;
+  const headComponents = getHeadComponents().map((component) => {
+    const el = component as React.ReactElement<Record<string, unknown>>;
+    if (el?.type !== "style" || typeof el.props?.["data-href"] !== "string") return component;
+    return (
+      <link
+        key={el.key ?? (el.props["data-href"] as string)}
+        rel="stylesheet"
+        href={el.props["data-href"] as string}
+      />
+    );
+  });
+  replaceHeadComponents(headComponents);
+};
+
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setHtmlAttributes,
   setPreBodyComponents,

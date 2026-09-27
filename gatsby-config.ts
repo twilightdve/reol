@@ -22,10 +22,6 @@ const config: GatsbyConfig = {
             {
               family: "Cormorant",
               variants: ["400", "500"]
-            },
-            {
-              family: "Noto Serif JP",
-              variants: ["400", "500"]
             }
           ]
         }

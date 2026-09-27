@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
 import { useAuth } from "../contexts/AuthContext";
 
 /**
@@ -87,25 +86,30 @@ export const useCollectionOwned = (ns: CollectionNamespace = "owned") => {
       saveOwned(ns, next, userId);
       setOwned(next);
 
-      if (userId && supabase) {
-        if (willAdd) {
-          supabase
-            .from("user_collections")
-            .insert({ user_id: userId, namespace: ns, item_uuid: uuid })
-            .then(({ error }) => {
-              if (error) console.error("collection insert error:", error);
-            });
-        } else {
-          supabase
-            .from("user_collections")
-            .delete()
-            .eq("user_id", userId)
-            .eq("namespace", ns)
-            .eq("item_uuid", uuid)
-            .then(({ error }) => {
-              if (error) console.error("collection delete error:", error);
-            });
-        }
+      if (userId) {
+        // supabase-js は全ページ共通のJS(ヘッダー経由で読み込まれる)に含めないよう、
+        // ログイン中の書き込み時にだけ動的に読み込む(AuthContext と同じ方針)
+        void import("../lib/supabase").then(({ supabase }) => {
+          if (!supabase) return;
+          if (willAdd) {
+            supabase
+              .from("user_collections")
+              .insert({ user_id: userId, namespace: ns, item_uuid: uuid })
+              .then(({ error }) => {
+                if (error) console.error("collection insert error:", error);
+              });
+          } else {
+            supabase
+              .from("user_collections")
+              .delete()
+              .eq("user_id", userId)
+              .eq("namespace", ns)
+              .eq("item_uuid", uuid)
+              .then(({ error }) => {
+                if (error) console.error("collection delete error:", error);
+              });
+          }
+        });
       }
     },
     [ns, userId]
