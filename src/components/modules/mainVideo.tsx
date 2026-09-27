@@ -62,10 +62,13 @@ type Props = {
   onPlay?: (event: YouTubeEvent) => Promise<void>;
   onEnd?: (event: YouTubeEvent) => Promise<void>;
   onError?: (event: YouTubeEvent) => Promise<void>;
+  /** 初回描画時のパス(Body から渡す)。静的HTML生成時と hydrate 時で同じ画面にするため */
+  initialPathname?: string;
 };
 
 const MainVideo: React.FC<Props> = ({
   playlist,
+  initialPathname,
   onReady,
   onPlay,
   onEnd,
@@ -98,9 +101,16 @@ const MainVideo: React.FC<Props> = ({
   // 強制ミニ表示(forceMini)のページでは動画を閉じる(=フル表示に戻す)先が
   // 無いため、「非表示にする」明示的な離脱手段としてセッション中だけ記憶する。
   const PIP_DISMISSED_KEY = "reol-mainvideo-pip-dismissed";
-  const [dismissed, setDismissed] = useState(
-    isBrowser && window.sessionStorage.getItem(PIP_DISMISSED_KEY) === "1"
-  );
+  // sessionStorage は静的HTML生成時に読めないため、初期値は false にしてマウント後に反映する
+  // (初回描画から読むと、非表示にしていたセッションで hydrate 時の画面が食い違う)
+  const [dismissed, setDismissed] = useState(false);
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(PIP_DISMISSED_KEY) === "1") setDismissed(true);
+    } catch (_) {
+      // ignore (Safari Private mode 等)
+    }
+  }, []);
   const handleDismiss = useCallback(() => {
     setDismissed(true);
     try {
@@ -112,7 +122,7 @@ const MainVideo: React.FC<Props> = ({
 
   // "/live/xxxx/" のような2階層目(詳細ページ)では、常に縮小表示(ミニプレイヤー)に固定する。
   const [pathname, setPathname] = useState(
-    isBrowser ? window.location.pathname : ""
+    () => initialPathname ?? (isBrowser ? window.location.pathname : "")
   );
   useEffect(() => {
     const unlisten = globalHistory.listen(({ location }: { location: { pathname: string } }) => {

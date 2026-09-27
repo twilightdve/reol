@@ -5,11 +5,11 @@ import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
 import { AuthProvider } from "./src/contexts/AuthContext";
 
-export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
+export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathname }) => {
   return (
     <Provider store={store}>
       <AuthProvider>
-        <Body>{element}</Body>
+        <Body initialPathname={pathname}>{element}</Body>
       </AuthProvider>
     </Provider>
   );
