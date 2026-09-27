@@ -38,6 +38,8 @@ const zhHans: SiteDict = {
     heroLine2Indent: "了解 Reol 的",
     heroLine2Accent: "未来",
     heroLine2After: "。",
+    heroEmMobile: 8.5,
+    heroEmWide: 8.6,
     heroLead1: "歌曲、演唱会、歌单、取景地。从「れをる」时期至今，",
     heroLead2: "同时也是引导你前往官方内容的非官方资料库。",
     ticketCta: "前往官方网站购票 →",

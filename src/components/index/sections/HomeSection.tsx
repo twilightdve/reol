@@ -55,14 +55,24 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
           UNBOXED — SINCE 2012
           <span aria-hidden className="inline-block h-px w-16 bg-bx-blue opacity-60" />
         </p>
-        <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-[1.22] text-bx-ink">
-          <span className="block text-left">
+        {/*
+          見出しは各行を折り返さず(nowrap)、文字サイズを画面幅から逆算して1行に収める。
+          固定サイズだと端末幅や言語によって「知/る。」のような変な位置で折り返されるため。
+          --hero-em-* は各行の幅(em・辞書で言語ごとに定義)。計算上82%に収める(実測では小さいサイズほど
+          文字幅が広がり90%前後になる。さらに Windows/Android の欧文フォントの幅の差の余裕を持たせる)。
+          スマホでは2行目の字下げを外して文字を大きく保ち、sm 以上で字下げを戻す。
+        */}
+        <h1
+          className="mt-4 font-extrabold leading-[1.22] text-bx-ink text-[length:clamp(1rem,calc((100vw_-_16px)*0.82/var(--hero-em-m)),3.75rem)] sm:text-[length:clamp(1rem,calc((100vw_-_32px)*0.82/var(--hero-em-w)),3.75rem)]"
+          style={{ "--hero-em-m": t.heroEmMobile, "--hero-em-w": t.heroEmWide } as React.CSSProperties}
+        >
+          <span className="block text-left whitespace-nowrap">
             {t.heroLine1Before}
             <span className="text-bx-blue">{t.heroLine1Accent}</span>
             {t.heroLine1After}
           </span>
-          <span className="block text-left">
-            <span className="invisible" aria-hidden="true">{t.heroLine2Indent}</span>
+          <span className="block text-left whitespace-nowrap">
+            <span className="invisible hidden sm:inline" aria-hidden="true">{t.heroLine2Indent}</span>
             <span className="text-bx-yellow">{t.heroLine2Accent}</span>
             {t.heroLine2After}
           </span>
