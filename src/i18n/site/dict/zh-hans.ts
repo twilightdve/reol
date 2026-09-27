@@ -101,6 +101,9 @@ const zhHans: SiteDict = {
   common: {
     showMore: (n: number) => `显示更多(${n} 条)`,
     backToTop: "返回页面顶部",
+    backHome: "返回 HOME",
+    loading: "加载中...",
+    loadError: (err: string) => `加载失败：${err}`,
   },
   discography: {
     intro: "DISCOGRAPHY 按时间轴收录至今的作品信息与翻唱视频等。",

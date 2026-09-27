@@ -28,10 +28,6 @@ const LOCALIZED_PATTERNS: RegExp[] = [
 const LOCALIZED_EXCLUDED = new Set<string>([
   "/songs/sorter/",
   "/live/guide/",
-  "/live/compare/",
-  "/live/heatmap/",
-  "/live/tour-heatmap/",
-  "/live/similarity-ranking/",
   "/live/setlist-grammar/",
 ]);
 

@@ -102,6 +102,9 @@ const zhHant: SiteDict = {
   common: {
     showMore: (n: number) => `顯示更多(${n} 則)`,
     backToTop: "回到頁面頂端",
+    backHome: "返回 HOME",
+    loading: "載入中...",
+    loadError: (err: string) => `載入失敗：${err}`,
   },
   discography: {
     intro: "DISCOGRAPHY 依時間軸收錄至今的作品資訊與翻唱影片等。",

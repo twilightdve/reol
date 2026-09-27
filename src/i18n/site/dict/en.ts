@@ -102,6 +102,9 @@ const en: SiteDict = {
   common: {
     showMore: (n: number) => `Show ${n} more`,
     backToTop: "Back to top",
+    backHome: "Back to HOME",
+    loading: "Loading...",
+    loadError: (err: string) => `Failed to load: ${err}`,
   },
   discography: {
     intro: "A timeline of Reol's releases, from singles and albums to cover videos (utattemita).",

@@ -102,6 +102,9 @@ const ko: SiteDict = {
   common: {
     showMore: (n: number) => `더 보기 (${n}개)`,
     backToTop: "페이지 맨 위로",
+    backHome: "HOME으로 돌아가기",
+    loading: "불러오는 중...",
+    loadError: (err: string) => `불러오지 못했습니다: ${err}`,
   },
   discography: {
     intro: "DISCOGRAPHY에서는 지금까지의 릴리스 정보와 커버 영상 등을 시간순으로 소개합니다.",
