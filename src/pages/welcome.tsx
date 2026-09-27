@@ -8,13 +8,18 @@
  * - JSなしでも全文が読める静的ページ(SSG)。onClick は計測のみで導線はすべて <a>/<Link>。
  */
 import React, { useMemo } from "react";
-import { graphql, HeadFC, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { reolTypes } from "../data/reol-type/types";
 import { ACTIVITY_START_YEAR, activityYears } from "../constants/artist";
 import { Kicker } from "../components/redesign";
+import { LangLink as Link, pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
+import { welcomeDict } from "../i18n/site/pages/welcome";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
+import { getDict } from "../i18n/site/dict";
+import { localizePath } from "../utils/i18nRoutes";
 
 // ---------- データ型 ----------
 
@@ -121,6 +126,7 @@ const containerCls =
   "bg-bx-surface/5 border border-bx-line rounded-xl p-4 sm:p-6";
 
 const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
+  const t = usePageDict(welcomeDict);
   const songs = useMemo(() => mergeSongs(data), [data]);
 
   // 1) まずはこの曲から: 演奏回数上位×MV有りの3曲(公式MV埋め込み)
@@ -164,10 +170,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           WELCOME
         </Kicker>
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-bx-ink mb-3">
-          はじめてのReol
+          {t.title}
         </h1>
         <p className="text-sm leading-relaxed text-bx-ink2">
-          Reolに出会ったばかりのあなたへ。楽曲・ライブ・セトリ・ロケ地まで、れをる時代から{activityYears()}年分の活動を記録した非公式ファンサイトです。まずは代表曲から。気になったら、そのまま公式へ飛べます。
+          {t.intro(activityYears())}
         </p>
       </section>
 
@@ -177,10 +183,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           id="welcome-top-songs"
           className="text-xl font-bold text-bx-ink mb-1"
         >
-          まずはこの曲から
+          {t.topHeading}
         </h2>
         <p className="text-xs text-bx-ink3 mb-4">
-          当サイトに収録した歴代ライブのセットリストから、演奏回数が多い順に選んだ3曲です。公式MVをそのまま見られます。
+          {t.topLead}
         </p>
         <div className="space-y-6">
           {topSongs.map((song) => {
@@ -194,7 +200,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                   <div className="aspect-w-16 aspect-h-9 bg-black">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                      title={`${song.songName} - 公式ミュージックビデオ`}
+                      title={t.mvTitle(song.songName)}
                       loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
@@ -207,12 +213,12 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                     {song.songName}
                   </h3>
                   <p className="text-xs text-bx-ink3 mt-1">
-                    ライブ演奏回数 {song.totalPlays}回
+                    {t.livePlays(song.totalPlays)}
                     {song.firstPlayedDate && (
-                      <> ／ 初披露 {song.firstPlayedDate}</>
+                      <> ／ {t.firstPlayed(song.firstPlayedDate)}</>
                     )}
                     {" ／ "}
-                    リリース {song.releaseDate}
+                    {t.released(song.releaseDate)}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     {song.downloadUrl && (
@@ -223,7 +229,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                         onClick={() => trackOfficialLinkClick("streaming")}
                         className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
                       >
-                        配信で聴く ↗
+                        {t.listen}
                       </a>
                     )}
                     <a
@@ -233,7 +239,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                       onClick={() => trackOfficialLinkClick("youtube_mv")}
                       className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
                     >
-                      YouTubeで開く ↗
+                      {t.openYouTube}
                     </a>
                     <Link
                       to={`/songs/stats/?songSlug=${encodeURIComponent(song.slug)}`}
@@ -244,7 +250,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                       }
                       className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
                     >
-                      演奏履歴を見る →
+                      {t.playHistory}
                     </Link>
                   </div>
                 </div>
@@ -253,17 +259,17 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
           })}
         </div>
         <p className="text-[11px] text-bx-ink3 mt-3">
-          ※演奏回数は当サイト収録のセットリスト集計に基づく参考値です。
+          {t.playsNote}
         </p>
       </section>
 
       {/* 3. 年代からたどる */}
       <section className={containerCls} aria-labelledby="welcome-era">
         <h2 id="welcome-era" className="text-xl font-bold text-bx-ink mb-1">
-          年代からたどる
+          {t.eraHeading}
         </h2>
         <p className="text-xs text-bx-ink3 mb-4">
-          各年代のリリース曲から、ライブ演奏回数の多い代表曲を選びました。カードを開くと公式MVに飛べます。
+          {t.eraLead}
         </p>
         <div className="space-y-5">
           {eraPicks.map(({ era, picks }) => (
@@ -289,7 +295,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                         {videoId && (
                           <img
                             src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}
-                            alt={`${song.songName} MVサムネイル`}
+                            alt={t.thumbAlt(song.songName)}
                             loading="lazy"
                             width={320}
                             height={180}
@@ -301,11 +307,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                             {song.songName}
                           </span>
                           <p className="text-[11px] text-bx-ink3 mt-1">
-                            {song.releaseDate.slice(0, 4)}年リリース ／ 演奏
-                            {song.totalPlays}回
+                            {t.eraMeta(song.releaseDate.slice(0, 4), song.totalPlays)}
                           </p>
                           <span className="inline-block text-[11px] text-bx-blue mt-1">
-                            公式MVを見る ↗
+                            {t.watchMv}
                           </span>
                         </div>
                       </a>
@@ -318,7 +323,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                             onClick={() => trackOfficialLinkClick("streaming")}
                             className="text-[11px] text-bx-ink3 underline hover:text-bx-ink"
                           >
-                            配信で聴く ↗
+                            {t.listen}
                           </a>
                         </div>
                       )}
@@ -334,10 +339,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
       {/* 4. 次に聴くなら */}
       <section className={containerCls} aria-labelledby="welcome-next">
         <h2 id="welcome-next" className="text-xl font-bold text-bx-ink mb-1">
-          次に聴くなら
+          {t.nextHeading}
         </h2>
         <p className="text-xs text-bx-ink3 mb-4">
-          当サイトのファンタイプ診断で使っている「楽曲の好み」の2軸です。ピンとくる方から掘ってみてください。
+          {t.nextLead}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
           {(
@@ -345,15 +350,15 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               {
                 key: "gori",
                 emoji: "🎸",
-                title: "ゴリゴリ系",
-                desc: "攻撃的なビートとエレクトロサウンド。ライブで飛びたい人はこちら。",
+                title: t.goriTitle,
+                desc: t.goriDesc,
                 pick: branchPicks.gori,
               },
               {
                 key: "emo",
                 emoji: "🎹",
-                title: "エモ・バラード系",
-                desc: "歌詞とメロディにじっくり浸る楽曲群。言葉を味わいたい人はこちら。",
+                title: t.emoTitle,
+                desc: t.emoDesc,
                 pick: branchPicks.emo,
               },
             ] as const
@@ -375,9 +380,9 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                   onClick={() => trackOfficialLinkClick("youtube_mv")}
                   className="inline-flex items-center gap-1 text-sm font-medium text-bx-blue hover:underline"
                 >
-                  代表曲「{pick.songName}」を聴く ↗
+                  {t.listenPick(pick.songName)}
                   <span className="text-[10px] text-bx-ink3 font-normal">
-                    (演奏{pick.totalPlays}回)
+                    {t.pickPlays(pick.totalPlays)}
                   </span>
                 </a>
               )}
@@ -396,11 +401,11 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               <div className="flex-1">
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-base font-bold text-bx-ink">
-                    あなたのタイプを診断する
+                    {t.quizTitle}
                   </span>
                 </div>
                 <p className="text-xs text-bx-ink3">
-                  最前突撃派? 後方俯瞰派? 全20問・2分で、あなたのReolファンタイプを診断。
+                  {t.quizDesc}
                 </p>
               </div>
               <div className="flex-shrink-0 ml-3 w-9 h-9 rounded-full border border-bx-line flex items-center justify-center group-hover:border-bx-blue transition-colors">
@@ -426,30 +431,30 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
       {/* 5. もっと掘る */}
       <section className={containerCls} aria-labelledby="welcome-more">
         <h2 id="welcome-more" className="text-xl font-bold text-bx-ink mb-1">
-          もっと掘る
+          {t.moreHeading}
         </h2>
         <p className="text-xs text-bx-ink3 mb-4">
-          気になり始めたら、ここから先が本編です。
+          {t.moreLead}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             {
               to: "/songs/stats/",
               label: "song_stats",
-              title: "楽曲統計",
-              desc: "全楽曲の通算演奏回数・初披露日を一覧",
+              title: t.moreStatsTitle,
+              desc: t.moreStatsDesc,
             },
             {
               to: "/live/",
               label: "live",
               title: "LIVE",
-              desc: "歴代ライブの情報とセットリスト",
+              desc: t.moreLiveDesc,
             },
             {
               to: "/search/",
               label: "search",
-              title: "横断検索",
-              desc: "曲名・ライブ名・場所をまとめて検索",
+              title: t.moreSearchTitle,
+              desc: t.moreSearchDesc,
             },
           ].map((item) => (
             <Link
@@ -476,10 +481,10 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
       >
         <div className="bg-bx-surface/5 p-5 sm:p-6">
           <h2 id="welcome-official" className="text-lg font-bold text-bx-ink mb-1">
-            ここから先は、公式で。
+            {t.officialHeading}
           </h2>
           <p className="text-xs text-bx-ink3 mb-4">
-            最新情報・音源・映像はすべて公式から。このサイトは非公式ファンサイトです。
+            {t.officialLead}
           </p>
           <div className="flex flex-wrap gap-2">
             <a
@@ -489,7 +494,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               onClick={() => trackOfficialLinkClick("site")}
               className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
             >
-              公式サイト ↗
+              {t.officialSite}
             </a>
             <a
               href="https://www.youtube.com/@reolch"
@@ -498,7 +503,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               onClick={() => trackOfficialLinkClick("youtube")}
               className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-bx-line text-bx-ink hover:border-bx-blue transition-colors"
             >
-              公式YouTube ↗
+              {t.officialYouTube}
             </a>
           </div>
         </div>
@@ -536,14 +541,19 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="はじめてのReol - 入門ガイド"
-    description="Reol(れをる)に出会ったばかりの人のための入門ガイド。ライブ演奏回数のデータから選んだ代表曲の公式MV、年代別の代表曲、楽曲統計・セットリストへの入り口をまとめました。"
-    path="/welcome/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "はじめてのReol", path: "/welcome/" },
-    ])}
-  />
-);
+export const Head: HeadFC<WelcomePageData, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(welcomeDict, lang);
+  return (
+    <SEO
+      title={t.metaTitle}
+      description={t.metaDescription}
+      path="/welcome/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/welcome/", lang) },
+      ])}
+    />
+  );
+};
