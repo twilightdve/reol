@@ -11,7 +11,7 @@
  * 分類される(gatsby-node.ts側のリストで管理)。それ以外は「その他」扱い。
  */
 import React, { useEffect, useMemo, useState } from "react";
-import { HeadFC, Link } from "gatsby";
+import { HeadFC } from "gatsby";
 import { Tweet } from "react-twitter-widgets";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
@@ -20,6 +20,11 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { useTheme } from "../hooks/useTheme";
 import { trackFilterChange, trackEvent } from "../utils/analytics";
 import UtilityService from "../services/UtilityService";
+import { LangLink as Link, pageDictFor, useDict, usePageDict } from "../i18n/site/SiteLangContext";
+import { postsDict } from "../i18n/site/pages/posts";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
+import { getDict } from "../i18n/site/dict";
+import { localizePath } from "../utils/i18nRoutes";
 
 type PostCategory = "本人" | "公式" | "メディア" | "その他";
 type SourceType = "discography" | "live" | "liveItem";
@@ -40,11 +45,12 @@ const BLOCKQUOTE_ALLOWED_TAGS = ["blockquote", "p", "a", "br"];
 
 /** 事前取得済みのblockquoteを軽量表示するカード(既定表示、widgets.js不使用)。 */
 const StaticPostPreview: React.FC<{ html: string | null | undefined }> = ({ html }) => {
+  const t = usePageDict(postsDict);
   // innerHTMLへの代入は値を暗黙にString()化するため、htmlがfalsyだと
   // 文字列"undefined"がそのまま描画されてしまう。ここで明示的に弾く。
   if (!html) {
     return (
-      <p className="text-xs text-bx-ink3">本文を表示できませんでした。</p>
+      <p className="text-xs text-bx-ink3">{t.noBody}</p>
     );
   }
   return (
@@ -65,12 +71,6 @@ const fetchJson = async <T,>(url: string): Promise<T> => {
   return r.json();
 };
 
-const SOURCE_TYPE_LABELS: Record<"ALL" | SourceType, string> = {
-  ALL: "すべて",
-  discography: "楽曲",
-  live: "ライブ",
-  liveItem: "公演",
-};
 const SOURCE_TYPE_KEYS: ("ALL" | SourceType)[] = ["ALL", "discography", "live", "liveItem"];
 
 const CATEGORY_KEYS: ("ALL" | PostCategory)[] = ["ALL", "本人", "公式", "メディア", "その他"];
@@ -78,6 +78,8 @@ const CATEGORY_KEYS: ("ALL" | PostCategory)[] = ["ALL", "本人", "公式", "メ
 const PAGE_SIZE = 20;
 
 const PostsPage: React.FC = () => {
+  const t = usePageDict(postsDict);
+  const { common } = useDict();
   const { theme } = useTheme();
   const [data, setData] = useState<PostsIndexData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -151,32 +153,31 @@ const PostsPage: React.FC = () => {
   };
 
   return (
-    <Layout title="関連ポスト">
+    <Layout title={t.title}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
         <header className="mb-4">
           <Kicker color="text-bx-blue">POSTS</Kicker>
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            関連ポスト
+            {t.title}
           </h1>
           <p className="text-xs text-bx-ink3 leading-relaxed">
-            楽曲・ライブ・各公演ページに掲載している関連ポストを、時系列で横断して見られるようにしたものです。
-            投稿者の分類は簡易的なもので、確認できたハンドルのみ「本人/公式/メディア」に分類しています。
+            {t.lead}
           </p>
         </header>
 
         {error && (
-          <p className="text-sm text-red-400 mb-4">読み込みに失敗しました: {error}</p>
+          <p className="text-sm text-red-400 mb-4">{common.loadError(error)}</p>
         )}
 
         {!data && !error && (
-          <p className="text-xs text-bx-ink3 mb-4">読み込み中...</p>
+          <p className="text-xs text-bx-ink3 mb-4">{common.loading}</p>
         )}
 
         {data && (
           <>
             {/* フィルタ */}
             <div className="sticky top-0 z-20 -mx-3 sm:-mx-4 px-3 sm:px-4 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line space-y-2 mb-4">
-              <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="種別で絞り込み">
+              <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.sourceAria}>
                 {SOURCE_TYPE_KEYS.map((k) => (
                   <button
                     key={k}
@@ -194,11 +195,11 @@ const PostsPage: React.FC = () => {
                         : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                     }`}
                   >
-                    {SOURCE_TYPE_LABELS[k]}
+                    {t.sources[k]}
                   </button>
                 ))}
               </div>
-              <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="分類で絞り込み">
+              <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.categoryAria}>
                 {CATEGORY_KEYS.map((k) => (
                   <button
                     key={k}
@@ -216,7 +217,7 @@ const PostsPage: React.FC = () => {
                         : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
                     }`}
                   >
-                    {k === "ALL" ? "すべて" : k}
+                    {t.categories[k]}
                   </button>
                 ))}
               </div>
@@ -229,10 +230,10 @@ const PostsPage: React.FC = () => {
                   }}
                   className="px-2 py-1.5 text-xs rounded-md border border-bx-line bg-bx-surface/5 text-bx-ink"
                 >
-                  <option value="ALL">全期間</option>
+                  <option value="ALL">{t.allYears}</option>
                   {years.map((y) => (
                     <option key={y} value={y}>
-                      {y}年
+                      {t.year(y)}
                     </option>
                   ))}
                 </select>
@@ -243,17 +244,17 @@ const PostsPage: React.FC = () => {
                     setQuery(e.target.value);
                     resetPaging();
                   }}
-                  placeholder="曲名・ライブ名で検索"
+                  placeholder={t.searchPlaceholder}
                   className="flex-1 min-w-0 px-3 py-1.5 text-xs rounded-md border border-bx-line bg-bx-surface/5 text-bx-ink"
                 />
               </div>
-              <p className="text-[11px] text-bx-ink3">{filtered.length}件</p>
+              <p className="text-[11px] text-bx-ink3">{t.count(filtered.length)}</p>
             </div>
 
             {/* 一覧 */}
             {filtered.length === 0 ? (
               <p className="text-sm text-bx-ink3 py-8 text-center">
-                該当する関連ポストが見つかりませんでした。
+                {t.empty}
               </p>
             ) : (
               <ul className="space-y-4">
@@ -288,7 +289,7 @@ const PostsPage: React.FC = () => {
                                 : "border border-bx-line text-bx-ink3"
                             }`}
                           >
-                            {p.category}
+                            {t.categories[p.category]}
                           </span>
                         </span>
                       </div>
@@ -332,7 +333,7 @@ const PostsPage: React.FC = () => {
                         onClick={() => toggleIframe(key)}
                         className="mt-2 inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-bold rounded-full bg-bx-blue text-bx-bg hover:opacity-90 transition-opacity"
                       >
-                        {showIframe ? "軽量表示に戻す" : "埋め込み表示(iframe)で見る"}
+                        {showIframe ? t.showLight : t.showEmbed}
                       </button>
                     </li>
                   );
@@ -347,7 +348,7 @@ const PostsPage: React.FC = () => {
                   onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
                   className="px-6 py-2 text-sm font-bold rounded-lg border border-bx-line hover:border-bx-blue transition-colors"
                 >
-                  もっと見る ({filtered.length - visibleCount}件)
+                  {common.showMore(filtered.length - visibleCount)}
                 </button>
               </div>
             )}
@@ -360,14 +361,19 @@ const PostsPage: React.FC = () => {
 
 export default PostsPage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="関連ポスト"
-    description="Reolに関する楽曲・ライブ・各公演の関連ポストを時系列で横断して見られる一覧ページです。"
-    path="/posts/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "関連ポスト", path: "/posts/" },
-    ])}
-  />
-);
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(postsDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/posts/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/posts/", lang) },
+      ])}
+    />
+  );
+};

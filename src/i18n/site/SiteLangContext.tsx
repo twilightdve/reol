@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import { Link, GatsbyLinkProps } from "gatsby";
-import { DEFAULT_LANG, SiteLang } from "./langs";
+import { DEFAULT_LANG, isSiteLang, SiteLang } from "./langs";
 import { getDict, SiteDict } from "./dict";
 import { localizePath } from "../../utils/i18nRoutes";
 
@@ -18,6 +18,16 @@ export const SiteLangProvider: React.FC<{ lang: SiteLang; children: ReactNode }>
 export const useSiteLang = (): SiteLang => useContext(SiteLangContext);
 
 export const useDict = (): SiteDict => getDict(useSiteLang());
+
+/**
+ * ページ専用の辞書(src/i18n/site/pages/*)を現在の言語で引く。
+ * ページ専用の辞書はそのページだけが import するため、全ページ共通のJSに入らない。
+ */
+export const usePageDict = <T,>(dicts: Record<SiteLang, T>): T => dicts[useSiteLang()] ?? dicts[DEFAULT_LANG];
+
+/** Head など hook を使えない場所で、pageContext.lang からページ専用の辞書を引く */
+export const pageDictFor = <T,>(dicts: Record<SiteLang, T>, lang: unknown): T =>
+  (isSiteLang(lang) ? dicts[lang] : undefined) ?? dicts[DEFAULT_LANG];
 
 /** 内部リンクのパスを現在の言語のURLにする関数を返す */
 export const useLocalizePath = (): ((path: string) => string) => {

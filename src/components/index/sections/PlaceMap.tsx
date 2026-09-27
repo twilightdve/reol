@@ -4,6 +4,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Place, PlaceItem } from "../../../types/places";
 import { useTheme } from "../../../hooks/useTheme";
+import { usePageDict } from "../../../i18n/site/SiteLangContext";
+import { placeDict } from "../../../i18n/site/pages/place";
 
 // Webpack 環境下の Leaflet デフォルトアイコンパスを修正
 // https://github.com/PaulLeCam/react-leaflet/issues/453
@@ -43,6 +45,7 @@ const FitBounds: React.FC<{ markers: PlaceMarker[]; map: L.Map | null }> = ({
 };
 
 const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
+  const t = usePageDict(placeDict);
   const [map, setMap] = React.useState<L.Map | null>(null);
   const { theme } = useTheme();
 
@@ -87,7 +90,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
                     rel="noopener noreferrer"
                     className="text-blue-600 underline"
                   >
-                    Google Maps で開く
+                    {t.openInGoogleMaps}
                   </a>
                 )}
               </div>

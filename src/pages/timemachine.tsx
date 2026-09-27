@@ -12,11 +12,18 @@
  * 含む)とは意図的に一致しない。
  */
 import React, { useEffect, useMemo, useState } from "react";
-import { Link, HeadFC } from "gatsby";
+import { HeadFC } from "gatsby";
 import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent } from "../utils/analytics";
+import { LangLink as Link, pageDictFor, usePageDict, useSiteLang } from "../i18n/site/SiteLangContext";
+import { timemachineDict } from "../i18n/site/pages/timemachine";
+import { DEFAULT_LANG, INTL_LOCALE, isSiteLang } from "../i18n/site/langs";
+import { getDict } from "../i18n/site/dict";
+import { localizePath } from "../utils/i18nRoutes";
+
+type TimeMachineDict = (typeof timemachineDict)["ja"];
 
 type Snapshot = {
   month: string; // "2016-08"
@@ -44,10 +51,10 @@ type Snapshot = {
   newSongs: { songName: string; slug: string }[];
 };
 
-const formatMonth = (month: string): string => {
+const formatMonth = (month: string, t: TimeMachineDict): string => {
   const m = month.match(/^(\d{4})-(\d{2})$/);
   if (!m) return month;
-  return `${m[1]}年${parseInt(m[2], 10)}月`;
+  return t.month(parseInt(m[1], 10), parseInt(m[2], 10));
 };
 
 const formatDate = (iso: string | null): string => {
@@ -72,6 +79,7 @@ const YearMonthCalendar: React.FC<{
   currentMonth: string;
   onSelectMonth: (index: number) => void;
 }> = ({ snapshots, currentMonth, onSelectMonth }) => {
+  const t = usePageDict(timemachineDict);
   const indexByMonth = useMemo(() => {
     const m = new Map<string, number>();
     snapshots.forEach((s, i) => m.set(s.month, i));
@@ -93,7 +101,7 @@ const YearMonthCalendar: React.FC<{
         <thead>
           <tr>
             <th className="text-[10px] text-bx-ink3 font-normal text-left pr-2">
-              年
+              {t.calendarYear}
             </th>
             {Array.from({ length: 12 }, (_, i) => i + 1).map((mo) => (
               <th key={mo} className="text-[10px] text-bx-ink3 font-normal">
@@ -121,7 +129,7 @@ const YearMonthCalendar: React.FC<{
                       <button
                         type="button"
                         onClick={() => onSelectMonth(snapshotIndex)}
-                        aria-label={formatMonth(key)}
+                        aria-label={formatMonth(key, t)}
                         className={`w-full aspect-square rounded text-[10px] transition-colors ${
                           isCurrent
                             ? "bg-bx-yellow text-bx-bg font-bold"
@@ -144,13 +152,15 @@ const YearMonthCalendar: React.FC<{
         </tbody>
       </table>
       <p className="mt-2 text-[10px] text-bx-ink3">
-        色付きのマス = リリース・ライブ・初披露曲のいずれかがあった月
+        {t.calendarLegend}
       </p>
     </div>
   );
 };
 
 const TimeMachinePage: React.FC = () => {
+  const t = usePageDict(timemachineDict);
+  const lang = useSiteLang();
   const [snapshots, setSnapshots] = useState<Snapshot[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [index, setIndex] = useState<number | null>(null);
@@ -187,7 +197,7 @@ const TimeMachinePage: React.FC = () => {
   if (error) {
     return (
       <main className="relative container mx-auto w-full max-w-2xl px-3 sm:px-4 py-6 text-bx-ink">
-        <p className="text-sm text-bx-ink2">読み込みに失敗しました: {error}</p>
+        <p className="text-sm text-bx-ink2">{t.loadError(error)}</p>
       </main>
     );
   }
@@ -197,18 +207,16 @@ const TimeMachinePage: React.FC = () => {
       <section>
         <Kicker color="text-bx-blue">TIME MACHINE</Kicker>
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-bx-ink mt-1 mb-2">
-          タイムマシン
+          {t.title}
         </h1>
         <p className="text-sm leading-relaxed text-bx-ink2">
-          リリース・ライブ・楽曲の初披露があった月だけを辿れます。
-          今と同じ「楽曲数・ライブ数・演奏数」が、当時はどれだけだったかを確認しながら、
-          その月に何が起きたかを振り返れます。
+          {t.lead}
         </p>
       </section>
 
       {!current ? (
         <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-6 text-center text-sm text-bx-ink3">
-          読み込み中...
+          {t.loading}
         </div>
       ) : (
         <>
@@ -218,19 +226,19 @@ const TimeMachinePage: React.FC = () => {
                 type="button"
                 onClick={() => goTo((index ?? 0) - 1)}
                 disabled={index === 0}
-                aria-label="前の月"
+                aria-label={t.prevMonth}
                 className="flex-shrink-0 w-9 h-9 rounded-full border border-bx-line text-bx-ink2 hover:text-bx-blue hover:border-bx-blue disabled:opacity-30 disabled:pointer-events-none transition-colors"
               >
                 ◀
               </button>
               <div className="text-xl sm:text-2xl font-extrabold tracking-wide text-bx-ink tabular-nums">
-                {formatMonth(current.month)}
+                {formatMonth(current.month, t)}
               </div>
               <button
                 type="button"
                 onClick={() => goTo((index ?? 0) + 1)}
                 disabled={!!snapshots && index === snapshots.length - 1}
-                aria-label="次の月"
+                aria-label={t.nextMonth}
                 className="flex-shrink-0 w-9 h-9 rounded-full border border-bx-line text-bx-ink2 hover:text-bx-blue hover:border-bx-blue disabled:opacity-30 disabled:pointer-events-none transition-colors"
               >
                 ▶
@@ -243,19 +251,19 @@ const TimeMachinePage: React.FC = () => {
               max={(snapshots?.length ?? 1) - 1}
               value={index ?? 0}
               onChange={(e) => goTo(Number(e.target.value))}
-              aria-label="年月を選択"
+              aria-label={t.selectMonth}
               className="w-full mt-4 accent-bx-yellow"
             />
             <div className="flex justify-between text-[10px] text-bx-ink3 mt-1">
-              <span>{snapshots && formatMonth(snapshots[0].month)}</span>
-              <span>{snapshots && formatMonth(snapshots[snapshots.length - 1].month)}</span>
+              <span>{snapshots && formatMonth(snapshots[0].month, t)}</span>
+              <span>{snapshots && formatMonth(snapshots[snapshots.length - 1].month, t)}</span>
             </div>
             <button
               type="button"
               onClick={() => setShowCalendar((v) => !v)}
               className="mt-3 text-[11px] font-bold text-bx-blueLight hover:text-bx-blue transition-colors"
             >
-              {showCalendar ? "▲ カレンダーを閉じる" : "▼ カレンダーで選ぶ"}
+              {showCalendar ? t.closeCalendar : t.openCalendar}
             </button>
           </section>
 
@@ -269,16 +277,16 @@ const TimeMachinePage: React.FC = () => {
 
           <section className="grid grid-cols-3 gap-2 sm:gap-3">
             {[
-              { label: "演奏済み楽曲", value: current.songCount },
-              { label: "開催済みライブ", value: current.liveItemCount },
-              { label: "延べ演奏回数", value: current.performanceCount },
+              { label: t.statSongs, value: current.songCount },
+              { label: t.statLives, value: current.liveItemCount },
+              { label: t.statPlays, value: current.performanceCount },
             ].map((stat) => (
               <div
                 key={stat.label}
                 className="rounded-lg border border-bx-line bg-bx-surface/5 p-3 text-center"
               >
                 <div className="text-xl sm:text-2xl font-extrabold text-bx-yellow tabular-nums">
-                  {stat.value.toLocaleString()}
+                  {stat.value.toLocaleString(INTL_LOCALE[lang])}
                 </div>
                 <div className="mt-1 text-[10px] font-bold tracking-wide text-bx-ink3">
                   {stat.label}
@@ -292,13 +300,13 @@ const TimeMachinePage: React.FC = () => {
             current.newSongs.length > 0) && (
             <section className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5 space-y-4">
               <h2 className="text-[10px] font-bold tracking-wide text-bx-ink3">
-                この月のできごと
+                {t.eventsHeading}
               </h2>
 
               {current.releases.length > 0 && (
                 <div>
                   <p className="text-[11px] font-bold text-bx-blue mb-1.5">
-                    リリース
+                    {t.releases}
                   </p>
                   <ul className="space-y-1.5">
                     {current.releases.map((r) => (
@@ -321,7 +329,7 @@ const TimeMachinePage: React.FC = () => {
               {current.lives.length > 0 && (
                 <div>
                   <p className="text-[11px] font-bold text-bx-yellow mb-1.5">
-                    ライブ
+                    {t.lives}
                   </p>
                   <ul className="space-y-1.5">
                     {current.lives.map((l) => (
@@ -350,7 +358,7 @@ const TimeMachinePage: React.FC = () => {
               {current.newSongs.length > 0 && (
                 <div>
                   <p className="text-[11px] font-bold text-bx-blueLight mb-1.5">
-                    初披露曲
+                    {t.newSongs}
                   </p>
                   <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
                     {current.newSongs.map((s) => (
@@ -377,7 +385,7 @@ const TimeMachinePage: React.FC = () => {
                 className="p-4"
               >
                 <div className="text-[10px] font-bold tracking-wide text-bx-ink3 mb-1">
-                  この時点での最新リリース ({formatDate(current.latestRelease.releaseDate)})
+                  {t.latestRelease(formatDate(current.latestRelease.releaseDate))}
                 </div>
                 <div className="text-base font-bold text-bx-ink">
                   {current.latestRelease.title}
@@ -385,7 +393,7 @@ const TimeMachinePage: React.FC = () => {
               </GlassCard>
             ) : (
               <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 text-sm text-bx-ink3">
-                この時点ではまだリリースがありません。
+                {t.noRelease}
               </div>
             )}
 
@@ -400,7 +408,7 @@ const TimeMachinePage: React.FC = () => {
                 className="p-4"
               >
                 <div className="text-[10px] font-bold tracking-wide text-bx-ink3 mb-1">
-                  この時点での次のライブ ({formatDate(current.nextLive.date)})
+                  {t.nextLive(formatDate(current.nextLive.date))}
                 </div>
                 <div className="text-base font-bold text-bx-ink">
                   {current.nextLive.title}
@@ -414,7 +422,7 @@ const TimeMachinePage: React.FC = () => {
               </GlassCard>
             ) : (
               <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 text-sm text-bx-ink3">
-                これ以降のライブ予定はまだ登録されていません。
+                {t.noNextLive}
               </div>
             )}
           </section>
@@ -423,7 +431,7 @@ const TimeMachinePage: React.FC = () => {
 
       <p className="text-xs text-bx-ink2">
         <Link to="/about/data/" className="underline underline-offset-2 hover:text-bx-blue">
-          集計ルールについて →
+          {t.rulesLink}
         </Link>
       </p>
     </main>
@@ -432,14 +440,19 @@ const TimeMachinePage: React.FC = () => {
 
 export default TimeMachinePage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="タイムマシン"
-    description="リリース・ライブ・楽曲の初披露があった月を辿り、その時点までのReolの楽曲数・ライブ数・演奏数を確認できます。"
-    path="/timemachine/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "タイムマシン", path: "/timemachine/" },
-    ])}
-  />
-);
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(timemachineDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/timemachine/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/timemachine/", lang) },
+      ])}
+    />
+  );
+};

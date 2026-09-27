@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useMemo, useState } from 'react'
-import { graphql, HeadFC, Link, PageProps } from 'gatsby'
+import { graphql, HeadFC, PageProps } from 'gatsby'
 import { ArrowLeft, MapPin } from 'lucide-react'
 import SEO from '../../components/SEO'
 import { LiveInfo } from '../../types/live'
@@ -9,6 +9,19 @@ import {
   extractPrefecture,
 } from '../../utils/extractPrefecture'
 import type { PrefectureCountMap } from '../../components/live/LiveHeatmap'
+import { buildBreadcrumbList } from '../../utils/jsonLd'
+import {
+  LangLink as Link,
+  pageDictFor,
+  useDict,
+  usePageDict,
+  useSiteLang,
+} from '../../i18n/site/SiteLangContext'
+import { heatmapDict } from '../../i18n/site/pages/heatmap'
+import { DEFAULT_LANG, isSiteLang } from '../../i18n/site/langs'
+import { getDict } from '../../i18n/site/dict'
+import { regionLabel } from '../../i18n/site/regions'
+import { localizePath } from '../../utils/i18nRoutes'
 
 // Leaflet は SSR 不可なので動的読み込み
 const LiveHeatmap = lazy(() => import('../../components/live/LiveHeatmap'))
@@ -39,6 +52,10 @@ type SelectedRegion =
   | null
 
 const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
+  const t = usePageDict(heatmapDict)
+  const { common } = useDict()
+  const lang = useSiteLang()
+  const area = (name: string) => regionLabel(name, lang)
   const [typeFilter, setTypeFilter] = React.useState<LiveTypeFilter>('all')
   const [selected, setSelected] = React.useState<SelectedRegion>(null)
   // Leaflet は SSR 環境で window を要求する。クライアントマウント後にだけ描画する。
@@ -160,8 +177,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
       targetName: p,
     }))
     const overseasEntries: RankingEntry[] = overseasSubRanking.map((r, i) => ({
-      region:
-        r.sub === '(不明)' ? r.region : `${r.region}・${r.sub}`,
+      region: r.sub === '(不明)' ? r.region : `${r.region}::${r.sub}`,
       count: r.count,
       kind: 'overseas',
       order: 1000 + i,
@@ -205,18 +221,18 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
       { place: string; address: string | null; count: number }
     >()
     for (const it of selectedItems) {
-      const key = it.place ?? it.address ?? '(会場不明)'
+      const key = it.place ?? it.address ?? t.unknownVenue
       const cur = map.get(key)
       if (cur) cur.count += 1
       else
         map.set(key, {
-          place: it.place ?? '(会場不明)',
+          place: it.place ?? t.unknownVenue,
           address: it.address,
           count: 1,
         })
     }
     return Array.from(map.values()).sort((a, b) => b.count - a.count)
-  }, [selectedItems])
+  }, [selectedItems, t])
 
   // 会場別ランキング (全体)
   const venueRanking = useMemo(() => {
@@ -258,7 +274,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
             className="inline-flex items-center gap-2 text-bx-blueLight hover:text-bx-blue font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
-            HOMEへ戻る
+            {common.backHome}
           </Link>
         </div>
       </header>
@@ -267,10 +283,10 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <div className="mb-4">
           <h1 className="flex items-center gap-2 text-2xl font-bold text-bx-ink">
             <MapPin className="w-6 h-6 text-bx-blueLight" />
-            開催地マップ
+            {t.title}
           </h1>
           <p className="mt-1 text-sm text-bx-ink3">
-            これまでに開催された Reol の公演を都道府県別に可視化しています。色が濃いほど公演数が多い地域です。
+            {t.lead}
           </p>
         </div>
 
@@ -278,21 +294,21 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <div className="mb-3 flex flex-wrap gap-2">
           {(
             [
-              { key: 'all', label: 'すべて', color: 'bg-purple-600' },
-              { key: 'oneman', label: 'ワンマン', color: 'bg-pink-600' },
-              { key: 'event', label: 'イベント', color: 'bg-blue-600' },
+              { key: 'all', label: t.filterAll, color: 'bg-purple-600' },
+              { key: 'oneman', label: t.filterOneman, color: 'bg-pink-600' },
+              { key: 'event', label: t.filterEvent, color: 'bg-blue-600' },
             ] as { key: LiveTypeFilter; label: string; color: string }[]
-          ).map((t) => (
+          ).map((f) => (
             <button
-              key={t.key}
-              onClick={() => setTypeFilter(t.key)}
+              key={f.key}
+              onClick={() => setTypeFilter(f.key)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                typeFilter === t.key
-                  ? `${t.color} text-white shadow`
+                typeFilter === f.key
+                  ? `${f.color} text-white shadow`
                   : 'bg-bx-bg text-bx-ink3 border border-bx-line hover:bg-bx-surface/5'
               }`}
             >
-              {t.label}
+              {f.label}
             </button>
           ))}
         </div>
@@ -301,7 +317,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <Suspense
           fallback={
             <div className="h-[320px] rounded-lg border border-bx-line bg-bx-line/30 flex items-center justify-center text-bx-ink3 text-sm">
-              地図を読み込み中...
+              {t.mapLoading}
             </div>
           }
         >
@@ -334,7 +350,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
             />
           ) : (
             <div className="h-[320px] rounded-lg border border-bx-line bg-bx-line/30 flex items-center justify-center text-bx-ink3 text-sm">
-              地図を読み込み中...
+              {t.mapLoading}
             </div>
           )}
         </Suspense>
@@ -349,18 +365,18 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                     selected.kind === 'jp' ? 'bg-bx-yellow' : 'bg-blue-500'
                   }`}
                 />
-                {selected.name} の会場 ({selectedVenues.length})
+                {t.venuesIn(area(selected.name), selectedVenues.length)}
               </h2>
               <button
                 onClick={() => setSelected(null)}
                 className="text-xs text-bx-ink3 hover:text-bx-ink underline"
               >
-                選択解除
+                {t.clearSelection}
               </button>
             </div>
             {selectedVenues.length === 0 ? (
               <p className="text-xs text-bx-ink3">
-                このエリアでの公演データはまだありません
+                {t.noAreaData}
               </p>
             ) : (
               <ul className="text-xs divide-y divide-bx-line">
@@ -392,19 +408,19 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         {/* サマリー */}
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
           <div className="bg-bx-bg border border-bx-line rounded p-2">
-            <div className="text-bx-ink3">国内公演</div>
+            <div className="text-bx-ink3">{t.domestic}</div>
             <div className="text-lg font-bold text-bx-yellow">{totalJP}</div>
           </div>
           <div className="bg-bx-bg border border-bx-line rounded p-2">
-            <div className="text-bx-ink3">海外公演</div>
+            <div className="text-bx-ink3">{t.overseas}</div>
             <div className="text-lg font-bold text-bx-blue">{totalOverseas}</div>
           </div>
           <div className="bg-bx-bg border border-bx-line rounded p-2">
-            <div className="text-bx-ink3">参加都道府県</div>
+            <div className="text-bx-ink3">{t.prefecturesVisited}</div>
             <div className="text-lg font-bold text-bx-yellow">{visitedJP} / 47</div>
           </div>
           <div className="bg-bx-bg border border-bx-line rounded p-2">
-            <div className="text-bx-ink3">不明 / 未確定</div>
+            <div className="text-bx-ink3">{t.unknown}</div>
             <div className="text-lg font-bold text-bx-ink3">{unknownCount}</div>
           </div>
         </div>
@@ -413,10 +429,10 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <div className="mt-4">
           <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
             <h2 className="font-bold text-sm mb-2 text-bx-ink">
-              地域別ランキング
+              {t.regionRanking}
             </h2>
             {ranking.length === 0 ? (
-              <p className="text-xs text-bx-ink3">該当データがありません</p>
+              <p className="text-xs text-bx-ink3">{t.noData}</p>
             ) : (
               <ol className="text-xs divide-y divide-bx-line max-h-[480px] overflow-y-auto pr-1">
                 {ranking.map((r, i) => {
@@ -434,7 +450,12 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                     >
                       <span className="w-7 text-right text-bx-ink3">{i + 1}.</span>
                       <span className="w-28 truncate flex items-center gap-1 text-bx-ink">
-                        {r.region}
+                        {r.region.includes('::')
+                          ? t.areaPair(
+                              area(r.region.split('::')[0]),
+                              area(r.region.split('::')[1])
+                            )
+                          : area(r.region)}
                       </span>
                       <div className="flex-1 bg-bx-line/50 rounded h-2 overflow-hidden">
                         <div
@@ -468,11 +489,11 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
           <div className="mt-4">
             <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
               <h2 className="font-bold text-sm mb-2 text-bx-ink">
-                未開催の都道府県 ({unvisitedJP.length})
+                {t.unvisited(unvisitedJP.length)}
               </h2>
               {unvisitedJP.length === 0 ? (
                 <p className="text-xs text-bx-ink3">
-                  全都道府県で開催実績があります
+                  {t.allVisited}
                 </p>
               ) : (
                 <div className="flex flex-wrap gap-1.5">
@@ -481,7 +502,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                       key={p}
                       className="px-2 py-1 rounded-full text-[11px] bg-bx-line/40 text-bx-ink3 border border-bx-line"
                     >
-                      {p}
+                      {area(p)}
                     </span>
                   ))}
                 </div>
@@ -494,10 +515,10 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         <div className="mt-4">
           <section className="bg-bx-bg rounded-lg border border-bx-line p-3">
             <h2 className="font-bold text-sm mb-2 text-bx-ink">
-              会場別ランキング
+              {t.venueRanking}
             </h2>
             {venueRanking.length === 0 ? (
-              <p className="text-xs text-bx-ink3">該当データがありません</p>
+              <p className="text-xs text-bx-ink3">{t.noData}</p>
             ) : (
               <ol className="text-xs divide-y divide-bx-line max-h-[480px] overflow-y-auto pr-1">
                 {venueRanking.map((v, i) => {
@@ -506,9 +527,14 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
                   const isOverseas = !!v.overseasRegion
                   const areaLabel = isOverseas
                     ? v.overseasSubRegion
-                      ? `${v.overseasRegion}・${v.overseasSubRegion}`
-                      : v.overseasRegion
-                    : v.prefecture ?? '(地域不明)'
+                      ? t.areaPair(
+                          area(v.overseasRegion ?? ''),
+                          area(v.overseasSubRegion)
+                        )
+                      : area(v.overseasRegion ?? '')
+                    : v.prefecture
+                      ? area(v.prefecture)
+                      : t.unknownArea
                   // 行タップで地図中心を移動: admin1 サブ地域 > 国 > 都道府県
                   const targetSelected: SelectedRegion = isOverseas
                     ? {
@@ -569,7 +595,7 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
         </div>
 
         <p className="mt-4 text-[10px] text-bx-ink3">
-          地図データ:&nbsp;
+          {t.mapData}&nbsp;
           <a
             className="underline"
             href="https://github.com/dataofjapan/land"
@@ -605,10 +631,20 @@ export const query = graphql`
 
 export default ReolHeatmapPage
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="開催地マップ(公演ヒートマップ)"
-    description="Reol の過去公演を都道府県別にヒートマップで可視化します。"
-    path="/live/heatmap/"
-  />
-)
+export const Head: HeadFC<HeatmapQuery, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG
+  const t = pageDictFor(heatmapDict, lang)
+  return (
+    <SEO
+      title={t.metaTitle}
+      description={t.metaDescription}
+      path="/live/heatmap/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath('/', lang) },
+        { name: 'LIVE', path: localizePath('/live/', lang) },
+        { name: t.title, path: localizePath('/live/heatmap/', lang) },
+      ])}
+    />
+  )
+}

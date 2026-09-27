@@ -107,6 +107,9 @@ const ja = {
   common: {
     showMore: (n: number) => `もっと見る (${n}件)`,
     backToTop: "ページの先頭へ戻る",
+    backHome: "HOMEへ戻る",
+    loading: "読み込み中...",
+    loadError: (err: string) => `読み込みに失敗しました: ${err}`,
   },
   discography: {
     intro: "DISCOGRAPHYではこれまでのリリース情報や歌ってみた動画などの一覧を時間軸で掲載しています。",

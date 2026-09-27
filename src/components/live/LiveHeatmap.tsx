@@ -7,6 +7,9 @@ import type { Topology, GeometryObject } from 'topojson-specification'
 import type { Feature, FeatureCollection, Geometry } from 'geojson'
 import { PREFECTURE_LIST, PrefectureName } from '../../utils/extractPrefecture'
 import { useTheme } from '../../hooks/useTheme'
+import { usePageDict, useSiteLang } from '../../i18n/site/SiteLangContext'
+import { heatmapDict } from '../../i18n/site/pages/heatmap'
+import { regionLabel } from '../../i18n/site/regions'
 
 export type PrefectureCountMap = Partial<Record<PrefectureName, number>>
 export type OverseasCountMap = Record<string, number>
@@ -221,6 +224,8 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
   onSelectOverseas,
   venueCounts,
 }) => {
+  const t = usePageDict(heatmapDict)
+  const lang = useSiteLang()
   const [geoData, setGeoData] = useState<FeatureCollection<Geometry, PrefectureProps> | null>(
     null
   )
@@ -379,7 +384,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
     const name = f.properties?.nam_ja
     const c = (name && counts[name as PrefectureName]) || 0
     layer.bindTooltip(
-      `<div style="font-size:12px"><b>${name ?? ''}</b><br/>公演数: ${c}</div>`,
+      `<div style="font-size:12px"><b>${name ? regionLabel(name, lang) : ''}</b><br/>${t.showCount}: ${c}</div>`,
       { sticky: true }
     )
     if (onSelectPrefecture && name) {
@@ -422,7 +427,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
     const c = overseasCounts?.[region] ?? 0
     if (c <= 0) return
     layer.bindTooltip(
-      `<div style="font-size:12px"><b>${region}</b> (${name})<br/>公演数: ${c}</div>`,
+      `<div style="font-size:12px"><b>${regionLabel(region, lang)}</b>${lang === 'ja' ? ` (${name})` : ''}<br/>${t.showCount}: ${c}</div>`,
       { sticky: true }
     )
     if (onSelectOverseas) {
@@ -451,7 +456,7 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
       if (!name) return
       const c = overseasSubCounts?.[name] ?? 0
       layer.bindTooltip(
-        `<div style="font-size:12px"><b>${spec.region} ・ ${name}</b><br/>公演数: ${c}</div>`,
+        `<div style="font-size:12px"><b>${t.areaPair(regionLabel(spec.region, lang), regionLabel(name, lang))}</b><br/>${t.showCount}: ${c}</div>`,
         { sticky: true }
       )
       if (onSelectOverseas) {
@@ -523,7 +528,9 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
             <Tooltip direction="top" offset={[0, -6]} opacity={1} sticky>
               <div className="text-[11px]">
                 <div className="font-bold">{v.place}</div>
-                <div>公演数: {v.count}</div>
+                <div>
+                  {t.showCount}: {v.count}
+                </div>
               </div>
             </Tooltip>
           </Marker>
@@ -531,12 +538,12 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
       </MapContainer>
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-bx-bg/90 text-sm text-red-400">
-          地図データを読み込めませんでした: {error}
+          {t.mapLoadError(error)}
         </div>
       )}
       {/* 凡例 */}
       <div className="absolute bottom-2 right-2 bg-bx-bg/90 border border-bx-line rounded-md shadow px-3 py-2 text-[10px] leading-tight z-[400] text-bx-ink">
-        <div className="font-bold mb-1">公演数</div>
+        <div className="font-bold mb-1">{t.showCount}</div>
         <div className="flex items-center gap-1">
           {scale.map((c, i) => (
             <span
@@ -548,8 +555,8 @@ const LiveHeatmap: React.FC<LiveHeatmapProps> = ({
           ))}
         </div>
         <div className="flex justify-between mt-0.5 text-bx-ink3">
-          <span>少</span>
-          <span>多 ({max})</span>
+          <span>{t.fewer}</span>
+          <span>{t.more(max)}</span>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
  * データはビルド時に静的生成される(SSR不可)ため、URL解決はクライアント側で行う。
  */
 import React, { useEffect, useMemo, useState } from "react";
-import { graphql, HeadFC, Link, PageProps, navigate } from "gatsby";
+import { graphql, HeadFC, PageProps, navigate } from "gatsby";
 import { ArrowLeft, ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
 import SEO from "../../components/SEO";
 import {
@@ -18,6 +18,18 @@ import {
   type ComparedSong,
   type SetlistSongInput,
 } from "../../utils/setlistCompare";
+import { buildBreadcrumbList } from "../../utils/jsonLd";
+import {
+  LangLink as Link,
+  pageDictFor,
+  useDict,
+  usePageDict,
+  useSiteLang,
+} from "../../i18n/site/SiteLangContext";
+import { compareDict } from "../../i18n/site/pages/compare";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type SetListSongQuery = {
   liveItemSongUuid: string;
@@ -98,12 +110,7 @@ type Side = "a" | "b";
 
 type FilterKey = "all" | "common" | "diff" | "reorder";
 
-const FILTER_OPTIONS: { key: FilterKey; label: string }[] = [
-  { key: "all", label: "すべて" },
-  { key: "common", label: "共通のみ" },
-  { key: "diff", label: "差分のみ" },
-  { key: "reorder", label: "曲順変更のみ" },
-];
+const FILTER_KEYS: FilterKey[] = ["all", "common", "diff", "reorder"];
 
 const matchesFilter = (song: ComparedSong, filter: FilterKey): boolean => {
   switch (filter) {
@@ -119,12 +126,13 @@ const matchesFilter = (song: ComparedSong, filter: FilterKey): boolean => {
 };
 
 const PositionDiffBadge: React.FC<{ song: ComparedSong }> = ({ song }) => {
+  const t = usePageDict(compareDict);
   if (song.status !== "common" || song.positionDiff === null) return null;
   if (song.samePosition) {
     return (
       <span className="inline-flex items-center gap-0.5 text-bx-ink3 text-[11px]">
         <Minus className="w-3 h-3" />
-        同位置
+        {t.samePosition}
       </span>
     );
   }
@@ -146,6 +154,9 @@ const PositionDiffBadge: React.FC<{ song: ComparedSong }> = ({ song }) => {
 };
 
 const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location }) => {
+  const t = usePageDict(compareDict);
+  const { common } = useDict();
+  const lang = useSiteLang();
   const options = useMemo<LiveItemOption[]>(() => {
     const out: LiveItemOption[] = [];
     for (const live of data.live.liveInfos) {
@@ -195,7 +206,7 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
     } else if (options.length === 1) {
       setFromUuid(options[0].liveItemUuid);
     }
-    if (filterParam && FILTER_OPTIONS.some((f) => f.key === filterParam)) {
+    if (filterParam && FILTER_KEYS.includes(filterParam as FilterKey)) {
       setFilter(filterParam as FilterKey);
     }
     setInitialized(true);
@@ -211,7 +222,10 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
     if (fromSlug) sp.set("from", fromSlug);
     if (toSlug) sp.set("to", toSlug);
     if (filter !== "all") sp.set("filter", filter);
-    const next = sp.toString() ? `/live/compare/?${sp.toString()}` : "/live/compare/";
+    const next = localizePath(
+      sp.toString() ? `/live/compare/?${sp.toString()}` : "/live/compare/",
+      lang
+    );
     if (next !== `${location.pathname}${location.search}`) {
       navigate(next, { replace: true });
     }
@@ -261,7 +275,7 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
       onChange={(e) => handleSelect(side, e.target.value)}
       className="w-full bg-bx-bg border border-bx-line rounded-lg px-3 py-2 text-sm text-bx-ink"
     >
-      <option value="">公演を選択</option>
+      <option value="">{t.selectShow}</option>
       {Array.from(
         options.reduce((groups, o) => {
           const list = groups.get(o.liveTitle) ?? [];
@@ -276,7 +290,7 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
               {o.date}
               {o.liveItemName ? ` ${o.liveItemName}` : ""}
               {o.place ? ` @ ${o.place}` : ""}
-              {o.setList.length === 0 ? "(セトリ未定)" : ""}
+              {o.setList.length === 0 ? t.noSetlist : ""}
             </option>
           ))}
         </optgroup>
@@ -293,25 +307,24 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
             className="inline-flex items-center gap-2 text-bx-blueLight hover:text-bx-blue font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
-            HOMEへ戻る
+            {common.backHome}
           </Link>
         </div>
       </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-4">
-          <h1 className="text-2xl font-bold text-bx-ink">セトリ比較</h1>
+          <h1 className="text-2xl font-bold text-bx-ink">{t.title}</h1>
           <p className="mt-1 text-sm text-bx-ink3">
-            2公演のセットリストを比較して、共通曲・差分・曲順の変化を確認できます。
-            同一ツアーの全公演を横断したい場合は
+            {t.leadBefore}
             <Link to="/live/tour-heatmap/" className="text-bx-blueLight hover:underline">
-              ツアーヒートマップ
+              {t.tourHeatmap}
             </Link>
-            、全公演の中で特に似ているペアを探すなら
+            {t.leadMiddle}
             <Link to="/live/similarity-ranking/" className="text-bx-blueLight hover:underline">
-              セトリ類似度ランキング
+              {t.similarityRanking}
             </Link>
-            もどうぞ。
+            {t.leadAfter}
           </p>
         </div>
 
@@ -319,13 +332,13 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
           <div>
             <label className="block text-xs font-bold text-bx-blueLight mb-1">
-              公演 A
+              {t.showA}
             </label>
             {renderSelect("a", fromItem)}
           </div>
           <div>
             <label className="block text-xs font-bold text-bx-yellow mb-1">
-              公演 B
+              {t.showB}
             </label>
             {renderSelect("b", toItem)}
           </div>
@@ -334,7 +347,7 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
         {/* 公演Aに似ている公演の提案(ビルド時集計) */}
         {fromItem && similarSuggestions.length > 0 && (
           <div className="mb-4">
-            <p className="text-xs text-bx-ink3 mb-1.5">公演Aに似ている公演:</p>
+            <p className="text-xs text-bx-ink3 mb-1.5">{t.similarToA}</p>
             <div className="flex flex-wrap gap-1.5">
               {similarSuggestions.map((s) => (
                 <button
@@ -343,8 +356,8 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
                   className="px-2.5 py-1 rounded-full text-[11px] bg-bx-surface/10 text-bx-ink2 border border-bx-line hover:border-bx-blueLight hover:text-bx-ink transition"
                 >
                   {s.liveTitle}
-                  {s.liveItemName ? ` ${s.liveItemName}` : ""} ({s.date}) ・ 類似度{" "}
-                  {Math.round(s.score * 100)}%
+                  {s.liveItemName ? ` ${s.liveItemName}` : ""} ({s.date}) ・{" "}
+                  {t.similarity(Math.round(s.score * 100))}
                 </button>
               ))}
             </div>
@@ -353,82 +366,82 @@ const SetlistComparePage: React.FC<PageProps<CompareQuery>> = ({ data, location 
 
         {!fromItem || !toItem ? (
           <p className="text-sm text-bx-ink3 py-8 text-center">
-            比較する公演を2つ選択してください。
+            {t.selectTwo}
           </p>
         ) : !result || (fromItem.setList.length === 0 && toItem.setList.length === 0) ? (
           <p className="text-sm text-bx-ink3 py-8 text-center">
-            どちらの公演もまだセットリストが登録されていません。
+            {t.bothEmpty}
           </p>
         ) : (
           <>
             {/* サマリー */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs mb-4">
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">A曲数</div>
+                <div className="text-bx-ink3">{t.aCount}</div>
                 <div className="text-lg font-bold text-bx-blueLight">{result.summary.aCount}</div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">B曲数</div>
+                <div className="text-bx-ink3">{t.bCount}</div>
                 <div className="text-lg font-bold text-bx-yellow">{result.summary.bCount}</div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">共通曲</div>
+                <div className="text-bx-ink3">{t.common}</div>
                 <div className="text-lg font-bold text-emerald-400">{result.summary.commonCount}</div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">セトリ類似度</div>
+                <div className="text-bx-ink3">{t.jaccard}</div>
                 <div className="text-lg font-bold text-bx-ink">
                   {Math.round(result.summary.jaccardSimilarity * 100)}%
                 </div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">Aのみ</div>
+                <div className="text-bx-ink3">{t.onlyA}</div>
                 <div className="text-lg font-bold text-bx-blueLight">{result.summary.onlyACount}</div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">Bのみ</div>
+                <div className="text-bx-ink3">{t.onlyB}</div>
                 <div className="text-lg font-bold text-bx-yellow">{result.summary.onlyBCount}</div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">共通率</div>
+                <div className="text-bx-ink3">{t.commonRate}</div>
                 <div className="text-lg font-bold text-bx-ink">
                   {Math.round(result.summary.commonRate * 100)}%
                 </div>
               </div>
               <div className="bg-bx-bg border border-bx-line rounded p-2">
-                <div className="text-bx-ink3">最大曲順変動</div>
+                <div className="text-bx-ink3">{t.maxShift}</div>
                 <div className="text-lg font-bold text-bx-ink">{result.summary.maxPositionDiff}</div>
               </div>
             </div>
 
             {/* フィルタ */}
             <div className="flex flex-wrap gap-2 mb-3">
-              {FILTER_OPTIONS.map((f) => (
+              {FILTER_KEYS.map((key) => (
                 <button
-                  key={f.key}
-                  onClick={() => setFilter(f.key)}
+                  key={key}
+                  onClick={() => setFilter(key)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                    filter === f.key
+                    filter === key
                       ? "bg-bx-blue text-white shadow"
                       : "bg-bx-bg text-bx-ink3 border border-bx-line hover:bg-bx-surface/5"
                   }`}
                 >
-                  {f.label}
+                  {t.filters[key]}
                 </button>
               ))}
             </div>
 
             {filteredSongs.length === 0 ? (
               <p className="text-sm text-bx-ink3 py-8 text-center">
-                この条件に一致する曲はありません。
+                {t.noMatch}
               </p>
             ) : (
               <div>
                 {/* 列見出し(Aのみ/Bのみ)。共通曲を挟んで下に何度も現れる左右分割の
                     見出しとして、最初に1回だけ表示する */}
                 <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-1.5">
-                  <h2 className="text-[11px] sm:text-xs font-bold text-bx-blueLight">Aのみ</h2>
-                  <h2 className="text-[11px] sm:text-xs font-bold text-bx-yellow text-right">Bのみ</h2>
+                  <h2 className="text-[11px] sm:text-xs font-bold text-bx-blueLight">{t.onlyA}</h2>
+                  <h2 className="text-[11px] sm:text-xs font-bold text-bx-yellow text-right">{t.onlyB}</h2>
                 </div>
 
                 <div className="space-y-1 sm:space-y-1.5">
@@ -522,10 +535,20 @@ export const query = graphql`
 
 export default SetlistComparePage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="セトリ比較"
-    description="Reolの2公演のセットリストを比較して、共通曲・差分・曲順の変化を確認できます。"
-    path="/live/compare/"
-  />
-);
+export const Head: HeadFC<CompareQuery, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(compareDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/live/compare/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: "LIVE", path: localizePath("/live/", lang) },
+        { name: t.title, path: localizePath("/live/compare/", lang) },
+      ])}
+    />
+  );
+};

@@ -6,6 +6,11 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { normalizeSongName } from "../utils/songMatcher";
 import { trackEvent } from "../utils/analytics";
 import { GlassCard, Kicker, GlassCardAccent } from "../components/redesign";
+import { pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
+import { searchDict } from "../i18n/site/pages/search";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
+import { getDict } from "../i18n/site/dict";
+import { localizePath } from "../utils/i18nRoutes";
 
 /** 空状態で提示するサンプルクエリ(placeholderの例と揃える) */
 const SAMPLE_QUERIES = ["第六感", "文明ココロミー", "武道館", "2024"];
@@ -117,6 +122,7 @@ const fetchJson = async <T,>(url: string): Promise<T> => {
 };
 
 const SearchPage: React.FC = () => {
+  const t = usePageDict(searchDict);
   const [discography, setDiscography] = useState<DiscographyEntry[] | null>(null);
   const [lives, setLives] = useState<LiveEntry[] | null>(null);
   const [places, setPlaces] = useState<Place[] | null>(null);
@@ -220,7 +226,7 @@ const SearchPage: React.FC = () => {
           songSlug: resolvedSlug,
           name: s.songName,
           subtitle: `${d.title}${
-            stat ? ` / LIVE ${stat.totalPlays}回` : ""
+            stat ? t.livePlays(stat.totalPlays) : ""
           }`,
           score: exact ? 100 : partial ? 80 : 60,
         });
@@ -257,7 +263,7 @@ const SearchPage: React.FC = () => {
             liveSlug: l.slug,
             liveItemSlug: item.slug,
             name: `${title}${item.liveItemName ? ` / ${item.liveItemName}` : ""}`,
-            subtitle: `${item.date}${item.place ? `＠${item.place}` : ""}${songMatch ? " ／ セトリ内ヒット" : ""}`,
+            subtitle: `${item.date}${item.place ? `＠${item.place}` : ""}${songMatch ? t.setlistHit : ""}`,
             score: songMatch ? 70 : 65,
           });
         }
@@ -280,14 +286,14 @@ const SearchPage: React.FC = () => {
           name: `${p.type ? `[${p.type}] ` : ""}${name}`,
           subtitle: itemHit
             ? `${itemHit.name}${itemHit.address ? ` / ${itemHit.address}` : ""}`
-            : `${(p.items ?? []).length} ロケ地`,
+            : t.placeCount((p.items ?? []).length),
           score: nameLower === qLower ? 100 : 65,
         });
       }
     }
 
     return results.sort((a, b) => b.score - a.score);
-  }, [query, discography, lives, places, songStats, songSlugByUuid]);
+  }, [query, discography, lives, places, songStats, songSlugByUuid, t]);
 
   const filtered = useMemo<Hit[]>(() => {
     if (tab === "all") return hits;
@@ -332,14 +338,14 @@ const SearchPage: React.FC = () => {
   })).filter((g) => g.items.length > 0);
 
   return (
-    <Layout title="検索">
+    <Layout title={t.title}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-4xl text-bx-ink">
         <header className="mb-3">
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            検索
+            {t.title}
           </h1>
           <p className="text-xs text-bx-ink3">
-            楽曲・アルバム・LIVE・ロケ地を横断検索します
+            {t.lead}
           </p>
         </header>
 
@@ -348,22 +354,22 @@ const SearchPage: React.FC = () => {
           autoFocus
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="例: 第六感 / 文明ココロミー / 武道館 / 2024"
+          placeholder={t.placeholder}
           className="w-full px-3 py-2 mb-3 text-base sm:text-sm rounded bg-bx-surface/5 border border-bx-line text-bx-ink placeholder:text-bx-ink2 focus:outline-none focus:border-bx-blue focus:ring-1 focus:ring-bx-blue/40"
         />
 
         {error && (
-          <p className="text-red-400 text-xs mb-2">読み込みエラー: {error}</p>
+          <p className="text-red-400 text-xs mb-2">{t.loadError(error)}</p>
         )}
 
         <nav className="flex gap-1 mb-3 text-xs">
           {(
             [
-              ["all", tabLabel("すべて", hits.length)],
-              ["songs", tabLabel("楽曲", tabCount("song"))],
-              ["albums", tabLabel("アルバム", tabCount("album"))],
-              ["lives", tabLabel("LIVE", tabCount("live"))],
-              ["places", tabLabel("ロケ地", tabCount("place"))],
+              ["all", tabLabel(t.tabAll, hits.length)],
+              ["songs", tabLabel(t.kindLabel.song, tabCount("song"))],
+              ["albums", tabLabel(t.kindLabel.album, tabCount("album"))],
+              ["lives", tabLabel(t.kindLabel.live, tabCount("live"))],
+              ["places", tabLabel(t.kindLabel.place, tabCount("place"))],
             ] as [Tab, string][]
           ).map(([k, label]) => (
             <button
@@ -384,7 +390,7 @@ const SearchPage: React.FC = () => {
         {!isLoaded && !error && (
           <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-6 text-center">
             <div className="inline-block w-6 h-6 border-2 border-bx-line border-t-bx-yellow rounded-full animate-spin mb-2" />
-            <p className="text-bx-ink2 text-sm">データを読み込み中…</p>
+            <p className="text-bx-ink2 text-sm">{t.loading}</p>
           </div>
         )}
 
@@ -392,7 +398,7 @@ const SearchPage: React.FC = () => {
         {isLoaded && !query.trim() && (
           <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4">
             <p className="text-xs text-bx-ink3 mb-2">
-              曲名・アルバム名・公演名・会場名・年号などで検索できます。例:
+              {t.hint}
             </p>
             <div className="flex flex-wrap gap-2">
               {SAMPLE_QUERIES.map((q) => (
@@ -413,7 +419,7 @@ const SearchPage: React.FC = () => {
           {groupedLimited.map(({ kind, items }) => (
             <section key={kind}>
               <Kicker color={KIND_META[kind].kickerClass} className="mb-2">
-                {KIND_META[kind].label}
+                {t.kindLabel[kind]}
               </Kicker>
               <ul className="space-y-2">
                 {items.map((h, i) => (
@@ -427,11 +433,11 @@ const SearchPage: React.FC = () => {
         </div>
 
         {query && filtered.length === 0 && discography && (
-          <p className="text-bx-ink3 text-xs mt-3">該当なし</p>
+          <p className="text-bx-ink3 text-xs mt-3">{t.noHits}</p>
         )}
         {filtered.length > 200 && (
           <p className="text-bx-ink3 text-xs mt-3">
-            上位 200 件のみ表示中（全 {filtered.length} 件）
+            {t.truncated(filtered.length)}
           </p>
         )}
       </main>
@@ -441,11 +447,12 @@ const SearchPage: React.FC = () => {
 
 const KindBadge: React.FC<{ kind: Hit["kind"] }> = ({ kind }) => {
   const meta = KIND_META[kind];
+  const t = usePageDict(searchDict);
   return (
     <span
       className={`inline-block w-6 text-center text-[10px] py-0.5 rounded-full border mr-2 ${meta.badgeClass}`}
     >
-      {meta.badge}
+      {t.kindBadge[kind]}
     </span>
   );
 };
@@ -497,14 +504,19 @@ const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
 
 export default SearchPage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="検索"
-    description="Reolの楽曲・アルバム・LIVE・ロケ地を横断検索。曲名・公演名・会場名・年号からReolの活動を探せます。"
-    path="/search/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "検索", path: "/search/" },
-    ])}
-  />
-);
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(searchDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/search/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/search/", lang) },
+      ])}
+    />
+  );
+};

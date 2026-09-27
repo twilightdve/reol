@@ -8,6 +8,11 @@ import { PhotosSection } from "../../components/index/sections";
 import { AppDispatch } from "../../redux/store";
 import { setRoute } from "../../redux/slices/routeSlice";
 import { ROUTE_NAMES } from "../../types/common";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { pageDictFor } from "../../i18n/site/SiteLangContext";
+import { photosDict } from "../../i18n/site/pages/photos";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type PhotosPageData = {
   site: { siteMetadata: { title: string; description: string; siteUrl: string } };
@@ -44,14 +49,18 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<PhotosPageData> = () => (
-  <SEO
-    title="PHOTOGRAPHY"
-    description="Reol 関連のライヴや聖地巡礼で撮影した写真・動画を掲載しています。"
-    path="/photos/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "PHOTOGRAPHY", path: "/photos/" },
-    ])}
-  />
-);
+export const Head: HeadFC<PhotosPageData, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  return (
+    <SEO
+      title="PHOTOGRAPHY"
+      description={pageDictFor(photosDict, lang).metaDescription}
+      path="/photos/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: "PHOTOGRAPHY", path: localizePath("/photos/", lang) },
+      ])}
+    />
+  );
+};

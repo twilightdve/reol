@@ -12,12 +12,19 @@
  * 集計は現状この端末のみ(localStorage)。
  */
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { graphql, HeadFC, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
 import { Kicker } from "../../components/redesign";
 import { BracketSorter, BracketMatch, shuffle } from "../../utils/bracketSorter";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
+import { LangLink as Link, pageDictFor, usePageDict, useSiteLang } from "../../i18n/site/SiteLangContext";
+import { sorterDict } from "../../i18n/site/pages/sorter";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { localizePath } from "../../utils/i18nRoutes";
+
+type SorterDict = (typeof sorterDict)["ja"];
 
 type SongRow = {
   songUuid: string;
@@ -134,7 +141,9 @@ const loadImage = (src: string | null | undefined): Promise<HTMLImageElement | n
 const generateBracketShareCard = async (
   finished: FinishedBracket,
   totalCount: number,
-  artworkUrlBySlug: Map<string, string | null>
+  artworkUrlBySlug: Map<string, string | null>,
+  t: SorterDict,
+  sorterPath: string
 ): Promise<string> => {
   const { leftRounds, rightRounds, finalMatch, champion } = finished;
   const roundsInSide = leftRounds.length;
@@ -298,10 +307,10 @@ const generateBracketShareCard = async (
   ctx.fillText("SONG SORTER", centerX, 38);
   ctx.fillStyle = CARD_COLORS.ink;
   ctx.font = font(32, "800");
-  ctx.fillText("楽曲トーナメント", centerX, 78);
+  ctx.fillText(t.cardTitle, centerX, 78);
   ctx.fillStyle = CARD_COLORS.ink2;
   ctx.font = font(14, "600");
-  ctx.fillText(`Reol ・ 全${totalCount}曲`, centerX, 102);
+  ctx.fillText(t.cardSubtitle(totalCount), centerX, 102);
 
   const rowCenterY = (roundIdx: number, entryIdx: number) => {
     const rh = ROW_H * 2 ** roundIdx;
@@ -472,7 +481,7 @@ const generateBracketShareCard = async (
   ctx.fill();
   ctx.fillStyle = CARD_COLORS.bg;
   ctx.font = font(13, "800");
-  ctx.fillText("🏆 優勝 CHAMPION", centerX, badgeY + badgeH / 2 + 5);
+  ctx.fillText(t.cardChampion, centerX, badgeY + badgeH / 2 + 5);
 
   ctx.fillStyle = CARD_COLORS.ink;
   fitFontSize(champion.songName, CENTER_W - 20, Math.min(22, Math.round(PODIUM * 0.16)), "800", 11);
@@ -487,15 +496,18 @@ const generateBracketShareCard = async (
   ctx.textAlign = "left";
   ctx.fillStyle = CARD_COLORS.ink3;
   ctx.font = font(13, "600");
-  ctx.fillText("!Legit(非公式ファンサイト)", MARGIN, H - 30);
+  ctx.fillText(t.cardFooter, MARGIN, H - 30);
   ctx.textAlign = "right";
   ctx.font = font(12, "500");
-  ctx.fillText("reol.twilightea.com/songs/sorter/", W - MARGIN, H - 30);
+  ctx.fillText(`reol.twilightea.com${sorterPath}`, W - MARGIN, H - 30);
 
   return canvas.toDataURL("image/png");
 };
 
 const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
+  const t = usePageDict(sorterDict);
+  const lang = useSiteLang();
+  const sorterPath = localizePath("/songs/sorter/", lang);
   const allSongs = data.songStats.songStats;
   const artworkUrlBySlug = useMemo(
     () => new Map(allSongs.map((s) => [s.slug, s.artworkUrl])),
@@ -543,8 +555,8 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
   // 結果が確定したらシェアカードを生成する(初回作成時・localStorage復元時の両方)
   useEffect(() => {
     if (phase !== "result" || !finished) return;
-    generateBracketShareCard(finished, size, artworkUrlBySlug).then(setShareImage);
-  }, [phase, finished, size, artworkUrlBySlug]);
+    generateBracketShareCard(finished, size, artworkUrlBySlug, t, sorterPath).then(setShareImage);
+  }, [phase, finished, size, artworkUrlBySlug, t, sorterPath]);
 
   const start = (n: number) => {
     const pool = allSongs.filter((s) => s.songName);
@@ -589,9 +601,7 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
       finished.finalMatch.p1?.songUuid === finished.champion.songUuid
         ? finished.finalMatch.p2
         : finished.finalMatch.p1;
-    const text = `楽曲トーナメント(全${size}曲)で「${finished.champion.songName}」が優勝しました${
-      runnerUp ? `\n準優勝: ${runnerUp.songName}` : ""
-    }\n\nhttps://reol.twilightea.com/songs/sorter/`;
+    const text = `${t.shareBody(size, finished.champion.songName, runnerUp?.songName ?? null)}\n\nhttps://reol.twilightea.com${sorterPath}`;
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -633,20 +643,20 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
   const pair = sorter?.getCurrentMatch() ?? null;
   const comparisons = sorter?.comparisons ?? 0;
   const totalDecisions = sorter?.totalDecisions() ?? 0;
-  const roundLabel = sorter?.currentRoundLabel() ?? "";
+  const roundLabel = sorter ? t.roundLabel(sorter.currentRoundEntrants()) : "";
   const roundNumber = sorter?.currentRoundNumber() ?? 1;
   const totalRoundsCount = sorter?.totalRounds ?? 1;
 
   return (
-    <Layout title="楽曲ソーター">
+    <Layout title={t.title}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
         <header className="mb-6">
           <Kicker color="text-bx-blue">SONG SORTER</Kicker>
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            楽曲ソーター
+            {t.title}
           </h1>
           <p className="text-xs text-bx-ink3">
-            2曲ずつ勝ち抜き戦。あなたの一番好きな曲を決めるトーナメントです。
+            {t.lead}
           </p>
         </header>
 
@@ -661,10 +671,10 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-base font-bold text-bx-ink">
-                    {n}曲トーナメント
+                    {t.sizeOption(n)}
                   </span>
                   <span className="text-xs text-bx-ink3 tabular-nums">
-                    対戦 {n - 1}回
+                    {t.matches(n - 1)}
                   </span>
                 </div>
               </button>
@@ -676,10 +686,10 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
             >
               <div className="flex items-center justify-between">
                 <span className="text-base font-bold text-bx-ink">
-                  全{allSongs.length}曲トーナメント
+                  {t.allOption(allSongs.length)}
                 </span>
                 <span className="text-xs text-bx-ink3 tabular-nums">
-                  対戦 {allSongs.length - 1}回(かなり長丁場です)
+                  {t.matchesLong(allSongs.length - 1)}
                 </span>
               </div>
             </button>
@@ -693,7 +703,7 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
                 {roundLabel}({roundNumber} / {totalRoundsCount})
               </span>
               <span className="text-bx-ink3 tabular-nums">
-                {comparisons} / {totalDecisions}回
+                {t.progress(comparisons, totalDecisions)}
               </span>
             </div>
             <div className="h-1 rounded-full bg-bx-line overflow-hidden mb-4">
@@ -704,7 +714,7 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
                 }}
               />
             </div>
-            <p className="text-center text-xs text-bx-ink3 mb-3">好きな方をタップ</p>
+            <p className="text-center text-xs text-bx-ink3 mb-3">{t.tapPrompt}</p>
             <div className="flex flex-col sm:flex-row items-stretch gap-3">
               {[pair[0], pair[1]].map((song, i) => (
                 <React.Fragment key={song.songUuid}>
@@ -733,27 +743,27 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
         {phase === "result" && finished && (
           <section className="space-y-4">
             <div className="rounded-lg border border-bx-yellow bg-bx-yellow/5 p-4 text-center">
-              <p className="text-xs text-bx-ink2 mb-1">🏆 優勝・全{size}曲中</p>
+              <p className="text-xs text-bx-ink2 mb-1">{t.championOf(size)}</p>
               <p className="text-xl font-bold text-bx-ink">{finished.champion.songName}</p>
             </div>
 
             {shareImage ? (
               <div className="space-y-2">
-                <h3 className="text-xs font-bold text-bx-ink2">トーナメントブラケット</h3>
+                <h3 className="text-xs font-bold text-bx-ink2">{t.bracket}</h3>
                 <div className="rounded-lg border border-bx-line bg-bx-bg">
                   <img
                     src={shareImage}
-                    alt="トーナメントブラケット"
+                    alt={t.bracket}
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
                 <p className="text-[10px] text-bx-ink3">
-                  プレビューは縮小表示です。保存すると全曲分の高解像度画像になります。
+                  {t.previewNote}
                 </p>
               </div>
             ) : (
               <p className="text-xs text-bx-ink3 text-center py-8">
-                ブラケット画像を生成中…
+                {t.generating}
               </p>
             )}
 
@@ -764,14 +774,14 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
                 disabled={!shareImage}
                 className="px-4 py-2 text-sm font-bold rounded-lg border border-bx-yellow text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                画像を保存/共有
+                {t.saveImage}
               </button>
               <button
                 type="button"
                 onClick={handleShare}
                 className="px-4 py-2 text-sm font-bold rounded-lg border border-bx-blue text-bx-blue hover:bg-bx-blue hover:text-bx-bg transition-colors"
               >
-                {copied ? "コピーしました！" : "テキストで共有"}
+                {copied ? t.copied : t.shareText}
               </button>
             </div>
 
@@ -780,7 +790,7 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
               onClick={restart}
               className="w-full px-4 py-2 text-sm font-bold rounded-lg border border-bx-line hover:border-bx-blue transition-colors"
             >
-              もう一度作る
+              {t.restart}
             </button>
           </section>
         )}
@@ -790,7 +800,7 @@ const SongSorterPage: React.FC<PageProps<SorterPageData>> = ({ data }) => {
             to="/songs/stats/"
             className="underline underline-offset-2 hover:text-bx-blue"
           >
-            楽曲統計(演奏回数)を見る →
+            {t.statsLink}
           </Link>
         </p>
       </main>
@@ -813,14 +823,19 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="楽曲ソーター"
-    description="2曲ずつ勝ち抜き戦で、あなたの一番好きな曲を決めるトーナメント。優勝までのブラケットを画像でシェアできます。"
-    path="/songs/sorter/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "楽曲ソーター", path: "/songs/sorter/" },
-    ])}
-  />
-);
+export const Head: HeadFC<SorterPageData, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(sorterDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/songs/sorter/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/songs/sorter/", lang) },
+      ])}
+    />
+  );
+};
