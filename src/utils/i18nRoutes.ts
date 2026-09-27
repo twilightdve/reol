@@ -16,6 +16,7 @@ const LOCALIZED_EXACT = new Set<string>([
   "/search/",
   "/welcome/",
   "/timemachine/",
+  "/posts/",
 ]);
 
 /** 翻訳済みのルート(パターン)。例: 曲詳細 /^\/songs\/[^/]+\/$/ */
