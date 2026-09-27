@@ -11,11 +11,16 @@
  * という位置ベースの定義に置き換えている。
  */
 import React, { useEffect, useState } from "react";
-import { HeadFC, Link } from "gatsby";
+import { HeadFC } from "gatsby";
 import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
 import { Kicker } from "../../components/redesign";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
+import { LangLink as Link, pageDictFor, useDict, usePageDict } from "../../i18n/site/SiteLangContext";
+import { setlistGrammarDict } from "../../i18n/site/pages/setlistGrammar";
+import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
+import { getDict } from "../../i18n/site/dict";
+import { localizePath } from "../../utils/i18nRoutes";
 
 type Source = { liveTitle: string; liveSlug: string; date: string };
 type PairRow = {
@@ -77,9 +82,10 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 
 /** クリックした行の「何を数えたか」の内訳(対象ツアー一覧)を表示する */
 const SourceList: React.FC<{ sources: Source[] }> = ({ sources }) => {
+  const t = usePageDict(setlistGrammarDict);
   if (sources.length === 0) {
     return (
-      <p className="mt-1.5 text-[11px] text-bx-ink3">対象ツアーが見つかりませんでした。</p>
+      <p className="mt-1.5 text-[11px] text-bx-ink3">{t.noSources}</p>
     );
   }
   return (
@@ -103,6 +109,8 @@ const SourceList: React.FC<{ sources: Source[] }> = ({ sources }) => {
 };
 
 const SetlistGrammarPage: React.FC = () => {
+  const t = usePageDict(setlistGrammarDict);
+  const { common } = useDict();
   const [data, setData] = useState<GrammarData | null>(null);
   const [error, setError] = useState<string | null>(null);
   // クリックで内訳を開閉する行のキー("pair-0" 等)。開けるのは常に1つだけ。
@@ -117,33 +125,29 @@ const SetlistGrammarPage: React.FC = () => {
   }, []);
 
   return (
-    <Layout title="セトリの文法">
+    <Layout title={t.title}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
         <header className="mb-6">
           <Kicker color="text-bx-blue">SETLIST GRAMMAR</Kicker>
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            セトリの文法
+            {t.title}
           </h1>
           <p className="text-xs text-bx-ink3">
-            全公演のセットリストを並び順のデータとして解析。曲の隣接関係・定位置・
-            年ごとの傾向・ツアー中の入れ替わりをまとめました。
+            {t.lead}
           </p>
         </header>
 
-        {error && <p className="text-sm text-red-400">読み込みに失敗しました: {error}</p>}
+        {error && <p className="text-sm text-red-400">{common.loadError(error)}</p>}
         {!data && !error && (
-          <p className="text-sm text-bx-ink3">読み込み中...</p>
+          <p className="text-sm text-bx-ink3">{common.loading}</p>
         )}
 
         {data && (
           <div className="space-y-8">
             <section>
-              <SectionTitle>
-                続けて演奏されやすい曲順
-              </SectionTitle>
+              <SectionTitle>{t.pairsHeading}</SectionTitle>
               <p className="text-xs text-bx-ink3 mb-3">
-                ツアーは同一セトリが基本のため、公演単位ではなくツアー単位(各ツアー初日)で集計。
-                直前の曲が演奏されたツアーのうち、続けて次の曲が演奏された割合(3回以上のペアのみ)
+                {t.pairsLead}
               </p>
               <ul className="space-y-1.5">
                 {data.topPairs.map((p, i) => {
@@ -162,7 +166,7 @@ const SetlistGrammarPage: React.FC = () => {
                           <span className="font-medium text-bx-ink">{p.to}</span>
                         </span>
                         <span className="flex-shrink-0 text-[11px] text-bx-blue font-bold tabular-nums whitespace-nowrap">
-                          {p.count}/{p.total}回 ({Math.round(p.rate * 100)}%)
+                          {t.ratio(p.count, p.total, Math.round(p.rate * 100))}
                         </span>
                       </div>
                       {isOpen && <SourceList sources={p.sources} />}
@@ -173,9 +177,9 @@ const SetlistGrammarPage: React.FC = () => {
             </section>
 
             <section>
-              <SectionTitle>定位置の曲</SectionTitle>
+              <SectionTitle>{t.positionsHeading}</SectionTitle>
               <p className="text-xs text-bx-ink3 mb-3">
-                ツアー単位(各ツアー初日)で、1曲目・ラストになった回数の多い曲。★は中盤には出ず、その位置専任の曲。
+                {t.positionsLead}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -203,7 +207,7 @@ const SetlistGrammarPage: React.FC = () => {
                               {s.name}
                             </span>
                             <span className="flex-shrink-0 text-[11px] text-bx-ink3 tabular-nums">
-                              {s.count}回
+                              {t.times(s.count)}
                             </span>
                           </div>
                           {isOpen && <SourceList sources={s.sources} />}
@@ -237,7 +241,7 @@ const SetlistGrammarPage: React.FC = () => {
                               {s.name}
                             </span>
                             <span className="flex-shrink-0 text-[11px] text-bx-ink3 tabular-nums">
-                              {s.count}回
+                              {t.times(s.count)}
                             </span>
                           </div>
                           {isOpen && <SourceList sources={s.sources} />}
@@ -250,9 +254,9 @@ const SetlistGrammarPage: React.FC = () => {
             </section>
 
             <section>
-              <SectionTitle>年別のオープニング曲</SectionTitle>
+              <SectionTitle>{t.yearlyHeading}</SectionTitle>
               <p className="text-xs text-bx-ink3 mb-3">
-                その年に始まったツアーのうち、最も多くオープニングに選ばれた曲
+                {t.yearlyLead}
               </p>
               <ol className="space-y-1">
                 {data.yearlyOpenerTop.map((y) => {
@@ -272,7 +276,7 @@ const SetlistGrammarPage: React.FC = () => {
                           {y.topSong ?? "-"}
                         </span>
                         <span className="flex-shrink-0 text-[11px] text-bx-ink3 tabular-nums">
-                          {y.count}回
+                          {t.times(y.count)}
                         </span>
                       </div>
                       {isOpen && <SourceList sources={y.sources} />}
@@ -283,28 +287,28 @@ const SetlistGrammarPage: React.FC = () => {
             </section>
 
             <section>
-              <SectionTitle>ツアー中の入れ替わり</SectionTitle>
+              <SectionTitle>{t.diffsHeading}</SectionTitle>
               <p className="text-xs text-bx-ink3 mb-3">
-                同じ公演タイトルで複数日程があるもの限定。初日と最終日のセトリを比較。
+                {t.diffsLead}
               </p>
               <ul className="space-y-3">
-                {data.tourDiffs.map((t, i) => (
+                {data.tourDiffs.map((d, i) => (
                   <li
                     key={i}
                     className="rounded-lg border border-bx-line bg-bx-surface/5 p-3"
                   >
                     <Link
-                      to={`/live/#live-${t.liveSlug}`}
+                      to={`/live/#live-${d.liveSlug}`}
                       className="text-sm font-bold text-bx-blueLight hover:text-bx-blue"
                     >
-                      {t.liveTitle}
+                      {d.liveTitle}
                     </Link>
                     <div className="text-[10px] text-bx-ink3 mb-2">
-                      {t.firstDate.replaceAll("-", "/")} → {t.lastDate.replaceAll("-", "/")}
+                      {d.firstDate.replaceAll("-", "/")} → {d.lastDate.replaceAll("-", "/")}
                     </div>
-                    {t.added.length > 0 && (
+                    {d.added.length > 0 && (
                       <div className="flex flex-wrap gap-1 mb-1">
-                        {t.added.map((n) => (
+                        {d.added.map((n) => (
                           <span
                             key={n}
                             className="text-[11px] px-2 py-0.5 rounded-full bg-bx-blue/15 text-bx-blue"
@@ -314,9 +318,9 @@ const SetlistGrammarPage: React.FC = () => {
                         ))}
                       </div>
                     )}
-                    {t.removed.length > 0 && (
+                    {d.removed.length > 0 && (
                       <div className="flex flex-wrap gap-1">
-                        {t.removed.map((n) => (
+                        {d.removed.map((n) => (
                           <span
                             key={n}
                             className="text-[11px] px-2 py-0.5 rounded-full bg-bx-ink3/15 text-bx-ink3 line-through"
@@ -332,19 +336,19 @@ const SetlistGrammarPage: React.FC = () => {
             </section>
 
             <section>
-              <SectionTitle>作品別のライブ採用傾向</SectionTitle>
+              <SectionTitle>{t.worksHeading}</SectionTitle>
               <p className="text-xs text-bx-ink3 mb-3">
-                収録曲のうち何曲がライブで演奏されたか(ライブ再現率)と、総演奏回数の多い順
+                {t.worksLead}
               </p>
               <div className="overflow-x-auto overflow-y-auto max-h-[480px] border border-bx-line rounded-lg">
                 <table className="w-full text-xs">
                   <thead className="sticky top-0 z-10">
                     <tr className="bg-bx-bg text-bx-ink3">
-                      <th className="px-3 py-2 text-left border-b border-bx-line">作品</th>
-                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">再現率</th>
-                      <th className="px-2 py-2 text-right w-16 border-b border-bx-line">総演奏</th>
-                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">初演奏</th>
-                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">最終演奏</th>
+                      <th className="px-3 py-2 text-left border-b border-bx-line">{t.colWork}</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">{t.colCoverage}</th>
+                      <th className="px-2 py-2 text-right w-16 border-b border-bx-line">{t.colTotal}</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">{t.colFirst}</th>
+                      <th className="px-2 py-2 text-right w-20 border-b border-bx-line">{t.colLast}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-bx-line">
@@ -358,7 +362,7 @@ const SetlistGrammarPage: React.FC = () => {
                             {w.discographyTitle}
                           </Link>
                           <span className="ml-1.5 text-bx-ink3">
-                            ({w.playedSongCount}/{w.songCount}曲)
+                            {t.playedOf(w.playedSongCount, w.songCount)}
                           </span>
                         </td>
                         <td className="px-2 py-1.5 text-right font-mono text-bx-ink">
@@ -387,7 +391,7 @@ const SetlistGrammarPage: React.FC = () => {
             to="/songs/stats/"
             className="underline underline-offset-2 hover:text-bx-blue"
           >
-            楽曲統計を見る →
+            {t.statsLink}
           </Link>
         </p>
       </main>
@@ -397,14 +401,19 @@ const SetlistGrammarPage: React.FC = () => {
 
 export default SetlistGrammarPage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="セトリの文法"
-    description="全公演のセットリストを解析。曲の隣接関係・定位置・年別のオープニング傾向・ツアー中の入れ替わりをまとめました。"
-    path="/live/setlist-grammar/"
-    jsonLd={buildBreadcrumbList([
-      { name: "ホーム", path: "/" },
-      { name: "セトリの文法", path: "/live/setlist-grammar/" },
-    ])}
-  />
-);
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(setlistGrammarDict, lang);
+  return (
+    <SEO
+      title={t.title}
+      description={t.metaDescription}
+      path="/live/setlist-grammar/"
+      lang={lang}
+      jsonLd={buildBreadcrumbList([
+        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
+        { name: t.title, path: localizePath("/live/setlist-grammar/", lang) },
+      ])}
+    />
+  );
+};

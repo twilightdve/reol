@@ -193,7 +193,7 @@ const ko: PlaceDict = {
   stampHint: "각 카드의 「✓」로 순례 완료를 기록할 수 있습니다(이 기기의 브라우저에만 저장)",
   mapAria: "성지 지도",
   noMarkersTitle: "표시할 마커가 없습니다",
-  noMarkersDesc: "유형・검색 조건을 초기화하고 다시 시도해 주세요.",
+  noMarkersDesc: "유형·검색 조건을 초기화하고 다시 시도해 주세요.",
   clear: "조건 초기화",
   mapErrorTitle: "지도를 불러오지 못했습니다",
   mapErrorDesc: "네트워크 상태를 확인한 후 다시 시도해 주세요.",

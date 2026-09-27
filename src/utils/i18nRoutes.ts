@@ -26,9 +26,7 @@ const LOCALIZED_PATTERNS: RegExp[] = [
 
 /** パターンに一致しても翻訳対象外のルート */
 const LOCALIZED_EXCLUDED = new Set<string>([
-  "/songs/sorter/",
   "/live/guide/",
-  "/live/setlist-grammar/",
 ]);
 
 const withTrailingSlash = (pathname: string): string =>

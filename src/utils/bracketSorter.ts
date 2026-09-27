@@ -202,11 +202,15 @@ export class BracketSorter<T> {
     return Math.min(this.roundIndex + 1, this.totalRounds);
   }
 
+  /** 現在のラウンドに残っている枠数(決勝=2)。表示言語ごとのラウンド名の組み立てに使う */
+  currentRoundEntrants(): number {
+    if (this.roundIndex >= this.roundsInSide) return 2;
+    return this.pow2 / 2 ** this.roundIndex;
+  }
+
   /** 現在のラウンド名(1回戦/準々決勝/準決勝/決勝など) */
   currentRoundLabel(): string {
-    if (this.roundIndex >= this.roundsInSide) return "決勝";
-    const overallEntrants = this.pow2 / 2 ** this.roundIndex;
-    return bracketRoundLabel(overallEntrants);
+    return bracketRoundLabel(this.currentRoundEntrants());
   }
 }
 
