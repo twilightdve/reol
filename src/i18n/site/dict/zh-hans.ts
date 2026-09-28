@@ -237,7 +237,7 @@ const zhHans: SiteDict = {
     venue: "会场",
     venueSite: "查看会场网站",
     reliveTitle: "Relive Player (β) — 用本地音源播放这份歌单",
-    relive: "用 Relive Player 收听 (β)",
+    relive: "Relive Player (β，需自备音源)",
     shareTitle: "在 X 分享这场演出的页面",
     share: "在 X 分享",
     mapTitle: (heading: string) => `会场地图 - ${heading}`,

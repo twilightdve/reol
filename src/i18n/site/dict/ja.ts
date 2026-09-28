@@ -239,7 +239,7 @@ const ja = {
     venue: "会場",
     venueSite: "会場サイトを見る",
     reliveTitle: "Relive Player (β) — このセットリストをローカル音源で再生します",
-    relive: "Relive Playerで聴く (β)",
+    relive: "Relive Player (β・要自前音源)",
     shareTitle: "この公演のページをXでシェア",
     share: "Xでシェア",
     mapTitle: (heading: string) => `会場マップ - ${heading}`,

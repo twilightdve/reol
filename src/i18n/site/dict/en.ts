@@ -243,7 +243,7 @@ const en: SiteDict = {
     venue: "Venue",
     venueSite: "Venue website",
     reliveTitle: "Relive Player (beta) — play this setlist with your own local audio files",
-    relive: "Play in Relive Player (beta)",
+    relive: "Relive Player (beta, bring your own audio)",
     shareTitle: "Share this show page on X",
     share: "Share on X",
     mapTitle: (heading: string) => `Venue map - ${heading}`,

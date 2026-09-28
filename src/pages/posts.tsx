@@ -89,6 +89,12 @@ const PostsPage: React.FC = () => {
   const [query, setQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  // 横断検索からの ?q= を検索欄に反映する(マウント後に読むので静的HTMLとは食い違わない)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setQuery(q);
+  }, []);
+
   useEffect(() => {
     fetchJson<PostsIndexData>("/static/data/posts-index.json")
       .then(setData)

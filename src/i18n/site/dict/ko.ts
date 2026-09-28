@@ -238,7 +238,7 @@ const ko: SiteDict = {
     venue: "공연장",
     venueSite: "공연장 사이트 보기",
     reliveTitle: "Relive Player (β) — 이 세트리스트를 로컬 음원으로 재생합니다",
-    relive: "Relive Player로 듣기 (β)",
+    relive: "Relive Player (β·음원 직접 준비)",
     shareTitle: "이 공연의 페이지를 X에 공유",
     share: "X에 공유",
     mapTitle: (heading: string) => `공연장 지도 - ${heading}`,
