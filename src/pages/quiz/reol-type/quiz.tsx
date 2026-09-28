@@ -14,8 +14,13 @@ const QuizPage = () => {
   const { t, lang } = useQuizT();
   const questions = useMemo(() => getQuizQuestions(lang), [lang]);
   const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const qParam = Math.max(1, Math.min(TOTAL, parseInt(query.get("q") || "1", 10)));
+  // 静的HTMLは1問目で生成されるため、?q= はマウント後に反映する(直接 ?q=5 を開いたときの
+  // ハイドレーション不一致 React #418/#423 を避ける)
+  const [qParam, setQParam] = useState(1);
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    setQParam(Math.max(1, Math.min(TOTAL, parseInt(query.get("q") || "1", 10) || 1)));
+  }, [location.search]);
   const question = questions[qParam - 1];
 
   const [answers, setAnswers] = useState<Record<number, 'A' | 'B'>>({});
