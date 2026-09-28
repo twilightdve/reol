@@ -12,6 +12,9 @@ import React, {
 import { forceCollide, forceRadial } from "d3-force";
 import type { CGraphData, CGraphLink, CGraphNode } from "./types";
 import { getRoleConfig } from "./role-config";
+import { usePageDict, useSiteLang } from "../../i18n/site/SiteLangContext";
+import { cgraphDict } from "../../i18n/site/pages/cgraph";
+import { localizePath } from "../../utils/i18nRoutes";
 
 /** Stable id of the Reol artist node (centre of the graph). */
 const REOL_ID = "artist:Reol";
@@ -92,6 +95,8 @@ const CGraphView: FC<Props> = ({
   previousNodeId,
   hideFarNodes = false,
 }) => {
+  const t = usePageDict(cgraphDict);
+  const lang = useSiteLang();
   const ForceGraph2D = useForceGraph2D();
   const fgRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -1285,14 +1290,14 @@ const CGraphView: FC<Props> = ({
         (node.kind === "song" || node.kind === "release") &&
         typeof node.discographySlug === "string"
       ) {
-        window.open(`/discography/#disc-${node.discographySlug}`, "_self");
+        window.open(localizePath(`/discography/#disc-${node.discographySlug}`, lang), "_self");
         return;
       }
       // それ以外（アーティスト / タイアップ / 楽曲名のみ）はサイト内検索へ。
       const q = encodeURIComponent(node.name);
-      window.open(`/search?q=${q}`, "_self");
+      window.open(localizePath(`/search/?q=${q}`, lang), "_self");
     },
-    [toggleRelease, toggleArtist, toggleCategory]
+    [toggleRelease, toggleArtist, toggleCategory, lang]
   );
 
   const handleBackgroundClick = useCallback(() => {
@@ -1403,10 +1408,10 @@ const CGraphView: FC<Props> = ({
   return (
     <div ref={containerRef} className="cgraph-canvas">
       {!ForceGraph2D && (
-        <div className="cgraph-loading">グラフを読み込み中…</div>
+        <div className="cgraph-loading">{t.graphLoading}</div>
       )}
       {ForceGraph2D && filtered.nodes.length === 0 && (
-        <div className="cgraph-loading">該当ノードがありません</div>
+        <div className="cgraph-loading">{t.noNodes}</div>
       )}
       {ForceGraph2D && filtered.nodes.length > 0 && (
         <ForceGraph2D

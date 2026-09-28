@@ -1,7 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { CGraphData, CGraphNode } from "./types";
 import { findShortestPath } from "./pathfinder";
-import { getRoleConfig } from "./role-config";
+import { getRoleConfig, ROLE_CONFIG } from "./role-config";
+import { usePageDict } from "../../i18n/site/SiteLangContext";
+import { cgraphDict } from "../../i18n/site/pages/cgraph";
 
 interface SixDegreesPanelProps {
   graph: CGraphData;
@@ -16,6 +18,7 @@ const ArtistPicker: React.FC<{
   value: CGraphNode | null;
   onChange: (node: CGraphNode | null) => void;
 }> = ({ label, artists, value, onChange }) => {
+  const t = usePageDict(cgraphDict);
   return (
     <div className="cgraph-sixdeg-field">
       <label htmlFor={`cgraph-sixdeg-${label}`}>{label}</label>
@@ -27,7 +30,7 @@ const ArtistPicker: React.FC<{
           onChange(node);
         }}
       >
-        <option value="">アーティストを選択</option>
+        <option value="">{t.selectArtist}</option>
         {artists.map((a) => (
           <option key={a.id} value={a.id}>
             {a.name}
@@ -44,6 +47,7 @@ const SixDegreesPanel: React.FC<SixDegreesPanelProps> = ({
   onSelectNode,
   onClose,
 }) => {
+  const t = usePageDict(cgraphDict);
   // つながりの数(degree)の降順。同数なら名前順で安定化。
   const artists = useMemo(
     () =>
@@ -86,13 +90,13 @@ const SixDegreesPanel: React.FC<SixDegreesPanelProps> = ({
           type="button"
           className="cgraph-back-btn"
           onClick={onClose}
-          aria-label="閉じる"
+          aria-label={t.close}
         >
           ✕
         </button>
       </header>
       <p className="cgraph-sixdeg-desc">
-        2人のアーティストを選ぶと、クレジットのつながりで何手で繋がるかを探索します。
+        {t.sixLead}
       </p>
 
       <div className="cgraph-sixdeg-fields">
@@ -101,21 +105,21 @@ const SixDegreesPanel: React.FC<SixDegreesPanelProps> = ({
       </div>
 
       <button type="button" className="cgraph-mini-btn" onClick={pickRandomPair}>
-        ランダムな2人で試す
+        {t.random}
       </button>
 
       {from && to && (
         <div className="cgraph-sixdeg-result">
           {!result ? (
             <p className="cgraph-sixdeg-nopath">
-              つながりが見つかりませんでした。
+              {t.notFound}
             </p>
           ) : result.hops.length === 0 ? (
-            <p>同一人物です。</p>
+            <p>{t.samePerson}</p>
           ) : (
             <>
               <p className="cgraph-sixdeg-count">
-                {result.hops.length}手で繋がっています
+                {t.hops(result.hops.length)}
               </p>
               <ol className="cgraph-sixdeg-steps">
                 {result.nodes.map((node, i) => {
@@ -131,11 +135,14 @@ const SixDegreesPanel: React.FC<SixDegreesPanelProps> = ({
                               borderColor: getRoleConfig(hop.link.role).color,
                             }}
                           >
-                            {getRoleConfig(hop.link.role).label}
+                            {t.roles[hop.link.role] ??
+                              (ROLE_CONFIG[hop.link.role]
+                                ? ROLE_CONFIG[hop.link.role].label
+                                : t.otherRole)}
                           </span>
                           {hop.link.weight === undefined && (
                             <span className="cgraph-sixdeg-weak">
-                              (直接的な共演は未確認)
+                              {t.noDirect}
                             </span>
                           )}
                         </div>

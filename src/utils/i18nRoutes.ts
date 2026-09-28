@@ -21,6 +21,7 @@ const LOCALIZED_EXACT = new Set<string>([
   "/quiz/reol-type/",
   "/quiz/reol-type/quiz/",
   "/quiz/reol-type/result/",
+  "/cgraph/",
 ]);
 
 /** 翻訳済みのルート(パターン)。例: 曲詳細 /^\/songs\/[^/]+\/$/ */
