@@ -568,6 +568,7 @@ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
       description={buildDescription(pageContext, dict.show)}
       path={`/live/${slug}/`}
       lang={lang}
+      image={`https://reol.twilightea.com/og/live/${slug}.jpg`}
       jsonLd={jsonLd}
     />
   );

@@ -26,6 +26,7 @@ import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
+import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
@@ -2018,6 +2019,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     const liveItemTemplate = path.resolve("./src/templates/live-item.tsx");
     let liveItemPageCount = 0;
+    const liveOgInputs: PageOgInput[] = [];
     liveInfos.forEach((live) => {
       // 同ツアー内の他公演一覧(回遊用)。日付昇順。
       const siblingItems = [...live.items]
@@ -2030,6 +2032,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }));
 
       live.items.forEach((item) => {
+        const songCount = item.setList.filter(
+          (s) => !!s.liveItemSongName && s.type !== "segment"
+        ).length;
+        liveOgInputs.push({
+          file: `live/${item.slug}.jpg`,
+          kicker: "LIVE ARCHIVE",
+          title: live.title,
+          lines: [
+            [item.date?.replace(/-/g, "."), item.liveItemName].filter(Boolean).join("  "),
+            item.place ?? "",
+            songCount > 0 ? `セットリスト ${songCount}曲` : "",
+          ].filter(Boolean),
+        });
         const setList = item.setList.map((s) => ({
           liveItemSongUuid: s.liveItemSongUuid,
           liveItemSongName: s.liveItemSongName,
@@ -2069,6 +2084,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     });
     console.log(`[live] generated ${liveItemPageCount} live item pages`);
+    // 公演ごとのOGP画像(plan/27 ステップ5)。public にだけ書き出す(リポジトリには置かない)
+    const liveOg = await generatePageOgImages(liveOgInputs);
+    console.log(
+      `[live-og] generated=${liveOg.generated} (${Math.round(liveOg.bytes / 1024)}KB)`
+    );
   }
 
   // ----- On This Day 個別ページ(/on-this-day/MM-DD/) -----
@@ -2252,6 +2272,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const onThisDayTemplate = path.resolve("./src/templates/on-this-day.tsx");
     let onThisDayPageCount = 0;
+    const onThisDayOgInputs: PageOgInput[] = [];
     for (let month = 1; month <= 12; month++) {
       for (let day = 1; day <= DAYS_IN_MONTH[month - 1]; day++) {
         const monthDay = `${String(month).padStart(2, "0")}-${String(
@@ -2291,6 +2312,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
           }
         }
+        if (events.length > 0) {
+          const [mo, d] = monthDay.split("-").map((v) => parseInt(v, 10));
+          onThisDayOgInputs.push({
+            file: `on-this-day/${monthDay}.jpg`,
+            kicker: "ON THIS DAY",
+            title: `${mo}月${d}日は何の日`,
+            lines: events
+              .slice(0, 3)
+              .map(
+                (ev) => `${ev.year}  ${ev.label}${ev.kind === "release" ? " リリース" : ev.suffix}`
+              ),
+          });
+        }
         createPageWithLocales({
           path: `/on-this-day/${monthDay}/`,
           component: onThisDayTemplate,
@@ -2307,6 +2341,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
       calendarIndex[monthDay] = events.length;
     }
     await writeDataJson("on-this-day-index.json", calendarIndex);
+    // 出来事がある日だけ OGP 画像を作る(出来事の無い日は noindex なので既定の画像のまま)
+    const otdOg = await generatePageOgImages(onThisDayOgInputs);
+    console.log(
+      `[on-this-day-og] generated=${otdOg.generated} (${Math.round(otdOg.bytes / 1024)}KB)`
+    );
 
     console.log(
       `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`
