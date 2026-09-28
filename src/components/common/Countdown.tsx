@@ -79,10 +79,10 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
 
   if (!nextVenue) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
+      <div className="bg-white rounded-lg shadow-md p-6 text-center">
         <div className="flex flex-col items-center gap-2">
           <Calendar className="h-12 w-12 text-gray-400" />
-          <span className="text-gray-600 dark:text-gray-400 text-sm">
+          <span className="text-gray-600 text-sm">
             {t('countdown.lookingForward')}
           </span>
         </div>
@@ -104,15 +104,15 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
   // 当日モード: チェックイン表示
   if (isToday) {
     return (
-      <div className="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-950/40 dark:via-orange-950/30 dark:to-yellow-950/20 rounded-lg shadow-md p-6 text-center border border-red-200 dark:border-red-800/50">
+      <div className="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 rounded-lg shadow-md p-6 text-center border border-red-200">
         {/* ヘッダー: 本日公演 */}
         <div className="flex items-center gap-3 justify-center mb-4">
           <span className="text-3xl animate-pulse">🎤</span>
           <div>
-            <div className="text-lg font-bold text-red-600 dark:text-red-400">
+            <div className="text-lg font-bold text-red-600">
               本日公演！
             </div>
-            <div className="text-sm text-gray-700 dark:text-gray-300">
+            <div className="text-sm text-gray-700">
               {nextVenue.name}
             </div>
           </div>
@@ -126,7 +126,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
             className={`inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 mb-4 ${
               isCheckedIn
                 ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 hover:bg-emerald-700'
-                : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-2 border-dashed border-gray-300 dark:border-gray-500 hover:border-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                : 'bg-white text-gray-700 border-2 border-dashed border-gray-300 hover:border-emerald-400 hover:text-emerald-600'
             }`}
           >
             {isLoading ? (
@@ -141,7 +141,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
         {/* チェックインユーザーバッジ */}
         {checkinUsers.length > 0 && (
           <div>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <div className="text-xs text-gray-500 mb-2">
               📍 会場前にいるみんな（{checkinUsers.length}人）
             </div>
             <div className="flex flex-wrap gap-1.5 justify-center">
@@ -151,7 +151,7 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
                   href={`https://x.com/${user.username?.trim()}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-sm border border-gray-200 dark:border-gray-600 hover:border-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-white text-gray-700 shadow-sm border border-gray-200 hover:border-emerald-400 hover:text-emerald-600 transition-colors"
                 >
                   <MapPin className="w-3 h-3 text-emerald-500" />
                   {user.full_name || user.username || user.user_id}
@@ -166,18 +166,18 @@ export const Countdown: React.FC<CountdownProps> = ({ currentUserId }) => {
 
   // 通常モード: カウントダウン
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
+    <div className="bg-white rounded-lg shadow-md p-6 text-center">
       <div className="flex items-center gap-4 justify-center flex-wrap">
-        <Calendar className="h-10 w-10 text-red-600 dark:text-red-400" />
+        <Calendar className="h-10 w-10 text-red-600" />
         <div className="text-center sm:text-left">
-          <div className="text-gray-600 dark:text-gray-400 text-sm">
+          <div className="text-gray-600 text-sm">
             {t('countdown.nextShow')}
           </div>
-          <div className="text-3xl font-bold text-red-600 dark:text-red-400">
+          <div className="text-3xl font-bold text-red-600">
             {t('countdown.days', { count: daysUntil })}
           </div>
         </div>
-        <div className="text-sm text-gray-700 dark:text-gray-300 text-center sm:text-left">
+        <div className="text-sm text-gray-700 text-center sm:text-left">
           {formatDate(nextVenue.date)}<br />
           {nextVenue.name}
         </div>

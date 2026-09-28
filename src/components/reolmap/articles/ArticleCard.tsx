@@ -23,10 +23,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
 
   // カテゴリカラーのTailwindクラスマッピング
   const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-    purple: { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-700 dark:text-purple-300', border: 'border-purple-200 dark:border-purple-800' },
-    blue: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-300', border: 'border-blue-200 dark:border-blue-800' },
-    amber: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-700 dark:text-amber-300', border: 'border-amber-200 dark:border-amber-800' },
-    green: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-700 dark:text-green-300', border: 'border-green-200 dark:border-green-800' },
+    purple: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-200' },
+    blue: { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-blue-200' },
+    amber: { bg: 'bg-amber-100', text: 'text-amber-700', border: 'border-amber-200' },
+    green: { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-200' },
   }
   const colors = colorMap[categoryInfo.color] || colorMap.purple
 
@@ -35,7 +35,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
       to={`/bijigaku-navi/articles/${article.slug}`}
       className="group block"
     >
-      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+      <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
         {/* サムネイルエリア */}
         <div className={`h-32 flex items-center justify-center ${colors.bg} relative overflow-hidden`}>
           <span className="text-5xl">{article.emoji || '📄'}</span>
@@ -47,11 +47,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
 
         {/* コンテンツ */}
         <div className="p-4 space-y-2">
-          <h3 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors line-clamp-2">
+          <h3 className="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors line-clamp-2">
             {title}
           </h3>
           {subtitle && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+            <p className="text-xs text-gray-500 line-clamp-2">
               {subtitle}
             </p>
           )}

@@ -46,23 +46,23 @@ const VenueHotelSection: React.FC<VenueHotelSectionProps> = ({ venue }) => {
             if (!a.recommended && b.recommended) return 1
             return 0
           }).map((accommodation, index) => (
-            <div key={index} className="bg-white/80 dark:bg-gray-900/80 rounded-lg p-4 shadow border border-gray-200 dark:border-gray-700 flex flex-col gap-2">
+            <div key={index} className="bg-white/80 rounded-lg p-4 shadow border border-gray-200 flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-900 dark:text-white">{accommodation.name}</span>
+                <span className="font-semibold text-gray-900">{accommodation.name}</span>
                 {accommodation.recommended && (
-                  <span className="inline-flex items-center text-xs bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 px-2 py-1 rounded">
+                  <span className="inline-flex items-center text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">
                     {t('badges.recommended')}
                   </span>
                 )}
               </div>
-              <div className="text-sm text-gray-700 dark:text-gray-300">{accommodation.description}</div>
+              <div className="text-sm text-gray-700">{accommodation.description}</div>
               <div className="flex gap-2 text-sm">
                 {accommodation.website && (
                   <a
                     href={accommodation.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800"
                   >
                     <Globe className="h-3 w-3" />
                     {t('buttons.website')}
@@ -74,7 +74,7 @@ const VenueHotelSection: React.FC<VenueHotelSectionProps> = ({ venue }) => {
                     href={accommodation.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800"
                   >
                     <MapPin className="h-3 w-3" />
                     {t('buttons.map')}

@@ -47,17 +47,17 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div
-        className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full"
+        className="bg-white rounded-xl shadow-2xl max-w-md w-full"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
-        <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 className="text-lg font-bold text-gray-900">
             {t('changeId.title', 'ユーザーID変更')}
           </h3>
           <button aria-label={t('ui.close')}
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -66,19 +66,19 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
         {success ? (
           <div className="p-6 text-center">
             <div className="text-4xl mb-3">✅</div>
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+            <p className="text-lg font-semibold text-gray-900 mb-1">
               {t('changeId.success', 'ID変更完了！')}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500">
               {t('changeId.reloading', 'ページを更新しています...')}
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-5 space-y-5">
             {/* 注意書き */}
-            <div className="flex gap-3 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+            <div className="flex gap-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
               <AlertTriangle className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
-              <div className="text-xs text-amber-700 dark:text-amber-300 space-y-1">
+              <div className="text-xs text-amber-700 space-y-1">
                 <p className="font-semibold">{t('changeId.warningTitle', '注意')}</p>
                 <p>{t('changeId.warning1', 'IDはあなたのXアカウント名（@以降）を推奨します。')}</p>
                 <p>{t('changeId.warning2', '参加登録や投票など全てのデータが新IDに引き継がれます。')}</p>
@@ -87,27 +87,27 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
 
             {/* 現在のID */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('changeId.currentId', '現在のID')}
               </label>
-              <div className="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-400 text-sm font-mono">
+              <div className="px-3 py-2 bg-gray-100 rounded-lg text-gray-600 text-sm font-mono">
                 @{user?.id}
               </div>
             </div>
 
             {/* 新しいID */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('changeId.newId', '新しいID')}
               </label>
               <div className="flex items-center gap-2">
-                <span className="text-gray-500 dark:text-gray-400 font-mono">@</span>
+                <span className="text-gray-500 font-mono">@</span>
                 <input
                   type="text"
                   value={newId}
                   onChange={(e) => { setNewId(e.target.value); setError(null) }}
                   placeholder={t('changeId.newIdPlaceholder', '新しいID')}
-                  className="flex-1 px-3 py-2 border rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="flex-1 px-3 py-2 border rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
                   maxLength={30}
                   disabled={isSubmitting}
                   autoFocus
@@ -119,17 +119,17 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
                 </p>
               )}
               {newId && isValidId && newId !== user?.id && (
-                <div className="mt-2 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
                   <span className="font-mono">@{user?.id}</span>
                   <ArrowRight className="h-3 w-3" />
-                  <span className="font-mono text-blue-600 dark:text-blue-400">@{newId}</span>
+                  <span className="font-mono text-blue-600">@{newId}</span>
                 </div>
               )}
             </div>
 
             {/* パスワード確認 */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('changeId.password', 'パスワード（確認用）')}
               </label>
               <input
@@ -137,14 +137,14 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setError(null) }}
                 placeholder={t('changeId.passwordPlaceholder', 'パスワードを入力')}
-                className="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 disabled={isSubmitting}
               />
             </div>
 
             {/* エラー */}
             {error && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-600 dark:text-red-400">
+              <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">
                 {error}
               </div>
             )}

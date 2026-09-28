@@ -98,15 +98,15 @@ const VenueAttendanceChart: React.FC<VenueAttendanceChartProps> = ({
       const prefecture = data.prefecture || ''
       return (
         <div
-          className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg"
+          className="bg-white border border-gray-200 rounded-lg shadow-lg"
           style={{
             padding: '12px',
           }}
         >
-          <p style={{ fontWeight: 'bold', marginBottom: '4px' }} className="text-gray-900 dark:text-white">
+          <p style={{ fontWeight: 'bold', marginBottom: '4px' }} className="text-gray-900">
             {data.name}
           </p>
-          <p style={{ fontSize: '0.875rem', marginBottom: '4px' }} className="text-gray-600 dark:text-gray-400">
+          <p style={{ fontSize: '0.875rem', marginBottom: '4px' }} className="text-gray-600">
             {getPrefectureName(prefecture)}
           </p>
           <p style={{ fontWeight: 'bold' }} className="text-[#977c30]">
@@ -116,7 +116,7 @@ const VenueAttendanceChart: React.FC<VenueAttendanceChartProps> = ({
             )}
           </p>
           {data.capacity > 0 && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-xs text-gray-500 mt-1">
               {t('venueChart.attendanceRate', '参加率')}: {Math.round((data.count / data.capacity) * 100)}%
             </p>
           )}
@@ -131,16 +131,16 @@ const VenueAttendanceChart: React.FC<VenueAttendanceChartProps> = ({
   return (
     <div id="venue-chart-section" className="space-y-5">
       <div className="px-4">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-2xl font-semibold text-gray-900">
           {t('venueChart.title', '会場別参加者数')}
         </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-600 mt-1">
           {t('venueChart.description', '各会場の参加表明者数を確認できます')}
         </p>
       </div>
 
       <div
-        className="rounded-lg shadow-sm hover:shadow-md transition-shadow mx-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+        className="rounded-lg shadow-sm hover:shadow-md transition-shadow mx-4 bg-white border border-gray-200"
       >
 
       {/* コントロール */}

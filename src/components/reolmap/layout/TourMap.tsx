@@ -69,10 +69,10 @@ const TourMap: React.FC<TourMapProps> = ({
   return (
     <div id="tour-map-section" className="space-y-5">
       <div className="px-4">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-2xl font-semibold text-gray-900">
           {t('tourMap.title', 'ツアーマップ')}
         </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-600 mt-1">
           {t('tourMap.description', '全国のツアー会場を地図で確認できます')}
         </p>
       </div>
@@ -81,16 +81,16 @@ const TourMap: React.FC<TourMapProps> = ({
         {regionData.map(region => (
           <div
             key={region.key}
-            className="rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden"
+            className="rounded-lg bg-white border border-gray-200 shadow-sm overflow-hidden"
           >
             {/* 地域ヘッダー */}
-            <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 dark:bg-gray-750 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 border-b border-gray-200">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-[#977c30]" />
-                <h3 className="font-bold text-gray-900 dark:text-white">
+                <h3 className="font-bold text-gray-900">
                   {isEn ? region.labelEn : region.label}
                 </h3>
-                <span className="text-xs text-gray-500 dark:text-gray-400">
+                <span className="text-xs text-gray-500">
                   {region.venues.length}{t('tourMap.venueCount', '会場')}
                 </span>
               </div>
@@ -103,7 +103,7 @@ const TourMap: React.FC<TourMapProps> = ({
             </div>
 
             {/* 会場リスト */}
-            <div className="divide-y divide-gray-100 dark:divide-gray-700">
+            <div className="divide-y divide-gray-100">
               {region.venues.map(venue => {
                 const count = venueAttendanceCounts[venue.id] || 0
                 const isAttending = selectedVenues.includes(venue.id)
@@ -115,7 +115,7 @@ const TourMap: React.FC<TourMapProps> = ({
                   <Link
                     key={venue.id}
                     to={`/bijigaku-navi/venue/${venue.id}/`}
-                    className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group"
                   >
                     {/* カラーバー */}
                     <div
@@ -126,16 +126,16 @@ const TourMap: React.FC<TourMapProps> = ({
                     {/* 情報 */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-medium text-sm text-gray-900 dark:text-white truncate">
+                        <span className="font-medium text-sm text-gray-900 truncate">
                           {venue.name}
                         </span>
                         {isAttending && (
-                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300">
+                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">
                             ✓ {t('timeline.attending', '参加予定')}
                           </span>
                         )}
                       </div>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-gray-500 mt-0.5">
                         <span>
                           {date.getMonth() + 1}/{date.getDate()}({daysOfWeek[date.getDay()]})
                         </span>
@@ -157,7 +157,7 @@ const TourMap: React.FC<TourMapProps> = ({
                     )}
 
                     {/* 矢印 */}
-                    <svg className="w-4 h-4 text-gray-300 dark:text-gray-600 flex-shrink-0 group-hover:text-gray-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 group-hover:text-gray-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>

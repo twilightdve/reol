@@ -48,7 +48,7 @@ const VenueListSection: React.FC<VenueListSectionProps> = ({
       {user && selectedVenues.length > 0 && (
         <div className="venue-list-card rounded-lg bg-transparent">
           <div className="section-header">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-semibold text-gray-900">
               {t('mainPage.yourVenues', {
                 name: profile?.full_name || profile?.username || t('mainPage.you', { defaultValue: 'あなた' })
               })}
@@ -90,9 +90,9 @@ const VenueListSection: React.FC<VenueListSectionProps> = ({
         if (otherVenues.length === 0) return null
 
         return (
-          <div className="venue-list-card rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+          <div className="venue-list-card rounded-lg shadow-sm border border-gray-200">
             <div className="section-header">
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-semibold text-gray-900">
                 {user ? t('venueList.otherVenues') : t('venueList.allVenues')}
               </h2>
             </div>

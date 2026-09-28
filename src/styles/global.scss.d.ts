@@ -1,12 +1,9 @@
-export declare const accommodationSectionBg: string;
-export declare const accommodationSectionBorder: string;
 export declare const animateFadeIn: string;
 export declare const animatePulseGlow: string;
 export declare const bijigakuHeaderBg: string;
 export declare const bijigakuSubtitle: string;
 export declare const bijigakuTitle: string;
 export declare const bxHeroGlow: string;
-export declare const dark: string;
 export declare const englishText: string;
 export declare const fadeIn: string;
 export declare const gatsby: string;

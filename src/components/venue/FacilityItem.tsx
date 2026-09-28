@@ -24,7 +24,7 @@ export const RecommendBadge: React.FC<RecommendBadgeProps> = ({
         {t('badges.recommended')}
       </div>
       {comment && (
-        <div className="text-xs text-gray-700 dark:text-gray-300 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded border border-yellow-200 dark:border-yellow-700">
+        <div className="text-xs text-gray-700 bg-yellow-50 px-2 py-1 rounded border border-yellow-200">
           💡 {comment}
         </div>
       )}
@@ -57,19 +57,19 @@ export const FacilityItem: React.FC<FacilityItemProps> = ({
   
   return (
     <li className={`
-      border-b border-gray-200 dark:border-gray-600 last:border-b-0 pb-3 last:pb-0
-      bg-white dark:bg-white -mx-2 px-2 py-2 rounded-lg border
-      ${recommended ? 'border-yellow-200 dark:border-yellow-700/50' : 'border-gray-200 dark:border-gray-600'}
+      border-b border-gray-200 last:border-b-0 pb-3 last:pb-0
+      bg-white -mx-2 px-2 py-2 rounded-lg border
+      ${recommended ? 'border-yellow-200' : 'border-gray-200'}
     `}>
       <div className="flex items-start gap-2">
         {icon && (
-          <div className={`mt-1 flex-shrink-0 ${recommended ? 'text-yellow-600 dark:text-yellow-400' : ''}`}>
+          <div className={`mt-1 flex-shrink-0 ${recommended ? 'text-yellow-600 ' : ''}`}>
             {icon}
           </div>
         )}
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <h4 className={`font-medium ${recommended ? 'text-yellow-900 dark:text-yellow-100' : 'text-gray-900 dark:text-white'}`}>
+            <h4 className={`font-medium ${recommended ? 'text-yellow-900 ' : 'text-gray-900 '}`}>
               {name}
             </h4>
             {recommended && (
@@ -80,13 +80,13 @@ export const FacilityItem: React.FC<FacilityItemProps> = ({
             )}
           </div>
           {description && (
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+            <p className="text-sm text-gray-600 mt-1">
               {description}
             </p>
           )}
           {children}
           {recommended && recommendComment && (
-            <div className="text-xs text-gray-700 dark:text-gray-300 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1.5 rounded border border-yellow-200 dark:border-yellow-700 mt-2">
+            <div className="text-xs text-gray-700 bg-yellow-50 px-2 py-1.5 rounded border border-yellow-200 mt-2">
               💡 {recommendComment}
             </div>
           )}

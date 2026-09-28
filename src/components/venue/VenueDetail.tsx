@@ -173,12 +173,12 @@ const VenueDetail: React.FC<VenueDetailProps> = ({ venueId }) => {
       <div className="min-h-screen p-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center py-20">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
               {t('messages.venueNotFound')}
             </h1>
             <Link 
               to="/bijigaku-navi/"
-              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              className="text-blue-600 hover:text-blue-800"
             >
               ← {t('navigation.backToTop')}
             </Link>
@@ -336,7 +336,7 @@ const VenueDetail: React.FC<VenueDetailProps> = ({ venueId }) => {
 
       {/* スクロール追随ナビゲーション */}
       {isNavFixed && (
-        <nav className="fixed top-0 left-0 right-0 z-40 shadow-lg backdrop-blur-sm border-b border-gray-200 dark:border-gray-700"
+        <nav className="fixed top-0 left-0 right-0 z-40 shadow-lg backdrop-blur-sm border-b border-gray-200"
           style={{
             background: venueGradient
           }}
@@ -375,7 +375,7 @@ const VenueDetail: React.FC<VenueDetailProps> = ({ venueId }) => {
             </div>
 
             {/* 参加者情報 */}
-            <div id="attendees" className="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 backdrop-blur-sm">
+            <div id="attendees" className="bg-white/90 rounded-lg shadow-sm border border-gray-200 backdrop-blur-sm">
               <VenueAttendeesList 
                 venueId={venueId}
                 comments={venueComments}
@@ -386,14 +386,14 @@ const VenueDetail: React.FC<VenueDetailProps> = ({ venueId }) => {
             <VenueTravelChecklist venueId={venueId} venue={venue} />
 
           {/* AI生成情報に関する注意書き */}
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-600 p-4 rounded-r-lg">
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
             <div className="flex items-start gap-3">
-              <Info className="h-5 w-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+              <Info className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm text-yellow-800 dark:text-yellow-200 font-medium mb-1">
+                <p className="text-sm text-yellow-800 font-medium mb-1">
                   {t('messages.accuracyDisclaimer')}
                 </p>
-                <p className="text-xs text-yellow-700 dark:text-yellow-300">
+                <p className="text-xs text-yellow-700">
                   {t('messages.accuracyNote')}
                 </p>
               </div>

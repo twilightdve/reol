@@ -230,13 +230,13 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
       <div className="px-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              <a href="#attendees-section" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              <a href="#attendees-section" className="hover:text-purple-600 transition-colors">
                 {t('attendees.sectionTitle')}
-                <span className="ml-1.5 text-gray-300 dark:text-gray-600 text-lg">#</span>
+                <span className="ml-1.5 text-gray-300 text-lg">#</span>
               </a>
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-600 mt-1">
               {t('attendees.sectionDescription')}
             </p>
           </div>
@@ -244,7 +244,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
 
         {/* ソートセレクト */}
         <div className="flex items-center gap-2 mt-3">
-          <ArrowUpDown className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+          <ArrowUpDown className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
           <div className="flex flex-wrap gap-1.5">
             {sortOptions.map(option => {
               const isActive = sortKey === option.key
@@ -255,7 +255,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
                   className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     isActive
                       ? 'bg-purple-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
                   {option.label}
@@ -274,7 +274,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
         <div className="flex items-center gap-2 mt-2 flex-wrap">
           {/* 会場フィルター */}
           <div className="relative inline-flex items-center">
-            <MapPin className="w-3 h-3 absolute left-2.5 text-gray-400 dark:text-gray-500 pointer-events-none z-10" />
+            <MapPin className="w-3 h-3 absolute left-2.5 text-gray-400 pointer-events-none z-10" />
             <select
               value={venueFilter}
               onChange={(e) => {
@@ -284,7 +284,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
               className={`appearance-none pl-7 pr-7 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                 venueFilter
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
               <option value="">{t('attendees.venueFilterAll', { defaultValue: 'すべての会場' })}</option>
@@ -313,7 +313,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
             className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors ${
               encounterFilter
                 ? 'bg-emerald-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
             <Coffee className="w-3 h-3" />
@@ -329,7 +329,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                 encounterWantFilter
                   ? 'bg-pink-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
               <Heart className="w-3 h-3" />
@@ -382,7 +382,7 @@ const AttendeeSection: React.FC<AttendeeSectionProps> = ({
         <div className="flex justify-center px-4">
           <button
             onClick={handleShowMore}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gray-100 text-gray-700 text-sm font-medium hover:bg-gray-200 transition-colors"
           >
             <ChevronDown className="w-4 h-4" />
             {t('attendees.showMore', 'もっと見る（+{{count}}名）', { count: Math.min(remaining, PAGE_SIZE) })}

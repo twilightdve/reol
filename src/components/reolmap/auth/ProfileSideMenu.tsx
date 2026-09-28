@@ -74,22 +74,22 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
       />
       
       {/* サイドメニュー */}
-      <div className="fixed right-0 top-0 h-screen w-80 bg-white dark:bg-gray-800 shadow-xl z-50 transform transition-transform duration-300">
+      <div className="fixed right-0 top-0 h-screen w-80 bg-white shadow-xl z-50 transform transition-transform duration-300">
         {/* ヘッダー */}
-        <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900">
             {t('auth.profile')}
           </h2>
           <button aria-label={t('ui.close')}
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            className="text-gray-500 hover:text-gray-700"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
 
         {/* プロフィール情報 */}
-        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="p-6 border-b border-gray-200">
           <div className="flex items-start space-x-4">
             <ProfileAvatar
               username={profile.username}
@@ -107,7 +107,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
                       value={editedFullName}
                       onChange={(e) => setEditedFullName(e.target.value)}
                       placeholder={t('auth.displayName')}
-                      className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
                       disabled={isSaving}
                       autoFocus
                       onKeyDown={(e) => {
@@ -132,12 +132,12 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
                   </div>
                 ) : (
                   <div className="flex items-center space-x-2">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-semibold text-gray-900">
                       {displayName}
                     </h3>
                     <button aria-label={t('ui.edit')}
                       onClick={handleFullNameEdit}
-                      className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                      className="p-1 text-gray-500 hover:text-gray-700"
                     >
                       <Edit2 className="h-3 w-3" />
                     </button>
@@ -147,7 +147,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
               {/* ユーザーID（変更不可） */}
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500">
                   ID: {profile.id}
                 </p>
               </div>
@@ -159,7 +159,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
         <div className="p-6 space-y-4">
           <button
             onClick={() => { onOpenPasswordSetup(); onClose() }}
-            className="w-full flex items-center space-x-3 p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <Lock className="h-5 w-5" />
             <span>{t('auth.passwordSetup', { defaultValue: 'パスワード設定' })}</span>
@@ -167,7 +167,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
           <button
             onClick={() => { onOpenChangeId(); onClose() }}
-            className="w-full flex items-center space-x-3 p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <UserCog className="h-5 w-5" />
             <span>{t('changeId.menuButton', { defaultValue: 'ID変更' })}</span>
@@ -175,7 +175,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
           <button
             onClick={() => { onOpenQRCode(); onClose() }}
-            className="w-full flex items-center space-x-3 p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <QrCode className="h-5 w-5" />
             <span className="inline-flex items-center gap-1.5">
@@ -186,7 +186,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
           <button
             onClick={handleSettingsClick}
-            className="w-full flex items-center space-x-3 p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <Settings className="h-5 w-5" />
             <span>{t('mainPage.venueSettings')}</span>
@@ -194,17 +194,17 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
           <button
             onClick={() => { onOpenHelpGuide(); onClose() }}
-            className="w-full flex items-center space-x-3 p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <HelpCircle className="h-5 w-5" />
             <span>{t('helpGuide.menuButton', { defaultValue: '当サイトの使い方' })}</span>
           </button>
 
-          <hr className="border-gray-200 dark:border-gray-700" />
+          <hr className="border-gray-200" />
 
           <button
             onClick={() => { onOpenDeleteAccount(); onClose() }}
-            className="w-full flex items-center space-x-3 p-3 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
           >
             <Trash2 className="h-5 w-5" />
             <span>{t('deleteAccount.menuButton', { defaultValue: 'アカウント削除' })}</span>
@@ -212,7 +212,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
 
           <button
             onClick={handleLogout}
-            className="w-full flex items-center space-x-3 p-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
           >
             <LogOut className="h-5 w-5" />
             <span>{t('auth.logout')}</span>

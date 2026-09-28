@@ -56,18 +56,18 @@ const XAccountQRCode: React.FC<XAccountQRCodeProps> = ({ userId, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div
-        className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-sm w-full p-6"
+        className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white inline-flex items-center gap-2">
+          <h3 className="text-lg font-bold text-gray-900 inline-flex items-center gap-2">
             {t('qrcode.title', 'QRコード')}
             <FaXTwitter className="h-5 w-5" />
           </h3>
           <button aria-label={t('ui.close')}
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <XIcon className="h-5 w-5" />
           </button>
@@ -86,7 +86,7 @@ const XAccountQRCode: React.FC<XAccountQRCodeProps> = ({ userId, onClose }) => {
             />
           </div>
 
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             @{userId}
           </p>
 
@@ -94,7 +94,7 @@ const XAccountQRCode: React.FC<XAccountQRCodeProps> = ({ userId, onClose }) => {
             href={xUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-blue-500 hover:text-blue-600 dark:text-blue-400 underline"
+            className="text-xs text-blue-500 hover:text-blue-600 underline"
           >
             {xUrl}
           </a>
@@ -103,7 +103,7 @@ const XAccountQRCode: React.FC<XAccountQRCodeProps> = ({ userId, onClose }) => {
         {/* ダウンロードボタン */}
         <button
           onClick={handleDownload}
-          className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+          className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
         >
           <Download className="h-4 w-4" />
           {t('qrcode.download', '画像を保存')}

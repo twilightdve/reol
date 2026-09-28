@@ -65,13 +65,13 @@ const LoginButton: React.FC<LoginButtonProps> = ({ compact = false }) => {
                 <p className="text-sm mt-1">{t('auth.devModeDescription')}</p>
               </div>
             )}
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-3xl font-bold text-gray-900">
               {t('mainPage.title')}
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-600">
               {t('auth.tourDescription')}
             </p>
-            <div className="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+            <div className="text-sm text-gray-500 space-y-2">
               <p>{t('auth.checkVenueInfo')}</p>
               <p>{t('auth.checkTouristSpots')}</p>
               <p>{t('auth.checkAttendees')}</p>
@@ -92,12 +92,12 @@ const LoginButton: React.FC<LoginButtonProps> = ({ compact = false }) => {
               {loading ? t('auth.loggingIn') : isDevMode ? t('auth.devModeLogin') : t('auth.loginSignup')}
             </button>
             
-            <p className="text-xs text-gray-400 dark:text-gray-500">
+            <p className="text-xs text-gray-400">
               {t('auth.viewOnly')}
             </p>
           </div>
           
-          <div className="text-xs text-gray-400 dark:text-gray-500">
+          <div className="text-xs text-gray-400">
             <p>{t('auth.simpleLogin')}</p>
             <p>{t('auth.noEmail')}</p>
           </div>

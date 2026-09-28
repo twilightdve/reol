@@ -37,7 +37,7 @@ const VenueListItem: React.FC<VenueListItemProps> = ({
   return (
     <Link
       to={`/bijigaku-navi/venue/${venue.id}/`}
-      className={`block ${showTypeIcon ? 'p-3' : 'p-4'} rounded-lg transition-colors border border-gray-100 dark:border-gray-600`}
+      className={`block ${showTypeIcon ? 'p-3' : 'p-4'} rounded-lg transition-colors border border-gray-100`}
       style={{ background: venueGradient }}
     >
       <div className="flex items-center justify-between">

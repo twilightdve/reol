@@ -136,14 +136,14 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
   // 未ログイン時
   if (!user) {
     return (
-      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
+      <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
         <div className="flex items-start gap-3">
-          <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+          <FileText className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
-            <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+            <h3 className="font-semibold text-blue-900 mb-2">
               旅行計画チェックリスト
             </h3>
-            <p className="text-sm text-blue-700 dark:text-blue-300 mb-3">
+            <p className="text-sm text-blue-700 mb-3">
               ログインすると、交通手段やホテル、チケットの確保状況などをチェックできます
             </p>
             <LoginButton compact />
@@ -155,13 +155,13 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
 
   if (loading) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+      <div className="bg-white rounded-lg p-6 border border-gray-200">
         <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/3 mb-4"></div>
           <div className="space-y-3">
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-10 bg-gray-200 rounded"></div>
+            <div className="h-10 bg-gray-200 rounded"></div>
+            <div className="h-10 bg-gray-200 rounded"></div>
           </div>
         </div>
       </div>
@@ -259,10 +259,10 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
   ]
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 space-y-3">
+    <div className="bg-white rounded-lg p-4 border border-gray-200 space-y-3">
       <div className="flex items-center gap-2 mb-2">
-        <FileText className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-        <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+        <FileText className="h-5 w-5 text-purple-600" />
+        <h3 className="text-base font-semibold text-gray-900">
           {t('title')}
         </h3>
       </div>
@@ -274,18 +274,18 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
             <button
               onClick={() => handleCheckItem(item.field, !localChecklist?.[item.field])}
               disabled={saving}
-              className="w-full flex items-start gap-2 p-1.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-start gap-2 p-1.5 rounded-lg hover:bg-gray-50 transition-colors text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {localChecklist?.[item.field] ? (
-                <CheckCircle2 className="h-4.5 w-4.5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4.5 w-4.5 text-green-600 flex-shrink-0 mt-0.5" />
               ) : (
-                <Circle className="h-4.5 w-4.5 text-gray-400 dark:text-gray-500 flex-shrink-0 mt-0.5" />
+                <Circle className="h-4.5 w-4.5 text-gray-400 flex-shrink-0 mt-0.5" />
               )}
               <div className="flex-1">
                 <div className={`text-sm font-medium flex items-center gap-1.5 ${
                   localChecklist?.[item.field] 
-                    ? 'text-green-900 dark:text-green-100' 
-                    : 'text-gray-900 dark:text-white'
+                    ? 'text-green-900' 
+                    : 'text-gray-900'
                 }`}>
                   {item.label}
                   {item.hasHelp && (
@@ -298,13 +298,13 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
                           setShowDayBeforeHelp(!showDayBeforeHelp)
                         }
                       }}
-                      className="p-0.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors cursor-pointer"
+                      className="p-0.5 rounded-full hover:bg-gray-200 transition-colors cursor-pointer"
                     >
-                      <HelpCircle className="h-4 w-4 text-blue-500 dark:text-blue-400" />
+                      <HelpCircle className="h-4 w-4 text-blue-500" />
                     </div>
                   )}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                <div className="text-xs text-gray-500 mt-0.5">
                   {item.description}
                 </div>
               </div>
@@ -312,22 +312,22 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
 
             {/* 持ち物リストヘルプ */}
             {item.field === 'belongings_checked' && showBelongingsHelp && (
-              <div className="mt-2 ml-6 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+              <div className="mt-2 ml-6 p-2 bg-blue-50 border border-blue-200 rounded-lg">
                 <div className="flex items-start justify-between mb-1.5">
-                  <h4 className="text-xs font-semibold text-blue-900 dark:text-blue-100">
+                  <h4 className="text-xs font-semibold text-blue-900">
                     遠征持ち物リスト
                   </h4>
                   <div
                     onClick={() => setShowBelongingsHelp(false)}
-                    className="p-0.5 hover:bg-blue-100 dark:hover:bg-blue-800 rounded cursor-pointer"
+                    className="p-0.5 hover:bg-blue-100 rounded cursor-pointer"
                   >
-                    <X className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                    <X className="h-3.5 w-3.5 text-blue-600" />
                   </div>
                 </div>
-                <ul className="text-[11px] text-blue-800 dark:text-blue-200 space-y-0.5">
+                <ul className="text-[11px] text-blue-800 space-y-0.5">
                   {belongingsItems.map((belongingItem, index) => (
                     <li key={index} className="flex items-start gap-1">
-                      <span className="text-blue-600 dark:text-blue-400">•</span>
+                      <span className="text-blue-600">•</span>
                       <span>{belongingItem}</span>
                     </li>
                   ))}
@@ -337,22 +337,22 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
 
             {/* 前日確認リストヘルプ */}
             {item.field === 'day_before_checked' && showDayBeforeHelp && (
-              <div className="mt-2 ml-6 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+              <div className="mt-2 ml-6 p-2 bg-blue-50 border border-blue-200 rounded-lg">
                 <div className="flex items-start justify-between mb-1.5">
-                  <h4 className="text-xs font-semibold text-blue-900 dark:text-blue-100">
+                  <h4 className="text-xs font-semibold text-blue-900">
                     前日確認リスト
                   </h4>
                   <div
                     onClick={() => setShowDayBeforeHelp(false)}
-                    className="p-0.5 hover:bg-blue-100 dark:hover:bg-blue-800 rounded cursor-pointer"
+                    className="p-0.5 hover:bg-blue-100 rounded cursor-pointer"
                   >
-                    <X className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                    <X className="h-3.5 w-3.5 text-blue-600" />
                   </div>
                 </div>
-                <ul className="text-[11px] text-blue-800 dark:text-blue-200 space-y-0.5">
+                <ul className="text-[11px] text-blue-800 space-y-0.5">
                   {dayBeforeItems.map((dayBeforeItem, index) => (
                     <li key={index} className="flex items-start gap-1">
-                      <span className="text-blue-600 dark:text-blue-400">•</span>
+                      <span className="text-blue-600">•</span>
                       <span>{dayBeforeItem}</span>
                     </li>
                   ))}
@@ -364,8 +364,8 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
       </div>
 
       {/* メモ欄 */}
-      <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div className="pt-4 border-t border-gray-200">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
           {t('memo.title')} ({notes.length}/{MAX_NOTES_LENGTH} {t('memo.characters')})
         </label>
         <textarea
@@ -373,15 +373,15 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
           onChange={handleNotesChange}
           placeholder={t('memo.placeholder')}
           disabled={saving}
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
           rows={3}
           maxLength={MAX_NOTES_LENGTH}
         />
         
         {/* 注意書き */}
-        <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded text-xs flex items-start gap-2">
-          <AlertCircle className="h-3 w-3 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-          <span className="text-amber-800 dark:text-amber-200">
+        <div className="mt-2 p-2 bg-amber-50 border border-amber-200 rounded text-xs flex items-start gap-2">
+          <AlertCircle className="h-3 w-3 text-amber-600 flex-shrink-0 mt-0.5" />
+          <span className="text-amber-800">
             {t('memo.warning')}
           </span>
         </div>
@@ -398,14 +398,14 @@ export const VenueTravelChecklist: React.FC<VenueTravelChecklistProps> = ({ venu
       </div>
 
       {/* 進捗表示 */}
-      <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+      <div className="pt-4 border-t border-gray-200">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-600 dark:text-gray-400">{t('progress')}</span>
+          <span className="text-gray-600">{t('progress')}</span>
           <span className="font-semibold" style={{ color: gradientColors.from }}>
             {checkItems.filter(item => localChecklist?.[item.field]).length} / {checkItems.length}
           </span>
         </div>
-        <div className="mt-2 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className="h-full transition-all duration-300"
             style={{ 

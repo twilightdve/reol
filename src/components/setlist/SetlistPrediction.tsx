@@ -11,7 +11,7 @@ import { trackEvent } from '../../utils/analytics'
 
 // ライト/ダーク両対応のスケルトン行スタイル（和紙上のカードに合わせる）
 const SKELETON_ROW_CLASS =
-  'border border-gray-200 dark:border-gray-600 bg-white/70 dark:bg-gray-700/50'
+  'border border-gray-200 bg-white/70'
 
 interface DiscographyGroup {
   discographyUuid: string
@@ -257,21 +257,21 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
       {/* ヘッダー - 和紙上のテキスト表示に変更 */}
       <div className="bg-transparent p-0">
         <div className="flex items-center gap-3 mb-4">
-          <Music className="h-8 w-8 text-purple-600 dark:text-purple-400" />
+          <Music className="h-8 w-8 text-purple-600" />
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-gray-900">
               {t('setlist.title')}
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600">
               {t('setlist.description')}
             </p>
           </div>
         </div>
 
         {!user && (
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
             <div className="flex flex-col items-center gap-3">
-              <p className="text-sm text-blue-700 dark:text-blue-300 text-center">
+              <p className="text-sm text-blue-700 text-center">
                 {t('setlist.loginRequired')}
               </p>
               <LoginButton compact />
@@ -282,15 +282,15 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
 
       {/* 投票数ランキング */}
       {voteCounts.length > 0 && (
-        <div className="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-md p-6">
+        <div className="bg-white/90 rounded-lg shadow-md p-6">
           <div className="mb-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <ThumbsUp className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <ThumbsUp className="h-6 w-6 text-purple-600" />
+                <h3 className="text-xl font-bold text-gray-900">
                   {t('setlist.voteRanking')}
                 </h3>
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-sm text-gray-600">
                   TOP {showAllRanking ? '30' : '10'}
                 </span>
               </div>
@@ -338,17 +338,17 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                     onClick={() => openVotersModal(vote.song_uuid, displayName)}
                     className={`w-full flex items-center gap-2 p-2 rounded-lg transition-colors hover:opacity-80 ${
                       voted
-                        ? 'bg-purple-50 dark:bg-purple-900/20 border border-purple-300 dark:border-purple-700'
-                        : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600'
+                        ? 'bg-purple-50 border border-purple-300'
+                        : 'bg-gray-50 border border-gray-200'
                     }`}
                   >
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">
+                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-200 text-gray-700">
                       {index + 1}
                     </div>
-                    <span className={`text-sm font-medium truncate flex-1 text-left ${voted ? 'text-purple-900 dark:text-purple-100' : 'text-gray-900 dark:text-white'}`}>
+                    <span className={`text-sm font-medium truncate flex-1 text-left ${voted ? 'text-purple-900 ' : 'text-gray-900 '}`}>
                       {displayName}
                     </span>
-                    <div className="flex items-center gap-1 text-xs font-bold text-gray-900 dark:text-white">
+                    <div className="flex items-center gap-1 text-xs font-bold text-gray-900">
                       <ThumbsUp className="h-3.5 w-3.5" />
                       <span>{vote.vote_count}</span>
                     </div>
@@ -361,7 +361,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
               <button
                 type="button"
                 onClick={() => setShowAllRanking(!showAllRanking)}
-                className="px-4 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 {showAllRanking ? t('setlist.showLess') : t('setlist.showMoreTop30')}
               </button>
@@ -372,17 +372,17 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
 
       {/* あなたの投票した楽曲 */}
       {user && userVotes.length > 0 && (
-        <div className="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-md p-6">
+        <div className="bg-white/90 rounded-lg shadow-md p-6">
           <div className="flex items-center gap-3 mb-4">
-            <ThumbsUp className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <ThumbsUp className="h-6 w-6 text-purple-600" />
+            <h3 className="text-xl font-bold text-gray-900">
               {t('setlist.yourVotes')}
             </h3>
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            <span className="text-sm text-gray-600">
               ({userVotes.length}{t('setlist.songs')})
             </span>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <p className="text-sm text-gray-600 mb-3">
             {t('setlist.maxVotesNote')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -396,16 +396,16 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
               return (
                 <div
                   key={songUuid}
-                  className="flex items-center justify-between p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800"
+                  className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border border-purple-200"
                 >
                   <div className="flex items-center gap-2 flex-1 min-w-0">
-                    <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                    <span className="text-sm font-medium text-gray-900 truncate">
                       {displayName}
                     </span>
                   </div>
                   <div className="flex items-center gap-2 ml-2">
                     {voteCount > 0 && (
-                      <div className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center gap-1 text-xs text-gray-600">
                         <ThumbsUp className="h-3 w-3" />
                         <span>{voteCount}</span>
                       </div>
@@ -414,7 +414,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                       type="button"
                       onClick={(e) => handleVote(songUuid, displayName, e)}
                       disabled={isDeleting}
-                      className="flex-shrink-0 p-1.5 rounded-lg text-red-600 hover:bg-red-100 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-shrink-0 p-1.5 rounded-lg text-red-600 hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       title={t('setlist.removeVote')}
                     >
                       {isDeleting ? (
@@ -433,7 +433,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
               <button
                 type="button"
                 onClick={() => setShowAllUserVotes(!showAllUserVotes)}
-                className="px-4 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 {showAllUserVotes ? t('setlist.showLess') : t('setlist.showMoreMax20')}
               </button>
@@ -443,17 +443,17 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
       )}
 
       {/* 楽曲リストカード */}
-      <div className="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-md p-6">
+      <div className="bg-white/90 rounded-lg shadow-md p-6">
         <div className="mb-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Music className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              <Music className="h-6 w-6 text-purple-600" />
+              <h3 className="text-xl font-bold text-gray-900">
                 {t('setlist.songList')}
               </h3>
             </div>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          <p className="text-sm text-gray-600 mt-2">
             {t('setlist.rhetoricNote')}
           </p>
         </div>
@@ -465,7 +465,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
             placeholder={t('setlist.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 
@@ -480,7 +480,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                   className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                     selectedFormats.has(format)
                       ? 'bg-purple-600 text-white hover:bg-purple-700'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   {formatLabel(format)}
@@ -489,7 +489,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
               {selectedFormats.size > 0 && (
                 <button
                   onClick={() => setSelectedFormats(new Set())}
-                  className="px-3 py-1.5 text-sm font-medium rounded-lg bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-900/50"
+                  className="px-3 py-1.5 text-sm font-medium rounded-lg bg-red-100 text-red-700 hover:bg-red-200"
                 >
                   {t('setlist.clear')}
                 </button>
@@ -547,8 +547,8 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                 <div className="p-4" style={headerGradientStyle}>
                   {/* 上段: タイトル + formatタグ */}
                   <div className="flex items-center gap-2 mb-3">
-                    <Disc className={`h-5 w-5 flex-shrink-0 ${hasThemeColors ? 'text-white' : 'text-purple-600 dark:text-purple-400'}`} />
-                    <h3 className={`font-bold text-sm ${hasThemeColors ? 'text-white' : 'text-gray-900 dark:text-white'}`}>
+                    <Disc className={`h-5 w-5 flex-shrink-0 ${hasThemeColors ? 'text-white' : 'text-purple-600 '}`} />
+                    <h3 className={`font-bold text-sm ${hasThemeColors ? 'text-white' : 'text-gray-900 '}`}>
                       {group.title}
                     </h3>
                     {/* 直接投票カードではフォーマットタグは下段に表示するためここでは非表示 */}
@@ -556,9 +556,9 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                   
                   {/* 下段: 投票数 + 投票ボタン */}
                   <div className="flex items-center justify-between">
-                    <div className={`flex items-center gap-2 text-sm ${hasThemeColors ? 'text-white/90' : 'text-gray-600 dark:text-gray-400'}`}>
+                    <div className={`flex items-center gap-2 text-sm ${hasThemeColors ? 'text-white/90' : 'text-gray-600 '}`}>
                       {group.format && (
-                        <span className={`px-2 py-0.5 text-xs font-semibold rounded ${hasThemeColors ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'}`}>
+                        <span className={`px-2 py-0.5 text-xs font-semibold rounded ${hasThemeColors ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700 '}`}>
                           {formatLabel(group.format)}
                         </span>
                       )}
@@ -614,19 +614,19 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                 style={headerGradientStyle}
               >
                 <div className="flex items-center gap-3">
-                  <Disc className={`h-6 w-6 ${hasThemeColors ? 'text-white' : 'text-purple-600 dark:text-purple-400'}`} />
+                  <Disc className={`h-6 w-6 ${hasThemeColors ? 'text-white' : 'text-purple-600 '}`} />
                   <div className="text-left">
                     <div className="flex items-center gap-2">
-                      <h3 className={`font-bold ${hasThemeColors ? 'text-white' : 'text-gray-900 dark:text-white'}`}>
+                      <h3 className={`font-bold ${hasThemeColors ? 'text-white' : 'text-gray-900 '}`}>
                         {group.title}
                       </h3>
                       {group.format && (
-                        <span className={`px-2 py-0.5 text-xs font-semibold rounded ${hasThemeColors ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'}`}>
+                        <span className={`px-2 py-0.5 text-xs font-semibold rounded ${hasThemeColors ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700 '}`}>
                           {formatLabel(group.format)}
                         </span>
                       )}
                     </div>
-                    <div className={`flex items-center gap-3 mt-1 text-sm ${hasThemeColors ? 'text-white/90' : 'text-gray-600 dark:text-gray-400'}`}>
+                    <div className={`flex items-center gap-3 mt-1 text-sm ${hasThemeColors ? 'text-white/90' : 'text-gray-600 '}`}>
                       <span>{group.songs.length}{t('setlist.songUnit')}</span>
                       {groupVoteCount > 0 && (
                         <span className="flex items-center gap-1">
@@ -635,7 +635,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                         </span>
                       )}
                       {groupUserVotes > 0 && (
-                        <span className={`flex items-center gap-1 ${hasThemeColors ? 'text-white font-semibold' : 'text-purple-600 dark:text-purple-400'}`}>
+                        <span className={`flex items-center gap-1 ${hasThemeColors ? 'text-white font-semibold' : 'text-purple-600 '}`}>
                           <ThumbsUp className="h-3 w-3" />
                           {t('setlist.votedSongsCount', { count: groupUserVotes })}
                         </span>
@@ -663,16 +663,16 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                           key={song.songUuid}
                           className={`p-3 rounded-lg transition-colors ${
                             voted
-                              ? 'bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-500'
-                              : 'bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600'
+                              ? 'bg-purple-50 border-2 border-purple-500'
+                              : 'bg-white border border-gray-200'
                           }`}
                         >
                           {/* 上段: No. + 楽曲名 */}
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded bg-gray-200 dark:bg-gray-600 text-xs font-bold text-gray-700 dark:text-gray-300">
+                            <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded bg-gray-200 text-xs font-bold text-gray-700">
                               {songIndex + 1}
                             </span>
-                            <span className={`font-medium text-sm ${voted ? 'text-purple-900 dark:text-purple-100' : 'text-gray-900 dark:text-white'}`}>
+                            <span className={`font-medium text-sm ${voted ? 'text-purple-900 ' : 'text-gray-900 '}`}>
                               {song.songName}
                             </span>
                           </div>
@@ -680,7 +680,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                           {/* 下段: 投票数 + 投票ボタン */}
                           <div className="flex items-center justify-between">
                             {!isRhetoricAlbum && (
-                              <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                              <div className="flex items-center gap-1 text-sm text-gray-600">
                                 <ThumbsUp className="h-4 w-4" />
                                 <span className="font-medium">{voteCount > 0 ? voteCount : 0}{t('setlist.voteUnit')}</span>
                               </div>
@@ -694,7 +694,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                                   voted
                                     ? 'bg-green-600 text-white hover:bg-green-700'
-                                    : 'bg-white text-purple-600 hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-500'
+                                    : 'bg-white text-purple-600 hover:bg-gray-50 border border-gray-300'
                                 }`}
                               >
                                 {isVoting ? (
@@ -731,27 +731,27 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
           onClick={closeVotersModal}
         >
           <div 
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-hidden"
+            className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* モーダルヘッダー */}
-            <div className="flex flex-col gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col gap-3 p-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div className="flex-1 pr-8">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white truncate">
+                  <h3 className="text-lg font-bold text-gray-900 truncate">
                     {votersModalSong.songName}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-sm text-gray-600 mt-1">
                     {t('setlist.votersList')}
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={closeVotersModal}
-                  className="flex-shrink-0 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  className="flex-shrink-0 p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   aria-label="閉じる"
                 >
-                  <X className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                  <X className="h-5 w-5 text-gray-600" />
                 </button>
               </div>
               {/* 投票ボタン */}
@@ -766,7 +766,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                   className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                     isVoted(votersModalSong.songUuid)
                       ? 'bg-green-600 text-white hover:bg-green-700'
-                      : 'bg-white text-purple-600 hover:bg-gray-50 border border-purple-300 dark:bg-gray-700 dark:text-purple-400 dark:hover:bg-gray-600 dark:border-purple-600'
+                      : 'bg-white text-purple-600 hover:bg-gray-50 border border-purple-300'
                   }`}
                 >
                   {votingInProgress === votersModalSong.songUuid ? (
@@ -807,7 +807,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                   }
                 />
               ) : voters.length === 0 ? (
-                <div className="text-center py-8 text-gray-600 dark:text-gray-400">
+                <div className="text-center py-8 text-gray-600">
                   {t('setlist.noVoters')}
                 </div>
               ) : (
@@ -815,7 +815,7 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                   {voters.map((voter) => (
                     <div
                       key={voter.user_id}
-                      className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
                     >
                       {voter.avatar_url ? (
                         <img
@@ -824,12 +824,12 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                           className="w-10 h-10 rounded-full object-cover flex-shrink-0"
                         />
                       ) : (
-                        <div className="w-10 h-10 rounded-full bg-purple-200 dark:bg-purple-700 flex items-center justify-center flex-shrink-0">
-                          <Users className="h-5 w-5 text-purple-700 dark:text-purple-300" />
+                        <div className="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center flex-shrink-0">
+                          <Users className="h-5 w-5 text-purple-700" />
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                        <p className="text-sm font-medium text-gray-900 truncate">
                           {voter.username}
                         </p>
                       </div>
@@ -838,10 +838,10 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
                           href={`https://x.com/${voter.x_user_id}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-shrink-0 p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                          className="flex-shrink-0 p-2 hover:bg-gray-200 rounded-lg transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <svg className="h-4 w-4 text-gray-600 dark:text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                          <svg className="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                           </svg>
                         </a>
@@ -853,14 +853,14 @@ export const SetlistPrediction: React.FC<SetlistPredictionProps> = ({ discograph
             </div>
 
             {/* モーダルフッター */}
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="p-4 border-t border-gray-200 flex justify-between items-center">
+              <span className="text-sm text-gray-600">
                 {t('setlist.totalVoters', { count: voters.length })}
               </span>
               <button
                 type="button"
                 onClick={closeVotersModal}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 {t('setlist.close')}
               </button>

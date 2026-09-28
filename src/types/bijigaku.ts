@@ -50,9 +50,7 @@ export interface MetaTagDefinition {
   label: string
   emoji: string
   color: string       // Tailwind bg class
-  darkColor: string   // Tailwind dark bg class
   textColor: string
-  darkTextColor: string
 }
 
 /** 利用可能なメタタグ一覧 */
@@ -62,18 +60,14 @@ export const META_TAGS: MetaTagDefinition[] = [
     label: 'ライヴ初参戦',
     emoji: '🔰',
     color: 'bg-green-100',
-    darkColor: 'dark:bg-green-900/50',
     textColor: 'text-green-700',
-    darkTextColor: 'dark:text-green-300',
   },
   {
     key: 'reol_first',
     label: 'Reol初参戦',
     emoji: '✨',
     color: 'bg-purple-100',
-    darkColor: 'dark:bg-purple-900/50',
     textColor: 'text-purple-700',
-    darkTextColor: 'dark:text-purple-300',
   },
 ]
 

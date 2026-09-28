@@ -163,9 +163,9 @@ const VenueSelector: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       {/* 未ログイン警告 */}
       {!user && (
-        <div className="mb-6 p-5 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+        <div className="mb-6 p-5 bg-blue-50 rounded-lg border border-blue-200">
           <div className="flex flex-col items-center gap-4">
-            <p className="text-sm text-blue-700 dark:text-blue-300 text-center">
+            <p className="text-sm text-blue-700 text-center">
               {t('venueSelector.loginRequired')}
             </p>
             <LoginButton compact />
@@ -175,15 +175,15 @@ const VenueSelector: React.FC = () => {
 
       {/* プライバシー設定 */}
       {user && (
-      <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+      <div className="mb-6 p-4 bg-gray-50 rounded-lg">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             {isPublic ? (
-              <Eye className="h-4 w-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+              <Eye className="h-4 w-4 text-emerald-600 flex-shrink-0" />
             ) : (
-              <EyeOff className="h-4 w-4 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+              <EyeOff className="h-4 w-4 text-gray-500 flex-shrink-0" />
             )}
-            <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
+            <span className="text-sm font-medium text-gray-900 truncate">
               {isPublic ? t('venueSelector.publicStatus') : t('venueSelector.privateStatus')}
             </span>
           </div>
@@ -215,8 +215,8 @@ const VenueSelector: React.FC = () => {
               className={`
                 p-5 rounded-lg border-2 cursor-pointer transition-all duration-200
                 ${isSelected 
-                  ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20' 
-                  : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                  ? 'border-emerald-500 bg-emerald-50' 
+                  : 'border-gray-200 hover:border-gray-300'
                 }
                 ${!isUpcoming ? 'opacity-60' : ''}
               `}
@@ -228,17 +228,17 @@ const VenueSelector: React.FC = () => {
                     w-6 h-6 rounded-full border-2 flex items-center justify-center
                     ${isSelected 
                       ? 'border-emerald-500 bg-emerald-500' 
-                      : 'border-gray-300 dark:border-gray-600'
+                      : 'border-gray-300'
                     }
                   `}>
                     {isSelected && <Check className="h-4 w-4 text-white" />}
                   </div>
                   
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">
+                    <h3 className="font-semibold text-gray-900">
                       {venue.name}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600">
                       <div className="flex items-center">
                         <MapPin className="h-4 w-4 mr-1" />
                         {getPrefectureName(venue.location.prefecture)} {venue.location.city}
@@ -250,7 +250,7 @@ const VenueSelector: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-sm text-gray-500">
                   {!isUpcoming && t('venueSelector.finished')}
                 </div>
               </div>
@@ -258,7 +258,7 @@ const VenueSelector: React.FC = () => {
               {/* エンカトグル（選択済みかつログイン済みかつ基本方針設定済み） */}
               {isSelected && user && profile?.encounter_policy && (
                 <div
-                  className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700"
+                  className="mt-3 pt-3 border-t border-gray-200"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <EncounterVenueToggle
@@ -284,7 +284,7 @@ const VenueSelector: React.FC = () => {
         })}
       </div>
 
-      <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      <div className="mt-6 text-center text-sm text-gray-500">
         {t('venueSelector.selectedCount', { count: selectedVenues.length })}
       </div>
     </div>
@@ -322,13 +322,13 @@ const EncounterVenueToggle: React.FC<{
     <div className="flex items-center justify-between gap-2">
       <div className="flex items-center gap-2 min-w-0">
         <Coffee className={`w-4 h-4 flex-shrink-0 ${effectiveOk ? 'text-emerald-500' : 'text-gray-400'}`} />
-        <span className={`text-xs font-medium truncate ${effectiveOk ? 'text-emerald-700 dark:text-emerald-400' : 'text-gray-500 dark:text-gray-400'}`}>
+        <span className={`text-xs font-medium truncate ${effectiveOk ? 'text-emerald-700 ' : 'text-gray-500 '}`}>
           {effectiveOk
             ? (isEn ? 'Encounter OK' : 'エンカOK')
             : (isEn ? 'Not showing' : '表示しない')
           }
           {isOverridden && (
-            <span className="ml-1 text-[10px] text-gray-400 dark:text-gray-500">
+            <span className="ml-1 text-[10px] text-gray-400">
               ({isEn ? 'custom' : '個別設定'})
             </span>
           )}
@@ -341,7 +341,7 @@ const EncounterVenueToggle: React.FC<{
         aria-label={isEn ? 'Show encounter status at this venue' : 'この会場でエンカOKを表示する'}
         onClick={handleToggle}
         className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${
-          effectiveOk ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'
+          effectiveOk ? 'bg-emerald-500' : 'bg-gray-300'
         }`}
       >
         <span

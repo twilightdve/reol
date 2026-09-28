@@ -74,10 +74,10 @@ export const SectionCard: React.FC<SectionCardProps> = ({
   return (
     <div
       id={id}
-      className={`bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 backdrop-blur-sm ${className}`}
+      className={`bg-white/90 rounded-lg shadow-sm border border-gray-200 backdrop-blur-sm ${className}`}
     >
       <div className="section-header">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+        <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
           {icon}
           {title}
         </h3>
@@ -100,10 +100,10 @@ export const VenueListCard: React.FC<{
   return (
     <div
       id={id}
-      className="venue-list-card rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+      className="venue-list-card rounded-lg shadow-sm border border-gray-200"
     >
       <div className="section-header">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-2xl font-semibold text-gray-900">
           {title}
         </h2>
       </div>

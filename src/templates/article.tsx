@@ -19,7 +19,7 @@ const ArticlePage: React.FC<PageProps<{}, ArticlePageContext>> = ({ pageContext 
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <p className="text-6xl mb-4">📭</p>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            <h1 className="text-xl font-bold text-gray-900 mb-2">
               記事が見つかりません
             </h1>
             <a

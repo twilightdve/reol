@@ -72,7 +72,7 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
     switch (status) {
       case 'finished':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
             <CheckCircle2 className="h-3 w-3" />
             {t('timeline.finished', '終了')}
           </span>
@@ -145,10 +145,10 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
   return (
     <div id="tour-timeline-section" className="space-y-5">
       <div className="px-4">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-2xl font-semibold text-gray-900">
           {t('timeline.title', 'ツアー日程')}
         </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-600 mt-1">
           {t('timeline.description', '各公演をタップすると、会場アクセス・収容人数・参加者一覧などの詳細を確認できます')}
         </p>
         {attendingCount > 0 && (
@@ -162,7 +162,7 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
         <div className="mx-4">
           <button
             onClick={() => setShowFinished(prev => !prev)}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors w-full justify-center"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors w-full justify-center"
           >
             {showFinished ? (
               <ChevronUp className="h-4 w-4" />
@@ -186,7 +186,7 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
                 <Calendar className="h-4 w-4" />
                 {group.month.split('/')[1]}{t('timeline.month', '月')}
               </div>
-              <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600" />
+              <div className="flex-1 h-px bg-gray-300" />
             </div>
 
             {/* タイムラインアイテム */}
@@ -208,12 +208,12 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
                         to={`/bijigaku-navi/venue/${venue.id}/`}
                         className={`block rounded-lg p-3 transition-all border ${
                           isToday
-                            ? 'border-red-400 shadow-lg shadow-red-100 dark:shadow-red-900/20'
+                            ? 'border-red-400 shadow-lg shadow-red-100'
                             : isNext
-                            ? 'border-amber-400 shadow-md shadow-amber-100 dark:shadow-amber-900/20'
+                            ? 'border-amber-400 shadow-md shadow-amber-100'
                             : isAttending
-                            ? 'border-amber-300/60 dark:border-amber-600/40'
-                            : 'border-gray-200 dark:border-gray-700'
+                            ? 'border-amber-300/60'
+                            : 'border-gray-200'
                         } ${isFinished ? 'opacity-60' : 'hover:shadow-md hover:-translate-y-0.5'} transition-all duration-200`}
                         style={{
                           background: isFinished ? undefined : gradient,
@@ -222,7 +222,7 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
                         <div className={`${isFinished ? '' : 'text-white'}`}>
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className={`font-bold text-sm ${isFinished ? 'text-gray-700 dark:text-gray-300' : 'text-shadow-venue'}`}>
+                              <span className={`font-bold text-sm ${isFinished ? 'text-gray-700 ' : 'text-shadow-venue'}`}>
                                 {dateInfo.month}/{dateInfo.day}({dateInfo.dayOfWeek})
                               </span>
                               {getStatusBadge(status)}
@@ -239,11 +239,11 @@ const TourTimeline: React.FC<TourTimelineProps> = ({
                             )}
                           </div>
 
-                          <h3 className={`font-semibold ${isFinished ? 'text-gray-800 dark:text-gray-200' : 'text-shadow-venue'}`}>
+                          <h3 className={`font-semibold ${isFinished ? 'text-gray-800 ' : 'text-shadow-venue'}`}>
                             {venue.name}
                           </h3>
 
-                          <div className={`flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm mt-1 ${isFinished ? 'text-gray-600 dark:text-gray-400' : 'text-white/90'}`}>
+                          <div className={`flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm mt-1 ${isFinished ? 'text-gray-600 ' : 'text-white/90'}`}>
                             <span className="flex items-center gap-1">
                               <MapPin className="h-3 w-3" />
                               {getPrefectureName(venue.location.prefecture)}

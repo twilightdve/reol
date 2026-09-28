@@ -39,7 +39,7 @@ const VenueParkingSection: React.FC<VenueParkingSectionProps> = ({ venue }) => {
       <div className="p-6">
         {/* parkingInfo（公式サイトからの詳細情報） */}
         {venue.parkingInfo && (
-          <div className="mb-6 pb-6 border-b border-gray-600 dark:border-gray-600">
+          <div className="mb-6 pb-6 border-b border-gray-600">
             <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: theme.textColor }}>
               <ParkingCircle className="h-4 w-4 text-purple-400" />
               {t('parkingInfo.official')}
@@ -71,23 +71,23 @@ const VenueParkingSection: React.FC<VenueParkingSectionProps> = ({ venue }) => {
                   description={parking.description}
                   recommended={parking.recommended}
                   recommendComment={parking.recommendComment}
-                  icon={<ParkingCircle className="h-5 w-5 text-blue-600 dark:text-blue-400" />}
+                  icon={<ParkingCircle className="h-5 w-5 text-blue-600" />}
                 >
                   <div className="flex flex-wrap gap-2 mb-2">
                     {parking.distance && (
-                      <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded">
+                      <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
                         <MapPin className="h-3 w-3" />
                         {parking.distance}
                       </span>
                     )}
                     {parking.price && (
-                      <span className="inline-flex items-center text-xs bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded">
+                      <span className="inline-flex items-center text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
                         {parking.price}
                       </span>
                     )}
                   </div>
                   {parking.address && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{t('labels.address')}: {parking.address}</p>
+                    <p className="text-xs text-gray-500 mb-2">{t('labels.address')}: {parking.address}</p>
                   )}
                   <div className="flex gap-2">
                     {parking.website && (
@@ -95,7 +95,7 @@ const VenueParkingSection: React.FC<VenueParkingSectionProps> = ({ venue }) => {
                         href={parking.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800"
                       >
                         <Globe className="h-3 w-3" />
                         {t('buttons.detailsReservation')}
@@ -107,7 +107,7 @@ const VenueParkingSection: React.FC<VenueParkingSectionProps> = ({ venue }) => {
                         href={parking.mapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800"
                       >
                         <MapPin className="h-3 w-3" />
                         {t('buttons.map')}
@@ -120,7 +120,7 @@ const VenueParkingSection: React.FC<VenueParkingSectionProps> = ({ venue }) => {
             </ul>
           </div>
         ) : !venue.parkingInfo && (
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             {t('messages.noDataRegistered')}
           </p>
         )}
