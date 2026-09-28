@@ -50,7 +50,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ compact = false, onProfileCli
   return (
     <button
       onClick={onProfileClick}
-      className="w-full flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+      className="w-full flex items-center justify-between p-4 bg-white border-b border-gray-200 hover:bg-gray-50 transition-colors"
     >
       <div className="flex items-center space-x-3">
         <ProfileAvatar
@@ -60,10 +60,10 @@ const UserProfile: React.FC<UserProfileProps> = ({ compact = false, onProfileCli
           size="small"
         />
         <div className="text-left">
-          <p className="text-sm font-medium text-gray-900 dark:text-white">
+          <p className="text-sm font-medium text-gray-900">
             {displayName}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="text-xs text-gray-500">
             @{profile.username}
           </p>
         </div>

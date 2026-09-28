@@ -18,17 +18,17 @@ const RouteCard: React.FC<{ route: AccessRoute; timeColorClass: string }> = ({ r
   <div className="bg-white p-4 rounded-lg border border-gray-200">
     <div className="flex items-start justify-between mb-2">
       <div className="flex-1">
-        <h5 className="font-semibold text-gray-900 dark:text-white">{route.from}</h5>
-        <p className="text-sm text-gray-600 dark:text-gray-400">{route.method}</p>
+        <h5 className="font-semibold text-gray-900">{route.from}</h5>
+        <p className="text-sm text-gray-600">{route.method}</p>
       </div>
       <div className="text-right">
         <p className={`text-sm font-medium ${timeColorClass}`}>{route.time}</p>
-        {route.cost && <p className="text-xs text-gray-500 dark:text-gray-400">{route.cost}</p>}
+        {route.cost && <p className="text-xs text-gray-500">{route.cost}</p>}
       </div>
     </div>
-    <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">{route.description}</p>
+    <p className="text-sm text-gray-700 mb-2">{route.description}</p>
     {route.notes && (
-      <p className="text-xs text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 p-2 rounded">
+      <p className="text-xs text-orange-600 bg-orange-50 p-2 rounded">
         ⚠️ {route.notes}
       </p>
     )}
@@ -74,7 +74,7 @@ const VenueAccessSection: React.FC<VenueAccessSectionProps> = ({ venue }) => {
               {t('accessInfo.subtitle')}
             </h4>
             <div className="bg-white p-4 rounded-lg border border-gray-200">
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
                 {venue.access}
               </p>
             </div>
@@ -90,7 +90,7 @@ const VenueAccessSection: React.FC<VenueAccessSectionProps> = ({ venue }) => {
             </h4>
             <div className="space-y-4">
               {venue.longDistanceAccess.fromAirport.map((route: AccessRoute, index: number) => (
-                <RouteCard key={index} route={route} timeColorClass="text-blue-600 dark:text-blue-400" />
+                <RouteCard key={index} route={route} timeColorClass="text-blue-600" />
               ))}
             </div>
           </div>
@@ -105,7 +105,7 @@ const VenueAccessSection: React.FC<VenueAccessSectionProps> = ({ venue }) => {
             </h4>
             <div className="space-y-4">
               {venue.longDistanceAccess.fromShinkansen.map((route: AccessRoute, index: number) => (
-                <RouteCard key={index} route={route} timeColorClass="text-green-600 dark:text-green-400" />
+                <RouteCard key={index} route={route} timeColorClass="text-green-600" />
               ))}
             </div>
           </div>
@@ -120,7 +120,7 @@ const VenueAccessSection: React.FC<VenueAccessSectionProps> = ({ venue }) => {
             </h4>
             <div className="space-y-4">
               {venue.longDistanceAccess.fromExpressBus.map((route: AccessRoute, index: number) => (
-                <RouteCard key={index} route={route} timeColorClass="text-purple-600 dark:text-purple-400" />
+                <RouteCard key={index} route={route} timeColorClass="text-purple-600" />
               ))}
             </div>
           </div>
@@ -137,7 +137,7 @@ const VenueAccessSection: React.FC<VenueAccessSectionProps> = ({ venue }) => {
             </h4>
             <div className="space-y-4">
               {venue.longDistanceAccess.fromCar.map((route: AccessRoute, index: number) => (
-                <RouteCard key={index} route={route} timeColorClass="text-orange-600 dark:text-orange-400" />
+                <RouteCard key={index} route={route} timeColorClass="text-orange-600" />
               ))}
             </div>
           </div>

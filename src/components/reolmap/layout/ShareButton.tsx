@@ -378,12 +378,12 @@ const ShareButton: React.FC<ShareButtonProps> = ({
   return (
     <div id="share-section" className="space-y-5">
       <div className="px-4">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-gray-900">
           {t('share.sectionTitle', 'シェアカード')}
         </h3>
       </div>
 
-      <div className="mx-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+      <div className="mx-4 rounded-lg bg-white border border-gray-200 shadow-sm overflow-hidden">
         {/* Canvas プレビュー */}
         <canvas
           ref={previewCanvasRef}
@@ -395,7 +395,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
           <button
             onClick={handleDownloadImage}
             disabled={isGenerating}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors shadow-sm disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors shadow-sm disabled:opacity-50"
           >
             {isGenerating ? (
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -410,7 +410,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
             className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
               isCopied
                 ? 'bg-emerald-500 text-white scale-105'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             {isCopied ? (

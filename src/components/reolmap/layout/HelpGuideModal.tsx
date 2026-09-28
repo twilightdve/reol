@@ -99,21 +99,21 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full overflow-hidden"
+        className="bg-white rounded-lg shadow-xl max-w-2xl w-full overflow-hidden"
         style={{ maxHeight: LAYOUT.MODAL_MAX_HEIGHT }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
-        <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between p-5 border-b border-gray-200">
           <div className="flex items-center space-x-3">
             <span className="text-2xl">📖</span>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-xl font-bold text-gray-900">
               {isEn ? 'How to Use Bijigaku Navi' : '美辞学ナビの使い方'}
             </h2>
           </div>
           <button aria-label={isEn ? 'Close' : '閉じる'}
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <X className="h-6 w-6" />
           </button>
@@ -125,7 +125,7 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
           style={{ maxHeight: LAYOUT.MODAL_BODY_MAX_HEIGHT }}
         >
           {/* イントロ */}
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-sm text-gray-600 leading-relaxed">
             {isEn
               ? 'Bijigaku Navi is a fan-made web app to make Reol\'s "Bijigaku" tour even more enjoyable. Here\'s a quick guide to all the features.'
               : '美辞学ナビは、Reol「美辞学」ツアーをもっと楽しむためのファンメイドWebアプリです。各機能をかんたんにご紹介します。'}
@@ -134,7 +134,7 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
           {/* セクション */}
           {GUIDE_SECTIONS.map((section, idx) => (
             <div key={idx} className="space-y-2">
-              <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center space-x-2">
+              <h3 className="text-base font-bold text-gray-900 flex items-center space-x-2">
                 <span>{section.emoji}</span>
                 <span>{isEn ? section.titleEn : section.titleJa}</span>
               </h3>
@@ -142,7 +142,7 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
                 {section.items.map((item, itemIdx) => (
                   <li
                     key={itemIdx}
-                    className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed pl-2 border-l-2 border-gray-200 dark:border-gray-600"
+                    className="text-sm text-gray-600 leading-relaxed pl-2 border-l-2 border-gray-200"
                   >
                     {isEn ? item.en : item.ja}
                   </li>
@@ -152,8 +152,8 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
           ))}
 
           {/* フッター */}
-          <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
+          <div className="pt-3 border-t border-gray-200">
+            <p className="text-xs text-gray-400 text-center">
               {isEn
                 ? 'Just dive in and explore — enjoy the Bijigaku tour! 🎤✨'
                 : 'わからないことがあっても、使いながら慣れていけば大丈夫。美辞学ツアーを楽しもう！🎤✨'}

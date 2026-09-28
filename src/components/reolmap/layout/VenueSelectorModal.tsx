@@ -24,18 +24,18 @@ const VenueSelectorModal: React.FC<VenueSelectorModalProps> = ({ isOpen, onClose
       onClick={onClose}
     >
       <div
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full overflow-hidden"
+        className="bg-white rounded-lg shadow-xl max-w-4xl w-full overflow-hidden"
         style={{ maxHeight: LAYOUT.MODAL_MAX_HEIGHT }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900">
             {t('mainPage.venueSettings')}
           </h2>
           <button aria-label={t('ui.close')}
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="text-gray-400 hover:text-gray-600"
           >
             <span className="text-2xl">×</span>
           </button>

@@ -22,11 +22,11 @@ const SetlistPredictionContent = ({ discographyGroups }: any) => {
       }}
     >
       {/* ヘッダー */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 relative z-10">
+      <header className="bg-white shadow-sm border-b border-gray-200 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link
             to="/bijigaku-navi/"
-            className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium"
+            className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
             {t('setlist.backToNavi')}

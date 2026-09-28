@@ -141,11 +141,11 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
   const cardClassName = [
     'rounded-lg p-4 border shadow-sm hover:shadow-md transition-shadow',
     isCurrentUser
-      ? 'bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-      : 'bg-white dark:bg-gray-800',
+      ? 'bg-gray-200 border-gray-300'
+      : 'bg-white',
     !isCurrentUser && sharedVenueCount > 0
-      ? 'border-amber-300 dark:border-amber-600 ring-1 ring-amber-200 dark:ring-amber-700'
-      : !isCurrentUser ? 'border-gray-200 dark:border-gray-700' : '',
+      ? 'border-amber-300 ring-1 ring-amber-200'
+      : !isCurrentUser ? 'border-gray-200' : '',
   ].filter(Boolean).join(' ')
 
   // Reolタイプ情報を取得
@@ -219,8 +219,8 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
               onClick={onEncounterPolicyToggle}
               className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-colors ${
                 encounterPolicy === 'ok'
-                  ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-300 dark:hover:bg-emerald-800/60'
-                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-400 dark:hover:bg-gray-500'
+                  ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
               }`}
               title={t('encounter.togglePolicy', { defaultValue: 'エンカ方針を切り替え' })}
             >
@@ -238,8 +238,8 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
                 onClick={() => handleMetaTagToggle(tag.key)}
                 className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-colors ${
                   active
-                    ? `${tag.color} ${tag.darkColor} ${tag.textColor} ${tag.darkTextColor}`
-                    : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-500 dark:hover:bg-gray-500'
+                    ? `${tag.color} ${tag.textColor}`
+                    : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
                 }`}
               >
                 {tag.emoji} {tag.label}
@@ -258,7 +258,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
           {META_TAGS.filter(tag => metaTags.includes(tag.key)).map(tag => (
             <span
               key={tag.key}
-              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap ${tag.color} ${tag.darkColor} ${tag.textColor} ${tag.darkTextColor}`}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap ${tag.color} ${tag.textColor}`}
             >
               {tag.emoji} {tag.label}
             </span>
@@ -286,16 +286,16 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
               href={xUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-gray-900 dark:text-white truncate hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="font-semibold text-gray-900 truncate hover:text-blue-600 transition-colors"
             >
               {displayName}
             </a>
             {isCurrentUser ? (
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-gray-200 text-gray-600 dark:bg-gray-600 dark:text-gray-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-gray-200 text-gray-600 whitespace-nowrap">
                 {t('attendees.you', 'あなた')}
               </span>
             ) : sharedVenueCount > 0 ? (
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 whitespace-nowrap">
                 {t('attendees.sharedVenues', '🤝 {{count}}会場一緒', { count: sharedVenueCount })}
               </span>
             ) : null}
@@ -305,7 +305,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
               href={xUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              className="text-xs text-gray-500 hover:text-blue-500 transition-colors"
             >
               @{userId}
             </a>
@@ -323,18 +323,18 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
               </a>
             )}
             {encounterOk && !isCurrentUser && (
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 whitespace-nowrap">
                 ☕ {t('encounter.okBadge', { defaultValue: 'エンカOK' })}
               </span>
             )}
             {!isCurrentUser && encounterWantCount > 0 && (
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-pink-100 text-pink-600 dark:bg-pink-900/50 dark:text-pink-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-pink-100 text-pink-600 whitespace-nowrap">
                 <Heart className="w-2.5 h-2.5 fill-current" />
                 {encounterWantCount}
               </span>
             )}
             {encounterMutual && (
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-300 whitespace-nowrap animate-pulse">
+              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-600 whitespace-nowrap animate-pulse">
                 💕
               </span>
             )}
@@ -348,7 +348,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
           <CommentForm onCommentPosted={onCommentPosted} />
         </div>
       ) : comment ? (
-        <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-700/50 rounded text-sm text-gray-700 dark:text-gray-300">
+        <div className="mt-3 p-3 bg-gray-50 rounded text-sm text-gray-700">
           {comment}
         </div>
       ) : null}
@@ -359,8 +359,8 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
           onClick={() => onEncounterWantToggle(userId)}
           className={`absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold transition-colors ${
             encounterWanted
-              ? 'bg-pink-100 text-pink-600 hover:bg-pink-200 dark:bg-pink-900/50 dark:text-pink-300 dark:hover:bg-pink-800/60'
-              : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-500 dark:hover:bg-gray-500'
+              ? 'bg-pink-100 text-pink-600 hover:bg-pink-200'
+              : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
           }`}
           title={encounterWanted ? 'エンカしたいを解除' : 'エンカしたい'}
         >
@@ -371,7 +371,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
 
       {/* 詳細エリア（常時表示） */}
       {(
-        <div className={`${isCurrentUser ? 'mt-3' : 'mt-2 pt-2 border-t border-gray-200 dark:border-gray-600'} space-y-2.5`}>
+        <div className={`${isCurrentUser ? 'mt-3' : 'mt-2 pt-2 border-t border-gray-200 '} space-y-2.5`}>
           {/* エンカOK + メタタグを横一列 */}
           {renderBadgeRow()}
 
@@ -383,7 +383,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
             <div className="space-y-1.5">
               {favoriteSong ? (
                 <div className="flex items-center gap-1.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700">
                     <Music className="w-3 h-3" />
                     {favoriteSong}
                   </span>
@@ -396,7 +396,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
                   </button>
                   <button
                     onClick={() => setShowSongPicker(!showSongPicker)}
-                    className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
                   >
                     変更
                   </button>
@@ -404,20 +404,20 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
               ) : (
                 <button
                   onClick={() => setShowSongPicker(!showSongPicker)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-500 dark:hover:bg-gray-500 transition-colors"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-400 hover:bg-gray-200 transition-colors"
                 >
                   <Music className="w-3 h-3" />
                   推し曲を設定
                 </button>
               )}
               {showSongPicker && (
-                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-2 space-y-1.5">
+                <div className="bg-gray-50 rounded-lg p-2 space-y-1.5">
                   <input
                     type="text"
                     value={songSearch}
                     onChange={e => setSongSearch(e.target.value)}
                     placeholder="曲名で検索..."
-                    className="w-full px-2.5 py-1.5 text-xs rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-1 focus:ring-green-400"
+                    className="w-full px-2.5 py-1.5 text-xs rounded border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-1 focus:ring-green-400"
                   />
                   <div className="max-h-40 overflow-y-auto space-y-0.5">
                     {allSongs
@@ -431,14 +431,14 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
                             setShowSongPicker(false)
                             setSongSearch('')
                           }}
-                          className={`w-full text-left px-2 py-1 text-xs rounded hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors ${
+                          className={`w-full text-left px-2 py-1 text-xs rounded hover:bg-green-100 transition-colors ${
                             favoriteSong === song.songName
-                              ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'
-                              : 'text-gray-700 dark:text-gray-300'
+                              ? 'bg-green-100 text-green-700'
+                              : 'text-gray-700'
                           }`}
                         >
                           <span className="font-medium">{song.songName}</span>
-                          <span className="ml-1.5 text-gray-400 dark:text-gray-500 text-[10px]">{song.discographyTitle}</span>
+                          <span className="ml-1.5 text-gray-400 text-[10px]">{song.discographyTitle}</span>
                         </button>
                       ))}
                   </div>
@@ -450,7 +450,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
           {/* 推し曲Spotifyプレイヤー（全員のカード） */}
           {favoriteSongData?.spotifyTrackId && (
             <div className="mt-1 space-y-1">
-              <div className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-bold">
+              <div className="flex items-center gap-1 text-xs text-green-600 font-bold">
                 <Music className="w-3 h-3" />
                 <span>推し曲: {favoriteSong}</span>
               </div>
@@ -469,7 +469,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
 
           {/* 推し曲バッジ（他人のカード、Spotifyなし） */}
           {!isCurrentUser && favoriteSong && !favoriteSongData?.spotifyTrackId && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 whitespace-nowrap">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 whitespace-nowrap">
               <Music className="w-3 h-3" />
               {favoriteSong}
             </span>

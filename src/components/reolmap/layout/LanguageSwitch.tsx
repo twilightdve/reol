@@ -14,7 +14,7 @@ const LanguageSwitch: React.FC<LanguageSwitchProps> = ({ variant = 'dark' }) => 
   };
 
   const className = variant === 'light'
-    ? 'flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200'
+    ? 'flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors text-gray-700'
     : 'flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-white/30 hover:bg-white/10 transition-colors text-white'
 
   return (

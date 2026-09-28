@@ -60,24 +60,6 @@
     padding: 0.75rem 1rem;
   }
 
-  /* --- 宿泊施設セクション専用の背景色 --- */
-  .accommodation-section-bg {
-    background-color: rgba(243, 244, 246, 0.95) !important;
-    border-color: rgba(209, 213, 219, 1) !important;
-  }
-
-  .dark .accommodation-section-bg {
-    background-color: rgba(3, 7, 18, 0.95) !important;
-    border-color: rgba(75, 85, 99, 1) !important;
-  }
-
-  .accommodation-section-border {
-    border-color: rgba(209, 213, 219, 1) !important;
-  }
-
-  .dark .accommodation-section-border {
-    border-color: rgba(75, 85, 99, 1) !important;
-  }
 }
 
 :root {

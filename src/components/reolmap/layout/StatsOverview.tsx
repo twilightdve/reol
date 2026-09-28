@@ -27,7 +27,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
 
   return (
     <div className="text-center space-y-4">
-      <p className="text-lg text-gray-600 dark:text-gray-300">
+      <p className="text-lg text-gray-600">
         {t('mainPage.checkVenueInfo')}
       </p>
 
@@ -40,7 +40,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
       <div className="flex justify-center gap-6 w-full px-4">
         {/* 総参加表明者カード */}
         <div
-          className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center w-64 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200"
+          className="bg-white rounded-lg shadow-md p-6 text-center w-64 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200"
           onClick={() => {
             document.getElementById('attendees-section')?.scrollIntoView({
               behavior: 'smooth',
@@ -51,13 +51,13 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
         >
           <div className="flex flex-col items-center gap-3">
             <span className="text-4xl">👥</span>
-            <div className="text-gray-600 dark:text-gray-400 text-sm whitespace-nowrap">
+            <div className="text-gray-600 text-sm whitespace-nowrap">
               {t('venueList.totalAttendees')}
             </div>
-            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 whitespace-nowrap">
+            <div className="text-3xl font-bold text-orange-600 whitespace-nowrap">
               {totalAttendees}{t('venueList.people')}
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+            <div className="text-xs text-gray-500 mt-1">
               {t('venueList.tapToView')}
             </div>
           </div>
@@ -65,20 +65,20 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
 
         {/* あなたの参加カード */}
         <div
-          className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center w-64 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200"
+          className="bg-white rounded-lg shadow-md p-6 text-center w-64 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200"
           onClick={onOpenVenueSelector}
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-4xl">🏠</span>
-            <div className="text-gray-600 dark:text-gray-400 text-sm whitespace-nowrap">
+            <div className="text-gray-600 text-sm whitespace-nowrap">
               {userDisplayName
                 ? t('venueList.userAttendance', { name: userDisplayName })
                 : t('venueList.yourAttendance')}
             </div>
-            <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+            <div className="text-3xl font-bold text-emerald-600 whitespace-nowrap">
               {selectedVenuesCount}{t('mainPage.venuesCount')}
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+            <div className="text-xs text-gray-500 mt-1">
               {t('venueList.tapToEdit')}
             </div>
           </div>

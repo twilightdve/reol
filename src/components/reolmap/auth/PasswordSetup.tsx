@@ -64,10 +64,10 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
       <div className="flex items-center gap-2 mb-6">
-        <Lock className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        <Lock className="h-5 w-5 text-emerald-600" />
+        <h2 className="text-2xl font-semibold text-gray-900">
           {t('auth.passwordSetup')}
         </h2>
       </div>
@@ -75,7 +75,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
       <form onSubmit={handleSetPassword} className="space-y-4">
         {/* 現在のパスワード */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             {t('auth.currentPassword')}
           </label>
           <div className="relative">
@@ -83,14 +83,14 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
               type={showCurrentPassword ? 'text' : 'password'}
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white text-gray-900"
               placeholder={t('auth.currentPassword')}
               required
             />
             <button
               type="button"
               onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
               {showCurrentPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -99,7 +99,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
 
         {/* 新しいパスワード */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             {t('auth.newPassword')}
           </label>
           <div className="relative">
@@ -107,7 +107,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
               type={showNewPassword ? 'text' : 'password'}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white text-gray-900"
               placeholder={t('auth.min8chars')}
               required
               minLength={8}
@@ -115,19 +115,19 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
             <button
               type="button"
               onClick={() => setShowNewPassword(!showNewPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
               {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
           </div>
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-xs text-gray-500">
             {t('auth.passwordRecommendation')}
           </p>
         </div>
 
         {/* パスワード確認 */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             {t('auth.confirmPassword')}
           </label>
           <div className="relative">
@@ -135,7 +135,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
               type={showConfirmPassword ? 'text' : 'password'}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white text-gray-900"
               placeholder={t('auth.confirmPassword')}
               required
               minLength={8}
@@ -143,7 +143,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
               {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -156,7 +156,7 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
             >
               {t('auth.cancel')}
             </button>
@@ -172,8 +172,8 @@ const PasswordSetup: React.FC<PasswordSetupProps> = ({ onClose }) => {
       </form>
 
       {/* 注意事項 */}
-      <div className="mt-6 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
-        <p className="text-xs text-amber-800 dark:text-amber-200">
+      <div className="mt-6 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+        <p className="text-xs text-amber-800">
           <strong>{t('auth.passwordNote').split(':')[0]}:</strong> {t('auth.passwordNote').split(':')[1]}
         </p>
       </div>

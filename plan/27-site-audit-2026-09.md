@@ -86,7 +86,7 @@
 - `tailwind.config.js` の `content` に `src/templates` と `src/features` が入っていない
 - そのため `on-this-day.tsx`(`bg-black/25` など)や `reol-type-detail.tsx` の一部のクラスが生成されていない
 - テンプレートの13クラスは、design-preview がたまたま同じクラスを使っているおかげで生成されている。**design-preview を外す前に content を直す必要がある**
-- `darkMode` が未指定(= media)なので、`dark:` の721か所はサイトのテーマ切り替えではなく OS の設定に従う。テーマ切り替えとの関係は要確認
+- `darkMode` が未指定(= media)なので、`dark:` の721か所はサイトのテーマ切り替えではなく OS の設定に従う。テーマ切り替えとの関係は要確認 → 誤り。flowbite プラグインが "class" にしており、`dark:` は効いていなかった(2026-09-28 整理済み)
 
 ### P1-4 Service Worker が古い版を出し続ける【コードで確定/体感は要確認】【2026-09-27 対応済み: onServiceWorkerUpdateReady で再読み込み】
 
@@ -253,7 +253,7 @@ supabase-js と flowbite 本体は共通JSから外した。
 
 P3 の残り:
 - 旧色 `#D2AF57` のコントラスト(美辞学ナビとデザインプレビューだけで使用。デザイン判断のため未変更)
-- Tailwind の `darkMode` 未指定(OS 設定に従う)。テーマ切り替えとの関係は未整理
+- ~~Tailwind の `darkMode` 未指定~~ → 2026-09-28 整理。調べ直すと、flowbite プラグインが darkMode を "class" にしていたため「OS 設定に従う」という当初の見立ては誤りで、`.dark` クラスがどこにも付かないので `dark:`(約720か所・美辞学ナビのみ)は一度も効いていなかった。darkMode を "selector" として明示し、効いていない `dark:` と未使用CSSを削除、flowbite-react の走査対象も使う4コンポーネントに絞った。全ページ共通CSSは 209KB → 166KB(gzip 37.8KB → 32.7KB)。見た目は変わらない
 - シート由来の不適切なスラッグ(`/songs/0/` など)
 - ~~どこからも使われていない Google Maps 系コンポーネント~~ → 2026-09-28 削除済み(ユーザー確認済み)
 - 聖地マップの地図が「API KEY REQUIRED」になっていた → CARTO のベースマップが API キー必須になったため。2026-09-28 に開催地マップと同じ OpenStreetMap のタイルへ切り替えた

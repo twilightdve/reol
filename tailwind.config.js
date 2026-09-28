@@ -11,21 +11,36 @@ const colors = require("tailwindcss/colors");
 //   }s infinite`;
 // });
 
+// Tailwind v3 で改名済みの旧色名。colors を丸ごと展開するとアクセスのたびに警告が出るため除く
+const DEPRECATED_COLOR_NAMES = ["lightBlue", "warmGray", "trueGray", "coolGray", "blueGray"];
+const currentColors = Object.fromEntries(
+  Object.entries(Object.getOwnPropertyDescriptors(colors))
+    .filter(([name]) => !DEPRECATED_COLOR_NAMES.includes(name))
+    .map(([name, descriptor]) => [name, descriptor.value ?? descriptor.get?.()])
+);
+
 const config = {
   future: {
     hoverOnlyWhenSupported: true,
   },
+  // サイトのライト/ダーク切り替えは <html> の `light` クラスと bx-* の CSS 変数で行う
+  // (src/hooks/useTheme.ts・src/styles/global.scss)。Tailwind の `dark:` は使わない。
+  // flowbite のプラグインが既定で darkMode を "class" にするため、ここで明示しておく
+  // (`.dark` クラスはどこでも付けないので `dark:` を書いても効かない。OS の設定にも従わない)。
+  darkMode: "selector",
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/templates/**/*.{js,jsx,ts,tsx}",
     "./src/features/**/*.{js,jsx,ts,tsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    // flowbite-react は実際に使っているコンポーネント(Badge / Button / Spinner / Timeline)の
+    // テーマだけを走査する(パッケージ全体を走査すると使わないクラスまで全ページのCSSに入る)
+    "node_modules/flowbite-react/lib/esm/components/{Badge,Button,Spinner,Timeline}/**/*.js",
   ],
   theme: {
     colors: {
-      // デフォルトのTailwind色を維持
-      ...colors,
+      // デフォルトのTailwind色を維持(改名済みの旧色名は除く)
+      ...currentColors,
       // カスタム色を追加
       // 背景に空グラデーション (青) を敷くため、UI のテーマカラーは
       // 補色側のゴールドを採用し、その上に載せる文字色は青 (letter) にする。
@@ -112,7 +127,7 @@ const config = {
     },
     extend: {
       colors: {
-        ...colors,
+        // 標準色は theme.colors 側で展開済み
         // 美辞学ナビ用カラー
         bijigaku: {
           header: '#977c30',
