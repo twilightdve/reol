@@ -8,6 +8,7 @@ import { LiveInfo } from "../../../types/live";
 import { trackEvent } from "../../../utils/analytics";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { normalizeSongName } from "../../../utils/songMatcher";
+import HeardSongsShare from "../live/HeardSongsShare";
 
 interface LiveSectionProps {
   liveInfos: LiveInfo[];
@@ -56,6 +57,7 @@ type SongTally = { key: string; name: string; plays: number };
 const tallyLiveSongs = (liveInfos: LiveInfo[]) => {
   const songs = new Map<string, SongTally>();
   const keysByItem = new Map<string, Set<string>>();
+  const yearByItem = new Map<string, number>();
   for (const live of liveInfos) {
     for (const item of live.items ?? []) {
       const keys = new Set<string>();
@@ -69,9 +71,11 @@ const tallyLiveSongs = (liveInfos: LiveInfo[]) => {
         else songs.set(key, { key, name, plays: 1 });
       }
       keysByItem.set(item.liveItemUuid, keys);
+      const year = parseInt((item.date ?? "").slice(0, 4), 10);
+      if (!isNaN(year)) yearByItem.set(item.liveItemUuid, year);
     }
   }
-  return { songs, keysByItem };
+  return { songs, keysByItem, yearByItem };
 };
 
 const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
@@ -109,6 +113,28 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
   const heardSongs = allSongs.filter((s) => heardKeys.has(s.key));
   const unheardSongs = allSongs.filter((s) => !heardKeys.has(s.key));
   const heardRate = allSongs.length > 0 ? Math.round((heardSongs.length / allSongs.length) * 100) : 0;
+
+  // シェアカード用: 参戦開始年と、参戦した公演で多く聴いた曲 TOP3
+  const shareStats = useMemo(() => {
+    const countByKey = new Map<string, number>();
+    let sinceYear: number | null = null;
+    let shows = 0;
+    if (mounted) {
+      for (const uuid of attended) {
+        const keys = tally.keysByItem.get(uuid);
+        if (!keys) continue;
+        shows += 1;
+        const y = tally.yearByItem.get(uuid);
+        if (y !== undefined && (sinceYear === null || y < sinceYear)) sinceYear = y;
+        for (const k of keys) countByKey.set(k, (countByKey.get(k) ?? 0) + 1);
+      }
+    }
+    const topSongs = Array.from(countByKey.entries())
+      .sort((a, b) => b[1] - a[1] || (tally.songs.get(b[0])?.plays ?? 0) - (tally.songs.get(a[0])?.plays ?? 0))
+      .slice(0, 3)
+      .map(([k, count]) => ({ name: tally.songs.get(k)?.name ?? "", count }));
+    return { heard: heardKeys.size, total: tally.songs.size, shows, sinceYear, topSongs };
+  }, [attended, mounted, tally, heardKeys]);
 
   return (
     <section
@@ -178,6 +204,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
                     ))}
                   </ul>
                 </details>
+                <HeardSongsShare stats={shareStats} />
               </div>
             )}
           </div>
