@@ -24,7 +24,7 @@ export const GuestMenu: React.FC<GuestMenuProps> = ({ onClose }) => {
       <div className="fixed right-0 top-0 h-screen w-80 max-w-full bg-bx-bg border-l border-bx-line shadow-2xl z-50 overflow-y-auto">
         <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-bx-line">
           <h2 className="text-xl font-bold text-bx-ink">メニュー</h2>
-          <button onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
+          <button aria-label="閉じる" onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
             <X className="h-6 w-6" />
           </button>
         </div>

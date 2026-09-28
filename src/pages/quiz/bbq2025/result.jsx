@@ -35,7 +35,7 @@ const ResultPage = () => {
             （{correctCount} / {quizData.length}問）
           </div>
           <div className="w-32 h-32">
-            <img className="" src={resultImage} />
+            <img className="" src={resultImage} alt="" />
           </div>
         </div>
         {quizData.map((q, idx) => (

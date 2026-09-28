@@ -53,7 +53,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ onClos
             <Lock className="h-5 w-5" />
             パスワード変更
           </h3>
-          <button onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
+          <button aria-label="閉じる" onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
             <X className="h-5 w-5" />
           </button>
         </div>

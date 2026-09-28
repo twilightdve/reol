@@ -552,12 +552,7 @@ export const posts = [
         src: images.bdk2,
       },
     ],
-    links: [
-      {
-        title: "参加フラスタ Webコンテンツ",
-        url: "/fs/20240817/",
-      },
-    ],
+    links: [],
     relatedPosts: [],
   },
   {

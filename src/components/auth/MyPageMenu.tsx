@@ -75,7 +75,7 @@ export const MyPageMenu: React.FC<MyPageMenuProps> = ({ onClose }) => {
       <div className="fixed right-0 top-0 h-screen w-80 max-w-full bg-bx-bg border-l border-bx-line shadow-2xl z-50 overflow-y-auto">
         <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-bx-line">
           <h2 className="text-xl font-bold text-bx-ink">マイページ</h2>
-          <button onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
+          <button aria-label="閉じる" onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
             <X className="h-6 w-6" />
           </button>
         </div>
@@ -104,17 +104,17 @@ export const MyPageMenu: React.FC<MyPageMenuProps> = ({ onClose }) => {
                       if (e.key === 'Escape') setIsEditingName(false)
                     }}
                   />
-                  <button onClick={handleNameSave} disabled={isSaving} className="text-green-500 hover:opacity-80">
+                  <button aria-label="保存" onClick={handleNameSave} disabled={isSaving} className="text-green-500 hover:opacity-80">
                     <Check className="h-4 w-4" />
                   </button>
-                  <button onClick={() => setIsEditingName(false)} disabled={isSaving} className="text-red-500 hover:opacity-80">
+                  <button aria-label="キャンセル" onClick={() => setIsEditingName(false)} disabled={isSaving} className="text-red-500 hover:opacity-80">
                     <XIcon className="h-4 w-4" />
                   </button>
                 </div>
               ) : (
                 <div className="flex items-center gap-2 min-w-0">
                   <h3 className="text-lg font-semibold text-bx-ink truncate">{displayName}</h3>
-                  <button onClick={handleNameEdit} className="text-bx-ink2 hover:text-bx-ink flex-shrink-0">
+                  <button aria-label="ニックネームを編集" onClick={handleNameEdit} className="text-bx-ink2 hover:text-bx-ink flex-shrink-0">
                     <Edit2 className="h-3 w-3" />
                   </button>
                 </div>

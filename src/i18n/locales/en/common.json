@@ -1,6 +1,10 @@
 {
   "ui": {
-    "retry": "Retry"
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit"
   },
   "attendees": {
     "title": "Attendee List",

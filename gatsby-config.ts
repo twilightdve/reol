@@ -91,12 +91,6 @@ const config: GatsbyConfig = {
     },
     // PWA: オフライン対応（manifest の後に置く必要あり）
     "gatsby-plugin-offline",
-    {
-      resolve: "gatsby-plugin-react-redux",
-      options: {
-        pathToCreateStoreModule: "src/redux/store",
-      },
-    },
   ],
 };
 

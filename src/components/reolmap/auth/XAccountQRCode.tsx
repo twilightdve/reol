@@ -65,7 +65,7 @@ const XAccountQRCode: React.FC<XAccountQRCodeProps> = ({ userId, onClose }) => {
             {t('qrcode.title', 'QRコード')}
             <FaXTwitter className="h-5 w-5" />
           </h3>
-          <button
+          <button aria-label={t('ui.close')}
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >

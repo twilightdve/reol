@@ -215,6 +215,14 @@ h6 {
   animation: pulse-glow 2s infinite;
 }
 
+/* 視差効果を減らす設定の閲覧者には、装飾アニメーションを止める(plan/27 P3) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
 .w-fill {
   width: -webkit-fill-available;
   width: -moz-available;

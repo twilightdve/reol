@@ -111,7 +111,7 @@ const HelpGuideModal: React.FC<HelpGuideModalProps> = ({ isOpen, onClose }) => {
               {isEn ? 'How to Use Bijigaku Navi' : '美辞学ナビの使い方'}
             </h2>
           </div>
-          <button
+          <button aria-label={isEn ? 'Close' : '閉じる'}
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >

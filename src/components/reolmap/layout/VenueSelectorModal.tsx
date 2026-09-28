@@ -33,7 +33,7 @@ const VenueSelectorModal: React.FC<VenueSelectorModalProps> = ({ isOpen, onClose
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {t('mainPage.venueSettings')}
           </h2>
-          <button
+          <button aria-label={t('ui.close')}
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
