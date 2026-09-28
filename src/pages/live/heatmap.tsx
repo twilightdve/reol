@@ -53,7 +53,7 @@ type SelectedRegion =
 
 const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
   const t = usePageDict(heatmapDict)
-  const { common } = useDict()
+  const { common, footer } = useDict()
   const lang = useSiteLang()
   const area = (name: string) => regionLabel(name, lang)
   const [typeFilter, setTypeFilter] = React.useState<LiveTypeFilter>('all')
@@ -605,6 +605,20 @@ const ReolHeatmapPage: React.FC<PageProps<HeatmapQuery>> = ({ data }) => {
             dataofjapan/land
           </a>
         </p>
+        {/* 全画面表示でフッターが出ないため、翻訳版の機械翻訳の注記をここにも出す */}
+        {footer.mtNotice && (
+          <p className="mt-2 text-[10px] text-bx-ink3">
+            {footer.mtNotice}{' '}
+            <a
+              className="underline"
+              href="https://twitter.com/twilightplc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {footer.mtContact}
+            </a>
+          </p>
+        )}
       </main>
     </div>
   )

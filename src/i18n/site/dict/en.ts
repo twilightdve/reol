@@ -24,6 +24,9 @@ const en: SiteDict = {
     disclaimer:
       "This is an unofficial fan site and is not affiliated with Reol or any official Reol organization. Music and videos are shown only through official embeds and links.",
     operator: "Run by (unofficial fan site)",
+    mtNotice:
+      "This page was machine-translated from Japanese. If you find any mistakes or unnatural wording, please let us know:",
+    mtContact: "X @twilightplc",
   },
   video: {
     expand: "Expand the video",

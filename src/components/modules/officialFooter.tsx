@@ -93,6 +93,19 @@ const OfficialFooter: React.FC = () => {
           </a>
         </li>
       </ul>
+      {dict.footer.mtNotice && (
+        <p className="text-center text-[11px] leading-relaxed text-bx-ink3 max-w-xl mx-auto mb-3">
+          {dict.footer.mtNotice}{" "}
+          <a
+            href="https://twitter.com/twilightplc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-bx-ink transition-colors"
+          >
+            {dict.footer.mtContact}
+          </a>
+        </p>
+      )}
       <p className="text-center text-[11px] leading-relaxed text-bx-ink3 max-w-xl mx-auto mb-3">
         {dict.footer.disclaimer}
       </p>
