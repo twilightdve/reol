@@ -61,8 +61,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-sitemap",
       options: {
         // noindex のページはサイトマップにも載せない。
-        // /relive/ は私的再生室、/cgraph/ と /quiz/bbq2025 系はページ側で noindex。
-        excludes: ["/relive/", "/relive", "/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**"],
+        // /relive/ は私的再生室、/cgraph/(各言語版を含む)と /quiz/bbq2025 系はページ側で noindex。
+        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**"],
         // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する
         query: `
           {
