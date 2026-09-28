@@ -23,6 +23,8 @@ const zhHans: SiteDict = {
     goods: "周边",
     disclaimer: "本网站为非官方粉丝网站，与 Reol 官方无任何关系。歌曲与视频仅使用官方嵌入及链接。",
     operator: "运营者(非官方粉丝网站)",
+    mtNotice: "本页由日文机器翻译而成。如发现翻译错误或不自然的表达，欢迎告诉我们：",
+    mtContact: "X @twilightplc",
   },
   video: {
     expand: "将视频恢复为全宽显示",

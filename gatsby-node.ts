@@ -2169,18 +2169,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
       };
     };
 
-    const LIVE_TYPE_LABEL: Record<string, string> = {
-      oneman: "ワンマン",
-      event: "イベント",
-    };
-
     type OnThisDayEvent = {
       kind: "release" | "live";
       year: number;
       label: string;
+      /** ライブの「 @ 会場名」。リリースの「リリース」等の文言は表示言語に合わせてテンプレート側で付ける */
       suffix: string;
       to: string;
-      meta: string | null;
+      /** 補足行の材料(plan/28: 文言はテンプレート側で表示言語に合わせて組み立てる) */
+      format: string | null;
+      liveType: string | null;
+      songCount: number;
+      mcCount: number;
       /** リリースイベント: MVがある楽曲だけを列挙 */
       musicVideos: { name: string; slug: string; url: string }[];
       /** ライブイベント: セトリ(MC等のsegmentは除く) */
@@ -2197,9 +2197,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       []) {
       const d = parseMonthDay(disc.releaseDate);
       if (!d) continue;
-      const metaParts = [disc.format, `${disc.songs.length}曲収録`].filter(
-        (v): v is string => !!v
-      );
       const musicVideos = disc.songs
         .filter((s) => !!s.musicVideoUrl)
         .map((s) => ({
@@ -2211,9 +2208,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
         kind: "release",
         year: d.year,
         label: `『${disc.title}』`,
-        suffix: "リリース",
+        suffix: "",
         to: `/discography/#disc-${disc.slug}`,
-        meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+        format: disc.format ?? null,
+        liveType: null,
+        songCount: disc.songs.length,
+        mcCount: 0,
         musicVideos,
         setlist: [],
       });
@@ -2230,19 +2230,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const mcCount = item.setList.filter(
           (s) => s.type === "segment"
         ).length;
-        const metaParts = [
-          LIVE_TYPE_LABEL[live.type] ?? live.type,
-          songs.length > 0
-            ? `${songs.length}曲${mcCount > 0 ? `(MC ${mcCount})` : ""}`
-            : null,
-        ].filter((v): v is string => !!v);
         pushOnThisDayEvent(d.monthDay, {
           kind: "live",
           year: d.year,
           label: live.title,
           suffix: item.place ? ` @ ${item.place}` : "",
           to: `/live/#live-item-${item.slug}`,
-          meta: metaParts.length > 0 ? metaParts.join(" ・ ") : null,
+          format: null,
+          liveType: live.type ?? null,
+          songCount: songs.length,
+          mcCount,
           musicVideos: [],
           setlist: songs.map((s) => ({
             name: s.liveItemSongName,
@@ -2294,7 +2291,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
           }
         }
-        createPage({
+        createPageWithLocales({
           path: `/on-this-day/${monthDay}/`,
           component: onThisDayTemplate,
           context: { monthDay, events, noindex: events.length === 0, nearbyEvents },

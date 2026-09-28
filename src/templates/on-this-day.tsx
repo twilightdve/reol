@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 import YouTube from "react-youtube";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { GlassCard, Kicker } from "../components/redesign";
-import { shiftMonthDay, formatMonthDayLabel } from "../utils/monthDay";
+import { shiftMonthDay } from "../utils/monthDay";
+import { LangLink as Link, pageDictFor, useDict, usePageDict } from "../i18n/site/SiteLangContext";
+import { onThisDayDict } from "../i18n/site/pages/onThisDay";
+import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
+import { formatLabel } from "../i18n/site/dict";
+
+type OnThisDayDict = (typeof onThisDayDict)["ja"];
+
+/** "MM-DD" を表示言語の「月日」表記にする */
+const dayLabelOf = (monthDay: string, t: OnThisDayDict): string => {
+  const [mo, d] = monthDay.split("-").map((v) => parseInt(v, 10));
+  return t.dayLabel(mo, d);
+};
 
 /** "https://youtu.be/xxxx" / "https://www.youtube.com/watch?v=xxxx" からvideoIdを抽出 */
 const getYouTubeVideoId = (url: string): string | null => {
@@ -21,7 +33,10 @@ type OnThisDayEvent = {
   label: string;
   suffix: string;
   to: string;
-  meta: string | null;
+  format: string | null;
+  liveType: string | null;
+  songCount: number;
+  mcCount: number;
   musicVideos: { name: string; slug: string; url: string }[];
   setlist: { name: string; slug: string | null }[];
 };
@@ -42,10 +57,10 @@ type OnThisDayPageContext = {
   /** 出来事が無い日は検索結果に出さない(サイトマップからも除外) */
   noindex: boolean;
   nearbyEvents: NearbyEvent[];
+  lang?: string;
 };
 
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const WEEKDAY_LABELS = ["日", "月", "火", "水", "木", "金", "土"];
 // 曜日レイアウト計算のためだけの固定基準年(実在の年月とは無関係な「MM-DD」の
 // 巡回カレンダーなので、閲覧時の実年とはあえて連動させない=ハイドレーション
 // ミスマッチも起きない)。
@@ -62,6 +77,7 @@ const MonthCalendar: React.FC<{
   index: Record<string, number> | null;
   currentMonthDay: string;
 }> = ({ month, onPrevMonth, onNextMonth, index, currentMonthDay }) => {
+  const t = usePageDict(onThisDayDict);
   const daysInMonth = DAYS_IN_MONTH[month - 1];
   const leadingBlanks = firstWeekdayOfMonth(month);
   const cells: (number | null)[] = [
@@ -75,23 +91,23 @@ const MonthCalendar: React.FC<{
         <button
           type="button"
           onClick={onPrevMonth}
-          aria-label="前の月"
+          aria-label={t.prevMonth}
           className="w-7 h-7 rounded-full text-bx-ink2 hover:text-bx-blue transition-colors"
         >
           ◀
         </button>
-        <div className="text-sm font-bold text-bx-ink">{month}月</div>
+        <div className="text-sm font-bold text-bx-ink">{t.monthLabel(month)}</div>
         <button
           type="button"
           onClick={onNextMonth}
-          aria-label="次の月"
+          aria-label={t.nextMonth}
           className="w-7 h-7 rounded-full text-bx-ink2 hover:text-bx-blue transition-colors"
         >
           ▶
         </button>
       </div>
       <div className="grid grid-cols-7 gap-1 text-center">
-        {WEEKDAY_LABELS.map((w) => (
+        {t.weekdays.map((w) => (
           <div key={w} className="text-[10px] text-bx-ink3 py-1">
             {w}
           </div>
@@ -107,7 +123,7 @@ const MonthCalendar: React.FC<{
             <Link
               key={monthDayStr}
               to={`/on-this-day/${monthDayStr}/`}
-              title={count > 0 ? `${count}件のできごと` : undefined}
+              title={count > 0 ? t.eventCount(count) : undefined}
               className={`flex items-center justify-center rounded py-1.5 text-xs font-bold border-2 transition-colors ${
                 isCurrent
                   ? "bg-bx-yellow border-bx-yellow text-bx-bg"
@@ -129,9 +145,25 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
   pageContext,
 }) => {
   const { monthDay, events, nearbyEvents } = pageContext;
+  const t = usePageDict(onThisDayDict);
+  const dict = useDict();
+  const metaOf = (ev: OnThisDayEvent): string | null => {
+    const parts =
+      ev.kind === "release"
+        ? [ev.format ? formatLabel(dict, ev.format) : null, t.tracks(ev.songCount)]
+        : [
+            ev.liveType ? t.liveTypes[ev.liveType] ?? ev.liveType : null,
+            ev.songCount > 0 ? t.liveSongs(ev.songCount, ev.mcCount) : null,
+          ];
+    const filtered = parts.filter((v): v is string => !!v);
+    return filtered.length > 0 ? filtered.join(t.metaSeparator) : null;
+  };
+  // リリースは「『作品名』リリース」、ライブは「公演名 @ 会場名」
+  const suffixOf = (ev: { kind: "release" | "live"; suffix: string }) =>
+    ev.kind === "release" ? t.released : ev.suffix;
   const prevMonthDay = shiftMonthDay(monthDay, -1);
   const nextMonthDay = shiftMonthDay(monthDay, 1);
-  const label = formatMonthDayLabel(monthDay);
+  const label = dayLabelOf(monthDay, t);
 
   // 「N年前」の相対表示はビルド日ではなく閲覧時の年を基準にしたいため、
   // マウント後にのみ計算する(イベント一覧自体はSSRの時点から出す)。
@@ -166,15 +198,15 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
     setActivatedMv((prev) => new Set(prev).add(key));
 
   return (
-    <Layout title={`${label}は何の日`}>
+    <Layout title={t.title(label)}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
         <header className="mb-6">
           <Kicker color="text-bx-yellow">ON THIS DAY</Kicker>
           <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight text-bx-ink">
-            {label}は何の日
+            {t.title(label)}
           </h1>
           <p className="text-xs text-bx-ink3">
-            Reolのリリース・ライブ公演から、{label}に起きた出来事を年代順にまとめています。
+            {t.lead(label)}
           </p>
         </header>
 
@@ -183,13 +215,13 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
             to={`/on-this-day/${prevMonthDay}/`}
             className="text-bx-blueLight hover:text-bx-blue font-medium"
           >
-            ← {formatMonthDayLabel(prevMonthDay)}
+            ← {dayLabelOf(prevMonthDay, t)}
           </Link>
           <Link
             to={`/on-this-day/${nextMonthDay}/`}
             className="text-bx-blueLight hover:text-bx-blue font-medium"
           >
-            {formatMonthDayLabel(nextMonthDay)} →
+            {dayLabelOf(nextMonthDay, t)} →
           </Link>
         </nav>
 
@@ -207,10 +239,10 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
 
         {events.length === 0 ? (
           <div className="border-t border-bx-line pt-6">
-            <p className="text-sm text-bx-ink3">{label}の記録はまだありません。</p>
+            <p className="text-sm text-bx-ink3">{t.empty(label)}</p>
             {nearbyEvents.length > 0 && (
               <section className="mt-6">
-                <h2 className="text-sm font-bold text-bx-ink mb-3">近い日の出来事</h2>
+                <h2 className="text-sm font-bold text-bx-ink mb-3">{t.nearbyHeading}</h2>
                 <ul className="space-y-2">
                   {nearbyEvents.map((ev, i) => (
                     <li key={`nearby-${i}`}>
@@ -222,16 +254,16 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                           to={`/on-this-day/${ev.monthDay}/`}
                           className="text-xs font-bold text-bx-blueLight hover:text-bx-blue"
                         >
-                          {formatMonthDayLabel(ev.monthDay)}
+                          {dayLabelOf(ev.monthDay, t)}
                         </Link>
-                        <span className="ml-2 text-xs text-bx-ink3 tabular-nums">{ev.year}年</span>
+                        <span className="ml-2 text-xs text-bx-ink3 tabular-nums">{t.year(ev.year)}</span>
                         <Link
                           to={ev.to}
                           className="block mt-0.5 text-[13px] text-bx-ink hover:text-bx-blue transition-colors truncate"
                         >
                           {ev.kind === "release" ? "♪ " : "🎤 "}
                           {ev.label}
-                          {ev.suffix}
+                          {suffixOf(ev)}
                         </Link>
                       </GlassCard>
                     </li>
@@ -264,20 +296,20 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                     </div>
                     <div className="min-w-0 flex-1">
                       <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
-                        {ev.year}年
+                        {t.year(ev.year)}
                         {currentYear !== null && currentYear > ev.year && (
                           <span className="ml-1 text-bx-ink3 font-medium">
-                            ({currentYear - ev.year}年前)
+                            {t.yearsAgo(currentYear - ev.year)}
                           </span>
                         )}
                       </span>
                       <div className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors truncate">
                         {ev.label}
-                        {ev.suffix}
+                        {suffixOf(ev)}
                       </div>
-                      {ev.meta && (
+                      {metaOf(ev) && (
                         <div className="text-[11px] text-bx-ink3 mt-0.5 truncate">
-                          {ev.meta}
+                          {metaOf(ev)}
                         </div>
                       )}
                     </div>
@@ -293,7 +325,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                         return (
                           <div key={mv.slug}>
                             <div className="text-[11px] text-bx-ink3 mb-1">
-                              {mv.name} MV
+                              {t.mv(mv.name)}
                             </div>
                             <div
                               className="relative rounded-lg overflow-hidden border border-bx-line bg-black"
@@ -318,7 +350,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                                 <button
                                   type="button"
                                   onClick={() => activateMv(key)}
-                                  aria-label={`${mv.name} のMVを再生`}
+                                  aria-label={t.playMv(mv.name)}
                                   className="group absolute inset-0 w-full h-full"
                                 >
                                   <img
@@ -344,7 +376,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   {ev.setlist.length > 0 && (
                     <div className="mt-2.5 pt-2.5 border-t border-bx-line">
                       <div className="text-[11px] text-bx-ink3 mb-1.5">
-                        セットリスト ({ev.setlist.length}曲)
+                        {t.setlist(ev.setlist.length)}
                       </div>
                       <ol className="space-y-1 text-[12px] text-bx-ink2">
                         {ev.setlist.map((s, si) =>
@@ -376,7 +408,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                           : "text-bx-yellow hover:text-bx-blue"
                       } transition-colors`}
                     >
-                      詳細はこちら →
+                      {t.details}
                     </Link>
                   </div>
                 </GlassCard>
@@ -394,13 +426,16 @@ export default OnThisDayPage;
 export const Head: HeadFC<object, OnThisDayPageContext> = ({
   pageContext,
 }) => {
-  const label = formatMonthDayLabel(pageContext.monthDay);
+  const lang = isSiteLang(pageContext.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = pageDictFor(onThisDayDict, lang);
+  const label = dayLabelOf(pageContext.monthDay, t);
   return (
     <>
       <SEO
-        title={`${label}は何の日`}
-        description={`Reolのリリース・ライブ公演から、${label}に起きた出来事を年代順にまとめています。`}
+        title={t.title(label)}
+        description={t.lead(label)}
         path={`/on-this-day/${pageContext.monthDay}/`}
+        lang={lang}
       />
       {pageContext.noindex && <meta name="robots" content="noindex,follow" />}
     </>

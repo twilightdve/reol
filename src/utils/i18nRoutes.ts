@@ -23,11 +23,11 @@ const LOCALIZED_EXACT = new Set<string>([
 const LOCALIZED_PATTERNS: RegExp[] = [
   /^\/songs\/[^/]+\/$/, // 曲詳細
   /^\/live\/[^/]+\/$/, // 公演詳細(ツール系ページは LOCALIZED_EXCLUDED で除外)
+  /^\/on-this-day\/\d{2}-\d{2}\/$/, // On This Day(第3弾)
 ];
 
 /** パターンに一致しても翻訳対象外のルート */
 const LOCALIZED_EXCLUDED = new Set<string>([
-  "/live/guide/",
 ]);
 
 const withTrailingSlash = (pathname: string): string =>
