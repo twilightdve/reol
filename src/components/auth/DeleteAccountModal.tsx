@@ -48,7 +48,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ onClose 
       >
         <div className="flex items-center justify-between p-5 border-b border-bx-line">
           <h3 className="text-lg font-bold text-red-500">アカウント削除</h3>
-          <button onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
+          <button aria-label="閉じる" onClick={onClose} className="text-bx-ink2 hover:text-bx-ink">
             <X className="h-5 w-5" />
           </button>
         </div>

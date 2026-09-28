@@ -1,6 +1,10 @@
 {
   "ui": {
-    "retry": "再試行"
+    "retry": "再試行",
+    "close": "閉じる",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "edit": "編集"
   },
   "attendees": {
     "title": "参加者一覧",

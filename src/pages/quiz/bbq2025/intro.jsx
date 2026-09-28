@@ -35,10 +35,10 @@ const IntroPage = () => {
       <p className="mb-4 tracking-widest">〜BBQ編〜</p>
       <div className="flex flex-row justify-around w-full h-56 mb-4">
         <div className="max-w-60 w-4/6">
-          <img src={stampImage}/>
+          <img src={stampImage} alt="" />
         </div>
         <div className="relative max-w-52 max-h-60 w-2/6">
-          <img className="absolute bottom-0 right-0" src={introImage}/>
+          <img className="absolute bottom-0 right-0" src={introImage} alt="" />
         </div>
       </div>
       <p className="mb-4 text-sm text-white">ニックネームを入力してクイズを開始してください</p>

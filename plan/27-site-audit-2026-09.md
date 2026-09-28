@@ -1,7 +1,7 @@
 # 27. サイト課題の棚卸しと改善プラン(2026-09-27)
 
 作成日: 2026-09-27
-ステータス: ステップ0〜3b 完了(2026-09-27〜28)。ほかは提案段階
+ステータス: ステップ0〜4 と P3(一部を除く)完了(2026-09-27〜28)。ステップ5(P2)は未着手
 
 ## 0. 前提と方法
 
@@ -110,7 +110,7 @@
   - /posts/ が横断検索に出ない
   - Relive のβ表記と失敗時の表示(旧3-11)
 
-### P3 コードの健全性とアクセシビリティ【確定(コード)】
+### P3 コードの健全性とアクセシビリティ【確定(コード)】【2026-09-28 大半を対応済み。残りは末尾】
 
 - **テスト**
   - `jest.config.js:19` が `moduleNameMapping` になっている(正しくは `moduleNameMapper`)。このため CSS のモックと `@/` エイリアスが効いていない
@@ -227,10 +227,11 @@ supabase-js と flowbite 本体は共通JSから外した。
 - `body.tsx` で、ビルド時の静的HTML生成でも pathname を初期値として使えるようにする(静的HTML生成用の `gatsby-ssr.tsx` の引数 `pathname` か、`wrapPageElement` の `props.location` を渡す。サーバー側の処理は増えない)
 - gatsby-plugin-offline に更新時のリロード処理を加える。gatsby-plugin-remove-serviceworker に移行するかはユーザーが判断する
 
-### ステップ4: データの鮮度(ユーザー判断が必要)
+### ステップ4: データの鮮度【2026-09-28 完了: 手動手順のみ(ユーザー判断)】
 
 - 案: GitHub Actions で毎日ビルドして gh-pages にデプロイする。Sheets の認証情報を Secrets に登録する必要があるので、ユーザーの判断が要る
 - 当面は、告知があったときの手動再ビルド手順を README に書いておく
+- 実施: ユーザー判断で自動ビルドは入れず、README をこのサイトの運用手順(データの取り込み、告知を反映する手動デプロイの手順)に書き換えた
 
 ### ステップ5: P2・P3 を順に
 
@@ -240,10 +241,16 @@ supabase-js と flowbite 本体は共通JSから外した。
 4. 関連ポストの日付差分ラベル
 5. 小物
 
-並行して P3 を進める:
-- jest の設定を直し、`src/utils` に最小限のテストを足す
-- 未使用の依存と残骸を削除する(削除は事前に確認する)
-- アクセシビリティの修正(aria-label・フォーカス表示)
+並行して P3 を進める【2026-09-28 対応済み】:
+- jest の設定を直し、`src/utils` に最小限のテストを足す → `moduleNameMapper` に修正、重複設定を削除、i18nRoutes・monthDay・extractPrefecture・setlistCompare・bracketSorter のテストを追加(全56件)
+- 未使用の依存と残骸を削除する(ユーザー確認済み) → bk/fs・src/components/fs・LiveWorldMap.tsx・venues.ts.old と未使用の依存を削除。写真ページのリンク切れ(/fs/20240817/)も外した(内容は git 履歴から復元可能)。gatsby-plugin-react-redux を外して Provider の二重化を解消。別パッケージ経由で暗黙に入っていた d3-force を明示的な依存にした
+- アクセシビリティの修正 → アイコンだけのボタン21個に aria-label、トグルに role=switch とフォーカス表示、装飾画像に alt=""、reduced-motion で装飾アニメーションを止める
+
+P3 の残り:
+- 旧色 `#D2AF57` のコントラスト(美辞学ナビとデザインプレビューだけで使用。デザイン判断のため未変更)
+- Tailwind の `darkMode` 未指定(OS 設定に従う)。テーマ切り替えとの関係は未整理
+- シート由来の不適切なスラッグ(`/songs/0/` など)
+- どこからも使われていない Google Maps 系コンポーネント(`src/components/modules/map.tsx`・`marker.tsx`・`infoWindow.tsx`)と `@types/google.maps`。削除の確認対象に入っていなかったため残した
 
 ---
 

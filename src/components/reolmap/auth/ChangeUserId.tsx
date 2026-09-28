@@ -55,7 +55,7 @@ const ChangeUserId: React.FC<ChangeUserIdProps> = ({ onClose }) => {
           <h3 className="text-lg font-bold text-gray-900 dark:text-white">
             {t('changeId.title', 'ユーザーID変更')}
           </h3>
-          <button
+          <button aria-label={t('ui.close')}
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >

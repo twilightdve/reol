@@ -133,7 +133,7 @@ export const SimpleAuth: React.FC<SimpleAuthProps> = ({ onClose, onLogin }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-bx-bg border border-bx-line rounded-lg p-8 max-w-md w-full mx-4 relative">
         {onClose && (
-          <button
+          <button aria-label="閉じる"
             onClick={onClose}
             className="absolute top-4 right-4 text-bx-ink2 hover:text-bx-ink"
           >

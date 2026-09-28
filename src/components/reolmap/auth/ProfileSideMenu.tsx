@@ -80,7 +80,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {t('auth.profile')}
           </h2>
-          <button
+          <button aria-label={t('ui.close')}
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
           >
@@ -115,14 +115,14 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
                         if (e.key === 'Escape') handleFullNameCancel()
                       }}
                     />
-                    <button
+                    <button aria-label={t('ui.save')}
                       onClick={handleFullNameSave}
                       disabled={isSaving}
                       className="p-1 text-green-600 hover:bg-green-50 rounded"
                     >
                       <Check className="h-4 w-4" />
                     </button>
-                    <button
+                    <button aria-label={t('ui.cancel')}
                       onClick={handleFullNameCancel}
                       disabled={isSaving}
                       className="p-1 text-red-600 hover:bg-red-50 rounded"
@@ -135,7 +135,7 @@ const ProfileSideMenu: React.FC<ProfileSideMenuProps> = ({ isOpen, onClose, onOp
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {displayName}
                     </h3>
-                    <button
+                    <button aria-label={t('ui.edit')}
                       onClick={handleFullNameEdit}
                       className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                     >
