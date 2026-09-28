@@ -173,6 +173,11 @@ export type BuildOptions = {
   discography: DiscographyEntry[];
   /** MusicBrainz-shaped relations (optional, augments credits). */
   relations?: RawRelationsArtist[];
+  /**
+   * カテゴリノードの表示名(多言語対応: plan/28)。ノード ID は日本語ラベルのまま据え置き、
+   * 表示名だけを差し替える。省略時は日本語ラベルのまま。
+   */
+  categoryLabel?: (label: string) => string;
 };
 
 /**
@@ -202,6 +207,7 @@ const normalizeMbRole = (raw: string | undefined | null): string => {
 export const buildCGraph = ({
   discography,
   relations,
+  categoryLabel = (label) => label,
 }: BuildOptions): CGraphData => {
   const nodes = new Map<string, CGraphNode>();
   const links = new Map<string, CGraphLink>();
@@ -309,7 +315,7 @@ export const buildCGraph = ({
   const upsertCategory = (label: string): string => {
     const id = `category:${label}`;
     if (!nodes.has(id)) {
-      nodes.set(id, { id, kind: "category", name: label });
+      nodes.set(id, { id, kind: "category", name: categoryLabel(label) });
     }
     return id;
   };
@@ -653,7 +659,10 @@ export const buildCGraph = ({
           discographyUuid: relNode.discographyUuid,
           title: relNode.name,
           year: relNode.year,
-          category: releaseCategory.get(relId),
+          category: (() => {
+            const c = releaseCategory.get(relId);
+            return c === undefined ? undefined : categoryLabel(c);
+          })(),
         });
       }
       // Tieups attached to this song.

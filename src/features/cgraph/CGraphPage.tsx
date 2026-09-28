@@ -14,174 +14,66 @@ import type {
 } from "./types";
 import SixDegreesPanel from "./SixDegreesPanel";
 import "./cgraph.css";
+import { useDict, usePageDict, useSiteLang } from "../../i18n/site/SiteLangContext";
+import { cgraphDict } from "../../i18n/site/pages/cgraph";
+import { INTL_LOCALE } from "../../i18n/site/langs";
+import { localizePath } from "../../utils/i18nRoutes";
+
+type CGraphDict = (typeof cgraphDict)["ja"];
 
 /**
  * ロールごとの簡易な説明文。
  * 選択したノードの種類 (artist / song / release …) によって主語が変わるので、
- * 「アーティスト視点」と「楽曲/その他視点」の 2 種類を用意する。
+ * 「アーティスト視点」と「楽曲/その他視点」の 2 種類を辞書に持つ。
  */
 const describeRelation = (
+  t: CGraphDict,
   role: string,
   nodeKind: CGraphNode["kind"]
 ): string => {
-  const fromArtist = nodeKind === "artist";
-  switch (role) {
-    case "lyrics":
-      return fromArtist ? "作詞を担当" : "の作詞者";
-    case "music":
-      return fromArtist ? "作曲を担当" : "の作曲者";
-    case "arranger":
-    case "instrument arranger":
-      return fromArtist ? "編曲を担当" : "の編曲者";
-    case "vocal":
-      return fromArtist ? "ボーカル参加" : "のボーカル";
-    case "producer":
-      return fromArtist ? "プロデュース" : "のプロデューサー";
-    case "mix":
-      return fromArtist ? "ミックスを担当" : "のミックス";
-    case "recording":
-      return fromArtist ? "レコーディング担当" : "のレコーディング";
-    case "instrument":
-      return fromArtist ? "楽器を演奏" : "の演奏者";
-    case "programming":
-      return fromArtist ? "プログラミング担当" : "のプログラミング";
-    case "remixer":
-      return fromArtist ? "リミックスを担当" : "のリミキサー";
-    case "performer":
-      return fromArtist ? "release に参加" : "の参加アーティスト";
-    case "phonographic copyright":
-      return "© 原盤権";
-    case "tieup":
-      return "タイアップ";
-    case "release":
-      return "収録 / リリース";
-    case "_anchor":
-      return "Reol との関連";
-    case "misc":
-      return "その他のクレジット";
-    default:
-      return role;
-  }
-};
-
-/** ノード種別を日本語の接頭ラベルに変換 (「楽曲「○○」」等の表記に使う)。 */
-const prefixOfKind = (kind: CGraphNode["kind"]): string => {
-  switch (kind) {
-    case "song":
-      return "楽曲";
-    case "release":
-      return "リリース";
-    case "tieup":
-      return "タイアップ";
-    case "category":
-      return "カテゴリ";
-    case "artist":
-    default:
-      return "";
-  }
+  const entry = t.relation[role];
+  if (!entry) return role;
+  return nodeKind === "artist" ? entry[0] : entry[1];
 };
 
 /**
  * 「リンク元」ノードを文脈として、選択ノードがどう関わっているかを
  * 自然文で説明する。例: 「楽曲「第六感」で作曲を担当」「アルバム「Σ」に収録」。
+ * 語順が言語で異なるため、文型は辞書側の関数で組み立てる。
  */
 const describeRelationPhrase = (
+  t: CGraphDict,
   role: string,
   selectedKind: CGraphNode["kind"],
   prevKind: CGraphNode["kind"],
   prevName: string
 ): string => {
-  const prefix = prefixOfKind(prevKind);
-  const ctx = prefix ? `${prefix}「${prevName}」` : prevName;
+  const ctx = t.ctx(t.kindPrefix[prevKind] ?? "", prevName);
 
   // 選択ノード = アーティスト (= 参加者)
-  if (selectedKind === "artist") {
-    switch (role) {
-      case "music":
-        return `${ctx}で作曲を担当`;
-      case "lyrics":
-        return `${ctx}で作詞を担当`;
-      case "arranger":
-      case "instrument arranger":
-        return `${ctx}で編曲を担当`;
-      case "vocal":
-        return `${ctx}でボーカル参加`;
-      case "producer":
-        return `${ctx}でプロデュース`;
-      case "mix":
-        return `${ctx}でミックスを担当`;
-      case "recording":
-        return `${ctx}でレコーディングを担当`;
-      case "instrument":
-        return `${ctx}で楽器演奏`;
-      case "programming":
-        return `${ctx}でプログラミング`;
-      case "remixer":
-        return `${ctx}でリミックス`;
-      case "phonographic copyright":
-        return `${ctx}の原盤権`;
-      case "tieup":
-        return `${ctx}のタイアップに関与`;
-      case "release":
-        return `${ctx}に参加`;
-      case "misc":
-        return `${ctx}にクレジット`;
-    }
-  }
+  if (selectedKind === "artist" && t.artistPhrase[role]) return t.artistPhrase[role](ctx);
   // 選択ノード = 楽曲
   if (selectedKind === "song") {
-    if (prevKind === "artist") {
-      switch (role) {
-        case "music":
-          return `${ctx}が作曲`;
-        case "lyrics":
-          return `${ctx}が作詞`;
-        case "arranger":
-        case "instrument arranger":
-          return `${ctx}が編曲`;
-        case "vocal":
-          return `${ctx}がボーカル`;
-        case "producer":
-          return `${ctx}がプロデュース`;
-        case "mix":
-          return `${ctx}がミックス`;
-        case "recording":
-          return `${ctx}がレコーディング`;
-        case "instrument":
-          return `${ctx}が演奏`;
-        case "programming":
-          return `${ctx}がプログラミング`;
-        case "remixer":
-          return `${ctx}がリミックス`;
-        case "phonographic copyright":
-          return `${ctx}が原盤権者`;
-        case "misc":
-          return `${ctx}がクレジット`;
-      }
-    }
-    if (prevKind === "release" && role === "release") {
-      return `${ctx}に収録`;
-    }
-    if (prevKind === "tieup" && role === "tieup") {
-      return `${ctx}のタイアップ曲`;
-    }
+    if (prevKind === "artist" && t.songPhrase[role]) return t.songPhrase[role](ctx);
+    if (prevKind === "release" && role === "release") return t.songInRelease(ctx);
+    if (prevKind === "tieup" && role === "tieup") return t.songTieup(ctx);
   }
   // 選択ノード = リリース
   if (selectedKind === "release") {
-    if (prevKind === "artist" && role === "release") return `${ctx}のリリース`;
-    if (prevKind === "song" && role === "release") return `${ctx}を収録`;
-    if (prevKind === "category" && role === "release") return `${ctx}に分類`;
+    if (prevKind === "artist" && role === "release") return t.releaseOfArtist(ctx);
+    if (prevKind === "song" && role === "release") return t.releaseHasSong(ctx);
+    if (prevKind === "category" && role === "release") return t.releaseInCategory(ctx);
   }
   // 選択ノード = カテゴリ
   if (selectedKind === "category") {
-    if (role === "release" || role === "tieup") return `${ctx}を含むカテゴリ`;
+    if (role === "release" || role === "tieup") return t.categoryContains(ctx);
   }
   // 選択ノード = タイアップ
   if (selectedKind === "tieup") {
-    if (role === "tieup") return `${ctx}のタイアップ`;
+    if (role === "tieup") return t.tieupOf(ctx);
   }
   // fallback
-  return `${ctx} ─ ${describeRelation(role, selectedKind)}`;
+  return `${ctx} ─ ${describeRelation(t, role, selectedKind)}`;
 };
 
 type Props = {
@@ -192,6 +84,12 @@ type Props = {
 };
 
 const CGraphPage: FC<Props> = ({ relations, discography }) => {
+  const t = usePageDict(cgraphDict);
+  const lang = useSiteLang();
+  const { footer } = useDict();
+  // ロールのチップ表示名(色・並び順は role-config、表示名は辞書)
+  const roleLabel = (role: string): string =>
+    t.roles[role] ?? (ROLE_CONFIG[role] ? ROLE_CONFIG[role].label : t.otherRole);
   const [raw, setRaw] = useState<RawRelationsArtist[] | null>(
     relations ?? null
   );
@@ -355,7 +253,11 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
 
   const graph: CGraphData | null = useMemo(() => {
     if (!disc) return null;
-    return buildCGraph({ discography: disc, relations: raw ?? undefined });
+    return buildCGraph({
+      discography: disc,
+      relations: raw ?? undefined,
+      categoryLabel: (label) => t.categories[label] ?? label,
+    });
   }, [raw, disc]);
 
   // 選択アーティストに対する詳細 (楽曲 / 参加リリース / 関連タイアップ)。
@@ -434,6 +336,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
         const cfg = getRoleConfig(role);
         const phrase = prevNode
           ? describeRelationPhrase(
+              t,
               role,
               selected.kind,
               prevNode.kind,
@@ -442,9 +345,9 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           : null;
         return {
           role,
-          label: cfg.label,
+          label: roleLabel(role),
           color: cfg.color,
-          description: describeRelation(role, selected.kind),
+          description: describeRelation(t, role, selected.kind),
           phrase,
           neighbors: Array.from(neighbors.values()),
         };
@@ -550,7 +453,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             <h1>Creator Relations</h1>
             {displayGraph && (
               <span className="cgraph-toolbar-count">
-                {displayGraph.nodes.length}人
+                {t.people(displayGraph.nodes.length)}
               </span>
             )}
           </div>
@@ -559,14 +462,14 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
               type="button"
               className="cgraph-tbtn"
               aria-pressed={searchOpen}
-              aria-label="検索"
+              aria-label={t.search}
               onClick={() => {
                 setSearchOpen((v) => !v);
                 setFiltersOpen(false);
                 setMenuOpen(false);
               }}
             >
-              検索
+              {t.search}
             </button>
             <button
               type="button"
@@ -578,7 +481,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                 setMenuOpen(false);
               }}
             >
-              絞り込み
+              {t.filter}
               {(preset !== "core" ||
                 hideFarNodes ||
                 !showRelease ||
@@ -606,7 +509,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
               <button
                 type="button"
                 className="cgraph-tbtn"
-                aria-label="その他の操作"
+                aria-label={t.moreActions}
                 aria-expanded={menuOpen}
                 onClick={() => {
                   setMenuOpen((v) => !v);
@@ -643,7 +546,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                       }, "image/png");
                     }}
                   >
-                    PNG保存
+                    {t.savePng}
                   </button>
                   <button
                     type="button"
@@ -653,7 +556,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                       setShowOnboarding(true);
                     }}
                   >
-                    使い方
+                    {t.howTo}
                   </button>
                 </div>
               )}
@@ -666,7 +569,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             <input
               className="cgraph-search"
               type="search"
-              placeholder="アーティスト名 / 楽曲名で絞り込み"
+              placeholder={t.searchPlaceholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               autoFocus
@@ -679,15 +582,15 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             <div
               className="cgraph-presets"
               role="tablist"
-              aria-label="プリセット"
+              aria-label={t.presetsAria}
             >
               {(
                 [
-                  { id: "all", label: "全員" },
-                  { id: "core", label: "コア (Reol共演5+)" },
-                  { id: "tieup", label: "タイアップ作家" },
-                  { id: "vocal", label: "ボーカル系" },
-                  { id: "producer", label: "作曲・編曲系" },
+                  { id: "all", label: t.presets.all },
+                  { id: "core", label: t.presets.core },
+                  { id: "tieup", label: t.presets.tieup },
+                  { id: "vocal", label: t.presets.vocal },
+                  { id: "producer", label: t.presets.producer },
                 ] as { id: Preset; label: string }[]
               ).map((p) => (
                 <button
@@ -708,7 +611,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
             {yearBounds && yearRange && (
               <div className="cgraph-year">
                 <label>
-                  年:{" "}
+                  {t.year}{" "}
                   <strong>
                     {yearRange[0]} – {yearRange[1]}
                   </strong>
@@ -759,7 +662,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                           : { borderColor: cfg.color, color: cfg.color }
                       }
                     >
-                      {cfg.label}
+                      {roleLabel(role)}
                     </button>
                   );
                 })}
@@ -769,7 +672,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                   checked={showRelease}
                   onChange={(e) => setShowRelease(e.target.checked)}
                 />
-                release 線を表示
+                {t.showReleaseLines}
               </label>
               <label className="cgraph-release-toggle">
                 <input
@@ -777,7 +680,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                   checked={hideFarNodes}
                   onChange={(e) => setHideFarNodes(e.target.checked)}
                 />
-                遠いノードを隠す
+                {t.hideFar}
               </label>
             </div>
           </div>
@@ -789,18 +692,18 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
       >
         {error && (
           <div className="cgraph-error" role="alert">
-            <p>データの読み込みに失敗しました。</p>
+            <p>{t.loadError}</p>
             <p className="cgraph-error-detail">{error}</p>
             <button
               type="button"
               className="cgraph-error-retry"
               onClick={() => setRetryCount((c) => c + 1)}
             >
-              再試行
+              {t.retry}
             </button>
           </div>
         )}
-        {!graph && !error && <div className="cgraph-loading">データ取得中…</div>}
+        {!graph && !error && <div className="cgraph-loading">{t.loadingData}</div>}
         {graph && (
           <CGraphView
             data={displayGraph ?? graph}
@@ -820,7 +723,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           aria-live="polite"
           aria-atomic="true"
         >
-          {selected ? `選択中: ${selected.name}` : ""}
+          {selected ? t.selectedLive(selected.name) : ""}
         </div>
 
         {dockMode === "sixdegrees" && graph && (
@@ -844,7 +747,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                 <button
                   type="button"
                   className="cgraph-back-btn"
-                  title={`「${prevNode.name}」に戻る`}
+                  title={t.backTo(prevNode.name)}
                   onClick={() => handleSelect(prevNode)}
                 >
                   ← {prevNode.name}
@@ -856,11 +759,11 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                 className="cgraph-inspector-toggle"
                 aria-expanded={!inspectorMinimized}
                 aria-label={
-                  inspectorMinimized ? "詳細を開く" : "詳細を折りたたむ"
+                  inspectorMinimized ? t.openDetailAria : t.collapseDetailAria
                 }
                 onClick={() => setInspectorMinimized((v) => !v)}
               >
-                {inspectorMinimized ? "▼ 詳細を見る" : "▲ 折りたたむ"}
+                {inspectorMinimized ? t.openDetail : t.collapseDetail}
               </button>
               <button
                 type="button"
@@ -917,9 +820,9 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                   key={r}
                                   className="cgraph-role-chip"
                                   style={{ backgroundColor: cfg.color }}
-                                  title={cfg.label}
+                                  title={roleLabel(r)}
                                 >
-                                  {cfg.label}
+                                  {roleLabel(r)}
                                 </span>
                               );
                             })}
@@ -934,7 +837,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                           </div>
                           {s.coArtists.length > 0 && (
                             <div className="cgraph-detail-sub">
-                              with {s.coArtists.join("、")}
+                              with {s.coArtists.join(t.listSep)}
                             </div>
                           )}
                         </li>
@@ -949,7 +852,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                         (selectedDetail.reolCoCount ?? 0) > 0 && (
                           <div className="cgraph-detail-section cgraph-detail-section--reol">
                             <div className="cgraph-detail-title">
-                              Reol との関係
+                              {t.reolRelation}
                             </div>
                             <div className="cgraph-detail-stats">
                               <div className="cgraph-detail-stat">
@@ -957,7 +860,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                   {selectedDetail.reolCoCount}
                                 </span>
                                 <span className="cgraph-detail-stat-label">
-                                  共演曲
+                                  {t.coSongs}
                                 </span>
                               </div>
                               {selectedDetail.reolFirstYear !== undefined && (
@@ -971,7 +874,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                       `–${selectedDetail.reolLastYear}`}
                                   </span>
                                   <span className="cgraph-detail-stat-label">
-                                    共演期間
+                                    {t.coPeriod}
                                   </span>
                                 </div>
                               )}
@@ -981,7 +884,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                     {selectedDetail.tieupSongCount}
                                   </span>
                                   <span className="cgraph-detail-stat-label">
-                                    タイアップ
+                                    {t.tieup}
                                   </span>
                                 </div>
                               )}
@@ -997,9 +900,9 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                         key={role}
                                         className="cgraph-role-chip cgraph-role-chip--count"
                                         style={{ backgroundColor: cfg.color }}
-                                        title={`${cfg.label} × ${count} (Reol曲)`}
+                                        title={t.roleCountTitle(roleLabel(role), count)}
                                       >
-                                        {cfg.label}
+                                        {roleLabel(role)}
                                         <span className="cgraph-role-chip-num">
                                           {count}
                                         </span>
@@ -1011,7 +914,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                             {reolSongs.length > 0 && (
                               <div className="cgraph-detail-subsection">
                                 <div className="cgraph-detail-subtitle">
-                                  Reol 共演曲 ({reolSongs.length})
+                                  {t.reolCoSongs(reolSongs.length)}
                                 </div>
                                 {renderSongList(reolSongs, "reol", true)}
                               </div>
@@ -1029,7 +932,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                 {selectedDetail.songs.length}
                               </span>
                               <span className="cgraph-detail-stat-label">
-                                収録曲
+                                {t.tracks}
                               </span>
                             </div>
                             {selectedDetail.reolFirstYear !== undefined && (
@@ -1042,7 +945,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                     `–${selectedDetail.reolLastYear}`}
                                 </span>
                                 <span className="cgraph-detail-stat-label">
-                                  活動期間
+                                  {t.activePeriod}
                                 </span>
                               </div>
                             )}
@@ -1052,7 +955,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                   {selectedDetail.tieupSongCount}
                                 </span>
                                 <span className="cgraph-detail-stat-label">
-                                  タイアップ
+                                  {t.tieup}
                                 </span>
                               </div>
                             )}
@@ -1062,42 +965,44 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
 
                       {/* === その他の情報 (末尾) === */}
                       <details className="cgraph-detail-other" open>
-                        <summary>その他の情報</summary>
+                        <summary>{t.otherInfo}</summary>
                         <dl>
-                          <dt>種類</dt>
+                          <dt>{t.kindLabel}</dt>
                           <dd>
                             {selected.kind === "artist"
-                              ? "アーティスト"
+                              ? t.kinds.artist
                               : selected.kind === "release"
-                              ? "リリース"
+                              ? t.kinds.release
                               : selected.kind === "category"
-                              ? "カテゴリ"
-                              : "楽曲"}
+                              ? t.kinds.category
+                              : t.kinds.song}
                           </dd>
                           {selected.year !== undefined && (
                             <>
-                              <dt>初出年</dt>
+                              <dt>{t.firstYear}</dt>
                               <dd>{selected.year}</dd>
                             </>
                           )}
                           {selected.primaryArtist && (
                             <>
-                              <dt>主アーティスト</dt>
+                              <dt>{t.primaryArtist}</dt>
                               <dd>{selected.primaryArtist}</dd>
                             </>
                           )}
-                          <dt>接続数</dt>
+                          <dt>{t.degree}</dt>
                           <dd>{selected.degree ?? 0}</dd>
                         </dl>
                         {neighborRelations.length > 0 && (
                           <div className="cgraph-relations">
                             <div className="cgraph-relations-title">
                               {prevNode
-                                ? `「${prevNode.name}」との関係`
-                                : `関係 (${neighborRelations.reduce(
-                                    (a, b) => a + b.neighbors.length,
-                                    0
-                                  )})`}
+                                ? t.relationWith(prevNode.name)
+                                : t.relations(
+                                    neighborRelations.reduce(
+                                      (a, b) => a + b.neighbors.length,
+                                      0
+                                    )
+                                  )}
                             </div>
                             <ul className="cgraph-relations-list">
                               {neighborRelations.map((g) => (
@@ -1119,7 +1024,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                                         {g.description}
                                       </span>
                                       <span className="cgraph-rel-names">
-                                        {g.neighbors.join("、")}
+                                        {g.neighbors.join(t.listSep)}
                                       </span>
                                     </>
                                   )}
@@ -1135,8 +1040,8 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                             <div className="cgraph-detail-section">
                               <div className="cgraph-detail-title">
                                 {isReolSelf
-                                  ? `楽曲 (${selectedDetail.songs.length})`
-                                  : `その他の楽曲 (${otherSongs.length})`}
+                                  ? t.songs(selectedDetail.songs.length)
+                                  : t.otherSongs(otherSongs.length)}
                               </div>
                               {renderSongList(
                                 isReolSelf ? selectedDetail.songs : otherSongs,
@@ -1149,7 +1054,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                           selectedDetail.releases.length > 0 && (
                             <div className="cgraph-detail-section">
                               <div className="cgraph-detail-title">
-                                参加リリース ({selectedDetail.releases.length})
+                                {t.releases(selectedDetail.releases.length)}
                               </div>
                               <ul className="cgraph-detail-list">
                                 {selectedDetail.releases.map((r) => (
@@ -1176,7 +1081,7 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                           selectedDetail.tieups.length > 0 && (
                             <div className="cgraph-detail-section">
                               <div className="cgraph-detail-title">
-                                関連タイアップ ({selectedDetail.tieups.length})
+                                {t.tieups(selectedDetail.tieups.length)}
                               </div>
                               <ul className="cgraph-detail-list">
                                 {selectedDetail.tieups.map((t, i) => (
@@ -1197,11 +1102,12 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
                           )}
                         <a
                           className="cgraph-link"
-                          href={`/search?q=${encodeURIComponent(
-                            selected.name
-                          )}`}
+                          href={localizePath(
+                            `/search/?q=${encodeURIComponent(selected.name)}`,
+                            lang
+                          )}
                         >
-                          サイト内で「{selected.name}」を検索 →
+                          {t.searchSite(selected.name)}
                         </a>
                       </details>
                     </>
@@ -1215,10 +1121,20 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
       </main>
       <footer className="cgraph-footer">
         <small>
-          出典: MusicBrainz / 公式ディスコグラフィ
+          {t.source}
           {lastUpdated && (
             <>
-              {" "}・ データ更新: {new Date(lastUpdated).toLocaleDateString("ja-JP")}
+              {" / "}{t.updated(new Date(lastUpdated).toLocaleDateString(INTL_LOCALE[lang]))}
+            </>
+          )}
+          {/* 全画面表示で共通フッターが出ないため、翻訳版の機械翻訳の注記をここに出す */}
+          {footer.mtNotice && (
+            <>
+              <br />
+              {footer.mtNotice}{" "}
+              <a href="https://twitter.com/twilightplc" target="_blank" rel="noopener noreferrer">
+                {footer.mtContact}
+              </a>
             </>
           )}
         </small>
@@ -1231,19 +1147,18 @@ const CGraphPage: FC<Props> = ({ relations, discography }) => {
           aria-labelledby="cgraph-onboarding-title"
         >
           <div className="cgraph-onboarding-card">
-            <h2 id="cgraph-onboarding-title">使い方</h2>
+            <h2 id="cgraph-onboarding-title">{t.onboardingTitle}</h2>
             <ul>
-              <li>ノードをタップ: 詳細を表示しフォーカス</li>
-              <li>ダブルクリック / 長押し: 展開・関連ページへ移動</li>
-              <li>Esc キー / 背景クリック: 選択解除</li>
-              <li>検索: アーティスト名 / 楽曲名で絞り込み</li>
+              {t.onboarding.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
             </ul>
             <button
               type="button"
               className="cgraph-mini-btn"
               onClick={dismissOnboarding}
             >
-              はじめる
+              {t.start}
             </button>
           </div>
         </div>
