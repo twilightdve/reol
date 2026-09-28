@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T03:35:36.446Z",
+  "generatedAt": "2026-09-28T06:13:08.327Z",
   "source": {
     "liveJsonPath": "static/data/live.json",
     "discographyJsonPath": "static/data/discography.json",
     "venueEnrichmentPath": "static/data/relive-venue-enrichment.json",
     "venueLayoutOverridesPath": "src/data/relive/venue-layout-overrides.json",
-    "liveJsonHash": "a10d318dcf8985ff2a4e8cdffe929a339c9fcc07e25244184a88d3a23e427e11",
-    "discographyJsonHash": "ad969cee879726317756d1d9f7c80e26669127fbbb4381b5c8087ea48e4def18",
+    "liveJsonHash": "ed0932c4868411004346692415324942b0fd81ecae469c2fe98b59f78108ed40",
+    "discographyJsonHash": "3464acd2e928bdb593ea3ee911ec2f05e04bf689ed83a5fc95ed9276c9d0f767",
     "venueEnrichmentHash": "a521d6485a1898eb30b3681e62fe9e87146caa06d66979a76fc15bd2e9105c9d",
     "venueLayoutOverridesHash": "f0ecd8853c39c173bcacab76e0b5b172db41164a14f44b9d8e16d1515ec3bc68"
   },

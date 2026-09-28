@@ -358,9 +358,9 @@
       "schemaVersion": 1,
       "entryId": "live_item_019e8284-f1e4-7eb6-afe7-88639d68c221_entry_019f47e3-b3b8-7fc0-b205-fdfd85e0b17c",
       "order": 20,
-      "rawTitle": "二等星 (Immitation Star)",
-      "displayTitle": "二等星 (Immitation Star)",
-      "normalizedTitle": "二等星immitationstar",
+      "rawTitle": "二等星 (Imitation Star)",
+      "displayTitle": "二等星 (Imitation Star)",
+      "normalizedTitle": "二等星imitationstar",
       "policy": "required",
       "trackId": "song_019e8282-f0ea-7081-9940-1493f104ebd8",
       "aliases": [
