@@ -35,7 +35,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [25-collection-based-content-ideas.md](./25-collection-based-content-ideas.md) | コレクション台帳のDB永続化(`user_collections`実装済み)を受けた新規コンテンツ提案7件(達成率サマリー/ギャップ表示/年代別コンプリート率/バッジ/集計カウンター/シェアカード/ランキング) — 提案段階 |
 | [26-geo-structured-data-gaps.md](./26-geo-structured-data-gaps.md) | GEO(生成AI最適化)向けJSON-LD構造化データの現状監査+ギャップ5件(演奏履歴/セットリスト/MusicAlbum/FAQPage/sameAs拡充) — 調査完了、提案段階 |
 | [27-site-audit-2026-09.md](./27-site-audit-2026-09.md) | サイト課題の棚卸しと改善プラン(2026-09-27): 本番の作業ツリー依存デプロイ/認可設計の見直し/On This Day空ページ172件のindex/全ページ約1MBのインラインCSS(base64フォント)/静的HTMLとクライアント描画の不一致/Tailwind content漏れ等と実行順プラン — ステップ0〜3b完了、ほかは提案段階 |
-| [28-i18n-legit.md](./28-i18n-legit.md) | !Legit の多言語対応(英語・中国語 繁体字/簡体字・韓国語): 言語別URL、URLのみから言語を決める設計、ルート定義の一元化、SEO(canonical/hreflang)、段階計画と検証項目 — 第1弾(4言語・主要ページ)・第2弾(聖地・検索・入門・ツール等14ページ)・第3弾(ガイド・On This Day)完了、診断は対応中 |
+| [28-i18n-legit.md](./28-i18n-legit.md) | !Legit の多言語対応(英語・中国語 繁体字/簡体字・韓国語): 言語別URL、URLのみから言語を決める設計、ルート定義の一元化、SEO(canonical/hreflang)、段階計画と検証項目 — 第1弾(4言語・主要ページ)・第2弾(聖地・検索・入門・ツール等14ページ)・第3弾(ガイド・On This Day・診断)完了 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
