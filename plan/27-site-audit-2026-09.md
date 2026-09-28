@@ -244,7 +244,7 @@ supabase-js と flowbite 本体は共通JSから外した。
 ステップ5の残り:
 - 案K のシェアカード(plan/25 §6)
 - Relive Player の失敗時表示の改善(旧3-11: フォルダ選択直後の一致件数、未一致曲の一覧、手動ひも付けなど)。プレイヤー内部の変更が大きいため未着手
-- `二等星 (Immitation Star)` の綴り。Relive の生成データ(ローカル音源のタグ由来)で、正式表記の確認と元データの修正が必要
+- ~~`二等星 (Immitation Star)` の綴り~~ → 2026-09-28 ユーザーがシートを修正し「Imitation」に。曲ページのURL(`/songs/immitation-star/`)は既存リンクを壊さないため据え置き
 
 並行して P3 を進める【2026-09-28 対応済み】:
 - jest の設定を直し、`src/utils` に最小限のテストを足す → `moduleNameMapper` に修正、重複設定を削除、i18nRoutes・monthDay・extractPrefecture・setlistCompare・bracketSorter のテストを追加(全56件)
@@ -255,7 +255,8 @@ P3 の残り:
 - 旧色 `#D2AF57` のコントラスト(美辞学ナビとデザインプレビューだけで使用。デザイン判断のため未変更)
 - Tailwind の `darkMode` 未指定(OS 設定に従う)。テーマ切り替えとの関係は未整理
 - シート由来の不適切なスラッグ(`/songs/0/` など)
-- どこからも使われていない Google Maps 系コンポーネント(`src/components/modules/map.tsx`・`marker.tsx`・`infoWindow.tsx`)と `@types/google.maps`。削除の確認対象に入っていなかったため残した
+- ~~どこからも使われていない Google Maps 系コンポーネント~~ → 2026-09-28 削除済み(ユーザー確認済み)
+- 聖地マップの地図が「API KEY REQUIRED」になっていた → CARTO のベースマップが API キー必須になったため。2026-09-28 に開催地マップと同じ OpenStreetMap のタイルへ切り替えた
 
 ---
 
