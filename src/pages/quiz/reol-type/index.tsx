@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { navigate, Link, type HeadFC } from "gatsby";
-import { useTranslation } from "react-i18next";
+import { navigate, type HeadFC } from "gatsby";
+import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../../../data/reol-type/i18n";
+import { LangLink as Link } from "../../../i18n/site/SiteLangContext";
+import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../../../i18n/site/langs";
+import { localizePath } from "../../../utils/i18nRoutes";
 import { reolTypes, getLocalizedType, typeGroups, getLocalizedTypeGroup, type TypeCode, type GroupCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
-import jaCommon from "../../../i18n/locales/ja/common.json";
 import LoadingSkeleton from "../../../components/common/LoadingSkeleton";
 import ErrorRetry from "../../../components/common/ErrorRetry";
 import { trackEvent } from "../../../utils/analytics";
@@ -16,8 +18,10 @@ const TYPE_MATRIX: { group: GroupCode; codes: TypeCode[] }[] = [
   { group: 'BE', codes: ['BESA', 'BESI', 'BEQA', 'BEQI'] },
 ];
 
-const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
-  const { t } = useTranslation('common');
+const TypeDistributionMatrix = ({ lang }: { lang: SiteLang }) => {
+  const { t } = useQuizT();
+  // 並列の区切り(日本語は「・」、中国語・韓国語では「・」を使わない)
+  const sep = lang === "ja" ? "・" : " / ";
   const [distribution, setDistribution] = useState<Record<string, number>>({});
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -103,7 +107,7 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
       {/* マトリクス本体 */}
       <div className="space-y-1.5">
         {TYPE_MATRIX.map(({ group, codes }) => {
-          const g = getLocalizedTypeGroup(group, lang);
+          const g = getQuizGroup(group, lang);
           return (
             <div key={group} className="grid grid-cols-[56px_1fr_1fr_1fr_1fr] gap-1.5">
               {/* 行ヘッダー */}
@@ -116,7 +120,7 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
                 const pct = total > 0 ? Math.round((count / total) * 100) : 0;
                 const intensity = count / maxCount;
                 const rt = reolTypes[code];
-                const localRt = getLocalizedType(code, lang);
+                const localRt = getQuizType(code, lang);
                 return (
                   <Link
                     key={code}
@@ -152,16 +156,15 @@ const TypeDistributionMatrix = ({ lang }: { lang: string }) => {
 
       {/* 軸ラベル説明 */}
       <div className="mt-4 flex justify-between text-[10px] text-gray-600">
-        <div>← {t('reolType.axisEvangelize')}・{t('reolType.axisAnalyze')}</div>
-        <div>{t('reolType.axisImmerse')}・{t('reolType.axisIntuition')} →</div>
+        <div>← {t('reolType.axisEvangelize')}{sep}{t('reolType.axisAnalyze')}</div>
+        <div>{t('reolType.axisImmerse')}{sep}{t('reolType.axisIntuition')} →</div>
       </div>
     </div>
   );
 };
 
 const ReolTypeIntroPage = () => {
-  const { t, i18n } = useTranslation('common');
-  const lang = i18n.language || 'ja';
+  const { t, lang } = useQuizT();
   const [prevType, setPrevType] = useState<TypeCode | null>(null);
   const [isGuest, setIsGuest] = useState(false);
 
@@ -203,10 +206,10 @@ const ReolTypeIntroPage = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("reol_type_answers");
     }
-    navigate("/quiz/reol-type/quiz/?q=1");
+    navigate(localizePath("/quiz/reol-type/quiz/?q=1", lang));
   };
 
-  const prevTypeInfo = prevType ? getLocalizedType(prevType, lang) : null;
+  const prevTypeInfo = prevType ? getQuizType(prevType, lang) : null;
 
   return (
     <div className="min-h-svh flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-b from-[#0a0a1a] via-[#111133] to-[#0a0a1a] text-white font-sans">
@@ -311,7 +314,7 @@ const ReolTypeIntroPage = () => {
           <p className="text-xs text-gray-500 mb-3">{t('reolType.viewAllTypes')}</p>
           <div className="grid grid-cols-4 gap-2">
             {Object.values(reolTypes).map((rt) => {
-              const localRt = getLocalizedType(rt.code, lang);
+              const localRt = getQuizType(rt.code, lang);
               return (
                 <Link
                   key={rt.code}
@@ -337,13 +340,16 @@ const ReolTypeIntroPage = () => {
 
 export default ReolTypeIntroPage;
 
-// NOTE: SSG ビルド時は i18n の初期化順によって t() が翻訳キーを
-// そのまま返し <title> に露出することがあるため、Head では
-// ランタイムの t() を使わず ja ロケールを直接参照する。
-export const Head: HeadFC = () => (
-  <SEO
-    title={jaCommon.reolType.seoIntroTitle}
-    description={jaCommon.reolType.seoIntroDesc}
-    path="/quiz/reol-type/"
-  />
-);
+// 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = quizT(lang);
+  return (
+    <SEO
+      title={t("reolType.seoIntroTitle")}
+      description={t("reolType.seoIntroDesc")}
+      path="/quiz/reol-type/"
+      lang={lang}
+    />
+  );
+};

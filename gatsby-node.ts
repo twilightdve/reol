@@ -1685,7 +1685,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   ];
   const typeDetailTemplate = path.resolve("./src/templates/reol-type-detail.tsx");
   typeCodes.forEach((code) => {
-    createPage({
+    createPageWithLocales({
       path: `/quiz/reol-type/types/${code.toLowerCase()}/`,
       component: typeDetailTemplate,
       context: { typeCode: code },

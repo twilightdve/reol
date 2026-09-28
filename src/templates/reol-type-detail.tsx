@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, type PageProps } from "gatsby";
-import { useTranslation } from "react-i18next";
+import { type PageProps } from "gatsby";
+import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../data/reol-type/i18n";
+import { LangLink as Link } from "../i18n/site/SiteLangContext";
+import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../i18n/site/langs";
+import { localizePath } from "../utils/i18nRoutes";
 import { reolTypes, typeGroups, getLocalizedType, getLocalizedTypeGroup, type TypeCode } from "../data/reol-type/types";
 import SEO from "../components/SEO";
 
@@ -20,7 +23,7 @@ interface SameTypeUser {
 }
 
 const SameTypeUsers = ({ typeCode, typeColor }: { typeCode: TypeCode; typeColor: string }) => {
-  const { t } = useTranslation('common');
+  const { t, lang } = useQuizT();
   const [users, setUsers] = useState<SameTypeUser[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -101,6 +104,7 @@ const SameTypeUsers = ({ typeCode, typeColor }: { typeCode: TypeCode; typeColor:
 
 interface PageContext {
   typeCode: TypeCode;
+  lang?: string;
 }
 
 // === タイプ別カラー計算 ===
@@ -122,7 +126,7 @@ function getTypeBgStyle(color: string) {
 }
 
 // === シェアカード生成（タイプ詳細用） ===
-function generateDetailShareCard(typeCode: TypeCode, lang: string = 'ja'): Promise<string> {
+function generateDetailShareCard(typeCode: TypeCode, lang: SiteLang = 'ja'): Promise<string> {
   return new Promise((resolve) => {
     const DPR = 2;
     const W = 600;
@@ -133,8 +137,8 @@ function generateDetailShareCard(typeCode: TypeCode, lang: string = 'ja'): Promi
     const ctx = canvas.getContext("2d")!;
     ctx.scale(DPR, DPR);
 
-    const typeInfo = getLocalizedType(typeCode, lang);
-    const group = getLocalizedTypeGroup(typeInfo.group, lang);
+    const typeInfo = getQuizType(typeCode, lang);
+    const group = getQuizGroup(typeInfo.group, lang);
 
     // 背景グラデーション（タイプ別）
     const { r, g, b } = hexToRgb(typeInfo.color);
@@ -252,7 +256,7 @@ function generateDetailShareCard(typeCode: TypeCode, lang: string = 'ja'): Promi
     ctx.fillStyle = 'rgba(255,255,255,0.3)';
     ctx.font = font(11);
     ctx.textAlign = 'right';
-    ctx.fillText(`reol.twilightea.com/quiz/reol-type/types/${typeCode.toLowerCase()}/`, W - 24, H - 14);
+    ctx.fillText(`reol.twilightea.com${localizePath(`/quiz/reol-type/types/${typeCode.toLowerCase()}/`, lang)}`, W - 24, H - 14);
 
     resolve(canvas.toDataURL("image/png"));
   });
@@ -261,13 +265,12 @@ function generateDetailShareCard(typeCode: TypeCode, lang: string = 'ja'): Promi
 // === メインコンポーネント ===
 const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => {
   const { typeCode } = pageContext;
-  const { t, i18n } = useTranslation('common');
-  const lang = i18n.language || 'ja';
-  const typeInfo = getLocalizedType(typeCode, lang);
-  const group = getLocalizedTypeGroup(typeInfo.group, lang);
-  const bestMatch = getLocalizedType(typeInfo.compatibility.bestMatch, lang);
-  const inspire = getLocalizedType(typeInfo.compatibility.inspire, lang);
-  const complement = getLocalizedType(typeInfo.compatibility.complement, lang);
+  const { t, lang } = useQuizT();
+  const typeInfo = getQuizType(typeCode, lang);
+  const group = getQuizGroup(typeInfo.group, lang);
+  const bestMatch = getQuizType(typeInfo.compatibility.bestMatch, lang);
+  const inspire = getQuizType(typeInfo.compatibility.inspire, lang);
+  const complement = getQuizType(typeInfo.compatibility.complement, lang);
 
   const allTypes = Object.values(reolTypes);
 
@@ -280,13 +283,13 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
   }, [typeCode, lang]);
 
   const handleShareX = useCallback(() => {
-    const localTypeInfo = getLocalizedType(typeCode, lang);
+    const localTypeInfo = getQuizType(typeCode, lang);
     const text = t('reolType.xShareType', {
       emoji: localTypeInfo.emoji,
       name: localTypeInfo.name,
       song: localTypeInfo.songLabel,
       summary: localTypeInfo.summary.slice(0, 60) + '…',
-      url: `${SITE_URL}/quiz/reol-type/types/${typeCode.toLowerCase()}/?utm_source=share_x`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${typeCode.toLowerCase()}/?utm_source=share_x`, lang)}`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -319,11 +322,11 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
   }, [shareImage, typeCode]);
 
   const handleCopyText = useCallback(() => {
-    const localTypeInfo = getLocalizedType(typeCode, lang);
+    const localTypeInfo = getQuizType(typeCode, lang);
     const text = t('reolType.copyTypeText', {
       name: localTypeInfo.name,
       song: localTypeInfo.songLabel,
-      url: `${SITE_URL}/quiz/reol-type/types/${typeCode.toLowerCase()}/`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${typeCode.toLowerCase()}/`, lang)}`,
     });
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
@@ -484,7 +487,7 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
           <h3 className="text-sm font-bold text-gray-300 mb-4">{t('reolType.allTypes')}</h3>
           <div className="grid grid-cols-4 gap-2">
             {allTypes.map((rt) => {
-              const localRt = getLocalizedType(rt.code, lang);
+              const localRt = getQuizType(rt.code, lang);
               return (
                 <Link
                   key={rt.code}
@@ -520,16 +523,21 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
 
 export default ReolTypeDetailPage;
 
-// NOTE: SSG ビルド時の i18n 初期化順による翻訳キー露出を避けるため
-// Head では t() を使わず ja 固定でタイトルを組み立てる。
+// 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
 export const Head = ({ pageContext }: PageProps<object, PageContext>) => {
   const { typeCode } = pageContext;
-  const typeInfo = getLocalizedType(typeCode, 'ja');
+  const lang = isSiteLang(pageContext.lang) ? pageContext.lang : DEFAULT_LANG;
+  const typeInfo = getQuizType(typeCode, lang);
   return (
     <SEO
-      title={`${typeInfo.emoji} ${typeInfo.name}「${typeInfo.songLabel}」— Reolファンタイプ診断`}
+      title={quizT(lang)("reolType.seoDetailTitle", {
+        emoji: typeInfo.emoji,
+        name: typeInfo.name,
+        song: typeInfo.songLabel,
+      })}
       description={typeInfo.summary}
       path={`/quiz/reol-type/types/${typeCode.toLowerCase()}/`}
+      lang={lang}
       image={`https://reol.twilightea.com/reol-type-og/${typeCode.toLowerCase()}.png`}
     />
   );
