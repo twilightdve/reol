@@ -269,13 +269,13 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
                     card_type: tool.cardType,
                   })
                 }
-                className="group flex items-baseline justify-between gap-3 py-2.5"
+                className="group flex items-center justify-between gap-3 py-2.5"
               >
                 <span className="min-w-0">
-                  <span className="text-[14px] font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
+                  <span className="block text-[14px] font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
                     {tool.title}
                   </span>
-                  <span className="ml-2 text-[11.5px] text-bx-ink3">{tool.desc}</span>
+                  <span className="mt-0.5 block text-[11.5px] leading-relaxed text-bx-ink3">{tool.desc}</span>
                 </span>
                 <span aria-hidden="true" className="flex-shrink-0 text-bx-blueLight">
                   →
