@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Place, PlaceItem } from "../../../types/places";
-import { useTheme } from "../../../hooks/useTheme";
 import { usePageDict } from "../../../i18n/site/SiteLangContext";
 import { placeDict } from "../../../i18n/site/pages/place";
 
@@ -47,7 +46,6 @@ const FitBounds: React.FC<{ markers: PlaceMarker[]; map: L.Map | null }> = ({
 const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
   const t = usePageDict(placeDict);
   const [map, setMap] = React.useState<L.Map | null>(null);
-  const { theme } = useTheme();
 
   // 中心: 日本のおおよそ中央
   const center: [number, number] = markers.length
@@ -63,9 +61,12 @@ const PlaceMap: React.FC<PlaceMapProps> = ({ markers, heightClassName }) => {
         ref={setMap}
         scrollWheelZoom={false}
       >
+        {/* CARTO のベースマップは API キー必須になり「API KEY REQUIRED」の画像しか返らなくなったため、
+            開催地マップと同じ OpenStreetMap のタイルにする。ダークテーマでは同じ CSS フィルタで暗くする */}
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url={`https://{s}.basemaps.cartocdn.com/${theme === "light" ? "light_all" : "dark_all"}/{z}/{x}/{y}{r}.png`}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          className="relive-map-tiles-dark"
         />
         <FitBounds markers={markers} map={map} />
         {markers.map((m) => (
