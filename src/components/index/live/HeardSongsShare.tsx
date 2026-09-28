@@ -35,7 +35,7 @@ const COLORS = {
 };
 
 const font = (size: number, weight = "400") =>
-  `${weight} ${size}px -apple-system, "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif`;
+  `${weight} ${size}px "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif`;
 
 /** 幅に収まるまでフォントを縮め、それでも収まらなければ末尾を…で切る */
 const fitText = (
@@ -58,7 +58,7 @@ const fitText = (
   return { text: `${cut}…`, size: s };
 };
 
-const drawCard = (stats: HeardShareStats, t: HeardShareDict, path: string): string => {
+export const drawCard = (stats: HeardShareStats, t: HeardShareDict, path: string): string => {
   const canvas = document.createElement("canvas");
   canvas.width = W * DPR;
   canvas.height = H * DPR;
@@ -90,14 +90,29 @@ const drawCard = (stats: HeardShareStats, t: HeardShareDict, path: string): stri
 
   // 大きな数字「N / M 曲」
   const rate = stats.total > 0 ? Math.round((stats.heard / stats.total) * 100) : 0;
-  ctx.fillStyle = COLORS.yellow;
-  ctx.font = font(150, "800");
+  // 3桁の曲数や長い単位(英語の songs)でも右列に食い込まないよう、左列の幅に収まるまで縮める
   const heardText = String(stats.heard);
+  const totalText = ` / ${stats.total} ${t.cardSongsUnit}`;
+  const maxNumberWidth = 640;
+  let bigSize = 150;
+  let subSize = 48;
+  const measure = () => {
+    ctx.font = font(bigSize, "800");
+    const w1 = ctx.measureText(heardText).width;
+    ctx.font = font(subSize, "700");
+    return w1 + ctx.measureText(totalText).width;
+  };
+  while (bigSize > 90 && measure() > maxNumberWidth) {
+    bigSize -= 6;
+    subSize = Math.round(bigSize * 0.32);
+  }
+  ctx.fillStyle = COLORS.yellow;
+  ctx.font = font(bigSize, "800");
   ctx.fillText(heardText, left - 6, 318);
   const heardWidth = ctx.measureText(heardText).width;
   ctx.fillStyle = COLORS.ink2;
-  ctx.font = font(48, "700");
-  ctx.fillText(` / ${stats.total} ${t.cardSongsUnit}`, left + heardWidth, 318);
+  ctx.font = font(subSize, "700");
+  ctx.fillText(totalText, left + heardWidth, 318);
 
   // 達成率バー
   const barW = 540;
