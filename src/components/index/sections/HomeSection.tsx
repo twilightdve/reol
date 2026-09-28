@@ -1,5 +1,6 @@
 import React from "react";
-import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
+import { LangLink, useDict, usePageDict } from "../../../i18n/site/SiteLangContext";
+import { featuresDict } from "../../../i18n/site/pages/features";
 import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
@@ -41,6 +42,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
   const { songCount, liveItemCount, performanceCount, nextLive } = siteStats;
   const dict = useDict();
   const t = dict.home;
+  const features = usePageDict(featuresDict);
   const stats = [
     { value: songCount, label: "SONGS" },
     { value: liveItemCount, label: "LIVES" },
@@ -240,178 +242,61 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
         </GlassCard>
       </div>
 
-      {/* 深堀りツール：相関図・開催地マップ・楽曲ソーター・セトリの文法 */}
+      {/* 深堀りツール: カードを並べると増えるたびに HOME が長くなるため、簡潔なリストにして
+          全体は /features/ にまとめる(plan/27 ステップ5) */}
       <div className="px-2 sm:px-4 pt-8">
         <Kicker color="text-bx-blueLight">MORE TOOLS</Kicker>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-3.5">
-          <GlassCard
-            to="/cgraph"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "相関図",
-                card_type: "cgraph",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              CREATOR RELATIONS
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.cgraphTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.cgraphDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/live/heatmap/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "開催地マップ",
-                card_type: "heatmap",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              LIVE HEATMAP
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.heatmapTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.heatmapDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/songs/sorter/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "楽曲ソーター",
-                card_type: "song_sorter",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              SONG SORTER
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.sorterTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.sorterDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/live/setlist-grammar/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "セトリの文法",
-                card_type: "setlist_grammar",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              SETLIST GRAMMAR
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.grammarTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.grammarDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/live/compare/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "セトリ比較",
-                card_type: "setlist_compare",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              SETLIST COMPARE
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.compareTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.compareDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/live/tour-heatmap/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "ツアーヒートマップ",
-                card_type: "tour_heatmap",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              TOUR HEATMAP
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.tourHeatmapTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.tourHeatmapDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/live/similarity-ranking/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "セトリ類似度ランキング",
-                card_type: "similarity_ranking",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              SIMILARITY RANKING
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.similarityTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.similarityDesc}
-            </p>
-          </GlassCard>
-
-          <GlassCard
-            to="/posts/"
-            accent="blueLight"
-            className="p-4"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "関連ポスト",
-                card_type: "posts",
-              })
-            }
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              POSTS
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.postsTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.postsDesc}
-            </p>
-          </GlassCard>
-        </div>
+        <ul className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 border-t border-bx-line">
+          {(
+            [
+              { to: "/cgraph/", title: t.cgraphTitle, desc: t.cgraphDesc, label: "相関図", cardType: "cgraph" },
+              { to: "/live/heatmap/", title: t.heatmapTitle, desc: t.heatmapDesc, label: "開催地マップ", cardType: "heatmap" },
+              { to: "/songs/sorter/", title: t.sorterTitle, desc: t.sorterDesc, label: "楽曲ソーター", cardType: "song_sorter" },
+              { to: "/live/setlist-grammar/", title: t.grammarTitle, desc: t.grammarDesc, label: "セトリの文法", cardType: "setlist_grammar" },
+              { to: "/live/compare/", title: t.compareTitle, desc: t.compareDesc, label: "セトリ比較", cardType: "setlist_compare" },
+              { to: "/live/tour-heatmap/", title: t.tourHeatmapTitle, desc: t.tourHeatmapDesc, label: "ツアーヒートマップ", cardType: "tour_heatmap" },
+              { to: "/live/similarity-ranking/", title: t.similarityTitle, desc: t.similarityDesc, label: "セトリ類似度ランキング", cardType: "similarity_ranking" },
+              { to: "/posts/", title: t.postsTitle, desc: t.postsDesc, label: "関連ポスト", cardType: "posts" },
+            ] as const
+          ).map((tool) => (
+            <li key={tool.cardType} className="border-b border-bx-line">
+              <LangLink
+                to={tool.to}
+                onClick={() =>
+                  trackEvent("entry_card_click", {
+                    category: "navigation",
+                    label: tool.label,
+                    card_type: tool.cardType,
+                  })
+                }
+                className="group flex items-center justify-between gap-3 py-2.5"
+              >
+                <span className="min-w-0">
+                  <span className="block text-[14px] font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
+                    {tool.title}
+                  </span>
+                  <span className="mt-0.5 block text-[11.5px] leading-relaxed text-bx-ink3">{tool.desc}</span>
+                </span>
+                <span aria-hidden="true" className="flex-shrink-0 text-bx-blueLight">
+                  →
+                </span>
+              </LangLink>
+            </li>
+          ))}
+        </ul>
+        <LangLink
+          to="/features/"
+          onClick={() =>
+            trackEvent("entry_card_click", {
+              category: "navigation",
+              label: "機能一覧",
+              card_type: "features",
+            })
+          }
+          className="mt-3 inline-block text-[12px] font-bold text-bx-blueLight hover:text-bx-blue transition-colors"
+        >
+          {features.seeAll}
+        </LangLink>
       </div>
 
       {/* Reolファンタイプ診断・美辞学ナビへの導線 */}

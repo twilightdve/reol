@@ -718,6 +718,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 </h4>
                 <Tweets
                   parentId={`${live.liveUuid}`}
+                  reference={{ kind: "live", date: live.date }}
                   posts={live.posts.map((post) => ({
                     id: post.livePostId,
                     html: post.livePostHTML,

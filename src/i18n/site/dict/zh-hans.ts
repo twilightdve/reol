@@ -1,5 +1,6 @@
 // 简体中文(非官方翻译・機械翻訳。ネイティブ確認推奨)。歌名等专有名词保持原文。
 import type { SiteDict } from "./ja";
+import type { RelativeDate } from "../../../utils/postMeta";
 
 const zhHans: SiteDict = {
   site: {
@@ -101,6 +102,13 @@ const zhHans: SiteDict = {
     seeAll: "查看这一天的全部记录 →",
   },
   common: {
+    postTiming: (kind: "live" | "release", rel: RelativeDate): string => {
+      const ref = kind === "live" ? "演出" : "发行";
+      if (rel.unit === "same") return `${ref}当天`;
+      const unit = rel.unit === "day" ? "天" : rel.unit === "month" ? "个月" : "年";
+      return `${ref}${rel.direction === "before" ? "前" : "后"} ${rel.amount} ${unit}`;
+    },
+    postCategory: { 本人: "本人", 公式: "官方", メディア: "媒体" } as Record<string, string>,
     showMore: (n: number) => `显示更多(${n} 条)`,
     backToTop: "返回页面顶部",
     backHome: "返回 HOME",
@@ -151,6 +159,10 @@ const zhHans: SiteDict = {
     intro2: "收录各场演出的歌单、相关帖子与演出报道，即使没能参加的场次，也能感受到当时的氛围。",
     attendanceLabel: "参加记录",
     attendanceHint: "点击各演出卡片的「✓」即可记录已参加(仅保存在此设备的浏览器中)",
+    heardLabel: "现场听过的歌曲",
+    heardHint: "根据已标记参加的演出歌单统计(以曾在现场演出过的歌曲为对象)",
+    heardList: (n: number) => `听过的歌曲 (${n})`,
+    unheardList: (n: number) => `还没在现场听过的歌曲 (${n}，按演出次数排序)`,
     ongoing: "进行中",
     upcoming: "近期预定",
     helpFilter: "点击上方的话题标签即可简单筛选列表",
@@ -225,7 +237,7 @@ const zhHans: SiteDict = {
     venue: "会场",
     venueSite: "查看会场网站",
     reliveTitle: "Relive Player (β) — 用本地音源播放这份歌单",
-    relive: "用 Relive Player 收听 (β)",
+    relive: "Relive Player (β，需自备音源)",
     shareTitle: "在 X 分享这场演出的页面",
     share: "在 X 分享",
     mapTitle: (heading: string) => `会场地图 - ${heading}`,

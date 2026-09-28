@@ -214,7 +214,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               onClick={() =>
                 trackEvent("relive_player_click", { category: "engagement", label: heading })
               }
-              className="text-[12px] font-extrabold tracking-wide rounded-full px-5 py-2 bg-bx-yellow text-bx-bg hover:opacity-90 transition-opacity"
+              // 自前の音源が必要なマニア向け機能なので、会場リンクと同じ控えめなボタンにする(plan/27 ステップ5)
+              className="text-[12px] font-bold tracking-wide rounded-full px-5 py-2 border border-bx-line text-bx-ink3 hover:border-bx-blue hover:text-bx-ink transition-colors"
               title={t.reliveTitle}
             >
               {t.relive}
@@ -476,6 +477,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
             <Kicker className="mb-4">{t.relatedPosts}</Kicker>
             <Tweets
               parentId={`live-item-${slug}`}
+              reference={{ kind: "live", date }}
               posts={posts.map((post) => ({
                 id: post.liveItemPostId,
                 html: post.liveItemPostHTML,
@@ -568,6 +570,7 @@ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
       description={buildDescription(pageContext, dict.show)}
       path={`/live/${slug}/`}
       lang={lang}
+      image={`https://reol.twilightea.com/og/live/${slug}.jpg`}
       jsonLd={jsonLd}
     />
   );

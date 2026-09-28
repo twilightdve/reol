@@ -98,6 +98,7 @@ export interface SongPageContext {
     discographyPostId: string;
     discographyPostHTML: string;
   }[];
+  albumReleaseDate?: string | null;
   plays: Play[];
 }
 
@@ -124,6 +125,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     albumSongs,
     albumReports,
     albumPosts,
+    albumReleaseDate,
     plays,
   } = pageContext;
 
@@ -478,6 +480,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
             <Kicker className="mb-4">{t.relatedPosts}</Kicker>
             <Tweets
               parentId={`song-${slug}`}
+              reference={{ kind: "release", date: albumReleaseDate ?? null }}
               posts={albumPosts.map((post) => ({
                 id: post.discographyPostId,
                 html: post.discographyPostHTML,

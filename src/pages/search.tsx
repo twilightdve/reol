@@ -6,7 +6,7 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { normalizeSongName } from "../utils/songMatcher";
 import { trackEvent } from "../utils/analytics";
 import { GlassCard, Kicker, GlassCardAccent } from "../components/redesign";
-import { pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
+import { LangLink, pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
 import { searchDict } from "../i18n/site/pages/search";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
 import { getDict } from "../i18n/site/dict";
@@ -434,6 +434,17 @@ const SearchPage: React.FC = () => {
 
         {query && filtered.length === 0 && discography && (
           <p className="text-bx-ink3 text-xs mt-3">{t.noHits}</p>
+        )}
+        {/* 関連ポストは件数が多く検索データに含めていないため、/posts/ の検索へ渡す(plan/27 ステップ5) */}
+        {isLoaded && query.trim() && (
+          <p className="mt-4 text-xs">
+            <LangLink
+              to={`/posts/?q=${encodeURIComponent(query.trim())}`}
+              className="text-bx-blueLight hover:text-bx-blue underline underline-offset-2"
+            >
+              {t.searchPosts(query.trim())}
+            </LangLink>
+          </p>
         )}
         {filtered.length > 200 && (
           <p className="text-bx-ink3 text-xs mt-3">

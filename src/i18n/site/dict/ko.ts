@@ -1,5 +1,6 @@
 // 한국어(비공식 번역・機械翻訳。ネイティブ確認推奨). 곡명 등 고유명사는 원문 그대로 표기.
 import type { SiteDict } from "./ja";
+import type { RelativeDate } from "../../../utils/postMeta";
 
 const ko: SiteDict = {
   site: {
@@ -102,6 +103,13 @@ const ko: SiteDict = {
     seeAll: "이날의 모든 기록 보기 →",
   },
   common: {
+    postTiming: (kind: "live" | "release", rel: RelativeDate): string => {
+      const ref = kind === "live" ? "공연" : "발매";
+      if (rel.unit === "same") return `${ref} 당일`;
+      const unit = rel.unit === "day" ? "일" : rel.unit === "month" ? "개월" : "년";
+      return `${ref} ${rel.amount}${unit} ${rel.direction === "before" ? "전" : "후"}`;
+    },
+    postCategory: { 本人: "본인", 公式: "공식", メディア: "미디어" } as Record<string, string>,
     showMore: (n: number) => `더 보기 (${n}개)`,
     backToTop: "페이지 맨 위로",
     backHome: "HOME으로 돌아가기",
@@ -152,6 +160,10 @@ const ko: SiteDict = {
     intro2: "공연별 세트리스트와 관련 게시물, 라이브 리포트 등을 실어, 참가하지 못한 공연도 어떤 분위기였는지 조금이나마 느낄 수 있도록 했습니다.",
     attendanceLabel: "참전 기록",
     attendanceHint: "각 공연 카드의 「✓」로 참전 완료를 기록할 수 있습니다(이 기기의 브라우저에만 저장)",
+    heardLabel: "라이브로 들은 곡",
+    heardHint: "참전 완료로 표시한 공연의 세트리스트로 집계합니다(라이브에서 연주된 적이 있는 곡이 대상)",
+    heardList: (n: number) => `들은 곡 (${n})`,
+    unheardList: (n: number) => `아직 라이브로 못 들은 곡 (${n}, 연주 횟수순)`,
     ongoing: "개최 중",
     upcoming: "개최 예정",
     helpFilter: "위쪽의 해시태그를 누르면 목록을 간단히 필터링할 수 있습니다",
@@ -226,7 +238,7 @@ const ko: SiteDict = {
     venue: "공연장",
     venueSite: "공연장 사이트 보기",
     reliveTitle: "Relive Player (β) — 이 세트리스트를 로컬 음원으로 재생합니다",
-    relive: "Relive Player로 듣기 (β)",
+    relive: "Relive Player (β·음원 직접 준비)",
     shareTitle: "이 공연의 페이지를 X에 공유",
     share: "X에 공유",
     mapTitle: (heading: string) => `공연장 지도 - ${heading}`,

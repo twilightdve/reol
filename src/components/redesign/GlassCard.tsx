@@ -1,5 +1,5 @@
 import React from "react";
-import { LangLink } from "../../i18n/site/SiteLangContext";
+import { LangLink, useLocalizePath } from "../../i18n/site/SiteLangContext";
 
 /**
  * B案「BLACKBOX / CHRONICLE」共通のダークガラスカード。
@@ -39,6 +39,7 @@ const GlassCard: React.FC<GlassCardProps> = ({
   className = "",
   children,
 }) => {
+  const localize = useLocalizePath();
   const baseClassName = [
     "group relative block rounded-xl border border-bx-line bg-bx-surface/[0.035] transition-colors",
     accent ? ACCENT_HOVER_BORDER[accent] : "",
@@ -58,7 +59,8 @@ const GlassCard: React.FC<GlassCardProps> = ({
   if (href) {
     return (
       <a
-        href={href}
+        // サイト内のパス(/で始まる)は表示中の言語のURLにする。外部URLはそのまま
+        href={localize(href)}
         onClick={onClick}
         className={baseClassName}
         {...(openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}

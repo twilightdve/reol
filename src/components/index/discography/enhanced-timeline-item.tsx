@@ -452,6 +452,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                       </h4>
                       <Tweets
                         parentId={`${item.discographyUuid}`}
+                        reference={{ kind: "release", date: item.releaseDate ?? null }}
                         posts={item.posts.map((post) => ({
                           id: post.discographyPostId,
                           html: post.discographyPostHTML,

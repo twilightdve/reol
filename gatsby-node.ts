@@ -26,6 +26,8 @@ import { generateReliveData } from "./src/features/relive/data-transform";
 import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
+import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
+import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
@@ -251,56 +253,7 @@ const createLiveNodes = async (
 // から投稿者ハンドル・表示名・投稿日をパースする(表示にはtweetIdのみ使うため
 // HTML自体は保存しない)。
 //
-// 投稿者の分類(本人/公式/メディア/その他)はハンドル名のヒューリスティック。
-// 「本人」以外は確認が取れたハンドルのみ手動でリストに追加する運用とし、
-// 未確認のアカウントを推測で「公式」「メディア」に分類しない
-// (reol-official-links相当の確認方針を踏襲)。
-const HERSELF_HANDLES = new Set(["rrreol"]);
-// 確認済みの公式関連アカウント(本人以外)。ハンドル名は小文字・@なしで追加。
-const OFFICIAL_HANDLES = new Set<string>([
-  "reol_info", // Reol公式インフォメーションアカウント
-  "rrreol_official", // Reol OFFICIAL
-]);
-// 確認済みのメディア・ニュースアカウント。
-const MEDIA_HANDLES = new Set<string>([
-  "natalie_mu", // 音楽ナタリー
-  "rockinon_com", // rockin'on
-  "the_firsttimesn", // THE FIRST TIMES
-]);
-
-type PostCategory = "本人" | "公式" | "メディア" | "その他";
-
-const classifyPostHandle = (handle: string | null): PostCategory => {
-  if (!handle) return "その他";
-  const h = handle.toLowerCase();
-  if (HERSELF_HANDLES.has(h)) return "本人";
-  if (OFFICIAL_HANDLES.has(h)) return "公式";
-  if (MEDIA_HANDLES.has(h)) return "メディア";
-  return "その他";
-};
-
-// Twitter/Xの標準的な埋め込みHTML
-// (`&mdash; 表示名 (@handle) <a href=".../status/...">日付</a>`)から
-// ハンドル・表示名・投稿日を抜き出す。パース不可の場合はnullのまま返す。
-const parsePostEmbedHtml = (
-  html: string
-): { handle: string | null; displayName: string | null; postedAt: string | null } => {
-  const handleMatch = html.match(/\(@(\w+)\)/);
-  const nameMatch = html.match(/&mdash;\s*([^(]+?)\s*\(@/);
-  const dateMatch = html.match(/status\/\d+[^>]*>([^<]+)<\/a>/);
-  let postedAt: string | null = null;
-  if (dateMatch) {
-    const d = new Date(dateMatch[1]);
-    if (!isNaN(d.getTime())) {
-      postedAt = d.toISOString().slice(0, 10);
-    }
-  }
-  return {
-    handle: handleMatch ? handleMatch[1] : null,
-    displayName: nameMatch ? nameMatch[1].trim() : null,
-    postedAt,
-  };
-};
+// 投稿者の分類とHTMLのパースは src/utils/postMeta.ts(各ページの日付差分ラベルと共用)。
 
 // 一覧では毎回widgets.jsのiframeを読み込まず、事前取得済みの
 // <blockquote>だけを軽量表示する。widgets.js は「ページ内の
@@ -1723,6 +1676,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     discography: {
       discographyWithSongs: {
         discographyUuid: string;
+        releaseDate: string | null;
         reports: {
           discographyRepoUuid: string;
           discographyReportName: string;
@@ -1777,6 +1731,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       discography {
         discographyWithSongs {
           discographyUuid
+          releaseDate
           reports {
             discographyRepoUuid
             discographyReportName
@@ -1841,6 +1796,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
         disc.reports ?? [],
       ])
     );
+    const releaseDateByDiscUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
+        disc.discographyUuid,
+        disc.releaseDate ?? null,
+      ])
+    );
     const postsByDiscUuid = new Map(
       (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
         disc.discographyUuid,
@@ -1901,6 +1862,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
           albumSongs,
           albumReports,
           albumPosts,
+          albumReleaseDate: song.discographyUuid
+            ? releaseDateByDiscUuid.get(song.discographyUuid) ?? null
+            : null,
           plays: song.plays,
         },
       });
@@ -2018,6 +1982,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     const liveItemTemplate = path.resolve("./src/templates/live-item.tsx");
     let liveItemPageCount = 0;
+    const liveOgInputs: PageOgInput[] = [];
     liveInfos.forEach((live) => {
       // 同ツアー内の他公演一覧(回遊用)。日付昇順。
       const siblingItems = [...live.items]
@@ -2030,6 +1995,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }));
 
       live.items.forEach((item) => {
+        const songCount = item.setList.filter(
+          (s) => !!s.liveItemSongName && s.type !== "segment"
+        ).length;
+        liveOgInputs.push({
+          file: `live/${item.slug}.jpg`,
+          kicker: "LIVE ARCHIVE",
+          title: live.title,
+          lines: [
+            [item.date?.replace(/-/g, "."), item.liveItemName].filter(Boolean).join("  "),
+            item.place ?? "",
+            songCount > 0 ? `セットリスト ${songCount}曲` : "",
+          ].filter(Boolean),
+        });
         const setList = item.setList.map((s) => ({
           liveItemSongUuid: s.liveItemSongUuid,
           liveItemSongName: s.liveItemSongName,
@@ -2069,6 +2047,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     });
     console.log(`[live] generated ${liveItemPageCount} live item pages`);
+    // 公演ごとのOGP画像(plan/27 ステップ5)。public にだけ書き出す(リポジトリには置かない)
+    const liveOg = await generatePageOgImages(liveOgInputs);
+    console.log(
+      `[live-og] generated=${liveOg.generated} (${Math.round(liveOg.bytes / 1024)}KB)`
+    );
   }
 
   // ----- On This Day 個別ページ(/on-this-day/MM-DD/) -----
@@ -2252,6 +2235,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const onThisDayTemplate = path.resolve("./src/templates/on-this-day.tsx");
     let onThisDayPageCount = 0;
+    const onThisDayOgInputs: PageOgInput[] = [];
     for (let month = 1; month <= 12; month++) {
       for (let day = 1; day <= DAYS_IN_MONTH[month - 1]; day++) {
         const monthDay = `${String(month).padStart(2, "0")}-${String(
@@ -2291,6 +2275,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
           }
         }
+        if (events.length > 0) {
+          const [mo, d] = monthDay.split("-").map((v) => parseInt(v, 10));
+          onThisDayOgInputs.push({
+            file: `on-this-day/${monthDay}.jpg`,
+            kicker: "ON THIS DAY",
+            title: `${mo}月${d}日は何の日`,
+            lines: events
+              .slice(0, 3)
+              .map(
+                (ev) => `${ev.year}  ${ev.label}${ev.kind === "release" ? " リリース" : ev.suffix}`
+              ),
+          });
+        }
         createPageWithLocales({
           path: `/on-this-day/${monthDay}/`,
           component: onThisDayTemplate,
@@ -2307,6 +2304,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
       calendarIndex[monthDay] = events.length;
     }
     await writeDataJson("on-this-day-index.json", calendarIndex);
+    // 出来事がある日だけ OGP 画像を作る(出来事の無い日は noindex なので既定の画像のまま)
+    const otdOg = await generatePageOgImages(onThisDayOgInputs);
+    console.log(
+      `[on-this-day-og] generated=${otdOg.generated} (${Math.round(otdOg.bytes / 1024)}KB)`
+    );
 
     console.log(
       `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`

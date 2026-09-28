@@ -436,6 +436,11 @@ export const Head: HeadFC<object, OnThisDayPageContext> = ({
         description={t.lead(label)}
         path={`/on-this-day/${pageContext.monthDay}/`}
         lang={lang}
+        image={
+          pageContext.events.length > 0
+            ? `https://reol.twilightea.com/og/on-this-day/${pageContext.monthDay}.jpg`
+            : undefined
+        }
       />
       {pageContext.noindex && <meta name="robots" content="noindex,follow" />}
     </>
