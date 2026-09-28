@@ -1,16 +1,18 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { navigate, type HeadFC } from "gatsby";
 import { useLocation } from "@reach/router";
-import { useTranslation } from "react-i18next";
-import { questions } from "../../../data/reol-type/questions";
+import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../../../data/reol-type/i18n";
+import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../../../i18n/site/langs";
+import { localizePath } from "../../../utils/i18nRoutes";
+import { questions as baseQuestions } from "../../../data/reol-type/questions";
 import SEO from "../../../components/SEO";
-import jaCommon from "../../../i18n/locales/ja/common.json";
 
-const TOTAL = questions.length;
+const TOTAL = baseQuestions.length;
 const STORAGE_KEY = "reol_type_answers";
 
 const QuizPage = () => {
-  const { t } = useTranslation('common');
+  const { t, lang } = useQuizT();
+  const questions = useMemo(() => getQuizQuestions(lang), [lang]);
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const qParam = Math.max(1, Math.min(TOTAL, parseInt(query.get("q") || "1", 10)));
@@ -53,20 +55,20 @@ const QuizPage = () => {
 
     setTimeout(() => {
       if (qParam === TOTAL) {
-        navigate("/quiz/reol-type/result/");
+        navigate(localizePath("/quiz/reol-type/result/", lang));
       } else {
-        navigate(`/quiz/reol-type/quiz/?q=${qParam + 1}`);
+        navigate(localizePath(`/quiz/reol-type/quiz/?q=${qParam + 1}`, lang));
       }
       setIsAnimating(false);
       setSelected(null);
     }, 400);
-  }, [isAnimating, answers, question, qParam]);
+  }, [isAnimating, answers, question, qParam, lang]);
 
   const handleBack = () => {
     if (qParam > 1) {
-      navigate(`/quiz/reol-type/quiz/?q=${qParam - 1}`);
+      navigate(localizePath(`/quiz/reol-type/quiz/?q=${qParam - 1}`, lang));
     } else {
-      navigate("/quiz/reol-type/");
+      navigate(localizePath("/quiz/reol-type/", lang));
     }
   };
 
@@ -152,12 +154,16 @@ const QuizPage = () => {
 
 export default QuizPage;
 
-// NOTE: SSG ビルド時の i18n 初期化順による翻訳キー露出を避けるため
-// Head では t() を使わず ja ロケールを直接参照する。
-export const Head: HeadFC = () => (
-  <SEO
-    title={jaCommon.reolType.seoQuizTitle}
-    description={jaCommon.reolType.seoQuizDesc}
-    path="/quiz/reol-type/quiz/"
-  />
-);
+// 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = quizT(lang);
+  return (
+    <SEO
+      title={t("reolType.seoQuizTitle")}
+      description={t("reolType.seoQuizDesc")}
+      path="/quiz/reol-type/quiz/"
+      lang={lang}
+    />
+  );
+};

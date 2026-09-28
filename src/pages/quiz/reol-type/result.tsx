@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import { navigate, Link, type HeadFC } from "gatsby";
-import { useTranslation } from "react-i18next";
+import { navigate, type HeadFC } from "gatsby";
+import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../../../data/reol-type/i18n";
+import { LangLink as Link } from "../../../i18n/site/SiteLangContext";
+import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../../../i18n/site/langs";
+import { localizePath } from "../../../utils/i18nRoutes";
 import { getResult, type Answers } from "../../../data/reol-type/scoring";
 import { axisLabels, typeGroups, reolTypes, getLocalizedType, getLocalizedTypeGroup, getLocalizedAxisLabels, type TypeCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
-import jaCommon from "../../../i18n/locales/ja/common.json";
 import { trackOfficialLinkClick } from "../../../utils/analytics";
 
 const STORAGE_KEY = "reol_type_answers";
@@ -59,7 +61,7 @@ const AxisBar = ({ axisKey, leftPct, leftLabel, rightLabel, leftEmoji, rightEmoj
 function generateShareCard(
   typeCode: TypeCode,
   percentages: { FB: number; GE: number; SQ: number; AI: number },
-  lang: string = 'ja'
+  lang: SiteLang = 'ja'
 ): Promise<string> {
   return new Promise((resolve) => {
     const DPR = 2;
@@ -71,9 +73,9 @@ function generateShareCard(
     const ctx = canvas.getContext("2d")!;
     ctx.scale(DPR, DPR);
 
-    const typeInfo = getLocalizedType(typeCode, lang);
-    const group = getLocalizedTypeGroup(typeInfo.group, lang);
-    const localAxisLabels = getLocalizedAxisLabels(lang);
+    const typeInfo = getQuizType(typeCode, lang);
+    const group = getQuizGroup(typeInfo.group, lang);
+    const localAxisLabels = getQuizAxisLabels(lang);
 
     // 背景グラデーション（タイプ別）
     const { r, g, b } = hexToRgb(typeInfo.color);
@@ -177,7 +179,7 @@ function generateShareCard(
     ctx.fillStyle = 'rgba(255,255,255,0.3)';
     ctx.font = font(10);
     ctx.textAlign = 'right';
-    ctx.fillText('reol.twilightea.com/quiz/reol-type/', W - 32, H - 16);
+    ctx.fillText(`reol.twilightea.com${localizePath('/quiz/reol-type/', lang)}`, W - 32, H - 16);
 
     resolve(canvas.toDataURL("image/png"));
   });
@@ -185,8 +187,7 @@ function generateShareCard(
 
 // === メインコンポーネント ===
 const ResultPage = () => {
-  const { t, i18n } = useTranslation('common');
-  const lang = i18n.language || 'ja';
+  const { t, lang } = useQuizT();
   const [result, setResult] = useState<ReturnType<typeof getResult> | null>(null);
   const [shareImage, setShareImage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -203,13 +204,13 @@ const ResultPage = () => {
     if (typeof window === "undefined") return;
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) {
-      navigate("/quiz/reol-type/");
+      navigate(localizePath("/quiz/reol-type/", lang));
       return;
     }
     const answers: Answers = JSON.parse(stored);
     const totalAnswered = Object.keys(answers).length;
     if (totalAnswered < 20) {
-      navigate("/quiz/reol-type/quiz/?q=1");
+      navigate(localizePath("/quiz/reol-type/quiz/?q=1", lang));
       return;
     }
     const r = getResult(answers);
@@ -260,13 +261,13 @@ const ResultPage = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem(STORAGE_KEY);
     }
-    navigate("/quiz/reol-type/");
+    navigate(localizePath("/quiz/reol-type/", lang));
   };
 
   const handleShareX = () => {
     if (!result) return;
     const { percentages } = result;
-    const localTypeInfo = getLocalizedType(result.typeCode, lang);
+    const localTypeInfo = getQuizType(result.typeCode, lang);
     const text = t('reolType.xShareResult', {
       emoji: localTypeInfo.emoji,
       name: localTypeInfo.name,
@@ -281,7 +282,7 @@ const ResultPage = () => {
       ai: percentages.AI,
       aiR: 100 - percentages.AI,
       // タイプ別OG画像が出るようタイプ詳細ページのURLを共有する
-      url: `${SITE_URL}/quiz/reol-type/types/${result.typeCode.toLowerCase()}/?utm_source=share_x`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${result.typeCode.toLowerCase()}/?utm_source=share_x`, lang)}`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -315,11 +316,11 @@ const ResultPage = () => {
 
   const handleCopyText = () => {
     if (!result) return;
-    const localTypeInfo = getLocalizedType(result.typeCode, lang);
+    const localTypeInfo = getQuizType(result.typeCode, lang);
     const text = t('reolType.copyResultText', {
       name: localTypeInfo.name,
       song: localTypeInfo.songLabel,
-      url: `${SITE_URL}/quiz/reol-type/`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/`, lang)}`,
     });
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
@@ -369,11 +370,11 @@ const ResultPage = () => {
   }
 
   const { percentages, typeCode } = result;
-  const typeInfo = getLocalizedType(typeCode, lang);
-  const group = getLocalizedTypeGroup(typeInfo.group, lang);
-  const bestMatch = getLocalizedType(typeInfo.compatibility.bestMatch, lang);
-  const inspire = getLocalizedType(typeInfo.compatibility.inspire, lang);
-  const complement = getLocalizedType(typeInfo.compatibility.complement, lang);
+  const typeInfo = getQuizType(typeCode, lang);
+  const group = getQuizGroup(typeInfo.group, lang);
+  const bestMatch = getQuizType(typeInfo.compatibility.bestMatch, lang);
+  const inspire = getQuizType(typeInfo.compatibility.inspire, lang);
+  const complement = getQuizType(typeInfo.compatibility.complement, lang);
 
   return (
     <div className="min-h-svh text-white font-sans" style={getTypeBgStyle(typeInfo.color)}>
@@ -615,7 +616,7 @@ const ResultPage = () => {
           <h3 className="text-sm font-bold text-gray-300 mb-4">{t('reolType.allTypes')}</h3>
           <div className="grid grid-cols-4 gap-2">
             {Object.values(reolTypes).map((rt) => {
-              const localRt = getLocalizedType(rt.code, lang);
+              const localRt = getQuizType(rt.code, lang);
               return (
                 <Link
                   key={rt.code}
@@ -641,12 +642,16 @@ const ResultPage = () => {
 
 export default ResultPage;
 
-// NOTE: SSG ビルド時の i18n 初期化順による翻訳キー露出を避けるため
-// Head では t() を使わず ja ロケールを直接参照する。
-export const Head: HeadFC = () => (
-  <SEO
-    title={jaCommon.reolType.seoResultTitle}
-    description={jaCommon.reolType.seoResultDesc}
-    path="/quiz/reol-type/result/"
-  />
-);
+// 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
+export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+  const t = quizT(lang);
+  return (
+    <SEO
+      title={t("reolType.seoResultTitle")}
+      description={t("reolType.seoResultDesc")}
+      path="/quiz/reol-type/result/"
+      lang={lang}
+    />
+  );
+};

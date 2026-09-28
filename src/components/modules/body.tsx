@@ -10,6 +10,7 @@ import Layout from "./layout";
 import TopHeader from "./header";
 import PersistentMainVideo from "./persistentMainVideo";
 import OfficialFooter from "./officialFooter";
+import QuizMachineTranslationNote from "./QuizMachineTranslationNote";
 import TrackingFooter from "./trackingFooter";
 import WashiBackgroundImage from "../../images/washi-background.png";
 import { SiteLangProvider } from "../../i18n/site/SiteLangContext";
@@ -155,6 +156,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     return (
       <SiteLangProvider lang={lang}>
         <Layout title={data.site.siteMetadata.title} children={children} />
+        {isReolTypeQuiz && <QuizMachineTranslationNote />}
       </SiteLangProvider>
     );
   }
