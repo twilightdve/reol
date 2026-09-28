@@ -1,5 +1,6 @@
 // 繁體中文(非官方翻譯・機械翻訳。ネイティブ確認推奨)。曲名などの固有名詞は原文のまま。
 import type { SiteDict } from "./ja";
+import type { RelativeDate } from "../../../utils/postMeta";
 
 const zhHant: SiteDict = {
   site: {
@@ -102,6 +103,13 @@ const zhHant: SiteDict = {
     seeAll: "查看這一天的所有紀錄 →",
   },
   common: {
+    postTiming: (kind: "live" | "release", rel: RelativeDate): string => {
+      const ref = kind === "live" ? "演出" : "發行";
+      if (rel.unit === "same") return `${ref}當天`;
+      const unit = rel.unit === "day" ? "天" : rel.unit === "month" ? "個月" : "年";
+      return `${ref}${rel.direction === "before" ? "前" : "後"} ${rel.amount} ${unit}`;
+    },
+    postCategory: { 本人: "本人", 公式: "官方", メディア: "媒體" } as Record<string, string>,
     showMore: (n: number) => `顯示更多(${n} 則)`,
     backToTop: "回到頁面頂端",
     backHome: "返回 HOME",
@@ -152,6 +160,10 @@ const zhHant: SiteDict = {
     intro2: "收錄各場演出的歌單、相關貼文與演出報導，即使沒能參加的場次，也能感受到當時的氛圍。",
     attendanceLabel: "參加紀錄",
     attendanceHint: "點選各演出卡片的「✓」即可記錄已參加(僅儲存在此裝置的瀏覽器中)",
+    heardLabel: "現場聽過的歌曲",
+    heardHint: "依已標記參加的演出歌單統計(以曾在現場演出過的歌曲為對象)",
+    heardList: (n: number) => `聽過的歌曲 (${n})`,
+    unheardList: (n: number) => `還沒在現場聽過的歌曲 (${n}，依演出次數排序)`,
     ongoing: "舉辦中",
     upcoming: "近期預定",
     helpFilter: "點選上方的主題標籤即可簡單篩選列表",

@@ -5,6 +5,7 @@ import UtilityService from "../../services/UtilityService";
 import LazyComponent from "./LazyComponent";
 import { useTheme } from "../../hooks/useTheme";
 import { useDict } from "../../i18n/site/SiteLangContext";
+import { classifyPostHandle, parsePostEmbedHtml, relativeDate } from "../../utils/postMeta";
 
 interface TweetsProps {
   parentId: string;
@@ -12,11 +13,16 @@ interface TweetsProps {
     id: string;
     html: string;
   }[];
+  /**
+   * 日付差分ラベル(plan/27 ステップ5)の基準。公演日なら "live"、リリース日なら "release"。
+   * 省略時はラベルを出さない。投稿日・投稿者は埋め込みHTMLから機械的に取り出す(手入力なし)。
+   */
+  reference?: { kind: "live" | "release"; date: string | null };
 }
 
 const INITIAL_SHOW_COUNT = 3;
 
-const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
+const Tweets: React.FC<TweetsProps> = ({ parentId, posts, reference }) => {
   const dict = useDict();
   const tweetRef = useRef<TabsRef>(null);
   const { theme } = useTheme();
@@ -26,6 +32,19 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
 
   const displayedPosts = showAll ? posts : posts.slice(0, INITIAL_SHOW_COUNT);
   const hasMore = posts.length > INITIAL_SHOW_COUNT;
+
+  // 「公演2日前 · 本人」のような説明ラベル。どちらも取れなければ出さない
+  const labelFor = (html: string): string | null => {
+    const meta = parsePostEmbedHtml(html);
+    const parts: string[] = [];
+    if (reference?.date) {
+      const rel = relativeDate(meta.postedAt, reference.date);
+      if (rel) parts.push(dict.common.postTiming(reference.kind, rel));
+    }
+    const category = classifyPostHandle(meta.handle);
+    if (category !== "その他") parts.push(dict.common.postCategory[category]);
+    return parts.length > 0 ? parts.join(" · ") : null;
+  };
 
   const handleTweetLoad = useCallback((postId: string) => {
     setLoadedIds((prev) => {
@@ -53,8 +72,12 @@ const Tweets: React.FC<TweetsProps> = ({ parentId, posts }) => {
     <>
       {displayedPosts
         .map((post, postIndex, posts) => {
+          const label = reference ? labelFor(post.html) : null;
           return (
             <div key={`post-area-${parentId}-${post.id}`} className="h-full">
+              {label && (
+                <p className="mb-1 text-[11px] font-bold text-bx-ink3">▸ {label}</p>
+              )}
               <div
                 key={`pre-post-${parentId}-${post.id}`}
                 className={

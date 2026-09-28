@@ -476,6 +476,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
             <Kicker className="mb-4">{t.relatedPosts}</Kicker>
             <Tweets
               parentId={`live-item-${slug}`}
+              reference={{ kind: "live", date }}
               posts={posts.map((post) => ({
                 id: post.liveItemPostId,
                 html: post.liveItemPostHTML,

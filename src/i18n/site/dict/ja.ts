@@ -1,4 +1,5 @@
 // 日本語(原文)。ほかの言語の辞書はこの型(SiteDict)に合わせる。
+import type { RelativeDate } from "../../../utils/postMeta";
 
 const ja = {
   site: {
@@ -108,6 +109,14 @@ const ja = {
     seeAll: "この日の全記録を見る →",
   },
   common: {
+    postTiming: (kind: "live" | "release", rel: RelativeDate): string => {
+      const ref = kind === "live" ? "公演" : "リリース";
+      if (rel.unit === "same") return `${ref}当日`;
+      if (kind === "live" && rel.unit === "day" && rel.amount === 1) return rel.direction === "before" ? "公演前日" : "公演翌日";
+      const unit = rel.unit === "day" ? "日" : rel.unit === "month" ? "ヶ月" : "年";
+      return `${ref}${rel.amount}${unit}${rel.direction === "before" ? "前" : "後"}`;
+    },
+    postCategory: { 本人: "本人", 公式: "公式", メディア: "メディア" } as Record<string, string>,
     showMore: (n: number) => `もっと見る (${n}件)`,
     backToTop: "ページの先頭へ戻る",
     backHome: "HOMEへ戻る",
@@ -152,6 +161,10 @@ const ja = {
       "ライヴごとのセトリや関連ポスト、ライヴレポートなどを載せていますので、参加できなかったライヴもどんな雰囲気だったのか少しでも感じ取れる様な情報を掲載しています。",
     attendanceLabel: "参戦記録",
     attendanceHint: "各公演カードの「✓」で参戦済みを記録できます(この端末のブラウザ内のみに保存)",
+    heardLabel: "生で聴いた曲",
+    heardHint: "参戦済みにした公演のセットリストから集計しています(ライブで演奏されたことのある曲が対象)",
+    heardList: (n: number) => `聴いた曲 (${n})`,
+    unheardList: (n: number) => `まだ生で聴いていない曲 (${n}・演奏回数の多い順)`,
     ongoing: "開催中",
     upcoming: "直近の開催予定",
     helpFilter: "上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます",

@@ -1,5 +1,6 @@
 // English (unofficial translation). Proper nouns such as song titles stay in the original.
 import type { SiteDict } from "./ja";
+import type { RelativeDate } from "../../../utils/postMeta";
 
 const en: SiteDict = {
   site: {
@@ -103,6 +104,13 @@ const en: SiteDict = {
     seeAll: "See everything from this day →",
   },
   common: {
+    postTiming: (kind: "live" | "release", rel: RelativeDate): string => {
+      const ref = kind === "live" ? "the show" : "the release";
+      if (rel.unit === "same") return kind === "live" ? "Day of the show" : "Release day";
+      const unit = rel.unit === "day" ? "day" : rel.unit === "month" ? "month" : "year";
+      return `${rel.amount} ${unit}${rel.amount === 1 ? "" : "s"} ${rel.direction === "before" ? "before" : "after"} ${ref}`;
+    },
+    postCategory: { 本人: "Reol", 公式: "Official", メディア: "Media" } as Record<string, string>,
     showMore: (n: number) => `Show ${n} more`,
     backToTop: "Back to top",
     backHome: "Back to HOME",
@@ -156,6 +164,10 @@ const en: SiteDict = {
       "Each show has its setlist, related posts and reports, so you can get a feel for the shows you couldn't make it to.",
     attendanceLabel: "Shows attended",
     attendanceHint: "Tap ✓ on a show card to mark it as attended (saved only in this browser)",
+    heardLabel: "Songs heard live",
+    heardHint: "Counted from the setlists of the shows you marked as attended (out of all songs ever performed live)",
+    heardList: (n: number) => `Heard (${n})`,
+    unheardList: (n: number) => `Not heard live yet (${n}, most played first)`,
     ongoing: "On now",
     upcoming: "Coming up",
     helpFilter: "Tap a hashtag at the top to filter the list",

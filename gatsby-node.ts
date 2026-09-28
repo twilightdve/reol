@@ -27,6 +27,7 @@ import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
+import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
@@ -252,56 +253,7 @@ const createLiveNodes = async (
 // から投稿者ハンドル・表示名・投稿日をパースする(表示にはtweetIdのみ使うため
 // HTML自体は保存しない)。
 //
-// 投稿者の分類(本人/公式/メディア/その他)はハンドル名のヒューリスティック。
-// 「本人」以外は確認が取れたハンドルのみ手動でリストに追加する運用とし、
-// 未確認のアカウントを推測で「公式」「メディア」に分類しない
-// (reol-official-links相当の確認方針を踏襲)。
-const HERSELF_HANDLES = new Set(["rrreol"]);
-// 確認済みの公式関連アカウント(本人以外)。ハンドル名は小文字・@なしで追加。
-const OFFICIAL_HANDLES = new Set<string>([
-  "reol_info", // Reol公式インフォメーションアカウント
-  "rrreol_official", // Reol OFFICIAL
-]);
-// 確認済みのメディア・ニュースアカウント。
-const MEDIA_HANDLES = new Set<string>([
-  "natalie_mu", // 音楽ナタリー
-  "rockinon_com", // rockin'on
-  "the_firsttimesn", // THE FIRST TIMES
-]);
-
-type PostCategory = "本人" | "公式" | "メディア" | "その他";
-
-const classifyPostHandle = (handle: string | null): PostCategory => {
-  if (!handle) return "その他";
-  const h = handle.toLowerCase();
-  if (HERSELF_HANDLES.has(h)) return "本人";
-  if (OFFICIAL_HANDLES.has(h)) return "公式";
-  if (MEDIA_HANDLES.has(h)) return "メディア";
-  return "その他";
-};
-
-// Twitter/Xの標準的な埋め込みHTML
-// (`&mdash; 表示名 (@handle) <a href=".../status/...">日付</a>`)から
-// ハンドル・表示名・投稿日を抜き出す。パース不可の場合はnullのまま返す。
-const parsePostEmbedHtml = (
-  html: string
-): { handle: string | null; displayName: string | null; postedAt: string | null } => {
-  const handleMatch = html.match(/\(@(\w+)\)/);
-  const nameMatch = html.match(/&mdash;\s*([^(]+?)\s*\(@/);
-  const dateMatch = html.match(/status\/\d+[^>]*>([^<]+)<\/a>/);
-  let postedAt: string | null = null;
-  if (dateMatch) {
-    const d = new Date(dateMatch[1]);
-    if (!isNaN(d.getTime())) {
-      postedAt = d.toISOString().slice(0, 10);
-    }
-  }
-  return {
-    handle: handleMatch ? handleMatch[1] : null,
-    displayName: nameMatch ? nameMatch[1].trim() : null,
-    postedAt,
-  };
-};
+// 投稿者の分類とHTMLのパースは src/utils/postMeta.ts(各ページの日付差分ラベルと共用)。
 
 // 一覧では毎回widgets.jsのiframeを読み込まず、事前取得済みの
 // <blockquote>だけを軽量表示する。widgets.js は「ページ内の
@@ -1724,6 +1676,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     discography: {
       discographyWithSongs: {
         discographyUuid: string;
+        releaseDate: string | null;
         reports: {
           discographyRepoUuid: string;
           discographyReportName: string;
@@ -1778,6 +1731,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       discography {
         discographyWithSongs {
           discographyUuid
+          releaseDate
           reports {
             discographyRepoUuid
             discographyReportName
@@ -1842,6 +1796,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
         disc.reports ?? [],
       ])
     );
+    const releaseDateByDiscUuid = new Map(
+      (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
+        disc.discographyUuid,
+        disc.releaseDate ?? null,
+      ])
+    );
     const postsByDiscUuid = new Map(
       (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
         disc.discographyUuid,
@@ -1902,6 +1862,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
           albumSongs,
           albumReports,
           albumPosts,
+          albumReleaseDate: song.discographyUuid
+            ? releaseDateByDiscUuid.get(song.discographyUuid) ?? null
+            : null,
           plays: song.plays,
         },
       });
