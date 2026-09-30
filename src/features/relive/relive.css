@@ -1306,3 +1306,129 @@
 .relive-matching[open]>.relive-setlist:last-child {
   margin-bottom: 16px;
 }
+/* 音源の照合結果(フォルダ選択の直後に出す。旧3-11: 失敗状態を前面に出す) */
+.relive-match-status {
+  margin: -6px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 244, 206, 0.14);
+  border-left-width: 3px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(243, 239, 231, 0.86);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.relive-match-status.is-ok {
+  border-left-color: rgba(31, 153, 103, 0.9);
+}
+
+.relive-match-status.is-warn {
+  border-left-color: rgba(204, 155, 56, 0.95);
+}
+
+.relive-match-status.is-error {
+  border-left-color: rgba(199, 43, 40, 0.95);
+  background: rgba(199, 43, 40, 0.08);
+}
+
+.relive-match-title {
+  margin: 0;
+  color: #fff4ce;
+  font-weight: 600;
+}
+
+.relive-match-sub {
+  color: rgba(243, 239, 231, 0.6);
+  font-weight: 400;
+}
+
+.relive-match-hint {
+  margin: 6px 0 0;
+  color: rgba(243, 239, 231, 0.62);
+  font-size: 0.76rem;
+}
+
+.relive-match-hint code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff4ce;
+  font-size: 0.74rem;
+}
+
+.relive-match-unmatched {
+  margin-top: 8px;
+}
+
+.relive-match-unmatched-title {
+  margin: 0 0 4px;
+  color: rgba(243, 239, 231, 0.62);
+  font-size: 0.76rem;
+}
+
+.relive-match-unmatched ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relive-match-unmatched li {
+  padding: 1px 8px;
+  border: 1px solid rgba(255, 244, 206, 0.16);
+  border-radius: 999px;
+  font-size: 0.74rem;
+}
+
+.relive-match-unmatched li.relive-match-more {
+  border-style: dashed;
+  color: rgba(243, 239, 231, 0.55);
+}
+
+.relive-match-chip {
+  margin-left: 5px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgba(204, 155, 56, 0.25);
+  color: #fff4ce;
+  font-size: 0.64rem;
+}
+
+.relive-match-open {
+  appearance: none;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 244, 206, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff4ce;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 一致した曲が無いあいだはプレイヤーを淡色にし、理由を重ねて出す
+   (「1/1」「0:00 / 0:00」だけが並んで壊れて見えるのを避ける) */
+.relive-stage.is-idle > :not(.relive-stage-idle-message),
+.relive-controls.is-idle {
+  opacity: 0.4;
+}
+
+.relive-stage-idle-message {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 16px;
+  color: rgba(255, 244, 206, 0.9);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  pointer-events: none;
+}
