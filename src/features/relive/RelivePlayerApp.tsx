@@ -1304,6 +1304,11 @@ const RelivePlayerApp: React.FC = () => {
     : currentSetlistEntry
       ? `${sampleData.setlist.liveTitle || sampleData.setlist.tourName || "セトリ"} / ${currentSetlistEntry.policy}`
       : player.currentTrack?.extension.toUpperCase() || "FLAC / MP3 / M4A / AAC / WAV";
+  // 紐付けパネルでは内部キー(ファイル名|サイズ|更新日時)ではなくファイル名を見せる
+  const fileNameByKey = useMemo(
+    () => new Map(tracks.map((track) => [track.fileKey, track.fileName])),
+    [tracks]
+  );
   // フォルダ選択直後に出す照合結果の要約(旧3-11: 失敗状態を前面に出す)
   const matchSummary = useMemo(
     () =>
@@ -1802,7 +1807,8 @@ const RelivePlayerApp: React.FC = () => {
                           <strong>{entry?.displayTitle || item.entryId}</strong>
                         </div>
                         <small>
-                          {item.matchedFileKey ||
+                          {(item.matchedFileKey &&
+                            (fileNameByKey.get(item.matchedFileKey) ?? item.matchedFileKey)) ||
                             missingReasonLabel(item.missingReason) ||
                             `候補 ${item.candidates?.length || 0}件`}
                         </small>
