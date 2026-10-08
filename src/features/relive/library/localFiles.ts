@@ -94,7 +94,20 @@ const dedupeKeys = (values: Array<string | undefined>) => {
   return out;
 };
 
+/**
+ * File System Access API(showDirectoryPicker)で集めたファイルには webkitRelativePath が無いため、
+ * フォルダ選択(webkitdirectory)と同じ形式の相対パスをここで覚えておく。
+ * fileKey(手動紐付け・解析キャッシュのキー)をどちらの選び方でも同じにするため。
+ */
+const relativePathOverrides = new WeakMap<File, string>();
+
+export const setFileRelativePath = (file: File, relativePath: string) => {
+  relativePathOverrides.set(file, relativePath);
+};
+
 const getRelativePath = (file: File) => {
+  const override = relativePathOverrides.get(file);
+  if (override) return override;
   const maybeDirectoryFile = file as File & { webkitRelativePath?: string };
   return maybeDirectoryFile.webkitRelativePath || undefined;
 };
@@ -200,7 +213,7 @@ export const applyMetadataToRecord = (
   };
 };
 
-export const collectLocalAudioFiles = (fileList: FileList | null) => {
+export const collectLocalAudioFiles = (fileList: FileList | readonly File[] | null) => {
   const files = Array.from(fileList || []).filter(isSupportedAudioFile);
   const records = files.map(createLocalTrackRecord);
   const sessionFiles = new Map(files.map((file) => [createFileKey(file), file]));
@@ -277,7 +290,7 @@ const enrichRecordsInChunk = async (
  * バッチ単位で `LocalTrackRecord` を生成する。
  */
 export const collectLocalAudioFilesBatched = async (
-  fileList: FileList | null,
+  fileList: FileList | readonly File[] | null,
   options: CollectLocalAudioFilesBatchedOptions = {}
 ) => {
   const {

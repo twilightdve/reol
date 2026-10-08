@@ -25,11 +25,13 @@ import {
 } from "./setlist/sampleData";
 import {
   loadAppSettings,
+  loadLastDirectoryHandle,
   loadLiveMemoryPresets,
   loadLocalTracks,
   loadManualTrackMappings,
   saveAudioAnalysisCache,
   saveAppSettings,
+  saveLastDirectoryHandle,
   saveLiveMemoryPreset,
   saveLocalTracks,
   saveManualTrackMapping,
@@ -47,6 +49,13 @@ import type {
   Vec3,
 } from "./types/relive";
 import ReliveCanvas from "./visual-engine/ReliveCanvas";
+import {
+  type DirectoryHandleLike,
+  ensureReadPermission,
+  pickAudioDirectory,
+  readFilesFromDirectory,
+  supportsDirectoryPicker,
+} from "./library/directoryHandle";
 
 /** 既定値の改訂番号(AppSettings.defaultsRevision)。既定値を変えたら上げ、mergeSettings に移行処理を足す。 */
 const DEFAULTS_REVISION = 2;
@@ -926,6 +935,18 @@ const RelivePlayerApp: React.FC = () => {
 
   const fileLoadAbortRef = useRef<AbortController | null>(null);
   const [isLoadingFiles, setIsLoadingFiles] = useState(false);
+  /** 前回 showDirectoryPicker で選んだフォルダ(対応ブラウザのみ)。「前回のフォルダを開く」に使う */
+  const [lastDirectory, setLastDirectory] = useState<{ handle: DirectoryHandleLike; name: string } | null>(
+    null
+  );
+  useEffect(() => {
+    if (!supportsDirectoryPicker()) return;
+    void loadLastDirectoryHandle<DirectoryHandleLike>()
+      .then((record) => {
+        if (record) setLastDirectory({ handle: record.handle, name: record.name });
+      })
+      .catch(() => undefined);
+  }, []);
   const [fileLoadProgress, setFileLoadProgress] = useState<{
     processed: number;
     total: number;
@@ -945,7 +966,7 @@ const RelivePlayerApp: React.FC = () => {
   // 進捗 UI は最大このペースで更新する（React 再描画の暴走を防ぐ）
   const PROGRESS_UPDATE_INTERVAL_MS = 120;
 
-  const handleFiles = (fileList: FileList | null) => {
+  const handleFiles = (fileList: FileList | readonly File[] | null) => {
     // 既存読み込みを中断
     fileLoadAbortRef.current?.abort();
 
@@ -1014,6 +1035,63 @@ const RelivePlayerApp: React.FC = () => {
         setFileLoadProgress(null);
         setStorageNote("ファイル読み込み中にエラーが発生しました。");
       });
+  };
+
+  /** フォルダのハンドルから音源を読み込み、次回のためにハンドルを保存する */
+  const loadFromDirectory = async (handle: DirectoryHandleLike) => {
+    setStorageNote("");
+    setIsLoadingFiles(true);
+    let files: File[];
+    try {
+      files = await readFilesFromDirectory(handle);
+    } catch {
+      setIsLoadingFiles(false);
+      setStorageNote("フォルダを読み込めませんでした。移動・削除されていないか確認して、もう一度選んでください。");
+      return;
+    }
+    setIsLoadingFiles(false);
+    if (files.length === 0) {
+      setLastSelectedFileCount(0);
+      setStorageNote("選んだフォルダにファイルがありませんでした。");
+      return;
+    }
+    handleFiles(files);
+    setLastDirectory({ handle, name: handle.name });
+    void saveLastDirectoryHandle(handle).catch(() => undefined);
+  };
+
+  /** 「音源フォルダを選ぶ」。File System Access API が使えればそれで選び、使えなければ従来の input を開く */
+  const handlePickFolder = async () => {
+    if (!supportsDirectoryPicker()) {
+      directoryInputRef.current?.click();
+      return;
+    }
+    let handle: DirectoryHandleLike;
+    try {
+      handle = await pickAudioDirectory();
+    } catch (error) {
+      // キャンセルはそのまま終わる(input を開くと2回目のダイアログが出てしまう)
+      if ((error as { name?: string })?.name === "AbortError") return;
+      directoryInputRef.current?.click();
+      return;
+    }
+    await loadFromDirectory(handle);
+  };
+
+  /** 「前回のフォルダを開く」。読み取り権限を求めてから読み込む(クリック操作の中で呼ぶ必要がある) */
+  const handleReopenLastFolder = async () => {
+    if (!lastDirectory) return;
+    let granted = false;
+    try {
+      granted = await ensureReadPermission(lastDirectory.handle);
+    } catch {
+      granted = false;
+    }
+    if (!granted) {
+      setStorageNote("フォルダへのアクセスが許可されませんでした。「音源フォルダを選ぶ」から選び直してください。");
+      return;
+    }
+    await loadFromDirectory(lastDirectory.handle);
   };
 
   const updatePerformanceMode = (performanceMode: PerformanceMode) => {
@@ -1573,7 +1651,7 @@ const RelivePlayerApp: React.FC = () => {
           </p>
         </section>
         <div className="relive-actions" aria-label="音源選択">
-          <button type="button" onClick={() => directoryInputRef.current?.click()}>
+          <button type="button" onClick={() => void handlePickFolder()}>
             <Upload size={18} aria-hidden="true" />
             音源フォルダを選ぶ
           </button>
@@ -1650,9 +1728,22 @@ const RelivePlayerApp: React.FC = () => {
             case "reselect_needed":
               tone = "warn";
               body = (
-                <p className="relive-match-title">
-                  前回選んだ音源の情報は残っていますが、ブラウザの制限で再生にはフォルダをもう一度選ぶ必要があります。
-                </p>
+                <>
+                  <p className="relive-match-title">
+                    {lastDirectory
+                      ? "前回選んだ音源の情報は残っています。再生するには、前回のフォルダを開き直してください。"
+                      : "前回選んだ音源の情報は残っていますが、ブラウザの制限で再生にはフォルダをもう一度選ぶ必要があります。"}
+                  </p>
+                  {lastDirectory && (
+                    <button
+                      type="button"
+                      className="relive-match-open"
+                      onClick={() => void handleReopenLastFolder()}
+                    >
+                      前回のフォルダ「{lastDirectory.name}」を開く
+                    </button>
+                  )}
+                </>
               );
               break;
             case "none_matched":

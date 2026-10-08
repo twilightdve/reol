@@ -369,3 +369,38 @@ export const loadAppSettings = async (): Promise<AppSettings | undefined> => {
     updatedAt: result.updatedAt,
   };
 };
+
+/* ============================================================
+ *  前回選んだ音源フォルダのハンドル(File System Access API)
+ *  appSettings ストアに別の settingsId で置く(ストア追加の DB_VERSION 更新を避けるため)。
+ *  インメモリフォールバック時は保存しない(ページ再読込で消えるので意味がない)。
+ * ============================================================ */
+const LAST_DIRECTORY_SETTINGS_ID = "lastAudioDirectory";
+
+export type LastDirectoryRecord<H> = {
+  handle: H;
+  name: string;
+  savedAt: string;
+};
+
+export const saveLastDirectoryHandle = async <H>(handle: H & { name: string }) => {
+  if (fallbackMode) return;
+  const record = {
+    settingsId: LAST_DIRECTORY_SETTINGS_ID,
+    handle,
+    name: handle.name,
+    savedAt: new Date().toISOString(),
+  };
+  await runStore("appSettings", "readwrite", (store) => store.put(record));
+};
+
+export const loadLastDirectoryHandle = async <H>(): Promise<LastDirectoryRecord<H> | undefined> => {
+  if (fallbackMode) return undefined;
+  const result = await runStore<(LastDirectoryRecord<H> & { settingsId: string }) | undefined>(
+    "appSettings",
+    "readonly",
+    (store) => store.get(LAST_DIRECTORY_SETTINGS_ID)
+  );
+  if (!result?.handle) return undefined;
+  return { handle: result.handle, name: result.name, savedAt: result.savedAt };
+};
