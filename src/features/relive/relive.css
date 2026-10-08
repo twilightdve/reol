@@ -1432,3 +1432,38 @@
   text-align: center;
   pointer-events: none;
 }
+
+/* 会場タイプ別の反響プリセット */
+.relive-reverb-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.relive-reverb-presets .relive-eq-reset[aria-pressed="true"] {
+  border-color: rgba(255, 214, 102, 0.75);
+  background: rgba(255, 214, 102, 0.14);
+  color: #ffe9a8;
+}
+
+/* スピーカー構成が出典に基づくか推定かのバッジ */
+.relive-source-badge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 7px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: 1px;
+}
+
+.relive-source-badge.is-sourced {
+  color: #8fd9a8;
+}
+
+.relive-source-badge.is-estimated {
+  color: #ffd27a;
+}
