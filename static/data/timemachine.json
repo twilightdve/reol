@@ -1837,7 +1837,7 @@
       "performanceCount": 454,
       "latestRelease": {
         "title": "Q?",
-        "slug": "q",
+        "slug": "q-question",
         "releaseDate": "2020-11-04"
       },
       "nextLive": {
@@ -1850,7 +1850,7 @@
       "releases": [
         {
           "title": "Q?",
-          "slug": "q",
+          "slug": "q-question",
           "releaseDate": "2020-11-04"
         }
       ],
@@ -1867,7 +1867,7 @@
       "newSongs": [
         {
           "songName": "Q?",
-          "slug": "q"
+          "slug": "q-question"
         }
       ]
     },
@@ -2842,7 +2842,7 @@
         },
         {
           "songName": "-#000000-",
-          "slug": "0"
+          "slug": "000000"
         }
       ]
     },

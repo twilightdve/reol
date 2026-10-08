@@ -4567,7 +4567,7 @@
       },
       {
         "songUuid": "019e8282-c0bf-7b4a-a2ca-c7b4da46bd3d",
-        "slug": "0",
+        "slug": "000000",
         "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
         "discographyTitle": "BLACK BOX",
         "songNo": 9,
@@ -6491,7 +6491,7 @@
       },
       {
         "songUuid": "019e8282-b46d-7f31-9cf1-6b0c0ad48042",
-        "slug": "q-2",
+        "slug": "q-question",
         "discographyUuid": "019e8282-7034-709a-8b32-806fbb0afb70",
         "discographyTitle": "第六感",
         "songNo": 2,
@@ -7067,7 +7067,7 @@
   },
   {
     "discographyUuid": "019e8282-6cae-7c1e-b86a-3ce6f91ae023",
-    "slug": "q",
+    "slug": "q-question",
     "title": "Q?",
     "releaseDate": "2020-11-04",
     "name": "Reol",
@@ -7131,7 +7131,7 @@
     "songs": [
       {
         "songUuid": "019e8282-b2ad-7dd6-9931-f352016f0f37",
-        "slug": "q",
+        "slug": "q-question",
         "discographyUuid": "019e8282-6cae-7c1e-b86a-3ce6f91ae023",
         "discographyTitle": "Q?",
         "songNo": 1,
