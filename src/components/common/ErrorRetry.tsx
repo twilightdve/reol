@@ -35,7 +35,7 @@ const ErrorRetry: React.FC<ErrorRetryProps> = ({
   const descriptionClass = tone === "light" ? "text-gray-700" : "text-gray-300";
   const buttonClass =
     tone === "light"
-      ? "bg-theme text-white focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+      ? "bg-theme text-[#443a15] focus-visible:ring-amber-400 focus-visible:ring-offset-2"
       : "bg-bx-yellow text-bx-bg focus-visible:ring-bx-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-bx-bg";
 
   return (

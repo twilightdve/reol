@@ -1870,6 +1870,29 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     });
     console.log(`[songs] generated ${songStats.length} song pages`);
+
+    // URL に向かないスラッグを変えた曲の旧URLに転送ページを置く(plan/27 P3)。
+    // スラッグはシート側で変えるので、旧スラッグの曲がもう無く、新スラッグの曲がある時だけ作る
+    // (シートの変更前にデプロイしても、実在する曲ページを転送ページで潰さない)。
+    const SONG_SLUG_REDIRECTS: Record<string, string> = {
+      "0": "000000", // -#000000-
+      q: "q-question", // Q?
+    };
+    const songSlugs = new Set(songStats.map((s) => s.slug));
+    const redirectTemplate = path.resolve("./src/templates/redirect.tsx");
+    for (const [from, to] of Object.entries(SONG_SLUG_REDIRECTS)) {
+      if (songSlugs.has(from) || !songSlugs.has(to)) {
+        console.warn(
+          `[songs] /songs/${from}/ → /songs/${to}/ の転送ページは作りません(シートのスラッグが未変更か、転送先の曲がありません)`
+        );
+        continue;
+      }
+      createPageWithLocales({
+        path: `/songs/${from}/`,
+        component: redirectTemplate,
+        context: { to: `/songs/${to}/`, noindex: true },
+      });
+    }
   }
 
   // ----- ライブ公演詳細ページ(/live/<liveItem.slug>/) -----
