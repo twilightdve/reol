@@ -43,18 +43,24 @@ import type {
   MemoryTags,
   PerformanceMode,
   PlaybackQueue,
+  ReverbPreset,
   Vec3,
 } from "./types/relive";
 import ReliveCanvas from "./visual-engine/ReliveCanvas";
+
+/** 既定値の改訂番号(AppSettings.defaultsRevision)。既定値を変えたら上げ、mergeSettings に移行処理を足す。 */
+const DEFAULTS_REVISION = 2;
 
 const defaultSettings: AppSettings = {
   schemaVersion: 1,
   performanceMode: "standard",
   // スマホ / PC スピーカーよりイヤホン接続を想定したチューニングをデフォルトにする。
   outputDeviceProfile: "earphones",
-  wakeLockEnabled: false,
-  mediaSessionEnabled: false,
+  // 再生中の画面スリープ防止とロック画面の操作は、使える端末では既定でONにする。
+  wakeLockEnabled: true,
+  mediaSessionEnabled: true,
   deviceOrientationEnabled: false,
+  defaultsRevision: DEFAULTS_REVISION,
   visual: {
     showTrackTitle: true,
     showPositionMap: false,
@@ -92,6 +98,9 @@ const makeId = (prefix: string) =>
 const mergeSettings = (saved: AppSettings): AppSettings => ({
   ...defaultSettings,
   ...saved,
+  // 改訂2より前の保存値は、当時の既定値(OFF)がそのまま保存されているだけなので、新しい既定値(ON)へ一度だけ移す。
+  ...((saved.defaultsRevision ?? 1) < 2 ? { wakeLockEnabled: true, mediaSessionEnabled: true } : {}),
+  defaultsRevision: DEFAULTS_REVISION,
   visual: {
     ...defaultSettings.visual,
     ...saved.visual,
@@ -112,6 +121,35 @@ const mergeSettings = (saved: AppSettings): AppSettings => ({
     ...saved.privacy,
   },
 });
+
+// 会場タイプ別の反響プリセット。acousticDerivation の会場タイプ別の値域の中間値を目安にしている。
+// 会場プリセットの値(「会場値に戻す」)とは別に、手早く広さの印象を切り替えるためのもの。
+const REVERB_VENUE_PRESETS: { id: string; name: string; hint: string; reverb: ReverbPreset }[] = [
+  {
+    id: "livehouse",
+    name: "ライブハウス",
+    hint: "Zepp クラスのライブハウス。短めの余韻",
+    reverb: { amount: 0.37, decaySec: 1.6, preDelayMs: 19, damping: 0.62 },
+  },
+  {
+    id: "hall",
+    name: "ホール",
+    hint: "客席が固定のホール。適度な余韻",
+    reverb: { amount: 0.52, decaySec: 2.45, preDelayMs: 31, damping: 0.45 },
+  },
+  {
+    id: "arena",
+    name: "アリーナ",
+    hint: "アリーナ・ドーム。長く広い余韻",
+    reverb: { amount: 0.6, decaySec: 3.35, preDelayMs: 38, damping: 0.39 },
+  },
+  {
+    id: "outdoor",
+    name: "野外フェス",
+    hint: "屋外ステージ。反響はほとんど返ってこない",
+    reverb: { amount: 0.18, decaySec: 1.2, preDelayMs: 8, damping: 0.78 },
+  },
+];
 
 const defaultMemoryTags: MemoryTags = {
   heat: 0.55,
@@ -185,6 +223,8 @@ const makeDefaultMemory = (sampleData: ReliveSampleData): LiveMemoryPreset => {
 };
 
 type WakeLockSentinelLike = {
+  /** タブが裏に回る等でブラウザが自動解除すると true になる */
+  readonly released?: boolean;
   release: () => Promise<void>;
 };
 
@@ -215,7 +255,7 @@ const PARAM_HELP: Record<string, string> = {
   mediaSession:
     "OS のメディアコントロール (ロック画面・通知センター・Bluetooth リモコン) と連携します。",
   wakeLock:
-    "再生中に画面が消えないようロックします。スマホで連続再生する時に便利。",
+    "再生中だけ画面が消えないようにします(停止すると解除)。スマホで連続再生する時に便利。対応していないブラウザでは何も起きません。",
   listenerX:
     "音像配置の左右位置。AudioListener の X 座標を動かし、スピーカーとの位置関係で L/R 各音源の聞こえ方が変わります。",
   listenerZ:
@@ -297,6 +337,13 @@ const RelivePlayerApp: React.FC = () => {
   >("all");
   const [queueIndex, setQueueIndex] = useState(0);
   const [queueRunning, setQueueRunning] = useState(false);
+  /** 「公演記憶を保存」直後の確認表示。数秒で消す */
+  const [memorySaveNote, setMemorySaveNote] = useState("");
+  useEffect(() => {
+    if (!memorySaveNote) return undefined;
+    const timer = setTimeout(() => setMemorySaveNote(""), 4000);
+    return () => clearTimeout(timer);
+  }, [memorySaveNote]);
   const [queuePhaseRemaining, setQueuePhaseRemaining] = useState(0);
   const [storageNote, setStorageNote] = useState("");
   // どのパラメータの ? が開いているか (排他: 同時に開くのは 1 つだけ)。
@@ -605,23 +652,54 @@ const RelivePlayerApp: React.FC = () => {
     settings.mediaSessionEnabled,
   ]);
 
+  // 画面スリープ防止は再生中だけ有効にする。ブラウザはタブが裏に回るとロックを自動解除するため、
+  // 前面に戻ったときに取り直す。停止・設定OFF・アンマウントで解除する。
+  const wakeLockActive = settings.wakeLockEnabled && (player.isPlaying || queueRunning);
   useEffect(() => {
-    let sentinel: WakeLockSentinelLike | null = null;
-    if (!settings.wakeLockEnabled || typeof navigator === "undefined") {
+    if (!wakeLockActive || typeof navigator === "undefined" || typeof document === "undefined") {
       return undefined;
     }
+    const wakeLock = (navigator as NavigatorWithWakeLock).wakeLock;
+    if (!wakeLock) {
+      return undefined;
+    }
+    let sentinel: WakeLockSentinelLike | null = null;
+    let requesting = false;
+    let disposed = false;
 
-    void (navigator as NavigatorWithWakeLock).wakeLock
-      ?.request("screen")
-      .then((nextSentinel) => {
-        sentinel = nextSentinel;
-      })
-      .catch(() => undefined);
-
-    return () => {
-      void sentinel?.release().catch(() => undefined);
+    const acquire = () => {
+      if (
+        requesting ||
+        document.visibilityState !== "visible" ||
+        (sentinel && !sentinel.released)
+      ) {
+        return;
+      }
+      requesting = true;
+      void wakeLock
+        .request("screen")
+        .then((nextSentinel) => {
+          if (disposed) {
+            void nextSentinel.release().catch(() => undefined);
+            return;
+          }
+          sentinel = nextSentinel;
+        })
+        .catch(() => undefined)
+        .finally(() => {
+          requesting = false;
+        });
     };
-  }, [settings.wakeLockEnabled]);
+
+    acquire();
+    document.addEventListener("visibilitychange", acquire);
+    return () => {
+      disposed = true;
+      document.removeEventListener("visibilitychange", acquire);
+      void sentinel?.release().catch(() => undefined);
+      sentinel = null;
+    };
+  }, [wakeLockActive]);
 
   const readinessReport = useMemo(() => {
     const base = buildSetlistReadinessReport(
@@ -1191,9 +1269,11 @@ const RelivePlayerApp: React.FC = () => {
       preset,
       ...current.filter((item) => item.liveMemoryId !== preset.liveMemoryId),
     ]);
-    void saveLiveMemoryPreset(preset).catch(() => {
-      setStorageNote("公演記憶をIndexedDBへ保存できませんでした。");
-    });
+    void saveLiveMemoryPreset(preset)
+      .then(() => setMemorySaveNote("保存しました。"))
+      .catch(() => {
+        setStorageNote("公演記憶をIndexedDBへ保存できませんでした。");
+      });
   };
 
   const handleTogglePlayback = () => {
@@ -1929,7 +2009,10 @@ const RelivePlayerApp: React.FC = () => {
             if (sources && sources.length > 0) {
               return (
                 <div className="relive-speaker-sources" aria-label="スピーカー構成の出典">
-                  <p className="relive-speaker-sources-title">PA / スピーカー構成の出典</p>
+                  <p className="relive-speaker-sources-title">
+                    <span className="relive-source-badge is-sourced">✓ 出典あり</span>
+                    PA / スピーカー構成の出典
+                  </p>
                   <ul>
                     {sources.map((src, idx) => (
                       <li key={`${src.label}-${idx}`}>
@@ -1951,7 +2034,8 @@ const RelivePlayerApp: React.FC = () => {
             }
             return (
               <p className="relive-speaker-sources-fallback">
-                ※ この会場の PA / スピーカー構成は実情報源が未登録のため、
+                <span className="relive-source-badge is-estimated">⚠ 推定</span>
+                この会場の PA / スピーカー構成は実情報源が未登録のため、
                 会場タイプ・ステージ幅・奥行きから一般的な PA 構成を{" "}
                 <strong>推定</strong>して表示しています (実際の運用とは異なる場合があります)。
               </p>
@@ -2001,7 +2085,11 @@ const RelivePlayerApp: React.FC = () => {
             <Save size={17} aria-hidden="true" />
             公演記憶を保存
           </button>
-          <p className="relive-note">{memoryPresets.length} memories saved locally</p>
+          <p className="relive-note">
+            {memorySaveNote ? <strong>{memorySaveNote} </strong> : null}
+            今の聴く位置・見え方・記憶タグ(熱量など)をこのブラウザに保存し、次に開いたときに最新の記憶を復元します。会場・セトリは復元せず、音源ファイルは保存しません(EQ・残響などの音声設定は変更するたびに自動で保存されます)。
+            {memoryPresets.length > 0 ? `保存済み ${memoryPresets.length}件。` : ""}
+          </p>
         </section>
 
         <section className="relive-panel" aria-label="音声設定">
@@ -2220,6 +2308,34 @@ const RelivePlayerApp: React.FC = () => {
               >
                 会場値に戻す
               </button>
+            </div>
+            <div className="relive-reverb-presets" role="group" aria-label="会場タイプ別の反響プリセット">
+              {REVERB_VENUE_PRESETS.map((preset) => {
+                const current = settings.audio.reverb;
+                const active =
+                  !!current &&
+                  current.amount === preset.reverb.amount &&
+                  current.decaySec === preset.reverb.decaySec &&
+                  current.preDelayMs === preset.reverb.preDelayMs &&
+                  current.damping === preset.reverb.damping;
+                return (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    className="relive-eq-reset"
+                    aria-pressed={active}
+                    title={preset.hint}
+                    onClick={() =>
+                      setSettings((prev) => ({
+                        ...prev,
+                        audio: { ...prev.audio, reverb: { ...preset.reverb } },
+                      }))
+                    }
+                  >
+                    {preset.name}
+                  </button>
+                );
+              })}
             </div>
             {(() => {
               const venueReverb = selectedVenue?.acoustic.reverb;

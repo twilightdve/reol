@@ -380,6 +380,9 @@ export type AppSettings = {
   wakeLockEnabled: boolean;
   mediaSessionEnabled: boolean;
   deviceOrientationEnabled: boolean;
+  /** 既定値の改訂番号。既定値を変えたときに、古い保存値を一度だけ新しい既定値へ移すために使う。
+   *  未指定は 1(2 で画面スリープ防止と Media Session を既定ON に変更)。 */
+  defaultsRevision?: number;
   visual: {
     showTrackTitle: boolean;
     showPositionMap: boolean;

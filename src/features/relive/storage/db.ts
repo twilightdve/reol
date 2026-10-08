@@ -291,6 +291,7 @@ export const saveLiveMemoryPreset = (preset: LiveMemoryPreset) =>
       })
   );
 
+/** 公演記憶を新しい順(updatedAt の降順)で返す。先頭が最新(起動時の復元に使う)。 */
 export const loadLiveMemoryPresets = () =>
   runStore<LiveMemoryPreset[]>(
     "liveMemoryPresets",
@@ -300,6 +301,8 @@ export const loadLiveMemoryPresets = () =>
       memoryRunStore<LiveMemoryPreset[]>("liveMemoryPresets", "readonly", {
         kind: "getAll",
       })
+  ).then((presets) =>
+    [...presets].sort((a, b) => (b.updatedAt ?? "").localeCompare(a.updatedAt ?? ""))
   );
 
 export const savePlaybackQueue = (queue: PlaybackQueue) =>
@@ -359,6 +362,7 @@ export const loadAppSettings = async (): Promise<AppSettings | undefined> => {
     wakeLockEnabled: result.wakeLockEnabled,
     mediaSessionEnabled: result.mediaSessionEnabled,
     deviceOrientationEnabled: result.deviceOrientationEnabled,
+    defaultsRevision: result.defaultsRevision,
     visual: result.visual,
     audio: result.audio,
     privacy: result.privacy,
