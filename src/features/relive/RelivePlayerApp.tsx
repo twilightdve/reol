@@ -16,6 +16,7 @@ import SpeakerWaveOverlay from "./visual-engine/SpeakerWaveOverlay";
 import { collectLocalAudioFilesBatched } from "./library/localFiles";
 import { buildSetlistReadinessReport } from "./setlist/matching";
 import { buildPlaybackQueue } from "./setlist/playbackQueue";
+import { STATUS_LABEL, missingReasonLabel, summarizeMatch } from "./setlist/matchSummary";
 import {
   bundledSampleData,
   loadGeneratedSetlist,
@@ -851,6 +852,11 @@ const RelivePlayerApp: React.FC = () => {
     processed: number;
     total: number;
   } | null>(null);
+  // 直近に選んだフォルダのファイル数(対応形式以外も含む)。「対応形式の音源が無い」の判定に使う
+  const [lastSelectedFileCount, setLastSelectedFileCount] = useState<number | null>(null);
+  // 音源マッチの折りたたみ。フォルダ選択直後の結果カードから開けるように state で持つ
+  const [matchingOpen, setMatchingOpen] = useState(false);
+  const matchingRef = useRef<HTMLDetailsElement | null>(null);
 
   // バッチ処理に切り替えるしきい値。これ以下なら同期処理。
   // - createLocalTrackRecord は純粋な文字列正規化のみで 1件あたり <1ms 想定
@@ -870,6 +876,7 @@ const RelivePlayerApp: React.FC = () => {
     if (fileCount === 0) {
       return;
     }
+    setLastSelectedFileCount(fileCount);
 
     // 大量ファイル: バッチ処理でメインスレッドを解放しながら進める。
     // 50 件以下は 1 バッチで完了するため、同期パスと async パスを統一して
@@ -1297,6 +1304,32 @@ const RelivePlayerApp: React.FC = () => {
     : currentSetlistEntry
       ? `${sampleData.setlist.liveTitle || sampleData.setlist.tourName || "セトリ"} / ${currentSetlistEntry.policy}`
       : player.currentTrack?.extension.toUpperCase() || "FLAC / MP3 / M4A / AAC / WAV";
+  // 紐付けパネルでは内部キー(ファイル名|サイズ|更新日時)ではなくファイル名を見せる
+  const fileNameByKey = useMemo(
+    () => new Map(tracks.map((track) => [track.fileKey, track.fileName])),
+    [tracks]
+  );
+  // フォルダ選択直後に出す照合結果の要約(旧3-11: 失敗状態を前面に出す)
+  const matchSummary = useMemo(
+    () =>
+      summarizeMatch({
+        report: readinessReport,
+        titleOf: (entryId) => entryById.get(entryId)?.displayTitle || entryId,
+        sessionFileCount: sessionFiles.size,
+        restoredTrackCount: sessionFiles.size === 0 ? tracks.length : 0,
+        isLoading: isLoadingFiles,
+        lastSelectedFileCount,
+      }),
+    [readinessReport, entryById, sessionFiles, tracks, isLoadingFiles, lastSelectedFileCount]
+  );
+  // 一致した曲が無いあいだはプレイヤーを淡色にし、理由を重ねて表示する
+  const isPlayerIdle = matchSummary.matched === 0 && matchSummary.state !== "loading";
+  const openMatchingPanel = () => {
+    setMatchingOpen(true);
+    // パネルが開いて描画されてからスクロールする。requestAnimationFrame やスムーズスクロールは
+    // タブの状態によって進まないことがあるため、setTimeout で次のタスクに回して即座に移動する
+    setTimeout(() => matchingRef.current?.scrollIntoView({ block: "start" }), 0);
+  };
   const canPlay = activeQueue ? Boolean(currentQueueItem) : Boolean(player.currentTrack);
   const canGoPrevious = activeQueue ? queueIndex > 0 : player.currentIndex > 0;
   const canGoNext = activeQueue
@@ -1474,7 +1507,126 @@ const RelivePlayerApp: React.FC = () => {
           />
         </div>
 
-        <section className="relive-stage" aria-label="プレイヤー">
+        {(() => {
+          // 照合結果をフォルダ選択の直後(プレイヤーより上)に出す。
+          // 「なぜ再生できないのか」が再生ボタンを押す前に分かるようにする(旧3-11)。
+          const s = matchSummary;
+          const formatHint = (
+            <p className="relive-match-hint">
+              対応形式: .flac / .mp3 / .m4a / .aac / .wav。ファイル名か曲のタグ(ID3 など)の曲名で自動照合します。
+              例: <code>01_第六感.m4a</code> / <code>第六感.mp3</code>
+            </p>
+          );
+          const UNMATCHED_PREVIEW = 12;
+          const unmatchedList = s.unmatched.length > 0 && (
+            <div className="relive-match-unmatched">
+              <p className="relive-match-unmatched-title">一致しなかった曲 ({s.unmatched.length})</p>
+              <ul>
+                {s.unmatched.slice(0, UNMATCHED_PREVIEW).map((song) => (
+                  <li key={song.entryId}>
+                    {song.title}
+                    {song.hasCandidates && <span className="relive-match-chip">候補あり</span>}
+                  </li>
+                ))}
+                {s.unmatched.length > UNMATCHED_PREVIEW && (
+                  <li className="relive-match-more">ほか {s.unmatched.length - UNMATCHED_PREVIEW}曲</li>
+                )}
+              </ul>
+            </div>
+          );
+          const openButton = (
+            <button type="button" className="relive-match-open" onClick={openMatchingPanel}>
+              音源を手動で紐付ける
+            </button>
+          );
+          let tone: "info" | "ok" | "warn" | "error" = "info";
+          let body: React.ReactNode;
+          switch (s.state) {
+            case "no_files":
+              body = (
+                <>
+                  <p className="relive-match-title">音源フォルダを選ぶと、このセトリの曲と自動で照合します。</p>
+                  {formatHint}
+                </>
+              );
+              break;
+            case "loading":
+              body = (
+                <p className="relive-match-title">
+                  音源を読み込み中…
+                  {fileLoadProgress && ` ${fileLoadProgress.processed} / ${fileLoadProgress.total}`}
+                </p>
+              );
+              break;
+            case "no_audio":
+              tone = "error";
+              body = (
+                <>
+                  <p className="relive-match-title">選んだフォルダに、対応形式の音源が見つかりませんでした。</p>
+                  {formatHint}
+                </>
+              );
+              break;
+            case "reselect_needed":
+              tone = "warn";
+              body = (
+                <p className="relive-match-title">
+                  前回選んだ音源の情報は残っていますが、ブラウザの制限で再生にはフォルダをもう一度選ぶ必要があります。
+                </p>
+              );
+              break;
+            case "none_matched":
+              tone = "error";
+              body = (
+                <>
+                  <p className="relive-match-title">
+                    セトリ{s.songTotal}曲のうち、一致した曲はありませんでした。
+                  </p>
+                  <p className="relive-match-hint">
+                    ファイル名かタグに曲名が入っているか確認してください。曲ごとに手動で紐付けることもできます。
+                  </p>
+                  {formatHint}
+                  {openButton}
+                </>
+              );
+              break;
+            case "partial":
+              tone = "warn";
+              body = (
+                <>
+                  <p className="relive-match-title">
+                    セトリ{s.songTotal}曲中 {s.matched}曲が一致しました。
+                  </p>
+                  {unmatchedList}
+                  {openButton}
+                </>
+              );
+              break;
+            case "all_matched":
+              tone = "ok";
+              body = (
+                <p className="relive-match-title">
+                  セトリ{s.songTotal}曲すべてが一致しました。
+                  {s.special > 0 && <span className="relive-match-sub"> (MC・SE など{s.special}件は照合対象外)</span>}
+                </p>
+              );
+              break;
+          }
+          return (
+            <section className={`relive-match-status is-${tone}`} aria-live="polite" aria-label="音源の照合結果">
+              {body}
+            </section>
+          );
+        })()}
+
+        <section className={`relive-stage${isPlayerIdle ? " is-idle" : ""}`} aria-label="プレイヤー">
+          {isPlayerIdle && (
+            <p className="relive-stage-idle-message">
+              {matchSummary.state === "none_matched"
+                ? "一致する音源がありません"
+                : "音源フォルダを選ぶと再生できます"}
+            </p>
+          )}
           <ReliveCanvas
             readFrame={player.readFrame}
             performanceMode={settings.performanceMode}
@@ -1497,7 +1649,7 @@ const RelivePlayerApp: React.FC = () => {
           </div>
         </section>
 
-        <section className="relive-controls" aria-label="再生操作">
+        <section className={`relive-controls${isPlayerIdle ? " is-idle" : ""}`} aria-label="再生操作">
           <div className="relive-transport">
             <button type="button" onClick={handlePrevious} disabled={!canGoPrevious}>
               <SkipBack size={20} aria-hidden="true" />
@@ -1551,11 +1703,6 @@ const RelivePlayerApp: React.FC = () => {
           </div>
           {player.error && <p className="relive-error">{player.error}</p>}
           {storageNote && <p className="relive-note">{storageNote}</p>}
-          {isLoadingFiles && fileLoadProgress && (
-            <p className="relive-note">
-              音源を読み込み中… {fileLoadProgress.processed} / {fileLoadProgress.total}
-            </p>
-          )}
         </section>
 
         {(() => {
@@ -1566,6 +1713,9 @@ const RelivePlayerApp: React.FC = () => {
             readinessReport.candidateEntries + readinessReport.missingEntries > 0;
           return (
             <details
+              ref={matchingRef}
+              open={matchingOpen}
+              onToggle={(event) => setMatchingOpen((event.currentTarget as HTMLDetailsElement).open)}
               className={`relive-panel relive-matching${needsAttention ? " relive-matching-attention" : ""}`}
             >
               <summary className="relive-matching-summary">
@@ -1578,11 +1728,11 @@ const RelivePlayerApp: React.FC = () => {
                   )}
                 </span>
                 <span className="relive-matching-counts">
-                  matched {readinessReport.playableEntries - readinessReport.specialEntries}
-                  {" / "}candidate {readinessReport.candidateEntries}
-                  {" / "}missing {readinessReport.missingEntries}
+                  一致 {readinessReport.playableEntries - readinessReport.specialEntries}
+                  {" / "}候補あり {readinessReport.candidateEntries}
+                  {" / "}未一致 {readinessReport.missingEntries}
                   {readinessReport.specialEntries > 0 && (
-                    <> / special {readinessReport.specialEntries}</>
+                    <> / 対象外 {readinessReport.specialEntries}</>
                   )}
                 </span>
               </summary>
@@ -1597,27 +1747,27 @@ const RelivePlayerApp: React.FC = () => {
                 </div>
                 <dl className="relive-summary">
                   <div>
-                    <dt>matched</dt>
+                    <dt>一致</dt>
                     <dd>{readinessReport.playableEntries - readinessReport.specialEntries}</dd>
                   </div>
                   <div>
-                    <dt>candidate</dt>
+                    <dt>候補あり</dt>
                     <dd>{readinessReport.candidateEntries}</dd>
                   </div>
                   <div>
-                    <dt>missing</dt>
+                    <dt>未一致</dt>
                     <dd>{readinessReport.missingEntries}</dd>
                   </div>
                   <div>
-                    <dt>special</dt>
+                    <dt>対象外</dt>
                     <dd>{readinessReport.specialEntries}</dd>
                   </div>
                 </dl>
               </div>
               {activeQueue && (
                 <p className="relive-note">
-                  {activeQueue.items.filter((item) => item.kind === "track").length} tracks /{" "}
-                  {activeQueue.items.filter((item) => item.kind !== "track").length} afterglow or special
+                  再生キュー: 曲 {activeQueue.items.filter((item) => item.kind === "track").length}件 /{" "}
+                  余韻・対象外 {activeQueue.items.filter((item) => item.kind !== "track").length}件
                 </p>
               )}
               <ol className="relive-setlist">
@@ -1657,9 +1807,10 @@ const RelivePlayerApp: React.FC = () => {
                           <strong>{entry?.displayTitle || item.entryId}</strong>
                         </div>
                         <small>
-                          {item.matchedFileKey ||
-                            item.missingReason ||
-                            `${item.candidates?.length || 0} candidate`}
+                          {(item.matchedFileKey &&
+                            (fileNameByKey.get(item.matchedFileKey) ?? item.matchedFileKey)) ||
+                            missingReasonLabel(item.missingReason) ||
+                            `候補 ${item.candidates?.length || 0}件`}
                         </small>
                         {canSelect && (
                           <label className="relive-mapping-select">
@@ -1689,7 +1840,7 @@ const RelivePlayerApp: React.FC = () => {
                           </label>
                         )}
                       </div>
-                      <em>{item.status}</em>
+                      <em>{STATUS_LABEL[item.status]}</em>
                     </li>
                   );
                 })}
