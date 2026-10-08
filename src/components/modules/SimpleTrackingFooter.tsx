@@ -55,7 +55,7 @@ const SimpleTrackingFooter: React.FC<Props> = ({
             onClick={handleNavigation(route)}
             className={`flex flex-col items-center justify-center text-center m-auto py-2 sm:py-3 px-1 sm:px-2 w-1/6 cursor-pointer transition-all duration-200 hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset ${
               currentRoute === route
-                ? "bg-theme text-white shadow-inner"
+                ? "bg-theme text-[#443a15] shadow-inner"
                 : "bg-white text-gray-800"
             }`}
           >
