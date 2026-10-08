@@ -1321,9 +1321,9 @@ const RelivePlayerApp: React.FC = () => {
   const isPlayerIdle = matchSummary.matched === 0 && matchSummary.state !== "loading";
   const openMatchingPanel = () => {
     setMatchingOpen(true);
-    requestAnimationFrame(() =>
-      matchingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
-    );
+    // パネルが開いて描画されてからスクロールする。requestAnimationFrame やスムーズスクロールは
+    // タブの状態によって進まないことがあるため、setTimeout で次のタスクに回して即座に移動する
+    setTimeout(() => matchingRef.current?.scrollIntoView({ block: "start" }), 0);
   };
   const canPlay = activeQueue ? Boolean(currentQueueItem) : Boolean(player.currentTrack);
   const canGoPrevious = activeQueue ? queueIndex > 0 : player.currentIndex > 0;
