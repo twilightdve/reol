@@ -12,6 +12,7 @@ import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { Kicker } from "../components/redesign";
 import ArticleDate from "../components/songArticles/ArticleDate";
+import ArticleTaxonomy from "../components/songArticles/ArticleTaxonomy";
 import ArticleBody from "../components/songArticles/ArticleBody";
 import { buildArticle, buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
@@ -38,6 +39,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
     return (
       <Layout title={title}>
         <Design {...pageContext} />
+        <ArticleTaxonomy articleId={id} series={pageContext.series} tags={pageContext.tags} />
       </Layout>
     );
   }
@@ -111,6 +113,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
           </p>
         </footer>
       </main>
+      <ArticleTaxonomy articleId={id} series={pageContext.series} tags={pageContext.tags} />
     </Layout>
   );
 };
@@ -135,6 +138,7 @@ export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) =>
         datePublished: publishedAt,
         dateModified: updatedAt,
         dateCreated: createdAt,
+        keywords: pageContext.tags,
         songName: songTitle,
       })
     );

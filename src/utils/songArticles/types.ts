@@ -76,6 +76,8 @@ export type SongArticleEditorial = {
    * 管理シートに「作成日」列があれば取込で入れる。無ければ手で記録する
    */
   createdAt?: string | null;
+  /** 編集で足すタグ(任意)。楽曲記事は曲名・初出の作品・年のタグが自動で付く(src/utils/songArticles/series.ts) */
+  tags?: string[] | null;
   /** 初回公開日時。公開コマンドが自動で記録する(表示しない。構造化データ・一覧の並び順に使う) */
   publishedAt: string | null;
   /** 公開後に本文を差し替えて再公開した日時。公開コマンドが自動で記録する */

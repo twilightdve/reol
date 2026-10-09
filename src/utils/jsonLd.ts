@@ -183,6 +183,8 @@ type ArticleInput = {
   dateModified?: string | null;
   /** 記事の作成日(原稿の作成日。画面に表示する日付) */
   dateCreated?: string | null;
+  /** タグ(画面に出しているものと同じ) */
+  keywords?: string[];
   /** 記事が扱う曲名(about に MusicRecording として出す) */
   songName: string;
 };
@@ -198,6 +200,7 @@ export const buildArticle = ({
   datePublished,
   dateModified,
   dateCreated,
+  keywords,
   songName,
 }: ArticleInput) => ({
   "@context": "https://schema.org",
@@ -210,6 +213,7 @@ export const buildArticle = ({
   datePublished,
   ...(dateModified ? { dateModified } : {}),
   ...(dateCreated ? { dateCreated } : {}),
+  ...(keywords && keywords.length > 0 ? { keywords: keywords.join(", ") } : {}),
   about: {
     "@type": "MusicRecording",
     name: songName,

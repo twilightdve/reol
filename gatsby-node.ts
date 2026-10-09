@@ -31,6 +31,7 @@ import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/lo
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
+import { ARTICLE_SERIES, SONG_ARTICLE_SERIES, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1885,6 +1886,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         summary: string | null;
         createdAt: string | null;
         publishedAt: string | null;
+        seriesSlug: string;
+        tags: string[];
         preview: boolean;
       }[] = [];
 
@@ -1972,6 +1975,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
             (a.releaseDate ?? "9999").localeCompare(b.releaseDate ?? "9999")
           ),
         };
+        // 読みものの分類(シリーズ+タグ)。楽曲記事は「曲を読む」、タグはサイトのデータから(src/utils/songArticles/series.ts)
+        const series = seriesBySlug(SONG_ARTICLE_SERIES) ?? ARTICLE_SERIES[0];
+        const tags = songArticleTags({ songTitle: article.songTitle, releases: songFacts.releases, extra: article.tags });
 
         const excerpt = article.summary ?? firstParagraphText(parsed);
         createPage({
@@ -1987,6 +1993,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             createdAt: article.createdAt ?? null,
             publishedAt: article.publishedAt,
             updatedAt: article.updatedAt,
+            series: { slug: series.slug, name: series.name },
+            tags,
             bodyRevision: article.bodyRevision,
             blocks: parsed.blocks,
             leadMedia,
@@ -2010,6 +2018,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           summary: excerpt,
           createdAt: article.createdAt ?? null,
           publishedAt: article.publishedAt,
+          seriesSlug: series.slug,
+          tags,
           preview,
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
@@ -2027,15 +2037,33 @@ export const createPages: GatsbyNode["createPages"] = async ({
             (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
             (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
         );
+        const indexTemplate = path.resolve("./src/templates/song-articles-index.tsx");
         createPage({
           path: "/articles/",
-          component: path.resolve("./src/templates/song-articles-index.tsx"),
+          component: indexTemplate,
           context: {
             articles: indexEntries,
+            series: ARTICLE_SERIES,
+            seriesSlug: null,
             // 公開記事が無くプレビュー記事だけのときは一覧も noindex
             noindex: indexEntries.every((a) => a.preview),
           },
         });
+        // シリーズごとのページ(記事が1件以上あるシリーズだけ)
+        for (const s of ARTICLE_SERIES) {
+          const inSeries = indexEntries.filter((a) => a.seriesSlug === s.slug);
+          if (inSeries.length === 0) continue;
+          createPage({
+            path: `/articles/series/${s.slug}/`,
+            component: indexTemplate,
+            context: {
+              articles: inSeries,
+              series: ARTICLE_SERIES,
+              seriesSlug: s.slug,
+              noindex: inSeries.every((a) => a.preview),
+            },
+          });
+        }
       }
       console.log(
         `[articles] generated ${indexEntries.length} article pages${isArticlesPreview() ? " (ARTICLES_PREVIEW: staging を含む)" : ""}`

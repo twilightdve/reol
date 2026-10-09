@@ -40,6 +40,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [30-boy-article-design.md](./30-boy-article-design.md) | 楽曲記事「Boy」の記事別デザイン: 素材の観察→意味→表現、淡いコンクリートのA案、記事別デザインの登録の仕組み |
 | [31-notitle-article-design.md](./31-notitle-article-design.md) | 楽曲記事「No title」の記事別デザイン: 見上げる空・縦書き・ウォータークラウン・波紋、ユーザーとの調整の記録 |
 | [32-monster-article-design.md](./32-monster-article-design.md) | 楽曲記事「MONSTER」の記事別デザイン: 2025年のライブ映像の黒い積乱雲とカラスから、怪物を内側から湧く嵐として描く |
+| [33-articles-series-tags.md](./33-articles-series-tags.md) | 読みものの分類: シリーズ(楽曲記事は「曲を読む」)+タグ(作品・年など)、一覧の絞り込み・シリーズのページ・記事末尾の帯 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
