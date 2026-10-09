@@ -24,6 +24,8 @@
   color: var(--ink);
   background: var(--sky);
   overflow-wrap: anywhere;
+  /* 万一はみ出しても横スクロールにしない(clip はスクロール領域を作らないので、見出しの sticky は壊れない) */
+  overflow-x: clip;
 }
 
 /* ---------- 縦書きの表紙 ---------- */
@@ -89,13 +91,14 @@
   padding-top: clamp(24px, 5vw, 64px);
 }
 /* 題名は縦書き。右から左へ「松本凱旋から」「読み直すNo title」の2行。「No title」は横向き(既定)のまま */
-/* 題名の列の左に、公開日を小さな縦書きの列で添える */
+/* 題名の列の左に、公開日を小さな縦書きの列で添える。
+   Safari(WebKit)は、書字方向の違う要素が flex/grid の子になると幅を誤りやすい。
+   flex/grid の子は横書きの包み(.a006-cover__title)にし、縦書きはその中の普通の段落の流れ(.a006-cover__vertical)にだけ置く */
 .a006-cover__title {
-  writing-mode: vertical-rl;
   justify-self: end;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+}
+.a006-cover__vertical {
+  writing-mode: vertical-rl;
 }
 .a006-title {
   margin: 0;
@@ -113,6 +116,7 @@
 }
 .a006-date {
   margin: 0;
+  margin-block-start: 18px;
   padding-block-start: 0.4em;
   font-size: 12px;
   letter-spacing: 0.18em;
@@ -323,9 +327,10 @@
   .a006-lede {
     max-width: 880px;
   }
+  /* 本文の列が親の幅より広くならないよう、狭い時は本文の列から縮める */
   .a006-para {
     display: grid;
-    grid-template-columns: 640px 200px;
+    grid-template-columns: minmax(0, 640px) 200px;
     column-gap: 40px;
   }
   .a006-para__text {
@@ -384,15 +389,14 @@
 /* ---------- 奥付(縦書き) ---------- */
 .a006-colophon {
   padding: clamp(56px, 9vw, 112px) 20px clamp(56px, 8vw, 96px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
   border-top: 1px solid rgba(13, 23, 71, 0.18);
 }
+/* 奥付の縦書きの箱は、横書きの流れの中に幅を内容に合わせて置き、左右の余白で中央に寄せる(flex を使わない) */
 .a006-colophon__box {
   writing-mode: vertical-rl;
-  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 40px;
   max-inline-size: 22em;
   block-size: auto;
   max-block-size: 100%;

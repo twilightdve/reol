@@ -15,7 +15,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ArticleBody from "../../ArticleBody";
-import { dotDate, formatArticleDate, formatLabel } from "../../../../utils/songArticles/format";
+import {
+  dotDate,
+  formatArticleDate,
+  formatLabel,
+} from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { ArticleBlock } from "../../../../utils/songArticles/markdown";
 import { inlineText } from "../../../../utils/songArticles/markdown";
@@ -28,7 +32,8 @@ const VARIANTS: { key: Variant; label: string }[] = [
   { key: "glow", label: "琥珀: 見出しの周り" },
   { key: "wash", label: "琥珀: 章全体" },
 ];
-const isVariant = (v: string | null): v is Variant => v === "glow" || v === "wash";
+const isVariant = (v: string | null): v is Variant =>
+  v === "glow" || v === "wash";
 
 // 段落の位置(designManifest.ts の anchors と対応)
 const LEDE = 1; // 一言
@@ -42,14 +47,19 @@ const LAST = 9; // 結び(二つの空が重なる)
 type LiveRef = SongArticlePageContext["liveRefs"][number];
 
 /** 縦書きの見出し。本文の h2 をそのまま縦に組む(文言は変えない) */
-const VerticalHeading: React.FC<{ block: ArticleBlock | undefined }> = ({ block }) =>
+const VerticalHeading: React.FC<{ block: ArticleBlock | undefined }> = ({
+  block,
+}) =>
   block && block.t === "h" ? (
     <h2 className="a006-chapter__title">
       <span>{inlineText(block.children)}</span>
     </h2>
   ) : null;
 
-const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
+const Note: React.FC<{ label: string; children: React.ReactNode }> = ({
+  label,
+  children,
+}) => (
   <aside className="a006-note">
     <p className="a006-note__label">{label}</p>
     <div className="a006-note__body">{children}</div>
@@ -57,7 +67,10 @@ const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, c
 );
 
 /** 公演の注記(日付・会場・公演名、公演ページへの導線) */
-const ShowNote: React.FC<{ live: LiveRef; articleId: string }> = ({ live, articleId }) => (
+const ShowNote: React.FC<{ live: LiveRef; articleId: string }> = ({
+  live,
+  articleId,
+}) => (
   <Note label="この日の公演">
     <p className="a006-note__strong">{dotDate(live.date)}</p>
     {live.place && <p>{live.place}</p>}
@@ -68,7 +81,12 @@ const ShowNote: React.FC<{ live: LiveRef; articleId: string }> = ({ live, articl
     <p>
       <Link
         to={live.path}
-        onClick={() => trackEvent("article_live_page_click", { category: "navigation", label: articleId })}
+        onClick={() =>
+          trackEvent("article_live_page_click", {
+            category: "navigation",
+            label: articleId,
+          })
+        }
       >
         公演ページへ
       </Link>
@@ -80,7 +98,10 @@ const ShowNote: React.FC<{ live: LiveRef; articleId: string }> = ({ live, articl
  * セットリストの終盤。記事に合う曲だけを切り出さず、指定の曲順から最後までを載せる。
  * データには本編とアンコールの区切りがないので、区切りは示さない。
  */
-const SetlistNote: React.FC<{ live: LiveRef; from: number }> = ({ live, from }) => {
+const SetlistNote: React.FC<{ live: LiveRef; from: number }> = ({
+  live,
+  from,
+}) => {
   const tail = live.setList.slice(from - 1);
   if (tail.length === 0) return null;
   return (
@@ -96,7 +117,18 @@ const SetlistNote: React.FC<{ live: LiveRef; from: number }> = ({ live, from }) 
 };
 
 const NoTitleDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, publishedAt, updatedAt, preview } = ctx;
+  const {
+    id,
+    title,
+    blocks,
+    leadMedia,
+    songPages,
+    songFacts,
+    liveRefs,
+    publishedAt,
+    updatedAt,
+    preview,
+  } = ctx;
   const [variant, setVariant] = useState<Variant>(DEFAULT_VARIANT);
 
   useEffect(() => {
@@ -108,16 +140,29 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
   // H1 の文言はそのまま。縦書きで「松本凱旋から」「読み直すNo title」の2行に組む(文字は変えない・加工しない)
   const BREAK = "から";
   const breakAt = title.indexOf(BREAK);
-  const titleLines = breakAt > 0 ? [title.slice(0, breakAt + BREAK.length), title.slice(breakAt + BREAK.length)] : [title];
+  const titleLines =
+    breakAt > 0
+      ? [
+          title.slice(0, breakAt + BREAK.length),
+          title.slice(breakAt + BREAK.length),
+        ]
+      : [title];
   const published = formatArticleDate(publishedAt);
-  const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
+  const updated =
+    updatedAt && updatedAt !== publishedAt
+      ? formatArticleDate(updatedAt)
+      : null;
 
   const firstYear = songFacts.releases[0]?.releaseDate?.slice(0, 4) ?? null;
-  const originReleases = songFacts.releases.filter((r) => firstYear && r.releaseDate?.startsWith(firstYear));
+  const originReleases = songFacts.releases.filter(
+    (r) => firstYear && r.releaseDate?.startsWith(firstYear)
+  );
   const firstRelease = songFacts.releases[0] ?? null;
   const live = liveRefs[0] ?? null;
   // 記事が触れている曲(ゆーれいずみー)の曲順から。見つからなければセットリストの注記は出さない
-  const setlistFrom = live ? live.setList.findIndex((s) => s.name.startsWith("ゆーれいずみー")) + 1 : 0;
+  const setlistFrom = live
+    ? live.setList.findIndex((s) => s.name.startsWith("ゆーれいずみー")) + 1
+    : 0;
 
   const notes: Record<number, React.ReactNode> = {};
   if (originReleases.length > 0) {
@@ -134,14 +179,26 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     );
   }
   if (live) notes[SHOW] = <ShowNote live={live} articleId={id} />;
-  if (live && setlistFrom > 0) notes[SETLIST] = <SetlistNote live={live} from={setlistFrom} />;
+  if (live && setlistFrom > 0)
+    notes[SETLIST] = <SetlistNote live={live} from={setlistFrom} />;
 
   /** 本文の段落を1つずつ。注記があれば本文の右の列(スマートフォンでは段落の前)に添える */
   const paragraphs = (from: number, to: number) =>
     Array.from({ length: to - from }, (_, k) => from + k).map((i) => (
-      <div key={i} className={`a006-para${i === LAST ? " a006-para--last" : ""}`}>
+      <div
+        key={i}
+        className={`a006-para${i === LAST ? " a006-para--last" : ""}`}
+      >
         {notes[i]}
-        <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={i} to={i + 1} unstyled className="a006-para__text" />
+        <ArticleBody
+          blocks={blocks}
+          leadMedia={leadMedia}
+          articleId={id}
+          from={i}
+          to={i + 1}
+          unstyled
+          className="a006-para__text"
+        />
       </div>
     ));
 
@@ -182,31 +239,46 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
           </div>
           <div className="a006-cover__body">
             <div className="a006-cover__title">
-              <h1 className="a006-title">
-                {titleLines.map((line, i) => (
-                  <span key={i} className="a006-title__line">
-                    {line}
-                  </span>
-                ))}
-              </h1>
-              <p className="a006-date">
-                {published ? (
-                  <>
-                    <time dateTime={publishedAt ?? undefined}>{published}</time>公開
-                    {updated && (
-                      <>
-                        {" ・ "}
-                        <time dateTime={updatedAt ?? undefined}>{updated}</time>更新
-                      </>
-                    )}
-                  </>
-                ) : (
-                  "公開日未定"
-                )}
-              </p>
+              <div className="a006-cover__vertical">
+                <h1 className="a006-title">
+                  {titleLines.map((line, i) => (
+                    <span key={i} className="a006-title__line">
+                      {line}
+                    </span>
+                  ))}
+                </h1>
+                <p className="a006-date">
+                  {published ? (
+                    <>
+                      <time dateTime={publishedAt ?? undefined}>
+                        {published}
+                      </time>
+                      公開
+                      {updated && (
+                        <>
+                          {" ・ "}
+                          <time dateTime={updatedAt ?? undefined}>
+                            {updated}
+                          </time>
+                          更新
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    "公開日未定"
+                  )}
+                </p>
+              </div>
             </div>
             <div className="a006-cover__media">
-              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={0} to={LEDE} unstyled />
+              <ArticleBody
+                blocks={blocks}
+                leadMedia={leadMedia}
+                articleId={id}
+                from={0}
+                to={LEDE}
+                unstyled
+              />
             </div>
           </div>
         </header>
@@ -216,7 +288,15 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
           <section className="a006-chapter a006-chapter--intro">
             <div className="a006-chapter__inner">
               <div className="a006-chapter__body">
-                <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a006-lede" />
+                <ArticleBody
+                  blocks={blocks}
+                  leadMedia={leadMedia}
+                  articleId={id}
+                  from={LEDE}
+                  to={LEDE + 1}
+                  unstyled
+                  className="a006-lede"
+                />
                 {paragraphs(ORIGIN, H_HOME)}
               </div>
             </div>
@@ -228,7 +308,9 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
               <div className="a006-chapter__rail">
                 <VerticalHeading block={blocks[H_HOME]} />
               </div>
-              <div className="a006-chapter__body">{paragraphs(SHOW, H_TWO)}</div>
+              <div className="a006-chapter__body">
+                {paragraphs(SHOW, H_TWO)}
+              </div>
             </div>
           </section>
 
@@ -238,7 +320,9 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
               <div className="a006-chapter__rail">
                 <VerticalHeading block={blocks[H_TWO]} />
               </div>
-              <div className="a006-chapter__body">{paragraphs(H_TWO + 1, blocks.length)}</div>
+              <div className="a006-chapter__body">
+                {paragraphs(H_TWO + 1, blocks.length)}
+              </div>
             </div>
           </section>
         </div>
@@ -279,7 +363,12 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
               <li key={p.slug}>
                 <Link
                   to={`/songs/${p.slug}/`}
-                  onClick={() => trackEvent("article_song_page_click", { category: "navigation", label: id })}
+                  onClick={() =>
+                    trackEvent("article_song_page_click", {
+                      category: "navigation",
+                      label: id,
+                    })
+                  }
                 >
                   {p.songName} — 演奏統計・MV・配信リンク
                 </Link>
