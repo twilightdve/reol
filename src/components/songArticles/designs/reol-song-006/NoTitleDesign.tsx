@@ -5,14 +5,15 @@
  * - 冒頭は縦書きの表紙: 群青から赤紫へ移る空に、縦書きの題名。MVは16:9のまま。
  * - 縦書きは右から左へ読むので、軸を左右反転する。見出し(縦書き)と注記を右、本文をその左に置く。
  *   PCでは見出しを、その章を読んでいる間右端に留める(本の柱のように)。
- * - 見出し1の章(故郷の公演)には、空に琥珀の光が差す。結びの段落で、群青と琥珀の空が重なる。
+ * - 見出し1の章(故郷の公演)の入口にウォータークラウン(MVで印象的な要素。オリジナルの線画)。琥珀色の一滴が群青の水面に落ち、
+ *   そこから空に琥珀の光が差す。結びの段落で、群青と琥珀の二つの波紋と光が重なる。
  * - 締めは縦書きの奥付。サイトの確認済みデータ(作詞・作曲・初出の収録作)だけ。
  * - 注記は、段落に関係するサイトの確認済みデータ: 収録作、公演の日付と会場、その日のセットリストの終盤。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
  * 琥珀の光の差し方は比較中(プレビュー時だけ ?v=glow|wash): glow=見出しの周りだけ、wash=章全体。
  */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleBody from "../../ArticleBody";
 import {
@@ -55,6 +56,66 @@ const VerticalHeading: React.FC<{ block: ArticleBlock | undefined }> = ({
       <span>{inlineText(block.children)}</span>
     </h2>
   ) : null;
+
+/**
+ * ウォータークラウン(王冠形のしぶき)。MVで印象的な要素(ユーザー指定)を、MVの絵をなぞらないオリジナルの線画で描く。
+ * 琥珀色の一滴(2023年の公演)が群青の水面(2014年の曲)に落ち、しぶきと波紋が広がる。装飾なので読み上げ対象外。
+ */
+const WaterCrown: React.FC = () => (
+  <svg className="a006-crown" viewBox="0 0 240 200" aria-hidden="true">
+    <defs>
+      <linearGradient id="a006-crown-wall" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stopColor="#243084" stopOpacity="0.22" />
+        <stop offset="1" stopColor="#243084" stopOpacity="0.03" />
+      </linearGradient>
+    </defs>
+    <g className="a006-crown__ripples">
+      <ellipse cx={120} cy={166} rx={92} ry={15} />
+      <ellipse cx={120} cy={166} rx={116} ry={20} />
+    </g>
+    <g className="a006-crown__splash">
+      <path className="a006-crown__rim" d="M24 116 A96 12 0 0 1 216 116" />
+      <path className="a006-crown__wall" d="M74 164 C66 146 30 126 24 116 C28.4 113.0 30.8 108.0 32 96 C33.2 108.0 37.0 116.0 43.0 119 C49.0 116.0 52.8 96.0 54 84 C55.2 96.0 59.6 116.0 66.5 119 C73.4 116.0 77.8 90.0 79 78 C80.2 90.0 85.1 119.0 92.5 122 C99.9 119.0 104.8 86.0 106 74 C107.2 86.0 112.3 119.0 120.0 122 C127.7 119.0 132.8 86.0 134 74 C135.2 86.0 140.1 119.0 147.5 122 C154.9 119.0 159.8 90.0 161 78 C162.2 90.0 166.6 116.0 173.5 119 C180.4 116.0 184.8 96.0 186 84 C187.2 96.0 190.9 116.0 197.0 119 C203.1 116.0 206.8 108.0 208 96 C209.2 108.0 211.6 113.0 216.0 116 C210 126 174 146 166 164 A46 9 0 0 1 74 164 Z" />
+      <g className="a006-crown__drops">
+          <circle className="a006-crown__drop" cx={25.0} cy={87} r={2.5} />
+          <circle className="a006-crown__drop" cx={48.7} cy={75} r={2.5} />
+          <circle className="a006-crown__drop" cx={75.7} cy={67} r={3.2} />
+          <circle className="a006-crown__drop" cx={104.9} cy={63} r={3.2} />
+          <circle className="a006-crown__drop" cx={135.1} cy={63} r={3.2} />
+          <circle className="a006-crown__drop" cx={164.3} cy={67} r={3.2} />
+          <circle className="a006-crown__drop" cx={191.3} cy={75} r={2.5} />
+          <circle className="a006-crown__drop" cx={215.0} cy={87} r={2.5} />
+      </g>
+    </g>
+    <path className="a006-crown__fall" d="M120 4 C125 14 127 19 127 23 A7 7 0 1 1 113 23 C113 19 115 14 120 4 Z" />
+  </svg>
+);
+
+/** 章が画面に入った時だけ、しずくが落ちて王冠が立ち上がる(JSなし・動きを減らす設定では完成状態のまま) */
+const useSplashOnce = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<"static" | "armed" | "visible">("static");
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) return;
+    setState("armed");
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setState("visible");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.7 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
+};
 
 const Note: React.FC<{ label: string; children: React.ReactNode }> = ({
   label,
@@ -130,6 +191,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     preview,
   } = ctx;
   const [variant, setVariant] = useState<Variant>(DEFAULT_VARIANT);
+  const splash = useSplashOnce();
 
   useEffect(() => {
     if (!preview) return;
@@ -304,6 +366,10 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
 
           {/* 見出し1: 故郷で迎えた最終公演。空に琥珀の光が差す */}
           <section className="a006-chapter a006-chapter--home">
+            {/* 章の入口: 2023年の公演という一滴が、2014年の曲に落ちる */}
+            <div ref={splash.ref} className={`a006-crown-wrap${splash.className}`}>
+              <WaterCrown />
+            </div>
             <div className="a006-chapter__inner">
               <div className="a006-chapter__rail">
                 <VerticalHeading block={blocks[H_HOME]} />
