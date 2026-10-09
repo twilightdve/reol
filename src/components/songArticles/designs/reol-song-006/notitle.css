@@ -71,8 +71,9 @@
 .a006-cover {
   container-type: inline-size;
   --title-size: clamp(36px, 9.5vw, 52px);
-  /* 表紙の波紋の中心 = 縦書きの題名。スマートフォンは中央上寄り、PCは右の題名の列の中央 */
-  --cover-wave-x: 50%;
+  /* 表紙の波紋の中心。スマートフォンは、右に寄せた題名の列(2.75em + 公開日の列 44px)の左に残る余白の中央
+     (左右の余白 20px は打ち消し合うので (表紙の幅 - 題名の列) / 2)。PCは右の題名の列の中央 */
+  --cover-wave-x: calc((100% - var(--title-size) * 2.75 - 44px) / 2);
   --cover-wave-y: 34%;
   position: relative;
   isolation: isolate;
@@ -88,8 +89,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 44px, rgb(255 255 255 / 0.09) 45px 46px, transparent 47px 90px),
-    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 88px, rgb(150 200 255 / 0.12) 89px 90px);
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 71px, rgb(255 255 255 / 0.09) 72px 73px, transparent 74px 144px),
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 142px, rgb(150 200 255 / 0.12) 143px 144px);
   -webkit-mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
   mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
 }
@@ -113,8 +114,10 @@
 .a006-cover__vertical {
   writing-mode: vertical-rl;
   width: max-content;
-  /* スマートフォン: 縦長の題名を表紙の中央に立てる */
-  margin-inline: auto;
+  /* 縦長の題名は右に寄せ、左に残る余白は波紋で満たす(2026-10-09 ユーザー指示「波紋があれば右でいい。波紋の中心は余白の中心」)。
+     縦書きの要素では margin-inline が上下を指すので、左右は物理方向(margin-left)で指定する */
+  margin-left: auto;
+  margin-right: 0;
 }
 .a006-title {
   margin: 0;
@@ -201,9 +204,6 @@
     /* 縦書きの題名の高さは書体によってずれる(Chrome 8.0em / WebKit 約6.3em)。差が出ても上下の余白が均等になるよう中央にそろえる */
     align-items: center;
     gap: 0;
-  }
-  .a006-cover__vertical {
-    margin-inline: auto 0;
   }
   .a006-cover__media {
     grid-column: 1;
@@ -572,7 +572,7 @@
 }
 
 /* 波紋: 見出しを中心に、群青と琥珀の輪が交互に広がる(一つの波紋の中で二つの色が重なる)。
-   水面の波紋らしく横長の楕円(輪の間隔は横 92px・縦はその約1/3)。中心から離れるほど薄れる */
+   水面の波紋らしく横長の楕円(輪の間隔は横 72px・縦はその約1/3。ユーザー指摘で広げた)。中心から離れるほど薄れる */
 .a006-chapter--two::after {
   content: "";
   position: absolute;
@@ -581,8 +581,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 45px, rgb(36 48 132 / 0.16) 46px 47px, transparent 48px 92px),
-    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 90px, rgb(214 150 60 / 0.3) 91px 92px);
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 71px, rgb(36 48 132 / 0.16) 72px 73px, transparent 74px 144px),
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 142px, rgb(214 150 60 / 0.3) 143px 144px);
   /* 結びの段落まで届くよう広く、見出しから離れるほど薄れる */
   -webkit-mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
   mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
