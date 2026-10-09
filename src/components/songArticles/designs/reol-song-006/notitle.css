@@ -70,9 +70,30 @@
    (MVの幅 = 8.0em × 16/9 = 14.24em)、一つの四角にまとめる */
 .a006-cover {
   container-type: inline-size;
+  --title-size: clamp(36px, 9.5vw, 52px);
+  /* 表紙の波紋の中心 = 縦書きの題名。スマートフォンは中央上寄り、PCは右の題名の列の中央 */
+  --cover-wave-x: 50%;
+  --cover-wave-y: 34%;
+  position: relative;
+  isolation: isolate;
+}
+/* 表紙の余白の波(2026-10-09 ユーザー提案「表紙の余白にも波があってもいい」)。
+   題名を中心に、白と淡い青の楕円の輪が交互に広がり、離れるほど薄れる。MVの水の要素の予告で、
+   後のウォータークラウンにつながる。表紙は読み込み直後から見えているので動かさない。
+   輪の濃さは、表紙で最も明るい下端に線が重なっても、公開日の文字 4.8:1・題名 6.8:1 になる値 */
+.a006-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 44px, rgb(255 255 255 / 0.09) 45px 46px, transparent 47px 90px),
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 88px, rgb(150 200 255 / 0.12) 89px 90px);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
 }
 .a006-cover__body {
-  --title-size: clamp(36px, 9.5vw, 52px);
   width: var(--wide);
   margin: 0 auto;
   display: grid;
@@ -164,8 +185,17 @@
   /* 題名の列の幅は、WebKit で0にならないよう文字の大きさから明示する
      (題名2行の行送り 1.3em×2 + 行間 0.15em = 2.75em、公開日の列と間隔で 44px) */
   /* 題名の大きさは、MV(14.24em)+ 間隔 + 題名の列(2.75em + 44px)が紙面の幅に収まる最大値(上限56px) */
-  .a006-cover__body {
+  .a006-cover {
     --title-size: clamp(36px, calc((min(1040px, 100cqi - 40px) - 100px) / 17), 56px);
+    --cover-wave-x: calc(50% + min(520px, 50% - 20px) - (var(--title-size) * 2.75 + 44px) / 2);
+    --cover-wave-y: 56%;
+  }
+  /* PCは表紙が横に広いので、波紋を上下の余白まで届かせる */
+  .a006-cover::before {
+    -webkit-mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+    mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+  }
+  .a006-cover__body {
     grid-template-columns: calc(var(--title-size) * 14.24) calc(var(--title-size) * 2.75 + 44px);
     justify-content: space-between;
     /* 縦書きの題名の高さは書体によってずれる(Chrome 8.0em / WebKit 約6.3em)。差が出ても上下の余白が均等になるよう中央にそろえる */
