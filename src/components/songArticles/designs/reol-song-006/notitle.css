@@ -93,12 +93,17 @@
 /* 題名は縦書き。右から左へ「松本凱旋から」「読み直すNo title」の2行。「No title」は横向き(既定)のまま */
 /* 題名の列の左に、公開日を小さな縦書きの列で添える。
    Safari(WebKit)は、書字方向の違う要素が flex/grid の子になると幅を誤りやすい。
-   flex/grid の子は横書きの包み(.a006-cover__title)にし、縦書きはその中の普通の段落の流れ(.a006-cover__vertical)にだけ置く */
+   flex/grid の子は横書きの包み(.a006-cover__title)にし、縦書きはその中の普通の段落の流れ(.a006-cover__vertical)にだけ置く。
+   さらに WebKit は、縦書きを含む横書きの箱の「中身に合わせた幅」を0と計算する(右寄せすると縦書きが右端の外へはみ出す)。
+   そのため包みは横幅いっぱいに広げ、縦書きの要素自身に幅(max-content)を持たせて、左の余白 auto で右に寄せる */
 .a006-cover__title {
-  justify-self: end;
+  justify-self: stretch;
+  min-width: 0;
 }
 .a006-cover__vertical {
   writing-mode: vertical-rl;
+  width: max-content;
+  margin-left: auto;
 }
 .a006-title {
   margin: 0;
@@ -154,8 +159,10 @@
   text-underline-offset: 4px;
 }
 @media (min-width: 900px) {
+  /* 題名の列の幅は、WebKit で0にならないよう文字の大きさから明示する
+     (題名2行の行送り 1.3em×2 + 行間 0.15em = 2.75em、公開日の列と間隔で 44px) */
   .a006-cover__body {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) calc(2.75 * clamp(36px, 6.4vw, 66px) + 44px);
     align-items: center;
     gap: 56px;
   }
@@ -225,11 +232,17 @@
   text-decoration-thickness: 2px;
 }
 
-/* 縦書きの見出し */
+/* 縦書きの見出し。見出しを入れる箱(.a006-chapter__rail)の幅は、WebKit で0にならないよう文字の大きさから明示する
+   (1行分の行送り + 罫と間隔) */
+.a006-chapter__rail {
+  font-size: clamp(22px, 2.6vw, 30px);
+  width: calc(1.35em + 15px);
+}
 .a006-chapter__title {
   writing-mode: vertical-rl;
+  width: max-content;
   margin: 0;
-  font-size: clamp(22px, 2.6vw, 30px);
+  font-size: 1em;
   font-weight: 800;
   line-height: 1.35;
   letter-spacing: 0.14em;
