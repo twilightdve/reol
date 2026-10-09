@@ -257,9 +257,11 @@
   font-size: 17px;
   line-height: 2;
 }
+/* 本文は行の幅いっぱいに組み、両端をそろえる。text-wrap: pretty は Safari では段落全体の行を短くするため、
+   段落によって行末の位置がずれる(2026-10-10 ユーザー指摘。plan/32) */
 .a080-row__text p {
   margin: 0;
-  text-wrap: pretty;
+  text-align: justify;
   line-break: strict;
 }
 .a080-row__text a,

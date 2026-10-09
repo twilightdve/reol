@@ -232,10 +232,12 @@
 .a026-last p {
   margin: 0;
 }
+/* 本文は行の幅いっぱいに組み、両端をそろえる(段落ごとに折り返し位置が変わらないように)。
+   text-wrap: pretty は Safari では段落全体の行を短くして最終行の短さを避けるため、段落によって行末の位置がずれる(2026-10-10 ユーザー指摘) */
 .a026-row__text {
   font-size: 17px;
   line-height: 2;
-  text-wrap: pretty;
+  text-align: justify;
   line-break: strict;
 }
 .a026-row + .a026-row {
@@ -341,7 +343,7 @@
   max-width: 640px;
   font-size: 18px;
   line-height: 2.05;
-  text-wrap: pretty;
+  text-align: justify;
   line-break: strict;
 }
 .a026-refs {
