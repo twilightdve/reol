@@ -330,6 +330,10 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
+.a080-note__src {
+  margin-top: 8px !important;
+  font-size: 11px;
+}
 .a080-note a {
   color: var(--link);
   text-decoration: underline;
@@ -347,21 +351,17 @@
   .a080-rows {
     width: var(--wide);
   }
+  /* 注記は段落の高さに影響させない(段落の間隔を全段で同じに保つ)。左の列に重ねて置く */
   .a080-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 640px;
-    column-gap: 64px;
-    align-items: start;
-  }
-  .a080-row__text {
-    grid-column: 2;
+    position: relative;
+    padding-left: calc(100% - 640px);
   }
   .a080-note {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
-    width: min(240px, 100%);
-    margin: 0.45em 0 0;
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: min(240px, calc(100% - 640px - 64px));
+    margin: 0;
   }
 }
 

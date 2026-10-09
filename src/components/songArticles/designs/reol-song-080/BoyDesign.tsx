@@ -33,7 +33,6 @@ const VARIANTS: { key: Variant; label: string }[] = [
 const LEDE = 1; // 一言
 const RELEASE_NOTE = 2; // 曲の成り立ち(収録作の注記)
 const LIVE = 5; // ライヴの記憶の始まり(帯1・演奏記録の注記)
-const LATEST_NOTE = 6; // 美辞学ツアー(最新の演奏の注記)
 const CODA = 8; // 結び(帯2)
 
 /** 手拍子の拍。等間隔の短い縦線。withVoice で「声」の線が重なる */
@@ -168,6 +167,9 @@ const BoyDesign: SongArticleDesign = (ctx) => {
       </Note>
     );
   }
+  // 演奏記録はライヴの記憶が始まる段落の横に1つにまとめる。特定の公演の段落の横には置かない
+  // (最新の演奏日はライヴのたびに変わり、段落の内容と関係があるように読めてしまうため)。
+  // 数値はサイトのセットリスト記録による(曲ページと同じ)ことを明記する
   if (stats && stats.totalPlays > 0) {
     notes[LIVE] = (
       <Note label="ライヴでの演奏">
@@ -181,25 +183,23 @@ const BoyDesign: SongArticleDesign = (ctx) => {
             <span className="a080-note__strong">{dotDate(stats.firstPlayedDate)}</span>
           </p>
         )}
-      </Note>
-    );
-  }
-  if (stats?.lastPlayedDate) {
-    notes[LATEST_NOTE] = (
-      <Note label="最新の演奏">
-        <p>
-          <span className="a080-note__strong">{dotDate(stats.lastPlayedDate)}</span>
-        </p>
-        {songPage && (
+        {stats.lastPlayedDate && (
           <p>
+            <span>最新</span>
+            <span className="a080-note__strong">{dotDate(stats.lastPlayedDate)}</span>
+          </p>
+        )}
+        <p className="a080-note__src">
+          <span>!Legit のセットリスト記録より</span>
+          {songPage && (
             <Link
               to={`/songs/${songPage.slug}/`}
               onClick={() => trackEvent("article_song_page_click", { category: "navigation", label: `${id}:note` })}
             >
               演奏履歴を見る
             </Link>
-          </p>
-        )}
+          )}
+        </p>
       </Note>
     );
   }
