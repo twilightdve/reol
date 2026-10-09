@@ -83,6 +83,20 @@
 - 記事ページ(第2階層)ではサイト共通の小さな動画プレイヤーが右上に出て、スマートフォンではプレビュー表示の帯に重なる(既存の共通部品の挙動)。
 - `/songs/no-title/` は 320px で文書幅が366pxになる。はみ出す要素は見当たらず、記事導線のある `/songs/boy/` では起きないため今回の変更とは別要因(原因未特定)。
 
+## 7. 後回し(本書の範囲外)
+
+- トップ・共通ナビの入口: 公開記事が0件のうちは出さない。初回公開時に追加する。
+- 記事別デザイン(要件。9章)。検索・カテゴリ・RSS・連載。
+- 残り17件の取込(同じ手順で `--ids` を増やす)。
+- 編集上の決定(ユーザー): 公開する記事と順序、slug、公開日、著者表示、一覧の紹介文(現状は本文の最初の段落を表示)、`/articles/` 一覧の説明文(仮に Claude が書いた1文)。
+
+## 8. 運用手順
+
+1. 管理表の「記事」「song対応」シートをCSVで書き出し、`.articles-local/inbox/記事.csv` `song対応.csv` に置く。掲載用Markdownも同じ場所に置く。
+2. `npm run articles:import -- --ids <article_id,...> --dry-run` で確認 → `--dry-run` を外して実行。
+3. `npm run articles:preview` でローカル確認(`ARTICLES_PREVIEW=1 npm run develop`。未実行のため要確認)。確実なのは `ARTICLES_PREVIEW=1 npm run build` → `npx gatsby serve`(検証済み)。終わったら通常ビルドで `public/` を戻す。
+4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed・publishedAt を決め、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。
+
 ## 9. デザインの要件と引継ぎの差分(2026-10-09)
 
 ### 要件
@@ -105,17 +119,3 @@ S4(記事基盤と人物紹介連載の既存計画)と S3補足(実行管理ペ
 - 記事別デザインを差し込む仕組み(本文データとは独立させる)。方式は未決定。
 - 公開の条件に「その記事の独自デザインがある」を加える(`articles:publish` で確認する等)。
 - 検討の材料: 私(Claude)はMVを視聴できない。見られるのは静止画・原稿・公式の説明・コメント等。映像の印象はユーザーからの提供が必要。
-
-## 7. 後回し(本書の範囲外)
-
-- トップ・共通ナビの入口: 公開記事が0件のうちは出さない。初回公開時に追加する。
-- 記事別デザイン(要件。9章)。検索・カテゴリ・RSS・連載。
-- 残り17件の取込(同じ手順で `--ids` を増やす)。
-- 編集上の決定(ユーザー): 公開する記事と順序、slug、公開日、著者表示、一覧の紹介文(現状は本文の最初の段落を表示)、`/articles/` 一覧の説明文(仮に Claude が書いた1文)。
-
-## 8. 運用手順
-
-1. 管理表の「記事」「song対応」シートをCSVで書き出し、`.articles-local/inbox/記事.csv` `song対応.csv` に置く。掲載用Markdownも同じ場所に置く。
-2. `npm run articles:import -- --ids <article_id,...> --dry-run` で確認 → `--dry-run` を外して実行。
-3. `npm run articles:preview` でローカル確認(`ARTICLES_PREVIEW=1 npm run develop`。未実行のため要確認)。確実なのは `ARTICLES_PREVIEW=1 npm run build` → `npx gatsby serve`(検証済み)。終わったら通常ビルドで `public/` を戻す。
-4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed・publishedAt を決め、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。
