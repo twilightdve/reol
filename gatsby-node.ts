@@ -1908,14 +1908,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
           console.warn(`[articles] ${article.id}: 対応する曲ページが見つからないため曲ページへのリンクを出しません`);
         }
 
-        // 冒頭のMVリンクは、登録済みの公式MV(管理表の official_mv か、曲データの MV URL)と
-        // 動画IDが一致するときだけメディア部品にする。一致しなければ本文のリンクのまま
+        // 冒頭のMVリンクは、登録済みの公式MV(管理表の official_mv か、曲データの MV URL)または
+        // 管理表の公式配信音源(official_audio。MVのない曲。plan/32)と動画IDが一致するときだけメディア部品にする。
+        // 一致しなければ本文のリンクのまま
         let leadMedia: { index: number; videoId: string; href: string; text: string } | null = null;
         if (parsed.lead) {
           const leadId = youtubeVideoId(parsed.lead.href);
           const registered = new Set(
             [
-              ...article.media.filter((m) => m.role === "official_mv").map((m) => m.url),
+              ...article.media.filter((m) => m.role === "official_mv" || m.role === "official_audio").map((m) => m.url),
               ...[...songPages.values()].map((p) => p.musicVideoUrl),
             ]
               .map((u) => youtubeVideoId(u))
@@ -1924,7 +1925,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           if (leadId && registered.has(leadId)) {
             leadMedia = { index: parsed.lead.index, videoId: leadId, href: parsed.lead.href, text: parsed.lead.text };
           } else {
-            console.warn(`[articles] ${article.id}: 冒頭リンクが登録済みの公式MVと一致しないため埋め込みにしません`);
+            console.warn(`[articles] ${article.id}: 冒頭リンクが登録済みの公式MV・公式配信音源と一致しないため埋め込みにしません`);
           }
         }
 

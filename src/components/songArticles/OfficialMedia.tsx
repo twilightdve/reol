@@ -8,7 +8,8 @@ import { trackEvent, trackOfficialLinkClick } from "../../utils/analytics";
  * - 本文の「MVを観る」リンクの文言とリンク先はそのまま残す(代替操作)。
  *
  * 記事別デザイン(plan/30)向けに、`format="cinemascope"` では再生前のサムネイルを
- * シネマスコープ比(2.39:1)で見せる(再生時は16:9)。`unstyled` では色・枠を付けず、
+ * シネマスコープ比(2.39:1)で見せる(再生時は16:9)。`format="square"` では正方形に切り抜いて見せる
+ * (公式配信音源など、正方形のジャケットの左右に帯が付いたサムネイル向け。再生時は16:9)。`unstyled` では色・枠を付けず、
  * `sa-media*` のクラス名でデザイン側のCSSから整える。
  */
 interface OfficialMediaProps {
@@ -18,12 +19,12 @@ interface OfficialMediaProps {
   /** 本文にあったリンクの文言 */
   text: string;
   articleId: string;
-  format?: "video" | "cinemascope";
+  format?: "video" | "cinemascope" | "square";
   unstyled?: boolean;
 }
 
-// 幅に対する高さ。16:9 と 2.39:1
-const RATIO = { video: "56.25%", cinemascope: "41.84%" } as const;
+// 幅に対する高さ。16:9、2.39:1、1:1
+const RATIO = { video: "56.25%", cinemascope: "41.84%", square: "100%" } as const;
 
 const OfficialMedia: React.FC<OfficialMediaProps> = ({
   videoId,
@@ -36,7 +37,7 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
   const [playing, setPlaying] = useState(false);
   // 高解像度のサムネイル(maxresdefault)が無い動画もあるため、失敗したら hqdefault、それも失敗したら画像なし
   const [thumb, setThumb] = useState<"maxresdefault" | "hqdefault" | null>(
-    format === "cinemascope" ? "maxresdefault" : "hqdefault"
+    format === "video" ? "hqdefault" : "maxresdefault"
   );
 
   return (

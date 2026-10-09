@@ -22,7 +22,7 @@ interface ArticleBodyProps {
   /** true のとき Tailwind の装飾を付けない(記事別デザインのCSSで組む) */
   unstyled?: boolean;
   /** 公式メディアの見せ方(記事別デザイン用) */
-  mediaFormat?: "video" | "cinemascope";
+  mediaFormat?: "video" | "cinemascope" | "square";
   className?: string;
 }
 

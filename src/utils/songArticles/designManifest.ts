@@ -54,4 +54,18 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
     // 2023-03-05 Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」長野公演(まつもと市民芸術館)
     liveItemUuids: ["019e8284-c56f-750c-8925-8de26e1151b8"],
   },
+  // MONSTER(plan/32)。一言(1)・注記(2: 収録作)・カラスの群れの後(3)・結び(4)
+  "reol-song-026": {
+    bodyRevision: 3,
+    bodySha256: "b554f21452805a202daa7383e58c7c45eaa58e39df0b039e6d65bd5d807b732e",
+    blockCount: 7,
+    anchors: [
+      { block: 1, textHash: "11a780cd00d8b781" },
+      { block: 2, textHash: "f58cf5a1438b3b27" },
+      { block: 3, textHash: "e2ec4ed7f8e40050" },
+      { block: 4, textHash: "f1c0bb94c010cf51" },
+    ],
+    // 2025-02-02 Reol Oneman Live 2025 カルチュア・カリキュラム 東京(Zepp DiverCity Tokyo)。奥付に使う
+    liveItemUuids: ["019e8284-df9c-7077-9032-3ff96d8ff44d"],
+  },
 };
