@@ -61,27 +61,8 @@
   text-decoration: underline;
 }
 .a006-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  align-items: center;
+  margin: 0;
   color: #ffd98a;
-}
-.a006-preview__variants {
-  display: flex;
-  gap: 6px;
-}
-.a006-preview__variants a {
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  padding: 2px 10px;
-  color: var(--cover-ink-2);
-  text-decoration: none;
-}
-.a006-preview__variants a[aria-current="true"] {
-  background: #ffd98a;
-  border-color: #ffd98a;
-  color: #111;
 }
 /* 表紙は、横長のMVと縦長の題名の形をそれぞれ活かし、余計な空白を作らない(ユーザー指摘 2026-10-09)。
    題名の大きさ --title-size から寸法を決める: 縦書きの題名の高さ = 8.0em、幅 = 2.75em + 公開日の列 44px
@@ -395,36 +376,53 @@
   -webkit-mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
   mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
 }
-/* glow: 見出しの周り(右上)から差す光 */
+/* 見出しの周り(右上。ウォータークラウンの位置)から差す光 */
+/* 王冠は前の章との境目(余白の中)まで引き上げる(ユーザー指摘 2026-10-09)。
+   光は王冠のしぶきの位置から差すよう中心を合わせ、境目より上(160px)まで広げる */
+.a006-chapter--home {
+  --crown-w: clamp(176px, 22vw, 236px);
+  --crown-pull: calc(clamp(56px, 9vw, 120px) + clamp(28px, 4.5vw, 60px));
+  /* 王冠の水面の中心(章の上端から)。王冠の高さ = 幅 × 200/240、水面は高さの 83% */
+  --crown-y: calc(clamp(56px, 9vw, 120px) - var(--crown-pull) + var(--crown-w) * 0.69);
+  --crown-x: 50%;
+}
+@media (min-width: 1024px) {
+  .a006-chapter--home {
+    --crown-x: calc(50% + min(520px, 50% - 20px) - var(--crown-w) / 2);
+  }
+}
 .a006-chapter--home::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -160px 0 0 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(ellipse 70% 60% at 88% 12%, rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 70%);
-}
-/* wash: 章全体が琥珀色の空(章の始まりと終わりはなだらかに移る) */
-.a006[data-variant="wash"] .a006-chapter--home::before {
-  background: linear-gradient(
-    rgb(var(--amber) / 0) 0,
-    rgb(var(--amber) / 0.3) 160px,
-    rgb(var(--amber) / 0.3) calc(100% - 160px),
-    rgb(var(--amber) / 0) 100%
-  );
+  background: radial-gradient(ellipse 70% 60% at var(--crown-x) calc(160px + var(--crown-y)), rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 70%);
 }
 
-/* ---------- 結び: 群青の空と琥珀の空が重なる ---------- */
+/* ---------- 見出し2の章: 見出しから群青と琥珀が広がり、結びまで重なっていく ---------- */
+/* 光と波紋の中心 = 縦書きの見出しの位置。PCは紙面の右端の見出しの列、スマートフォンは本文の列の右端 */
+.a006-chapter--two {
+  --wave-x: calc(50% + min(320px, 50% - 20px) - 18px);
+  --wave-y: calc(clamp(56px, 9vw, 120px) + 60px);
+}
+@media (min-width: 1024px) {
+  .a006-chapter--two {
+    --wave-x: calc(50% + min(520px, 50% - 20px) - 36px);
+  }
+}
+/* 光の層は章の上端より 160px 上まで延ばし、上端をなだらかに消す処理が見出しのまわりの色を薄めないようにする。
+   見出しのまわりの色は広く(ユーザー指摘 2026-10-09「見出しの色の範囲を広げて」) */
 .a006-chapter--two::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -160px 0 0 0;
   z-index: -1;
   pointer-events: none;
-  /* 二つの光の中心を寄せ、結びの段落の背後で混ざるようにする */
+  /* 群青は見出しを中心に広く、琥珀は見出しから結びの段落のほうへずらして置き、同じ場所で混ぜて濁らせない */
   background:
-    radial-gradient(ellipse 58% 52% at 34% 76%, rgb(120 160 230 / 0.45), rgb(120 160 230 / 0) 72%),
-    radial-gradient(ellipse 58% 52% at 60% 80%, rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 72%);
+    radial-gradient(ellipse 78% 70% at var(--wave-x) calc(160px + var(--wave-y)), rgb(120 160 230 / 0.46), rgb(120 160 230 / 0) 72%),
+    radial-gradient(ellipse 60% 52% at calc(var(--wave-x) - 30%) 80%, rgb(var(--amber) / 0.36), rgb(var(--amber) / 0) 72%);
 }
 
 /* ---------- ウォータークラウン(見出し1の章の入口) ---------- */
@@ -433,7 +431,8 @@
   position: relative;
   z-index: 1;
   width: var(--wide);
-  margin: 0 auto clamp(8px, 2vw, 24px);
+  /* 章の上の余白 + 前の章の下の余白の半分だけ引き上げ、二つの章の間の余白に立たせる */
+  margin: calc(-1 * var(--crown-pull)) auto clamp(8px, 2vw, 24px);
   display: flex;
   justify-content: flex-end;
 }
@@ -443,7 +442,7 @@
   }
 }
 .a006-crown {
-  width: clamp(176px, 22vw, 236px);
+  width: var(--crown-w);
   height: auto;
   overflow: visible;
 }
@@ -519,19 +518,38 @@
   .a006-crown-wrap.is-armed * { opacity: 1 !important; transform: none !important; animation: none !important; }
 }
 
-/* ---------- 結び: 群青と琥珀、二つの波紋が重なる ---------- */
-/* 水面の波紋は横長の楕円(横の間隔 46px・縦はその約1/5)。中心から離れるほど薄れる */
+/* 波紋: 見出しを中心に、群青と琥珀の輪が交互に広がる(一つの波紋の中で二つの色が重なる)。
+   水面の波紋らしく横長の楕円(輪の間隔は横 92px・縦はその約1/3)。中心から離れるほど薄れる */
 .a006-chapter--two::after {
   content: "";
   position: absolute;
-  inset: 0;
+  /* 光の層と同じく章の上端より上まで延ばし、波紋が章の境目で切れないようにする */
+  inset: -160px 0 0 0;
   z-index: -1;
   pointer-events: none;
   background:
-    repeating-radial-gradient(ellipse 640px 128px at 34% 80%, transparent 0 45px, rgb(36 48 132 / 0.2) 46px 47px, transparent 48px 92px),
-    repeating-radial-gradient(ellipse 640px 128px at 62% 84%, transparent 0 45px, rgb(214 150 60 / 0.34) 46px 47px, transparent 48px 92px);
-  -webkit-mask-image: radial-gradient(ellipse 34% 26% at 34% 80%, #000 20%, transparent 100%), radial-gradient(ellipse 34% 26% at 62% 84%, #000 20%, transparent 100%);
-  mask-image: radial-gradient(ellipse 34% 26% at 34% 80%, #000 20%, transparent 100%), radial-gradient(ellipse 34% 26% at 62% 84%, #000 20%, transparent 100%);
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 45px, rgb(36 48 132 / 0.16) 46px 47px, transparent 48px 92px),
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 90px, rgb(214 150 60 / 0.3) 91px 92px);
+  /* 結びの段落まで届くよう広く、見出しから離れるほど薄れる */
+  -webkit-mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
+  mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
+  transform-origin: var(--wave-x) calc(160px + var(--wave-y));
+}
+/* 動き: 章が画面に入ったら一度だけ、波紋が見出しから外へ広がる */
+@media (prefers-reduced-motion: no-preference) {
+  .a006-chapter--two.is-armed::after {
+    opacity: 0;
+  }
+  .a006-chapter--two.is-visible::after {
+    animation: a006-wave 1.8s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  }
+}
+@keyframes a006-wave {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media print {
+  .a006-chapter--two.is-armed::after { opacity: 1; animation: none; transform: none; }
 }
 
 /* ---------- 奥付(縦書き) ---------- */

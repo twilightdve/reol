@@ -6,12 +6,12 @@
  * - 縦書きは右から左へ読むので、軸を左右反転する。見出し(縦書き)と注記を右、本文をその左に置く。
  *   PCでは見出しを、その章を読んでいる間右端に留める(本の柱のように)。
  * - 見出し1の章(故郷の公演)の入口にウォータークラウン(MVで印象的な要素。オリジナルの線画)。琥珀色の一滴が群青の水面に落ち、
- *   そこから空に琥珀の光が差す。結びの段落で、群青と琥珀の二つの波紋と光が重なる。
+ *   そこから空に琥珀の光が差す。見出し2の章では、見出しから群青と琥珀の光と波紋が広がり、結びまで重なっていく。
  * - 締めは縦書きの奥付。サイトの確認済みデータ(作詞・作曲・初出の収録作)だけ。
  * - 注記は、段落に関係するサイトの確認済みデータ: 収録作、公演の日付と会場、その日のセットリストの終盤。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
- * 琥珀の光の差し方は比較中(プレビュー時だけ ?v=glow|wash): glow=見出しの周りだけ、wash=章全体。
+ * 琥珀の光は見出しの周りから差す(2026-10-09 ユーザー決定。章全体を染める案は採らなかった)。
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
@@ -26,15 +26,6 @@ import type { ArticleBlock } from "../../../../utils/songArticles/markdown";
 import { inlineText } from "../../../../utils/songArticles/markdown";
 import type { SongArticleDesign, SongArticlePageContext } from "../types";
 import "./notitle.css";
-
-type Variant = "glow" | "wash";
-const DEFAULT_VARIANT: Variant = "glow";
-const VARIANTS: { key: Variant; label: string }[] = [
-  { key: "glow", label: "琥珀: 見出しの周り" },
-  { key: "wash", label: "琥珀: 章全体" },
-];
-const isVariant = (v: string | null): v is Variant =>
-  v === "glow" || v === "wash";
 
 // 段落の位置(designManifest.ts の anchors と対応)
 const LEDE = 1; // 一言
@@ -91,9 +82,13 @@ const WaterCrown: React.FC = () => (
   </svg>
 );
 
-/** 章が画面に入った時だけ、しずくが落ちて王冠が立ち上がる(JSなし・動きを減らす設定では完成状態のまま) */
-const useSplashOnce = () => {
-  const ref = useRef<HTMLDivElement>(null);
+/**
+ * 章が画面に入った時だけ動きを付ける(王冠が立ち上がる・波紋が見出しから広がる)。
+ * JSなし・動きを減らす設定では完成状態のまま
+ */
+/** threshold: 要素のどれだけが画面に入ったら動かすか(画面より長い要素には小さい値を使う) */
+const useRevealOnce = <T extends HTMLElement>(threshold: number) => {
+  const ref = useRef<T>(null);
   const [state, setState] = useState<"static" | "armed" | "visible">("static");
   useEffect(() => {
     const el = ref.current;
@@ -109,11 +104,11 @@ const useSplashOnce = () => {
           io.disconnect();
         }
       },
-      { threshold: 0.7 }
+      { threshold }
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [threshold]);
   return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
 };
 
@@ -190,14 +185,8 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     updatedAt,
     preview,
   } = ctx;
-  const [variant, setVariant] = useState<Variant>(DEFAULT_VARIANT);
-  const splash = useSplashOnce();
-
-  useEffect(() => {
-    if (!preview) return;
-    const v = new URLSearchParams(window.location.search).get("v");
-    if (isVariant(v)) setVariant(v);
-  }, [preview]);
+  const splash = useRevealOnce<HTMLDivElement>(0.7);
+  const wave = useRevealOnce<HTMLElement>(0.12);
 
   // H1 の文言はそのまま。縦書きで「松本凱旋から」「読み直すNo title」の2行に組む(文字は変えない・加工しない)
   const BREAK = "から";
@@ -265,7 +254,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     ));
 
   return (
-    <main className="a006" data-variant={variant} lang="ja">
+    <main className="a006" lang="ja">
       <article>
         {/* 縦書きの表紙: 群青から赤紫へ移る空 */}
         <header className="a006-cover">
@@ -278,25 +267,9 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
               <span>No title</span>
             </nav>
             {preview && (
-              <div className="a006-preview" role="status">
-                <span>プレビュー(未公開)</span>
-                <span className="a006-preview__variants">
-                  {VARIANTS.map((v) => (
-                    <a
-                      key={v.key}
-                      href={`?v=${v.key}`}
-                      aria-current={variant === v.key ? "true" : undefined}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setVariant(v.key);
-                        window.history.replaceState(null, "", `?v=${v.key}`);
-                      }}
-                    >
-                      {v.label}
-                    </a>
-                  ))}
-                </span>
-              </div>
+              <p className="a006-preview" role="status">
+                プレビュー(未公開)
+              </p>
             )}
           </div>
           <div className="a006-cover__body">
@@ -381,7 +354,11 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
           </section>
 
           {/* 見出し2: 凱旋に重なる「僕」と「君」。結びで二つの空が重なる */}
-          <section className="a006-chapter a006-chapter--two">
+          {/* 見出し2の章: 見出しから群青と琥珀の波紋が広がり、結びまで重なっていく */}
+          <section
+            ref={wave.ref}
+            className={`a006-chapter a006-chapter--two${wave.className}`}
+          >
             <div className="a006-chapter__inner">
               <div className="a006-chapter__rail">
                 <VerticalHeading block={blocks[H_TWO]} />
