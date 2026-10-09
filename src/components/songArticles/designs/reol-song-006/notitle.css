@@ -376,7 +376,7 @@
   -webkit-mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
   mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
 }
-/* 見出しの周り(右上。ウォータークラウンの位置)から差す光 */
+/* 見出しの周り(右上。ウォータークラウンの位置)から広がる光 */
 /* 王冠は前の章との境目(余白の中)まで引き上げる(ユーザー指摘 2026-10-09)。
    光は王冠のしぶきの位置から差すよう中心を合わせ、境目より上(160px)まで広げる */
 .a006-chapter--home {
@@ -397,7 +397,15 @@
   inset: -160px 0 0 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(ellipse 70% 60% at var(--crown-x) calc(160px + var(--crown-y)), rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 70%);
+  /* ウォータークラウンの水のイメージに合わせ、群青のグラデーション(しぶきの中心は深い群青、外へ明るい青に抜ける)。
+     2026-10-09 ユーザー指摘「琥珀より群青色のグラデーションの方がいい」 */
+  background: radial-gradient(
+    ellipse 70% 60% at var(--crown-x) calc(160px + var(--crown-y)),
+    rgb(36 48 132 / 0.24) 0%,
+    rgb(70 120 210 / 0.16) 34%,
+    rgb(120 170 235 / 0.08) 56%,
+    rgb(120 170 235 / 0) 72%
+  );
 }
 
 /* ---------- 見出し2の章: 見出しから群青と琥珀が広がり、結びまで重なっていく ---------- */

@@ -6,7 +6,7 @@
  * - 縦書きは右から左へ読むので、軸を左右反転する。見出し(縦書き)と注記を右、本文をその左に置く。
  *   PCでは見出しを、その章を読んでいる間右端に留める(本の柱のように)。
  * - 見出し1の章(故郷の公演)の入口にウォータークラウン(MVで印象的な要素。オリジナルの線画)。琥珀色の一滴が群青の水面に落ち、
- *   そこから空に琥珀の光が差す。見出し2の章では、見出しから群青と琥珀の光と波紋が広がり、結びまで重なっていく。
+ *   そこから群青のグラデーションが広がる(水のイメージ。落ちる一滴だけ琥珀)。見出し2の章では、見出しから群青と琥珀の光と波紋が広がり、結びまで重なっていく。
  * - 締めは縦書きの奥付。サイトの確認済みデータ(作詞・作曲・初出の収録作)だけ。
  * - 注記は、段落に関係するサイトの確認済みデータ: 収録作、公演の日付と会場、その日のセットリストの終盤。
  *
@@ -56,8 +56,9 @@ const WaterCrown: React.FC = () => (
   <svg className="a006-crown" viewBox="0 0 240 200" aria-hidden="true">
     <defs>
       <linearGradient id="a006-crown-wall" x1="0" y1="1" x2="0" y2="0">
-        <stop offset="0" stopColor="#243084" stopOpacity="0.22" />
-        <stop offset="1" stopColor="#243084" stopOpacity="0.03" />
+        <stop offset="0" stopColor="#243084" stopOpacity="0.42" />
+        <stop offset="0.55" stopColor="#3f6fc4" stopOpacity="0.2" />
+        <stop offset="1" stopColor="#8fbaf0" stopOpacity="0.06" />
       </linearGradient>
     </defs>
     <g className="a006-crown__ripples">
