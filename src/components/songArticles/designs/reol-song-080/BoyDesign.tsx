@@ -10,7 +10,8 @@
  * - 締めは映画のエンドクレジットのように、サイトの確認済みデータだけを並べる。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
- * 配色は比較用に3案(A/B/C)。切り替えはプレビュー時(?v=a|b|c)だけ。
+ * 配色はA案(淡いコンクリート)に決定(2026-10-09)。床の質感は比較中: a=画像なしのノイズ、w=写真(使い込まれた床)、
+ * t=写真(こて跡)。切り替えはプレビュー時(?v=a|w|t)だけ。写真は Poly Haven の CC0 素材(plan/30 8章)。
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
@@ -21,13 +22,14 @@ import type { ArticleInline } from "../../../../utils/songArticles/markdown";
 import type { SongArticleDesign, SongArticlePageContext } from "../types";
 import "./boy.css";
 
-type Variant = "a" | "b" | "c";
+type Variant = "a" | "w" | "t";
 const DEFAULT_VARIANT: Variant = "a";
 const VARIANTS: { key: Variant; label: string }[] = [
-  { key: "a", label: "A 淡いコンクリート" },
-  { key: "b", label: "B トンネル" },
-  { key: "c", label: "C 一定の床" },
+  { key: "a", label: "A ノイズ" },
+  { key: "w", label: "写真1 使い込まれた床" },
+  { key: "t", label: "写真2 こて跡" },
 ];
+const isVariant = (v: string | null): v is Variant => v === "a" || v === "w" || v === "t";
 
 // 段落の位置(designManifest.ts の anchors と対応)
 const LEDE = 1; // 一言
@@ -137,7 +139,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
   useEffect(() => {
     if (!preview) return;
     const v = new URLSearchParams(window.location.search).get("v");
-    if (v === "a" || v === "b" || v === "c") setVariant(v);
+    if (isVariant(v)) setVariant(v);
   }, [preview]);
 
   // H1 の文言はそのまま。「Reol Boy」と見出しの本体を分けて組む(文字は変えない・装飾を重ねない)
@@ -286,36 +288,39 @@ const BoyDesign: SongArticleDesign = (ctx) => {
           </div>
         </div>
 
-        {/* 床(冬の昼) */}
-        <div className="a080-floor a080-floor--1">
-          <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a080-lede" />
-          <div className="a080-rows">{rows(LEDE + 1, LIVE)}</div>
-        </div>
+        {/* 床と帯をまとめた地面。コンクリートの質感はこの1枚に重ね、区画の境目で模様がずれないようにする */}
+        <div className="a080-ground">
+          {/* 床(冬の昼) */}
+          <div className="a080-floor a080-floor--1">
+            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a080-lede" />
+            <div className="a080-rows">{rows(LEDE + 1, LIVE)}</div>
+          </div>
 
-        {/* 転換点1: 曲の成り立ちから、ライヴの記憶へ。手拍子の拍 */}
-        <div ref={band1.ref} className={`a080-band a080-band--1${band1.className}`}>
-          <Beats />
-        </div>
+          {/* 転換点1: 曲の成り立ちから、ライヴの記憶へ。手拍子の拍 */}
+          <div ref={band1.ref} className={`a080-band a080-band--1${band1.className}`}>
+            <Beats />
+          </div>
 
-        <div className="a080-floor a080-floor--2">
-          <div className="a080-rows">{rows(LIVE, CODA)}</div>
-        </div>
+          <div className="a080-floor a080-floor--2">
+            <div className="a080-rows">{rows(LIVE, CODA)}</div>
+          </div>
 
-        {/* 転換点2: 結びの前。拍に声が重なる */}
-        <div ref={band2.ref} className={`a080-band a080-band--2${band2.className}`}>
-          <Beats withVoice />
-        </div>
+          {/* 転換点2: 結びの前。拍に声が重なる */}
+          <div ref={band2.ref} className={`a080-band a080-band--2${band2.className}`}>
+            <Beats withVoice />
+          </div>
 
-        <div className="a080-floor a080-floor--3">
-          {codaIsPlainText && coda.t === "p" ? (
-            <div className="a080-coda">
-              <p>
-                <ClauseText nodes={coda.children} />
-              </p>
-            </div>
-          ) : (
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={CODA} to={blocks.length} unstyled className="a080-coda" />
-          )}
+          <div className="a080-floor a080-floor--3">
+            {codaIsPlainText && coda.t === "p" ? (
+              <div className="a080-coda">
+                <p>
+                  <ClauseText nodes={coda.children} />
+                </p>
+              </div>
+            ) : (
+              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={CODA} to={blocks.length} unstyled className="a080-coda" />
+            )}
+          </div>
         </div>
       </article>
 

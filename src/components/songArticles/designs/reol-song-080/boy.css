@@ -41,42 +41,58 @@
   overflow-wrap: anywhere;
 }
 
-/* B 暗いトンネルの青緑。暖色は結びの前の帯以降だけ */
-.a080[data-variant="b"] {
-  --floor-1: #0e1b1a;
-  --floor-2: #12211f;
-  --floor-3: #2b1c12;
-  --ink: #e7eeeb;
-  --ink-2: #a7b7b1;
-  --link: #9ad8cc;
-  --beat: rgba(231, 238, 235, 0.5);
-  --grain-opacity: 0.22;
-  --grain-blend: overlay;
+/* 床の質感。床と帯をまとめた地面(.a080-ground)に1枚の層として重ね、区画の境目で模様がずれないようにする。
+   層は床の色の上・文字の下に置き、床の色味(冬の昼 → 夕景)を保ったまま模様だけを出す。
+   a: 画像なしの SVG ノイズ(乗算)
+   w / t: 写真(Poly Haven の CC0 素材を、平均が中間灰色のグレースケールに加工)をソフトライトで重ねる
+     w = Concrete Floor Worn 001(細かな傷・しみ) / t = Brushed Concrete(こて跡の弧とムラ) */
+.a080 {
+  --grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-size: 220px;
 }
-
-/* C 一定の床。暖色は拍・結び・クレジットの小さな面積だけ */
-.a080[data-variant="c"] {
-  --floor-1: #cfd6d2;
-  --floor-2: #cfd6d2;
-  --floor-3: #cfd6d2;
+/* 写真は、大きさの違う2枚(768px と 1086px)を重ね、繰り返しの周期をずらして規則的な柄に見えないようにする */
+.a080[data-variant="w"] {
+  --grain-image: url("./concrete-worn.jpg");
+  --grain-size: 768px;
+  --grain-image-2: url("./concrete-worn.jpg");
+  --grain-size-2: 1086px;
+  --grain-blend: soft-light;
+  --grain-opacity: 0.7;
 }
-
-/* 床の質感(コンクリートの細かいざらつき)。画像は使わず SVG のノイズで作る */
-.a080-floor,
-.a080-band {
+.a080[data-variant="t"] {
+  --grain-image: url("./concrete-trowel.jpg");
+  --grain-size: 768px;
+  --grain-image-2: url("./concrete-trowel.jpg");
+  --grain-size-2: 1086px;
+  --grain-blend: soft-light;
+  --grain-opacity: 0.7;
+}
+.a080-ground {
   position: relative;
   isolation: isolate;
 }
-.a080-floor::before,
-.a080-band::before {
+.a080-ground::before,
+.a080-ground::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   opacity: var(--grain-opacity);
   mix-blend-mode: var(--grain-blend);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: var(--grain-image);
+  background-size: var(--grain-size);
+}
+.a080-ground::after {
+  background-image: var(--grain-image-2, none);
+  background-size: var(--grain-size-2, auto);
+  background-position: 37% 61%;
+}
+/* 文字・図は質感の層の上 */
+.a080-floor > *,
+.a080-band > * {
+  position: relative;
+  z-index: 1;
 }
 
 .a080-floor--1 { background: var(--floor-1); }
