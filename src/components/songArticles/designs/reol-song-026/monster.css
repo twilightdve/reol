@@ -339,12 +339,16 @@
 .a026-section--last {
   padding-top: clamp(24px, 5vw, 56px);
 }
+/* 結びは行頭そろえ。最後の数文字を一まとまりにして最終行に送るため、両端そろえにするとその前の行の字間が大きく空く(2026-10-10) */
 .a026-last {
   max-width: 640px;
   font-size: 18px;
   line-height: 2.05;
-  text-align: justify;
   line-break: strict;
+}
+/* 結びの最後の数文字は途中で折り返さない(最終行が2文字だけにならないように) */
+.a026-nobreak {
+  white-space: nowrap;
 }
 .a026-refs {
   max-width: 640px;

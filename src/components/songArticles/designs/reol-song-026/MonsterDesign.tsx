@@ -56,6 +56,14 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
   const firstRelease = songFacts.releases[0] ?? null;
   const live = liveRefs[0] ?? null;
   const stats = songFacts.stats;
+  // 結びはテキストだけの段落なら、最後の6文字を途中で折り返さない一まとまりにして描く(最終行が2文字だけになるのを避ける。
+  // 文言は変えない。2026-10-10 ユーザー指摘)。テキスト以外を含む場合は共通の描画に任せる
+  const lastBlock = blocks[LAST];
+  const lastText =
+    lastBlock?.t === "p" && lastBlock.children.every((n) => n.t === "text")
+      ? lastBlock.children.map((n) => (n.t === "text" ? n.v : "")).join("")
+      : null;
+  const KEEP = 6;
 
   const notes: Record<number, React.ReactNode> = {};
   if (songFacts.releases.length > 0) {
@@ -164,7 +172,16 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
           {/* 結びの上端: 表紙と同じ積乱雲(空を透明にした切り抜き)が、明るい地へ下から湧き上がる */}
           <div className="a026-storm__rise" aria-hidden="true" />
           <section className="a026-section a026-section--last">
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LAST} to={LAST + 1} unstyled className="a026-last" />
+            {lastText && lastText.length > KEEP ? (
+              <div className="a026-last">
+                <p>
+                  {lastText.slice(0, -KEEP)}
+                  <span className="a026-nobreak">{lastText.slice(-KEEP)}</span>
+                </p>
+              </div>
+            ) : (
+              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LAST} to={LAST + 1} unstyled className="a026-last" />
+            )}
             <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LAST + 1} to={blocks.length} unstyled className="a026-refs" />
           </section>
 
