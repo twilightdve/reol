@@ -10,8 +10,7 @@
  * - 締めは映画のエンドクレジットのように、サイトの確認済みデータだけを並べる。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
- * 配色はA案(淡いコンクリート)に決定(2026-10-09)。床の質感は比較中: a=画像なしのノイズ、w=写真(使い込まれた床)、
- * t=写真(こて跡)。切り替えはプレビュー時(?v=a|w|t)だけ。写真は Poly Haven の CC0 素材(plan/30 8章)。
+ * 配色はA案(淡いコンクリート)、床の質感は実際のコンクリート写真(Poly Haven の CC0 素材)に決定(2026-10-09、plan/30 8章)。
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
@@ -21,15 +20,6 @@ import { trackEvent } from "../../../../utils/analytics";
 import type { ArticleInline } from "../../../../utils/songArticles/markdown";
 import type { SongArticleDesign, SongArticlePageContext } from "../types";
 import "./boy.css";
-
-type Variant = "a" | "w" | "t";
-const DEFAULT_VARIANT: Variant = "a";
-const VARIANTS: { key: Variant; label: string }[] = [
-  { key: "a", label: "A ノイズ" },
-  { key: "w", label: "写真1 使い込まれた床" },
-  { key: "t", label: "写真2 こて跡" },
-];
-const isVariant = (v: string | null): v is Variant => v === "a" || v === "w" || v === "t";
 
 // 段落の位置(designManifest.ts の anchors と対応)
 const LEDE = 1; // 一言
@@ -131,16 +121,8 @@ const ClauseText: React.FC<{ nodes: ArticleInline[] }> = ({ nodes }) => {
 
 const BoyDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, updatedAt, preview } = ctx;
-  const [variant, setVariant] = useState<Variant>(DEFAULT_VARIANT);
   const band1 = useRevealOnce();
   const band2 = useRevealOnce();
-
-  // 配色案の切り替えはプレビューだけ(公開ビルドでは常に既定の案)
-  useEffect(() => {
-    if (!preview) return;
-    const v = new URLSearchParams(window.location.search).get("v");
-    if (isVariant(v)) setVariant(v);
-  }, [preview]);
 
   // H1 の文言はそのまま。「Reol Boy」と見出しの本体を分けて組む(文字は変えない・装飾を重ねない)
   const NAME = "Reol Boy ";
@@ -219,7 +201,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
   const codaIsPlainText = coda?.t === "p" && coda.children.every((n) => n.t === "text");
 
   return (
-    <main className="a080" data-variant={variant} lang="ja">
+    <main className="a080" lang="ja">
       {/* 上の黒帯 */}
       <div className="a080-bar a080-bar--top">
         <nav aria-label="パンくず" className="a080-crumbs">
@@ -230,25 +212,9 @@ const BoyDesign: SongArticleDesign = (ctx) => {
           <span>Boy</span>
         </nav>
         {preview && (
-          <div className="a080-preview" role="status">
-            <span>プレビュー(未公開)</span>
-            <span className="a080-preview__variants">
-              {VARIANTS.map((v) => (
-                <a
-                  key={v.key}
-                  href={`?v=${v.key}`}
-                  aria-current={variant === v.key ? "true" : undefined}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setVariant(v.key);
-                    window.history.replaceState(null, "", `?v=${v.key}`);
-                  }}
-                >
-                  {v.label}
-                </a>
-              ))}
-            </span>
-          </div>
+          <p className="a080-preview" role="status">
+            プレビュー(未公開)
+          </p>
         )}
       </div>
 

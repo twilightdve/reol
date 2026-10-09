@@ -19,8 +19,6 @@
   --screen-ink: #eef2f0;
   --accent: #e67e47;
   --accent-on-bar: #ef8a52;
-  --grain-opacity: 0.38;
-  --grain-blend: multiply;
 
   /* A 淡いコンクリート(既定) */
   --floor-1: #d4dcd7;
@@ -41,30 +39,16 @@
   overflow-wrap: anywhere;
 }
 
-/* 床の質感。床と帯をまとめた地面(.a080-ground)に1枚の層として重ね、区画の境目で模様がずれないようにする。
-   層は床の色の上・文字の下に置き、床の色味(冬の昼 → 夕景)を保ったまま模様だけを出す。
-   a: 画像なしの SVG ノイズ(乗算)
-   w / t: 写真(Poly Haven の CC0 素材を、平均が中間灰色のグレースケールに加工)をソフトライトで重ねる
-     w = Concrete Floor Worn 001(細かな傷・しみ) / t = Brushed Concrete(こて跡の弧とムラ) */
+/* 床の質感: 実際のコンクリート写真(Poly Haven の CC0 素材「Concrete Floor Worn 001」。撮影 Dimitrios Savva、
+   処理 Rico Cilliers)を、平均が中間灰色のグレースケールに加工し(極端な点は±2.2σで抑える)、床の色の上に
+   ソフトライトで重ねる。床の色味(冬の昼 → 夕景)は保ったまま、細かな傷やしみの模様だけが出る。
+   床と帯をまとめた地面(.a080-ground)に1枚の層として重ね、区画の境目で模様がずれないようにする。
+   大きさの違う2枚(768px・1086px)を重ね、繰り返しの周期をずらして規則的な柄に見えないようにする。
+   最も暗い点が2枚とも重なっても、本文 10.6:1・補足 5.4:1・リンク 6.0:1 以上(plan/30 8章) */
 .a080 {
-  --grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --grain-size: 220px;
-}
-/* 写真は、大きさの違う2枚(768px と 1086px)を重ね、繰り返しの周期をずらして規則的な柄に見えないようにする */
-.a080[data-variant="w"] {
   --grain-image: url("./concrete-worn.jpg");
   --grain-size: 768px;
-  --grain-image-2: url("./concrete-worn.jpg");
   --grain-size-2: 1086px;
-  --grain-blend: soft-light;
-  --grain-opacity: 0.7;
-}
-.a080[data-variant="t"] {
-  --grain-image: url("./concrete-trowel.jpg");
-  --grain-size: 768px;
-  --grain-image-2: url("./concrete-trowel.jpg");
-  --grain-size-2: 1086px;
-  --grain-blend: soft-light;
   --grain-opacity: 0.7;
 }
 .a080-ground {
@@ -79,13 +63,12 @@
   z-index: 0;
   pointer-events: none;
   opacity: var(--grain-opacity);
-  mix-blend-mode: var(--grain-blend);
+  mix-blend-mode: soft-light;
   background-image: var(--grain-image);
   background-size: var(--grain-size);
 }
 .a080-ground::after {
-  background-image: var(--grain-image-2, none);
-  background-size: var(--grain-size-2, auto);
+  background-size: var(--grain-size-2);
   background-position: 37% 61%;
 }
 /* 文字・図は質感の層の上 */
@@ -134,29 +117,9 @@
   color: #fff;
 }
 .a080-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 12px;
-  align-items: center;
+  margin: 0;
   color: #f2c26b;
   letter-spacing: 0.04em;
-}
-.a080-preview__variants {
-  display: flex;
-  gap: 6px;
-}
-.a080-preview__variants a {
-  border: 1px solid #3a4441;
-  border-radius: 999px;
-  padding: 2px 10px;
-  color: var(--bar-ink);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
-.a080-preview__variants a[aria-current="true"] {
-  background: #f2c26b;
-  border-color: #f2c26b;
-  color: #111;
 }
 
 /* ---------- 冒頭: 映画の始まりの1画面(黒地に題名とMV) ---------- */
