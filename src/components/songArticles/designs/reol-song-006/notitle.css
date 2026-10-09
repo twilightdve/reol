@@ -385,10 +385,15 @@
   /* 王冠の水面の中心(章の上端から)。王冠の高さ = 幅 × 200/240、水面は高さの 83% */
   --crown-y: calc(clamp(56px, 9vw, 120px) - var(--crown-pull) + var(--crown-w) * 0.69);
   --crown-x: 50%;
+  /* 見出し(縦書き)の中心。スマートフォンは本文の列の右端、PCは紙面の右端の見出しの列。
+     縦位置は王冠の下端(水面 + 幅の0.14倍)から見出しの中ほどまで(約170px) */
+  --head-x: calc(50% + min(320px, 50% - 20px) - 18px);
+  --head-y: calc(var(--crown-y) + var(--crown-w) * 0.14 + 170px);
 }
 @media (min-width: 1024px) {
   .a006-chapter--home {
     --crown-x: calc(50% + min(520px, 50% - 20px) - var(--crown-w) / 2);
+    --head-x: calc(50% + min(520px, 50% - 20px) - 36px);
   }
 }
 .a006-chapter--home::before {
@@ -397,15 +402,24 @@
   inset: -160px 0 0 0;
   z-index: -1;
   pointer-events: none;
-  /* ウォータークラウンの水のイメージに合わせ、群青のグラデーション(しぶきの中心は深い群青、外へ明るい青に抜ける)。
-     2026-10-09 ユーザー指摘「琥珀より群青色のグラデーションの方がいい」 */
-  background: radial-gradient(
-    ellipse 70% 60% at var(--crown-x) calc(160px + var(--crown-y)),
-    rgb(36 48 132 / 0.24) 0%,
-    rgb(70 120 210 / 0.16) 34%,
-    rgb(120 170 235 / 0.08) 56%,
-    rgb(120 170 235 / 0) 72%
-  );
+  /* 光の出どころは二つ(2026-10-09 ユーザー指定):
+     - ウォータークラウンから広がる群青のグラデーション(水のしぶき。中心は深い群青、外へ明るい青)
+     - 見出し「故郷で迎えた最終公演」から広がる琥珀のグラデーション(2023年の公演の温度。見出しから本文のほうへ)
+     中心をずらし(群青は章の境目、琥珀はその下の見出し)、同じ場所で混ぜて濁らせない。群青を上の層に置く */
+  background:
+    radial-gradient(
+      ellipse 52% 46% at var(--crown-x) calc(160px + var(--crown-y)),
+      rgb(36 48 132 / 0.24) 0%,
+      rgb(70 120 210 / 0.15) 36%,
+      rgb(120 170 235 / 0.06) 60%,
+      rgb(120 170 235 / 0) 74%
+    ),
+    radial-gradient(
+      ellipse 72% 58% at var(--head-x) calc(160px + var(--head-y)),
+      rgb(var(--amber) / 0.38) 0%,
+      rgb(var(--amber) / 0.16) 45%,
+      rgb(var(--amber) / 0) 74%
+    );
 }
 
 /* ---------- 見出し2の章: 見出しから群青と琥珀が広がり、結びまで重なっていく ---------- */
