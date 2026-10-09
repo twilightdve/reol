@@ -17,6 +17,8 @@ export type DesignManifestEntry = {
   bodySha256: string;
   blockCount: number;
   anchors: DesignAnchor[];
+  /** デザインが注記等に使う公演(live_item の uuid)。ビルド時に公演名・日付・会場・セットリストを記事ページへ渡す */
+  liveItemUuids?: string[];
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
@@ -32,5 +34,23 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 5, textHash: "f345e08f6a924b09" },
       { block: 8, textHash: "f69320f083d6f8e3" },
     ],
+  },
+  // No title(plan/31)。冒頭(0)・一言(1)・注記(2: 収録作、4: 公演、5: セットリスト)・見出し(3, 7)・結び(9)
+  "reol-song-006": {
+    bodyRevision: 2,
+    bodySha256: "526b9f6da858878fc9d42a788a9569f567011ffc0ea8aad0d9f2412af3b66d36",
+    blockCount: 10,
+    anchors: [
+      { block: 0, textHash: "f3671d775fb3ce27" },
+      { block: 1, textHash: "2b98a1ec0fd7e8ca" },
+      { block: 2, textHash: "7a3cd3d37373c26a" },
+      { block: 3, textHash: "e4044bb1b72f1364" },
+      { block: 4, textHash: "c05f89b982dc2402" },
+      { block: 5, textHash: "ac770c9be4897e5c" },
+      { block: 7, textHash: "5805dee27b8a0bfc" },
+      { block: 9, textHash: "72a86ab638fb84e3" },
+    ],
+    // 2023-03-05 Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」長野公演(まつもと市民芸術館)
+    liveItemUuids: ["019e8284-c56f-750c-8925-8de26e1151b8"],
   },
 };

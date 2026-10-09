@@ -20,3 +20,18 @@ export const splitAfterComma = (text: string): string[] =>
     .split("、")
     .map((part, i, all) => (i < all.length - 1 ? `${part}、` : part))
     .filter((part) => part !== "");
+
+/** シートの盤の形態の略記を、読者向けの言葉にする(知らない略記はそのまま) */
+const FORMAT_LABEL: Record<string, string> = {
+  配信SG: "配信シングル",
+  SG: "シングル",
+  miniAL: "ミニアルバム",
+  AL: "アルバム",
+  fullAL: "フルアルバム",
+  LP: "アナログ盤",
+};
+export const formatLabel = (format: string | null): string | null =>
+  format ? FORMAT_LABEL[format] ?? format : null;
+
+/** 日付(YYYY-MM-DD)を「YYYY.MM.DD」にする */
+export const dotDate = (d: string | null): string | null => (d ? d.replace(/-/g, ".") : null);

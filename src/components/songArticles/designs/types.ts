@@ -23,6 +23,17 @@ export interface SongArticlePageContext {
     /** サイトの演奏統計(対応する曲ページが1つの時だけ) */
     stats: { totalPlays: number; firstPlayedDate: string | null; lastPlayedDate: string | null } | null;
   };
+  /** 記事別デザインが登録表で指定した公演(plan/31)。見つからない公演は含まない */
+  liveRefs: {
+    liveItemUuid: string;
+    liveTitle: string;
+    liveItemName: string | null;
+    date: string;
+    place: string | null;
+    /** 公演ページ(/live/<slug>/) */
+    path: string;
+    setList: { name: string; type: string | null }[];
+  }[];
   /** 記事別デザイン(plan/30)。本文の版と一致した時だけ記事IDが入る */
   designId: string | null;
   preview: boolean;

@@ -1,0 +1,450 @@
+/*
+ * 楽曲記事「No title」(reol-song-006)の記事別デザイン(見本 v1)。根拠は plan/31。
+ * すべて .a006 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --sky 見上げる空(本文の地) / --ink 本文(黒ではなく深い群青) / --ink-2 補足 / --link リンク
+ *   --plum 曲の強調色(『No title-』のテーマ色 #772965。罫線・ラベル・曲順の数字)
+ *   --amber 2023年の公演の温度(ツアーのテーマ色の金・MVの琥珀色の雲。地の光としてだけ使う)
+ *   表紙は群青(#0b1761・テーマ色 #243084)から赤紫(#772965)へ移る空。
+ * 軸(PC): 縦書きは右から左へ読むので、見出し(縦書き)を右端、注記をその左、本文をさらに左に置く。
+ */
+
+.a006 {
+  --sky: #eef3fa;
+  --ink: #0d1747;
+  --ink-2: #3b4677;
+  --link: #243084;
+  --plum: #772965;
+  --amber: 236 178 84;
+  --cover-ink: #f4f6ff;
+  --cover-ink-2: #c9cff0;
+  --wide: min(1040px, calc(100% - 40px));
+
+  color: var(--ink);
+  background: var(--sky);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 縦書きの表紙 ---------- */
+.a006-cover {
+  color: var(--cover-ink);
+  background: linear-gradient(172deg, #0b1761 0%, #243084 46%, #4a2b78 74%, #772965 100%);
+  background: linear-gradient(in oklab 172deg, #0b1761 0%, #243084 46%, #4a2b78 74%, #772965 100%);
+  padding-bottom: clamp(32px, 6vw, 72px);
+}
+.a006-cover__top {
+  width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a006-crumbs {
+  display: flex;
+  gap: 8px;
+}
+.a006-crumbs a {
+  color: var(--cover-ink-2);
+  text-decoration: none;
+}
+.a006-crumbs a:hover,
+.a006-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a006-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  color: #ffd98a;
+}
+.a006-preview__variants {
+  display: flex;
+  gap: 6px;
+}
+.a006-preview__variants a {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 2px 10px;
+  color: var(--cover-ink-2);
+  text-decoration: none;
+}
+.a006-preview__variants a[aria-current="true"] {
+  background: #ffd98a;
+  border-color: #ffd98a;
+  color: #111;
+}
+.a006-cover__body {
+  width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+  padding-top: clamp(24px, 5vw, 64px);
+}
+/* 題名は縦書き。右から左へ「松本凱旋から」「読み直すNo title」の2行。「No title」は横向き(既定)のまま */
+/* 題名の列の左に、公開日を小さな縦書きの列で添える */
+.a006-cover__title {
+  writing-mode: vertical-rl;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.a006-title {
+  margin: 0;
+  font-size: clamp(36px, 6.4vw, 66px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  font-feature-settings: "vpal";
+}
+.a006-title__line {
+  display: block;
+}
+.a006-title__line + .a006-title__line {
+  margin-block-start: 0.15em;
+}
+.a006-date {
+  margin: 0;
+  padding-block-start: 0.4em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--cover-ink-2);
+}
+/* MVは黒帯で切らず16:9のまま、空の中に置く */
+.a006-cover__media .sa-media {
+  margin: 0;
+}
+.a006-cover__media .sa-media__frame {
+  border-radius: 2px;
+  box-shadow: 0 24px 60px rgba(5, 10, 40, 0.45);
+}
+.a006-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+/* 再生ボタンは、サムネイル中央の題名を隠さないよう左下に置く */
+.a006-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: clamp(12px, 2.4vw, 22px);
+}
+.a006-cover__media .sa-media__button {
+  background: rgba(244, 246, 255, 0.94);
+  color: var(--ink);
+}
+.a006-cover__media .sa-media__caption {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.a006-cover__media .sa-media__caption a {
+  color: var(--cover-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (min-width: 900px) {
+  .a006-cover__body {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 56px;
+  }
+  .a006-cover__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .a006-cover__title {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* ---------- 見上げる空(本文の地) ---------- */
+.a006-chapter {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 9vw, 120px) 0;
+}
+.a006-chapter--intro {
+  padding-top: clamp(48px, 8vw, 104px);
+}
+.a006-chapter__inner {
+  width: var(--wide);
+  margin: 0 auto;
+}
+.a006-chapter__body {
+  max-width: 640px;
+}
+
+/* 一言 */
+.a006-lede {
+  margin: 0 0 clamp(40px, 6vw, 72px);
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+.a006-lede p {
+  margin: 0;
+}
+
+/* 本文 */
+.a006-para + .a006-para {
+  margin-top: 1.7em;
+}
+.a006-para__text {
+  font-size: 17px;
+  line-height: 2;
+}
+.a006-para__text p {
+  margin: 0;
+  text-wrap: pretty;
+  line-break: strict;
+}
+.a006-lede a,
+.a006-para__text a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+.a006-lede a:hover,
+.a006-para__text a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* 縦書きの見出し */
+.a006-chapter__title {
+  writing-mode: vertical-rl;
+  margin: 0;
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.14em;
+  font-feature-settings: "vpal";
+  color: var(--ink);
+}
+/* 見出しの右に、曲の強調色の短い罫(縦書きでは右端の細い列になる) */
+.a006-chapter__title::before {
+  content: "";
+  display: block;
+  inline-size: 1.4em;
+  block-size: 3px;
+  margin-block-end: 12px;
+  background: var(--plum);
+}
+
+/* 注記 */
+.a006-note {
+  display: flow-root;
+  margin: 0 0 14px;
+  padding: 10px 0 0;
+  border-top: 2px solid var(--plum);
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.a006-note p {
+  margin: 0;
+}
+.a006-note__label {
+  margin-bottom: 6px !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--plum);
+}
+.a006-note__strong {
+  color: var(--ink);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+.a006-note__src {
+  margin-top: 6px !important;
+  font-size: 11px;
+}
+.a006-note a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+/* サイト共通のリセットで番号が消えるため、曲順の番号を明示する */
+.a006-setlist {
+  margin: 0;
+  padding-left: 2.4em;
+  list-style: decimal;
+}
+.a006-setlist li::marker {
+  color: var(--plum);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+
+/* スマートフォン: 縦書きの見出しを右に寄せ、本文はその左に回り込む */
+@media (max-width: 1023px) {
+  .a006-chapter__inner {
+    max-width: 640px;
+  }
+  .a006-chapter__rail {
+    float: right;
+    margin: 4px 0 16px 16px;
+  }
+}
+
+/* PC: 右から 見出し(縦書き・章を読む間は右端に留める) | 注記 | 本文 */
+@media (min-width: 1024px) {
+  .a006-chapter__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    column-gap: 48px;
+  }
+  .a006-chapter__body {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+  }
+  .a006-chapter__rail {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .a006-chapter__title {
+    position: sticky;
+    top: 96px;
+  }
+  .a006-lede {
+    max-width: 880px;
+  }
+  .a006-para {
+    display: grid;
+    grid-template-columns: 640px 200px;
+    column-gap: 40px;
+  }
+  .a006-para__text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  /* 注記は段落の高さに影響させない(段落の間隔を全段で同じに保つ) */
+  .a006-note {
+    grid-column: 2;
+    grid-row: 1;
+    height: 0;
+    overflow: visible;
+    margin: 0.4em 0 0;
+  }
+}
+
+/* ---------- 見出し1の章: 2014年の空に、2023年の公演の琥珀の光が差す ---------- */
+/* 光の層は章の上下でなだらかに消し、章の境目に水平の線が出ないようにする */
+.a006-chapter--home::before,
+.a006-chapter--two::before {
+  -webkit-mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+}
+/* glow: 見出しの周り(右上)から差す光 */
+.a006-chapter--home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 60% at 88% 12%, rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 70%);
+}
+/* wash: 章全体が琥珀色の空(章の始まりと終わりはなだらかに移る) */
+.a006[data-variant="wash"] .a006-chapter--home::before {
+  background: linear-gradient(
+    rgb(var(--amber) / 0) 0,
+    rgb(var(--amber) / 0.3) 160px,
+    rgb(var(--amber) / 0.3) calc(100% - 160px),
+    rgb(var(--amber) / 0) 100%
+  );
+}
+
+/* ---------- 結び: 群青の空と琥珀の空が重なる ---------- */
+.a006-chapter--two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* 二つの光の中心を寄せ、結びの段落の背後で混ざるようにする */
+  background:
+    radial-gradient(ellipse 58% 52% at 34% 76%, rgb(120 160 230 / 0.45), rgb(120 160 230 / 0) 72%),
+    radial-gradient(ellipse 58% 52% at 60% 80%, rgb(var(--amber) / 0.42), rgb(var(--amber) / 0) 72%);
+}
+
+/* ---------- 奥付(縦書き) ---------- */
+.a006-colophon {
+  padding: clamp(56px, 9vw, 112px) 20px clamp(56px, 8vw, 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid rgba(13, 23, 71, 0.18);
+}
+.a006-colophon__box {
+  writing-mode: vertical-rl;
+  margin: 0;
+  max-inline-size: 22em;
+  block-size: auto;
+  max-block-size: 100%;
+  padding: 1.4em 1.2em;
+  border-inline: 1px solid var(--ink);
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+.a006-colophon__box > div {
+  display: flex;
+  gap: 0.8em;
+}
+.a006-colophon__box > div + div {
+  margin-block-start: 0.9em;
+}
+.a006-colophon__box dt {
+  color: var(--plum);
+  font-weight: 800;
+  font-size: 12px;
+}
+.a006-colophon__box dd {
+  margin: 0;
+}
+.a006-next {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  font-size: 14px;
+}
+.a006-next a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* ---------- フォーカス ---------- */
+.a006 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a006-cover a:focus-visible {
+  outline-color: #ffd98a;
+}
+
+@media (max-width: 640px) {
+  .a006-para__text {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+}

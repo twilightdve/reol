@@ -30,6 +30,7 @@ import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-
 import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
+import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1810,6 +1811,72 @@ export const createPages: GatsbyNode["createPages"] = async ({
       );
       const statsByUuid = new Map(songStats.map((s) => [s.songUuid, s]));
       const articleTemplate = path.resolve("./src/templates/song-article.tsx");
+
+      // 記事別デザインが登録表で指定した公演(plan/31)。公演名・日付・会場・セットリストを渡す
+      type LiveRef = {
+        liveItemUuid: string;
+        liveTitle: string;
+        liveItemName: string | null;
+        date: string;
+        place: string | null;
+        path: string;
+        setList: { name: string; type: string | null }[];
+      };
+      const liveRefByUuid = new Map<string, LiveRef>();
+      const wantedLiveItems = new Set(
+        songArticles.flatMap(({ article }) => DESIGN_MANIFEST[article.id]?.liveItemUuids ?? [])
+      );
+      if (wantedLiveItems.size > 0) {
+        const liveRefResult = await graphql<{
+          live: {
+            liveInfos: {
+              title: string;
+              items: {
+                liveItemUuid: string;
+                slug: string;
+                liveItemName: string | null;
+                date: string;
+                place: string | null;
+                setList: { liveItemSongName: string; type: string | null }[];
+              }[];
+            }[];
+          } | null;
+        }>(`
+          query SongArticleLiveRefs {
+            live {
+              liveInfos {
+                title
+                items {
+                  liveItemUuid
+                  slug
+                  liveItemName
+                  date
+                  place
+                  setList {
+                    liveItemSongName
+                    type
+                  }
+                }
+              }
+            }
+          }
+        `);
+        for (const live of liveRefResult.data?.live?.liveInfos ?? []) {
+          for (const item of live.items) {
+            if (!wantedLiveItems.has(item.liveItemUuid)) continue;
+            liveRefByUuid.set(item.liveItemUuid, {
+              liveItemUuid: item.liveItemUuid,
+              liveTitle: live.title,
+              liveItemName: item.liveItemName,
+              date: item.date,
+              place: item.place,
+              path: `/live/${item.slug}/`,
+              setList: item.setList.map((s) => ({ name: s.liveItemSongName, type: s.type })),
+            });
+          }
+        }
+      }
+
       const indexEntries: {
         slug: string;
         title: string;
@@ -1922,6 +1989,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
             leadMedia,
             songPages: [...songPages.values()].map(({ slug: s, songName }) => ({ slug: s, songName })),
             songFacts,
+            liveRefs: (DESIGN_MANIFEST[article.id]?.liveItemUuids ?? []).flatMap((uuid) => {
+              const ref = liveRefByUuid.get(uuid);
+              if (!ref) console.warn(`[articles] ${article.id}: 公演 ${uuid} が見つからないため注記を出しません`);
+              return ref ? [ref] : [];
+            }),
             designId: designIssues.length === 0 ? article.id : null,
             preview,
             noindex: preview,

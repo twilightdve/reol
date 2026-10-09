@@ -15,7 +15,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleBody from "../../ArticleBody";
-import { formatArticleDate, splitAfterComma } from "../../../../utils/songArticles/format";
+import { dotDate, formatArticleDate, formatLabel, splitAfterComma } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { ArticleInline } from "../../../../utils/songArticles/markdown";
 import type { SongArticleDesign, SongArticlePageContext } from "../types";
@@ -42,18 +42,9 @@ const Beats: React.FC<{ withVoice?: boolean }> = ({ withVoice }) => (
   </svg>
 );
 
-// シートの形態の略記を、読者向けの言葉にする(知らない略記はそのまま出す)
-const FORMAT_LABEL: Record<string, string> = {
-  配信SG: "配信シングル",
-  SG: "シングル",
-  miniAL: "ミニアルバム",
-  AL: "アルバム",
-};
 type Release = SongArticlePageContext["songFacts"]["releases"][number];
-const formatLabel = (r: Release) => (r.format ? FORMAT_LABEL[r.format] ?? r.format : null);
-const dotDate = (d: string | null) => (d ? d.replace(/-/g, ".") : null);
 const formatRelease = (r: Release) =>
-  [formatLabel(r), `『${r.title}』`, dotDate(r.releaseDate)].filter(Boolean).join(" ");
+  [formatLabel(r.format), `『${r.title}』`, dotDate(r.releaseDate)].filter(Boolean).join(" ");
 
 /** 帯が画面に入った時だけ動きを付ける(JSなしでは静止状態のまま) */
 const useRevealOnce = () => {
@@ -144,7 +135,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
           <p key={r.title}>
             <span className="a080-note__strong">{dotDate(r.releaseDate)}</span>
             <span>
-              {formatLabel(r)}『{r.title}』
+              {formatLabel(r.format)}『{r.title}』
             </span>
           </p>
         ))}
