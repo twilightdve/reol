@@ -1883,6 +1883,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         songTitle: string;
         versionLabel: string | null;
         summary: string | null;
+        createdAt: string | null;
         publishedAt: string | null;
         preview: boolean;
       }[] = [];
@@ -1983,6 +1984,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             songTitle: article.songTitle,
             versionLabel: article.versionLabel,
             description: excerpt,
+            createdAt: article.createdAt ?? null,
             publishedAt: article.publishedAt,
             updatedAt: article.updatedAt,
             bodyRevision: article.bodyRevision,
@@ -2006,6 +2008,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           songTitle: article.songTitle,
           versionLabel: article.versionLabel,
           summary: excerpt,
+          createdAt: article.createdAt ?? null,
           publishedAt: article.publishedAt,
           preview,
         });
@@ -2018,8 +2021,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
 
       if (indexEntries.length > 0) {
-        // 新着順(公開日の降順)。公開日の無いプレビュー記事は末尾
-        indexEntries.sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
+        // 新着順(公開日時の降順)。公開日時の無いプレビュー記事は末尾で、作成日の降順
+        indexEntries.sort(
+          (a, b) =>
+            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
+            (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
+        );
         createPage({
           path: "/articles/",
           component: path.resolve("./src/templates/song-articles-index.tsx"),

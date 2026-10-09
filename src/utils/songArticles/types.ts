@@ -71,7 +71,14 @@ export type SongArticleEditorial = {
   status: PublicationStatus;
   summary: string | null;
   versionLabel: string | null;
+  /**
+   * 記事に表示する日付 = 原稿(Googleドキュメント)の作成日時(ISO 8601)。改稿しても変わらない(2026-10-10 ユーザー決定)。
+   * 管理シートに「作成日」列があれば取込で入れる。無ければ手で記録する
+   */
+  createdAt?: string | null;
+  /** 初回公開日時。公開コマンドが自動で記録する(表示しない。構造化データ・一覧の並び順に使う) */
   publishedAt: string | null;
+  /** 公開後に本文を差し替えて再公開した日時。公開コマンドが自動で記録する */
   updatedAt: string | null;
   relatedArticleIds: string[];
 };

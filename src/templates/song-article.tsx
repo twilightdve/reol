@@ -11,12 +11,12 @@ import { HeadFC, Link, PageProps } from "gatsby";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { Kicker } from "../components/redesign";
+import ArticleDate from "../components/songArticles/ArticleDate";
 import ArticleBody from "../components/songArticles/ArticleBody";
 import { buildArticle, buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
 import type { SongArticlePageContext } from "../components/songArticles/designs/types";
 import { SONG_ARTICLE_DESIGNS } from "../components/songArticles/designs";
-import { formatArticleDate } from "../utils/songArticles/format";
 
 export type { SongArticlePageContext };
 
@@ -26,7 +26,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
     title,
     songTitle,
     versionLabel,
-    publishedAt,
+    createdAt,
     updatedAt,
     blocks,
     leadMedia,
@@ -41,8 +41,6 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
       </Layout>
     );
   }
-  const published = formatArticleDate(publishedAt);
-  const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
 
   return (
     <Layout title={title}>
@@ -77,19 +75,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
             {title}
           </h1>
           <p className="mt-4 text-[12px] text-bx-ink3">
-            {published ? (
-              <>
-                <time dateTime={publishedAt ?? undefined}>{published}</time> 公開
-                {updated && (
-                  <>
-                    {" ・ "}
-                    <time dateTime={updatedAt ?? undefined}>{updated}</time> 更新
-                  </>
-                )}
-              </>
-            ) : (
-              "公開日未定"
-            )}
+            <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
           </p>
         </header>
 
@@ -130,7 +116,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
 };
 
 export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) => {
-  const { slug, title, songTitle, description, publishedAt, updatedAt, noindex } = pageContext;
+  const { slug, title, songTitle, description, createdAt, publishedAt, updatedAt, noindex } = pageContext;
   const path = `/articles/${slug}/`;
   const jsonLd: object[] = [
     buildBreadcrumbList([
@@ -148,6 +134,7 @@ export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) =>
         description,
         datePublished: publishedAt,
         dateModified: updatedAt,
+        dateCreated: createdAt,
         songName: songTitle,
       })
     );

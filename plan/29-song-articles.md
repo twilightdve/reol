@@ -2,7 +2,7 @@
 
 起点: `Reol_記事実装設計書_Claude引継ぎ_v1.docx`(2026-10-09、以下「設計書」)。
 本書は設計書の「実装時に確定」項目をリポジトリ調査で確定した記録と、初回実装(Boy / No title)の範囲・結果をまとめる。
-本文の改稿・公開判断・掲載slug・公開日・著者表示は編集上の決定として**ユーザーに残す**。
+本文の改稿・公開判断・掲載slug・著者表示は編集上の決定として**ユーザーに残す**。記事に表示する日付は**作成日(原稿の Google ドキュメントの作成日)**、公開日時は公開コマンドが自動で記録する(2026-10-10 ユーザー決定。下の「日付」)。
 
 ## 1. 現行調査の結果(2026-10-09 時点で確認)
 
@@ -30,7 +30,7 @@
 
 - 通常ビルドは `content/articles/` の `status: "published"` だけを読む。
 - `ARTICLES_PREVIEW=1` のときだけ staging も読み、プレビュー表示(noindex・サイトマップ除外)する。デプロイ前検査はこの変数があると失敗する。
-- 公開(staging → content)は `scripts/articles/publish-song-article.ts` を明示実行したときだけ。slug・公開日が未確定なら拒否する。
+- 公開(staging → content)は `scripts/articles/publish-song-article.ts` を明示実行したときだけ。slug が未確定、または作成日が未記録なら拒否する。公開日時は初回公開時に自動で記録し、公開済みの記事の本文を差し替えた再公開では更新日時を記録する。
 
 ## 3. 取込処理(`scripts/articles/import-song-articles.ts`)
 
@@ -89,14 +89,14 @@
 - トップ・共通ナビの入口: 公開記事が0件のうちは出さない。初回公開時に追加する。
 - 記事別デザイン(要件。9章)。検索・カテゴリ・RSS・連載。
 - 残り17件の取込(同じ手順で `--ids` を増やす)。
-- 編集上の決定(ユーザー): 公開する記事と順序、slug、公開日、著者表示、一覧の紹介文(現状は本文の最初の段落を表示)、`/articles/` 一覧の説明文(仮に Claude が書いた1文)。
+- 編集上の決定(ユーザー): 公開する記事と順序、slug、著者表示、一覧の紹介文(現状は本文の最初の段落を表示)、`/articles/` 一覧の説明文(仮に Claude が書いた1文)。
 
 ## 8. 運用手順
 
 1. 管理表の「記事」「song対応」シートをCSVで書き出し、`.articles-local/inbox/記事.csv` `song対応.csv` に置く。掲載用Markdownも同じ場所に置く。
 2. `npm run articles:import -- --ids <article_id,...> --dry-run` で確認 → `--dry-run` を外して実行。
 3. `npm run articles:preview` でローカル確認(`ARTICLES_PREVIEW=1 npm run develop`。未実行のため要確認)。確実なのは `ARTICLES_PREVIEW=1 npm run build` → `npx gatsby serve`(検証済み)。終わったら通常ビルドで `public/` を戻す。
-4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed・publishedAt を決め、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。
+4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed を決め(createdAt が記録済みであること)、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。
 
 ## 9. デザインの要件と引継ぎの差分(2026-10-09)
 
@@ -120,3 +120,11 @@ S4(記事基盤と人物紹介連載の既存計画)と S3補足(実行管理ペ
 - 記事別デザインを差し込む仕組み(本文データとは独立させる)。方式は未決定。
 - 公開の条件に「その記事の独自デザインがある」を加える(`articles:publish` で確認する等)。
 - 検討の材料: 私(Claude)はMVを視聴できない。見られるのは静止画・原稿・公式の説明・コメント等。映像の印象はユーザーからの提供が必要。
+
+## 日付(2026-10-10 ユーザー決定)
+
+- 「記事の公開日じゃなく、作成日でいいと思う」→ 記事・一覧に表示する日付は**作成日**。作成日 = 原稿の Google ドキュメントの作成日(改稿しても変わらない)。公開日は表示しない。
+- `editorial.json` の `createdAt`(ISO 8601)。管理シートに「作成日」列があれば取込で入れる(既に記録があれば上書きしない)。今は列が無いので、Drive の原稿の作成日時を手で記録した(Boy・No title 2026-10-01、MONSTER 2026-10-02)。
+- `publishedAt`(初回公開日時)・`updatedAt`(公開後の本文差し替え)は公開コマンドが自動で記録し、構造化データ(datePublished / dateModified、作成日は dateCreated)と一覧の並び順に使う。
+- 表示は共通部品 `ArticleDate`(「2026年10月1日 作成」。更新があれば「・ … 更新」)。縦書きの No title は漢数字(二〇二六年十月一日)。
+- 今後の記事のために、管理シートに「作成日」列を足してもらうと取込で自動で入る(未依頼)。

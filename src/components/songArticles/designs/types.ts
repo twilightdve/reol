@@ -9,6 +9,9 @@ export interface SongArticlePageContext {
   songTitle: string;
   versionLabel: string | null;
   description: string | null;
+  /** 記事に表示する作成日(原稿の作成日) */
+  createdAt: string | null;
+  /** 初回公開日時(表示しない。構造化データ用) */
   publishedAt: string | null;
   updatedAt: string | null;
   bodyRevision: number;

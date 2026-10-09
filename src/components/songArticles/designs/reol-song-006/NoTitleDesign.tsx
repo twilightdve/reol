@@ -15,10 +15,10 @@
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
+import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
 import {
   dotDate,
-  formatArticleDate,
   formatLabel,
 } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
@@ -182,7 +182,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     songPages,
     songFacts,
     liveRefs,
-    publishedAt,
+    createdAt,
     updatedAt,
     preview,
   } = ctx;
@@ -199,11 +199,6 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
           title.slice(breakAt + BREAK.length),
         ]
       : [title];
-  const published = formatArticleDate(publishedAt);
-  const updated =
-    updatedAt && updatedAt !== publishedAt
-      ? formatArticleDate(updatedAt)
-      : null;
 
   const firstYear = songFacts.releases[0]?.releaseDate?.slice(0, 4) ?? null;
   const originReleases = songFacts.releases.filter(
@@ -284,25 +279,8 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
                   ))}
                 </h1>
                 <p className="a006-date">
-                  {published ? (
-                    <>
-                      <time dateTime={publishedAt ?? undefined}>
-                        {published}
-                      </time>
-                      公開
-                      {updated && (
-                        <>
-                          {" ・ "}
-                          <time dateTime={updatedAt ?? undefined}>
-                            {updated}
-                          </time>
-                          更新
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    "公開日未定"
-                  )}
+                  {/* 縦書きなので漢数字で組む */}
+                  <ArticleDate createdAt={createdAt} updatedAt={updatedAt} kanji />
                 </p>
               </div>
             </div>

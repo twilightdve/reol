@@ -18,6 +18,8 @@ type IndexEntry = {
   songTitle: string;
   versionLabel: string | null;
   summary: string | null;
+  /** 表示する作成日 */
+  createdAt: string | null;
   publishedAt: string | null;
   preview: boolean;
 };
@@ -51,7 +53,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
 
         <ul className="divide-y divide-bx-line border-t border-b border-bx-line">
           {articles.map((a) => {
-            const date = formatArticleDate(a.publishedAt);
+            const date = formatArticleDate(a.createdAt);
             return (
               <li key={a.slug}>
                 <Link
@@ -72,7 +74,13 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                     <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>
                   )}
                   <p className="mt-2 text-[12px] text-bx-ink3">
-                    {a.preview ? "プレビュー(未公開)" : date ? <time dateTime={a.publishedAt ?? undefined}>{date}</time> : null}
+                    {a.preview && "プレビュー(未公開)"}
+                    {a.preview && date && " ・ "}
+                    {date && (
+                      <>
+                        <time dateTime={a.createdAt ?? undefined}>{date}</time> 作成
+                      </>
+                    )}
                   </p>
                 </Link>
               </li>

@@ -15,8 +15,9 @@
  */
 import React from "react";
 import { Link } from "gatsby";
+import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
-import { dotDate, formatArticleDate, formatLabel } from "../../../../utils/songArticles/format";
+import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
 import "./monster.css";
@@ -45,14 +46,12 @@ const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, c
 );
 
 const MonsterDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, publishedAt, updatedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, updatedAt, preview } = ctx;
 
   // H1 の文言はそのまま。最初の空白で「MONSTER」と副題の2行に組む(文字は変えない)
   const sp = title.indexOf(" ");
   const titleHead = sp > 0 ? title.slice(0, sp) : title;
   const titleRest = sp > 0 ? title.slice(sp + 1) : "";
-  const published = formatArticleDate(publishedAt);
-  const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
   const firstRelease = songFacts.releases[0] ?? null;
   const live = liveRefs[0] ?? null;
   const stats = songFacts.stats;
@@ -125,19 +124,7 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
                 )}
               </h1>
               <p className="a026-date">
-                {published ? (
-                  <>
-                    <time dateTime={publishedAt ?? undefined}>{published}</time>公開
-                    {updated && (
-                      <>
-                        {" ・ "}
-                        <time dateTime={updatedAt ?? undefined}>{updated}</time>更新
-                      </>
-                    )}
-                  </>
-                ) : (
-                  "公開日未定"
-                )}
+                <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
               </p>
             </div>
             <div className="a026-cover__media">

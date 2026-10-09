@@ -70,6 +70,15 @@ if (ids.length === 0) {
 
 const sha256 = (buf: Buffer): string => crypto.createHash("sha256").update(buf).digest("hex");
 
+/** 管理シートの「作成日」(2026/10/01 や 2026-10-01、または ISO 日時)を ISO 8601 にする。読めなければ null */
+const toCreatedAt = (value: string | undefined): string | null => {
+  const v = (value ?? "").trim();
+  if (!v) return null;
+  const m = v.match(/^(\d{4})[/-](\d{1,2})[/-](\d{1,2})$/);
+  if (m) return `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}T00:00:00+09:00`;
+  return Number.isNaN(new Date(v).getTime()) ? null : v;
+};
+
 const readCsv = (name: string, required: string[]): Record<string, string>[] => {
   const file = path.join(inboxDir, name);
   if (!fs.existsSync(file)) {
@@ -304,10 +313,13 @@ const main = () => {
       status: "review",
       summary: null,
       versionLabel: null,
+      createdAt: null,
       publishedAt: null,
       updatedAt: null,
       relatedArticleIds: [],
     };
+    // 表示する作成日(原稿の作成日)。管理シートに「作成日」列があり、まだ記録が無い時だけ入れる(手で記録した値は上書きしない)
+    if (!editorial.createdAt) editorial.createdAt = toCreatedAt(row["作成日"]);
     const tmpDir = `${targetDir}.tmp-${runId}`;
     fs.mkdirSync(tmpDir, { recursive: true });
     fs.writeFileSync(path.join(tmpDir, "body.md"), md.buf);

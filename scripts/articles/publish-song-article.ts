@@ -2,7 +2,7 @@
 //
 // .articles-local/staging/<article_id>/ の検証済み本文を content/articles/<article_id>/ へ写す。
 // content/articles はgitに入り公開されるため、明示的に記事IDと本文版を指定したときだけ動く。
-// slug が仮置きのまま・公開日が未設定なら拒否する(どちらも編集上の決定)。
+// slug が仮置きのまま・作成日が未記録なら拒否する。公開日時は初回公開時に自動で記録する(2026-10-10 ユーザー決定)。
 // 記事別デザイン(src/utils/songArticles/designManifest.ts)がいまの本文に対して無ければ拒否する。
 //
 // 使い方:
@@ -52,8 +52,8 @@ if (crypto.createHash("sha256").update(body).digest("hex") !== data.bodySha256) 
 if (!editorial.slug || editorial.slugProposed) {
   fail("slug が未確定です。editorial.json の slug を決めて slugProposed を false にしてください");
 }
-if (!editorial.publishedAt) {
-  fail("publishedAt が未設定です(初回公開日。原曲の発売日ではありません)");
+if (!editorial.createdAt) {
+  fail("createdAt が未記録です(記事に表示する作成日 = 原稿の Google ドキュメントの作成日)");
 }
 const parsed = parseArticleMarkdown(body.toString("utf8"));
 if (parsed.problems.length > 0) fail(`本文に未対応の要素があります: ${parsed.problems.join(" / ")}`);
@@ -65,7 +65,15 @@ const designIssues = designProblems(id, {
 });
 if (designIssues.length > 0) fail(`記事別デザインがありません: ${designIssues.join(" / ")}`);
 
-const published: SongArticleFile = { ...data, ...editorial, status: "published" };
+// 公開日時: 公開済みなら初回の値を引き継ぎ、初回なら今。本文を差し替えた再公開では更新日時を記録する
+const previous = fs.existsSync(path.join(dest, "article.json"))
+  ? (JSON.parse(fs.readFileSync(path.join(dest, "article.json"), "utf8")) as SongArticleFile)
+  : null;
+const now = new Date().toISOString();
+const publishedAt = previous?.publishedAt ?? now;
+const updatedAt =
+  previous && previous.bodySha256 !== data.bodySha256 ? now : previous?.updatedAt ?? null;
+const published: SongArticleFile = { ...data, ...editorial, publishedAt, updatedAt, status: "published" };
 const tmp = `${dest}.tmp`;
 fs.rmSync(tmp, { recursive: true, force: true });
 fs.mkdirSync(tmp, { recursive: true });

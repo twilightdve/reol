@@ -36,9 +36,9 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
     ],
   },
   // No title(plan/31)。冒頭(0)・一言(1)・注記(2: 収録作、4: 公演、5: セットリスト)・見出し(3, 7)・結び(9)
-  // 本文は版2に、表記の修正(2014年の曲の文脈の「Reol」を当時の名義「れをる」に。2か所)を加えたもの(2026-10-09 ユーザー指示)
+  // 本文版3(2014年の曲の文脈の「Reol」を当時の名義「れをる」に直した版。Drive・管理シートに反映済み 2026-10-10)
   "reol-song-006": {
-    bodyRevision: 2,
+    bodyRevision: 3,
     bodySha256: "550ef1495b5ed74481eb4e7fc861cc678b1e9691e0624b8c0187732649b05664",
     blockCount: 10,
     anchors: [

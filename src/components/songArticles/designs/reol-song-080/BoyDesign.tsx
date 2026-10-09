@@ -14,8 +14,9 @@
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
+import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
-import { dotDate, formatArticleDate, formatLabel, splitAfterComma } from "../../../../utils/songArticles/format";
+import { dotDate, formatLabel, splitAfterComma } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { ArticleInline } from "../../../../utils/songArticles/markdown";
 import type { SongArticleDesign, SongArticlePageContext } from "../types";
@@ -111,15 +112,13 @@ const ClauseText: React.FC<{ nodes: ArticleInline[] }> = ({ nodes }) => {
 };
 
 const BoyDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, updatedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt, preview } = ctx;
   const band1 = useRevealOnce();
   const band2 = useRevealOnce();
 
   // H1 の文言はそのまま。「Reol Boy」と見出しの本体を分けて組む(文字は変えない・装飾を重ねない)
   const NAME = "Reol Boy ";
   const hasName = title.startsWith(NAME);
-  const published = formatArticleDate(publishedAt);
-  const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
 
   // 曲が出た年の収録作だけを、曲の成り立ちの段落に添える
   const firstYear = songFacts.releases[0]?.releaseDate?.slice(0, 4) ?? null;
@@ -225,19 +224,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a080-date">
-              {published ? (
-                <>
-                  <time dateTime={publishedAt ?? undefined}>{published}</time> 公開
-                  {updated && (
-                    <>
-                      {" ・ "}
-                      <time dateTime={updatedAt ?? undefined}>{updated}</time> 更新
-                    </>
-                  )}
-                </>
-              ) : (
-                "公開日未定"
-              )}
+              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
             </p>
           </header>
           <div className="a080-screen">

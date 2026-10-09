@@ -181,6 +181,8 @@ type ArticleInput = {
   /** 記事の初回公開日(原曲の発売日ではない) */
   datePublished: string;
   dateModified?: string | null;
+  /** 記事の作成日(原稿の作成日。画面に表示する日付) */
+  dateCreated?: string | null;
   /** 記事が扱う曲名(about に MusicRecording として出す) */
   songName: string;
 };
@@ -195,6 +197,7 @@ export const buildArticle = ({
   description,
   datePublished,
   dateModified,
+  dateCreated,
   songName,
 }: ArticleInput) => ({
   "@context": "https://schema.org",
@@ -206,6 +209,7 @@ export const buildArticle = ({
   ...(description ? { description } : {}),
   datePublished,
   ...(dateModified ? { dateModified } : {}),
+  ...(dateCreated ? { dateCreated } : {}),
   about: {
     "@type": "MusicRecording",
     name: songName,
