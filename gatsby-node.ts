@@ -2462,3 +2462,30 @@ export const createPages: GatsbyNode["createPages"] = async ({
     );
   }
 };
+
+// React 18.3.1 の静的HTML生成(react-dom/server の writeStringChunk)は、2048バイトの書き込みバッファの
+// 末尾に日本語などのマルチバイト文字が収まらないと、未使用分の0バイトごとバッファを書き出してしまう。
+// その結果、文字と文字の間に NUL(\x00)が1〜2バイト入る(本番の既存ページにも発生していた。plan/29 6章)。
+// UTF-8 の文字に 0x00 のバイトは含まれないため、HTMLから NUL だけを取り除けば元の文字列に戻る。
+export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ reporter }) => {
+  const publicDir = path.join(process.cwd(), "public");
+  let fixedFiles = 0;
+  let removedBytes = 0;
+  const walk = async (dir: string): Promise<void> => {
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        await walk(full);
+      } else if (entry.name.endsWith(".html")) {
+        const buf = await fs.readFile(full);
+        if (!buf.includes(0)) continue;
+        const cleaned = Buffer.from(buf.filter((b) => b !== 0));
+        removedBytes += buf.length - cleaned.length;
+        fixedFiles++;
+        await fs.writeFile(full, cleaned);
+      }
+    }
+  };
+  await walk(publicDir);
+  reporter.info(`[html-nul] ${fixedFiles} files から NUL を ${removedBytes} バイト除去しました`);
+};
