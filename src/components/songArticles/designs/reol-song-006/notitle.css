@@ -64,23 +64,23 @@
   margin: 0;
   color: #ffd98a;
 }
-/* 表紙は縦書きの題名と波紋だけにし、MVは表紙の外(すぐ下)に置く(2026-10-09 ユーザー指摘「MVは表紙の外で良い」)。
-   題名は右に寄せ、左に残る余白を波紋で満たす(ユーザー指示「波紋があれば右でいい。波紋の中心は余白の中心」)。
-   寸法は題名の大きさ --title-size から決める: 縦書きの題名の高さ = 約8.0em(Chrome。WebKit は書体の違いで約6.3em)、
-   題名の列の幅 = 2.75em(2行の行送り 1.3em×2 + 行間 0.15em)+ 公開日の列と間隔 44px */
+/* 表紙は、横長のMVと縦長の題名の形をそれぞれ活かし、余計な空白を作らない(ユーザー指摘 2026-10-09)。
+   題名の大きさ --title-size から寸法を決める: 縦書きの題名の高さ = 8.0em、幅 = 2.75em + 公開日の列 44px
+   (Chrome で実測。WebKit では書体の違いで高さが約6.3em)。PCでは MVの高さを題名の高さに合わせ
+   (MVの幅 = 8.0em × 16/9 = 14.24em)、一つの四角にまとめる */
 .a006-cover {
   container-type: inline-size;
   --title-size: clamp(36px, 9.5vw, 52px);
-  --title-col: calc(var(--title-size) * 2.75 + 44px);
-  /* 波紋の中心 = 紙面の左端から題名の列の左端までの余白の中央 = 50% − 題名の列 / 2 */
-  --cover-wave-x: calc(50% - var(--title-col) / 2);
-  --cover-wave-y: 56%;
+  /* 表紙の波紋の中心。スマートフォンは、右に寄せた題名の列(2.75em + 公開日の列 44px)の左に残る余白の中央
+     (左右の余白 20px は打ち消し合うので (表紙の幅 - 題名の列) / 2)。PCは右の題名の列の中央 */
+  --cover-wave-x: calc((100% - var(--title-size) * 2.75 - 44px) / 2);
+  --cover-wave-y: 34%;
   position: relative;
   isolation: isolate;
 }
 /* 表紙の余白の波(2026-10-09 ユーザー提案「表紙の余白にも波があってもいい」)。
-   白と淡い青の楕円の輪が交互に広がり、離れるほど薄れる。MVの水の要素の予告で、後のウォータークラウンにつながる。
-   輪の間隔は 72px(同じ色は144px)。表紙は読み込み直後から見えているので動かさない。
+   題名を中心に、白と淡い青の楕円の輪が交互に広がり、離れるほど薄れる。MVの水の要素の予告で、
+   後のウォータークラウンにつながる。表紙は読み込み直後から見えているので動かさない。
    輪の濃さは、表紙で最も明るい下端に線が重なっても、公開日の文字 4.8:1・題名 6.8:1 になる値 */
 .a006-cover::before {
   content: "";
@@ -97,20 +97,25 @@
 .a006-cover__body {
   width: var(--wide);
   margin: 0 auto;
+  display: grid;
+  gap: 28px;
   padding-top: clamp(24px, 5vw, 64px);
 }
 /* 題名は縦書き。右から左へ「松本凱旋から」「読み直すNo title」の2行。「No title」は横向き(既定)のまま */
 /* 題名の列の左に、公開日を小さな縦書きの列で添える。
-   Safari(WebKit)は、書字方向の違う要素が flex/grid の子になると幅を誤りやすく、
-   縦書きを含む横書きの箱の「中身に合わせた幅」を0と計算する(右寄せすると縦書きが右端の外へはみ出す)。
-   そのため縦書きは横幅いっぱいの普通の箱(.a006-cover__title)の中に置き、縦書きの要素自身に幅(max-content)を持たせて、
-   左の余白 auto で右に寄せる。縦書きの要素では margin-inline が上下を指すので、左右は物理方向(margin-left)で指定する */
+   Safari(WebKit)は、書字方向の違う要素が flex/grid の子になると幅を誤りやすい。
+   flex/grid の子は横書きの包み(.a006-cover__title)にし、縦書きはその中の普通の段落の流れ(.a006-cover__vertical)にだけ置く。
+   さらに WebKit は、縦書きを含む横書きの箱の「中身に合わせた幅」を0と計算する(右寄せすると縦書きが右端の外へはみ出す)。
+   そのため包みは横幅いっぱいに広げ、縦書きの要素自身に幅(max-content)を持たせて、左の余白 auto で右に寄せる */
 .a006-cover__title {
+  justify-self: stretch;
   min-width: 0;
 }
 .a006-cover__vertical {
   writing-mode: vertical-rl;
   width: max-content;
+  /* 縦長の題名は右に寄せ、左に残る余白は波紋で満たす(2026-10-09 ユーザー指示「波紋があれば右でいい。波紋の中心は余白の中心」)。
+     縦書きの要素では margin-inline が上下を指すので、左右は物理方向(margin-left)で指定する */
   margin-left: auto;
   margin-right: 0;
 }
@@ -136,70 +141,66 @@
   letter-spacing: 0.18em;
   color: var(--cover-ink-2);
 }
-@media (min-width: 900px) {
-  /* PCはMVと並べないので、題名を大きくし、余白の波紋を広く見せる */
-  .a006-cover {
-    --title-size: clamp(52px, 5.6vw, 64px);
-  }
-  .a006-cover::before {
-    -webkit-mask-image: radial-gradient(ellipse 80% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
-    mask-image: radial-gradient(ellipse 80% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
-  }
-}
-
-/* ---------- MV(表紙のすぐ下) ----------
-   夜の表紙から淡い空色の本文へ移る境目に、空のMVを置く。黒帯で切らず16:9のまま */
-.a006-mv {
-  width: var(--wide);
-  margin: 0 auto;
-  padding-top: clamp(0px, 4vw, 56px);
-}
-.a006-mv .sa-media {
+/* MVは黒帯で切らず16:9のまま、空の中に置く */
+.a006-cover__media .sa-media {
   margin: 0;
-  max-width: 880px;
 }
-.a006-mv .sa-media__frame {
+.a006-cover__media .sa-media__frame {
   border-radius: 2px;
-  box-shadow: 0 20px 48px rgba(13, 23, 71, 0.22);
+  box-shadow: 0 24px 60px rgba(5, 10, 40, 0.45);
 }
-.a006-mv .sa-media__thumb {
+.a006-cover__media .sa-media__thumb {
   opacity: 1;
 }
 /* 再生ボタンは、サムネイル中央の題名を隠さないよう左下に置く */
-.a006-mv .sa-media__play {
+.a006-cover__media .sa-media__play {
   align-items: flex-end;
   justify-content: flex-start;
   padding: clamp(12px, 2.4vw, 22px);
 }
-.a006-mv .sa-media__button {
+.a006-cover__media .sa-media__button {
   background: rgba(244, 246, 255, 0.94);
   color: var(--ink);
 }
-.a006-mv .sa-media__caption {
+.a006-cover__media .sa-media__caption {
   margin-top: 12px;
   font-size: 12px;
   letter-spacing: 0.06em;
-  color: var(--ink-2);
 }
-.a006-mv .sa-media__caption a {
-  color: var(--link);
+/* スマートフォンでも、MVは画面幅いっぱいにせず左右に紙面の余白(20px)を残す(2026-10-09 ユーザー指示) */
+.a006-cover__media .sa-media__caption a {
+  color: var(--cover-ink);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-/* スマートフォン: 横長のMVは表紙のすぐ下に画面幅いっぱいの帯にする(左右の余白を作らない) */
-@media (max-width: 899px) {
-  .a006-mv {
-    padding-top: 0;
+@media (min-width: 900px) {
+  /* 題名の列の幅は、WebKit で0にならないよう文字の大きさから明示する
+     (題名2行の行送り 1.3em×2 + 行間 0.15em = 2.75em、公開日の列と間隔で 44px) */
+  /* 題名の大きさは、MV(14.24em)+ 間隔 + 題名の列(2.75em + 44px)が紙面の幅に収まる最大値(上限56px) */
+  .a006-cover {
+    --title-size: clamp(36px, calc((min(1040px, 100cqi - 40px) - 100px) / 17), 56px);
+    --cover-wave-x: calc(50% + min(520px, 50% - 20px) - (var(--title-size) * 2.75 + 44px) / 2);
+    --cover-wave-y: 56%;
   }
-  .a006-mv .sa-media {
-    margin-inline: -20px;
+  /* PCは表紙が横に広いので、波紋を上下の余白まで届かせる */
+  .a006-cover::before {
+    -webkit-mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+    mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
   }
-  .a006-mv .sa-media__frame {
-    border-radius: 0;
-    box-shadow: none;
+  .a006-cover__body {
+    grid-template-columns: calc(var(--title-size) * 14.24) calc(var(--title-size) * 2.75 + 44px);
+    justify-content: space-between;
+    /* 縦書きの題名の高さは書体によってずれる(Chrome 8.0em / WebKit 約6.3em)。差が出ても上下の余白が均等になるよう中央にそろえる */
+    align-items: center;
+    gap: 0;
   }
-  .a006-mv .sa-media__caption {
-    padding-inline: 20px;
+  .a006-cover__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .a006-cover__title {
+    grid-column: 2;
+    grid-row: 1;
   }
 }
 

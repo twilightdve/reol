@@ -2,7 +2,7 @@
  * 楽曲記事「No title」(reol-song-006)の記事別デザイン。設計の根拠は plan/31。
  *
  * - 紙面を「見上げる空」として扱う(Boy の「見下ろす床」と対)。
- * - 冒頭は縦書きの表紙: 群青から赤紫へ移る空に、縦書きの題名。MVは表紙の外(すぐ下)に16:9のまま置く。
+ * - 冒頭は縦書きの表紙: 群青から赤紫へ移る空に、縦書きの題名。MVは16:9のまま。
  * - 縦書きは右から左へ読むので、軸を左右反転する。見出し(縦書き)と注記を右、本文をその左に置く。
  *   PCでは見出しを、その章を読んでいる間右端に留める(本の柱のように)。
  * - 見出し1の章(故郷の公演)の入口にウォータークラウン(MVで印象的な要素。オリジナルの線画)。琥珀色の一滴が群青の水面に落ち、
@@ -306,21 +306,21 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
                 </p>
               </div>
             </div>
+            <div className="a006-cover__media">
+              <ArticleBody
+                blocks={blocks}
+                leadMedia={leadMedia}
+                articleId={id}
+                from={0}
+                to={LEDE}
+                unstyled
+              />
+            </div>
           </div>
         </header>
 
-        {/* 見上げる空(淡い空色)。表紙のすぐ下にMV、続いて導入 */}
+        {/* 見上げる空(淡い空色)。導入 */}
         <div className="a006-sky">
-          <div className="a006-mv">
-            <ArticleBody
-              blocks={blocks}
-              leadMedia={leadMedia}
-              articleId={id}
-              from={0}
-              to={LEDE}
-              unstyled
-            />
-          </div>
           <section className="a006-chapter a006-chapter--intro">
             <div className="a006-chapter__inner">
               <div className="a006-chapter__body">
