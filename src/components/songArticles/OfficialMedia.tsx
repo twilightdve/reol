@@ -47,7 +47,8 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({ videoId, href, text, arti
               trackEvent("article_media_open", { category: "engagement", label: articleId });
               setPlaying(true);
             }}
-            className="group absolute inset-0 flex items-center justify-center"
+            // 枠が overflow-hidden で、サムネイルが全面を覆うため、フォーカス表示は ::after で画像の上に重ねる
+            className="group absolute inset-0 flex items-center justify-center focus-visible:outline-none after:pointer-events-none after:absolute after:inset-0 after:content-[''] focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-bx-yellow"
           >
             {!thumbFailed && (
               <img

@@ -68,16 +68,19 @@
 
 | 項目 | 結果 |
 | --- | --- |
-| 単体テスト | 全17スイート・101件合格(楽曲記事分27件: 3状態・キー揺れの矛盾・版不一致・H1二重・危険なリンク等を合成データで確認) |
+| 単体テスト | 全18スイート・107件合格(楽曲記事分33件: 3状態・キー揺れの矛盾・版不一致・H1二重・危険なリンク、公開分だけの読込・公開版優先・slug重複停止、Article構造化データを合成データで確認) |
 | 型チェック | `tsc --noEmit` 合格 |
 | プレビュービルド(`ARTICLES_PREVIEW=1`) | 記事2件・一覧を生成。noindex、canonical、静的HTMLに本文あり(JSなしで読める) |
 | 通常ビルド | 記事0件。`public/` 全体(HTML・JS・page-data・サイトマップ)に本文の文・記事URL・文書IDとも0件、`/articles/` 自体なし |
-| 画面 | 320px / 390px / PC で記事・一覧に横はみ出しなし。MVは自動再生せず、クリックでプレイヤーを読み込む |
+| 画面 | 320px / 390px / PC で記事・一覧に横はみ出しなし。MVは自動再生せず、クリックでプレイヤーを読み込む。Tabで再生ボタンに移ると黄色の枠が出る。画像は `.articles-local/screenshots/`(git管理外) |
+| 公開経路 | 一時ディレクトリで `articles:publish` を実行し、本文がバイト一致・公開用JSONに文書ID等なしを確認(リポジトリの `content/` は未作成) |
+| 未検証 | 文字拡大、長い曲名・長い出典での表示、`npm run articles:preview`(develop経由)の起動、公開記事での構造化データ・サイトマップ掲載の実ビルド |
 | デプロイ前検査 | `ARTICLES_PREVIEW` が立っていると停止することを確認 |
 
 ### 見つかった既存の不具合(今回は未修正)
 
 - **静的HTMLにNUL文字(\x00)が混入する**: React 18.3.1 のサーバー描画(`react-dom/server` の `writeStringChunk`)が、2048バイトのバッファ末尾にマルチバイト文字が収まらなかったとき、未使用分の0バイトごとバッファを書き出すため。今回の通常ビルドで473ファイル、本番の既存ページ(例: /songs/boy/)にもある。ブラウザは本文中のNULを無視するため見た目は変わらないが、HTMLとしては不正。Boy記事でも「本人」の間に入る。対処案: ビルド後にHTMLからNULを除去する、または該当箇所のパッチ。別ブランチで扱う。
+- 記事ページ(第2階層)ではサイト共通の小さな動画プレイヤーが右上に出て、スマートフォンではプレビュー表示の帯に重なる(既存の共通部品の挙動)。
 - `/songs/no-title/` は 320px で文書幅が366pxになる。はみ出す要素は見当たらず、記事導線のある `/songs/boy/` では起きないため今回の変更とは別要因(原因未特定)。
 
 ## 7. 後回し(本書の範囲外)
@@ -91,5 +94,5 @@
 
 1. 管理表の「記事」「song対応」シートをCSVで書き出し、`.articles-local/inbox/記事.csv` `song対応.csv` に置く。掲載用Markdownも同じ場所に置く。
 2. `npm run articles:import -- --ids <article_id,...> --dry-run` で確認 → `--dry-run` を外して実行。
-3. `npm run articles:preview` でローカル確認(staging を含む develop)。
+3. `npm run articles:preview` でローカル確認(`ARTICLES_PREVIEW=1 npm run develop`。未実行のため要確認)。確実なのは `ARTICLES_PREVIEW=1 npm run build` → `npx gatsby serve`(検証済み)。終わったら通常ビルドで `public/` を戻す。
 4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed・publishedAt を決め、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。
