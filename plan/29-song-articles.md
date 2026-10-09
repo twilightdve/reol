@@ -61,6 +61,7 @@
 
 - Boy(reol-song-080)・No title(reol-song-006)を staging に取り込み済み(status は review、slug は article_id の仮置き、公開日は未設定)。再実行は「変更なし」で、記事・slug は増えない。
 - 本文・段落順・リンク(Boy 4件 / No title 5件)の文言とリンク先が原文と一致することを照合済み。冒頭のMVリンクはどちらも登録済みの公式MVと動画IDが一致したため、クリックで読み込むメディア部品にした(リンク自体も残す)。
+- 冒頭の埋め込みの対象(2026-10-09 追加、plan/32): MVのない曲のため、管理表で `official_audio`(公式配信音源)として登録されたリンクも、動画IDが一致すれば同じメディア部品にする。それ以外のリンクは本文のリンクのまま。
 - song対応のuuid(Boy 3件 / No title 5件)は制作データJSONの `source_song_uuids` と一致。曲ページは `/songs/boy/` `/songs/no-title/` に解決。
 - 本人合格19件の dry-run: 取込可能は上記2件のみ。残りは掲載用Markdownが未入手(14件、必要なファイル名・Drive IDはレポートに出る)、掲載記録なし(secret trip・美辞目録)、`source_revision` 欠落(真空オールドローズ)で保留。Driveのファイル名もIDも記録されていない記事(ミュータント・切っ先・二等星)はLibraryから書き出したファイルを inbox に置けば、ファイル名一致で取り込める。
 
