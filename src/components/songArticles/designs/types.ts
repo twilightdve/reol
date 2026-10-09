@@ -25,6 +25,8 @@ export interface SongArticlePageContext {
   songFacts: {
     lyricMember: string | null;
     musicMember: string | null;
+    /** タイアップ(曲データの tieupDescription。無ければ null) */
+    tieup: string | null;
     releases: { title: string; format: string | null; releaseDate: string | null }[];
     /** サイトの演奏統計(対応する曲ページが1つの時だけ) */
     stats: { totalPlays: number; firstPlayedDate: string | null; lastPlayedDate: string | null } | null;

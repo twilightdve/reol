@@ -6,9 +6,11 @@ import type { SongArticleDesign } from "./types";
 import BoyDesign from "./reol-song-080/BoyDesign";
 import NoTitleDesign from "./reol-song-006/NoTitleDesign";
 import MonsterDesign from "./reol-song-026/MonsterDesign";
+import ScorpionDesign from "./reol-song-087/ScorpionDesign";
 
 export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-080": BoyDesign,
   "reol-song-006": NoTitleDesign,
   "reol-song-026": MonsterDesign,
+  "reol-song-087": ScorpionDesign,
 };

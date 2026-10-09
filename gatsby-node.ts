@@ -1706,6 +1706,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           musicMember: string | null;
           lyricVideoUrl: string | null;
           liveVideoUrl: string | null;
+          tieupDescription: string | null;
         }[];
       }[];
     } | null;
@@ -1763,6 +1764,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             musicMember
             lyricVideoUrl
             liveVideoUrl
+            tieupDescription
           }
         }
       }
@@ -1947,11 +1949,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null }>();
         let lyricMember: string | null = null;
         let musicMember: string | null = null;
+        let tieup: string | null = null;
         for (const disc of songResult.data?.discography?.discographyWithSongs ?? []) {
           for (const s of disc.songs) {
             if (!article.songRefs.includes(s.songUuid)) continue;
             lyricMember = lyricMember ?? s.lyricMember;
             musicMember = musicMember ?? s.musicMember;
+            tieup = tieup ?? (s.tieupDescription?.trim() || null);
             const title = disc.title ?? s.discographyTitle;
             if (title && !releases.has(disc.discographyUuid)) {
               releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate });
@@ -1964,6 +1968,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const songFacts = {
           lyricMember,
           musicMember,
+          tieup,
           stats: statsForFacts
             ? {
                 totalPlays: statsForFacts.totalPlays,
