@@ -1977,7 +1977,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         };
         // 読みものの分類(シリーズ+タグ)。楽曲記事は「曲を読む」、タグはサイトのデータから(src/utils/songArticles/series.ts)
         const series = seriesBySlug(SONG_ARTICLE_SERIES) ?? ARTICLE_SERIES[0];
-        const tags = songArticleTags({ songTitle: article.songTitle, releases: songFacts.releases, extra: article.tags });
+        const tags = songArticleTags({ releases: songFacts.releases, extra: article.tags });
 
         const excerpt = article.summary ?? firstParagraphText(parsed);
         createPage({
