@@ -41,6 +41,11 @@ const isFullscreenVizPath = (rawPathname: string): boolean => {
   );
 };
 
+// 楽曲記事(/articles/<slug>/、plan/30)。記事は公式MVを主役に独自デザインで組むため、
+// 浮かぶミニプレイヤーが二つ目の動画として紙面に重ならないようにする。
+const isSongArticlePath = (rawPathname: string): boolean =>
+  /^\/articles\/[^/]+\/?$/.test(stripLangPrefix(rawPathname).path);
+
 const defaultOpts: Options = {
   height: "180",
   width: "320",
@@ -139,6 +144,9 @@ const MainVideo: React.FC<Props> = ({
   // 実際に「縮小表示として描画するか」。スクロール連動の縮小(isShrinked && onPlaying)
   // に加え、2階層目のページでは常にミニ表示を強制する。
   const isMini = (isShrinked && onPlaying) || forceMini;
+  // 楽曲記事では、消音のまま流れている間は隠す(マウントは保ち、遷移をまたいだ再生は壊さない)。
+  // 利用者が音を出して聴いている場合は、止めるための操作が見えるよう表示したままにする。
+  const hiddenOnArticle = isSongArticlePath(pathname) && isMuted;
 
   useEffect(() => {
     if (!isBrowser) return;
@@ -341,7 +349,8 @@ const MainVideo: React.FC<Props> = ({
                   : "top-1"
               } right-1 -translate-x-1 rounded-lg`
             : "w-full top-0 right-0 left-full translate-x-0 rounded-none"
-        }`}
+        }${hiddenOnArticle ? " invisible pointer-events-none" : ""}`}
+        aria-hidden={hiddenOnArticle || undefined}
       >
         {/* 「フル表示に戻す」導線(✕・タップ展開)は、2階層目ページの強制ミニ表示
             (forceMini)では出さない。スクロール連動で縮小した場合のみ展開できる。 */}

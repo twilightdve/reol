@@ -29,6 +29,7 @@ import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
 import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
+import { designProblems } from "./src/utils/songArticles/designCheck";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1678,6 +1679,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     discography: {
       discographyWithSongs: {
         discographyUuid: string;
+        title: string | null;
+        format: string | null;
         releaseDate: string | null;
         reports: {
           discographyRepoUuid: string;
@@ -1733,6 +1736,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
       discography {
         discographyWithSongs {
           discographyUuid
+          title
+          format
           releaseDate
           reports {
             discographyRepoUuid
@@ -1856,6 +1861,39 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
         }
 
+        // 記事別デザイン(plan/30)。本文の版・段落が作成時と違えば使わず、共通テンプレートに戻す
+        const designIssues = designProblems(article.id, {
+          bodyRevision: article.bodyRevision,
+          bodySha256: article.bodySha256,
+          blocks: parsed.blocks,
+        });
+        if (designIssues.length > 0) {
+          console.warn(`[articles] ${article.id}: 記事別デザインを使いません(${designIssues.join(" / ")})`);
+        }
+
+        // 締めのクレジット等に使う、サイトの確認済みデータ(収録作・発売日・作詞作曲)。収録uuidから引く
+        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null }>();
+        let lyricMember: string | null = null;
+        let musicMember: string | null = null;
+        for (const disc of songResult.data?.discography?.discographyWithSongs ?? []) {
+          for (const s of disc.songs) {
+            if (!article.songRefs.includes(s.songUuid)) continue;
+            lyricMember = lyricMember ?? s.lyricMember;
+            musicMember = musicMember ?? s.musicMember;
+            const title = disc.title ?? s.discographyTitle;
+            if (title && !releases.has(disc.discographyUuid)) {
+              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate });
+            }
+          }
+        }
+        const songFacts = {
+          lyricMember,
+          musicMember,
+          releases: [...releases.values()].sort((a, b) =>
+            (a.releaseDate ?? "9999").localeCompare(b.releaseDate ?? "9999")
+          ),
+        };
+
         const excerpt = article.summary ?? firstParagraphText(parsed);
         createPage({
           path: `/articles/${slug}/`,
@@ -1873,6 +1911,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             blocks: parsed.blocks,
             leadMedia,
             songPages: [...songPages.values()].map(({ slug: s, songName }) => ({ slug: s, songName })),
+            songFacts,
+            designId: designIssues.length === 0 ? article.id : null,
             preview,
             noindex: preview,
           },

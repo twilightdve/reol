@@ -212,3 +212,32 @@ describe("formatArticleDate", () => {
     expect(formatArticleDate(null)).toBeNull();
   });
 });
+
+describe("designProblems", () => {
+  // 合成した本文と、それに対して作った仮の登録表で確かめる
+  const { designProblems, blockTextHash } = jest.requireActual("../songArticles/designCheck");
+  const parsed = parseArticleMarkdown("# 題\n\n一段落目\n\n二段落目\n");
+  const manifest = {
+    x: {
+      bodyRevision: 1,
+      bodySha256: "s1",
+      blockCount: 2,
+      anchors: [{ block: 1, textHash: blockTextHash(parsed.blocks[1]) }],
+    },
+  };
+  const body = { bodyRevision: 1, bodySha256: "s1", blocks: parsed.blocks };
+
+  it("作成時の本文と一致すれば問題なし", () => {
+    expect(designProblems("x", body, manifest)).toEqual([]);
+  });
+  it("未登録の記事は使わない", () => {
+    expect(designProblems("y", body, manifest).join()).toMatch(/登録されていません/);
+  });
+  it("本文が改稿されたら(版・sha256)使わない", () => {
+    expect(designProblems("x", { ...body, bodyRevision: 2, bodySha256: "s2" }, manifest)).toHaveLength(2);
+  });
+  it("帯を置く段落の内容が変わったら使わない", () => {
+    const changed = parseArticleMarkdown("# 題\n\n一段落目\n\n書き換えた段落\n");
+    expect(designProblems("x", { ...body, blocks: changed.blocks }, manifest).join()).toMatch(/段落\(1\)/);
+  });
+});

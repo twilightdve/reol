@@ -1,0 +1,437 @@
+/*
+ * 楽曲記事「Boy」(reol-song-080)の記事別デザイン。根拠は plan/30。
+ * すべて .a080 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割(S2「色に役割を割り当てる」):
+ *   --floor-1/2/3 床(冬の昼 → 夕方 → 夕景) / --ink 本文 / --ink-2 補足 / --link リンク
+ *   --accent 曲の強調色(配信シングルのテーマ色 #E67E47 系。装飾と黒帯の上の文字だけに使う)
+ *   --bar 映画の黒帯
+ * リンクは床の色が変わっても同じ見え方(色+下線)にする。
+ */
+
+.a080 {
+  --bar: #0b0d0d;
+  --bar-ink: #b9c4c0;
+  --accent: #e67e47;
+  --accent-on-bar: #ef8a52;
+  --grain-opacity: 0.38;
+  --grain-blend: multiply;
+
+  /* A 淡いコンクリート(既定) */
+  --floor-1: #d4dcd7;
+  --floor-2: #dcd8cd;
+  --floor-3: #ead4b2;
+  --ink: #111a17;
+  --ink-2: #3f4b47;
+  --link: #0c4a45;
+  --beat: rgba(17, 26, 23, 0.55);
+
+  position: relative;
+  color: var(--ink);
+  background: var(--floor-1);
+  font-feature-settings: normal;
+  overflow-wrap: anywhere;
+}
+
+/* B 暗いトンネルの青緑。暖色は結びの前の帯以降だけ */
+.a080[data-variant="b"] {
+  --floor-1: #0e1b1a;
+  --floor-2: #12211f;
+  --floor-3: #2b1c12;
+  --ink: #e7eeeb;
+  --ink-2: #a7b7b1;
+  --link: #9ad8cc;
+  --beat: rgba(231, 238, 235, 0.5);
+  --grain-opacity: 0.22;
+  --grain-blend: overlay;
+}
+
+/* C 一定の床。暖色は拍・結び・クレジットの小さな面積だけ */
+.a080[data-variant="c"] {
+  --floor-1: #cfd6d2;
+  --floor-2: #cfd6d2;
+  --floor-3: #cfd6d2;
+}
+
+/* 床の質感(コンクリートの細かいざらつき)。画像は使わず SVG のノイズで作る */
+.a080-floor,
+.a080-band {
+  position: relative;
+  isolation: isolate;
+}
+.a080-floor::before,
+.a080-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.a080-floor--1 { background: var(--floor-1); }
+.a080-floor--2 { background: var(--floor-2); }
+.a080-floor--3 { background: var(--floor-3); }
+
+/* 黒帯 */
+.a080-bar {
+  background: var(--bar);
+  color: var(--bar-ink);
+}
+.a080-bar--top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 14px max(16px, calc((100% - 1120px) / 2)) 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a080-crumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.a080-crumbs a {
+  color: var(--bar-ink);
+  text-decoration: none;
+}
+.a080-crumbs a:hover,
+.a080-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a080-crumbs span:last-child {
+  color: #fff;
+}
+.a080-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  color: #f2c26b;
+  letter-spacing: 0.04em;
+}
+.a080-preview__variants {
+  display: flex;
+  gap: 6px;
+}
+.a080-preview__variants a {
+  border: 1px solid #3a4441;
+  border-radius: 999px;
+  padding: 2px 10px;
+  color: var(--bar-ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.a080-preview__variants a[aria-current="true"] {
+  background: #f2c26b;
+  border-color: #f2c26b;
+  color: #111;
+}
+
+/* タイトル */
+.a080-hero {
+  width: var(--wide);
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 104px) 0 clamp(28px, 4vw, 48px);
+}
+/* 冒頭の拍(カウント)。帯の拍と同じ図案を、小さく左にそろえて置く */
+.a080-hero .a080-beats {
+  display: block;
+  width: 136px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+.a080-title {
+  margin: 0;
+  font-feature-settings: "palt";
+}
+.a080-title__name {
+  display: block;
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--ink-2);
+}
+.a080-title__main {
+  display: block;
+  margin-top: 0.5em;
+  font-size: clamp(34px, 9vw, 80px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.a080-date {
+  margin: 20px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+/* MV: 画面の幅いっぱいの黒地に、シネマスコープ比で置く */
+.a080-screen {
+  background: var(--bar);
+  padding: 0 max(0px, calc((100% - 1120px) / 2));
+}
+.a080-screen .sa-media {
+  margin: 0;
+}
+.a080-screen .sa-media__thumb {
+  opacity: 0.94;
+}
+.a080-screen .sa-media__play:hover .sa-media__thumb {
+  opacity: 1;
+}
+/* 再生ボタンは、サムネイル中央の手書きタイトルを隠さないよう左下に置く */
+.a080-screen .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: clamp(12px, 2.4vw, 24px);
+}
+.a080-screen .sa-media__button {
+  width: clamp(48px, 6vw, 64px);
+  height: clamp(48px, 6vw, 64px);
+  background: var(--accent);
+  color: #120a05;
+}
+.a080-screen .sa-media__caption {
+  padding: 10px 16px 14px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.a080-screen .sa-media__caption a {
+  color: var(--bar-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.a080-screen .sa-media__caption a:hover,
+.a080-screen .sa-media__caption a:focus-visible {
+  color: #fff;
+}
+
+/* 本文の共通の骨格。広い軸(タイトル・MV: 最大1120px)と、狭い軸(本文の列: 最大640px)の2本で組む。
+   一言・本文・結びは文字の大きさが違っても同じ列にそろえる */
+.a080 {
+  --col: min(640px, calc(100% - 40px));
+  --wide: min(1120px, calc(100% - 32px));
+}
+.a080-lede,
+.a080-body,
+.a080-coda {
+  width: var(--col);
+  margin: 0 auto;
+}
+/* 和文の改行: 見出し・一言・結びは文節で折り返し、本文は行末の孤立を避ける */
+.a080-title__main,
+.a080-lede,
+.a080-coda {
+  word-break: auto-phrase;
+  line-break: strict;
+  text-wrap: balance;
+}
+.a080-body p {
+  text-wrap: pretty;
+  line-break: strict;
+}
+.a080-body {
+  font-size: 17px;
+  line-height: 2;
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+.a080-body p {
+  margin: 0 0 1.7em;
+}
+.a080-body p:last-child {
+  margin-bottom: 0;
+}
+.a080-floor--2 .a080-body {
+  padding-top: clamp(40px, 6vw, 72px);
+}
+.a080-lede a,
+.a080-body a,
+.a080-coda a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+.a080-lede a:hover,
+.a080-body a:hover,
+.a080-coda a:hover {
+  text-decoration-thickness: 2px;
+}
+.a080 a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* 一言 */
+.a080-lede {
+  padding-top: clamp(40px, 7vw, 88px);
+  padding-bottom: clamp(32px, 5vw, 56px);
+  font-size: clamp(21px, 3.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+}
+.a080-lede p {
+  margin: 0;
+}
+
+/* 転換点の帯。段落の中では色を変えず、ここでだけ床の色を移す。Oklab で中間色の濁りを避ける */
+.a080-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(120px, 18vw, 200px);
+  padding: 0 20px;
+}
+.a080-band--1 {
+  background: linear-gradient(var(--floor-1), var(--floor-2));
+  background: linear-gradient(in oklab, var(--floor-1), var(--floor-2));
+}
+.a080-band--2 {
+  background: linear-gradient(var(--floor-2), var(--floor-3));
+  background: linear-gradient(in oklab, var(--floor-2), var(--floor-3));
+}
+.a080-beats {
+  width: min(440px, 100%);
+  height: auto;
+  overflow: visible;
+}
+/* 線の太さは図の大きさに関係なく一定(冒頭の小さな拍でも細くなりすぎない) */
+.a080-beat {
+  stroke: var(--beat);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.a080-voice {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* 結び */
+/* 結び: 夕景の床の上で、紙面の最後の山場として大きく置く */
+.a080-coda {
+  padding-top: clamp(56px, 9vw, 120px);
+  padding-bottom: clamp(96px, 14vw, 184px);
+  font-size: clamp(26px, 4.4vw, 40px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  font-feature-settings: "palt";
+  /* 結びは本文の列から出て、帯の拍・クレジットと同じ中央の軸に置く(映画の最後の字幕のように) */
+  width: min(760px, calc(100% - 40px));
+  text-align: center;
+  text-wrap: balance;
+}
+.a080-coda p {
+  margin: 0;
+}
+.a080-coda p::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 0 auto 0.9em;
+  background: var(--accent);
+}
+
+/* エンドクレジット(下の黒帯)。曲の強調色の小さな文字 */
+.a080-bar--credits {
+  padding: clamp(56px, 9vw, 104px) 20px clamp(48px, 7vw, 88px);
+  text-align: center;
+}
+.a080-credits {
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  max-width: 36em;
+}
+.a080-credits dt {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  color: #8f9b98;
+}
+.a080-credits dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--accent-on-bar);
+}
+.a080-credits__release {
+  display: block;
+}
+.a080-next {
+  list-style: none;
+  margin: 48px auto 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+}
+.a080-next a {
+  color: #e9eeec;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.a080-next a:hover {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .a080-body {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+}
+
+/* 動き: 帯が画面に入ったら、拍が左から順に一度だけ鳴り、声の線が描かれる。
+   既定(JSなし・動きを減らす設定)は完成した静止状態のまま */
+@media (prefers-reduced-motion: no-preference) {
+  .a080-band.is-armed .a080-beat {
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0.25;
+  }
+  .a080-band.is-armed .a080-voice {
+    stroke-dasharray: 520;
+    stroke-dashoffset: 520;
+  }
+  .a080-band.is-visible .a080-beat {
+    animation: a080-clap 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .a080-band.is-visible .a080-beat:nth-child(2) { animation-delay: 0.12s; }
+  .a080-band.is-visible .a080-beat:nth-child(3) { animation-delay: 0.24s; }
+  .a080-band.is-visible .a080-beat:nth-child(4) { animation-delay: 0.36s; }
+  .a080-band.is-visible .a080-beat:nth-child(5) { animation-delay: 0.48s; }
+  .a080-band.is-visible .a080-beat:nth-child(6) { animation-delay: 0.6s; }
+  .a080-band.is-visible .a080-beat:nth-child(7) { animation-delay: 0.72s; }
+  .a080-band.is-visible .a080-beat:nth-child(8) { animation-delay: 0.84s; }
+  .a080-band.is-visible .a080-voice {
+    animation: a080-sing 1.4s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+@media print {
+  .a080-band.is-armed .a080-beat { opacity: 1; transform: none; animation: none; }
+  .a080-band.is-armed .a080-voice { stroke-dashoffset: 0; animation: none; }
+}
+@keyframes a080-clap {
+  0% { opacity: 0.25; transform: scaleY(0.6); }
+  45% { opacity: 1; transform: scaleY(1.35); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+@keyframes a080-sing {
+  to { stroke-dashoffset: 0; }
+}

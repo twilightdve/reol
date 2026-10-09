@@ -3,6 +3,7 @@
 // .articles-local/staging/<article_id>/ の検証済み本文を content/articles/<article_id>/ へ写す。
 // content/articles はgitに入り公開されるため、明示的に記事IDと本文版を指定したときだけ動く。
 // slug が仮置きのまま・公開日が未設定なら拒否する(どちらも編集上の決定)。
+// 記事別デザイン(src/utils/songArticles/designManifest.ts)がいまの本文に対して無ければ拒否する。
 //
 // 使い方:
 //   npm run articles:publish -- --id reol-song-080 --revision 1
@@ -12,6 +13,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { PUBLISHED_DIR, STAGING_DIR } from "../../src/utils/songArticles/load";
 import { parseArticleMarkdown } from "../../src/utils/songArticles/markdown";
+import { designProblems } from "../../src/utils/songArticles/designCheck";
 import {
   SongArticleData,
   SongArticleEditorial,
@@ -55,6 +57,13 @@ if (!editorial.publishedAt) {
 }
 const parsed = parseArticleMarkdown(body.toString("utf8"));
 if (parsed.problems.length > 0) fail(`本文に未対応の要素があります: ${parsed.problems.join(" / ")}`);
+// 楽曲記事は記事ごとの独自デザインが要件(plan/29 9章)。いまの本文に対して作られたデザインが無ければ公開しない
+const designIssues = designProblems(id, {
+  bodyRevision: data.bodyRevision,
+  bodySha256: data.bodySha256,
+  blocks: parsed.blocks,
+});
+if (designIssues.length > 0) fail(`記事別デザインがありません: ${designIssues.join(" / ")}`);
 
 const published: SongArticleFile = { ...data, ...editorial, status: "published" };
 const tmp = `${dest}.tmp`;

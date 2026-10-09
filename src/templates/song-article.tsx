@@ -3,7 +3,8 @@
  *
  * 本文は gatsby-node.ts がビルド時に掲載用Markdownから作った描画用ツリー(pageContext.blocks)。
  * 記事は日本語のみ(多言語ページは作らない)。プレビュー記事(ARTICLES_PREVIEW=1)は noindex。
- * 見た目は既存B案トークンでの仮の共通テンプレート。記事別のデザインは未決(plan/29 4章)。
+ * 楽曲記事は記事ごとの独自デザインが要件(plan/29 9章)。登録された記事別デザイン(designs/)が
+ * 本文の版と一致していればそれで描き、無ければ共通の骨格(このファイルの既定の組版)で描く。
  */
 import React from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
@@ -13,25 +14,11 @@ import { Kicker } from "../components/redesign";
 import ArticleBody from "../components/songArticles/ArticleBody";
 import { buildArticle, buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
-import type { ArticleBlock } from "../utils/songArticles/markdown";
+import type { SongArticlePageContext } from "../components/songArticles/designs/types";
+import { SONG_ARTICLE_DESIGNS } from "../components/songArticles/designs";
 import { formatArticleDate } from "../utils/songArticles/format";
 
-export interface SongArticlePageContext {
-  id: string;
-  slug: string;
-  title: string;
-  songTitle: string;
-  versionLabel: string | null;
-  description: string | null;
-  publishedAt: string | null;
-  updatedAt: string | null;
-  bodyRevision: number;
-  blocks: ArticleBlock[];
-  leadMedia: { index: number; videoId: string; href: string; text: string } | null;
-  songPages: { slug: string; songName: string }[];
-  preview: boolean;
-  noindex: boolean;
-}
+export type { SongArticlePageContext };
 
 const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ pageContext }) => {
   const {
@@ -46,6 +33,14 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
     songPages,
     preview,
   } = pageContext;
+  const Design = pageContext.designId ? SONG_ARTICLE_DESIGNS[pageContext.designId] : undefined;
+  if (Design) {
+    return (
+      <Layout title={title}>
+        <Design {...pageContext} />
+      </Layout>
+    );
+  }
   const published = formatArticleDate(publishedAt);
   const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
 
