@@ -10,7 +10,7 @@ import {
   toTriState,
 } from "../songArticles/importModel";
 import { firstParagraphText, parseArticleMarkdown, youtubeVideoId } from "../songArticles/markdown";
-import { formatArticleDate } from "../songArticles/format";
+import { formatArticleDate, splitAfterComma } from "../songArticles/format";
 import type { PublicationArtifact } from "../songArticles/types";
 
 // 実在する原稿は使わず、小さな検証用データで確かめる(設計書11章)
@@ -239,5 +239,17 @@ describe("designProblems", () => {
   it("帯を置く段落の内容が変わったら使わない", () => {
     const changed = parseArticleMarkdown("# 題\n\n一段落目\n\n書き換えた段落\n");
     expect(designProblems("x", { ...body, blocks: changed.blocks }, manifest).join()).toMatch(/段落\(1\)/);
+  });
+});
+
+describe("splitAfterComma", () => {
+  it("読点の直後で区切り、連結すると元の文字列に戻る", () => {
+    const text = "一つ目の句、二つ目の句、三つ目。";
+    expect(splitAfterComma(text)).toEqual(["一つ目の句、", "二つ目の句、", "三つ目。"]);
+    expect(splitAfterComma(text).join("")).toBe(text);
+  });
+  it("読点で終わる・読点がない文字列もそのまま戻る", () => {
+    expect(splitAfterComma("終わりに読点、")).toEqual(["終わりに読点、"]);
+    expect(splitAfterComma("読点なし")).toEqual(["読点なし"]);
   });
 });

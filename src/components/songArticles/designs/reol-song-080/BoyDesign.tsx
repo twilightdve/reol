@@ -1,9 +1,12 @@
 /**
  * 楽曲記事「Boy」(reol-song-080)の記事別デザイン。設計の根拠は plan/30。
  *
- * - 紙面を「真上から見た床」として扱い、上下を映画の黒帯(シネマスコープ)で挟む。
+ * - 冒頭は黒地の中に題名とMVが入った「映画の始まりの1画面」。そこから記事の床(真上から見た床)へ切り替わる。
  * - 床の色は段落の中では変えず、話の転換点の帯(第5段落の前・結びの前)でだけ「冬の昼」から「夕景」へ移す。
  * - 帯には手拍子の「拍」を置き、結びの前では拍に「声」の線が重なる(装飾。読み上げ対象外)。
+ * - PCでは、題名・MV・一言・欄外の注記を左の軸に、本文をMVの右端にそろえた列に置く(左右非対称)。
+ *   欄外の注記は、段落に関係するサイトの確認済みデータ(収録作・演奏記録)だけ。スマートフォンでは段落の前に置く。
+ * - 結びは読点の位置で句に分けて組み、句の途中で行が分かれないようにする(文言は変えない)。
  * - 締めは映画のエンドクレジットのように、サイトの確認済みデータだけを並べる。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -12,9 +15,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleBody from "../../ArticleBody";
-import { formatArticleDate } from "../../../../utils/songArticles/format";
+import { formatArticleDate, splitAfterComma } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
-import type { SongArticleDesign } from "../types";
+import type { ArticleInline } from "../../../../utils/songArticles/markdown";
+import type { SongArticleDesign, SongArticlePageContext } from "../types";
 import "./boy.css";
 
 type Variant = "a" | "b" | "c";
@@ -25,10 +29,12 @@ const VARIANTS: { key: Variant; label: string }[] = [
   { key: "c", label: "C 一定の床" },
 ];
 
-// 帯を置く段落(designManifest.ts の anchors と対応)
+// 段落の位置(designManifest.ts の anchors と対応)
 const LEDE = 1; // 一言
-const LIVE = 5; // ライヴの記憶の始まり
-const CODA = 8; // 結び
+const RELEASE_NOTE = 2; // 曲の成り立ち(収録作の注記)
+const LIVE = 5; // ライヴの記憶の始まり(帯1・演奏記録の注記)
+const LATEST_NOTE = 6; // 美辞学ツアー(最新の演奏の注記)
+const CODA = 8; // 結び(帯2)
 
 /** 手拍子の拍。等間隔の短い縦線。withVoice で「声」の線が重なる */
 const Beats: React.FC<{ withVoice?: boolean }> = ({ withVoice }) => (
@@ -52,10 +58,11 @@ const FORMAT_LABEL: Record<string, string> = {
   miniAL: "ミニアルバム",
   AL: "アルバム",
 };
-const formatRelease = (r: { title: string; format: string | null; releaseDate: string | null }) =>
-  [r.format ? FORMAT_LABEL[r.format] ?? r.format : null, `『${r.title}』`, r.releaseDate?.replace(/-/g, ".")]
-    .filter(Boolean)
-    .join(" ");
+type Release = SongArticlePageContext["songFacts"]["releases"][number];
+const formatLabel = (r: Release) => (r.format ? FORMAT_LABEL[r.format] ?? r.format : null);
+const dotDate = (d: string | null) => (d ? d.replace(/-/g, ".") : null);
+const formatRelease = (r: Release) =>
+  [formatLabel(r), `『${r.title}』`, dotDate(r.releaseDate)].filter(Boolean).join(" ");
 
 /** 帯が画面に入った時だけ動きを付ける(JSなしでは静止状態のまま) */
 const useRevealOnce = () => {
@@ -85,6 +92,42 @@ const useRevealOnce = () => {
   return { ref, className };
 };
 
+/** 欄外の注記(PCは段落の左、スマートフォンは段落の前) */
+const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
+  <aside className="a080-note">
+    <p className="a080-note__label">{label}</p>
+    <div className="a080-note__body">{children}</div>
+  </aside>
+);
+
+/**
+ * 結びの段落を読点ごとの句に分けて組む。文字列は変えず、テキストを「、」の直後で区切って
+ * 句ごとの span にするだけ(句の途中で行が分かれにくくする)。リンク等のテキスト以外はそのまま。
+ */
+const ClauseText: React.FC<{ nodes: ArticleInline[] }> = ({ nodes }) => {
+  const clauses: React.ReactNode[][] = [[]];
+  nodes.forEach((n, i) => {
+    if (n.t !== "text") {
+      // 結びにテキスト以外が来た場合は、装飾なしの共通描画に任せる(呼び出し側で判定)
+      return;
+    }
+    const parts = splitAfterComma(n.v);
+    parts.forEach((part, j) => {
+      if (j > 0) clauses.push([]);
+      clauses[clauses.length - 1].push(<React.Fragment key={`${i}-${j}`}>{part}</React.Fragment>);
+    });
+  });
+  return (
+    <>
+      {clauses.map((c, k) => (
+        <span key={k} className="a080-clause">
+          {c}
+        </span>
+      ))}
+    </>
+  );
+};
+
 const BoyDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, updatedAt, preview } = ctx;
   const [variant, setVariant] = useState<Variant>(DEFAULT_VARIANT);
@@ -103,6 +146,75 @@ const BoyDesign: SongArticleDesign = (ctx) => {
   const hasName = title.startsWith(NAME);
   const published = formatArticleDate(publishedAt);
   const updated = updatedAt && updatedAt !== publishedAt ? formatArticleDate(updatedAt) : null;
+
+  // 曲が出た年の収録作だけを、曲の成り立ちの段落に添える
+  const firstYear = songFacts.releases[0]?.releaseDate?.slice(0, 4) ?? null;
+  const originReleases = songFacts.releases.filter((r) => firstYear && r.releaseDate?.startsWith(firstYear));
+  const stats = songFacts.stats;
+  const songPage = songPages[0] ?? null;
+
+  const notes: Record<number, React.ReactNode> = {};
+  if (originReleases.length > 0) {
+    notes[RELEASE_NOTE] = (
+      <Note label="リリース">
+        {originReleases.map((r) => (
+          <p key={r.title}>
+            <span className="a080-note__strong">{dotDate(r.releaseDate)}</span>
+            <span>
+              {formatLabel(r)}『{r.title}』
+            </span>
+          </p>
+        ))}
+      </Note>
+    );
+  }
+  if (stats && stats.totalPlays > 0) {
+    notes[LIVE] = (
+      <Note label="ライヴでの演奏">
+        <p>
+          <span className="a080-note__strong a080-note__big">{stats.totalPlays.toLocaleString("ja-JP")}</span>
+          <span>回(通算)</span>
+        </p>
+        {stats.firstPlayedDate && (
+          <p>
+            <span>初披露</span>
+            <span className="a080-note__strong">{dotDate(stats.firstPlayedDate)}</span>
+          </p>
+        )}
+      </Note>
+    );
+  }
+  if (stats?.lastPlayedDate) {
+    notes[LATEST_NOTE] = (
+      <Note label="最新の演奏">
+        <p>
+          <span className="a080-note__strong">{dotDate(stats.lastPlayedDate)}</span>
+        </p>
+        {songPage && (
+          <p>
+            <Link
+              to={`/songs/${songPage.slug}/`}
+              onClick={() => trackEvent("article_song_page_click", { category: "navigation", label: `${id}:note` })}
+            >
+              演奏履歴を見る
+            </Link>
+          </p>
+        )}
+      </Note>
+    );
+  }
+
+  /** 本文の段落を1つずつ、注記があれば左(スマートフォンでは前)に添えて並べる */
+  const rows = (from: number, to: number) =>
+    Array.from({ length: to - from }, (_, k) => from + k).map((i) => (
+      <div key={i} className={`a080-row${notes[i] ? " a080-row--noted" : ""}`}>
+        {notes[i]}
+        <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={i} to={i + 1} unstyled className="a080-row__text" />
+      </div>
+    ));
+
+  const coda = blocks[CODA];
+  const codaIsPlainText = coda?.t === "p" && coda.children.every((n) => n.t === "text");
 
   return (
     <main className="a080" data-variant={variant} lang="ja">
@@ -138,63 +250,74 @@ const BoyDesign: SongArticleDesign = (ctx) => {
         )}
       </div>
 
-      <div className="a080-floor a080-floor--1">
-        <header className="a080-hero">
-          <Beats />
-          <h1 className="a080-title">
-            {hasName ? (
-              <>
-                <span className="a080-title__name">{NAME.trim()}</span>{" "}
-                <span className="a080-title__main">{title.slice(NAME.length)}</span>
-              </>
-            ) : (
-              <span className="a080-title__main">{title}</span>
-            )}
-          </h1>
-          <p className="a080-date">
-            {published ? (
-              <>
-                <time dateTime={publishedAt ?? undefined}>{published}</time> 公開
-                {updated && (
-                  <>
-                    {" ・ "}
-                    <time dateTime={updatedAt ?? undefined}>{updated}</time> 更新
-                  </>
-                )}
-              </>
-            ) : (
-              "公開日未定"
-            )}
-          </p>
-        </header>
-
-        <article className="a080-article">
-          {/* 冒頭のMV(シネマスコープ比)と、一言 */}
+      <article className="a080-article">
+        {/* 映画の始まりの1画面: 黒地に題名とMV */}
+        <div className="a080-opening">
+          <header className="a080-hero">
+            <Beats />
+            <h1 className="a080-title">
+              {hasName ? (
+                <>
+                  <span className="a080-title__name">{NAME.trim()}</span>{" "}
+                  <span className="a080-title__main">{title.slice(NAME.length)}</span>
+                </>
+              ) : (
+                <span className="a080-title__main">{title}</span>
+              )}
+            </h1>
+            <p className="a080-date">
+              {published ? (
+                <>
+                  <time dateTime={publishedAt ?? undefined}>{published}</time> 公開
+                  {updated && (
+                    <>
+                      {" ・ "}
+                      <time dateTime={updatedAt ?? undefined}>{updated}</time> 更新
+                    </>
+                  )}
+                </>
+              ) : (
+                "公開日未定"
+              )}
+            </p>
+          </header>
           <div className="a080-screen">
             <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={0} to={LEDE} unstyled mediaFormat="cinemascope" />
           </div>
+        </div>
+
+        {/* 床(冬の昼) */}
+        <div className="a080-floor a080-floor--1">
           <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a080-lede" />
-          <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE + 1} to={LIVE} unstyled className="a080-body" />
-        </article>
-      </div>
+          <div className="a080-rows">{rows(LEDE + 1, LIVE)}</div>
+        </div>
 
-      {/* 転換点1: 曲の成り立ちから、ライヴの記憶へ。手拍子の拍 */}
-      <div ref={band1.ref} className={`a080-band a080-band--1${band1.className}`}>
-        <Beats />
-      </div>
+        {/* 転換点1: 曲の成り立ちから、ライヴの記憶へ。手拍子の拍 */}
+        <div ref={band1.ref} className={`a080-band a080-band--1${band1.className}`}>
+          <Beats />
+        </div>
 
-      <div className="a080-floor a080-floor--2">
-        <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LIVE} to={CODA} unstyled className="a080-body" />
-      </div>
+        <div className="a080-floor a080-floor--2">
+          <div className="a080-rows">{rows(LIVE, CODA)}</div>
+        </div>
 
-      {/* 転換点2: 結びの前。拍に声が重なる */}
-      <div ref={band2.ref} className={`a080-band a080-band--2${band2.className}`}>
-        <Beats withVoice />
-      </div>
+        {/* 転換点2: 結びの前。拍に声が重なる */}
+        <div ref={band2.ref} className={`a080-band a080-band--2${band2.className}`}>
+          <Beats withVoice />
+        </div>
 
-      <div className="a080-floor a080-floor--3">
-        <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={CODA} to={blocks.length} unstyled className="a080-coda" />
-      </div>
+        <div className="a080-floor a080-floor--3">
+          {codaIsPlainText && coda.t === "p" ? (
+            <div className="a080-coda">
+              <p>
+                <ClauseText nodes={coda.children} />
+              </p>
+            </div>
+          ) : (
+            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={CODA} to={blocks.length} unstyled className="a080-coda" />
+          )}
+        </div>
+      </article>
 
       {/* 下の黒帯: エンドクレジット(サイトの確認済みデータだけ) */}
       <footer className="a080-bar a080-bar--credits">

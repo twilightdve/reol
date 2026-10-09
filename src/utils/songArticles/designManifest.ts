@@ -20,7 +20,7 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // Boy(plan/30)。帯: 第1段落(一言)・第5段落(ライヴの記憶の始まり)・第8段落(結び)
+  // Boy(plan/30)。一言(1)・欄外の注記(2: 収録作、5: 演奏記録、6: 最新の演奏)・帯(5の前、8の前)・結び(8)
   "reol-song-080": {
     bodyRevision: 1,
     bodySha256: "afbffe0ce12f5eea9ea23772460e4f298cce7f5ce52b41687dfb491d4d61f21c",
@@ -28,7 +28,9 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
     anchors: [
       { block: 0, textHash: "793a2b7077106c11" },
       { block: 1, textHash: "c11703ff35a5d5e2" },
+      { block: 2, textHash: "12c1e01e5b55b463" },
       { block: 5, textHash: "f345e08f6a924b09" },
+      { block: 6, textHash: "24b9c17aac23153a" },
       { block: 8, textHash: "f69320f083d6f8e3" },
     ],
   },

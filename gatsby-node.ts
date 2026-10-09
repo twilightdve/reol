@@ -1886,9 +1886,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
           }
         }
+        // 演奏記録(サイトの演奏統計。代表曲の songStats)。対応する曲ページが1つの時だけ使う
+        const statsForFacts =
+          songPages.size === 1 ? statsByUuid.get([...songPages.values()][0].songUuid) ?? null : null;
         const songFacts = {
           lyricMember,
           musicMember,
+          stats: statsForFacts
+            ? {
+                totalPlays: statsForFacts.totalPlays,
+                firstPlayedDate: statsForFacts.firstPlayedDate,
+                lastPlayedDate: statsForFacts.lastPlayedDate,
+              }
+            : null,
           releases: [...releases.values()].sort((a, b) =>
             (a.releaseDate ?? "9999").localeCompare(b.releaseDate ?? "9999")
           ),

@@ -20,6 +20,8 @@ export interface SongArticlePageContext {
     lyricMember: string | null;
     musicMember: string | null;
     releases: { title: string; format: string | null; releaseDate: string | null }[];
+    /** サイトの演奏統計(対応する曲ページが1つの時だけ) */
+    stats: { totalPlays: number; firstPlayedDate: string | null; lastPlayedDate: string | null } | null;
   };
   /** 記事別デザイン(plan/30)。本文の版と一致した時だけ記事IDが入る */
   designId: string | null;
