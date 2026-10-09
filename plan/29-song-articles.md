@@ -1,0 +1,95 @@
+# 29. 楽曲記事(読みもの)の実装
+
+起点: `Reol_記事実装設計書_Claude引継ぎ_v1.docx`(2026-10-09、以下「設計書」)。
+本書は設計書の「実装時に確定」項目をリポジトリ調査で確定した記録と、初回実装(Boy / No title)の範囲・結果をまとめる。
+本文の改稿・公開判断・掲載slug・公開日・著者表示は編集上の決定として**ユーザーに残す**。
+
+## 1. 現行調査の結果(2026-10-09 時点で確認)
+
+| 項目 | 確認結果 | 記事機能での扱い |
+| --- | --- | --- |
+| Gatsby | `gatsby@^5.13.7`(package.json) | 既存のまま拡張。Next.js移行・CMS・DBは入れない |
+| Markdown | `gatsby-transformer-remark` は依存にあるが未設定。既存の `src/data/articles/parseMarkdown.ts` は独自パーサでインラインリンク非対応 | 依存ツリーに既にある `unified@9` + `remark-parse@9` を明示依存にし、ビルド時にmdastへ変換。MDXは不要 |
+| 曲ページ | `/songs/<slug>/`。songStatsのslug、代表uuidは `buildCanonicalUuidMap`(src/utils/songMatcher.ts) | `source_song_uuid` → 代表uuid → 曲ページ。曲名一致は使わない |
+| 多言語 | `isLocalizedRoute` に `/articles/` は含まれない | 記事は日本語のみ。`createPage`(ロケール複製なし) |
+| サイトマップ | `gatsby-plugin-sitemap`。存在するページから生成 | 未公開記事はページ自体を作らない |
+| 公開経路 | ローカル `npm run deploy`(gh-pages)。`scripts/check-deploy-ready.ts` が事前検査 | プレビュー用環境変数が立っていたらデプロイを止める検査を追加 |
+| リポジトリ | GitHub上で**公開**(未認証APIで200) | 未公開本文・Docs/DriveのID・承認記録はgitに入れない |
+| 管理表へのアクセス | repoの `token.json` は別アカウントで管理表を読めない(Sheets API 403) | 手渡しファイル(CSV)を入力にする取込経路を用意 |
+
+## 2. 置き場所と公開/非公開の分離
+
+公開リポジトリのため、設計書4章の「リポジトリへの配置案」を次のように調整した(理由: 未公開原稿をGitHubに出さないため)。
+
+| 場所 | git | 中身 |
+| --- | --- | --- |
+| `.articles-local/inbox/` | 除外 | 手渡し入力。管理表の `記事.csv` `song対応.csv`、掲載用Markdown(Driveのファイル名のまま) |
+| `.articles-local/staging/<article_id>/` | 除外 | 検証済みスナップショット `body.md`、取込記録 `record.json`(版・ハッシュ・文書ID)、編集用 `meta.json` |
+| `.articles-local/reports/` | 除外 | dry-run / 取込結果のレポート |
+| `content/articles/<article_id>/` | **対象** | 公開を決めた記事だけ。`body.md` と公開用 `meta.json`(Docs/DriveのIDを含まない) |
+
+- 通常ビルドは `content/articles/` の `status: "published"` だけを読む。
+- `ARTICLES_PREVIEW=1` のときだけ staging も読み、プレビュー表示(noindex・サイトマップ除外)する。デプロイ前検査はこの変数があると失敗する。
+- 公開(staging → content)は `scripts/articles/publish-song-article.ts` を明示実行したときだけ。slug・公開日が未確定なら拒否する。
+
+## 3. 取込処理(`scripts/articles/import-song-articles.ts`)
+
+1. 管理表CSVを列名で解決(列位置を固定しない)。TRUE/FALSE/空欄 → true/false/null。
+2. 対象 `article_id` を明示指定(既定で全件にはしない)。
+3. 制作データJSONの掲載記録を4種のキー(`publication_markdown` / `markdown_publication` / `markdown_export` / `publication_format`)から正規化。複数あって中身が違えば保留。
+4. 本文版・承認版・掲載記録の `source_revision` / `approved_revision` の一致を確認。本人合格 TRUE 以外は保留(自動合格だけでは公開候補にしない)。
+5. inbox のMarkdownを掲載記録のファイル名で探し、sha256を算出。記録にsha256があれば照合。
+6. song対応から uuid を集め、JSONの `source_song_uuids` との差を報告(管理表には書き戻さない)。
+7. dry-runで 追加/変更/変更なし/保留 を出す。本番実行は一時ディレクトリに書いてから差し替え、失敗時は既存スナップショットを残す。
+
+## 4. 表示
+
+- `/articles/` 一覧、`/articles/<slug>/` 記事。本文はビルド時にmdastから安全な描画用ツリーへ変換し、Reactで描画(生HTMLは描画しない・http/httpsリンクのみ)。
+- 先頭H1をページの唯一のH1として抽出(文言は保持)。冒頭の「MVを観る」リンクは、そのURLが対象曲の `musicVideoUrl` と同じ動画IDのときだけメディア部品にし、リンク自体も残す。
+- メディアはクリックで読み込むYouTube(自動再生なし)。JSなしでも公式リンクとして使える。
+- 曲ページから対応記事への逆引きリンク(公開記事のみ)。
+- デザインは設計書3章の経緯のみ引き継ぎ。今回は既存B案トークン(bx-*)で読みやすさを優先した仮の共通テンプレートとし、記事別の配色・動きは未決(MV等の素材を視聴していないため、見た上での判断はしていない)。
+
+## 5. 初回対象
+
+| article_id | 曲番号 | 曲 | 本文版=承認版 | 掲載形式 | 記録キー | sha256 |
+| --- | --- | --- | --- | --- | --- | --- |
+| reol-song-080 | 095 | Boy | 1 = 1 | 1 | `markdown_publication` | 記録なし(取込時に算出) |
+| reol-song-006 | 006 | No title | 2 = 2 | 1 | `publication_markdown` | 記録と一致 |
+
+### 取込結果(2026-10-09)
+
+- Boy(reol-song-080)・No title(reol-song-006)を staging に取り込み済み(status は review、slug は article_id の仮置き、公開日は未設定)。再実行は「変更なし」で、記事・slug は増えない。
+- 本文・段落順・リンク(Boy 4件 / No title 5件)の文言とリンク先が原文と一致することを照合済み。冒頭のMVリンクはどちらも登録済みの公式MVと動画IDが一致したため、クリックで読み込むメディア部品にした(リンク自体も残す)。
+- song対応のuuid(Boy 3件 / No title 5件)は制作データJSONの `source_song_uuids` と一致。曲ページは `/songs/boy/` `/songs/no-title/` に解決。
+- 本人合格19件の dry-run: 取込可能は上記2件のみ。残りは掲載用Markdownが未入手(14件、必要なファイル名・Drive IDはレポートに出る)、掲載記録なし(secret trip・美辞目録)、`source_revision` 欠落(真空オールドローズ)で保留。Driveのファイル名もIDも記録されていない記事(ミュータント・切っ先・二等星)はLibraryから書き出したファイルを inbox に置けば、ファイル名一致で取り込める。
+
+## 6. 検証結果(2026-10-09)
+
+| 項目 | 結果 |
+| --- | --- |
+| 単体テスト | 全17スイート・101件合格(楽曲記事分27件: 3状態・キー揺れの矛盾・版不一致・H1二重・危険なリンク等を合成データで確認) |
+| 型チェック | `tsc --noEmit` 合格 |
+| プレビュービルド(`ARTICLES_PREVIEW=1`) | 記事2件・一覧を生成。noindex、canonical、静的HTMLに本文あり(JSなしで読める) |
+| 通常ビルド | 記事0件。`public/` 全体(HTML・JS・page-data・サイトマップ)に本文の文・記事URL・文書IDとも0件、`/articles/` 自体なし |
+| 画面 | 320px / 390px / PC で記事・一覧に横はみ出しなし。MVは自動再生せず、クリックでプレイヤーを読み込む |
+| デプロイ前検査 | `ARTICLES_PREVIEW` が立っていると停止することを確認 |
+
+### 見つかった既存の不具合(今回は未修正)
+
+- **静的HTMLにNUL文字(\x00)が混入する**: React 18.3.1 のサーバー描画(`react-dom/server` の `writeStringChunk`)が、2048バイトのバッファ末尾にマルチバイト文字が収まらなかったとき、未使用分の0バイトごとバッファを書き出すため。今回の通常ビルドで473ファイル、本番の既存ページ(例: /songs/boy/)にもある。ブラウザは本文中のNULを無視するため見た目は変わらないが、HTMLとしては不正。Boy記事でも「本人」の間に入る。対処案: ビルド後にHTMLからNULを除去する、または該当箇所のパッチ。別ブランチで扱う。
+- `/songs/no-title/` は 320px で文書幅が366pxになる。はみ出す要素は見当たらず、記事導線のある `/songs/boy/` では起きないため今回の変更とは別要因(原因未特定)。
+
+## 7. 後回し(本書の範囲外)
+
+- トップ・共通ナビの入口: 公開記事が0件のうちは出さない。初回公開時に追加する。
+- 記事別デザイン(Boy / ミュータント等)、検索・カテゴリ・RSS・連載。
+- 残り17件の取込(同じ手順で `--ids` を増やす)。
+- 編集上の決定(ユーザー): 公開する記事と順序、slug、公開日、著者表示、一覧の紹介文(現状は本文の最初の段落を表示)、`/articles/` 一覧の説明文(仮に Claude が書いた1文)。
+
+## 8. 運用手順
+
+1. 管理表の「記事」「song対応」シートをCSVで書き出し、`.articles-local/inbox/記事.csv` `song対応.csv` に置く。掲載用Markdownも同じ場所に置く。
+2. `npm run articles:import -- --ids <article_id,...> --dry-run` で確認 → `--dry-run` を外して実行。
+3. `npm run articles:preview` でローカル確認(staging を含む develop)。
+4. 公開を決めたら `.articles-local/staging/<id>/editorial.json` の slug・slugProposed・publishedAt を決め、`npm run articles:publish -- --id <id> --revision <本文版>`。`content/articles/` の差分を確認してコミット。デプロイはユーザーの指示があるときだけ。

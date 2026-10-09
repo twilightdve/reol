@@ -27,6 +27,8 @@ import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
+import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
+import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1789,6 +1791,127 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const statsSlugByUuid = new Map(songStats.map((s) => [s.songUuid, s.slug]));
     const statsSlugByName = new Map(songStats.map((s) => [s.songName, s.slug]));
 
+    // ----- 楽曲記事(読みもの) /articles/ ・ /articles/<slug>/ (plan/29) -----
+    // 通常ビルドは content/articles の公開記事だけ。ARTICLES_PREVIEW=1 のときだけ staging も含め、
+    // プレビュー記事は noindex(サイトマップからも除外)。未公開記事はページ自体を作らない。
+    // 曲ページとの対応は管理表「song対応」の収録uuid → 代表uuid → 曲ページの順で解決し、曲名では照合しない。
+    const articlesBySongUuid = new Map<string, { slug: string; title: string }[]>();
+    {
+      const songArticles = loadSongArticles(process.cwd());
+      const canonicalSongUuid = buildCanonicalUuidMap(
+        (songResult.data?.discography?.discographyWithSongs ?? []).flatMap((disc) =>
+          disc.songs.map((s) => ({ songUuid: s.songUuid, songName: s.songName }))
+        )
+      );
+      const statsByUuid = new Map(songStats.map((s) => [s.songUuid, s]));
+      const articleTemplate = path.resolve("./src/templates/song-article.tsx");
+      const indexEntries: {
+        slug: string;
+        title: string;
+        songTitle: string;
+        versionLabel: string | null;
+        summary: string | null;
+        publishedAt: string | null;
+        preview: boolean;
+      }[] = [];
+
+      for (const { article, parsed, preview } of songArticles) {
+        const slug = article.slug as string;
+        const songPages = new Map<
+          string,
+          { songUuid: string; slug: string; songName: string; musicVideoUrl: string | null }
+        >();
+        for (const uuid of article.songRefs) {
+          const stats = statsByUuid.get(canonicalSongUuid.get(uuid) ?? uuid);
+          if (stats) {
+            songPages.set(stats.slug, {
+              songUuid: stats.songUuid,
+              slug: stats.slug,
+              songName: stats.songName,
+              musicVideoUrl: stats.musicVideoUrl,
+            });
+          }
+        }
+        if (songPages.size === 0) {
+          console.warn(`[articles] ${article.id}: 対応する曲ページが見つからないため曲ページへのリンクを出しません`);
+        }
+
+        // 冒頭のMVリンクは、登録済みの公式MV(管理表の official_mv か、曲データの MV URL)と
+        // 動画IDが一致するときだけメディア部品にする。一致しなければ本文のリンクのまま
+        let leadMedia: { index: number; videoId: string; href: string; text: string } | null = null;
+        if (parsed.lead) {
+          const leadId = youtubeVideoId(parsed.lead.href);
+          const registered = new Set(
+            [
+              ...article.media.filter((m) => m.role === "official_mv").map((m) => m.url),
+              ...[...songPages.values()].map((p) => p.musicVideoUrl),
+            ]
+              .map((u) => youtubeVideoId(u))
+              .filter((id): id is string => Boolean(id))
+          );
+          if (leadId && registered.has(leadId)) {
+            leadMedia = { index: parsed.lead.index, videoId: leadId, href: parsed.lead.href, text: parsed.lead.text };
+          } else {
+            console.warn(`[articles] ${article.id}: 冒頭リンクが登録済みの公式MVと一致しないため埋め込みにしません`);
+          }
+        }
+
+        const excerpt = article.summary ?? firstParagraphText(parsed);
+        createPage({
+          path: `/articles/${slug}/`,
+          component: articleTemplate,
+          context: {
+            id: article.id,
+            slug,
+            title: parsed.title,
+            songTitle: article.songTitle,
+            versionLabel: article.versionLabel,
+            description: excerpt,
+            publishedAt: article.publishedAt,
+            updatedAt: article.updatedAt,
+            bodyRevision: article.bodyRevision,
+            blocks: parsed.blocks,
+            leadMedia,
+            songPages: [...songPages.values()].map(({ slug: s, songName }) => ({ slug: s, songName })),
+            preview,
+            noindex: preview,
+          },
+        });
+        indexEntries.push({
+          slug,
+          title: parsed.title,
+          songTitle: article.songTitle,
+          versionLabel: article.versionLabel,
+          summary: excerpt,
+          publishedAt: article.publishedAt,
+          preview,
+        });
+        // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
+        for (const page of songPages.values()) {
+          const list = articlesBySongUuid.get(page.songUuid) ?? [];
+          list.push({ slug, title: parsed.title });
+          articlesBySongUuid.set(page.songUuid, list);
+        }
+      }
+
+      if (indexEntries.length > 0) {
+        // 新着順(公開日の降順)。公開日の無いプレビュー記事は末尾
+        indexEntries.sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
+        createPage({
+          path: "/articles/",
+          component: path.resolve("./src/templates/song-articles-index.tsx"),
+          context: {
+            articles: indexEntries,
+            // 公開記事が無くプレビュー記事だけのときは一覧も noindex
+            noindex: indexEntries.every((a) => a.preview),
+          },
+        });
+      }
+      console.log(
+        `[articles] generated ${indexEntries.length} article pages${isArticlesPreview() ? " (ARTICLES_PREVIEW: staging を含む)" : ""}`
+      );
+    }
+
     // discographyUuid → 収録アルバムのインタビュー/関連ポスト(楽曲詳細ページに転載)
     const reportsByDiscUuid = new Map(
       (songResult.data?.discography?.discographyWithSongs ?? []).map((disc) => [
@@ -1866,6 +1989,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             ? releaseDateByDiscUuid.get(song.discographyUuid) ?? null
             : null,
           plays: song.plays,
+          articles: articlesBySongUuid.get(song.songUuid) ?? [],
         },
       });
     });

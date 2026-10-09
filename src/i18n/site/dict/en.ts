@@ -216,6 +216,7 @@ const en: SiteDict = {
     stream: "Listen on streaming",
     lyricsLink: "Lyrics (Uta-Net, Japanese)",
     watchMv: "Watch the official MV",
+    articles: "Read about this song (in Japanese)",
     shareTitle: "Share this song page on X",
     share: "Share on X",
     historyKicker: (n: string) => `PERFORMANCE HISTORY — ${n}`,

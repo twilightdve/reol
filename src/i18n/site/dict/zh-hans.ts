@@ -211,6 +211,7 @@ const zhHans: SiteDict = {
     stream: "在流媒体收听",
     lyricsLink: "查看歌词(歌ネット，日文)",
     watchMv: "观看官方 MV",
+    articles: "关于这首歌的文章(日文)",
     shareTitle: "在 X 分享这首歌的页面",
     share: "在 X 分享",
     historyKicker: (n: string) => `PERFORMANCE HISTORY — ${n} 条`,

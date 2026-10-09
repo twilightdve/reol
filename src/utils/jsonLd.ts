@@ -172,3 +172,44 @@ export const buildFaqPage = (entries: FaqEntry[]) => ({
     },
   })),
 });
+
+type ArticleInput = {
+  headline: string;
+  /** サイトルートからの絶対パス(例: '/articles/xxx/') */
+  path: string;
+  description?: string | null;
+  /** 記事の初回公開日(原曲の発売日ではない) */
+  datePublished: string;
+  dateModified?: string | null;
+  /** 記事が扱う曲名(about に MusicRecording として出す) */
+  songName: string;
+};
+
+/**
+ * 楽曲記事(plan/29)の Article。著者表示は未確定のため author は出さない。
+ * 画面に出している公開日・更新日・タイトルと同じ値だけを渡すこと。
+ */
+export const buildArticle = ({
+  headline,
+  path,
+  description,
+  datePublished,
+  dateModified,
+  songName,
+}: ArticleInput) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline,
+  url: `${SITE_URL}${path}`,
+  mainEntityOfPage: `${SITE_URL}${path}`,
+  inLanguage: "ja",
+  ...(description ? { description } : {}),
+  datePublished,
+  ...(dateModified ? { dateModified } : {}),
+  about: {
+    "@type": "MusicRecording",
+    name: songName,
+    byArtist: REOL_PERFORMER,
+  },
+  isPartOf: { "@type": "WebSite", name: "!Legit｜Reol Unofficial Fansite", url: `${SITE_URL}/` },
+});
