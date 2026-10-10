@@ -9,7 +9,8 @@
  *   前へ巻き、針が前を向く。2026-10-11 ユーザー指定)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
  * - 長い段落を色の面(紺黒・赤)に丸ごと入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、段落は地の文のまま、
- *   特徴的な一文だけを抜き出して色の面に大きく置く: 「プレイヤー」の段落の一文は紺黒のカードに、結びの一文は深い赤の締めの帯に。
+ *   短い言葉だけを色の面に大きく置く: 積み重ねたことへの信頼を語る段落の下に「あたしはあたしのプレイヤー」(紺黒とマス目。ユーザー指定)、
+ *   結びの一文は深い赤の締めの帯に。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
  *
@@ -154,9 +155,11 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
     const sentences = text.split("。").filter((x) => x !== "").map((x) => `${x}。`);
     return sentences[k] ?? null;
   };
-  // 「プレイヤー」の段落の2文目と、結びの3文目(どちらも書き手の言葉。歌詞は抜き出さない)
-  const playerPull = sentenceOf(PLAYER, 1);
+  // 結びの3文目(書き手の言葉)
   const finalePull = sentenceOf(FINALE, 2);
+  // 題名の「――」以下(あたしはあたしのプレイヤー)。積み重ねたことへの信頼を語る段落の下に、紺黒とマス目の背景で大きく示す
+  // (歌詞の言葉。題名・本文の引用と同じ言葉で、2026-10-11 ユーザー指定)
+  const playerLine = titleRest.replace(/^―+/, "").trim() || null;
   const body = (from: number, to: number, className = "a087-row__text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -233,16 +236,13 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           <section className="a087-row a087-row--past">
             <div className="a087-past">
               {body(PAST, PAST + 1)}
-              {/* 「プレイヤー」の段落: 段落は地の文のまま、特徴的な一文だけを紺黒のカードに抜き出す(PCは右の列、スマートフォンは段落の後)。
-                  抜き出しは本文の繰り返しなので読み上げ対象外 */}
-              <div className="a087-player">
-                {body(PLAYER, PLAYER + 1)}
-                {playerPull && (
-                  <p className="a087-pull" aria-hidden="true">
-                    <Phrased text={playerPull} />
-                  </p>
-                )}
-              </div>
+              {/* 紺黒とマス目の背景に「あたしはあたしのプレイヤー」(題名・本文の引用と同じ言葉なので読み上げ対象外) */}
+              {playerLine && (
+                <p className="a087-statement" aria-hidden="true">
+                  <Phrased text={playerLine} />
+                </p>
+              )}
+              <div className="a087-player">{body(PLAYER, PLAYER + 1)}</div>
               <div className="a087-create">{body(CREATE, FINALE)}</div>
               {/* 感情を創造へ の段落(その貪欲さ)の下に、記号のサソリ(尾 = 積み重ねた節の先に針)。2026-10-11 ユーザー指定 */}
               <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
