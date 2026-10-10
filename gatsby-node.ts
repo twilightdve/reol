@@ -31,7 +31,7 @@ import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/lo
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
-import { ARTICLE_SERIES, SONG_ARTICLE_SERIES, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
+import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1576,26 +1576,18 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
 
   const context = (page.context ?? {}) as Record<string, unknown>;
 
-  // HOME の「読みもの」欄(2026-10-11): 公開済みの楽曲記事(プレビューでは確認中も含む)を新しい順に最大3本渡す。
+  // HOME の「読みもの」欄(2026-10-11): HOME_ARTICLE_IDS の記事を、その順に渡す(公開済みの記事だけ。プレビューでは確認中も含む)。
   // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
     let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null }[] = [];
     try {
-      homeArticles = loadSongArticles(process.cwd())
-        .map(({ article, parsed }) => ({
-          slug: article.slug as string,
-          title: parsed.title,
-          songTitle: article.songTitle,
-          createdAt: article.createdAt ?? null,
-          publishedAt: article.publishedAt ?? null,
-        }))
-        .sort(
-          (a, b) =>
-            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
-            (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
-        )
-        .slice(0, 3)
-        .map(({ publishedAt: _p, ...rest }) => rest);
+      const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
+      homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
+        const a = byId.get(id);
+        return a
+          ? [{ slug: a.article.slug as string, title: a.parsed.title, songTitle: a.article.songTitle, createdAt: a.article.createdAt ?? null }]
+          : [];
+      });
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
     }

@@ -52,3 +52,9 @@ export const songArticleTags = (input: {
 /** 一覧の絞り込み URL(タグは日本語を含むのでエンコードする) */
 export const tagFilterPath = (tag: string): string => `/articles/?tag=${encodeURIComponent(tag)}`;
 export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
+
+/**
+ * HOME の「読みもの」欄に出す記事と順番(記事ID)。2026-10-11 ユーザー指定: No title → 1LDK → Boy。
+ * まだ公開されていない記事(通常ビルド)や未完成(draft)の記事は飛ばす。1本も無ければ欄を出さない。
+ */
+export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-076", "reol-song-080"];
