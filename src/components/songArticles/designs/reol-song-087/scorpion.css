@@ -331,10 +331,11 @@
   margin-bottom: 20px;
   background: var(--red);
 }
-/* 記号のサソリ: 冒頭の段落の上に置く */
+/* 記号のサソリ: 冒頭の段落の上、冒頭の文章の列(最大 640px)の横中央に置く */
 .a087-tail-wrap {
-  width: clamp(132px, 38vw, 184px);
-  margin: 0 0 clamp(20px, 3vw, 28px);
+  --sc-w: clamp(150px, 44vw, 220px);
+  width: var(--sc-w);
+  margin: 0 0 clamp(20px, 3vw, 32px) max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
 }
 .a087-scorpion {
   display: block;
@@ -349,18 +350,12 @@
   stroke: var(--paper);
   stroke-width: 3;
 }
-.a087-sc__arm,
-.a087-sc__claw {
+.a087-sc__arm {
   fill: none;
   stroke: var(--red);
+  stroke-width: 13;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-.a087-sc__arm {
-  stroke-width: 11;
-}
-.a087-sc__claw {
-  stroke-width: 14;
 }
 /* 画面に入った時に一度だけ、胴とはさみ → 尾の節(根元から順に) → 針。
    節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
