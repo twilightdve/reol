@@ -1,0 +1,303 @@
+/*
+ * 楽曲記事「1LDK」(reol-song-076)の記事別デザイン(見本 v1)。根拠は plan/35。
+ * すべて .a076 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --room 暗い部屋(表紙。『金字塔』のテーマ色の灰 #57585D を沈めたもの) / --sand 砂色(テーマ色 #D4B193。額縁・光)
+ *   --dusk → --dawn 本文の地(上から下へ明るくなる) / --ink 本文 / --ink-2 補足 / --link リンク(砂色を濃くした茶)
+ */
+
+.a076 {
+  --room: #222125;
+  --sand: #d4b193;
+  --dusk: #e2ded7;
+  --dawn: #f8f4ec;
+  --ink: #1d1c20;
+  --ink-2: #4f5055;
+  --link: #6e4f2a;
+  --on-room: #f3eee6;
+  --on-room-2: #c9c3b8;
+  --column: min(640px, calc(100% - 40px));
+
+  color: var(--ink);
+  background: var(--dawn);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 暗い部屋と、奥へ連なる額縁 ---------- */
+.a076-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--on-room);
+  background: var(--room);
+  min-height: clamp(560px, 92svh, 780px);
+  display: flex;
+  flex-direction: column;
+}
+.a076-tunnel {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* 題名・日付・リンクの後ろ(表紙の下側)を部屋の暗さで沈め、額縁の線が文字の後ろで目立たないようにする(手前ほど暗い部屋) */
+.a076-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgb(34 33 37 / 0.94) 0%, rgb(34 33 37 / 0.82) 30%, rgb(34 33 37 / 0) 58%);
+}
+.a076-tunnel__frame {
+  fill: none;
+  stroke: var(--sand);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.a076-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a076-crumbs {
+  display: flex;
+  gap: 8px;
+  color: var(--on-room-2);
+}
+.a076-crumbs a {
+  color: var(--on-room-2);
+  text-decoration: none;
+}
+.a076-crumbs a:hover,
+.a076-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a076-preview {
+  margin: 0;
+  color: #ffd98a;
+}
+/* 題名は手前(左下)に。奥の光と重ならないよう、下に寄せる */
+.a076-cover__body {
+  width: min(1040px, calc(100% - 40px));
+  margin: auto auto 0;
+  padding: 0 0 clamp(40px, 7vw, 80px);
+}
+.a076-title {
+  max-width: 14em;
+  margin: 0;
+  font-size: clamp(30px, 6vw, 56px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt";
+  word-break: auto-phrase;
+  text-wrap: balance;
+  /* 額縁の線の上でも読めるよう、文字のまわりだけ部屋の色で沈める */
+  text-shadow: 0 0 18px var(--room), 0 0 6px var(--room);
+}
+.a076-date {
+  width: fit-content;
+  margin: 16px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--on-room-2);
+  text-shadow: 0 0 8px var(--room);
+}
+.a076-cover__link {
+  margin-top: 28px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.a076-cover__link p {
+  margin: 0;
+}
+.a076-cover__link a {
+  display: inline-block;
+  padding: 10px 16px;
+  color: var(--on-room);
+  background: rgb(34 33 37 / 0.72);
+  border: 1px solid rgb(212 177 147 / 0.6);
+  text-decoration: none;
+}
+.a076-cover__link a::after {
+  content: " →";
+}
+.a076-cover__link a:hover {
+  border-color: var(--sand);
+  color: #fff;
+}
+
+/* ---------- 本文: 上から下へ明るくなる地 ---------- */
+.a076-ground {
+  background: linear-gradient(180deg, var(--dusk) 0%, var(--dawn) 72%);
+  background: linear-gradient(in oklab 180deg, var(--dusk) 0%, var(--dawn) 72%);
+  padding-top: clamp(56px, 9vw, 112px);
+}
+.a076-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a076-lede {
+  margin: 0 0 clamp(40px, 6vw, 64px);
+  padding-left: 18px;
+  border-left: 3px solid var(--sand);
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+}
+.a076-lede p,
+.a076-text p {
+  margin: 0;
+}
+.a076-text {
+  font-size: 17px;
+  line-height: 2;
+  text-align: justify;
+  line-break: strict;
+}
+.a076-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a076-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+/* 注記は段落の前に、小さく(PCでも本文の列の外には出さない: 1列で静かに読ませる) */
+.a076-note {
+  margin: 0 0 16px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.a076-note p {
+  margin: 0;
+}
+.a076-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a076-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+}
+/* 中心の段落: 装飾を置かず、行間と前後の余白を広げる */
+.a076-story {
+  margin: clamp(64px, 10vw, 112px) 0;
+  line-height: 2.25;
+}
+/* 結び: 壁に並ぶ空の額 */
+.a076-last {
+  padding-bottom: clamp(56px, 9vw, 104px);
+}
+.a076-wall {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 clamp(24px, 4vw, 40px);
+}
+.a076-wall__outer {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2;
+}
+.a076-wall__inner {
+  stroke: var(--ink-2);
+  stroke-width: 1;
+  stroke-opacity: 0.5;
+}
+.a076-wall__frame.is-lit .a076-wall__outer {
+  stroke: var(--sand);
+  stroke-width: 3;
+}
+.a076-wall__glow {
+  fill: var(--sand);
+  fill-opacity: 0.22;
+}
+
+/* ---------- 奥付 ---------- */
+.a076-colophon {
+  width: var(--column);
+  margin: 0 auto;
+  padding: 28px 0 clamp(48px, 8vw, 88px);
+  border-top: 1px solid rgb(79 80 85 / 0.35);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a076-colophon__list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.a076-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a076-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.a076-colophon dd {
+  margin: 0;
+}
+.a076-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a076-next {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+/* ---------- フォーカス ---------- */
+.a076 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a076-cover a:focus-visible {
+  outline-color: #ffd98a;
+}
+
+@media (max-width: 640px) {
+  .a076-text {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+  .a076-story {
+    line-height: 2.15;
+  }
+}
+@media print {
+  .a076-cover {
+    color: #000;
+    background: #fff;
+    min-height: 0;
+  }
+  .a076-tunnel {
+    display: none;
+  }
+}

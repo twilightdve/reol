@@ -26,3 +26,14 @@ describe("読みものの分類(plan/33)", () => {
     expect(tagFilterPath("極彩色")).toBe("/articles/?tag=%E6%A5%B5%E5%BD%A9%E8%89%B2");
   });
 });
+
+import { splitPhrases } from "../songArticles/format";
+
+describe("句の切れ目(splitPhrases)", () => {
+  it("ひらがなの後に漢字・英字・括弧が来る所で分け、つなげると元に戻る", () => {
+    expect(splitPhrases("1LDKが自分の歌になるとき")).toEqual(["1LDKが", "自分の", "歌になるとき"]);
+    const s = "「1LDK」は、MCと重ねて聴いたときの記憶が離れない。";
+    expect(splitPhrases(s)).toEqual(["「1LDK」は、", "MCと", "重ねて", "聴いたときの", "記憶が", "離れない。"]);
+    expect(splitPhrases(s).join("")).toBe(s);
+  });
+});

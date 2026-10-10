@@ -79,4 +79,16 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 3, textHash: "4f1ce84965b75cb5" },
     ],
   },
+  // 1LDK(plan/35)。一言(1)・注記(2: リリース)・装飾なしの中心の段落(3)・壁の額と結び(4)
+  "reol-song-076": {
+    bodyRevision: 1,
+    bodySha256: "bc2532e71a9a3fed0a4750a04ed1ed2da6e1998a4c2fae230c6ccef30343d0ce",
+    blockCount: 5,
+    anchors: [
+      { block: 1, textHash: "6c2c4bb4664017ab" },
+      { block: 2, textHash: "27c0f9b0f7425ddb" },
+      { block: 3, textHash: "0f529b255a44dce9" },
+      { block: 4, textHash: "e80b277233f51a57" },
+    ],
+  },
 };

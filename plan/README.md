@@ -42,6 +42,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [32-monster-article-design.md](./32-monster-article-design.md) | 楽曲記事「MONSTER」の記事別デザイン: 2025年のライブ映像の黒い積乱雲とカラスから、怪物を内側から湧く嵐として描く |
 | [33-articles-series-tags.md](./33-articles-series-tags.md) | 読みものの分類: シリーズ(楽曲記事は「曲を読む」)+タグ(作品・年など)、一覧の絞り込み・シリーズのページ・記事末尾の帯 |
 | [34-scorpion-article-design.md](./34-scorpion-article-design.md) | 楽曲記事「SCORPION」の記事別デザイン: 文字のポスター(紺黒・深い赤・生成り)と、積み重ねた過去を表すサソリの尾 |
+| [35-1ldk-article-design.md](./35-1ldk-article-design.md) | 楽曲記事「1LDK」の記事別デザイン: 暗い部屋から朝の光へ、奥へ連なる額縁と壁の額 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 
