@@ -342,20 +342,54 @@
   width: 100%;
   height: auto;
 }
-.a087-sc__body {
+.a087-sc__fill {
+  fill: var(--red);
+}
+.a087-sc__seg {
   fill: var(--red);
   stroke: var(--paper);
   stroke-width: 2.5;
 }
-.a087-sc__sting {
-  fill: var(--red);
+/* 節の境目(胴): 地の色の細い弧 */
+.a087-sc__seam {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 2.5;
+  stroke-linecap: round;
 }
-.a087-sc__legs {
+.a087-sc__leg,
+.a087-sc__arm {
   fill: none;
   stroke: var(--red);
-  stroke-width: 7;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.a087-sc__leg {
+  stroke-width: 5;
+}
+.a087-sc__leg--near {
+  stroke-width: 7;
+}
+.a087-sc__arm {
+  stroke-width: 12;
+}
+.a087-sc__arm--far {
+  stroke-width: 9;
+}
+/* 奥側は淡く(奥行き) */
+.a087-sc__far {
+  opacity: 0.72;
+}
+.a087-tail-wrap.is-visible .a087-sc__far.a087-sc__part {
+  animation-name: a087-stack-far;
+}
+@keyframes a087-stack-far {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.72;
+  }
 }
 /* 画面に入った時に一度だけ、脚・胴 → はさみ → 尾の節(根元から順に) → 針。
    節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
