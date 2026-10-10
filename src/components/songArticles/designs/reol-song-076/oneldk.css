@@ -161,11 +161,15 @@
 .a076-video__title {
   font-weight: 600;
 }
+/* 映像は窓枠に収める: 外側の太い線と、内側の細い線(結びの壁の額と同じ二重の枠) */
 .a076-video .sa-media {
   margin: 0;
+  padding: clamp(8px, 1.6vw, 12px);
+  border: 2px solid var(--ink-2);
 }
 .a076-video .sa-media__frame {
-  box-shadow: 0 0 0 1px rgb(79 80 85 / 0.25), 0 16px 40px rgb(34 33 37 / 0.18);
+  outline: 1px solid rgb(79 80 85 / 0.5);
+  outline-offset: clamp(3px, 0.8vw, 5px);
 }
 .a076-video .sa-media__thumb {
   opacity: 1;
@@ -180,8 +184,33 @@
   color: var(--ink);
 }
 .a076-video .sa-media__caption {
-  margin-top: 10px;
+  margin-top: clamp(12px, 2vw, 16px);
   font-size: 13px;
+}
+/* まとまりの区切りの小さな窓枠(中央) */
+.a076-window {
+  width: 40px;
+  margin: 0 auto clamp(40px, 6vw, 64px);
+}
+.a076-window svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a076-window__glow {
+  fill: var(--sand);
+}
+.a076-window__outer {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2.5;
+}
+.a076-window__inner {
+  fill: #f3e2c3;
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+  stroke-opacity: 0.6;
 }
 .a076-group .a076-video {
   margin: 1.7em 0;

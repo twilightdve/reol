@@ -7,6 +7,8 @@
  * - 書き手自身の体験の段落(8〜9)は装飾を置かず、行間と余白を広げて静かに組む(書き手の家族の話を含むため)。
  * - 結び: 最後の段落の前に、壁に並ぶ空の額縁。最後の1つだけが光っている(本文版2: 憧れていた人が、書き手にとっての支えになっていた)。
  * - 松本公演の段落(6)の前に、その日の公演の注記(サイトの公演記録)。
+ * - 窓枠の演出(2026-10-11 ユーザー「窓枠の演出を増やして」): 映像は二重の枠(壁の額と同じ形)に収め、
+ *   まとまりの区切りに小さな窓枠を置く。窓の中は記事が進むほど明るくなる。
  * - 冒頭のライヴ映像はサイトに登録された映像ではないので、埋め込みにせず本文のリンクのまま。
  * - 注記と奥付は、サイトの確認済みデータだけ。
  *
@@ -63,6 +65,20 @@ const Video: React.FC<{ label: string; title?: string; date?: string; videoId: s
     </figcaption>
     <OfficialMedia videoId={videoId} href={href} text={text} articleId={articleId} unstyled />
   </figure>
+);
+
+/**
+ * まとまりの区切りに置く小さな窓枠(二重の枠)。light(0〜1)で窓の中の明るさが変わり、記事が進むほど明るくなる
+ * (暗い部屋から朝の光へ)。装飾なので読み上げ対象外。
+ */
+const WindowMark: React.FC<{ light: number }> = ({ light }) => (
+  <div className="a076-window" aria-hidden="true">
+    <svg viewBox="0 0 48 60">
+      <rect className="a076-window__glow" x={-6} y={-6} width={60} height={72} rx={12} style={{ opacity: 0.5 * light }} />
+      <rect className="a076-window__outer" x={2} y={2} width={44} height={56} />
+      <rect className="a076-window__inner" x={8} y={8} width={32} height={44} style={{ fillOpacity: light }} />
+    </svg>
+  </div>
 );
 
 /** 奥へ連なる額縁。手前から奥へ縮みながら、少し右上の一点へ寄っていく。いちばん奥だけが光る。装飾なので読み上げ対象外 */
@@ -228,6 +244,8 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               )}
             </div>
 
+            <WindowMark light={0} />
+
             {/* 歌詞の読み。その後に LIVE VIDEO #1(2020年) */}
             <div className="a076-group">{body(LYRICS, LIVE)}</div>
             <Video
@@ -239,6 +257,8 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               text="「1LDK」Special Live from YouTube Space Tokyo を観る"
               articleId={id}
             />
+
+            <WindowMark light={0.35} />
 
             {/* ライヴでの変化。松本公演の段落の前に、その日の公演の注記 */}
             <div className="a076-group">
@@ -276,8 +296,12 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               {body(MATSUMOTO, STORY)}
             </div>
 
+            <WindowMark light={0.65} />
+
             {/* 書き手の体験: 装飾を置かず、余白をとって静かに */}
             {body(STORY, CLOSING, "a076-text a076-story")}
+
+            <WindowMark light={1} />
 
             {/* 結び。最後の段落の前に、壁に並ぶ空の額(最後の1つだけが光っている) */}
             <div className="a076-last">
