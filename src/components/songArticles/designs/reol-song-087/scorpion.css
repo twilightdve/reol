@@ -343,11 +343,11 @@
   margin-bottom: 20px;
   background: var(--red);
 }
-/* 記号のサソリ: 冒頭の段落の上、冒頭の文章の列(最大 640px)の横中央に置く */
+/* 記号のサソリ: 積み重ねたことへの信頼を語る段落の下、本文の列(最大 640px)の横中央に置く */
 .a087-tail-wrap {
   --sc-w: clamp(150px, 44vw, 220px);
   width: var(--sc-w);
-  margin: 0 0 clamp(20px, 3vw, 32px) max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
+  margin: clamp(28px, 4vw, 40px) 0 0 max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
 }
 .a087-scorpion {
   display: block;

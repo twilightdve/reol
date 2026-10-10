@@ -5,7 +5,7 @@
  *   色はサイトのテーマ色(深い赤 #85313B・紺黒 #0F1923)と生成り。VALORANT の赤・ロゴ・キャラクターは使わない。
  * - 表紙: 紺黒にマス目。題名の曲名を輪郭だけの大きな文字で、「――」以下を極太で重ねる。
  * - 本文版2(2026-10-11): 冒頭は大きめに、引用の二行は本文の引用として赤の縦線で(歌詞なので装飾文字にはしない)、
- *   冒頭の段落(自信の根拠はこれまでやってきたこと)の上、横中央に、大きなはさみ2本と尾だけの記号のサソリ(胴はなし。尾は節が積み重なって
+ *   積み重ねたことへの信頼を語る段落の下、横中央に、大きなはさみ2つと尾だけの記号のサソリ(胴・腕はなし。尾は節が積み重なって
  *   前へ巻き、針が前を向く。2026-10-11 ユーザー指定)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
  * - 長い段落を色の面(紺黒・赤)に丸ごと入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、段落は地の文のまま、
@@ -26,10 +26,10 @@ import type { SongArticleDesign } from "../types";
 import "./scorpion.css";
 
 // 段落の位置(designManifest.ts の anchors と対応。本文版2)
-const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに。上に記号のサソリ)
+const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに)
 const INTRO = 2; // 二行の紹介(リリースの注記)
 const QUOTE = 3; // 引用の二行(本文の引用として。装飾文字にはしない)
-const PAST = 4; // 積み重ねたことへの信頼
+const PAST = 4; // 積み重ねたことへの信頼(下に記号のサソリ)
 const PLAYER = 5; // 「プレイヤー」の意味(紺黒のカード)
 const CREATE = 6; // 感情を創造へ(赤の短い線から)
 const FINALE = 7; // 結び(赤の帯。聴いて気持ちが高まる)
@@ -197,11 +197,8 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
         </header>
 
         <div className="a087-ground">
-          {/* 冒頭: 大きめに。上に記号のサソリ(尾 = 積み重ねた節の先に針。自信の根拠は、これまでやってきたこと) */}
+          {/* 冒頭: 大きめに */}
           <div className="a087-row a087-row--lede">
-            <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
-              <Scorpion />
-            </div>
             {ledeText ? (
               <div className="a087-lede">
                 <p>
@@ -236,6 +233,10 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           <section className="a087-row a087-row--past">
             <div className="a087-past">
               {body(PAST, PAST + 1)}
+              {/* 積み重ねたことへの信頼を語る段落の下に、記号のサソリ(尾 = 積み重ねた節の先に針)。2026-10-11 ユーザー指定 */}
+              <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
+                <Scorpion />
+              </div>
               {/* 「プレイヤー」の段落: 段落は地の文のまま、特徴的な一文だけを紺黒のカードに抜き出す(PCは右の列、スマートフォンは段落の後)。
                   抜き出しは本文の繰り返しなので読み上げ対象外 */}
               <div className="a087-player">
