@@ -334,30 +334,35 @@
 /* サソリの尾: スマートフォンは小さく右に置き、冒頭の文章を回り込ませる */
 .a087-tail-wrap {
   float: right;
-  width: clamp(84px, 24vw, 120px);
-  margin: 4px 0 8px 14px;
+  width: clamp(120px, 38vw, 170px);
+  margin: 4px 0 8px 12px;
 }
-.a087-tail {
+.a087-scorpion {
   display: block;
   width: 100%;
   height: auto;
 }
-.a087-tail__seg {
+.a087-sc__body {
   fill: var(--red);
   stroke: var(--paper);
-  stroke-width: 3;
+  stroke-width: 2.5;
 }
-.a087-tail__sting {
+.a087-sc__sting {
   fill: var(--red);
 }
-/* 画面に入った時に一度だけ、節が根元から順に積み上がり、最後に針 */
-/* 節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
-.a087-tail-wrap.is-armed .a087-tail__seg,
-.a087-tail-wrap.is-armed .a087-tail__sting {
+.a087-sc__legs {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* 画面に入った時に一度だけ、脚・胴 → はさみ → 尾の節(根元から順に) → 針。
+   節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
+.a087-tail-wrap.is-armed .a087-sc__part {
   opacity: 0;
 }
-.a087-tail-wrap.is-visible .a087-tail__seg,
-.a087-tail-wrap.is-visible .a087-tail__sting {
+.a087-tail-wrap.is-visible .a087-sc__part {
   animation: a087-stack 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: calc(var(--i) * 90ms);
 }
@@ -394,11 +399,12 @@
     grid-column: 1;
     grid-row: 1;
   }
+  /* 右の列は下の注記と同じ幅(220px)にそろえる */
   .a087-tail-wrap {
     grid-column: 2;
     grid-row: 1;
     float: none;
-    width: 170px;
+    width: 220px;
     margin: 0;
   }
   .a087-row--past {

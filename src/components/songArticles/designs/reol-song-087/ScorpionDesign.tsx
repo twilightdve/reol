@@ -5,7 +5,8 @@
  *   色はサイトのテーマ色(深い赤 #85313B・紺黒 #0F1923)と生成り。VALORANT の赤・ロゴ・キャラクターは使わない。
  * - 表紙: 紺黒にマス目。題名の曲名を輪郭だけの大きな文字で、「――」以下を極太で重ねる。
  * - 本文版2(2026-10-11): 冒頭は大きめに、引用の二行は本文の引用として赤の縦線で(歌詞なので装飾文字にはしない)、
- *   冒頭の段落(自信の根拠はこれまでやってきたこと)の右に「サソリの尾」: 節が下から積み重なって上で前へ巻き、針が前を向く(2026-10-11 ユーザー指定)。
+ *   冒頭の段落(自信の根拠はこれまでやってきたこと)の右に「サソリ」(全身。尾は節が積み重なって背中の上で前へ巻き、針が前を向く。
+ *   2026-10-11 ユーザー指定で、尾だけから全身に)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
  * - 結び(聴いて気持ちが高まる)は深い赤の帯に。後ろに輪郭だけの曲名を反復させる(装飾。読み上げ対象外)。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
@@ -24,7 +25,7 @@ import type { SongArticleDesign } from "../types";
 import "./scorpion.css";
 
 // 段落の位置(designManifest.ts の anchors と対応。本文版2)
-const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに。右にサソリの尾)
+const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに。右にサソリ)
 const INTRO = 2; // 二行の紹介(リリースの注記)
 const QUOTE = 3; // 引用の二行(本文の引用として。装飾文字にはしない)
 const PAST = 4; // 積み重ねたことへの信頼
@@ -32,27 +33,62 @@ const PLAYER = 5; // 「プレイヤー」の意味(紺黒のカード)
 const CREATE = 6; // 感情を創造へ(赤の短い線から)
 const FINALE = 7; // 結び(赤の帯。聴いて気持ちが高まる)
 
-/** サソリの尾の節 [中心x, 中心y, 向き(度), 長さ, 太さ]。根元(下)から先端へ。.articles-local/tmp/tail.py で生成 */
-const SEGMENTS: [number, number, number, number, number][] = [
-  [60.3, 385.2, -95.8, 64, 50],
-  [56.3, 325.4, -91.8, 60, 47],
-  [56.7, 269.4, -87.4, 56, 44],
-  [61.2, 217.6, -82.3, 52, 41],
-  [70.2, 170.0, -75.9, 49, 38],
-  [84.5, 126.8, -66.4, 46, 35],
-  [106.6, 90.7, -47.9, 43, 32],
-  [140.6, 73.1, 0.5, 40, 29],
-  [172.9, 88.1, 43.1, 37, 26],
+/** サソリの尾の節 [中心x, 中心y, 向き(度), 長さ, 太さ]。根元(胴の後ろ)から針へ。.articles-local/tmp/scorpion.py で生成 */
+const TAIL: [number, number, number, number, number][] = [
+  [115.8, 197.0, -120.5, 44, 30],
+  [101.7, 159.2, -100.2, 41, 28],
+  [101.6, 121.4, -79.5, 39, 26],
+  [114.9, 88.2, -56.2, 37, 24],
+  [139.3, 64.9, -30.9, 35, 22],
+  [169.2, 54.0, -9.9, 33, 20],
+];
+/** 胴(後体部)の節 [左端x, 高さ]。前ほど高い */
+const BODY: [number, number][] = [
+  [113, 34],
+  [135, 36.4],
+  [157, 38.8],
+  [179, 41.2],
+  [201, 43.6],
+  [223, 46],
+];
+/** 脚(手前側の4本) [付け根x, 足先までの横のずれ]。関節で外へ曲がって地面につく */
+const LEGS: [number, number][] = [
+  [204, -36],
+  [222, -18],
+  [244, 10],
+  [266, 32],
 ];
 
-/** サソリの尾(オリジナルの線画)。積み重ねた節(過去)の先に針(今の武器)。装飾なので読み上げ対象外 */
-const ScorpionTail: React.FC = () => (
-  <svg className="a087-tail" viewBox="0 0 240 420" aria-hidden="true">
-    {SEGMENTS.map(([x, y, a, l, w], i) => (
+/**
+ * サソリの全身(オリジナルの線画。真横から見た姿)。体は水平、尾は後ろから背中の上へ巻き上がり、針が前を向く。
+ * 尾 = 積み重ねた節(これまでやってきたこと)の先に針(今の武器)。装飾なので読み上げ対象外。
+ * 画面に入った時に一度だけ、脚・胴 → はさみ → 尾の節(根元から順に) → 針 の順に現れる(--i が順番)。
+ */
+const Scorpion: React.FC = () => (
+  <svg className="a087-scorpion" viewBox="0 0 420 280" aria-hidden="true">
+    <g className="a087-sc__legs a087-sc__part" style={{ "--i": 0 } as React.CSSProperties}>
+      {LEGS.map(([x, dx], i) => (
+        <path key={i} d={`M${x} 234 L ${x + dx * 0.75} 242 L ${x + dx} 270`} />
+      ))}
+    </g>
+    <g className="a087-sc__body a087-sc__part" style={{ "--i": 0 } as React.CSSProperties}>
+      {BODY.map(([x, h], i) => (
+        <rect key={i} x={x} y={224 - h / 2} width={24} height={h} rx={9} />
+      ))}
+      <path d="M244 205 C 262 198 288 200 300 212 C 306 220 302 236 290 240 C 274 244 254 243 244 238 Z" />
+    </g>
+    <g className="a087-sc__body a087-sc__part" style={{ "--i": 1 } as React.CSSProperties}>
+      <path d="M288 212 L 318 196 L 328 210 L 298 228 Z" />
+      <path d="M318 198 L 342 186 L 352 200 L 326 212 Z" />
+      <ellipse cx={364} cy={190} rx={25} ry={17} transform="rotate(-14 364 190)" />
+      <path d="M376 176 C 396 166 412 170 416 182 C 406 178 394 180 382 186 Z" />
+      <path d="M380 202 C 398 206 412 200 416 188 C 408 196 394 196 384 194 Z" />
+    </g>
+    {TAIL.map(([x, y, a, l, w], i) => (
       <rect
         key={i}
-        className="a087-tail__seg"
-        style={{ "--i": i } as React.CSSProperties}
+        className="a087-sc__body a087-sc__part"
+        style={{ "--i": i + 2 } as React.CSSProperties}
         x={-l / 2}
         y={-w / 2}
         width={l}
@@ -61,9 +97,9 @@ const ScorpionTail: React.FC = () => (
         transform={`translate(${x} ${y}) rotate(${a})`}
       />
     ))}
-    <g className="a087-tail__sting" style={{ "--i": SEGMENTS.length } as React.CSSProperties} transform="translate(192.7 112.6) rotate(57.5)">
-      <ellipse cx={2} cy={0} rx={22} ry={16} />
-      <path d="M-6 2 C 30 4 46 26 40 52 C 34 38 22 30 -6 16 Z" />
+    <g className="a087-sc__sting a087-sc__part" style={{ "--i": TAIL.length + 2 } as React.CSSProperties} transform="translate(196.6 52.7) rotate(3.6)">
+      <ellipse cx={2} cy={0} rx={17} ry={12} />
+      <path d="M-4 2 C 22 3 34 20 30 40 C 26 30 18 24 -4 13 Z" />
     </g>
   </svg>
 );
@@ -157,10 +193,10 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
         </header>
 
         <div className="a087-ground">
-          {/* 冒頭: 大きめに。右にサソリの尾(積み重ねた節の先に針。自信の根拠は、これまでやってきたこと) */}
+          {/* 冒頭: 大きめに。右にサソリ(尾 = 積み重ねた節の先に針。自信の根拠は、これまでやってきたこと) */}
           <div className="a087-row a087-row--lede">
             <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
-              <ScorpionTail />
+              <Scorpion />
             </div>
             {ledeText ? (
               <div className="a087-lede">
