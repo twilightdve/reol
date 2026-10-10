@@ -8,7 +8,8 @@
  *   冒頭の段落(自信の根拠はこれまでやってきたこと)の上、横中央に、大きなはさみ2本と尾だけの記号のサソリ(胴はなし。尾は節が積み重なって
  *   前へ巻き、針が前を向く。2026-10-11 ユーザー指定)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
- * - 結び(聴いて気持ちが高まる)は深い赤の帯に。後ろに輪郭だけの曲名を反復させる(装飾。読み上げ対象外)。
+ * - 結びは地の色のまま少し大きく。その後に、文章を入れない深い赤の締めの帯(輪郭だけの曲名の反復。装飾。読み上げ対象外)。
+ *   長い文章を色の面(紺黒・赤)に入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、色の面には文章を入れない。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
  *
@@ -221,22 +222,24 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           <section className="a087-row a087-row--past">
             <div className="a087-past">
               {body(PAST, PAST + 1)}
-              {/* 「プレイヤー」の段落は紺黒のカードに(四隅にかぎ形の印) */}
+              {/* 「プレイヤー」の段落は、地の色のまま四隅のかぎ形の印で枠取りする(長い文章を色の面に入れない) */}
               <div className="a087-player">{body(PLAYER, PLAYER + 1, "a087-row__text a087-player__text")}</div>
               <div className="a087-create">{body(CREATE, FINALE)}</div>
             </div>
           </section>
+
+          {/* 結び: 地の色のまま少し大きく */}
+          <div className="a087-row">{body(FINALE, blocks.length, "a087-finale")}</div>
         </div>
 
-        {/* 結び: 深い赤の帯。後ろに輪郭だけの曲名を反復させる(気分が上がる) */}
-        <section className="a087-band">
-          <div className="a087-band__echo" aria-hidden="true">
-            {Array.from({ length: 8 }, (_, i) => (
+        {/* 締めの帯: 深い赤に、輪郭だけの曲名の反復だけ(文章は入れない。長い文章を色の面に入れると重くなるため) */}
+        <div className="a087-band" aria-hidden="true">
+          <div className="a087-band__echo">
+            {Array.from({ length: 3 }, (_, i) => (
               <span key={i}>SCORPION SCORPION SCORPION</span>
             ))}
           </div>
-          {body(FINALE, blocks.length, "a087-finale")}
-        </section>
+        </div>
 
         {/* 奥付(紺黒)。サイトの確認済みデータだけ */}
         <footer className="a087-colophon">
