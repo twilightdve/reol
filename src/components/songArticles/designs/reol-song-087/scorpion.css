@@ -272,11 +272,66 @@
   color: var(--ink);
   letter-spacing: 0.06em;
 }
-/* サソリの尾 */
+/* 積み重ね → プレイヤー → 感情を創造へ */
+.a087-row--past {
+  display: block;
+}
+.a087-row--past::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 「プレイヤー」の段落: 紺黒のカード。四隅にかぎ形の印(赤) */
+.a087-player {
+  position: relative;
+  margin: clamp(32px, 5vw, 48px) 0;
+  padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 40px);
+  color: var(--paper-on-dark);
+  background: var(--night);
+  background-image:
+    linear-gradient(rgb(242 237 228 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(242 237 228 / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  clear: both;
+}
+.a087-player::before,
+.a087-player::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--red);
+  pointer-events: none;
+}
+.a087-player::before {
+  top: -6px;
+  left: -6px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.a087-player::after {
+  right: -6px;
+  bottom: -6px;
+  border-left: 0;
+  border-top: 0;
+}
+.a087-player__text {
+  max-width: none;
+}
+/* 感情を創造へ: 頭に赤の短い線 */
+.a087-create::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-bottom: 20px;
+  background: var(--red);
+}
+/* サソリの尾: スマートフォンは小さく右に置き、文章を回り込ませる */
 .a087-tail-wrap {
-  order: -1;
-  width: clamp(120px, 34vw, 200px);
-  margin: 0 auto;
+  float: right;
+  width: clamp(84px, 24vw, 120px);
+  margin: 4px 0 8px 14px;
 }
 .a087-tail {
   display: block;
@@ -317,14 +372,29 @@
     gap: 56px;
     align-items: start;
   }
-  .a087-row .a087-note,
-  .a087-tail-wrap {
+  .a087-row .a087-note {
     order: 0;
   }
   .a087-row .a087-note {
     margin-top: 0.5em;
   }
+  /* PC: 尾は右の列で、3段落を読む間スクロールに合わせて留まる */
+  .a087-row--past {
+    display: grid;
+  }
+  .a087-row--past::after {
+    content: none;
+  }
+  .a087-past {
+    grid-column: 1;
+    grid-row: 1;
+  }
   .a087-tail-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    float: none;
+    position: sticky;
+    top: 120px;
     width: 160px;
     margin: 0;
   }

@@ -27,6 +27,8 @@ const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに)
 const INTRO = 2; // 二行の紹介(リリースの注記)
 const QUOTE = 3; // 引用の二行(本文の引用として。装飾文字にはしない)
 const PAST = 4; // 積み重ねたことへの信頼(サソリの尾)
+const PLAYER = 5; // 「プレイヤー」の意味(紺黒のカード)
+const CREATE = 6; // 感情を創造へ(赤の短い線から)
 const FINALE = 7; // 結び(赤の帯。聴いて気持ちが高まる)
 
 /** サソリの尾の節 [中心x, 中心y, 向き(度), 長さ, 太さ]。根元(下)から先端へ。.articles-local/tmp/tail.py で生成 */
@@ -186,16 +188,19 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           {/* 引用の二行: 本文の引用として、赤の縦線で示す */}
           <div className="a087-row">{body(QUOTE, QUOTE + 1, "a087-quote")}</div>
 
-          {/* 積み重ねたことへの信頼: 横にサソリの尾(積み重ねた節の先に針) */}
+          {/* 積み重ね → プレイヤー → 感情を創造へ。同じ組み方の段落が続かないよう、段落ごとに抑揚をつける。
+              サソリの尾(積み重ねた節の先に針)は3段落の横に寄り添う(PCはスクロールに合わせて留まる。スマートフォンは小さく、文章を回り込ませる) */}
           <section className="a087-row a087-row--past">
-            {body(PAST, PAST + 1)}
             <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
               <ScorpionTail />
             </div>
+            <div className="a087-past">
+              {body(PAST, PAST + 1)}
+              {/* 「プレイヤー」の段落は紺黒のカードに(四隅にかぎ形の印) */}
+              <div className="a087-player">{body(PLAYER, PLAYER + 1, "a087-row__text a087-player__text")}</div>
+              <div className="a087-create">{body(CREATE, FINALE)}</div>
+            </div>
           </section>
-
-          {/* 「プレイヤー」の意味、感情を創造へ */}
-          <div className="a087-row">{body(PAST + 1, FINALE)}</div>
         </div>
 
         {/* 結び: 深い赤の帯。後ろに輪郭だけの曲名を反復させる(気分が上がる) */}
