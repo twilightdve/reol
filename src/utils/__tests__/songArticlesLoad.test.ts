@@ -92,6 +92,16 @@ describe("loadSongArticles", () => {
     expect(loaded[1].article.slug).toBe("three");
   });
 
+  it("プレビューでも、未完成(draft)の記事は出さない", () => {
+    process.env.ARTICLES_PREVIEW = "1";
+    fs.writeFileSync(
+      path.join(root, STAGING_DIR, "a3", "editorial.json"),
+      JSON.stringify(editorial("three", "draft"))
+    );
+    const loaded = loadSongArticles(root);
+    expect(loaded.map((a) => a.article.id)).toEqual(["a1"]);
+  });
+
   it("slug が重複したら止める", () => {
     process.env.ARTICLES_PREVIEW = "1";
     fs.writeFileSync(

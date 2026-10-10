@@ -106,11 +106,6 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
               <span aria-hidden>/</span>
               <span>MONSTER</span>
             </nav>
-            {preview && (
-              <p className="a026-preview" role="status">
-                プレビュー(未公開)
-              </p>
-            )}
           </div>
           <div className="a026-cover__body">
             <div className="a026-cover__title">

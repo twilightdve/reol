@@ -262,11 +262,6 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
               <span aria-hidden>/</span>
               <span>No title</span>
             </nav>
-            {preview && (
-              <p className="a006-preview" role="status">
-                プレビュー(未公開)
-              </p>
-            )}
           </div>
           <div className="a006-cover__body">
             <div className="a006-cover__title">

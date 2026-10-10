@@ -4,7 +4,8 @@
  *
  * 分類はシリーズ+タグ(2026-10-10 ユーザー決定)。
  * - /articles/ はシリーズごとに分けて並べる。/articles/series/<slug>/ はそのシリーズだけ(同じテンプレート)。
- * - タグは ?tag=<タグ> で絞り込む。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
+ * - タグは ?tag=<タグ> で絞り込む(記事のタグのリンクから)。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
+ *   一覧の上の「タグで絞り込む」ボタン群は置かない(2026-10-11 ユーザー指定)。
  */
 import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
@@ -38,14 +39,7 @@ interface SongArticlesIndexContext {
   noindex: boolean;
 }
 
-const DESCRIPTION = "Reolの曲やライヴについての読みもの。シリーズごとに、またタグで絞り込んで読める。";
-
-/** タグを記事数の多い順(同数なら名前順)に */
-const tagCounts = (articles: IndexEntry[]): [string, number][] => {
-  const m = new Map<string, number>();
-  for (const a of articles) for (const t of a.tags) m.set(t, (m.get(t) ?? 0) + 1);
-  return [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ja"));
-};
+const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 
 const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a, activeTag }) => {
   const date = formatArticleDate(a.createdAt);
@@ -65,8 +59,6 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a,
         </h3>
         {a.summary && <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
         <p className="mt-2 text-[12px] text-bx-ink3">
-          {a.preview && "プレビュー(未公開)"}
-          {a.preview && date && " ・ "}
           {date && (
             <>
               <time dateTime={a.createdAt ?? undefined}>{date}</time> 作成
@@ -110,7 +102,6 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     () => (activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles),
     [articles, activeTag]
   );
-  const tags = useMemo(() => tagCounts(articles), [articles]);
   const basePath = current ? seriesPath(current.slug) : "/articles/";
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
@@ -142,43 +133,14 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           <p className="mt-3 text-[14px] leading-relaxed text-bx-ink2">{current ? current.description : DESCRIPTION}</p>
         </header>
 
-        {tags.length > 0 && (
-          <nav aria-label="タグで絞り込む" className="mb-8">
-            <p className="text-[11px] font-extrabold tracking-[0.16em] text-bx-ink3">タグで絞り込む</p>
-            <ul className="mt-2 flex flex-wrap gap-2 text-[13px]">
-              <li>
-                <Link
-                  to={basePath}
-                  aria-current={activeTag === null ? "true" : undefined}
-                  className={`inline-block rounded-full border px-3 py-1 ${
-                    activeTag === null ? "border-bx-ink bg-bx-ink text-bx-bg font-bold" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
-                  }`}
-                >
-                  すべて
-                </Link>
-              </li>
-              {tags.map(([t, n]) => (
-                <li key={t}>
-                  <Link
-                    to={`${basePath}?tag=${encodeURIComponent(t)}`}
-                    aria-current={t === activeTag ? "true" : undefined}
-                    onClick={() => trackEvent("article_tag_filter", { category: "navigation", label: t })}
-                    className={`inline-block rounded-full border px-3 py-1 ${
-                      t === activeTag ? "border-bx-ink bg-bx-ink text-bx-bg font-bold" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
-                    }`}
-                  >
-                    #{t}
-                    <span className="ml-1 text-[11px] opacity-70">{n}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            {activeTag && (
-              <p className="mt-3 text-[13px] text-bx-ink2" role="status">
-                「#{activeTag}」の記事 {visible.length}件
-              </p>
-            )}
-          </nav>
+        {/* タグの絞り込み(記事のタグのリンクから ?tag= で来た時だけ)。絞り込みのボタン群は置かない(2026-10-11 ユーザー「タグで絞り込むは不要になった」) */}
+        {activeTag && (
+          <p className="mb-8 text-[13px] text-bx-ink2" role="status">
+            「#{activeTag}」の記事 {visible.length}件
+            <Link to={basePath} className="ml-3 underline underline-offset-4 hover:text-bx-blue">
+              すべて表示
+            </Link>
+          </p>
         )}
 
         {groups.map(({ s, items }) => (

@@ -201,11 +201,6 @@ const BoyDesign: SongArticleDesign = (ctx) => {
           <span aria-hidden>/</span>
           <span>Boy</span>
         </nav>
-        {preview && (
-          <p className="a080-preview" role="status">
-            プレビュー(未公開)
-          </p>
-        )}
       </div>
 
       <article className="a080-article">

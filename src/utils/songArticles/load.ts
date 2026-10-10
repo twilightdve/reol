@@ -57,6 +57,8 @@ export const loadSongArticles = (rootDir: string): LoadedSongArticle[] => {
     const publishedIds = new Set(published.map((a) => a.article.id));
     for (const dir of listDirs(path.join(rootDir, STAGING_DIR))) {
       const loaded = loadDir(dir, true);
+      // 未完成(draft)の記事はプレビューにも出さない
+      if (loaded.article.status === "draft") continue;
       // 公開済みの記事は公開スナップショットを優先(次の版が確定するまで現行を維持)
       if (!publishedIds.has(loaded.article.id)) result.push(loaded);
     }

@@ -220,11 +220,6 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               <span aria-hidden>/</span>
               <span>1LDK</span>
             </nav>
-            {preview && (
-              <p className="a076-preview" role="status">
-                プレビュー(未公開)
-              </p>
-            )}
           </div>
           <div className="a076-cover__body">
             <h1 className="a076-title">

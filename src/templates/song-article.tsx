@@ -47,15 +47,6 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
   return (
     <Layout title={title}>
       <main lang="ja" className="container mx-auto px-4 sm:px-6 py-8 max-w-[42rem] text-bx-ink">
-        {preview && (
-          <p
-            role="status"
-            className="mb-6 rounded-md border border-bx-yellow/60 px-3 py-2 text-[13px] font-bold text-bx-yellow"
-          >
-            プレビュー(未公開)— このページは公開ビルドには含まれません
-          </p>
-        )}
-
         <nav aria-label="パンくず" className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold tracking-wide text-bx-ink3">
           <Link to="/" className="hover:text-bx-blue transition-colors">
             HOME

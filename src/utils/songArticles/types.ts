@@ -8,6 +8,11 @@
 
 export type TriState = boolean | null;
 
+/**
+ * draft: 未完成。プレビューにも出さない(2026-10-11 ユーザー「白夜は全然未完成なので表示しないで」)
+ * review: 確認中。プレビュー(ARTICLES_PREVIEW=1)にだけ出す(取込の既定)
+ * published: 公開済み(content/articles/)
+ */
 export type PublicationStatus = "draft" | "review" | "published";
 
 /** 掲載用Markdownの記録(4種類の入力キーを正規化したもの) */

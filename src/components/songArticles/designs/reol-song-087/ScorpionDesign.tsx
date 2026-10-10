@@ -181,11 +181,6 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
               <span aria-hidden>/</span>
               <span>SCORPION</span>
             </nav>
-            {preview && (
-              <p className="a087-preview" role="status">
-                プレビュー(未公開)
-              </p>
-            )}
           </div>
           <div className="a087-cover__body">
             <h1 className="a087-title">
