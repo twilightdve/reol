@@ -4,7 +4,7 @@ import IndexContents from "../components/index/contents";
 import SEO from '../components/SEO'
 import { buildWebSite } from "../utils/jsonLd";
 import { Recommend } from "../types/recommend";
-import { SiteStats } from "../components/index/sections/HomeSection";
+import { HomeArticle, SiteStats } from "../components/index/sections/HomeSection";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
 
 type siteMetadata = {
@@ -44,9 +44,11 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: FC<PageProps<any>> = ({ data }) => {
+const IndexPage: FC<PageProps<any, { lang?: string; homeArticles?: HomeArticle[] }>> = ({ data, pageContext }) => {
   const recommend: Recommend[] = data.recommend.recommend;
   const siteStats: SiteStats = data.siteStats.siteStats;
+  // 読みもの(楽曲記事)は日本語だけなので、日本語の HOME にだけ出す
+  const homeArticles = pageContext?.lang ? [] : pageContext?.homeArticles ?? [];
 
   return (
     <>
@@ -54,6 +56,7 @@ const IndexPage: FC<PageProps<any>> = ({ data }) => {
         <IndexContents
           recommend={recommend}
           siteStats={siteStats}
+          homeArticles={homeArticles}
         />
       </main>
       {/* フッター(公式リンク・運営情報)は Body 共通の OfficialFooter に統合 */}

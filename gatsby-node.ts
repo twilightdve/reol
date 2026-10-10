@@ -1574,10 +1574,39 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
     return;
   }
 
+  const context = (page.context ?? {}) as Record<string, unknown>;
+
+  // HOME の「読みもの」欄(2026-10-11): 公開済みの楽曲記事(プレビューでは確認中も含む)を新しい順に最大3本渡す。
+  // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
+  if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
+    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null }[] = [];
+    try {
+      homeArticles = loadSongArticles(process.cwd())
+        .map(({ article, parsed }) => ({
+          slug: article.slug as string,
+          title: parsed.title,
+          songTitle: article.songTitle,
+          createdAt: article.createdAt ?? null,
+          publishedAt: article.publishedAt ?? null,
+        }))
+        .sort(
+          (a, b) =>
+            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
+            (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
+        )
+        .slice(0, 3)
+        .map(({ publishedAt: _p, ...rest }) => rest);
+    } catch (e) {
+      console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
+    }
+    actions.deletePage(page);
+    actions.createPage({ ...page, context: { ...context, homeArticles } });
+    return;
+  }
+
   // 多言語ページ(plan/28): 翻訳済みのルートを言語ごとに /<lang>/... として複製する。
   // onCreatePage はテンプレートから作ったページでも呼ばれるので、曲詳細等もここで複製できる。
   // 複製したページでも再び呼ばれるため、context.lang を持つページ(=複製済み)は何もしない。
-  const context = (page.context ?? {}) as Record<string, unknown>;
   if (context.lang) return;
   if (!isLocalizedRoute(page.path)) return;
   for (const lang of ENABLED_LANGS) {
