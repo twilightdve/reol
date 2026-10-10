@@ -8,7 +8,7 @@
  * - 結び: 最後の段落の前に、壁に並ぶ空の額縁。最後の1つだけが光っている(本文版2: 憧れていた人が、書き手にとっての支えになっていた)。
  * - 松本公演の段落(6)の前に、その日の公演の注記(サイトの公演記録)。
  * - 窓枠の演出(2026-10-11 ユーザー「窓枠の演出を増やして」): 映像は二重の枠(壁の額と同じ形)に収め、
- *   まとまりの区切りに小さな窓枠を置く。窓の中は記事が進むほど明るくなる。
+ *   まとまりの区切りに小さな窓枠を置く。窓は区切りごとに1つずつ増え(1 → 3)、新しい窓は記事が進むほど明るくなる。
  * - 冒頭のライヴ映像はサイトに登録された映像ではないので、埋め込みにせず本文のリンクのまま。
  * - 注記と奥付は、サイトの確認済みデータだけ。
  *
@@ -68,18 +68,45 @@ const Video: React.FC<{ label: string; title?: string; date?: string; videoId: s
 );
 
 /**
- * まとまりの区切りに置く小さな窓枠(二重の枠)。light(0〜1)で窓の中の明るさが変わり、記事が進むほど明るくなる
- * (暗い部屋から朝の光へ)。装飾なので読み上げ対象外。
+ * まとまりの区切りに置く小さな窓枠(二重の枠)。区切りごとに窓が1つずつ増え(1 → 2 → 3)、結びの壁の額(6つ)へつながる。
+ * LIVE VIDEO #1 の直下(ライヴでの変化の前)には置かない(2026-10-11 ユーザー指定)。
+ * 新しく加わった窓(右端)だけが光り、その明るさ light(0〜1)は記事が進むほど増す(暗い部屋から朝の光へ)。装飾なので読み上げ対象外。
+ * (2026-10-11 ユーザー「窓枠を1個ずつ増やすとか、そういう工夫もあると思う」)
  */
-const WindowMark: React.FC<{ light: number }> = ({ light }) => (
-  <div className="a076-window" aria-hidden="true">
-    <svg viewBox="0 0 48 60">
-      <rect className="a076-window__glow" x={-6} y={-6} width={60} height={72} rx={12} style={{ opacity: 0.5 * light }} />
-      <rect className="a076-window__outer" x={2} y={2} width={44} height={56} />
-      <rect className="a076-window__inner" x={8} y={8} width={32} height={44} style={{ fillOpacity: light }} />
-    </svg>
-  </div>
-);
+const WINDOW_H = [56, 46, 60, 50];
+const WindowMark: React.FC<{ count: number; light: number }> = ({ count, light }) => {
+  const W = 40;
+  const GAP = 14;
+  const width = count * W + (count - 1) * GAP;
+  return (
+    <div className="a076-window" style={{ width: `${(width / 48) * 40}px` }} aria-hidden="true">
+      <svg viewBox={`-6 -6 ${width + 12} 72`}>
+        {Array.from({ length: count }, (_, i) => {
+          const h = WINDOW_H[i % WINDOW_H.length];
+          const x = i * (W + GAP);
+          const y = 60 - h;
+          const isNew = i === count - 1;
+          return (
+            <g key={i}>
+              {isNew && light > 0 && (
+                <rect className="a076-window__glow" x={x - 6} y={y - 6} width={W + 12} height={h + 12} rx={10} style={{ opacity: 0.5 * light }} />
+              )}
+              <rect className="a076-window__outer" x={x} y={y} width={W} height={h} />
+              <rect
+                className="a076-window__inner"
+                x={x + 6}
+                y={y + 6}
+                width={W - 12}
+                height={h - 12}
+                style={{ fillOpacity: isNew ? light : 0 }}
+              />
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
 
 /** 奥へ連なる額縁。手前から奥へ縮みながら、少し右上の一点へ寄っていく。いちばん奥だけが光る。装飾なので読み上げ対象外 */
 const FrameTunnel: React.FC = () => {
@@ -244,7 +271,7 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               )}
             </div>
 
-            <WindowMark light={0} />
+            <WindowMark count={1} light={0} />
 
             {/* 歌詞の読み。その後に LIVE VIDEO #1(2020年) */}
             <div className="a076-group">{body(LYRICS, LIVE)}</div>
@@ -257,8 +284,6 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               text="「1LDK」Special Live from YouTube Space Tokyo を観る"
               articleId={id}
             />
-
-            <WindowMark light={0.35} />
 
             {/* ライヴでの変化。松本公演の段落の前に、その日の公演の注記 */}
             <div className="a076-group">
@@ -296,12 +321,12 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               {body(MATSUMOTO, STORY)}
             </div>
 
-            <WindowMark light={0.65} />
+            <WindowMark count={2} light={0.5} />
 
             {/* 書き手の体験: 装飾を置かず、余白をとって静かに */}
             {body(STORY, CLOSING, "a076-text a076-story")}
 
-            <WindowMark light={1} />
+            <WindowMark count={3} light={1} />
 
             {/* 結び。最後の段落の前に、壁に並ぶ空の額(最後の1つだけが光っている) */}
             <div className="a076-last">

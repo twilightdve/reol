@@ -189,7 +189,8 @@
 }
 /* まとまりの区切りの小さな窓枠(中央) */
 .a076-window {
-  width: 40px;
+  /* 幅は窓の数に合わせて部品側で指定(1つ 40px)。中央に置く */
+  max-width: 100%;
   margin: 0 auto clamp(40px, 6vw, 64px);
 }
 .a076-window svg {
