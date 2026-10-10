@@ -272,14 +272,18 @@
   color: var(--ink);
   letter-spacing: 0.06em;
 }
-/* 積み重ね → プレイヤー → 感情を創造へ */
-.a087-row--past {
+/* 冒頭と、右のサソリの尾 */
+.a087-row--lede {
   display: block;
 }
-.a087-row--past::after {
+.a087-row--lede::after {
   content: "";
   display: block;
   clear: both;
+}
+/* 積み重ね → プレイヤー → 感情を創造へ */
+.a087-row--past {
+  display: block;
 }
 /* 「プレイヤー」の段落: 紺黒のカード。四隅にかぎ形の印(赤) */
 .a087-player {
@@ -327,7 +331,7 @@
   margin-bottom: 20px;
   background: var(--red);
 }
-/* サソリの尾: スマートフォンは小さく右に置き、文章を回り込ませる */
+/* サソリの尾: スマートフォンは小さく右に置き、冒頭の文章を回り込ませる */
 .a087-tail-wrap {
   float: right;
   width: clamp(84px, 24vw, 120px);
@@ -378,14 +382,15 @@
   .a087-row .a087-note {
     margin-top: 0.5em;
   }
-  /* PC: 尾は右の列で、3段落を読む間スクロールに合わせて留まる */
-  .a087-row--past {
+  /* PC: 尾は冒頭の右の列に。冒頭の文章の縦の中央にそろえる */
+  .a087-row--lede {
     display: grid;
+    align-items: center;
   }
-  .a087-row--past::after {
+  .a087-row--lede::after {
     content: none;
   }
-  .a087-past {
+  .a087-row--lede .a087-lede {
     grid-column: 1;
     grid-row: 1;
   }
@@ -393,10 +398,11 @@
     grid-column: 2;
     grid-row: 1;
     float: none;
-    position: sticky;
-    top: 120px;
-    width: 160px;
+    width: 170px;
     margin: 0;
+  }
+  .a087-row--past {
+    display: grid;
   }
 }
 

@@ -5,7 +5,8 @@
  *   色はサイトのテーマ色(深い赤 #85313B・紺黒 #0F1923)と生成り。VALORANT の赤・ロゴ・キャラクターは使わない。
  * - 表紙: 紺黒にマス目。題名の曲名を輪郭だけの大きな文字で、「――」以下を極太で重ねる。
  * - 本文版2(2026-10-11): 冒頭は大きめに、引用の二行は本文の引用として赤の縦線で(歌詞なので装飾文字にはしない)、
- *   積み重ねたことへの信頼を語る段落の横に「サソリの尾」: 節が下から積み重なって上で前へ巻き、針が前を向く。
+ *   冒頭の段落(自信の根拠はこれまでやってきたこと)の右に「サソリの尾」: 節が下から積み重なって上で前へ巻き、針が前を向く(2026-10-11 ユーザー指定)。
+ *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
  * - 結び(聴いて気持ちが高まる)は深い赤の帯に。後ろに輪郭だけの曲名を反復させる(装飾。読み上げ対象外)。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
@@ -23,10 +24,10 @@ import type { SongArticleDesign } from "../types";
 import "./scorpion.css";
 
 // 段落の位置(designManifest.ts の anchors と対応。本文版2)
-const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに)
+const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに。右にサソリの尾)
 const INTRO = 2; // 二行の紹介(リリースの注記)
 const QUOTE = 3; // 引用の二行(本文の引用として。装飾文字にはしない)
-const PAST = 4; // 積み重ねたことへの信頼(サソリの尾)
+const PAST = 4; // 積み重ねたことへの信頼
 const PLAYER = 5; // 「プレイヤー」の意味(紺黒のカード)
 const CREATE = 6; // 感情を創造へ(赤の短い線から)
 const FINALE = 7; // 結び(赤の帯。聴いて気持ちが高まる)
@@ -156,8 +157,11 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
         </header>
 
         <div className="a087-ground">
-          {/* 冒頭: 大きめに */}
-          <div className="a087-row">
+          {/* 冒頭: 大きめに。右にサソリの尾(積み重ねた節の先に針。自信の根拠は、これまでやってきたこと) */}
+          <div className="a087-row a087-row--lede">
+            <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
+              <ScorpionTail />
+            </div>
             {ledeText ? (
               <div className="a087-lede">
                 <p>
@@ -188,12 +192,8 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           {/* 引用の二行: 本文の引用として、赤の縦線で示す */}
           <div className="a087-row">{body(QUOTE, QUOTE + 1, "a087-quote")}</div>
 
-          {/* 積み重ね → プレイヤー → 感情を創造へ。同じ組み方の段落が続かないよう、段落ごとに抑揚をつける。
-              サソリの尾(積み重ねた節の先に針)は3段落の横に寄り添う(PCはスクロールに合わせて留まる。スマートフォンは小さく、文章を回り込ませる) */}
+          {/* 積み重ね → プレイヤー → 感情を創造へ。同じ組み方の段落が続かないよう、段落ごとに抑揚をつける */}
           <section className="a087-row a087-row--past">
-            <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
-              <ScorpionTail />
-            </div>
             <div className="a087-past">
               {body(PAST, PAST + 1)}
               {/* 「プレイヤー」の段落は紺黒のカードに(四隅にかぎ形の印) */}
