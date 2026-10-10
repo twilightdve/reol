@@ -350,13 +350,6 @@
   stroke: var(--paper);
   stroke-width: 3;
 }
-.a087-sc__arm {
-  fill: none;
-  stroke: var(--red);
-  stroke-width: 13;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 /* 画面に入った時に一度だけ、胴とはさみ → 尾の節(根元から順に) → 針。
    節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
 .a087-tail-wrap.is-armed .a087-sc__part {
