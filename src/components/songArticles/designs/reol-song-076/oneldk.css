@@ -150,14 +150,35 @@
   width: var(--column);
   margin: 0 auto;
 }
+/* 冒頭(曲の芯): 砂色の縦線を添えて、少し大きめ(本文版2で長くなったので太字はやめた) */
 .a076-lede {
-  margin: 0 0 clamp(40px, 6vw, 64px);
   padding-left: 18px;
   border-left: 3px solid var(--sand);
-  font-size: clamp(20px, 2.8vw, 26px);
-  font-weight: 700;
-  line-height: 1.75;
-  font-feature-settings: "palt";
+  font-size: clamp(17px, 2.2vw, 19px);
+  font-weight: 600;
+  line-height: 2;
+  text-align: justify;
+  line-break: strict;
+}
+.a076-row {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+/* 段落のまとまり(歌詞の読み・ライヴでの変化) */
+.a076-group {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+.a076-text p + p {
+  margin-top: 1.7em;
+}
+.a076-text + .a076-text,
+.a076-text + .a076-note--inline {
+  margin-top: 1.7em;
+}
+/* 段落の間に置く公演の注記 */
+.a076-note--inline {
+  margin-bottom: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgb(79 80 85 / 0.35);
 }
 .a076-lede p,
 .a076-text p {
@@ -211,7 +232,7 @@
   display: block;
   width: 100%;
   height: auto;
-  margin: 0 0 clamp(24px, 4vw, 40px);
+  margin: clamp(32px, 5vw, 48px) 0 clamp(24px, 4vw, 40px);
 }
 .a076-wall__outer {
   fill: none;

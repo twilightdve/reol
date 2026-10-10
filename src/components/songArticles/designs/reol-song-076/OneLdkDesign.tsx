@@ -4,8 +4,9 @@
  * - 紙面全体を「暗い部屋から朝の光へ」: 表紙は灰色の暗い部屋、本文の地は上から下へ少しずつ明るくなり、結びで最も明るい
  *   (MV の終盤の白い光の廊下。音楽が明かりになる、という本文の芯)。
  * - 表紙: 奥へ連なる額縁(オリジナルの線画)。いちばん奥だけが光っている。
- * - 中心の段落(MC と書き手自身の体験)は装飾を置かず、行間と余白を広げて静かに組む(書き手の家族の話を含むため)。
- * - 結び: 壁に並ぶ空の額縁。大きさと高さが少しずつ違い、最後の1つだけが光っている(公演ごとに聴こえ方が変わり、次もまた受け取りたい)。
+ * - 書き手自身の体験の段落(8〜9)は装飾を置かず、行間と余白を広げて静かに組む(書き手の家族の話を含むため)。
+ * - 結び: 最後の段落の前に、壁に並ぶ空の額縁。最後の1つだけが光っている(本文版2: 憧れていた人が、書き手にとっての支えになっていた)。
+ * - 松本公演の段落(6)の前に、その日の公演の注記(サイトの公演記録)。
  * - 冒頭のライヴ映像はサイトに登録された映像ではないので、埋め込みにせず本文のリンクのまま。
  * - 注記と奥付は、サイトの確認済みデータだけ。
  *
@@ -22,10 +23,14 @@ import type { SongArticleDesign } from "../types";
 import "./oneldk.css";
 
 // 段落の位置(designManifest.ts の anchors と対応)
-const LEDE = 1; // 一言
-const SONG = 2; // 曲の芯(リリースの注記)
-const STORY = 3; // MC と書き手の体験(装飾なし)
-const LAST = 4; // 結び(壁の額)
+// 本文版2(2026-10-11): 1 曲の芯 / 2〜4 歌詞の読み / 5〜7 ライヴでの変化(6 は松本公演) / 8〜9 書き手の体験 / 10〜11 結び
+const LEDE = 1; // 冒頭(曲の芯。リリースの注記)
+const LYRICS = 2; // 歌詞の読み(2〜4)
+const LIVE = 5; // ライヴでの変化(5〜7)
+const MATSUMOTO = 6; // 松本公演の MC(公演の注記)
+const STORY = 8; // 書き手の体験(8〜9。装飾なし)
+const CLOSING = 10; // 結び(10〜11)
+const LAST = 11; // 最後の段落(この前に壁の額)
 
 /** 奥へ連なる額縁。手前から奥へ縮みながら、少し右上の一点へ寄っていく。いちばん奥だけが光る。装飾なので読み上げ対象外 */
 const FrameTunnel: React.FC = () => {
@@ -104,8 +109,12 @@ const WallOfFrames: React.FC = () => {
 };
 
 const OneLdkDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, updatedAt, preview } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
+  const live = liveRefs[0] ?? null;
+  const body = (from: number, to: number, className = "a076-text") => (
+    <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
+  );
   const stats = songFacts.stats;
   // 一言はテキストだけの段落なら、句の切れ目でだけ折り返す(文言は変えない)。テキスト以外を含む場合は共通の描画
   const lede = blocks[LEDE];
@@ -148,16 +157,7 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
         {/* 本文: 地は上から下へ少しずつ明るくなる(朝へ) */}
         <div className="a076-ground">
           <div className="a076-column">
-            {ledeText ? (
-              <div className="a076-lede">
-                <p>
-                  <Phrased text={ledeText} />
-                </p>
-              </div>
-            ) : (
-              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a076-lede" />
-            )}
-
+            {/* 冒頭(曲の芯)。前にリリースの注記 */}
             <div className="a076-row">
               {firstRelease && (
                 <aside className="a076-note">
@@ -169,16 +169,52 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
                   </p>
                 </aside>
               )}
-              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={SONG} to={SONG + 1} unstyled className="a076-text" />
+              {ledeText ? (
+                <div className="a076-lede">
+                  <p>
+                    <Phrased text={ledeText} />
+                  </p>
+                </div>
+              ) : (
+                body(LEDE, LEDE + 1, "a076-lede")
+              )}
             </div>
 
-            {/* 中心の段落: 装飾を置かず、余白をとって静かに */}
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={STORY} to={STORY + 1} unstyled className="a076-text a076-story" />
+            {/* 歌詞の読み */}
+            <div className="a076-group">{body(LYRICS, LIVE)}</div>
 
-            {/* 結び: 壁に並ぶ空の額。最後の1つだけが光っている */}
+            {/* ライヴでの変化。松本公演の段落の前に、その日の公演の注記 */}
+            <div className="a076-group">
+              {body(LIVE, MATSUMOTO)}
+              {live && (
+                <aside className="a076-note a076-note--inline">
+                  <p className="a076-note__label">この日の公演</p>
+                  <p>
+                    <span className="a076-note__strong">{dotDate(live.date)}</span> {live.place}
+                    <br />
+                    {live.liveTitle}
+                    {live.liveItemName ? ` ${live.liveItemName}公演` : ""}
+                    <br />
+                    <Link
+                      to={live.path}
+                      onClick={() => trackEvent("article_live_page_click", { category: "navigation", label: id })}
+                    >
+                      公演ページへ
+                    </Link>
+                  </p>
+                </aside>
+              )}
+              {body(MATSUMOTO, STORY)}
+            </div>
+
+            {/* 書き手の体験: 装飾を置かず、余白をとって静かに */}
+            {body(STORY, CLOSING, "a076-text a076-story")}
+
+            {/* 結び。最後の段落の前に、壁に並ぶ空の額(最後の1つだけが光っている) */}
             <div className="a076-last">
+              {body(CLOSING, LAST)}
               <WallOfFrames />
-              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LAST} to={blocks.length} unstyled className="a076-text" />
+              {body(LAST, blocks.length)}
             </div>
           </div>
 

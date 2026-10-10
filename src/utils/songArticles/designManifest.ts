@@ -81,16 +81,21 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 7, textHash: "925333e90aaeed06" },
     ],
   },
-  // 1LDK(plan/35)。一言(1)・注記(2: リリース)・装飾なしの中心の段落(3)・壁の額と結び(4)
+  // 1LDK(plan/35)。本文版2: 冒頭(1)・歌詞の読み(2〜4)・ライヴでの変化(5〜7。6 に公演の注記)・書き手の体験(8〜9)・結び(10〜11。11 の前に壁の額)
   "reol-song-076": {
-    bodyRevision: 1,
-    bodySha256: "bc2532e71a9a3fed0a4750a04ed1ed2da6e1998a4c2fae230c6ccef30343d0ce",
-    blockCount: 5,
+    bodyRevision: 2,
+    bodySha256: "36aa385f23f1fee3da84f0fbbf1c588415a4b03fa242e7058a17ad0ef0b2f648",
+    blockCount: 12,
     anchors: [
-      { block: 1, textHash: "6c2c4bb4664017ab" },
-      { block: 2, textHash: "27c0f9b0f7425ddb" },
-      { block: 3, textHash: "0f529b255a44dce9" },
-      { block: 4, textHash: "e80b277233f51a57" },
+      { block: 1, textHash: "8bf95c5f809971a5" },
+      { block: 2, textHash: "238eab7513867eef" },
+      { block: 5, textHash: "18241f053d0e8690" },
+      { block: 6, textHash: "e2c60a10d924b2af" },
+      { block: 8, textHash: "5ee36aff00c12c15" },
+      { block: 10, textHash: "4f337033ea3c469f" },
+      { block: 11, textHash: "b65c3494e6349b26" },
     ],
+    // 2023-03-05 Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」長野公演(まつもと市民芸術館)。段落6の注記
+    liveItemUuids: ["019e8284-c56f-750c-8925-8de26e1151b8"],
   },
 };
