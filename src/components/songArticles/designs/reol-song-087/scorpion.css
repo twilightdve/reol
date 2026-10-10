@@ -331,11 +331,10 @@
   margin-bottom: 20px;
   background: var(--red);
 }
-/* サソリの尾: スマートフォンは小さく右に置き、冒頭の文章を回り込ませる */
+/* 記号のサソリ: 冒頭の段落の上に置く */
 .a087-tail-wrap {
-  float: right;
-  width: clamp(120px, 38vw, 170px);
-  margin: 4px 0 8px 12px;
+  width: clamp(132px, 38vw, 184px);
+  margin: 0 0 clamp(20px, 3vw, 28px);
 }
 .a087-scorpion {
   display: block;
@@ -348,50 +347,22 @@
 .a087-sc__seg {
   fill: var(--red);
   stroke: var(--paper);
-  stroke-width: 2.5;
+  stroke-width: 3;
 }
-/* 節の境目(胴): 地の色の細い弧 */
-.a087-sc__seam {
-  fill: none;
-  stroke: var(--paper);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-}
-.a087-sc__leg,
-.a087-sc__arm {
+.a087-sc__arm,
+.a087-sc__claw {
   fill: none;
   stroke: var(--red);
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.a087-sc__leg {
-  stroke-width: 5;
-}
-.a087-sc__leg--near {
-  stroke-width: 7;
-}
 .a087-sc__arm {
-  stroke-width: 12;
+  stroke-width: 11;
 }
-.a087-sc__arm--far {
-  stroke-width: 9;
+.a087-sc__claw {
+  stroke-width: 14;
 }
-/* 奥側は淡く(奥行き) */
-.a087-sc__far {
-  opacity: 0.72;
-}
-.a087-tail-wrap.is-visible .a087-sc__far.a087-sc__part {
-  animation-name: a087-stack-far;
-}
-@keyframes a087-stack-far {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.72;
-  }
-}
-/* 画面に入った時に一度だけ、脚・胴 → はさみ → 尾の節(根元から順に) → 針。
+/* 画面に入った時に一度だけ、胴とはさみ → 尾の節(根元から順に) → 針。
    節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
 .a087-tail-wrap.is-armed .a087-sc__part {
   opacity: 0;
@@ -421,25 +392,9 @@
   .a087-row .a087-note {
     margin-top: 0.5em;
   }
-  /* PC: 尾は冒頭の右の列に。冒頭の文章の縦の中央にそろえる */
+  /* PC: 冒頭の段落は1列で、上に記号のサソリ */
   .a087-row--lede {
-    display: grid;
-    align-items: center;
-  }
-  .a087-row--lede::after {
-    content: none;
-  }
-  .a087-row--lede .a087-lede {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  /* 右の列は下の注記と同じ幅(220px)にそろえる */
-  .a087-tail-wrap {
-    grid-column: 2;
-    grid-row: 1;
-    float: none;
-    width: 220px;
-    margin: 0;
+    display: block;
   }
   .a087-row--past {
     display: grid;
