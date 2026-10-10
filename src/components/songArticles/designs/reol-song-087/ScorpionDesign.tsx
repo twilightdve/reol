@@ -8,8 +8,8 @@
  *   冒頭の段落(自信の根拠はこれまでやってきたこと)の上、横中央に、大きなはさみ2本と尾だけの記号のサソリ(胴はなし。尾は節が積み重なって
  *   前へ巻き、針が前を向く。2026-10-11 ユーザー指定)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
- * - 結びは地の色のまま少し大きく。その後に、文章を入れない深い赤の締めの帯(輪郭だけの曲名の反復。装飾。読み上げ対象外)。
- *   長い文章を色の面(紺黒・赤)に入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、色の面には文章を入れない。
+ * - 長い段落を色の面(紺黒・赤)に丸ごと入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、段落は地の文のまま、
+ *   特徴的な一文だけを抜き出して色の面に大きく置く: 「プレイヤー」の段落の一文は紺黒のカードに、結びの一文は深い赤の締めの帯に。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
  *
@@ -143,6 +143,20 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
     lede?.t === "p" && lede.children.every((n) => n.t === "text")
       ? lede.children.map((n) => (n.t === "text" ? n.v : "")).join("")
       : null;
+  /**
+   * 段落から一文を抜き出す(抜き出し引用。文言は変えない)。テキストだけの段落で、その番号の文がある時だけ。
+   * 段落の内容は designManifest.ts の段落ハッシュで固定されているので、改稿されたら共通テンプレートに戻る
+   */
+  const sentenceOf = (i: number, k: number): string | null => {
+    const b = blocks[i];
+    if (!b || b.t !== "p" || !b.children.every((n) => n.t === "text")) return null;
+    const text = b.children.map((n) => (n.t === "text" ? n.v : "")).join("");
+    const sentences = text.split("。").filter((x) => x !== "").map((x) => `${x}。`);
+    return sentences[k] ?? null;
+  };
+  // 「プレイヤー」の段落の2文目と、結びの3文目(どちらも書き手の言葉。歌詞は抜き出さない)
+  const playerPull = sentenceOf(PLAYER, 1);
+  const finalePull = sentenceOf(FINALE, 2);
   const body = (from: number, to: number, className = "a087-row__text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -222,8 +236,16 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           <section className="a087-row a087-row--past">
             <div className="a087-past">
               {body(PAST, PAST + 1)}
-              {/* 「プレイヤー」の段落は、地の色のまま四隅のかぎ形の印で枠取りする(長い文章を色の面に入れない) */}
-              <div className="a087-player">{body(PLAYER, PLAYER + 1, "a087-row__text a087-player__text")}</div>
+              {/* 「プレイヤー」の段落: 段落は地の文のまま、特徴的な一文だけを紺黒のカードに抜き出す(PCは右の列、スマートフォンは段落の後)。
+                  抜き出しは本文の繰り返しなので読み上げ対象外 */}
+              <div className="a087-player">
+                {body(PLAYER, PLAYER + 1)}
+                {playerPull && (
+                  <p className="a087-pull" aria-hidden="true">
+                    <Phrased text={playerPull} />
+                  </p>
+                )}
+              </div>
               <div className="a087-create">{body(CREATE, FINALE)}</div>
             </div>
           </section>
@@ -232,13 +254,18 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           <div className="a087-row">{body(FINALE, blocks.length, "a087-finale")}</div>
         </div>
 
-        {/* 締めの帯: 深い赤に、輪郭だけの曲名の反復だけ(文章は入れない。長い文章を色の面に入れると重くなるため) */}
+        {/* 締めの帯: 深い赤に、結びから抜き出した一文を大きく。後ろに輪郭だけの曲名の反復(本文の繰り返しと装飾なので読み上げ対象外) */}
         <div className="a087-band" aria-hidden="true">
           <div className="a087-band__echo">
-            {Array.from({ length: 3 }, (_, i) => (
+            {Array.from({ length: 6 }, (_, i) => (
               <span key={i}>SCORPION SCORPION SCORPION</span>
             ))}
           </div>
+          {finalePull && (
+            <p className="a087-band__quote">
+              <Phrased text={finalePull} />
+            </p>
+          )}
         </div>
 
         {/* 奥付(紺黒)。サイトの確認済みデータだけ */}
