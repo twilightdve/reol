@@ -140,6 +140,53 @@
   color: #fff;
 }
 
+/* ---------- 映像(MV・ライヴ映像) ---------- */
+.a076-video {
+  margin: 0 0 clamp(40px, 6vw, 64px);
+}
+.a076-video__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.a076-video__kind {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a076-video__title {
+  font-weight: 600;
+}
+.a076-video .sa-media {
+  margin: 0;
+}
+.a076-video .sa-media__frame {
+  box-shadow: 0 0 0 1px rgb(79 80 85 / 0.25), 0 16px 40px rgb(34 33 37 / 0.18);
+}
+.a076-video .sa-media__thumb {
+  opacity: 1;
+}
+.a076-video .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 14px;
+}
+.a076-video .sa-media__button {
+  background: rgb(248 244 236 / 0.94);
+  color: var(--ink);
+}
+.a076-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.a076-group .a076-video {
+  margin: 1.7em 0;
+}
+
 /* ---------- 本文: 上から下へ明るくなる地 ---------- */
 .a076-ground {
   background: linear-gradient(180deg, var(--dusk) 0%, var(--dawn) 72%);

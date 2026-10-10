@@ -16,6 +16,8 @@ import React from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
+import { inlineText, youtubeVideoId } from "../../../../utils/songArticles/markdown";
 import Phrased from "../../Phrased";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
@@ -31,6 +33,37 @@ const MATSUMOTO = 6; // 松本公演の MC(公演の注記)
 const STORY = 8; // 書き手の体験(8〜9。装飾なし)
 const CLOSING = 10; // 結び(10〜11)
 const LAST = 11; // 最後の段落(この前に壁の額)
+
+/**
+ * 映像の使い分け(2026-10-11 ユーザー指定)。
+ * - MV: 表紙の下(本文の最初)。サイトに登録された1LDKのMV。
+ * - LIVE VIDEO #1(2020-01-22 金字塔リリース記念ライヴ from YouTube Space Tokyo): 歌詞の読みの後、ライヴでの変化の前。
+ * - LIVE VIDEO #2(2023-01-29 新式浪漫 Neo Nostalgia 東京): ライヴでの変化を語る段落の後。本文の冒頭のリンク(ライヴ映像を観る)を、この映像のリンクとして使う。
+ * いずれもクリックした時だけ YouTube を読み込む(OfficialMedia)。
+ */
+const MV = { id: "Mx2TMt8xLxk", label: "MV" };
+const LIVE1 = { id: "55z-WoHtwm4", label: "LIVE VIDEO #1", title: "Special Live from YouTube Space Tokyo", date: "2020.01.22" };
+const LIVE2 = { label: "LIVE VIDEO #2", title: "Live at 新式浪漫 Neo Nostalgia Tokyo", date: "2023.01.29" };
+
+/** 映像1本(見出しの小さなラベルと、クリックで読み込む YouTube) */
+const Video: React.FC<{ label: string; title?: string; date?: string; videoId: string; href: string; text: string; articleId: string }> = ({
+  label,
+  title,
+  date,
+  videoId,
+  href,
+  text,
+  articleId,
+}) => (
+  <figure className="a076-video">
+    <figcaption className="a076-video__label">
+      <span className="a076-video__kind">{label}</span>
+      {title && <span className="a076-video__title">{title}</span>}
+      {date && <span className="a076-video__date">{date}</span>}
+    </figcaption>
+    <OfficialMedia videoId={videoId} href={href} text={text} articleId={articleId} unstyled />
+  </figure>
+);
 
 /** 奥へ連なる額縁。手前から奥へ縮みながら、少し右上の一点へ寄っていく。いちばん奥だけが光る。装飾なので読み上げ対象外 */
 const FrameTunnel: React.FC = () => {
@@ -112,6 +145,13 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, updatedAt, preview } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const live = liveRefs[0] ?? null;
+  // 本文の冒頭のリンク(新式浪漫 東京公演のライヴ映像)。LIVE VIDEO #2 のリンクとして使う
+  const leadBlock = blocks[0];
+  const leadLink = leadBlock?.t === "p" ? leadBlock.children.find((n) => n.t === "link") : undefined;
+  const live2 =
+    leadLink && leadLink.t === "link" && youtubeVideoId(leadLink.href)
+      ? { id: youtubeVideoId(leadLink.href) as string, href: leadLink.href, text: inlineText(leadLink.children) }
+      : null;
   const body = (from: number, to: number, className = "a076-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -150,13 +190,21 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
             <p className="a076-date">
               <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
             </p>
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={0} to={LEDE} unstyled className="a076-cover__link" />
           </div>
         </header>
 
         {/* 本文: 地は上から下へ少しずつ明るくなる(朝へ) */}
         <div className="a076-ground">
           <div className="a076-column">
+            {/* MV: 表紙の下 */}
+            <Video
+              label={MV.label}
+              videoId={MV.id}
+              href={`https://www.youtube.com/watch?v=${MV.id}`}
+              text="「1LDK」のMVを観る"
+              articleId={id}
+            />
+
             {/* 冒頭(曲の芯)。前にリリースの注記 */}
             <div className="a076-row">
               {firstRelease && (
@@ -180,12 +228,33 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               )}
             </div>
 
-            {/* 歌詞の読み */}
+            {/* 歌詞の読み。その後に LIVE VIDEO #1(2020年) */}
             <div className="a076-group">{body(LYRICS, LIVE)}</div>
+            <Video
+              label={LIVE1.label}
+              title={LIVE1.title}
+              date={LIVE1.date}
+              videoId={LIVE1.id}
+              href={`https://www.youtube.com/watch?v=${LIVE1.id}`}
+              text="「1LDK」Special Live from YouTube Space Tokyo を観る"
+              articleId={id}
+            />
 
             {/* ライヴでの変化。松本公演の段落の前に、その日の公演の注記 */}
             <div className="a076-group">
               {body(LIVE, MATSUMOTO)}
+              {/* LIVE VIDEO #2(2023年)。リンクの文言とリンク先は本文の冒頭のもの */}
+              {live2 && (
+                <Video
+                  label={LIVE2.label}
+                  title={LIVE2.title}
+                  date={LIVE2.date}
+                  videoId={live2.id}
+                  href={live2.href}
+                  text={live2.text}
+                  articleId={id}
+                />
+              )}
               {live && (
                 <aside className="a076-note a076-note--inline">
                   <p className="a076-note__label">この日の公演</p>
