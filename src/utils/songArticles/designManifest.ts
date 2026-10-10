@@ -68,15 +68,17 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
     // 2025-02-02 Reol Oneman Live 2025 カルチュア・カリキュラム 東京(Zepp DiverCity Tokyo)。奥付に使う
     liveItemUuids: ["019e8284-df9c-7077-9032-3ff96d8ff44d"],
   },
-  // SCORPION(plan/34)。一言(1: 赤の帯)・注記(2: リリースとタイアップ)・サソリの尾(3)
+  // SCORPION(plan/34)。本文版2: 冒頭(1)・注記(2)・引用(3)・サソリの尾(4)・結びの帯(7)
   "reol-song-087": {
-    bodyRevision: 1,
-    bodySha256: "22cf3b4d98e2ecbd6717f492cc196d159a140299e489c5114dab6c6bfde4fb23",
-    blockCount: 4,
+    bodyRevision: 2,
+    bodySha256: "5f37645b78adfd53afc5349cc870282f83d1b119eb80b34330812b9bf793de45",
+    blockCount: 8,
     anchors: [
-      { block: 1, textHash: "44abb50b23447f10" },
-      { block: 2, textHash: "fafa822ec85df823" },
-      { block: 3, textHash: "4f1ce84965b75cb5" },
+      { block: 1, textHash: "4a216722a87b6cfb" },
+      { block: 2, textHash: "29d11fbd87bc3188" },
+      { block: 3, textHash: "1a353c65942e7d00" },
+      { block: 4, textHash: "2f24d9e45d3c5f9c" },
+      { block: 7, textHash: "925333e90aaeed06" },
     ],
   },
   // 1LDK(plan/35)。一言(1)・注記(2: リリース)・装飾なしの中心の段落(3)・壁の額と結び(4)

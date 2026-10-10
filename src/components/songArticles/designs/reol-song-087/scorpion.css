@@ -75,7 +75,8 @@
 }
 .a087-title__head {
   display: block;
-  font-size: clamp(30px, 8.4cqi, 76px);
+  margin-top: 0.5em;
+  font-size: clamp(24px, 6cqi, 56px);
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -84,7 +85,6 @@
 /* 曲名は輪郭だけの大きな文字で、1行に収まる最大の大きさ(「SCORPION」は約5.9em) */
 .a087-title__song {
   display: block;
-  margin-top: 0.06em;
   white-space: nowrap;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: min(190px, 16.6cqi);
@@ -165,23 +165,21 @@
 .a087-band__echo span:nth-child(even) {
   margin-left: -1.6em;
 }
-.a087-lede {
+/* 結び: 帯の中に、生成りの太字で */
+.a087-finale {
   width: var(--wide);
   margin: 0 auto;
-  font-size: clamp(28px, 6.2vw, 60px);
-  font-weight: 900;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  font-size: clamp(19px, 2.8vw, 26px);
+  font-weight: 800;
+  line-height: 1.85;
   font-feature-settings: "palt";
-  word-break: auto-phrase;
-  text-wrap: balance;
+  text-align: justify;
+  line-break: strict;
 }
-.a087-lede p {
+/* 文章は本文の列の左端にそろえ、行の長さは 760px まで */
+.a087-finale p {
+  max-width: 760px;
   margin: 0;
-}
-/* 句(読点まで)ごとに折り返し、句の途中では折らない */
-.a087-clause {
-  display: inline-block;
 }
 
 /* ---------- 本文 ---------- */
@@ -208,6 +206,9 @@
 .a087-row__text p {
   margin: 0;
 }
+.a087-row__text p + p {
+  margin-top: 1.7em;
+}
 .a087-ground a {
   color: var(--red);
   text-decoration: underline;
@@ -216,6 +217,32 @@
 }
 .a087-ground a:hover {
   text-decoration-thickness: 2px;
+}
+/* 冒頭: 大きめの太字 */
+.a087-lede {
+  max-width: 640px;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 800;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+}
+.a087-lede p {
+  margin: 0;
+}
+/* 引用の二行: 本文の引用として赤の縦線で示す(歌詞なので大きな装飾文字にはしない) */
+.a087-quote {
+  max-width: 640px;
+}
+.a087-quote blockquote {
+  margin: 0;
+  padding: 4px 0 4px 20px;
+  border-left: 4px solid var(--red);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.9;
+}
+.a087-quote p {
+  margin: 0;
 }
 /* 注記: スマートフォンは段落の前、PCは本文の右の列 */
 .a087-row .a087-note {
@@ -298,7 +325,7 @@
     margin-top: 0.5em;
   }
   .a087-tail-wrap {
-    width: 200px;
+    width: 160px;
     margin: 0;
   }
 }

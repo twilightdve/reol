@@ -3,9 +3,10 @@
  *
  * - 紙面を「文字のポスター」として組む(MV は歌詞を大きな文字で次々に見せる映像。手法だけ借り、組むのは記事自身の言葉)。
  *   色はサイトのテーマ色(深い赤 #85313B・紺黒 #0F1923)と生成り。VALORANT の赤・ロゴ・キャラクターは使わない。
- * - 表紙: 紺黒にマス目。題名の「過去を力に変える」を極太で、「SCORPION」を輪郭だけの大きな文字で重ねる。
- * - 一言は深い赤の帯に、生成りの極太で。後ろに輪郭だけの曲名を反復させる(装飾。読み上げ対象外)。
- * - 最後の段落(過去が力になる)の横に「サソリの尾」: 節が下から積み重なって上で前へ巻き、針が前を向く(積み重ねた過去が今の武器になる)。
+ * - 表紙: 紺黒にマス目。題名の曲名を輪郭だけの大きな文字で、「――」以下を極太で重ねる。
+ * - 本文版2(2026-10-11): 冒頭は大きめに、引用の二行は本文の引用として赤の縦線で(歌詞なので装飾文字にはしない)、
+ *   積み重ねたことへの信頼を語る段落の横に「サソリの尾」: 節が下から積み重なって上で前へ巻き、針が前を向く。
+ * - 結び(聴いて気持ちが高まる)は深い赤の帯に。後ろに輪郭だけの曲名を反復させる(装飾。読み上げ対象外)。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
  *
@@ -15,15 +16,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
-import { dotDate, formatLabel, splitAfterComma } from "../../../../utils/songArticles/format";
+import Phrased from "../../Phrased";
+import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
 import "./scorpion.css";
 
-// 段落の位置(designManifest.ts の anchors と対応)
-const LEDE = 1; // 一言(赤の帯)
-const SOUND = 2; // 音とタイアップ(リリースの注記)
-const PAST = 3; // 過去が力になる(サソリの尾)
+// 段落の位置(designManifest.ts の anchors と対応。本文版2)
+const LEDE = 1; // 冒頭(強気な言葉には理由がある。大きめに)
+const INTRO = 2; // 二行の紹介(リリースの注記)
+const QUOTE = 3; // 引用の二行(本文の引用として。装飾文字にはしない)
+const PAST = 4; // 積み重ねたことへの信頼(サソリの尾)
+const FINALE = 7; // 結び(赤の帯。聴いて気持ちが高まる)
 
 /** サソリの尾の節 [中心x, 中心y, 向き(度), 長さ, 太さ]。根元(下)から先端へ。.articles-local/tmp/tail.py で生成 */
 const SEGMENTS: [number, number, number, number, number][] = [
@@ -98,24 +102,26 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt, preview } = ctx;
   const tail = useRevealOnce<HTMLDivElement>(0.4);
 
-  // H1 の文言はそのまま。「SCORPION」の前で2行に分け、曲名は輪郭だけの大きな文字で組む(文字は変えない)
-  const at = title.lastIndexOf("SCORPION");
-  const titleHead = at > 0 ? title.slice(0, at) : title;
-  const titleSong = at > 0 ? title.slice(at) : "";
+  // H1 の文言はそのまま。「――」の前の曲名を輪郭だけの大きな文字で、後ろを極太で組む(文字は変えない)
+  const dash = title.indexOf("――");
+  const titleSong = dash > 0 ? title.slice(0, dash) : title;
+  const titleRest = dash > 0 ? title.slice(dash) : "";
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
-  // 一言はテキストだけの段落なら、読点の直後で句に分け、句の途中で折り返さないように組む(文言は変えない。
-  // Safari は word-break: auto-phrase に対応していないため)。テキスト以外を含む場合は共通の描画
+  // 冒頭がテキストだけの段落なら、句の切れ目でだけ折り返す(文言は変えない)
   const lede = blocks[LEDE];
   const ledeText =
     lede?.t === "p" && lede.children.every((n) => n.t === "text")
       ? lede.children.map((n) => (n.t === "text" ? n.v : "")).join("")
       : null;
+  const body = (from: number, to: number, className = "a087-row__text") => (
+    <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
+  );
 
   return (
     <main className="a087" lang="ja">
       <article>
-        {/* 表紙: 紺黒にマス目。題名を極太と輪郭で重ねる */}
+        {/* 表紙: 紺黒にマス目。曲名を輪郭だけの大きな文字で、副題を極太で */}
         <header className="a087-cover">
           <div className="a087-cover__top">
             <nav aria-label="パンくず" className="a087-crumbs">
@@ -133,43 +139,36 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
           </div>
           <div className="a087-cover__body">
             <h1 className="a087-title">
-              <span className="a087-title__head">{titleHead}</span>
-              {titleSong && <span className="a087-title__song">{titleSong}</span>}
+              <span className="a087-title__song">{titleSong}</span>
+              {titleRest && (
+                <span className="a087-title__head">
+                  <Phrased text={titleRest} />
+                </span>
+              )}
             </h1>
             <p className="a087-date">
               <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
             </p>
-            <div className="a087-cover__media">
-              <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={0} to={LEDE} unstyled />
-            </div>
+            <div className="a087-cover__media">{body(0, LEDE, "")}</div>
           </div>
         </header>
 
-        {/* 一言: 深い赤の帯。後ろに輪郭だけの曲名を反復させる */}
-        <section className="a087-band">
-          <div className="a087-band__echo" aria-hidden="true">
-            {Array.from({ length: 6 }, (_, i) => (
-              <span key={i}>SCORPION SCORPION SCORPION</span>
-            ))}
-          </div>
-          {ledeText ? (
-            <div className="a087-lede">
-              <p>
-                {splitAfterComma(ledeText).map((part, i) => (
-                  <span key={i} className="a087-clause">
-                    {part}
-                  </span>
-                ))}
-              </p>
-            </div>
-          ) : (
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a087-lede" />
-          )}
-        </section>
-
         <div className="a087-ground">
+          {/* 冒頭: 大きめに */}
+          <div className="a087-row">
+            {ledeText ? (
+              <div className="a087-lede">
+                <p>
+                  <Phrased text={ledeText} />
+                </p>
+              </div>
+            ) : (
+              body(LEDE, LEDE + 1, "a087-lede")
+            )}
+          </div>
+
           <section className="a087-row">
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={SOUND} to={SOUND + 1} unstyled className="a087-row__text" />
+            {body(INTRO, INTRO + 1)}
             {(firstRelease || songFacts.tieup) && (
               <Note label="リリース">
                 {firstRelease && (
@@ -184,14 +183,30 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
             )}
           </section>
 
-          {/* 過去が力になる: 横にサソリの尾(積み重ねた節の先に針) */}
+          {/* 引用の二行: 本文の引用として、赤の縦線で示す */}
+          <div className="a087-row">{body(QUOTE, QUOTE + 1, "a087-quote")}</div>
+
+          {/* 積み重ねたことへの信頼: 横にサソリの尾(積み重ねた節の先に針) */}
           <section className="a087-row a087-row--past">
-            <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={PAST} to={blocks.length} unstyled className="a087-row__text" />
+            {body(PAST, PAST + 1)}
             <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>
               <ScorpionTail />
             </div>
           </section>
+
+          {/* 「プレイヤー」の意味、感情を創造へ */}
+          <div className="a087-row">{body(PAST + 1, FINALE)}</div>
         </div>
+
+        {/* 結び: 深い赤の帯。後ろに輪郭だけの曲名を反復させる(気分が上がる) */}
+        <section className="a087-band">
+          <div className="a087-band__echo" aria-hidden="true">
+            {Array.from({ length: 8 }, (_, i) => (
+              <span key={i}>SCORPION SCORPION SCORPION</span>
+            ))}
+          </div>
+          {body(FINALE, blocks.length, "a087-finale")}
+        </section>
 
         {/* 奥付(紺黒)。サイトの確認済みデータだけ */}
         <footer className="a087-colophon">
