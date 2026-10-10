@@ -9,7 +9,7 @@
  *   前へ巻き、針が前を向く。2026-10-11 ユーザー指定)。
  *   中盤の3段落は、紺黒のカード・赤の短い線で段落ごとに抑揚をつける。
  * - 長い段落を色の面(紺黒・赤)に丸ごと入れると重く、まとまりなく見えるため(2026-10-11 ユーザー指摘)、段落は地の文のまま、
- *   短い言葉だけを色の面に大きく置く: 積み重ねたことへの信頼を語る段落の下に「あたしはあたしのプレイヤー」(紺黒とマス目。ユーザー指定)、
+ *   短い言葉だけを色の面に大きく置く: 「続く歌詞では〜」の段落の上にその歌詞の二行(紺黒とマス目。ユーザー指定の引用)、
  *   結びの一文は深い赤の締めの帯に。
  *   画面に入った時に一度だけ、節が根元から順に積み上がる。JSなし・動きを減らす設定では完成状態のまま。
  * - 注記と奥付は、サイトの確認済みデータだけ(リリース、タイアップ、作詞・作曲、演奏記録)。
@@ -95,6 +95,12 @@ const Scorpion: React.FC = () => {
   );
 };
 
+/**
+ * 「続く歌詞では〜」の段落の上に示す歌詞の二行(2026-10-11 ユーザー指定)。本文の段落が触れている歌詞の引用で、
+ * 本文の外に置くのはこの二行だけ(plan/34)。
+ */
+const STATEMENT = ["涙 怒り 孤独を", "無駄にしないわ 今創造"];
+
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
 const useRevealOnce = <T extends HTMLElement>(threshold: number) => {
   const ref = useRef<T>(null);
@@ -157,9 +163,7 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
   };
   // 結びの3文目(書き手の言葉)
   const finalePull = sentenceOf(FINALE, 2);
-  // 題名の「――」以下(あたしはあたしのプレイヤー)。積み重ねたことへの信頼を語る段落の下に、紺黒とマス目の背景で大きく示す
-  // (歌詞の言葉。題名・本文の引用と同じ言葉で、2026-10-11 ユーザー指定)
-  const playerLine = titleRest.replace(/^―+/, "").trim() || null;
+
   const body = (from: number, to: number, className = "a087-row__text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -229,20 +233,20 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
             )}
           </section>
 
-          {/* 引用の二行: 本文の引用として、赤の縦線で示す */}
-          <div className="a087-row">{body(QUOTE, QUOTE + 1, "a087-quote")}</div>
+          {/* 引用の二行: 本文の引用として、赤の縦線で示す(小さめ・上下の余白も小さめ) */}
+          <div className="a087-row a087-row--quote">{body(QUOTE, QUOTE + 1, "a087-quote")}</div>
 
           {/* 積み重ね → プレイヤー → 感情を創造へ。同じ組み方の段落が続かないよう、段落ごとに抑揚をつける */}
           <section className="a087-row a087-row--past">
             <div className="a087-past">
               {body(PAST, PAST + 1)}
-              {/* 紺黒とマス目の背景に「あたしはあたしのプレイヤー」(題名・本文の引用と同じ言葉なので読み上げ対象外) */}
-              {playerLine && (
-                <p className="a087-statement" aria-hidden="true">
-                  <Phrased text={playerLine} />
-                </p>
-              )}
               <div className="a087-player">{body(PLAYER, PLAYER + 1)}</div>
+              {/* 「続く歌詞では〜」の上に、その歌詞の二行を紺黒とマス目の背景で示す(2026-10-11 ユーザー指定の引用。本文にない言葉なので読み上げる) */}
+              <blockquote className="a087-statement">
+                {STATEMENT.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </blockquote>
               <div className="a087-create">{body(CREATE, FINALE)}</div>
               {/* 感情を創造へ の段落(その貪欲さ)の下に、記号のサソリ(尾 = 積み重ねた節の先に針)。2026-10-11 ユーザー指定 */}
               <div ref={tail.ref} className={`a087-tail-wrap${tail.className}`}>

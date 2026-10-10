@@ -244,11 +244,19 @@
 }
 .a087-quote blockquote {
   margin: 0;
-  padding: 4px 0 4px 20px;
-  border-left: 4px solid var(--red);
-  font-size: 18px;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid var(--red);
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.9;
+  line-height: 1.8;
+}
+/* 引用の行は上下の余白を小さく */
+.a087-row--quote {
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.a087-row + .a087-row.a087-row--quote,
+.a087-row--quote + .a087-row {
+  margin-top: clamp(24px, 3vw, 32px);
 }
 .a087-quote p {
   margin: 0;
@@ -294,11 +302,11 @@
 .a087-row--past {
   display: block;
 }
-/* 「あたしはあたしのプレイヤー」: 紺黒とマス目の背景に、生成りの極太で大きく。四隅に赤のかぎ形の印 */
+/* 歌詞の二行(ユーザー指定の引用): 紺黒とマス目の背景に、生成りの極太で大きく。四隅に赤のかぎ形の印 */
 .a087-statement {
   position: relative;
   max-width: 640px;
-  margin: clamp(32px, 5vw, 48px) 0 0;
+  margin: 0 0 clamp(28px, 4vw, 40px);
   padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
   color: var(--paper-on-dark);
   background-color: var(--night);
@@ -306,12 +314,15 @@
     linear-gradient(rgb(242 237 228 / 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgb(242 237 228 / 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
-  font-size: clamp(24px, 4.4vw, 38px);
+  font-size: clamp(22px, 4vw, 34px);
   font-weight: 900;
-  line-height: 1.4;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   font-feature-settings: "palt";
   text-align: center;
+}
+.a087-statement p {
+  margin: 0;
 }
 .a087-statement::before,
 .a087-statement::after {
@@ -337,15 +348,6 @@
 /* 「プレイヤー」の段落 */
 .a087-player {
   margin: clamp(36px, 5vw, 52px) 0;
-}
-/* 感情を創造へ: 頭に赤の短い線 */
-.a087-create::before {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 4px;
-  margin-bottom: 20px;
-  background: var(--red);
 }
 /* 記号のサソリ: 感情を創造へ の段落(その貪欲さに憧れる)の下、本文の列(最大 640px)の横中央に置く */
 .a087-tail-wrap {
