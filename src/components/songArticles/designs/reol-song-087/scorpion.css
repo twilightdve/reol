@@ -144,7 +144,7 @@
   overflow: hidden;
   background: var(--red);
   color: var(--paper-on-dark);
-  padding: clamp(48px, 8vw, 96px) 0;
+  padding: clamp(36px, 5.5vw, 64px) 0;
 }
 /* 後ろに輪郭だけの曲名を反復させる(MV の文字の反復から。曲名だけで、歌詞は使わない) */
 .a087-band__echo {
@@ -193,7 +193,8 @@
 
 /* ---------- 本文 ---------- */
 .a087-ground {
-  padding: clamp(56px, 9vw, 112px) 0 clamp(64px, 10vw, 120px);
+  /* 下は締めの帯の一文の上の余白を詰める(2026-10-11 ユーザー指定) */
+  padding: clamp(56px, 9vw, 112px) 0 clamp(36px, 5vw, 64px);
 }
 .a087-row {
   width: var(--wide);
@@ -345,15 +346,27 @@
   border-left: 0;
   border-top: 0;
 }
-/* 「プレイヤー」の段落 */
+/* 「プレイヤー」の段落: 上は、ふつうの段落どうしの間隔(1.7em)にそろえる(2026-10-11 ユーザー指定で詰めた) */
 .a087-player {
-  margin: clamp(36px, 5vw, 52px) 0;
+  margin: 1.7em 0 clamp(36px, 5vw, 52px);
+  font-size: 17px;
+}
+@media (max-width: 640px) {
+  .a087-player {
+    font-size: 16px;
+  }
 }
 /* 記号のサソリ: 感情を創造へ の段落(その貪欲さに憧れる)の下、本文の列(最大 640px)の横中央に置く */
 .a087-tail-wrap {
   --sc-w: clamp(150px, 44vw, 220px);
   width: var(--sc-w);
-  margin: clamp(28px, 4vw, 40px) 0 0 max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
+  /* 上下の余白は同じ(2026-10-11 ユーザー指定)。下の結びの段落の前の余白はなくし、この余白だけで空ける */
+  --sc-gap: clamp(36px, 5vw, 56px);
+  /* 下は SVG の枠の中の余白が上より少ないぶん(実測 4〜6px)足して、見た目の上下をそろえる */
+  margin: var(--sc-gap) 0 calc(var(--sc-gap) + 5px) max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
+}
+.a087-row--past + .a087-row {
+  margin-top: 0;
 }
 .a087-scorpion {
   display: block;
