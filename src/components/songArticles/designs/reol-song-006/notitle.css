@@ -623,7 +623,9 @@
 .a006-colophon__box > div + div {
   margin-block-start: 0.9em;
 }
+/* 見出しの字数(「曲」1字・「作詞」2字)が違っても、値の書き出しをそろえる(2字分の長さを取る) */
 .a006-colophon__box dt {
+  flex: 0 0 2.2em;
   color: var(--plum);
   font-weight: 800;
   font-size: 12px;
