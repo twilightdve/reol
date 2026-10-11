@@ -31,7 +31,7 @@ import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/lo
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
-import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
+import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1913,6 +1913,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         tags: string[];
         preview: boolean;
       }[] = [];
+      // 記事ページは、関連記事(全記事のタグがそろってから選ぶ)を入れてから最後にまとめて作る
+      const articlePages: { page: Parameters<typeof createPage>[0]; self: { id: string; seriesSlug: string; tags: string[]; relatedArticleIds: string[] } }[] = [];
+      const relatedCandidates: RelatedCandidate[] = [];
 
       for (const { article, parsed, preview } of songArticles) {
         const slug = article.slug as string;
@@ -2006,7 +2009,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const tags = songArticleTags({ releases: songFacts.releases, extra: article.tags });
 
         const excerpt = article.summary ?? firstParagraphText(parsed);
-        createPage({
+        relatedCandidates.push({
+          id: article.id,
+          slug,
+          title: parsed.title,
+          songTitle: article.songTitle,
+          seriesSlug: series.slug,
+          tags,
+          createdAt: article.createdAt ?? null,
+        });
+        articlePages.push({
+          self: { id: article.id, seriesSlug: series.slug, tags, relatedArticleIds: article.relatedArticleIds ?? [] },
+          page: {
           path: `/articles/${slug}/`,
           component: articleTemplate,
           context: {
@@ -2035,6 +2049,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             preview,
             noindex: preview,
           },
+          },
         });
         indexEntries.push({
           slug,
@@ -2054,6 +2069,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
           list.push({ slug, title: parsed.title });
           articlesBySongUuid.set(page.songUuid, list);
         }
+      }
+
+      // 関連記事(記事ページの下部。最大3本)を入れて記事ページを作る
+      for (const { page, self } of articlePages) {
+        const related = pickRelatedArticles(self, relatedCandidates).map(({ slug: s, title: t, songTitle: st }) => ({
+          slug: s,
+          title: t,
+          songTitle: st,
+        }));
+        createPage({ ...page, context: { ...(page.context as object), related } });
       }
 
       if (indexEntries.length > 0) {

@@ -40,3 +40,11 @@
   - 読みものは日本語だけなので、日本語の HOME にだけ出す(言語別の HOME では空)。
   - WebKit(iPhone 15、PC 1280px)ではみ出しなし。
 - 「HOMEにはNo title, 1LDK, Boyの順番で表示してください」(2026-10-11)→ HOME の読みもの欄は新しい順ではなく、`HOME_ARTICLE_IDS`(series.ts)の記事をその順に出す(No title → 1LDK → Boy)。未公開・draft の記事は飛ばし、1本も無ければ欄を出さない。
+
+## 記事末尾: いいね・その他の記事(2026-10-11)
+
+- 記事別デザインの下に `ArticleEnd`(サイト共通の配色)を置く。順は いいね → その他の記事(最大3本)→ シリーズとタグ。
+- 見出しは「関連記事」ではなく「その他の記事」(ユーザー指定: 何が関連か分かりにくく、記事数も少ないため)。並びは `pickRelatedArticles`(`relatedArticleIds` 優先 → 共通タグ・同シリーズ → 作成日の新しい順)。
+- いいねはログイン不要で誰でも押せる(ユーザー決定)。ブラウザごとの無作為な ID(localStorage)で1記事1回、取り消し可。
+  DB は `supabase/features/supabase-article-likes.sql`(テーブル直接アクセス不可、RPC `get_article_likes` / `set_article_like` のみ)。
+  ID を作り直せば何度でも押せるので、数は目安(厳密な不正防止はしない)。DB に関数が無い・通信できない時はボタンを押せなくし、短い案内を出す。
