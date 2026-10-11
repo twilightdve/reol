@@ -1,0 +1,25 @@
+{
+  "id": "reol-song-006",
+  "kind": "song",
+  "songTitle": "No title",
+  "bodyRevision": 3,
+  "formatRevision": 2,
+  "bodySha256": "550ef1495b5ed74481eb4e7fc861cc678b1e9691e0624b8c0187732649b05664",
+  "songRefs": [
+    "019e8282-8424-7cc7-a286-7bf3738631d1",
+    "019e8282-c8ee-74f3-9761-d58233179e6b",
+    "019e8282-cd9d-7d2d-bfc4-e4c39421b837",
+    "019e8282-e458-7e63-9227-97a4759bfd5e",
+    "019e8282-e839-763a-9675-ca4c07214f56"
+  ],
+  "media": [],
+  "slug": "no-title",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T07:39:42.103Z",
+  "publishedAt": "2026-10-11T02:05:55.912Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

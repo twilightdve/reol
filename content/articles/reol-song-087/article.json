@@ -1,0 +1,24 @@
+{
+  "id": "reol-song-087",
+  "kind": "song",
+  "songTitle": "SCORPION",
+  "bodyRevision": 2,
+  "formatRevision": 1,
+  "bodySha256": "5f37645b78adfd53afc5349cc870282f83d1b119eb80b34330812b9bf793de45",
+  "songRefs": [
+    "019e8282-b84b-7700-b7fd-523c6a6e9b2c",
+    "019e8282-b8c5-71a2-b3fc-e57afa0fd8d0",
+    "019e8282-be52-76e0-897f-1f3f72d5a44c",
+    "019f2411-b4f1-7084-ba23-94bd0e3add9b"
+  ],
+  "media": [],
+  "slug": "scorpion",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T07:40:45.336Z",
+  "publishedAt": "2026-10-11T02:05:57.404Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

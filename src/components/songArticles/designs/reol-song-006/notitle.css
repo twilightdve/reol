@@ -1,0 +1,664 @@
+/*
+ * 楽曲記事「No title」(reol-song-006)の記事別デザイン(見本 v1)。根拠は plan/31。
+ * すべて .a006 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --sky 見上げる空(本文の地) / --ink 本文(黒ではなく深い群青) / --ink-2 補足 / --link リンク
+ *   --plum 曲の強調色(『No title-』のテーマ色 #772965。罫線・ラベル・曲順の数字)
+ *   --amber 2023年の公演の温度(ツアーのテーマ色の金・MVの琥珀色の雲。地の光としてだけ使う)
+ *   表紙は群青(#0b1761・テーマ色 #243084)から赤紫(#772965)へ移る空。
+ * 軸(PC): 縦書きは右から左へ読むので、見出し(縦書き)を右端、注記をその左、本文をさらに左に置く。
+ */
+
+.a006 {
+  --sky: #eef3fa;
+  --ink: #0d1747;
+  --ink-2: #3b4677;
+  --link: #243084;
+  --plum: #772965;
+  --amber: 236 178 84;
+  --cover-ink: #f4f6ff;
+  --cover-ink-2: #c9cff0;
+  --wide: min(1040px, calc(100% - 40px));
+
+  color: var(--ink);
+  background: var(--sky);
+  overflow-wrap: anywhere;
+  /* 万一はみ出しても横スクロールにしない(clip はスクロール領域を作らないので、見出しの sticky は壊れない) */
+  overflow-x: clip;
+}
+
+/* ---------- 縦書きの表紙 ---------- */
+.a006-cover {
+  color: var(--cover-ink);
+  background: linear-gradient(172deg, #0b1761 0%, #243084 46%, #4a2b78 74%, #772965 100%);
+  background: linear-gradient(in oklab 172deg, #0b1761 0%, #243084 46%, #4a2b78 74%, #772965 100%);
+  padding-bottom: clamp(32px, 6vw, 72px);
+}
+.a006-cover__top {
+  width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a006-crumbs {
+  display: flex;
+  gap: 8px;
+}
+.a006-crumbs a {
+  color: var(--cover-ink-2);
+  text-decoration: none;
+}
+.a006-crumbs a:hover,
+.a006-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a006-preview {
+  margin: 0;
+  color: #ffd98a;
+}
+/* 表紙は、横長のMVと縦長の題名の形をそれぞれ活かし、余計な空白を作らない(ユーザー指摘 2026-10-09)。
+   題名の大きさ --title-size から寸法を決める: 縦書きの題名の高さ = 8.0em、幅 = 2.75em + 公開日の列 44px
+   (Chrome で実測。WebKit では書体の違いで高さが約6.3em)。PCでは MVの高さを題名の高さに合わせ
+   (MVの幅 = 8.0em × 16/9 = 14.24em)、一つの四角にまとめる */
+.a006-cover {
+  container-type: inline-size;
+  --title-size: clamp(36px, 9.5vw, 52px);
+  /* 表紙の波紋の中心。スマートフォンは、右に寄せた題名の列(2.75em + 公開日の列 44px)の左に残る余白の中央
+     (左右の余白 20px は打ち消し合うので (表紙の幅 - 題名の列) / 2)。PCは右の題名の列の中央 */
+  --cover-wave-x: calc((100% - var(--title-size) * 2.75 - 44px) / 2);
+  --cover-wave-y: 34%;
+  position: relative;
+  isolation: isolate;
+}
+/* 表紙の余白の波(2026-10-09 ユーザー提案「表紙の余白にも波があってもいい」)。
+   題名を中心に、白と淡い青の楕円の輪が交互に広がり、離れるほど薄れる。MVの水の要素の予告で、
+   後のウォータークラウンにつながる。表紙は読み込み直後から見えているので動かさない。
+   輪の濃さは、表紙で最も明るい下端に線が重なっても、公開日の文字 4.8:1・題名 6.8:1 になる値 */
+.a006-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 71px, rgb(255 255 255 / 0.09) 72px 73px, transparent 74px 144px),
+    repeating-radial-gradient(ellipse 820px 260px at var(--cover-wave-x) var(--cover-wave-y), transparent 0 142px, rgb(150 200 255 / 0.12) 143px 144px);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 85% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+}
+.a006-cover__body {
+  width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+  padding-top: clamp(24px, 5vw, 64px);
+}
+/* 題名は縦書き。右から左へ「松本凱旋から」「読み直すNo title」の2行。「No title」は横向き(既定)のまま */
+/* 題名の列の左に、公開日を小さな縦書きの列で添える。
+   Safari(WebKit)は、書字方向の違う要素が flex/grid の子になると幅を誤りやすい。
+   flex/grid の子は横書きの包み(.a006-cover__title)にし、縦書きはその中の普通の段落の流れ(.a006-cover__vertical)にだけ置く。
+   さらに WebKit は、縦書きを含む横書きの箱の「中身に合わせた幅」を0と計算する(右寄せすると縦書きが右端の外へはみ出す)。
+   そのため包みは横幅いっぱいに広げ、縦書きの要素自身に幅(max-content)を持たせて、左の余白 auto で右に寄せる */
+.a006-cover__title {
+  justify-self: stretch;
+  min-width: 0;
+}
+.a006-cover__vertical {
+  writing-mode: vertical-rl;
+  width: max-content;
+  /* 縦長の題名は右に寄せ、左に残る余白は波紋で満たす(2026-10-09 ユーザー指示「波紋があれば右でいい。波紋の中心は余白の中心」)。
+     縦書きの要素では margin-inline が上下を指すので、左右は物理方向(margin-left)で指定する */
+  margin-left: auto;
+  margin-right: 0;
+}
+.a006-title {
+  margin: 0;
+  font-size: var(--title-size);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  font-feature-settings: "vpal";
+}
+.a006-title__line {
+  display: block;
+}
+.a006-title__line + .a006-title__line {
+  margin-block-start: 0.15em;
+}
+.a006-date {
+  margin: 0;
+  margin-block-start: 18px;
+  padding-block-start: 0.4em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--cover-ink-2);
+}
+/* MVは黒帯で切らず16:9のまま、空の中に置く */
+.a006-cover__media .sa-media {
+  margin: 0;
+}
+.a006-cover__media .sa-media__frame {
+  border-radius: 2px;
+  box-shadow: 0 24px 60px rgba(5, 10, 40, 0.45);
+}
+.a006-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+/* 再生ボタンは、サムネイル中央の題名を隠さないよう左下に置く */
+.a006-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: clamp(12px, 2.4vw, 22px);
+}
+.a006-cover__media .sa-media__button {
+  background: rgba(244, 246, 255, 0.94);
+  color: var(--ink);
+}
+.a006-cover__media .sa-media__caption {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+/* スマートフォンでも、MVは画面幅いっぱいにせず左右に紙面の余白(20px)を残す(2026-10-09 ユーザー指示) */
+.a006-cover__media .sa-media__caption a {
+  color: var(--cover-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (min-width: 900px) {
+  /* 題名の列の幅は、WebKit で0にならないよう文字の大きさから明示する
+     (題名2行の行送り 1.3em×2 + 行間 0.15em = 2.75em、公開日の列と間隔で 44px) */
+  /* 題名の大きさは、MV(14.24em)+ 間隔 + 題名の列(2.75em + 44px)が紙面の幅に収まる最大値(上限56px) */
+  .a006-cover {
+    --title-size: clamp(36px, calc((min(1040px, 100cqi - 40px) - 100px) / 17), 56px);
+    --cover-wave-x: calc(50% + min(520px, 50% - 20px) - (var(--title-size) * 2.75 + 44px) / 2);
+    --cover-wave-y: 56%;
+  }
+  /* PCは表紙が横に広いので、波紋を上下の余白まで届かせる */
+  .a006-cover::before {
+    -webkit-mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+    mask-image: radial-gradient(ellipse 130% 120% at var(--cover-wave-x) var(--cover-wave-y), #000 10%, transparent 100%);
+  }
+  .a006-cover__body {
+    grid-template-columns: calc(var(--title-size) * 14.24) calc(var(--title-size) * 2.75 + 44px);
+    justify-content: space-between;
+    /* 縦書きの題名の高さは書体によってずれる(Chrome 8.0em / WebKit 約6.3em)。差が出ても上下の余白が均等になるよう中央にそろえる */
+    align-items: center;
+    gap: 0;
+  }
+  .a006-cover__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .a006-cover__title {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* ---------- 見上げる空(本文の地) ---------- */
+.a006-chapter {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 9vw, 120px) 0;
+}
+.a006-chapter--intro {
+  padding-top: clamp(48px, 8vw, 104px);
+}
+.a006-chapter__inner {
+  width: var(--wide);
+  margin: 0 auto;
+}
+.a006-chapter__body {
+  max-width: 640px;
+}
+
+/* 一言 */
+.a006-lede {
+  margin: 0 0 clamp(40px, 6vw, 72px);
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+.a006-lede p {
+  margin: 0;
+}
+
+/* 本文 */
+.a006-para + .a006-para {
+  margin-top: 1.7em;
+}
+.a006-para__text {
+  font-size: 17px;
+  line-height: 2;
+}
+/* 本文は行の幅いっぱいに組み、両端をそろえる。text-wrap: pretty は Safari では段落全体の行を短くするため、
+   段落によって行末の位置がずれる(2026-10-10 ユーザー指摘。plan/32) */
+.a006-para__text p {
+  margin: 0;
+  text-align: justify;
+  line-break: strict;
+}
+.a006-lede a,
+.a006-para__text a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+.a006-lede a:hover,
+.a006-para__text a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* 縦書きの見出し。見出しを入れる箱(.a006-chapter__rail)の幅は、WebKit で0にならないよう文字の大きさから明示する
+   (1行分の行送り + 罫と間隔) */
+.a006-chapter__rail {
+  font-size: clamp(22px, 2.6vw, 30px);
+  width: calc(1.35em + 15px);
+}
+.a006-chapter__title {
+  writing-mode: vertical-rl;
+  width: max-content;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.14em;
+  font-feature-settings: "vpal";
+  color: var(--ink);
+}
+/* 見出しの右に、曲の強調色の短い罫(縦書きでは右端の細い列になる) */
+.a006-chapter__title::before {
+  content: "";
+  display: block;
+  inline-size: 1.4em;
+  block-size: 3px;
+  margin-block-end: 12px;
+  background: var(--plum);
+}
+
+/* 注記 */
+.a006-note {
+  display: flow-root;
+  margin: 0 0 14px;
+  padding: 10px 0 0;
+  border-top: 2px solid var(--plum);
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.a006-note p {
+  margin: 0;
+}
+.a006-note__label {
+  margin-bottom: 6px !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--plum);
+}
+.a006-note__strong {
+  color: var(--ink);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+.a006-note__src {
+  margin-top: 6px !important;
+  font-size: 11px;
+}
+.a006-note a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+/* サイト共通のリセットで番号が消えるため、曲順の番号を明示する */
+.a006-setlist {
+  margin: 0;
+  padding-left: 2.4em;
+  list-style: decimal;
+}
+.a006-setlist li::marker {
+  color: var(--plum);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+
+/* スマートフォン: 縦書きの見出しを右に寄せ、本文はその左に回り込む */
+@media (max-width: 1023px) {
+  .a006-chapter__inner {
+    max-width: 640px;
+  }
+  .a006-chapter__rail {
+    float: right;
+    margin: 4px 0 16px 16px;
+  }
+}
+
+/* PC: 右から 見出し(縦書き・章を読む間は右端に留める) | 注記 | 本文 */
+@media (min-width: 1024px) {
+  .a006-chapter__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    column-gap: 48px;
+  }
+  .a006-chapter__body {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+  }
+  .a006-chapter__rail {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .a006-chapter__title {
+    position: sticky;
+    top: 96px;
+  }
+  .a006-lede {
+    max-width: 880px;
+  }
+  /* 本文の列が親の幅より広くならないよう、狭い時は本文の列から縮める */
+  .a006-para {
+    display: grid;
+    grid-template-columns: minmax(0, 640px) 200px;
+    column-gap: 40px;
+  }
+  .a006-para__text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  /* 注記は段落の高さに影響させない(段落の間隔を全段で同じに保つ) */
+  .a006-note {
+    grid-column: 2;
+    grid-row: 1;
+    height: 0;
+    overflow: visible;
+    margin: 0.4em 0 0;
+  }
+}
+
+/* ---------- 見出し1の章: 2014年の空に、2023年の公演の琥珀の光が差す ---------- */
+/* 光の層は章の上下でなだらかに消し、章の境目に水平の線が出ないようにする */
+.a006-chapter--home::before,
+.a006-chapter--two::before {
+  -webkit-mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+}
+/* 見出しの周り(右上。ウォータークラウンの位置)から広がる光 */
+/* 王冠は前の章との境目(余白の中)まで引き上げる(ユーザー指摘 2026-10-09)。
+   光は王冠のしぶきの位置から差すよう中心を合わせ、境目より上(160px)まで広げる */
+.a006-chapter--home {
+  --crown-w: clamp(176px, 22vw, 236px);
+  --crown-pull: calc(clamp(56px, 9vw, 120px) + clamp(28px, 4.5vw, 60px));
+  /* 王冠の水面の中心(章の上端から)。王冠の高さ = 幅 × 200/240、水面は高さの 83% */
+  --crown-y: calc(clamp(56px, 9vw, 120px) - var(--crown-pull) + var(--crown-w) * 0.69);
+  --crown-x: 50%;
+  /* 見出し(縦書き)の中心。スマートフォンは本文の列の右端、PCは紙面の右端の見出しの列。
+     縦位置は王冠の下端(水面 + 幅の0.14倍)から見出しの中ほどまで(約170px) */
+  --head-x: calc(50% + min(320px, 50% - 20px) - 18px);
+  --head-y: calc(var(--crown-y) + var(--crown-w) * 0.14 + 170px);
+}
+@media (min-width: 1024px) {
+  .a006-chapter--home {
+    --crown-x: calc(50% + min(520px, 50% - 20px) - var(--crown-w) / 2);
+    --head-x: calc(50% + min(520px, 50% - 20px) - 36px);
+  }
+}
+.a006-chapter--home::before {
+  content: "";
+  position: absolute;
+  inset: -160px 0 0 0;
+  z-index: -1;
+  pointer-events: none;
+  /* 光の出どころは二つ(2026-10-09 ユーザー指定):
+     - ウォータークラウンから広がる群青のグラデーション(水のしぶき。中心は深い群青、外へ明るい青)
+     - 見出し「故郷で迎えた最終公演」から広がる琥珀のグラデーション(2023年の公演の温度。見出しから本文のほうへ)
+     中心をずらし(群青は章の境目、琥珀はその下の見出し)、同じ場所で混ぜて濁らせない。群青を上の層に置く。
+     濃さは、二つの中心がまったく重なる最悪の場合でも、注記の補足の文字 4.9:1・ラベル 5.0:1 になる値 */
+  background:
+    radial-gradient(
+      ellipse 52% 46% at var(--crown-x) calc(160px + var(--crown-y)),
+      rgb(36 48 132 / 0.18) 0%,
+      rgb(70 120 210 / 0.12) 36%,
+      rgb(120 170 235 / 0.06) 60%,
+      rgb(120 170 235 / 0) 74%
+    ),
+    radial-gradient(
+      ellipse 72% 58% at var(--head-x) calc(160px + var(--head-y)),
+      rgb(var(--amber) / 0.34) 0%,
+      rgb(var(--amber) / 0.15) 45%,
+      rgb(var(--amber) / 0) 74%
+    );
+}
+
+/* ---------- 見出し2の章: 見出しから群青と琥珀が広がり、結びまで重なっていく ---------- */
+/* 光と波紋の中心 = 縦書きの見出しの位置。PCは紙面の右端の見出しの列、スマートフォンは本文の列の右端 */
+.a006-chapter--two {
+  --wave-x: calc(50% + min(320px, 50% - 20px) - 18px);
+  --wave-y: calc(clamp(56px, 9vw, 120px) + 60px);
+}
+@media (min-width: 1024px) {
+  .a006-chapter--two {
+    --wave-x: calc(50% + min(520px, 50% - 20px) - 36px);
+  }
+}
+/* 光の層は章の上端より 160px 上まで延ばし、上端をなだらかに消す処理が見出しのまわりの色を薄めないようにする。
+   見出しのまわりの色は広く(ユーザー指摘 2026-10-09「見出しの色の範囲を広げて」) */
+.a006-chapter--two::before {
+  content: "";
+  position: absolute;
+  inset: -160px 0 0 0;
+  z-index: -1;
+  pointer-events: none;
+  /* 群青は見出しを中心に広く、琥珀は見出しから結びの段落のほうへずらして置き、同じ場所で混ぜて濁らせない */
+  background:
+    radial-gradient(ellipse 78% 70% at var(--wave-x) calc(160px + var(--wave-y)), rgb(120 160 230 / 0.46), rgb(120 160 230 / 0) 72%),
+    radial-gradient(ellipse 60% 52% at calc(var(--wave-x) - 30%) 80%, rgb(var(--amber) / 0.36), rgb(var(--amber) / 0) 72%);
+}
+
+/* ---------- ウォータークラウン(見出し1の章の入口) ---------- */
+/* PCは右の見出し(琥珀の光の差す側)の上、スマートフォンは中央 */
+.a006-crown-wrap {
+  position: relative;
+  z-index: 1;
+  width: var(--wide);
+  /* 章の上の余白 + 前の章の下の余白の半分だけ引き上げ、二つの章の間の余白に立たせる */
+  margin: calc(-1 * var(--crown-pull)) auto clamp(8px, 2vw, 24px);
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 1023px) {
+  .a006-crown-wrap {
+    justify-content: center;
+  }
+}
+.a006-crown {
+  width: var(--crown-w);
+  height: auto;
+  overflow: visible;
+}
+.a006-crown__ripples ellipse {
+  fill: none;
+  stroke: var(--link);
+  stroke-opacity: 0.3;
+}
+.a006-crown__ripples ellipse + ellipse {
+  stroke-opacity: 0.18;
+}
+.a006-crown__rim {
+  fill: none;
+  stroke: var(--link);
+  stroke-opacity: 0.4;
+  stroke-width: 1.1;
+}
+.a006-crown__wall {
+  fill: url(#a006-crown-wall);
+  stroke: var(--link);
+  stroke-width: 1.3;
+  stroke-linejoin: round;
+}
+.a006-crown__drop {
+  fill: var(--link);
+}
+/* 落ちてくる一滴は、2023年の公演の色(琥珀) */
+.a006-crown__fall {
+  fill: #e2a64a;
+}
+/* 動き: 章が画面に入ったら一度だけ、しずくが落ち、王冠が立ち上がり、水滴が離れ、波紋が広がる */
+@media (prefers-reduced-motion: no-preference) {
+  .a006-crown-wrap.is-armed .a006-crown__fall,
+  .a006-crown-wrap.is-armed .a006-crown__splash,
+  .a006-crown-wrap.is-armed .a006-crown__drops,
+  .a006-crown-wrap.is-armed .a006-crown__ripples {
+    opacity: 0;
+    transform-box: view-box;
+  }
+  .a006-crown-wrap.is-visible .a006-crown__fall {
+    animation: a006-fall 0.45s cubic-bezier(0.5, 0, 1, 1) forwards;
+  }
+  .a006-crown-wrap.is-visible .a006-crown__splash {
+    transform-origin: 50% 83%;
+    animation: a006-splash 0.75s 0.42s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  }
+  .a006-crown-wrap.is-visible .a006-crown__drops {
+    animation: a006-drops 0.5s 0.9s ease-out forwards;
+  }
+  .a006-crown-wrap.is-visible .a006-crown__ripples {
+    transform-origin: 50% 83%;
+    animation: a006-ripples 1.2s 0.45s ease-out forwards;
+  }
+}
+@keyframes a006-fall {
+  from { opacity: 0; transform: translateY(-36px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes a006-splash {
+  0% { opacity: 0; transform: scaleY(0.15); }
+  60% { opacity: 1; transform: scaleY(1.06); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+@keyframes a006-drops {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes a006-ripples {
+  from { opacity: 0; transform: scale(0.45); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media print {
+  .a006-crown-wrap.is-armed * { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
+
+/* 波紋: 見出しを中心に、群青と琥珀の輪が交互に広がる(一つの波紋の中で二つの色が重なる)。
+   水面の波紋らしく横長の楕円(輪の間隔は横 72px・縦はその約1/3。ユーザー指摘で広げた)。中心から離れるほど薄れる */
+.a006-chapter--two::after {
+  content: "";
+  position: absolute;
+  /* 光の層と同じく章の上端より上まで延ばし、波紋が章の境目で切れないようにする */
+  inset: -160px 0 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 71px, rgb(36 48 132 / 0.16) 72px 73px, transparent 74px 144px),
+    repeating-radial-gradient(ellipse 900px 300px at var(--wave-x) calc(160px + var(--wave-y)), transparent 0 142px, rgb(214 150 60 / 0.3) 143px 144px);
+  /* 結びの段落まで届くよう広く、見出しから離れるほど薄れる */
+  -webkit-mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
+  mask-image: radial-gradient(ellipse 100% 82% at var(--wave-x) calc(160px + var(--wave-y)), #000 12%, transparent 100%);
+  transform-origin: var(--wave-x) calc(160px + var(--wave-y));
+}
+/* 動き: 章が画面に入ったら一度だけ、波紋が見出しから外へ広がる */
+@media (prefers-reduced-motion: no-preference) {
+  .a006-chapter--two.is-armed::after {
+    opacity: 0;
+  }
+  .a006-chapter--two.is-visible::after {
+    animation: a006-wave 1.8s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  }
+}
+@keyframes a006-wave {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media print {
+  .a006-chapter--two.is-armed::after { opacity: 1; animation: none; transform: none; }
+}
+
+/* ---------- 奥付(縦書き) ---------- */
+.a006-colophon {
+  padding: clamp(56px, 9vw, 112px) 20px clamp(56px, 8vw, 96px);
+  border-top: 1px solid rgba(13, 23, 71, 0.18);
+}
+/* 奥付の縦書きの箱は、横書きの流れの中に幅を内容に合わせて置き、左右の余白で中央に寄せる(flex を使わない) */
+.a006-colophon__box {
+  writing-mode: vertical-rl;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 40px;
+  max-inline-size: 22em;
+  block-size: auto;
+  max-block-size: 100%;
+  padding: 1.4em 1.2em;
+  border-inline: 1px solid var(--ink);
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+.a006-colophon__box > div {
+  display: flex;
+  gap: 0.8em;
+}
+.a006-colophon__box > div + div {
+  margin-block-start: 0.9em;
+}
+.a006-colophon__box dt {
+  color: var(--plum);
+  font-weight: 800;
+  font-size: 12px;
+}
+.a006-colophon__box dd {
+  margin: 0;
+}
+.a006-next {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  font-size: 14px;
+}
+.a006-next a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* ---------- フォーカス ---------- */
+.a006 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a006-cover a:focus-visible {
+  outline-color: #ffd98a;
+}
+
+@media (max-width: 640px) {
+  .a006-para__text {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+}

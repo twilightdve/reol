@@ -9,16 +9,18 @@ import { setRoute } from "../../redux/slices/routeSlice";
 import { trackSectionView } from "../../utils/analytics";
 import { useLocalizePath } from "../../i18n/site/SiteLangContext";
 import { HomeSection } from "./sections";
-import { SiteStats } from "./sections/HomeSection";
+import { HomeArticle, SiteStats } from "./sections/HomeSection";
 
 interface IndexContentsProps {
   recommend: Recommend[];
   siteStats: SiteStats;
+  homeArticles: HomeArticle[];
 }
 
 const IndexContents: React.FC<IndexContentsProps> = ({
   recommend,
   siteStats,
+  homeArticles,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { currentRoute } = useSelector((state: RouteState) => state.route);
@@ -76,7 +78,7 @@ const IndexContents: React.FC<IndexContentsProps> = ({
   const renderCurrentContents = (route: string) => {
     switch (route) {
       case ROUTE_NAMES[0]:
-        return <HomeSection recommend={recommend} siteStats={siteStats} />;
+        return <HomeSection recommend={recommend} siteStats={siteStats} homeArticles={homeArticles} />;
       // DISCOGRAPHY / LIVE / PLACE / PHOTO は独立ページに切り出し済み。
       // ハッシュアクセスは contents.tsx 上部の useEffect でリダイレクトされる。
       default:

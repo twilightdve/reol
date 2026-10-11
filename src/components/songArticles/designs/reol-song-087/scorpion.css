@@ -1,0 +1,506 @@
+/*
+ * 楽曲記事「SCORPION」(reol-song-087)の記事別デザイン(見本 v1)。根拠は plan/34。
+ * すべて .a087 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --paper 生成りの地(本文) / --ink 本文(墨色) / --ink-2 補足 / --red 深い赤(サイトのテーマ色 #85313B。強調・リンク・尾)
+ *   --night 紺黒(サイトのテーマ色 #0F1923。表紙と奥付) / --paper-on-dark 紺黒・赤の上の文字
+ */
+
+.a087 {
+  --paper: #f2ede4;
+  --ink: #15171c;
+  --ink-2: #4c4b52;
+  --red: #85313b;
+  --night: #0f1923;
+  --paper-on-dark: #f2ede4;
+  --muted-on-dark: #b9bec8;
+  --wide: min(1040px, calc(100% - 40px));
+
+  color: var(--ink);
+  background: var(--paper);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 紺黒にマス目、題名を極太と輪郭で ---------- */
+.a087-cover {
+  color: var(--paper-on-dark);
+  background-color: var(--night);
+  /* MV の紺黒の背景にあるような細かいマス目 */
+  background-image:
+    linear-gradient(rgb(242 237 228 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(242 237 228 / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding-bottom: clamp(40px, 7vw, 88px);
+}
+.a087-cover__top {
+  width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a087-crumbs {
+  display: flex;
+  gap: 8px;
+  color: var(--muted-on-dark);
+}
+.a087-crumbs a {
+  color: var(--muted-on-dark);
+  text-decoration: none;
+}
+.a087-crumbs a:hover,
+.a087-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a087-preview {
+  margin: 0;
+  color: #ffd98a;
+}
+.a087-cover__body {
+  width: var(--wide);
+  margin: 0 auto;
+  padding-top: clamp(24px, 6vw, 72px);
+  container-type: inline-size;
+}
+.a087-title {
+  margin: 0;
+}
+.a087-title__head {
+  display: block;
+  margin-top: 0.5em;
+  font-size: clamp(24px, 6cqi, 56px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+}
+/* 曲名は輪郭だけの大きな文字で、1行に収まる最大の大きさ(「SCORPION」は約5.9em) */
+.a087-title__song {
+  display: block;
+  white-space: nowrap;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(190px, 16.6cqi);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: max(1.5px, 0.012em) var(--paper-on-dark);
+}
+.a087-date {
+  width: fit-content;
+  margin: 20px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--muted-on-dark);
+}
+.a087-cover__media {
+  margin-top: clamp(28px, 5vw, 48px);
+  max-width: 760px;
+}
+.a087-cover__media .sa-media {
+  margin: 0;
+}
+.a087-cover__media .sa-media__frame {
+  border-radius: 0;
+  outline: 1px solid rgb(242 237 228 / 0.25);
+  outline-offset: 6px;
+}
+.a087-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+.a087-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: clamp(12px, 2.4vw, 22px);
+}
+.a087-cover__media .sa-media__button {
+  background: var(--red);
+  color: var(--paper-on-dark);
+  border-radius: 0;
+}
+.a087-cover__media .sa-media__caption {
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.a087-cover__media .sa-media__caption a {
+  color: var(--paper-on-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- 一言: 深い赤の帯 ---------- */
+.a087-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--red);
+  color: var(--paper-on-dark);
+  padding: clamp(36px, 5.5vw, 64px) 0;
+}
+/* 後ろに輪郭だけの曲名を反復させる(MV の文字の反復から。曲名だけで、歌詞は使わない) */
+.a087-band__echo {
+  position: absolute;
+  inset: -0.12em 0 auto -0.4em;
+  z-index: -1;
+  display: grid;
+  gap: 0.02em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(56px, 11vw, 132px);
+  font-weight: 900;
+  line-height: 0.9;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(242 237 228 / 0.16);
+  pointer-events: none;
+}
+.a087-band__echo span:nth-child(even) {
+  margin-left: -1.6em;
+}
+/* 締めの帯に抜き出した結びの一文 */
+.a087-band__quote {
+  width: var(--wide);
+  margin: 0 auto;
+  max-width: none;
+  font-size: clamp(22px, 3.6vw, 36px);
+  font-weight: 900;
+  line-height: 1.6;
+  font-feature-settings: "palt";
+}
+.a087-band__quote .sa-phrased {
+  display: block;
+  max-width: 22em;
+}
+/* 結び: 地の色のまま、少し大きく(太さは普通) */
+.a087-finale {
+  max-width: 640px;
+  font-size: clamp(17px, 2vw, 19px);
+  line-height: 2.05;
+  text-align: justify;
+  line-break: strict;
+}
+.a087-finale p {
+  margin: 0;
+}
+
+/* ---------- 本文 ---------- */
+.a087-ground {
+  /* 下は締めの帯の一文の上の余白を詰める(2026-10-11 ユーザー指定) */
+  padding: clamp(56px, 9vw, 112px) 0 clamp(36px, 5vw, 64px);
+}
+.a087-row {
+  width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.a087-row + .a087-row {
+  margin-top: clamp(48px, 7vw, 80px);
+}
+.a087-row__text {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 2;
+  text-align: justify;
+  line-break: strict;
+}
+.a087-row__text p {
+  margin: 0;
+}
+.a087-row__text p + p {
+  margin-top: 1.7em;
+}
+.a087-ground a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a087-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+/* 冒頭: 大きめの太字 */
+.a087-lede {
+  max-width: 640px;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 800;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+}
+.a087-lede p {
+  margin: 0;
+}
+/* 引用の二行: 本文の引用として赤の縦線で示す(歌詞なので大きな装飾文字にはしない) */
+.a087-quote {
+  max-width: 640px;
+}
+.a087-quote blockquote {
+  margin: 0;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid var(--red);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+/* 引用の行は上下の余白を小さく */
+.a087-row--quote {
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.a087-row + .a087-row.a087-row--quote,
+.a087-row--quote + .a087-row {
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.a087-quote p {
+  margin: 0;
+}
+/* 注記: スマートフォンは段落の前、PCは本文の右の列 */
+.a087-row .a087-note {
+  order: -1;
+}
+.a087-note {
+  padding-top: 10px;
+  border-top: 3px solid var(--red);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.a087-note p {
+  margin: 0;
+}
+.a087-note p + p {
+  margin-top: 6px;
+}
+.a087-note__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--red);
+}
+.a087-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+}
+/* 冒頭と、右のサソリの尾 */
+.a087-row--lede {
+  display: block;
+}
+.a087-row--lede::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 積み重ね → プレイヤー → 感情を創造へ */
+.a087-row--past {
+  display: block;
+}
+/* 歌詞の二行(ユーザー指定の引用): 紺黒とマス目の背景に、生成りの極太で大きく。四隅に赤のかぎ形の印 */
+.a087-statement {
+  position: relative;
+  max-width: 640px;
+  margin: 0 0 clamp(28px, 4vw, 40px);
+  padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
+  color: var(--paper-on-dark);
+  background-color: var(--night);
+  background-image:
+    linear-gradient(rgb(242 237 228 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(242 237 228 / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  text-align: center;
+}
+.a087-statement p {
+  margin: 0;
+}
+.a087-statement::before,
+.a087-statement::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--red);
+  pointer-events: none;
+}
+.a087-statement::before {
+  top: -6px;
+  left: -6px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.a087-statement::after {
+  right: -6px;
+  bottom: -6px;
+  border-left: 0;
+  border-top: 0;
+}
+/* 「プレイヤー」の段落: 上は、ふつうの段落どうしの間隔(1.7em)にそろえる(2026-10-11 ユーザー指定で詰めた) */
+.a087-player {
+  margin: 1.7em 0 clamp(36px, 5vw, 52px);
+  font-size: 17px;
+}
+@media (max-width: 640px) {
+  .a087-player {
+    font-size: 16px;
+  }
+}
+/* 記号のサソリ: 感情を創造へ の段落(その貪欲さに憧れる)の下、本文の列(最大 640px)の横中央に置く */
+.a087-tail-wrap {
+  --sc-w: clamp(150px, 44vw, 220px);
+  width: var(--sc-w);
+  /* 上下の余白は同じ(2026-10-11 ユーザー指定)。下の結びの段落の前の余白はなくし、この余白だけで空ける */
+  --sc-gap: clamp(36px, 5vw, 56px);
+  /* 下は SVG の枠の中の余白が上より少ないぶん(実測 4〜6px)足して、見た目の上下をそろえる */
+  margin: var(--sc-gap) 0 calc(var(--sc-gap) + 5px) max(0px, calc((min(100%, 640px) - var(--sc-w)) / 2));
+}
+.a087-row--past + .a087-row {
+  margin-top: 0;
+}
+.a087-scorpion {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.a087-sc__fill {
+  fill: var(--red);
+}
+.a087-sc__seg {
+  fill: var(--red);
+  stroke: var(--paper);
+  stroke-width: 3;
+}
+/* 画面に入った時に一度だけ、胴とはさみ → 尾の節(根元から順に) → 針。
+   節の配置は SVG の transform 属性なので、CSS の transform・transform-box は使わず、不透明度だけを動かす */
+.a087-tail-wrap.is-armed .a087-sc__part {
+  opacity: 0;
+}
+.a087-tail-wrap.is-visible .a087-sc__part {
+  animation: a087-stack 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 90ms);
+}
+@keyframes a087-stack {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (min-width: 900px) {
+  .a087-row {
+    display: grid;
+    grid-template-columns: minmax(0, 640px) 220px;
+    gap: 56px;
+    align-items: start;
+  }
+  .a087-row .a087-note {
+    order: 0;
+  }
+  .a087-row .a087-note {
+    margin-top: 0.5em;
+  }
+  /* PC: 冒頭の段落は1列で、上に記号のサソリ */
+  .a087-row--lede {
+    display: block;
+  }
+  .a087-row--past {
+    display: grid;
+  }
+  /* 積み重ね〜感情を創造へ は、外側の2列(本文・右の列)をまたぐ(中の「プレイヤー」の段落が自分で右の列を使うため) */
+  .a087-past {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- 奥付(紺黒) ---------- */
+.a087-colophon {
+  color: var(--muted-on-dark);
+  background: var(--night);
+  padding: clamp(48px, 8vw, 88px) 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.a087-colophon__list,
+.a087-next {
+  width: var(--wide);
+  margin: 0 auto;
+}
+.a087-colophon__list {
+  display: grid;
+  gap: 10px;
+}
+.a087-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+  max-width: 640px;
+}
+.a087-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--paper-on-dark);
+}
+.a087-colophon dd {
+  margin: 0;
+}
+.a087-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a087-next {
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a087-colophon a {
+  color: var(--paper-on-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- フォーカス ---------- */
+.a087 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a087-cover a:focus-visible,
+.a087-colophon a:focus-visible {
+  outline-color: #ffd98a;
+}
+
+@media (max-width: 640px) {
+  .a087-row__text {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+}
+@media print {
+  .a087-cover,
+  .a087-band,
+  .a087-colophon {
+    color: #000;
+    background: #fff;
+  }
+  .a087-band__echo {
+    display: none;
+  }
+  .a087-title__song {
+    color: #000;
+    -webkit-text-stroke: 0;
+  }
+}

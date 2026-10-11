@@ -100,6 +100,8 @@ export interface SongPageContext {
   }[];
   albumReleaseDate?: string | null;
   plays: Play[];
+  /** この曲(収録レコードuuidで対応確認済み)の公開済み楽曲記事(plan/29)。記事は日本語のみ */
+  articles?: { slug: string; title: string }[];
 }
 
 const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext }) => {
@@ -127,6 +129,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     albumPosts,
     albumReleaseDate,
     plays,
+    articles,
   } = pageContext;
 
   const sortedPlays = [...plays].sort((a, b) => b.date.localeCompare(a.date));
@@ -284,6 +287,29 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
               {t.share}
             </a>
           </section>
+
+        {/* ③''楽曲記事(読みもの)への導線。公開済みで、この曲との対応が確認できた記事だけ */}
+        {articles && articles.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-[11px] font-extrabold tracking-wide text-bx-ink3">{t.articles}</h2>
+            <ul className="mt-2 space-y-1">
+              {articles.map((a) => (
+                <li key={a.slug}>
+                  <LangLink
+                    to={`/articles/${a.slug}/`}
+                    lang="ja"
+                    onClick={() =>
+                      trackEvent("song_article_click", { category: "navigation", label: a.slug })
+                    }
+                    className="text-[15px] font-bold text-bx-blue hover:text-bx-blueLight underline underline-offset-4"
+                  >
+                    {a.title}
+                  </LangLink>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* ③'公式動画埋め込みプレイヤー(MV / 歌詞動画 / ライブ映像) */}
         {videoEmbeds.length > 0 && (

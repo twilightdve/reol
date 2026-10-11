@@ -25,6 +25,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "init:firebase": "ts-node scripts/init-firebase.ts",
+    "articles:import": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/articles/import-song-articles.ts",
+    "articles:publish": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/articles/publish-song-article.ts",
+    "articles:preview": "ARTICLES_PREVIEW=1 npm run develop",
     "refresh:relations": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/refresh-relations.ts"
   },
   "dependencies": {
@@ -85,9 +88,11 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
+    "remark-parse": "^9.0.0",
     "sass": "^1.71.1",
     "sharp": "^0.32.6",
     "topojson-client": "^3.1.0",
+    "unified": "^9.2.2",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

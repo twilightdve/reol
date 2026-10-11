@@ -212,6 +212,7 @@ const ko: SiteDict = {
     stream: "스트리밍으로 듣기",
     lyricsLink: "가사 보기(歌ネット, 일본어)",
     watchMv: "공식 MV 보기",
+    articles: "이 곡에 관한 글(일본어)",
     shareTitle: "이 곡의 페이지를 X에 공유",
     share: "X에 공유",
     historyKicker: (n: string) => `PERFORMANCE HISTORY — ${n}건`,

@@ -27,6 +27,11 @@ import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
+import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
+import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
+import { designProblems } from "./src/utils/songArticles/designCheck";
+import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
+import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
@@ -1569,10 +1574,31 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
     return;
   }
 
+  const context = (page.context ?? {}) as Record<string, unknown>;
+
+  // HOME の「読みもの」欄(2026-10-11): HOME_ARTICLE_IDS の記事を、その順に渡す(公開済みの記事だけ。プレビューでは確認中も含む)。
+  // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
+  if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
+    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null }[] = [];
+    try {
+      const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
+      homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
+        const a = byId.get(id);
+        return a
+          ? [{ slug: a.article.slug as string, title: a.parsed.title, songTitle: a.article.songTitle, createdAt: a.article.createdAt ?? null }]
+          : [];
+      });
+    } catch (e) {
+      console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
+    }
+    actions.deletePage(page);
+    actions.createPage({ ...page, context: { ...context, homeArticles } });
+    return;
+  }
+
   // 多言語ページ(plan/28): 翻訳済みのルートを言語ごとに /<lang>/... として複製する。
   // onCreatePage はテンプレートから作ったページでも呼ばれるので、曲詳細等もここで複製できる。
   // 複製したページでも再び呼ばれるため、context.lang を持つページ(=複製済み)は何もしない。
-  const context = (page.context ?? {}) as Record<string, unknown>;
   if (context.lang) return;
   if (!isLocalizedRoute(page.path)) return;
   for (const lang of ENABLED_LANGS) {
@@ -1676,6 +1702,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     discography: {
       discographyWithSongs: {
         discographyUuid: string;
+        title: string | null;
+        format: string | null;
         releaseDate: string | null;
         reports: {
           discographyRepoUuid: string;
@@ -1699,6 +1727,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           musicMember: string | null;
           lyricVideoUrl: string | null;
           liveVideoUrl: string | null;
+          tieupDescription: string | null;
         }[];
       }[];
     } | null;
@@ -1731,6 +1760,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
       discography {
         discographyWithSongs {
           discographyUuid
+          title
+          format
           releaseDate
           reports {
             discographyRepoUuid
@@ -1754,6 +1785,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             musicMember
             lyricVideoUrl
             liveVideoUrl
+            tieupDescription
           }
         }
       }
@@ -1788,6 +1820,281 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // リンク先slugは songUuid → 曲名 の順で代表曲へ解決する(解決不能ならリンクなし)
     const statsSlugByUuid = new Map(songStats.map((s) => [s.songUuid, s.slug]));
     const statsSlugByName = new Map(songStats.map((s) => [s.songName, s.slug]));
+
+    // ----- 楽曲記事(読みもの) /articles/ ・ /articles/<slug>/ (plan/29) -----
+    // 通常ビルドは content/articles の公開記事だけ。ARTICLES_PREVIEW=1 のときだけ staging も含め、
+    // プレビュー記事は noindex(サイトマップからも除外)。未公開記事はページ自体を作らない。
+    // 曲ページとの対応は管理表「song対応」の収録uuid → 代表uuid → 曲ページの順で解決し、曲名では照合しない。
+    const articlesBySongUuid = new Map<string, { slug: string; title: string }[]>();
+    {
+      const songArticles = loadSongArticles(process.cwd());
+      const canonicalSongUuid = buildCanonicalUuidMap(
+        (songResult.data?.discography?.discographyWithSongs ?? []).flatMap((disc) =>
+          disc.songs.map((s) => ({ songUuid: s.songUuid, songName: s.songName }))
+        )
+      );
+      const statsByUuid = new Map(songStats.map((s) => [s.songUuid, s]));
+      const articleTemplate = path.resolve("./src/templates/song-article.tsx");
+
+      // 記事別デザインが登録表で指定した公演(plan/31)。公演名・日付・会場・セットリストを渡す
+      type LiveRef = {
+        liveItemUuid: string;
+        liveTitle: string;
+        liveItemName: string | null;
+        date: string;
+        place: string | null;
+        path: string;
+        setList: { name: string; type: string | null }[];
+      };
+      const liveRefByUuid = new Map<string, LiveRef>();
+      const wantedLiveItems = new Set(
+        songArticles.flatMap(({ article }) => DESIGN_MANIFEST[article.id]?.liveItemUuids ?? [])
+      );
+      if (wantedLiveItems.size > 0) {
+        const liveRefResult = await graphql<{
+          live: {
+            liveInfos: {
+              title: string;
+              items: {
+                liveItemUuid: string;
+                slug: string;
+                liveItemName: string | null;
+                date: string;
+                place: string | null;
+                setList: { liveItemSongName: string; type: string | null }[];
+              }[];
+            }[];
+          } | null;
+        }>(`
+          query SongArticleLiveRefs {
+            live {
+              liveInfos {
+                title
+                items {
+                  liveItemUuid
+                  slug
+                  liveItemName
+                  date
+                  place
+                  setList {
+                    liveItemSongName
+                    type
+                  }
+                }
+              }
+            }
+          }
+        `);
+        for (const live of liveRefResult.data?.live?.liveInfos ?? []) {
+          for (const item of live.items) {
+            if (!wantedLiveItems.has(item.liveItemUuid)) continue;
+            liveRefByUuid.set(item.liveItemUuid, {
+              liveItemUuid: item.liveItemUuid,
+              liveTitle: live.title,
+              liveItemName: item.liveItemName,
+              date: item.date,
+              place: item.place,
+              path: `/live/${item.slug}/`,
+              setList: item.setList.map((s) => ({ name: s.liveItemSongName, type: s.type })),
+            });
+          }
+        }
+      }
+
+      const indexEntries: {
+        slug: string;
+        title: string;
+        songTitle: string;
+        versionLabel: string | null;
+        summary: string | null;
+        createdAt: string | null;
+        publishedAt: string | null;
+        seriesSlug: string;
+        tags: string[];
+        preview: boolean;
+      }[] = [];
+
+      for (const { article, parsed, preview } of songArticles) {
+        const slug = article.slug as string;
+        const songPages = new Map<
+          string,
+          { songUuid: string; slug: string; songName: string; musicVideoUrl: string | null }
+        >();
+        for (const uuid of article.songRefs) {
+          const stats = statsByUuid.get(canonicalSongUuid.get(uuid) ?? uuid);
+          if (stats) {
+            songPages.set(stats.slug, {
+              songUuid: stats.songUuid,
+              slug: stats.slug,
+              songName: stats.songName,
+              musicVideoUrl: stats.musicVideoUrl,
+            });
+          }
+        }
+        if (songPages.size === 0) {
+          console.warn(`[articles] ${article.id}: 対応する曲ページが見つからないため曲ページへのリンクを出しません`);
+        }
+
+        // 冒頭のMVリンクは、登録済みの公式MV(管理表の official_mv か、曲データの MV URL)または
+        // 管理表の公式配信音源(official_audio。MVのない曲。plan/32)と動画IDが一致するときだけメディア部品にする。
+        // 一致しなければ本文のリンクのまま
+        let leadMedia: { index: number; videoId: string; href: string; text: string } | null = null;
+        if (parsed.lead) {
+          const leadId = youtubeVideoId(parsed.lead.href);
+          const registered = new Set(
+            [
+              ...article.media.filter((m) => m.role === "official_mv" || m.role === "official_audio").map((m) => m.url),
+              ...[...songPages.values()].map((p) => p.musicVideoUrl),
+            ]
+              .map((u) => youtubeVideoId(u))
+              .filter((id): id is string => Boolean(id))
+          );
+          if (leadId && registered.has(leadId)) {
+            leadMedia = { index: parsed.lead.index, videoId: leadId, href: parsed.lead.href, text: parsed.lead.text };
+          } else {
+            console.warn(`[articles] ${article.id}: 冒頭リンクが登録済みの公式MV・公式配信音源と一致しないため埋め込みにしません`);
+          }
+        }
+
+        // 記事別デザイン(plan/30)。本文の版・段落が作成時と違えば使わず、共通テンプレートに戻す
+        const designIssues = designProblems(article.id, {
+          bodyRevision: article.bodyRevision,
+          bodySha256: article.bodySha256,
+          blocks: parsed.blocks,
+        });
+        if (designIssues.length > 0) {
+          console.warn(`[articles] ${article.id}: 記事別デザインを使いません(${designIssues.join(" / ")})`);
+        }
+
+        // 締めのクレジット等に使う、サイトの確認済みデータ(収録作・発売日・作詞作曲)。収録uuidから引く
+        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null }>();
+        let lyricMember: string | null = null;
+        let musicMember: string | null = null;
+        let tieup: string | null = null;
+        for (const disc of songResult.data?.discography?.discographyWithSongs ?? []) {
+          for (const s of disc.songs) {
+            if (!article.songRefs.includes(s.songUuid)) continue;
+            lyricMember = lyricMember ?? s.lyricMember;
+            musicMember = musicMember ?? s.musicMember;
+            tieup = tieup ?? (s.tieupDescription?.trim() || null);
+            const title = disc.title ?? s.discographyTitle;
+            if (title && !releases.has(disc.discographyUuid)) {
+              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate });
+            }
+          }
+        }
+        // 演奏記録(サイトの演奏統計。代表曲の songStats)。対応する曲ページが1つの時だけ使う
+        const statsForFacts =
+          songPages.size === 1 ? statsByUuid.get([...songPages.values()][0].songUuid) ?? null : null;
+        const songFacts = {
+          lyricMember,
+          musicMember,
+          tieup,
+          stats: statsForFacts
+            ? {
+                totalPlays: statsForFacts.totalPlays,
+                firstPlayedDate: statsForFacts.firstPlayedDate,
+                lastPlayedDate: statsForFacts.lastPlayedDate,
+              }
+            : null,
+          releases: [...releases.values()].sort((a, b) =>
+            (a.releaseDate ?? "9999").localeCompare(b.releaseDate ?? "9999")
+          ),
+        };
+        // 読みものの分類(シリーズ+タグ)。楽曲記事は「曲を読む」、タグはサイトのデータから(src/utils/songArticles/series.ts)
+        const series = seriesBySlug(SONG_ARTICLE_SERIES) ?? ARTICLE_SERIES[0];
+        const tags = songArticleTags({ releases: songFacts.releases, extra: article.tags });
+
+        const excerpt = article.summary ?? firstParagraphText(parsed);
+        createPage({
+          path: `/articles/${slug}/`,
+          component: articleTemplate,
+          context: {
+            id: article.id,
+            slug,
+            title: parsed.title,
+            songTitle: article.songTitle,
+            versionLabel: article.versionLabel,
+            description: excerpt,
+            createdAt: article.createdAt ?? null,
+            publishedAt: article.publishedAt,
+            updatedAt: article.updatedAt,
+            series: { slug: series.slug, name: series.name },
+            tags,
+            bodyRevision: article.bodyRevision,
+            blocks: parsed.blocks,
+            leadMedia,
+            songPages: [...songPages.values()].map(({ slug: s, songName }) => ({ slug: s, songName })),
+            songFacts,
+            liveRefs: (DESIGN_MANIFEST[article.id]?.liveItemUuids ?? []).flatMap((uuid) => {
+              const ref = liveRefByUuid.get(uuid);
+              if (!ref) console.warn(`[articles] ${article.id}: 公演 ${uuid} が見つからないため注記を出しません`);
+              return ref ? [ref] : [];
+            }),
+            designId: designIssues.length === 0 ? article.id : null,
+            preview,
+            noindex: preview,
+          },
+        });
+        indexEntries.push({
+          slug,
+          title: parsed.title,
+          songTitle: article.songTitle,
+          versionLabel: article.versionLabel,
+          summary: excerpt,
+          createdAt: article.createdAt ?? null,
+          publishedAt: article.publishedAt,
+          seriesSlug: series.slug,
+          tags,
+          preview,
+        });
+        // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
+        for (const page of songPages.values()) {
+          const list = articlesBySongUuid.get(page.songUuid) ?? [];
+          list.push({ slug, title: parsed.title });
+          articlesBySongUuid.set(page.songUuid, list);
+        }
+      }
+
+      if (indexEntries.length > 0) {
+        // 新着順(公開日時の降順)。公開日時の無いプレビュー記事は末尾で、作成日の降順
+        indexEntries.sort(
+          (a, b) =>
+            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
+            (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
+        );
+        const indexTemplate = path.resolve("./src/templates/song-articles-index.tsx");
+        createPage({
+          path: "/articles/",
+          component: indexTemplate,
+          context: {
+            articles: indexEntries,
+            series: ARTICLE_SERIES,
+            seriesSlug: null,
+            // 公開記事が無くプレビュー記事だけのときは一覧も noindex
+            noindex: indexEntries.every((a) => a.preview),
+          },
+        });
+        // シリーズごとのページ(記事が1件以上あるシリーズだけ)
+        for (const s of ARTICLE_SERIES) {
+          const inSeries = indexEntries.filter((a) => a.seriesSlug === s.slug);
+          if (inSeries.length === 0) continue;
+          createPage({
+            path: `/articles/series/${s.slug}/`,
+            component: indexTemplate,
+            context: {
+              articles: inSeries,
+              series: ARTICLE_SERIES,
+              seriesSlug: s.slug,
+              noindex: inSeries.every((a) => a.preview),
+            },
+          });
+        }
+      }
+      console.log(
+        `[articles] generated ${indexEntries.length} article pages${isArticlesPreview() ? " (ARTICLES_PREVIEW: staging を含む)" : ""}`
+      );
+    }
 
     // discographyUuid → 収録アルバムのインタビュー/関連ポスト(楽曲詳細ページに転載)
     const reportsByDiscUuid = new Map(
@@ -1866,6 +2173,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             ? releaseDateByDiscUuid.get(song.discographyUuid) ?? null
             : null,
           plays: song.plays,
+          articles: articlesBySongUuid.get(song.songUuid) ?? [],
         },
       });
     });
@@ -2337,4 +2645,31 @@ export const createPages: GatsbyNode["createPages"] = async ({
       `[on-this-day] generated ${onThisDayPageCount} day pages, ${eventsByMonthDay.size} have events`
     );
   }
+};
+
+// React 18.3.1 の静的HTML生成(react-dom/server の writeStringChunk)は、2048バイトの書き込みバッファの
+// 末尾に日本語などのマルチバイト文字が収まらないと、未使用分の0バイトごとバッファを書き出してしまう。
+// その結果、文字と文字の間に NUL(\x00)が1〜2バイト入る(本番の既存ページにも発生していた。plan/29 6章)。
+// UTF-8 の文字に 0x00 のバイトは含まれないため、HTMLから NUL だけを取り除けば元の文字列に戻る。
+export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ reporter }) => {
+  const publicDir = path.join(process.cwd(), "public");
+  let fixedFiles = 0;
+  let removedBytes = 0;
+  const walk = async (dir: string): Promise<void> => {
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        await walk(full);
+      } else if (entry.name.endsWith(".html")) {
+        const buf = await fs.readFile(full);
+        if (!buf.includes(0)) continue;
+        const cleaned = Buffer.from(buf.filter((b) => b !== 0));
+        removedBytes += buf.length - cleaned.length;
+        fixedFiles++;
+        await fs.writeFile(full, cleaned);
+      }
+    }
+  };
+  await walk(publicDir);
+  reporter.info(`[html-nul] ${fixedFiles} files から NUL を ${removedBytes} バイト除去しました`);
 };

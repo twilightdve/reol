@@ -6,6 +6,12 @@
 
 import { execSync } from "child_process";
 
+// 楽曲記事のプレビュー(plan/29)は未公開原稿をビルドに含めるため、本番ビルドでは使わない
+if (process.env.ARTICLES_PREVIEW) {
+  console.error("ARTICLES_PREVIEW が設定されています。未公開記事を含むビルドはデプロイできません。");
+  process.exit(1);
+}
+
 const GENERATED_PATHS = ["static/data", "static/relive/generated", "static/og"];
 
 const pathspec = [".", ...GENERATED_PATHS.map((p) => `':!${p}'`)].join(" ");

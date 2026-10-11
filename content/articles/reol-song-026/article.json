@@ -1,0 +1,32 @@
+{
+  "id": "reol-song-026",
+  "kind": "song",
+  "songTitle": "MONSTER",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "b554f21452805a202daa7383e58c7c45eaa58e39df0b039e6d65bd5d807b732e",
+  "songRefs": [
+    "019e8282-9020-7457-9b15-125dc38bee15"
+  ],
+  "media": [
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=na1I8fwbmyE",
+      "role": "official_audio"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://youtu.be/Zovrx5rpj5I",
+      "role": "official_live_candidate"
+    }
+  ],
+  "slug": "monster",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-02T11:07:37.504Z",
+  "publishedAt": "2026-10-11T02:05:57.891Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

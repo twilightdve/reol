@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { LangLink, useDict, usePageDict } from "../../../i18n/site/SiteLangContext";
 import { featuresDict } from "../../../i18n/site/pages/features";
 import RecommendList from "../recommend-list";
@@ -26,9 +27,18 @@ export interface SiteStats {
   nextLive: SiteStatsNextLive | null;
 }
 
+/** HOME の「読みもの」欄に出す楽曲記事(gatsby-node.ts の onCreatePage で渡す) */
+export interface HomeArticle {
+  slug: string;
+  title: string;
+  songTitle: string;
+  createdAt: string | null;
+}
+
 interface HomeSectionProps {
   recommend: Recommend[];
   siteStats: SiteStats;
+  homeArticles: HomeArticle[];
 }
 
 /** "YYYY-MM-DD" -> "MM.DD"（変換できない場合はそのまま返す） */
@@ -38,7 +48,7 @@ const formatMonthDay = (iso: string | null): string => {
   return m ? `${m[1]}.${m[2]}` : iso;
 };
 
-const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
+const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArticles }) => {
   const { songCount, liveItemCount, performanceCount, nextLive } = siteStats;
   const dict = useDict();
   const t = dict.home;
@@ -133,6 +143,44 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats }) => {
       <div className="px-2 sm:px-4 pt-6">
         <ExploreGrid />
       </div>
+
+      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → 1LDK → Boy)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
+      {homeArticles.length > 0 && (
+        <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-10">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <div>
+              <Kicker color="text-bx-yellow">READING</Kicker>
+              <h2 id="home-reading" className="mt-1 text-[20px] sm:text-[22px] font-extrabold text-bx-ink">
+                読みもの
+              </h2>
+            </div>
+            <Link
+              to="/articles/"
+              onClick={() => trackEvent("home_reading_click", { category: "navigation", label: "一覧" })}
+              className="text-[13px] font-bold text-bx-ink underline underline-offset-4 hover:text-bx-yellow"
+            >
+              読みもの一覧へ →
+            </Link>
+          </div>
+          <ul className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3.5">
+            {homeArticles.map((a) => (
+              <li key={a.slug}>
+                <GlassCard
+                  to={`/articles/${a.slug}/`}
+                  accent="yellow"
+                  className="h-full p-4"
+                  onClick={() => trackEvent("home_reading_click", { category: "navigation", label: a.slug })}
+                >
+                  <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow [overflow-wrap:anywhere]">
+                    {a.songTitle}
+                  </p>
+                  <h3 className="mt-2 text-[15px] font-bold leading-snug text-bx-ink [overflow-wrap:anywhere]">{a.title}</h3>
+                </GlassCard>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示) */}
       <OnThisDay />

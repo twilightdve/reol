@@ -212,6 +212,7 @@ const zhHant: SiteDict = {
     stream: "串流收聽",
     lyricsLink: "查看歌詞(歌ネット，日文)",
     watchMv: "觀看官方 MV",
+    articles: "關於這首歌的文章(日文)",
     shareTitle: "在 X 分享這首歌的頁面",
     share: "在 X 分享",
     historyKicker: (n: string) => `PERFORMANCE HISTORY — ${n} 筆`,

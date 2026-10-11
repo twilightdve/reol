@@ -213,6 +213,7 @@ const ja = {
     stream: "配信で聴く",
     lyricsLink: "歌詞を見る(歌ネット)",
     watchMv: "公式MVを見る",
+    articles: "この曲の読みもの",
     shareTitle: "この曲のページをXでシェア",
     share: "Xでシェア",
     historyKicker: (n: string) => `PERFORMANCE HISTORY — ${n}件`,
