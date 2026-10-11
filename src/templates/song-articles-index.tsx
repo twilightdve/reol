@@ -15,7 +15,7 @@ import { Kicker } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
 import { formatArticleDate } from "../utils/songArticles/format";
-import { ArticleSeries, seriesPath, tagFilterPath } from "../utils/songArticles/series";
+import { ArticleSeries, seriesPath, showSongKicker, tagFilterPath } from "../utils/songArticles/series";
 
 type IndexEntry = {
   slug: string;
@@ -43,6 +43,7 @@ const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 
 const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a, activeTag }) => {
   const date = formatArticleDate(a.createdAt);
+  const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   return (
     <li>
       <Link
@@ -50,11 +51,11 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a,
         onClick={() => trackEvent("article_list_click", { category: "navigation", label: a.slug })}
         className="group block pt-6 pb-3"
       >
-        <p className="text-[11px] font-extrabold tracking-[0.2em] text-bx-blue [overflow-wrap:anywhere]">
-          {a.songTitle}
-          {a.versionLabel ? ` — ${a.versionLabel}` : ""}
-        </p>
-        <h3 className="mt-2 text-[19px] sm:text-[21px] font-extrabold leading-snug text-bx-ink group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
+        {/* 題名にもう曲名が入っている時は曲名を出さない(版の名前だけは残す) */}
+        {kicker && (
+          <p className="mb-2 text-[11px] font-extrabold tracking-[0.2em] text-bx-blue [overflow-wrap:anywhere]">{kicker}</p>
+        )}
+        <h3 className="text-[19px] sm:text-[21px] font-extrabold leading-snug text-bx-ink group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
           {a.title}
         </h3>
         {a.summary && <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
