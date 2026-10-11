@@ -28,6 +28,7 @@
     "articles:import": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/articles/import-song-articles.ts",
     "articles:publish": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/articles/publish-song-article.ts",
     "articles:preview": "ARTICLES_PREVIEW=1 npm run develop",
+    "articles:og": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/articles/capture-article-og.ts",
     "refresh:relations": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/refresh-relations.ts"
   },
   "dependencies": {

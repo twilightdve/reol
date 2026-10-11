@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { trackEvent } from "../../utils/analytics";
-import { seriesPath, tagFilterPath } from "../../utils/songArticles/series";
+import { seriesPath, showSongKicker, tagFilterPath } from "../../utils/songArticles/series";
 import { ArticleLikeState, fetchArticleLikes, setArticleLike } from "../../services/articleLikeService";
 
 /**
@@ -104,8 +104,10 @@ const ArticleEnd: React.FC<{
                   onClick={() => trackEvent("article_related_click", { category: "navigation", label: `${articleId}->${r.slug}` })}
                   className="group block h-full rounded-lg border border-bx-line p-4 hover:border-bx-yellow transition-colors"
                 >
-                  <p className="text-[10px] font-extrabold tracking-[0.2em] text-bx-yellow [overflow-wrap:anywhere]">{r.songTitle}</p>
-                  <p className="mt-2 text-[14px] font-bold leading-snug text-bx-ink group-hover:text-bx-yellow [overflow-wrap:anywhere]">
+                  {showSongKicker(r.title, r.songTitle) && (
+                    <p className="mb-2 text-[10px] font-extrabold tracking-[0.2em] text-bx-yellow [overflow-wrap:anywhere]">{r.songTitle}</p>
+                  )}
+                  <p className="text-[14px] font-bold leading-snug text-bx-ink group-hover:text-bx-yellow [overflow-wrap:anywhere]">
                     {r.title}
                   </p>
                 </Link>

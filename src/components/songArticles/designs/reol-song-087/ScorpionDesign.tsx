@@ -172,7 +172,7 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
     <main className="a087" lang="ja">
       <article>
         {/* 表紙: 紺黒にマス目。曲名を輪郭だけの大きな文字で、副題を極太で */}
-        <header className="a087-cover">
+        <header className="a087-cover" data-og-cover>
           <div className="a087-cover__top">
             <nav aria-label="パンくず" className="a087-crumbs">
               <Link to="/">HOME</Link>

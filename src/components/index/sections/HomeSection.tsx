@@ -7,6 +7,7 @@ import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 import OnThisDay from "../OnThisDay";
+import { showSongKicker } from "../../../utils/songArticles/series";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -171,10 +172,12 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
                   className="h-full p-4"
                   onClick={() => trackEvent("home_reading_click", { category: "navigation", label: a.slug })}
                 >
-                  <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow [overflow-wrap:anywhere]">
-                    {a.songTitle}
-                  </p>
-                  <h3 className="mt-2 text-[15px] font-bold leading-snug text-bx-ink [overflow-wrap:anywhere]">{a.title}</h3>
+                  {showSongKicker(a.title, a.songTitle) && (
+                    <p className="mb-2 text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow [overflow-wrap:anywhere]">
+                      {a.songTitle}
+                    </p>
+                  )}
+                  <h3 className="text-[15px] font-bold leading-snug text-bx-ink [overflow-wrap:anywhere]">{a.title}</h3>
                 </GlassCard>
               </li>
             ))}

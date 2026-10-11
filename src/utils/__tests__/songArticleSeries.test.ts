@@ -38,7 +38,7 @@ describe("句の切れ目(splitPhrases)", () => {
   });
 });
 
-import { pickRelatedArticles, RelatedCandidate } from "../songArticles/series";
+import { pickRelatedArticles, RelatedCandidate, showSongKicker } from "../songArticles/series";
 
 describe("関連記事(pickRelatedArticles)", () => {
   const c = (id: string, tags: string[], createdAt: string, seriesSlug = "kyoku-wo-yomu"): RelatedCandidate => ({
@@ -68,5 +68,16 @@ describe("関連記事(pickRelatedArticles)", () => {
     expect(
       pickRelatedArticles({ id: "a", seriesSlug: "kyoku-wo-yomu", tags: ["極彩色"], relatedArticleIds: ["d"] }, all).map((x) => x.id)
     ).toEqual(["d", "b", "c"]);
+  });
+});
+
+describe("showSongKicker", () => {
+  it("題名に曲名が入っていれば出さない(前・後ろ・大文字小文字違い)", () => {
+    expect(showSongKicker("MONSTER 欲しがる「僕ら」の危うさ", "MONSTER")).toBe(false);
+    expect(showSongKicker("松本凱旋から読み直すNo title", "No title")).toBe(false);
+    expect(showSongKicker("1ldk――イヤフォンの向こうにいた人", "1LDK")).toBe(false);
+  });
+  it("題名に曲名が無ければ出す", () => {
+    expect(showSongKicker("クラップに歌声が重なる", "Boy")).toBe(true);
   });
 });
