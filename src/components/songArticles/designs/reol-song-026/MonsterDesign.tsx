@@ -91,7 +91,7 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
     <main className="a026" lang="ja">
       <article>
         {/* 表紙: 深い青の空に、黒く湧き上がり、塔だけが赤く光る積乱雲(写真は CSS の背景) */}
-        <header className="a026-cover">
+        <header className="a026-cover" data-og-cover>
           <div className="a026-cover__light" aria-hidden="true" />
           <div className="a026-cover__crows" aria-hidden="true">
             <Crow className="a026-crow--c1" />

@@ -210,7 +210,7 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
     <main className="a076" lang="ja">
       <article>
         {/* 表紙: 暗い部屋に、奥へ連なる額縁。いちばん奥だけが光っている */}
-        <header className="a076-cover">
+        <header className="a076-cover" data-og-cover>
           <FrameTunnel />
           <div className="a076-cover__top">
             <nav aria-label="パンくず" className="a076-crumbs">

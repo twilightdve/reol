@@ -253,7 +253,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     <main className="a006" lang="ja">
       <article>
         {/* 縦書きの表紙: 群青から赤紫へ移る空 */}
-        <header className="a006-cover">
+        <header className="a006-cover" data-og-cover>
           <div className="a006-cover__top">
             <nav aria-label="パンくず" className="a006-crumbs">
               <Link to="/">HOME</Link>

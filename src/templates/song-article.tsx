@@ -136,7 +136,14 @@ export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) =>
   }
   return (
     <>
-      <SEO title={title} description={description ?? undefined} path={path} type="article" jsonLd={jsonLd} />
+      <SEO
+        title={title}
+        description={description ?? undefined}
+        path={path}
+        type="article"
+        image={pageContext.ogImage ? `https://reol.twilightea.com${pageContext.ogImage}` : undefined}
+        jsonLd={jsonLd}
+      />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
     </>
   );

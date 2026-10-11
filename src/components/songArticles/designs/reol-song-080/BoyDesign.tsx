@@ -205,7 +205,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
 
       <article className="a080-article">
         {/* 映画の始まりの1画面: 黒地に題名とMV */}
-        <div className="a080-opening">
+        <div className="a080-opening" data-og-cover>
           <header className="a080-hero">
             <Beats />
             <h1 className="a080-title">
