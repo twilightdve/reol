@@ -58,3 +58,37 @@ export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
  * まだ公開されていない記事(通常ビルド)や未完成(draft)の記事は飛ばす。1本も無ければ欄を出さない。
  */
 export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-076", "reol-song-080"];
+
+export type RelatedCandidate = {
+  id: string;
+  slug: string;
+  title: string;
+  songTitle: string;
+  seriesSlug: string;
+  tags: string[];
+  createdAt: string | null;
+};
+
+/**
+ * 記事ページの下部に出す関連記事(2026-10-11)。最大 limit 本。
+ * 編集で指定した関連記事(relatedArticleIds)を先に、残りは
+ * 共通のタグの数(作品・年)→ 同じシリーズ → 作成日の新しい順 で選ぶ。自分自身は除く。
+ */
+export const pickRelatedArticles = (
+  self: { id: string; seriesSlug: string; tags: string[]; relatedArticleIds?: string[] | null },
+  all: RelatedCandidate[],
+  limit = 3
+): RelatedCandidate[] => {
+  const others = all.filter((a) => a.id !== self.id);
+  const chosen: RelatedCandidate[] = [];
+  for (const id of self.relatedArticleIds ?? []) {
+    const hit = others.find((a) => a.id === id);
+    if (hit && !chosen.includes(hit)) chosen.push(hit);
+  }
+  const score = (a: RelatedCandidate) =>
+    a.tags.filter((t) => self.tags.includes(t)).length * 2 + (a.seriesSlug === self.seriesSlug ? 1 : 0);
+  const rest = others
+    .filter((a) => !chosen.includes(a))
+    .sort((a, b) => score(b) - score(a) || (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));
+  return [...chosen, ...rest].slice(0, limit);
+};

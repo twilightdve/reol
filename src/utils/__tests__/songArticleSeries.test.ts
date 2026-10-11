@@ -37,3 +37,36 @@ describe("句の切れ目(splitPhrases)", () => {
     expect(splitPhrases(s).join("")).toBe(s);
   });
 });
+
+import { pickRelatedArticles, RelatedCandidate } from "../songArticles/series";
+
+describe("関連記事(pickRelatedArticles)", () => {
+  const c = (id: string, tags: string[], createdAt: string, seriesSlug = "kyoku-wo-yomu"): RelatedCandidate => ({
+    id,
+    slug: id,
+    title: id,
+    songTitle: id,
+    seriesSlug,
+    tags,
+    createdAt,
+  });
+  const all = [
+    c("a", ["極彩色", "2015年"], "2026-10-01"),
+    c("b", ["極彩色", "2015年"], "2026-10-02"),
+    c("c", ["金字塔", "2020年"], "2026-10-05"),
+    c("d", ["Boy", "2021年"], "2026-10-03"),
+    c("e", ["2015年"], "2026-10-04", "other"),
+  ];
+  it("自分を除き、共通のタグが多い順 → 新しい順", () => {
+    expect(pickRelatedArticles({ id: "a", seriesSlug: "kyoku-wo-yomu", tags: ["極彩色", "2015年"] }, all).map((x) => x.id)).toEqual([
+      "b",
+      "e",
+      "c",
+    ]);
+  });
+  it("編集で指定した関連記事を先に出す", () => {
+    expect(
+      pickRelatedArticles({ id: "a", seriesSlug: "kyoku-wo-yomu", tags: ["極彩色"], relatedArticleIds: ["d"] }, all).map((x) => x.id)
+    ).toEqual(["d", "b", "c"]);
+  });
+});

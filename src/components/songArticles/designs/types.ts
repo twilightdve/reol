@@ -12,6 +12,8 @@ export interface SongArticlePageContext {
   /** 読みもののシリーズ(1記事に1つ)とタグ(src/utils/songArticles/series.ts) */
   series: { slug: string; name: string };
   tags: string[];
+  /** 関連記事(記事ページの下部。最大3本。src/utils/songArticles/series.ts の pickRelatedArticles) */
+  related: { slug: string; title: string; songTitle: string }[];
   /** 記事に表示する作成日(原稿の作成日) */
   createdAt: string | null;
   /** 初回公開日時(表示しない。構造化データ用) */
