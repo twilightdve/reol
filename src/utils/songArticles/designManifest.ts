@@ -84,7 +84,8 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // 1LDK(plan/35)。本文版2: 冒頭(1)・歌詞の読み(2〜4)・ライヴでの変化(5〜7。6 に公演の注記)・書き手の体験(8〜9)・結び(10〜11。11 の前に壁の額)
   "reol-song-076": {
     bodyRevision: 2,
-    bodySha256: "36aa385f23f1fee3da84f0fbbf1c588415a4b03fa242e7058a17ad0ef0b2f648",
+    // 本文版2に、段落7の名義の修正(れをる → Reol)をこのリポジトリ側で加えたもの(2026-10-11 ユーザー指示)
+    bodySha256: "98998d6fd572ca0b787c3c77b13c177e09e6fd1e028673cbdbd2f7c489505ab4",
     blockCount: 12,
     anchors: [
       { block: 1, textHash: "8bf95c5f809971a5" },

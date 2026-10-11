@@ -128,3 +128,9 @@ S4(記事基盤と人物紹介連載の既存計画)と S3補足(実行管理ペ
 - `publishedAt`(初回公開日時)・`updatedAt`(公開後の本文差し替え)は公開コマンドが自動で記録し、構造化データ(datePublished / dateModified、作成日は dateCreated)と一覧の並び順に使う。
 - 表示は共通部品 `ArticleDate`(「2026年10月1日 作成」。更新があれば「・ … 更新」)。縦書きの No title は漢数字(二〇二六年十月一日)。
 - 今後の記事のために、管理シートに「作成日」列を足してもらうと取込で自動で入る(未依頼)。
+
+## 初回公開(2026-10-11)
+
+- ユーザー: 「終わったらデプロイしてください」。公開する記事は No title・1LDK・Boy・SCORPION・MONSTER の5本。掲載URL は曲ページと同じ名前(ユーザー決定): `/articles/no-title/`・`/articles/1ldk/`・`/articles/boy/`・`/articles/scorpion/`・`/articles/monster/`。
+- `npm run articles:publish` で5本を `content/articles/` に置いた(公開日時は自動記録)。公開用ファイルに文書ID・Drive のID が無いことを確認。
+- 白夜は draft(未完成)で公開しない。HOME の読みもの欄は No title → 1LDK → Boy。

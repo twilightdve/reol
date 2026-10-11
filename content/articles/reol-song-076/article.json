@@ -1,0 +1,22 @@
+{
+  "id": "reol-song-076",
+  "kind": "song",
+  "songTitle": "1LDK",
+  "bodyRevision": 2,
+  "formatRevision": 1,
+  "bodySha256": "98998d6fd572ca0b787c3c77b13c177e09e6fd1e028673cbdbd2f7c489505ab4",
+  "songRefs": [
+    "019e8282-b1ba-7da3-b053-e30f89c4d9b9",
+    "019e8282-dc0a-7637-868b-053fe11a04f2"
+  ],
+  "media": [],
+  "slug": "1ldk",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T07:40:08.300Z",
+  "publishedAt": "2026-10-11T02:05:56.411Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
