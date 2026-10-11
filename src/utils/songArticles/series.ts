@@ -59,6 +59,13 @@ export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
  */
 export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-076", "reol-song-080"];
 
+/**
+ * カードの上に小さく曲名を出すか。題名にもう曲名が入っている時(「MONSTER 欲しがる…」「…読み直すNo title」)は出さない
+ * (同じ語が続いて見えるため。2026-10-12 ユーザー指定)。大文字小文字は区別しない
+ */
+export const showSongKicker = (title: string, songTitle: string): boolean =>
+  !title.toLowerCase().includes(songTitle.toLowerCase());
+
 export type RelatedCandidate = {
   id: string;
   slug: string;
