@@ -22,10 +22,10 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // drop pop candy(plan/37)。一言(1)・雨と遊ぶ(2)・掛け合い(4)・景色の広がり(5)・日々(6)・踊ってみた(8, 9 動画へのリンク)・ライヴ(12)・結び(14)
+  // drop pop candy(plan/37)。本文版3(題名「雨降りの日に聴きたい」、段落12の名義を Reol に。2026-10-12)。一言(1)・雨と遊ぶ(2)・掛け合い(4)・景色の広がり(5)・日々(6)・踊ってみた(8, 9 動画へのリンク)・ライヴ(12)・結び(14)
   "reol-song-004": {
-    bodyRevision: 2,
-    bodySha256: "3c60a5a1362ae373ff7f36e6f42356331768c416a9e7699d0fdfa482611b5c8e",
+    bodyRevision: 3,
+    bodySha256: "f6677ed5a97482f020faa9b842ff0aefb53aa1621302b90b97ded2fa458e8a43",
     blockCount: 15,
     anchors: [
       { block: 1, textHash: "a8d16b48abd1a358" },
@@ -35,7 +35,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 6, textHash: "ba5f6bf8972f0a3d" },
       { block: 8, textHash: "1e700cc13251f509" },
       { block: 9, textHash: "07273dbff2de3d02" },
-      { block: 12, textHash: "fb962cf61d4e3d83" },
+      { block: 12, textHash: "1f482fa4d64da121" },
       { block: 14, textHash: "01dadde102cb504d" },
     ],
     // 演奏記録の注記: 新式浪漫 Neo Nostalgia の全9公演(2023-01-26 愛知〜2023-03-05 長野)と、その前の演奏(2019-07-14 文明ココロミー -西の塔-)
