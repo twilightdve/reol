@@ -270,6 +270,11 @@ const WorldLines: React.FC = () => {
   );
 };
 
+// 芝浦南ふ頭公園(Google マップ。埋め込みの URL はユーザーが Google マップで作ったもの)
+const SHIBAURA_MAP_EMBED =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.627864047841!2d139.7576691757857!3d35.63689957260166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188a3a89b6a3c3%3A0x76f2e63d90619c3c!2z6Iqd5rWm5Y2X44G16aCt5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1791800532920!5m2!1sja!2sjp";
+const SHIBAURA_MAP_LINK = "https://www.google.com/maps?cid=8571166192929184828";
+
 const Video: React.FC<{ label: string; v: { id: string; href: string; text: string }; articleId: string; className?: string }> = ({
   label,
   v,
@@ -327,7 +332,8 @@ const MutantDesign: SongArticleDesign = (ctx) => {
         <div className="a082-ground">
           <div className="a082-column">
             {/* 冒頭の動画: 表紙の下。クリックした時だけ読み込む */}
-            {lead ? <Video label="VIDEO" v={lead} articleId={id} /> : body(LEAD_LINK, LEDE)}
+            {/* ラベルは YouTube の題(「Reol - 'ミュータント' Music Video」)に合わせる(2026-10-12 ユーザー) */}
+            {lead ? <Video label="MUSIC VIDEO" v={lead} articleId={id} /> : body(LEAD_LINK, LEDE)}
 
             {/* 一言 */}
             <div className="a082-lede">
@@ -382,7 +388,27 @@ const MutantDesign: SongArticleDesign = (ctx) => {
 
           {/* 結び: 海の深い青緑へ沈んでいく */}
           <div className="a082-last">
-            <div className="a082-column">{body(CLOSING, blocks.length, "a082-text a082-closing")}</div>
+            <div className="a082-column">
+              {body(CLOSING, blocks.length, "a082-text a082-closing")}
+              {/* 最後の段落の下に、本文の場所(芝浦南ふ頭公園)の地図(2026-10-12 ユーザー指定。Google マップの埋め込み) */}
+              <figure className="a082-map">
+                <figcaption className="a082-map__label">芝浦南ふ頭公園</figcaption>
+                <div className="a082-map__frame">
+                  <iframe
+                    src={SHIBAURA_MAP_EMBED}
+                    title="芝浦南ふ頭公園の地図(Google マップ)"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <p className="a082-map__link">
+                  <a href={SHIBAURA_MAP_LINK} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("article_map_open", { category: "engagement", label: id })}>
+                    Google マップで開く
+                  </a>
+                </p>
+              </figure>
+            </div>
           </div>
 
           {/* 奥付。サイトの確認済みデータだけ */}

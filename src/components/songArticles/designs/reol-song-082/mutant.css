@@ -453,6 +453,38 @@
   color: #eaf6f7;
 }
 
+/* 最後の段落の下の地図。海の地に、細い光の枠で置く */
+.a082-map {
+  margin: clamp(40px, 6vw, 56px) 0 0;
+}
+.a082-map__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--cyan);
+}
+.a082-map__frame {
+  position: relative;
+  height: 0;
+  padding-bottom: 62.5%;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgb(95 224 214 / 0.35), 0 18px 48px rgb(0 0 0 / 0.45);
+  background: #0b2530;
+}
+.a082-map__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.a082-map__link {
+  margin: 12px 0 0;
+  font-size: 13px;
+}
+
 /* ---------- 奥付 ---------- */
 .a082-colophon {
   padding: 28px 0 clamp(48px, 8vw, 88px);
@@ -523,6 +555,10 @@
   }
   .a082-bay {
     height: 260px;
+  }
+  /* スマートフォンは地図を正方形にして、住所の札に隠れない範囲を広くとる */
+  .a082-map__frame {
+    padding-bottom: 100%;
   }
 }
 @media print {
