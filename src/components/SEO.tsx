@@ -154,7 +154,8 @@ const SEO: React.FC<SEOProps> = ({
         <script
           key={`jsonld-${i}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          // 「</script>」などで script 要素を抜け出せないよう、< を JSON の \u003c に置き換える(JSON としては同じ値)
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
         />
       ))}
     </>

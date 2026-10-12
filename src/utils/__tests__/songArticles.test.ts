@@ -204,6 +204,11 @@ describe("youtubeVideoId", () => {
     expect(youtubeVideoId("https://example.com/watch?v=abc")).toBeNull();
     expect(youtubeVideoId(null)).toBeNull();
   });
+  it("動画IDの形(英数字・_・- の11文字)でなければ受け付けない", () => {
+    expect(youtubeVideoId("https://www.youtube.com/watch?v=abc")).toBeNull();
+    expect(youtubeVideoId("https://youtu.be/abcDEF12345%22onload")).toBeNull();
+    expect(youtubeVideoId("https://www.youtube.com/watch?v=../../x?a=1")).toBeNull();
+  });
 });
 
 describe("formatArticleDate", () => {
