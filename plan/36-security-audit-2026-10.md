@@ -78,9 +78,11 @@ GitHub の push 時の表示(Dependabot: 510件、critical 18・high 256)をき�
 - [x] 開発サーバーの脆弱性の成立条件の確認(成り立たない)
 - [x] `npm audit fix`(critical 7→1、high 129→82)。型チェック・テスト 123件 通過
 - [x] 本番ビルドでの確認(Mac 再起動後に実施。生成件数は前回と同じ: 記事5・曲128・公演170・On This Day 365、OG 画像も同数。ビルド済みサイトを Chrome と WebKit で開き、HOME・記事・公演・一覧を確認。公演ページのエラー1件は本番でも出ている既存のもの)
-- [ ] 要確認: `buildimage`(imagemin・copy-webpack-plugin)と `tailwindcss-3d`・`tailwind-config-viewer` を外すか
-- [ ] 要確認: yarn.lock を消すか
-- [ ] 要判断: 「非公開」設定を DB 側で効かせるか
+- [x] 使っていない道具を外した(2026-10-12 ユーザー承認): `buildimage`(`webpack.config.js`・空の `src/index.js`・imagemin-webp-webpack-plugin・copy-webpack-plugin・webpack-cli)と `tailwind-config-viewer`。critical 1→0、high 82→67
+  - `tailwindcss-3d` は**残す**。3D用クラスは使っていないが、このプラグインは `translate-*`・`rotate-*`・`scale-*` を個別の CSS プロパティ(`translate`・`rotate`・`scale`)で出力するよう変えている。外すと `transform` での出力に戻り、`transform` を使うアニメーションとぶつかって見た目が変わるおそれがある(ビルドの CSS を比べて判明)。残る lodash の `_.template` は、ビルド中に外部の文字列をテンプレートとして実行する場合にしか成り立たない
+  - 外した後のビルドで、CSS が外す前と1バイトも違わないことを確認した
+- [x] yarn.lock を削除した(2026-10-12 ユーザー承認。運用は npm。GitHub の件数の二重計上がなくなる)
+- [ ] 「非公開」設定を DB 側で効かせる(2026-10-12 ユーザー承認): `supabase/features/supabase-private-venue-selection.sql` を作成。ユーザーが SQL Editor で実行した後に確認する
 
 ## 関連: メモリ不足対策(2026-10-12)
 
