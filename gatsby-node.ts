@@ -1907,6 +1907,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
 
       const indexEntries: {
+        /** 記事ID(一覧のいいね数の問い合わせに使う) */
+        id: string;
         slug: string;
         title: string;
         songTitle: string;
@@ -2059,6 +2061,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           },
         });
         indexEntries.push({
+          id: article.id,
           slug,
           title: parsed.title,
           songTitle: article.songTitle,
