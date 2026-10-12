@@ -62,3 +62,18 @@ export const setArticleLike = async (articleId: string, like: boolean): Promise<
   if (error) throw error
   return toState(data)
 }
+
+/**
+ * 記事ごとのいいね数をまとめて読む(読みもの一覧。supabase/features/supabase-article-like-counts.sql)。
+ * 読めない時は null(一覧は数を出さずに表示する)
+ */
+export const fetchArticleLikeCounts = async (articleIds: string[]): Promise<Map<string, number> | null> => {
+  if (!supabase || articleIds.length === 0) return null
+  const { data, error } = await supabase.rpc('get_article_like_counts', { p_article_ids: articleIds })
+  if (error || !Array.isArray(data)) return null
+  const counts = new Map<string, number>()
+  for (const row of data as { article_id: string; like_count: number | string }[]) {
+    counts.set(row.article_id, Number(row.like_count ?? 0))
+  }
+  return counts
+}

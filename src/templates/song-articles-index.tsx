@@ -6,6 +6,9 @@
  * - /articles/ はシリーズごとに分けて並べる。/articles/series/<slug>/ はそのシリーズだけ(同じテンプレート)。
  * - タグは ?tag=<タグ> で絞り込む(記事のタグのリンクから)。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
  *   一覧の上の「タグで絞り込む」ボタン群は置かない(2026-10-11 ユーザー指定)。
+ * - 記事ごとのいいね数を表示し、「新着順」「いいねが多い順」で並べ替えられる(2026-10-12 ユーザー指定)。
+ *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
+ *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
  */
 import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
@@ -16,8 +19,11 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
 import { formatArticleDate } from "../utils/songArticles/format";
 import { ArticleSeries, seriesPath, showSongKicker, tagFilterPath } from "../utils/songArticles/series";
+import { fetchArticleLikeCounts } from "../services/articleLikeService";
 
 type IndexEntry = {
+  /** 記事ID(いいね数の問い合わせに使う) */
+  id: string;
   slug: string;
   title: string;
   songTitle: string;
@@ -41,7 +47,7 @@ interface SongArticlesIndexContext {
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 
-const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a, activeTag }) => {
+const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null }> = ({ a, activeTag, likes }) => {
   const date = formatArticleDate(a.createdAt);
   const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   return (
@@ -59,11 +65,25 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null }> = ({ a,
           {a.title}
         </h3>
         {a.summary && <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
-        <p className="mt-2 text-[12px] text-bx-ink3">
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-bx-ink3">
           {date && (
-            <>
+            <span>
               <time dateTime={a.createdAt ?? undefined}>{date}</time> 作成
-            </>
+            </span>
+          )}
+          {likes !== null && (
+            <span className="inline-flex items-center gap-1" aria-label={`いいね ${likes}`}>
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true">
+                <path
+                  d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 4.4 2.6h2c.8-1.4 2.3-2.6 4.4-2.6C21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="tabular-nums">{likes}</span>
+            </span>
           )}
         </p>
       </Link>
@@ -99,10 +119,41 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     setActiveTag(tag && articles.some((a) => a.tags.includes(tag)) ? tag : null);
   }, [location.search, articles]);
 
-  const visible = useMemo(
-    () => (activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles),
-    [articles, activeTag]
-  );
+  // いいね数(JS が動いた後にまとめて読む)。読めない時は null のまま
+  const [likeCounts, setLikeCounts] = useState<Map<string, number> | null>(null);
+  useEffect(() => {
+    let alive = true;
+    fetchArticleLikeCounts(articles.map((a) => a.id))
+      .then((m) => alive && setLikeCounts(m))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [articles]);
+
+  // 並べ替え: 新着順(既定。静的HTMLと同じ)/ いいねが多い順(同数なら新着順)
+  const [sort, setSort] = useState<"new" | "likes">("new");
+  useEffect(() => {
+    setSort(new URLSearchParams(location.search).get("sort") === "likes" ? "likes" : "new");
+  }, [location.search]);
+  const chooseSort = (next: "new" | "likes") => {
+    setSort(next);
+    trackEvent("article_list_sort", { category: "navigation", label: next });
+    // ?sort= を URL に残す(共有・戻る用)。?tag= はそのまま
+    const params = new URLSearchParams(window.location.search);
+    if (next === "likes") params.set("sort", "likes");
+    else params.delete("sort");
+    const q = params.toString();
+    window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
+  };
+  const sortByLikes = sort === "likes" && likeCounts !== null;
+
+  const visible = useMemo(() => {
+    const filtered = activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles;
+    if (!sortByLikes || !likeCounts) return filtered;
+    // Array.prototype.sort は安定なので、同数は元の新着順のまま
+    return [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0));
+  }, [articles, activeTag, sortByLikes, likeCounts]);
   const basePath = current ? seriesPath(current.slug) : "/articles/";
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
@@ -144,6 +195,33 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           </p>
         )}
 
+        {/* 並べ替え。いいね数が読めない時は、いいね順を選べない */}
+        <div className="mb-6 flex flex-wrap items-center gap-2 text-[12px]" role="group" aria-label="並べ替え">
+          <span className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">並べ替え</span>
+          {(
+            [
+              ["new", "新着順"],
+              ["likes", "いいねが多い順"],
+            ] as const
+          ).map(([key, label]) => {
+            const active = key === "new" ? !sortByLikes : sortByLikes;
+            return (
+              <button
+                key={key}
+                type="button"
+                aria-pressed={active}
+                disabled={key === "likes" && likeCounts === null}
+                onClick={() => chooseSort(key)}
+                className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
+                  active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
         {groups.map(({ s, items }) => (
           <section key={s.slug} className="mb-12" aria-labelledby={`series-${s.slug}`}>
             {!current && (
@@ -159,7 +237,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
             {current && <h2 id={`series-${s.slug}`} className="sr-only">{s.name}の記事</h2>}
             <ul className="divide-y divide-bx-line border-t border-b border-bx-line">
               {items.map((a) => (
-                <ArticleItem key={a.slug} a={a} activeTag={activeTag} />
+                <ArticleItem key={a.slug} a={a} activeTag={activeTag} likes={likeCounts ? likeCounts.get(a.id) ?? 0 : null} />
               ))}
             </ul>
           </section>
