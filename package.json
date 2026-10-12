@@ -8,10 +8,10 @@
   "scripts": {
     "generate:relive": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-relive-data.ts",
     "predevelop": "gatsby clean && npm run generate:relive && typed-scss-modules src",
-    "develop": "gatsby develop -H 0.0.0.0",
-    "start": "gatsby develop",
+    "develop": "GATSBY_CPU_COUNT=2 gatsby develop -H 0.0.0.0",
+    "start": "GATSBY_CPU_COUNT=2 gatsby develop",
     "prebuild": "gatsby clean && npm run generate:relive",
-    "build": "gatsby build && echo 'reol.twilightea.com' > ./public/CNAME",
+    "build": "GATSBY_CPU_COUNT=2 gatsby build && echo 'reol.twilightea.com' > ./public/CNAME",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
