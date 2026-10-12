@@ -1,0 +1,23 @@
+{
+  "id": "reol-song-004",
+  "kind": "song",
+  "songTitle": "drop pop candy (feat. ギガ)",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "f6677ed5a97482f020faa9b842ff0aefb53aa1621302b90b97ded2fa458e8a43",
+  "songRefs": [
+    "019e8282-80f0-74e0-9c8b-0191e39556a8",
+    "019e8282-c7ce-755a-9d84-ae4b5a34f010",
+    "019e8282-ccca-7efd-9e2c-94d4bc0e9f9a"
+  ],
+  "media": [],
+  "slug": "drop-pop-candy-feat",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T07:39:35.481Z",
+  "publishedAt": "2026-10-12T06:39:08.326Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
