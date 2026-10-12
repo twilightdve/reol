@@ -1,8 +1,8 @@
 /**
  * 楽曲記事「drop pop candy」(reol-song-004)の記事別デザイン。設計の根拠は plan/37。
  *
- * - 紙面全体を「灰色の雨が、キャンディの色になる」: 表紙は低気圧の灰色の空に細い雨。題名のまわりで雨粒が丸いキャンディ
- *   (MV の色: 青緑・からし色・くすんだ青・橙・紫)に変わる。本文の地は淡い炭酸水の色で、灰色は表紙にしか出てこない。
+ * - 紙面全体を「雨の日の青が、キャンディの色になる」: 表紙は雨の日のくすんだ青い空(MV の青)に細い雨。題名のまわりで雨粒が丸いキャンディ
+ *   (MV の色: 青緑・からし色・くすんだ青・橙・紫)に変わる。本文の地は淡い炭酸水の色。
  * - 雨と遊ぶ段落(2〜3)の後に、しずくが一粒ずつキャンディに変わる列。
  * - 掛け合いの段落(4)の後に「二本の線」: 二色の粒が上下の段を交互に行き来し、最後に並んで一つになる。
  * - 景色が広がる段落(5)の後に「ひとっ飛び」の帯: 足元の水たまりから、地平線を越えて夜空の星へ、一粒のキャンディが弧を描いて昇る。
@@ -115,7 +115,7 @@ const COVER_CANDIES: { x: number; y: number; r: number; c: string }[] = [
   { x: 880, y: 430, r: 15, c: C.teal },
   { x: 1010, y: 340, r: 26, c: C.orange },
   { x: 1120, y: 470, r: 18, c: C.violet },
-  { x: 940, y: 560, r: 24, c: C.slate },
+  { x: 940, y: 560, r: 24, c: C.mustard },
   { x: 1070, y: 620, r: 13, c: C.mustard },
   { x: 690, y: 520, r: 12, c: C.violet },
   { x: 820, y: 640, r: 17, c: C.teal },
@@ -130,7 +130,7 @@ const COVER_STARS: [number, number, number][] = [
   [1050, 700, 8],
 ];
 
-/** 表紙: 灰色の空に細い雨。雨は題名のまわり(右下)でキャンディに変わる。装飾なので読み上げ対象外 */
+/** 表紙: くすんだ青い空に細い雨。雨は題名のまわり(右下)でキャンディに変わる。装飾なので読み上げ対象外 */
 const CoverRain: React.FC = () => (
   <svg className="a004-cover__art" viewBox="0 0 1240 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <g className="a004-rain">
@@ -325,7 +325,7 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
   return (
     <main className="a004" lang="ja">
       <article>
-        {/* 表紙: 低気圧の灰色の空に細い雨。題名のまわりで雨粒がキャンディに変わる */}
+        {/* 表紙: 雨の日のくすんだ青い空に細い雨。題名のまわりで雨粒がキャンディに変わる */}
         <header className="a004-cover" data-og-cover>
           <CoverRain />
           <div className="a004-cover__top">
