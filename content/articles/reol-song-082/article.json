@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-082",
+  "kind": "song",
+  "songTitle": "ミュータント",
+  "bodyRevision": 2,
+  "formatRevision": 1,
+  "bodySha256": "8de47d135355f7ea91254beb9d7b12ff66db3dd7be31561fd6a74b57b7a9e94d",
+  "songRefs": [
+    "019e8282-b605-7246-8348-d347270aa7e6"
+  ],
+  "media": [],
+  "slug": "myutanto",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T07:40:39.772Z",
+  "publishedAt": "2026-10-12T10:26:44.959Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
