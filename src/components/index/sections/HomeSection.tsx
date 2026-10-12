@@ -145,7 +145,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
         <ExploreGrid />
       </div>
 
-      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → 1LDK → Boy)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
+      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → drop pop candy → 1LDK)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
       {homeArticles.length > 0 && (
         <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-10">
           <div className="flex flex-wrap items-end justify-between gap-2">

@@ -77,6 +77,10 @@ describe("showSongKicker", () => {
     expect(showSongKicker("松本凱旋から読み直すNo title", "No title")).toBe(false);
     expect(showSongKicker("1ldk――イヤフォンの向こうにいた人", "1LDK")).toBe(false);
   });
+  it("曲名の末尾の括弧書き(feat. など)は外して比べる", () => {
+    expect(showSongKicker("雨降りの日に聴きたいdrop pop candy", "drop pop candy (feat. ギガ)")).toBe(false);
+    expect(showSongKicker("雨の歌", "drop pop candy (feat. ギガ)")).toBe(true);
+  });
   it("題名に曲名が無ければ出す", () => {
     expect(showSongKicker("クラップに歌声が重なる", "Boy")).toBe(true);
   });
