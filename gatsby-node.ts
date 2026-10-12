@@ -1,6 +1,5 @@
 import type { GatsbyNode, SourceNodesArgs } from "gatsby";
-import { promises as fs, existsSync, readFileSync } from "fs";
-import { createHash } from "crypto";
+import { promises as fs, existsSync } from "fs";
 import path from "path";
 import { SheetService } from "./src/services/SpreadsheetService";
 import { DiscographyWithSongs, Discography, DiscographyPost } from "./src/types/discography";
@@ -30,13 +29,10 @@ import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
 import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
 
-/** 楽曲記事の OGP 画像(static/articles-og/<slug>.jpg)のパス。無ければ null(サイト既定の画像になる) */
-const articleOgImagePath = (slug: string): string | null => {
-  const file = path.join(process.cwd(), "static/articles-og", `${slug}.jpg`);
-  if (!existsSync(file)) return null;
-  const hash = createHash("sha1").update(readFileSync(file)).digest("hex").slice(0, 10);
-  return `/articles-og/${slug}.jpg?v=${hash}`;
-};
+/** 楽曲記事の OGP 画像(static/articles-og/<slug>.jpg)のパス。無ければ null(サイト既定の画像になる)。
+ *  SNS のキャッシュ対策のビルド時刻(?t=)は SEO 部品が付ける */
+const articleOgImagePath = (slug: string): string | null =>
+  existsSync(path.join(process.cwd(), "static/articles-og", `${slug}.jpg`)) ? `/articles-og/${slug}.jpg` : null;
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
@@ -2054,7 +2050,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               if (!ref) console.warn(`[articles] ${article.id}: 公演 ${uuid} が見つからないため注記を出しません`);
               return ref ? [ref] : [];
             }),
-            // 表紙を撮った OGP 画像(npm run articles:og)。SNS の画像キャッシュを撮り直しで更新させるため、中身のハッシュを付ける
+            // 表紙を撮った OGP 画像(npm run articles:og)
             ogImage: articleOgImagePath(slug),
             designId: designIssues.length === 0 ? article.id : null,
             preview,

@@ -5,6 +5,7 @@
  * og:title / og:description / og:image / og:url / twitter:card 等が揃う。
  */
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { DEFAULT_LANG, HTML_LANG, OG_LOCALE, SiteLang } from '../i18n/site/langs'
 import { getDict } from '../i18n/site/dict'
 import { availableLangsFor, localizePath } from '../utils/i18nRoutes'
@@ -16,6 +17,17 @@ const ACTIVITY_YEARS = new Date().getFullYear() - 2012
 // タイトルのサフィックス・トップのタイトル・既定の description は言語ごとに辞書から引く(plan/28)
 const OG_IMAGE = `${SITE_URL}/ogimage.png`
 const THEME_COLOR = '#27489b'
+
+/**
+ * OGP 画像の URL にビルド時刻(Unix 秒)を ?t= で付ける。SNS(X・LINE など)は画像を URL 単位で長くキャッシュするので、
+ * デプロイのたびに URL を変えて、作り直した画像を読み直させる(2026-10-12)。
+ * 時刻はビルド時に決まる値(siteBuildMetadata)を使い、静的 HTML とブラウザでの描画で同じ URL にする
+ */
+const withBuildTimestamp = (imageUrl: string, buildTime: string | null | undefined): string => {
+  const seconds = buildTime ? Math.floor(Date.parse(buildTime) / 1000) : NaN
+  if (!Number.isFinite(seconds)) return imageUrl
+  return `${imageUrl}${imageUrl.includes('?') ? '&' : '?'}t=${seconds}`
+}
 
 /** ?section=xxx 用のセクション別メタ */
 const SECTION_META: Record<
@@ -84,7 +96,14 @@ const SEO: React.FC<SEOProps> = ({
   const canonicalUrl = path ? `${SITE_URL}${localizedPath}` : null
   // 翻訳版があるページだけ hreflang を出す(実在する言語 + x-default=日本語)
   const alternateLangs = path ? availableLangsFor(path) : []
-  const ogImage = image || OG_IMAGE
+  const { siteBuildMetadata } = useStaticQuery<{ siteBuildMetadata: { buildTime: string | null } | null }>(graphql`
+    query SeoBuildTime {
+      siteBuildMetadata {
+        buildTime
+      }
+    }
+  `)
+  const ogImage = withBuildTimestamp(image || OG_IMAGE, siteBuildMetadata?.buildTime)
   // jsonLd は単体/配列どちらでも受け取れるようにし、script タグを1つずつ出力する
   const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []
 
