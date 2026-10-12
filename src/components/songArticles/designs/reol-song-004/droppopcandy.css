@@ -440,15 +440,17 @@
 }
 
 /* ---------- 結び: 色の粒がやわらかく降る ---------- */
+/* 地は上下とも本文の地に溶け込ませ(境目を作らない)、中ほどだけ少し明るく軽い色にする。
+   色の粒は本文に重ならないよう、上下の余白にだけ置く(2026-10-12 ユーザー「背景の色を少し変えた方が自然」) */
 .a004-last {
-  padding: clamp(40px, 7vw, 72px) 0 clamp(56px, 9vw, 104px);
+  padding: clamp(64px, 9vw, 96px) 0 clamp(72px, 10vw, 112px);
   background:
-    radial-gradient(circle at 8% 18%, rgb(63 159 128 / 0.35) 0 7px, transparent 8px),
-    radial-gradient(circle at 92% 12%, rgb(214 183 38 / 0.45) 0 9px, transparent 10px),
-    radial-gradient(circle at 84% 64%, rgb(200 119 74 / 0.35) 0 6px, transparent 7px),
-    radial-gradient(circle at 14% 78%, rgb(106 93 166 / 0.35) 0 8px, transparent 9px),
-    radial-gradient(circle at 50% 4%, rgb(61 104 136 / 0.3) 0 5px, transparent 6px),
-    linear-gradient(180deg, var(--soda) 0%, var(--soda-2) 100%);
+    radial-gradient(circle at 9% 5%, rgb(63 159 128 / 0.4) 0 7px, transparent 8px),
+    radial-gradient(circle at 91% 4%, rgb(214 183 38 / 0.5) 0 9px, transparent 10px),
+    radial-gradient(circle at 50% 2%, rgb(61 104 136 / 0.35) 0 5px, transparent 6px),
+    radial-gradient(circle at 84% 95%, rgb(200 119 74 / 0.4) 0 6px, transparent 7px),
+    radial-gradient(circle at 16% 96%, rgb(106 93 166 / 0.4) 0 8px, transparent 9px),
+    linear-gradient(180deg, var(--soda) 0%, #f8fbef 30%, #f8fbef 70%, var(--soda) 100%);
 }
 .a004-closing {
   font-family: var(--round);
