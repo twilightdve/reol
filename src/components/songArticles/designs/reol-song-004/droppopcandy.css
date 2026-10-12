@@ -411,18 +411,18 @@
   stroke-width: 2.2;
   stroke-linejoin: round;
 }
-.a004-umbrella__rib,
-.a004-umbrella__handle {
+.a004-umbrella__fold {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+.a004-umbrella__line {
   fill: none;
   stroke: var(--ink);
   stroke-width: 2.2;
   stroke-linecap: round;
-}
-.a004-umbrella__rib {
-  stroke-width: 1.4;
-}
-.a004-umbrella__tie {
-  fill: var(--teal);
 }
 
 /* ---------- 結び: 色の粒がやわらかく降る ---------- */

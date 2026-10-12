@@ -185,9 +185,12 @@ const Duet: React.FC = () => {
         {pts.map((p, i) => (
           <circle key={i} cx={p.x} cy={p.y} r={9} fill={p.c} className="a004-duet__dot" style={{ transitionDelay: `${0.1 + i * 0.1}s` }} />
         ))}
+        {/* 二人の声がそろって一つになる: 左半分が青緑、右半分がからし色の一粒 */}
         <g className="a004-duet__dot" style={{ transitionDelay: `${0.1 + steps * 0.1}s` }}>
-          <Candy x={end.x - 9} y={end.y} r={14} color={C.teal} />
-          <Candy x={end.x + 9} y={end.y} r={14} color={C.mustard} />
+          <circle cx={end.x + 3} cy={end.y + 3} r={16} className="a004-candy__shadow" />
+          <path d={`M${end.x},${end.y - 16} A16,16 0 0,0 ${end.x},${end.y + 16} Z`} fill={C.teal} />
+          <path d={`M${end.x},${end.y - 16} A16,16 0 0,1 ${end.x},${end.y + 16} Z`} fill={C.mustard} />
+          <ellipse cx={end.x - 6} cy={end.y - 6} rx={5} ry={3} className="a004-candy__glint" transform={`rotate(-30 ${end.x - 6} ${end.y - 6})`} />
         </g>
       </svg>
     </div>
@@ -261,16 +264,18 @@ const Umbrella: React.FC = () => (
   <div className="a004-umbrella" aria-hidden="true">
     <svg viewBox="0 0 220 150">
       <g transform="rotate(-24 110 75)">
-        <path d="M104,16 L116,16 L124,104 L96,104 Z" className="a004-umbrella__canopy" />
-        <path d="M110,16 L110,104 M104,30 L100,104 M116,30 L120,104" className="a004-umbrella__rib" />
-        <path d="M108,104 L120,104 L117,112 L111,112 Z" className="a004-umbrella__tie" />
-        <path d="M110,8 L110,16" className="a004-umbrella__rib" />
-        <path d="M110,112 L110,132 C110,142 124,142 124,132" className="a004-umbrella__handle" />
+        {/* 石突き・たたんだ生地(細長く、裾で少し広がる)・巻いた帯・柄 */}
+        <path d="M110,4 L110,14" className="a004-umbrella__line" />
+        <path d="M110,14 C113,30 119,70 122,100 L98,100 C101,70 107,30 110,14 Z" className="a004-umbrella__canopy" />
+        <path d="M110,22 C111,46 113,74 114,98 M110,22 C109,46 106,74 104,98" className="a004-umbrella__fold" />
+        <path d="M103,62 L117,62" className="a004-umbrella__line" />
+        <path d="M110,100 L110,124 C110,138 128,138 128,124" className="a004-umbrella__line" />
       </g>
-      <Candy x={40} y={112} r={7} color={C.teal} />
-      <Candy x={176} y={42} r={6} color={C.orange} />
-      <Candy x={190} y={118} r={5} color={C.violet} />
-      <path d={starPath(54, 40, 6)} className="a004-star a004-star--ink" />
+      {/* まわりの粒は傘から離して置く */}
+      <Candy x={36} y={118} r={7} color={C.teal} />
+      <Candy x={186} y={34} r={6} color={C.orange} />
+      <Candy x={196} y={120} r={5} color={C.violet} />
+      <path d={starPath(46, 34, 6)} className="a004-star a004-star--ink" />
     </svg>
   </div>
 );
