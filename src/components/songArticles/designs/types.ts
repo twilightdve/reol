@@ -16,7 +16,7 @@ export interface SongArticlePageContext {
   related: { slug: string; title: string; songTitle: string }[];
   /** 記事に表示する作成日(原稿の作成日) */
   createdAt: string | null;
-  /** 表紙を撮った OGP 画像のサイト内パス(?v=ハッシュ付き)。無ければ null */
+  /** 表紙を撮った OGP 画像のサイト内パス。無ければ null(キャッシュ対策の ?t= は SEO 部品が付ける) */
   ogImage?: string | null;
   /** 初回公開日時(表示しない。構造化データ用) */
   publishedAt: string | null;
