@@ -143,12 +143,15 @@
 /* 曲名: 丸い太字に、少しずらした色の影(題字は複製せず、考え方だけ) */
 .a004-title__song {
   display: block;
-  max-width: 7.2em;
-  font-size: clamp(54px, 13vw, 132px);
+  font-size: clamp(60px, 17vw, 120px);
+  line-height: 0.98;
   letter-spacing: 0.01em;
   color: #fffdf2;
   text-shadow: 0.045em 0.045em 0 var(--teal), 0.09em 0.09em 0 rgb(20 30 34 / 0.25);
   word-break: keep-all;
+}
+.a004-title__word {
+  display: block;
 }
 .a004-date {
   margin: 22px 0 0;
@@ -501,7 +504,10 @@
   .a004-cover__art {
     inset: 0 0 auto auto;
     width: 260%;
-    height: 72%;
+    height: 62%;
+  }
+  .a004-cover__candy--low {
+    display: none;
   }
   .a004-text {
     font-size: 16px;

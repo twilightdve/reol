@@ -138,7 +138,16 @@ const CoverRain: React.FC = () => (
       ))}
     </g>
     {COVER_CANDIES.map((k, i) => (
-      <Candy key={i} x={k.x} y={k.y} r={k.r} color={k.c} className="a004-cover__candy" style={{ animationDelay: `${0.25 + i * 0.07}s` }} />
+      <Candy
+        key={i}
+        x={k.x}
+        y={k.y}
+        r={k.r}
+        color={k.c}
+        // 下の方の粒は、狭い画面では題名と重なるので出さない(CSS)
+        className={`a004-cover__candy${k.y > 600 ? " a004-cover__candy--low" : ""}`}
+        style={{ animationDelay: `${0.25 + i * 0.07}s` }}
+      />
     ))}
     {COVER_STARS.map(([x, y, r], i) => (
       <path key={i} d={starPath(x, y, r)} className="a004-star" />
@@ -326,7 +335,15 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
                   <Phrased text={titlePre} />
                 </span>
               )}
-              <span className="a004-title__song">{titleSong}</span>
+              {/* 曲名は MV の題字と同じく1語ずつ3行に(2026-10-12 ユーザー指定)。語の間の空白は残し、読み上げは1つながりのまま */}
+              <span className="a004-title__song">
+                {titleSong.split(" ").map((w, i, all) => (
+                  <React.Fragment key={i}>
+                    <span className="a004-title__word">{w}</span>
+                    {i < all.length - 1 ? " " : null}
+                  </React.Fragment>
+                ))}
+              </span>
             </h1>
             <p className="a004-date">
               <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
