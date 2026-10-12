@@ -46,6 +46,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [36-security-audit-2026-10.md](./36-security-audit-2026-10.md) | 脆弱性の点検(2026-10): Supabase は問題なし、npm audit fix で critical 7→1・high 129→82、残りの扱いと要判断事項 |
 | [37-drop-pop-candy-article-design.md](./37-drop-pop-candy-article-design.md) | 楽曲記事「drop pop candy」の記事別デザイン: 低気圧の灰色の雨がキャンディの色になる、二人の掛け合いの線、水たまりから星へのひとっ飛び、閉じた傘 |
 | [38-mutant-article-design.md](./38-mutant-article-design.md) | 楽曲記事「ミュータント」の記事別デザイン: 夜の海、海に浮かんで溶ける題名、ループ橋と吊り橋、二重の螺旋、世界線の移り変わり |
+| [39-vacuum-oldrose-article-design.md](./39-vacuum-oldrose-article-design.md) | 楽曲記事「真空オールドローズ」の記事別デザイン: 古い紙の地、ガラスの覆いの中の薔薇と煙、断ち切った線、太陽の軌道の図、薄れる花びら、覆いが閉じる結び |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
 

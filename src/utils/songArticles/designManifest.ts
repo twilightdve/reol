@@ -22,6 +22,25 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // 真空オールドローズ(plan/39)。リンクの行(0)・冒頭(1)・見出し(3, 8, 22, 31)・観覧車の見立て(18)とその次(19)・蓋をして(45)とその次(46)・結び(49)
+  "reol-song-057": {
+    bodyRevision: 8,
+    bodySha256: "c9adfa30555fa74dcd08d0ef7541c6b07b158de6bf23d9848c96928188a01bff",
+    blockCount: 50,
+    anchors: [
+      { block: 0, textHash: "60187d5eacfb03c0" },
+      { block: 1, textHash: "a5041abb930386d9" },
+      { block: 3, textHash: "19196832ebd8a577" },
+      { block: 8, textHash: "a74b03b3ed6d8a96" },
+      { block: 18, textHash: "ce1e7ce3c0518392" },
+      { block: 19, textHash: "34b6bcdbb1aba97c" },
+      { block: 22, textHash: "dae01ff70cddcfa7" },
+      { block: 31, textHash: "ee97f67bace59c62" },
+      { block: 45, textHash: "00d2351fbe1223c7" },
+      { block: 46, textHash: "3eff502f548abcb0" },
+      { block: 49, textHash: "9ad97f8d20427ecb" },
+    ],
+  },
   // ミュータント(plan/38)。動画へのリンク(0)・一言(1)・作り(4)・題名の意味(5)・場所(6, 11)・埠頭(12)・『虚構集』XFD へのリンク(13)・REOL→Reol(14, 19)・結び(20)
   "reol-song-082": {
     bodyRevision: 2,
