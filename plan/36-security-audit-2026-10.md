@@ -77,7 +77,7 @@ GitHub の push 時の表示(Dependabot: 510件、critical 18・high 256)をき�
 - [x] Supabase の点検(問題なし。要判断1件)
 - [x] 開発サーバーの脆弱性の成立条件の確認(成り立たない)
 - [x] `npm audit fix`(critical 7→1、high 129→82)。型チェック・テスト 123件 通過
-- [ ] 本番ビルドでの確認(2026-10-12: メモリ不足で PC が落ち、その後の名前解決の不調で中断)
+- [x] 本番ビルドでの確認(Mac 再起動後に実施。生成件数は前回と同じ: 記事5・曲128・公演170・On This Day 365、OG 画像も同数。ビルド済みサイトを Chrome と WebKit で開き、HOME・記事・公演・一覧を確認。公演ページのエラー1件は本番でも出ている既存のもの)
 - [ ] 要確認: `buildimage`(imagemin・copy-webpack-plugin)と `tailwindcss-3d`・`tailwind-config-viewer` を外すか
 - [ ] 要確認: yarn.lock を消すか
 - [ ] 要判断: 「非公開」設定を DB 側で効かせるか
