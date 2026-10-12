@@ -441,7 +441,7 @@
 
 /* ---------- 結び: 海の深い青緑へ沈んでいく ---------- */
 .a082-last {
-  padding: clamp(40px, 7vw, 72px) 0 clamp(72px, 11vw, 120px);
+  padding: clamp(40px, 7vw, 72px) 0 clamp(24px, 4vw, 40px);
   background: linear-gradient(180deg, var(--night-2) 0%, var(--sea) 55%, #0f3540 100%);
 }
 .a082-closing {
