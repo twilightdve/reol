@@ -14,13 +14,14 @@ import { ArticleLikeState, fetchArticleLikes, setArticleLike } from "../../servi
 const LikeButton: React.FC<{ articleId: string }> = ({ articleId }) => {
   const [state, setState] = useState<ArticleLikeState | null>(null);
   const [busy, setBusy] = useState(false);
-  const [failed, setFailed] = useState(false);
+  // 失敗の種類(読み込めない/送れない)。送れない例: 一時的な上限(supabase-article-likes-hardening.sql)
+  const [failed, setFailed] = useState<null | "load" | "send">(null);
 
   useEffect(() => {
     let alive = true;
     fetchArticleLikes(articleId)
       .then((s) => alive && setState(s))
-      .catch(() => alive && setFailed(true));
+      .catch(() => alive && setFailed("load"));
     return () => {
       alive = false;
     };
@@ -36,11 +37,11 @@ const LikeButton: React.FC<{ articleId: string }> = ({ articleId }) => {
     try {
       const s = await setArticleLike(articleId, next);
       if (s) setState(s);
-      setFailed(false);
+      setFailed(null);
       trackEvent(next ? "article_like" : "article_unlike", { category: "engagement", label: articleId });
     } catch {
       setState(before);
-      setFailed(true);
+      setFailed("send");
     } finally {
       setBusy(false);
     }
@@ -74,7 +75,7 @@ const LikeButton: React.FC<{ articleId: string }> = ({ articleId }) => {
       </button>
       {failed && (
         <p className="text-[12px] text-bx-ink3" role="status">
-          いいねを読み込めませんでした。時間をおいてもう一度お試しください。
+          {failed === "send" ? "いいねを送れませんでした。" : "いいねを読み込めませんでした。"}時間をおいてもう一度お試しください。
         </p>
       )}
     </div>

@@ -150,22 +150,25 @@ export const parseArticleMarkdown = (markdown: string): ParsedArticle => {
   return { title, blocks, lead, problems };
 };
 
-/** YouTube の動画IDを取り出す(watch?v= / youtu.be / embed / shorts) */
+/** YouTube の動画IDの形(英数字・_・- の11文字)。埋め込み・サムネイルの URL に使うので、それ以外は受け付けない */
+const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
+
+/** YouTube の動画IDを取り出す(watch?v= / youtu.be / embed / shorts)。IDの形でなければ null */
 export const youtubeVideoId = (url: string | null | undefined): string | null => {
   if (!url) return null;
+  let id: string | null = null;
   try {
     const u = new URL(url);
     const host = u.hostname.replace(/^www\.|^m\./, "");
-    if (host === "youtu.be") return u.pathname.slice(1).split("/")[0] || null;
-    if (host === "youtube.com" || host === "youtube-nocookie.com") {
-      if (u.pathname === "/watch") return u.searchParams.get("v");
-      const m = u.pathname.match(/^\/(?:embed|shorts)\/([^/?#]+)/);
-      if (m) return m[1];
+    if (host === "youtu.be") id = u.pathname.slice(1).split("/")[0] || null;
+    else if (host === "youtube.com" || host === "youtube-nocookie.com") {
+      if (u.pathname === "/watch") id = u.searchParams.get("v");
+      else id = u.pathname.match(/^\/(?:embed|shorts)\/([^/?#]+)/)?.[1] ?? null;
     }
   } catch {
     return null;
   }
-  return null;
+  return id && YOUTUBE_ID.test(id) ? id : null;
 };
 
 /** 一覧・meta description 用。リード(MVリンク)を除いた最初の段落の本文 */
