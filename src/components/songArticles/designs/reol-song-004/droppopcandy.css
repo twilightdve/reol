@@ -1,0 +1,524 @@
+/*
+ * 楽曲記事「drop pop candy」(reol-song-004)の記事別デザイン(見本 v1)。根拠は plan/37。
+ * すべて .a004 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --sky → --sky-2 表紙の低気圧の灰色(白い文字が読める濃さ) / --soda 本文の地(淡い炭酸水の色)
+ *   キャンディ(MV の色): --teal 青緑 / --mustard からし色 / --slate くすんだ青 / --orange 橙 / --violet 紫
+ *   --ink 本文 / --ink-2 補足 / --link リンク(青緑を濃くした色) / --night 夜空
+ */
+
+.a004 {
+  --sky: #6d7880;
+  --sky-2: #4f5961;
+  --soda: #f1f7f3;
+  --soda-2: #e2efe8;
+  --ink: #1d2726;
+  --ink-2: #4a5655;
+  --link: #1d6a53;
+  --teal: #3f9f80;
+  --mustard: #d6b726;
+  --slate: #3d6888;
+  --orange: #c8774a;
+  --violet: #6a5da6;
+  --night: #22344a;
+  --on-sky: #f6f8f7;
+  --on-sky-2: #dfe5e8;
+  --column: min(640px, calc(100% - 40px));
+  --round: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+
+  color: var(--ink);
+  background: var(--soda);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 低気圧の灰色の空に細い雨。題名のまわりで雨粒がキャンディに変わる ---------- */
+.a004-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--on-sky);
+  background: linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%);
+  min-height: clamp(560px, 92svh, 780px);
+  display: flex;
+  flex-direction: column;
+}
+.a004-cover__art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.a004-rain line {
+  stroke: rgb(255 255 255 / 0.32);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+.a004-candy__shadow {
+  fill: rgb(20 30 34 / 0.28);
+}
+.a004-candy__glint {
+  fill: rgb(255 255 255 / 0.7);
+}
+.a004-star {
+  fill: #fffbe8;
+}
+.a004-star--ink {
+  fill: var(--mustard);
+}
+/* キャンディは、ぽんと現れる(動きを減らす設定では最初から置いておく) */
+@media (prefers-reduced-motion: no-preference) {
+  .a004-cover__candy {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: a004-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .a004-rain {
+    animation: a004-fall 1.6s linear infinite;
+  }
+}
+@keyframes a004-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes a004-fall {
+  from {
+    transform: translate(0, -40px);
+  }
+  to {
+    transform: translate(-9px, 0);
+  }
+}
+.a004-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a004-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--on-sky-2);
+}
+.a004-crumbs a {
+  color: var(--on-sky-2);
+  text-decoration: none;
+}
+.a004-crumbs a:hover,
+.a004-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+/* 題名は左下。雨がキャンディに変わる右側をあける */
+.a004-cover__body {
+  width: min(1040px, calc(100% - 40px));
+  margin: auto auto 0;
+  padding: 0 0 clamp(48px, 8vw, 96px);
+}
+.a004-title {
+  margin: 0;
+  font-family: var(--round);
+  font-weight: 800;
+  line-height: 1.05;
+}
+.a004-title__pre {
+  display: block;
+  margin-bottom: 0.7em;
+  font-size: clamp(17px, 2.6vw, 24px);
+  letter-spacing: 0.12em;
+  color: var(--on-sky-2);
+}
+/* 曲名: 丸い太字に、少しずらした色の影(題字は複製せず、考え方だけ) */
+.a004-title__song {
+  display: block;
+  max-width: 7.2em;
+  font-size: clamp(54px, 13vw, 132px);
+  letter-spacing: 0.01em;
+  color: #fffdf2;
+  text-shadow: 0.045em 0.045em 0 var(--teal), 0.09em 0.09em 0 rgb(20 30 34 / 0.25);
+  word-break: keep-all;
+}
+.a004-date {
+  margin: 22px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--on-sky-2);
+}
+
+/* ---------- 本文 ---------- */
+.a004-ground {
+  padding-top: clamp(48px, 8vw, 88px);
+  background: var(--soda);
+}
+.a004-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a004-video {
+  margin: 0 0 clamp(40px, 6vw, 64px);
+}
+.a004-video__label {
+  margin-bottom: 10px;
+  font-family: var(--round);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+}
+/* 映像はキャンディの包み紙のように、角を丸めて色の影をずらす */
+.a004-video .sa-media {
+  margin: 0;
+}
+.a004-video .sa-media__frame {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--mustard);
+}
+.a004-video .sa-media__thumb {
+  opacity: 1;
+}
+.a004-video .sa-media__button {
+  background: rgb(255 253 242 / 0.95);
+  color: var(--ink);
+}
+.a004-video .sa-media__caption {
+  margin-top: 18px;
+  font-size: 13px;
+}
+.a004-row {
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+.a004-lede {
+  font-family: var(--round);
+  font-size: clamp(18px, 2.4vw, 21px);
+  font-weight: 700;
+  line-height: 1.95;
+}
+.a004-lede p,
+.a004-text p {
+  margin: 0;
+}
+.a004-text {
+  font-size: 17px;
+  line-height: 2;
+  text-align: justify;
+  line-break: strict;
+}
+.a004-text p + p,
+.a004-text + .a004-text {
+  margin-top: 1.7em;
+}
+.a004-group {
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+.a004-group--tight {
+  margin-bottom: 0;
+}
+.a004-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a004-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+/* 踊ってみた動画へのリンク(本文のリンクのまま)を、押しやすい札の形に */
+.a004-extlink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--teal);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+.a004-extlink a::before {
+  content: "";
+  flex: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent var(--teal);
+}
+.a004-extlink a:hover {
+  box-shadow: 2px 2px 0 var(--teal);
+  transform: translate(2px, 2px);
+}
+
+/* 注記 */
+.a004-note {
+  margin: 0 0 16px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a004-note p {
+  margin: 0;
+}
+.a004-note__label {
+  font-family: var(--round);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a004-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.a004-note--inline {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fff;
+  border-left: 6px solid var(--violet);
+}
+
+/* ---------- しずくが一粒ずつキャンディに変わる列 ---------- */
+.a004-drops {
+  width: min(400px, 100%);
+  margin: 0 auto clamp(36px, 5vw, 56px);
+}
+.a004-drops svg,
+.a004-duet svg,
+.a004-umbrella svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a004-drops__rain {
+  fill: none;
+  stroke: #9aa4ab;
+  stroke-width: 2;
+}
+.a004-drops.is-armed .a004-drops__item {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.a004-drops.is-visible .a004-drops__item {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 二本の線(掛け合い) ---------- */
+.a004-duet {
+  margin: 0 auto clamp(36px, 5vw, 56px);
+}
+.a004-duet__line {
+  fill: none;
+  stroke: #b7c4bf;
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.a004-duet.is-armed .a004-duet__line {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s ease 0.1s;
+}
+.a004-duet.is-visible .a004-duet__line {
+  stroke-dashoffset: 0;
+}
+.a004-duet.is-armed .a004-duet__dot {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.a004-duet.is-visible .a004-duet__dot {
+  opacity: 1;
+}
+
+/* ---------- ひとっ飛び: 水たまりから夜空の星へ(幅いっぱいの帯) ---------- */
+.a004-leap {
+  margin: clamp(24px, 4vw, 40px) 0 clamp(48px, 7vw, 80px);
+  height: clamp(200px, 30vw, 320px);
+  background: linear-gradient(180deg, var(--night) 0%, var(--slate) 62%, #6fae95 78%, var(--soda) 100%);
+}
+.a004-leap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.a004-leap__narrow {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  .a004-leap {
+    height: 300px;
+  }
+  .a004-leap__wide {
+    display: none !important;
+  }
+  .a004-leap__narrow {
+    display: block !important;
+  }
+}
+.a004-leap__horizon {
+  stroke: rgb(255 255 255 / 0.35);
+  stroke-width: 1;
+}
+.a004-leap__puddle {
+  fill: #93bcae;
+}
+.a004-leap__trail {
+  fill: none;
+  stroke: rgb(255 251 232 / 0.85);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.012 0.018;
+}
+.a004-leap.is-armed .a004-leap__candy,
+.a004-leap.is-armed .a004-leap__star {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.a004-leap.is-armed .a004-leap__candy {
+  transition-delay: 0.5s;
+}
+.a004-leap.is-visible .a004-leap__candy,
+.a004-leap.is-visible .a004-leap__star {
+  opacity: 1;
+}
+
+/* ---------- 閉じた傘(踊ってみた・ライヴの前) ---------- */
+.a004-umbrella {
+  width: min(220px, 60%);
+  margin: clamp(16px, 3vw, 28px) auto clamp(28px, 4vw, 44px);
+}
+.a004-umbrella__canopy {
+  fill: #fff;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+.a004-umbrella__rib,
+.a004-umbrella__handle {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+.a004-umbrella__rib {
+  stroke-width: 1.4;
+}
+.a004-umbrella__tie {
+  fill: var(--teal);
+}
+
+/* ---------- 結び: 色の粒がやわらかく降る ---------- */
+.a004-last {
+  padding: clamp(40px, 7vw, 72px) 0 clamp(56px, 9vw, 104px);
+  background:
+    radial-gradient(circle at 8% 18%, rgb(63 159 128 / 0.35) 0 7px, transparent 8px),
+    radial-gradient(circle at 92% 12%, rgb(214 183 38 / 0.45) 0 9px, transparent 10px),
+    radial-gradient(circle at 84% 64%, rgb(200 119 74 / 0.35) 0 6px, transparent 7px),
+    radial-gradient(circle at 14% 78%, rgb(106 93 166 / 0.35) 0 8px, transparent 9px),
+    radial-gradient(circle at 50% 4%, rgb(61 104 136 / 0.3) 0 5px, transparent 6px),
+    linear-gradient(180deg, var(--soda) 0%, var(--soda-2) 100%);
+}
+.a004-closing {
+  font-family: var(--round);
+  font-size: 18px;
+  line-height: 2.05;
+}
+
+/* ---------- 奥付 ---------- */
+.a004-colophon {
+  width: var(--column);
+  margin: 0 auto;
+  padding: 28px 0 clamp(48px, 8vw, 88px);
+  border-top: 2px dotted rgb(74 86 85 / 0.45);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a004-colophon__list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.a004-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a004-colophon dt {
+  font-family: var(--round);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.a004-colophon dd {
+  margin: 0;
+}
+.a004-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a004-next {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a004-colophon a {
+  color: var(--link);
+}
+
+/* ---------- フォーカス ---------- */
+.a004 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.a004-cover a:focus-visible {
+  outline-color: #fffbe8;
+}
+
+@media (max-width: 640px) {
+  /* スマートフォンは表紙の絵の右側(雨がキャンディに変わるところ)を見せる */
+  .a004-cover__art {
+    inset: 0 0 auto auto;
+    width: 260%;
+    height: 72%;
+  }
+  .a004-text {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+  .a004-closing {
+    font-size: 17px;
+  }
+}
+@media print {
+  .a004-cover {
+    color: #000;
+    background: #fff;
+    min-height: 0;
+  }
+  .a004-cover__art,
+  .a004-leap {
+    display: none;
+  }
+}

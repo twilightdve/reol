@@ -22,6 +22,36 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // drop pop candy(plan/37)。一言(1)・雨と遊ぶ(2)・掛け合い(4)・景色の広がり(5)・日々(6)・踊ってみた(8, 9 動画へのリンク)・ライヴ(12)・結び(14)
+  "reol-song-004": {
+    bodyRevision: 2,
+    bodySha256: "3c60a5a1362ae373ff7f36e6f42356331768c416a9e7699d0fdfa482611b5c8e",
+    blockCount: 15,
+    anchors: [
+      { block: 1, textHash: "a8d16b48abd1a358" },
+      { block: 2, textHash: "dbd95469f19a7e4e" },
+      { block: 4, textHash: "e406ff8b5651476c" },
+      { block: 5, textHash: "2809b2bd51c20244" },
+      { block: 6, textHash: "ba5f6bf8972f0a3d" },
+      { block: 8, textHash: "1e700cc13251f509" },
+      { block: 9, textHash: "07273dbff2de3d02" },
+      { block: 12, textHash: "fb962cf61d4e3d83" },
+      { block: 14, textHash: "01dadde102cb504d" },
+    ],
+    // 演奏記録の注記: 新式浪漫 Neo Nostalgia の全9公演(2023-01-26 愛知〜2023-03-05 長野)と、その前の演奏(2019-07-14 文明ココロミー -西の塔-)
+    liveItemUuids: [
+      "019e8284-bfd4-72b5-adf2-d41e0cf0b883",
+      "019e8284-c0e9-7551-aec4-a75ac40dfd28",
+      "019e8284-c1e0-770a-a065-f7898b03c036",
+      "019e8284-c246-7903-bb46-b41acb18f4f3",
+      "019e8284-c3e3-79b5-bbe7-36fc1e5ff9d4",
+      "019e8284-c441-7fbe-b556-d41a75b30cf2",
+      "019e8284-c4a8-7d1a-95c9-fea5b06ac38e",
+      "019e8284-c510-753a-a7ec-4103bcd81648",
+      "019e8284-c56f-750c-8925-8de26e1151b8",
+      "019e8284-aa1a-7693-9934-f043910ff12e",
+    ],
+  },
   // Boy(plan/30)。一言(1)・欄外の注記(2: 収録作、5: 演奏記録)・帯(5の前、8の前)・結び(8)
   "reol-song-080": {
     bodyRevision: 1,
