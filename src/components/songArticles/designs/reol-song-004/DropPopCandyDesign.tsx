@@ -21,6 +21,7 @@ import ArticleBody from "../../ArticleBody";
 import OfficialMedia from "../../OfficialMedia";
 import Phrased from "../../Phrased";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
+import { inlineText, youtubeVideoId } from "../../../../utils/songArticles/markdown";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
 import "./droppopcandy.css";
@@ -312,6 +313,14 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
     .filter((l) => !l.liveTitle.includes(TOUR) && tour.length > 0 && l.date < tour[0].date)
     .sort((a, b) => b.date.localeCompare(a.date))[0];
   const mv = leadMedia;
+  // 踊ってみた動画(段落9のリンク)。YouTube の正規の埋め込みとして、クリックした時だけ読み込む
+  // (サイトの方針は「自分で撮った画面や転載素材を使わない」こと。2026-10-12 ユーザー)
+  const danceBlock = blocks[DANCE_LINK];
+  const danceLink = danceBlock?.t === "p" ? danceBlock.children.find((n) => n.t === "link") : undefined;
+  const dance =
+    danceLink && danceLink.t === "link" && youtubeVideoId(danceLink.href)
+      ? { id: youtubeVideoId(danceLink.href) as string, href: danceLink.href, text: inlineText(danceLink.children) }
+      : null;
 
   return (
     <main className="a004" lang="ja">
@@ -357,7 +366,7 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
             {mv ? (
               <figure className="a004-video">
                 <figcaption className="a004-video__label">MV</figcaption>
-                <OfficialMedia videoId={mv.videoId} href={mv.href} text={mv.text} articleId={id} unstyled />
+                <OfficialMedia videoId={mv.videoId} href={mv.href} text={mv.text} articleId={id} unstyled preferHighRes />
               </figure>
             ) : (
               // 登録済みの MV と一致しない時は、本文の冒頭のリンクのまま
@@ -410,7 +419,14 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
             {/* 踊ってみた。動画へのリンクは本文のまま(サイトに登録された映像ではない) */}
             <div className="a004-group">
               {body(DANCE, DANCE_LINK)}
-              {body(DANCE_LINK, DANCE_LINK + 1, "a004-text a004-extlink")}
+              {dance ? (
+                <figure className="a004-video a004-video--dance">
+                  <figcaption className="a004-video__label">踊ってみた</figcaption>
+                  <OfficialMedia videoId={dance.id} href={dance.href} text={dance.text} articleId={id} unstyled preferHighRes />
+                </figure>
+              ) : (
+                body(DANCE_LINK, DANCE_LINK + 1, "a004-text a004-extlink")
+              )}
               {body(DANCE_LINK + 1, LIVE)}
             </div>
 

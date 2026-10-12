@@ -21,6 +21,8 @@ interface OfficialMediaProps {
   articleId: string;
   format?: "video" | "cinemascope" | "square";
   unstyled?: boolean;
+  /** 16:9 の動画でも高解像度のサムネイル(maxresdefault)を先に試す。hqdefault は4:3で上下に黒帯が入るため(無ければ hqdefault に戻る) */
+  preferHighRes?: boolean;
 }
 
 // 幅に対する高さ。16:9、2.39:1、1:1
@@ -33,11 +35,12 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
   articleId,
   format = "video",
   unstyled = false,
+  preferHighRes = false,
 }) => {
   const [playing, setPlaying] = useState(false);
   // 高解像度のサムネイル(maxresdefault)が無い動画もあるため、失敗したら hqdefault、それも失敗したら画像なし
   const [thumb, setThumb] = useState<"maxresdefault" | "hqdefault" | null>(
-    format === "video" ? "hqdefault" : "maxresdefault"
+    format === "video" && !preferHighRes ? "hqdefault" : "maxresdefault"
   );
 
   return (

@@ -189,6 +189,17 @@
   overflow: hidden;
   box-shadow: 8px 8px 0 var(--mustard);
 }
+/* 踊ってみた動画は MV と区別して、影を青緑に。本文の段落の間なので前後の余白を少し詰める */
+.a004-video--dance {
+  margin: 1.7em 0;
+}
+.a004-video--dance .sa-media__frame {
+  box-shadow: 8px 8px 0 var(--teal);
+}
+/* この動画は映像の上下に細い黒帯が入っているので、再生前のサムネイルだけ少し拡大して枠の外に出す */
+.a004-video--dance .sa-media__thumb {
+  transform: scale(1.1);
+}
 .a004-video .sa-media__thumb {
   opacity: 1;
 }
