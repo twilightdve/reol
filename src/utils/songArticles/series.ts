@@ -54,17 +54,21 @@ export const tagFilterPath = (tag: string): string => `/articles/?tag=${encodeUR
 export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
 
 /**
- * HOME の「読みもの」欄に出す記事と順番(記事ID)。2026-10-11 ユーザー指定: No title → 1LDK → Boy。
+ * HOME の「読みもの」欄に出す記事と順番(記事ID)。2026-10-12 ユーザー指定: No title → drop pop candy → 1LDK
+ * (2026-10-11 は No title → 1LDK → Boy)。
  * まだ公開されていない記事(通常ビルド)や未完成(draft)の記事は飛ばす。1本も無ければ欄を出さない。
  */
-export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-076", "reol-song-080"];
+export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-004", "reol-song-076"];
 
 /**
  * カードの上に小さく曲名を出すか。題名にもう曲名が入っている時(「MONSTER 欲しがる…」「…読み直すNo title」)は出さない
  * (同じ語が続いて見えるため。2026-10-12 ユーザー指定)。大文字小文字は区別しない
  */
-export const showSongKicker = (title: string, songTitle: string): boolean =>
-  !title.toLowerCase().includes(songTitle.toLowerCase());
+export const showSongKicker = (title: string, songTitle: string): boolean => {
+  // 曲名の末尾の括弧書き(「drop pop candy (feat. ギガ)」の「(feat. ギガ)」など)は外して比べる
+  const core = songTitle.replace(/\s*[(（][^()（）]*[)）]\s*$/, "").trim() || songTitle;
+  return !title.toLowerCase().includes(core.toLowerCase());
+};
 
 export type RelatedCandidate = {
   id: string;
