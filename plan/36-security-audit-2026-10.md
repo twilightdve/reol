@@ -82,7 +82,9 @@ GitHub の push 時の表示(Dependabot: 510件、critical 18・high 256)をき�
   - `tailwindcss-3d` は**残す**。3D用クラスは使っていないが、このプラグインは `translate-*`・`rotate-*`・`scale-*` を個別の CSS プロパティ(`translate`・`rotate`・`scale`)で出力するよう変えている。外すと `transform` での出力に戻り、`transform` を使うアニメーションとぶつかって見た目が変わるおそれがある(ビルドの CSS を比べて判明)。残る lodash の `_.template` は、ビルド中に外部の文字列をテンプレートとして実行する場合にしか成り立たない
   - 外した後のビルドで、CSS が外す前と1バイトも違わないことを確認した
 - [x] yarn.lock を削除した(2026-10-12 ユーザー承認。運用は npm。GitHub の件数の二重計上がなくなる)
-- [ ] 「非公開」設定を DB 側で効かせる(2026-10-12 ユーザー承認): `supabase/features/supabase-private-venue-selection.sql` を作成。ユーザーが SQL Editor で実行した後に確認する
+- [x] 「非公開」設定を DB 側で効かせた(2026-10-12 ユーザー承認・ユーザーが SQL Editor で適用): `supabase/features/supabase-private-venue-selection.sql`
+  - 適用後、ログインなしの API から読んで、会場選択 360件・来場者一覧 84人・会場ごとの参加者(例 yamaguchi_rising_hall 13人)が変更前と同じことを確認。Supabase の警告に新しいものは無い
+  - 非公開の人が実際に隠れることは未確認(非公開の人が0人のため)
 
 ## 関連: メモリ不足対策(2026-10-12)
 
