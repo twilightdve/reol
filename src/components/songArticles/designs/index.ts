@@ -8,6 +8,7 @@ import NoTitleDesign from "./reol-song-006/NoTitleDesign";
 import MonsterDesign from "./reol-song-026/MonsterDesign";
 import ScorpionDesign from "./reol-song-087/ScorpionDesign";
 import OneLdkDesign from "./reol-song-076/OneLdkDesign";
+import DropPopCandyDesign from "./reol-song-004/DropPopCandyDesign";
 
 export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-080": BoyDesign,
@@ -15,4 +16,5 @@ export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-026": MonsterDesign,
   "reol-song-087": ScorpionDesign,
   "reol-song-076": OneLdkDesign,
+  "reol-song-004": DropPopCandyDesign,
 };
