@@ -77,6 +77,12 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .a080-opening { display: flex !important; flex-direction: column !important; justify-content: center !important; padding: 0 96px !important; }
     .a080-hero { margin: 0 !important; padding: 0 !important; }
   `,
+  // ミュータント: 630px に収まるよう、上の段(夜の湾の絵)の高さを固定し、題名を1行にして映り込みと日付まで入れる
+  "reol-song-082": `
+    .a082-cover__art { flex: none !important; height: 372px !important; }
+    .a082-cover__body { padding: 30px 0 0 !important; width: auto !important; margin: 0 80px !important; }
+    .a082-title { max-width: none !important; font-size: 50px !important; white-space: nowrap; }
+  `,
   // SCORPION: MVを外して空いた下側を詰め、題名を縦の中央へ
   "reol-song-087": `
     .a087-cover__top { display: none !important; }

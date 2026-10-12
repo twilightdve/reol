@@ -1,0 +1,578 @@
+/*
+ * 楽曲記事「ミュータント」(reol-song-082)の記事別デザイン(見本 v1)。根拠は plan/38。
+ * すべて .a082 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --night 夜(地) / --sea 海(結びの地) / --text 本文 / --text-2 補足 / --link リンク
+ *   --cyan 青緑の光(螺旋・橋) / --lime 黄緑の光(歌詞の引用) / --violet 紫の光(控えめ) / --album アルバムの色
+ */
+
+.a082 {
+  --night: #07131c;
+  --night-2: #0b1d28;
+  --sea: #0d2a35;
+  --text: #dfe9ec;
+  --text-2: #a7bac1;
+  --link: #8be7dd;
+  --cyan: #5fe0d6;
+  --lime: #c8f06a;
+  --violet: #b49cff;
+  --album: #5e989c;
+  --album-deep: #287563;
+  --column: min(640px, calc(100% - 40px));
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
+
+  color: var(--text);
+  background: var(--night);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 上の段が夜の湾(絵)、下の段が海(題名が浮かぶ) ---------- */
+.a082-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* 絵の段の下端(海 #0d2733)から、そのまま下へ暗くなる(境目に段差を作らない) */
+  background: linear-gradient(180deg, #0d2733 0 clamp(300px, 44vw, 540px), #081822 100%);
+  display: flex;
+  flex-direction: column;
+}
+.a082-cover__art {
+  display: block;
+  width: 100%;
+  height: clamp(300px, 44vw, 540px);
+  pointer-events: none;
+}
+.a082-skyline rect {
+  fill: #060e14;
+}
+.a082-light {
+  fill: #d9fbf7;
+}
+.a082-light--warm {
+  fill: #ffd9a0;
+}
+.a082-bridge__cable,
+.a082-bridge__tower,
+.a082-bridge__deck {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-linecap: round;
+}
+.a082-bridge__cable {
+  stroke-width: 1.6;
+  opacity: 0.85;
+}
+.a082-bridge__tower {
+  stroke-width: 2.4;
+  opacity: 0.8;
+}
+.a082-bridge__deck {
+  stroke-width: 2;
+  opacity: 0.7;
+}
+.a082-bridge__hanger {
+  stroke: var(--cyan);
+  stroke-width: 0.8;
+  opacity: 0.4;
+}
+.a082-reflect {
+  stroke: rgb(95 224 214 / 0.28);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.a082-loop {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.a082-loop__pillar {
+  stroke: rgb(95 224 214 / 0.35);
+  stroke-width: 1.4;
+}
+.a082-loop--reflect {
+  opacity: 0.22;
+}
+.a082-cover__top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a082-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-2);
+}
+.a082-crumbs a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.a082-crumbs a:hover,
+.a082-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+/* 題名は海に浮かび、その下に水面への映り込み */
+.a082-cover__body {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 44px) 0 clamp(40px, 6vw, 64px);
+}
+.a082-title {
+  margin: 0;
+  max-width: 11em;
+  font-family: var(--mincho);
+  font-size: clamp(30px, 6.2vw, 60px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  color: #f2fbfb;
+  text-shadow: 0 0 22px rgb(95 224 214 / 0.35);
+}
+/* 映り込み: 上下反転し、ぼかして、下へ消える(装飾) */
+.a082-title--reflect {
+  margin-top: 0.05em;
+  transform: scaleY(-1);
+  filter: blur(2.5px);
+  opacity: 0.32;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+  pointer-events: none;
+  user-select: none;
+}
+.a082-date {
+  margin: 4px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+}
+
+/* ---------- 本文 ---------- */
+.a082-ground {
+  padding-top: clamp(48px, 8vw, 88px);
+  background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+}
+.a082-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a082-video {
+  margin: 0 0 clamp(48px, 7vw, 72px);
+}
+.a082-video--inline {
+  margin: 1.8em 0;
+}
+.a082-video__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--cyan);
+}
+.a082-video .sa-media {
+  margin: 0;
+}
+.a082-video .sa-media__frame {
+  box-shadow: 0 0 0 1px rgb(95 224 214 / 0.35), 0 18px 48px rgb(0 0 0 / 0.5);
+}
+.a082-video .sa-media__thumb {
+  opacity: 0.92;
+}
+.a082-video .sa-media__button {
+  background: rgb(7 19 28 / 0.75);
+  color: var(--cyan);
+  box-shadow: 0 0 0 1px rgb(95 224 214 / 0.6);
+}
+.a082-video .sa-media__caption {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.a082-lede {
+  margin-bottom: clamp(36px, 5vw, 56px);
+  font-family: var(--mincho);
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: #f2fbfb;
+}
+.a082-lede p,
+.a082-text p {
+  margin: 0;
+}
+.a082-text {
+  font-size: 17px;
+  line-height: 2.05;
+  text-align: justify;
+  line-break: strict;
+}
+.a082-text p + p,
+.a082-text p + blockquote,
+.a082-text blockquote + p {
+  margin-top: 1.7em;
+}
+.a082-text + .a082-text,
+.a082-text + .a082-video {
+  margin-top: 1.7em;
+}
+/* 本文の歌詞の引用: 明朝体で、黄緑の光の線を細く添える */
+.a082-text blockquote {
+  margin: 1.7em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+  border-left: 2px solid var(--lime);
+  box-shadow: -6px 0 14px -8px var(--lime);
+  font-family: var(--mincho);
+  font-size: 18px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: #eef9d8;
+}
+.a082-text blockquote p {
+  margin: 0;
+}
+.a082-group {
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+.a082-group--tight {
+  margin-bottom: 0;
+}
+.a082-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a082-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a082-note {
+  margin: 0 0 16px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a082-note p {
+  margin: 0;
+}
+.a082-note__label {
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+}
+.a082-note__strong {
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- 二重の螺旋 ---------- */
+.a082-helix {
+  margin: clamp(32px, 5vw, 48px) auto clamp(40px, 6vw, 64px);
+}
+.a082-helix svg,
+.a082-lines svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a082-helix__strand {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.a082-helix__strand--a {
+  stroke: var(--cyan);
+}
+.a082-helix__strand--b {
+  stroke: var(--album);
+}
+.a082-helix__rung {
+  stroke: rgb(167 186 193 / 0.35);
+  stroke-width: 1.2;
+}
+.a082-helix.is-armed .a082-helix__strand {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s ease;
+}
+.a082-helix.is-armed .a082-helix__rung {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.a082-helix.is-visible .a082-helix__strand {
+  stroke-dashoffset: 0;
+}
+.a082-helix.is-visible .a082-helix__rung {
+  opacity: 1;
+}
+
+/* ---------- 夜の湾の帯 ---------- */
+.a082-bay {
+  margin: clamp(40px, 6vw, 64px) 0 clamp(48px, 7vw, 80px);
+  height: clamp(220px, 30vw, 340px);
+  background: linear-gradient(180deg, var(--night) 0%, #0a1b26 60%, var(--sea) 62%, var(--night-2) 100%);
+  /* 右へ行くほど霧に溶ける(橋の向こう側) */
+  -webkit-mask-image: linear-gradient(90deg, #000 60%, rgb(0 0 0 / 0.25) 100%);
+  mask-image: linear-gradient(90deg, #000 60%, rgb(0 0 0 / 0.25) 100%);
+}
+.a082-bay svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.a082-bay__narrow {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  .a082-bay__wide {
+    display: none !important;
+  }
+  .a082-bay__narrow {
+    display: block !important;
+  }
+}
+.a082-bay.is-armed .a082-bay__pillar {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.9s;
+}
+.a082-bay.is-visible .a082-bay__pillar {
+  opacity: 1;
+}
+.a082-bay__horizon {
+  stroke: rgb(95 224 214 / 0.25);
+  stroke-width: 1;
+}
+.a082-bay__road {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.a082-bay .a082-loop,
+.a082-bay__road {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.a082-bay.is-armed .a082-bay__draw {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.8s ease;
+}
+.a082-bay.is-armed .a082-bay__road {
+  transition-delay: 1.2s;
+  transition-duration: 0.6s;
+}
+.a082-bay.is-armed .a082-bay__bridge {
+  opacity: 0;
+  transition: opacity 1s ease 1.6s;
+}
+.a082-bay.is-visible .a082-bay__draw {
+  stroke-dashoffset: 0;
+}
+.a082-bay.is-visible .a082-bay__bridge {
+  opacity: 1;
+}
+
+/* ---------- 世界線の移り変わり ---------- */
+.a082-lines {
+  margin: clamp(32px, 5vw, 48px) auto clamp(48px, 7vw, 72px);
+}
+.a082-lines__old {
+  stroke: rgb(167 186 193 / 0.55);
+  stroke-width: 1.6;
+}
+.a082-lines__old--fade {
+  stroke-dasharray: 3 7;
+  opacity: 0.6;
+}
+.a082-lines__new {
+  stroke: var(--cyan);
+  stroke-width: 2.2;
+}
+.a082-lines__new--fade {
+  stroke: rgb(95 224 214 / 0.25);
+  stroke-dasharray: 3 7;
+}
+.a082-lines__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  fill: var(--text-2);
+}
+.a082-lines__label--new {
+  fill: var(--cyan);
+}
+.a082-lines__shift {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.a082-lines__dot {
+  fill: var(--cyan);
+}
+.a082-lines.is-armed .a082-lines__shift {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s ease 0.2s;
+}
+.a082-lines.is-armed .a082-lines__dot {
+  opacity: 0;
+  transition: opacity 0.4s ease 1.7s;
+}
+.a082-lines.is-visible .a082-lines__shift {
+  stroke-dashoffset: 0;
+}
+.a082-lines.is-visible .a082-lines__dot {
+  opacity: 1;
+}
+
+/* ---------- 結び: 海の深い青緑へ沈んでいく ---------- */
+.a082-last {
+  padding: clamp(40px, 7vw, 72px) 0 clamp(24px, 4vw, 40px);
+  background: linear-gradient(180deg, var(--night-2) 0%, var(--sea) 55%, #0f3540 100%);
+}
+.a082-closing {
+  font-family: var(--mincho);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 2.1;
+  letter-spacing: 0.03em;
+  color: #eaf6f7;
+}
+
+/* 最後の段落の下の地図。海の地に、細い光の枠で置く */
+.a082-map {
+  margin: clamp(40px, 6vw, 56px) 0 0;
+}
+.a082-map__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--cyan);
+}
+.a082-map__frame {
+  position: relative;
+  height: 0;
+  padding-bottom: 62.5%;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgb(95 224 214 / 0.35), 0 18px 48px rgb(0 0 0 / 0.45);
+  background: #0b2530;
+}
+.a082-map__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.a082-map__link {
+  margin: 12px 0 0;
+  font-size: 13px;
+}
+
+/* ---------- 奥付 ---------- */
+.a082-colophon {
+  padding: 28px 0 clamp(48px, 8vw, 88px);
+  background: #0f3540;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a082-colophon__list,
+.a082-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a082-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(95 224 214 / 0.25);
+  display: grid;
+  gap: 10px;
+}
+.a082-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a082-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+.a082-colophon dd {
+  margin: 0;
+}
+.a082-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a082-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a082-colophon a {
+  color: var(--link);
+}
+
+/* ---------- フォーカス ---------- */
+.a082 a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a082-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .a082-text blockquote {
+    font-size: 17px;
+  }
+  .a082-closing {
+    font-size: 17px;
+  }
+  .a082-bay {
+    height: 260px;
+  }
+  /* スマートフォンは地図を正方形にして、住所の札に隠れない範囲を広くとる */
+  .a082-map__frame {
+    padding-bottom: 100%;
+  }
+}
+@media print {
+  .a082,
+  .a082-cover,
+  .a082-ground,
+  .a082-last,
+  .a082-colophon {
+    color: #000;
+    background: #fff;
+  }
+  .a082-cover__art,
+  .a082-bay,
+  .a082-title--reflect {
+    display: none;
+  }
+}

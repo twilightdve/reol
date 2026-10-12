@@ -22,6 +22,25 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // ミュータント(plan/38)。動画へのリンク(0)・一言(1)・作り(4)・題名の意味(5)・場所(6, 11)・埠頭(12)・『虚構集』XFD へのリンク(13)・REOL→Reol(14, 19)・結び(20)
+  "reol-song-082": {
+    bodyRevision: 2,
+    bodySha256: "8de47d135355f7ea91254beb9d7b12ff66db3dd7be31561fd6a74b57b7a9e94d",
+    blockCount: 22,
+    anchors: [
+      { block: 0, textHash: "0040ea603ff13405" },
+      { block: 1, textHash: "17374a932eb60c7e" },
+      { block: 4, textHash: "f51a41c4a7f3c2f4" },
+      { block: 5, textHash: "7352eeea49914230" },
+      { block: 6, textHash: "d60cd43550306e22" },
+      { block: 11, textHash: "4c50bfb174ad22e2" },
+      { block: 12, textHash: "829607a0253f727d" },
+      { block: 13, textHash: "1e08f88ec914f554" },
+      { block: 14, textHash: "1a4971ed739e6e60" },
+      { block: 19, textHash: "799491b0208d7d4c" },
+      { block: 20, textHash: "71ce64be36e1e18f" },
+    ],
+  },
   // drop pop candy(plan/37)。本文版3(題名「雨降りの日に聴きたい」、段落12の名義を Reol に。2026-10-12)。一言(1)・雨と遊ぶ(2)・掛け合い(4)・景色の広がり(5)・日々(6)・踊ってみた(8, 9 動画へのリンク)・ライヴ(12)・結び(14)
   "reol-song-004": {
     bodyRevision: 3,
