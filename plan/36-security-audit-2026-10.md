@@ -90,3 +90,38 @@ GitHub の push 時の表示(Dependabot: 510件、critical 18・high 256)をき�
 
 点検中に 16GB の Mac がメモリ不足で落ちた。jest(既定でコア数-1の作業プロセス)・tsc・npm の更新・ビルドを続けて動かしていた。
 以後、jest は `maxWorkers: 2`、gatsby の develop/build は `GATSBY_CPU_COUNT=2`、重い処理は1つずつ動かす。
+
+## 版上げの検討(2026-10-12。ユーザー「メリットがあるのであれば対応したい」)
+
+### 実施: 今の版の範囲内での更新(`npm update`)
+
+- `@supabase/supabase-js` 2.81 → 2.117(ブラウザで動く唯一の外部通信ライブラリ。不具合修正が多い)、gatsby の各プラグインを本体と同じ 5.16 系へ、ほか小さな更新。
+- **除外**したもの:
+  - `typescript`(5.4 → 5.9 にすると、古い `@types/node` 17 と噛み合わず型エラー15件・テスト1件が失敗。利用者への利点なし)
+  - `gh-pages`(6.3 で high が1件増える)
+  - `playwright`(確認用の道具。上げるとブラウザの再ダウンロードが要る)
+- 確認: 型チェック・テスト123件通過。ビルドの件数は同じ。CSS の違いは Firefox 向けの古い接頭辞 `-moz-fit-content` が消えた6か所だけ(Firefox 94 以降は接頭辞なしで対応)。
+  ビルド済みサイトを Chrome・WebKit で開き、記事のいいね数・会場ページ(会場選択・来場者一覧・コメントなど)の Supabase 通信がすべて 200 で、エラーが無いことを確認。
+
+### 版上げで消せない high(gatsby を使い続ける限り残る)
+
+- gatsby 本体はすでに最新(5.16.1)。残る high の多く(path-to-regexp・tmp・webpack-dev-middleware・serialize-javascript・braces・@graphql-tools/utils・immutable・semver・postcss)は gatsby とその公式プラグインの中にある。
+  npm の提案(`gatsby-plugin-manifest@1.0.15` など)は大昔の版に戻すもので、採れない。
+- `sharp`: 本体を 0.35 に上げても、gatsby の部品(gatsby-sharp)が 0.32 を使い続けるので消えない。扱うのは自分たちのアイコン画像だけ。
+- `googleapis`(node-forge)・`firebase`(@grpc/grpc-js): 前者は Google のサーバーとだけ通信するシート取得、後者は Node 用の経路で、ブラウザ版では使われない。版上げは認証の流れを壊す危険の方が大きい。
+
+### 勧めない大きな版上げ(利点より手間と危険が大きい)
+
+| 版上げ | 理由 |
+|---|---|
+| React 19 | gatsby 5 が React 18 までしか対応していない |
+| Tailwind CSS 4 | 設定の書き方が全面的に変わる。flowbite・tailwindcss-3d の対応も要る。見た目の利点はない |
+| Redux 5 / RTK 2・react-redux 9 | 状態管理の書き換えが要る。利用者への利点なし |
+| TypeScript 5.9 以降・Babel 8 | 上記のとおり型の不整合が出る。gatsby 5 は Babel 7 前提 |
+| flowbite 4・lucide-react 1・react-icons 5 など | 見た目・部品の作り直しが要る |
+
+根本的に high を減らすには gatsby からの移行(例: Astro・Next.js の静的出力)が要るが、サイト全体の作り直しになる。今のところ、残る high は利用者に届かないので、移行の理由にはならない。
+
+### 開発サーバー
+
+- 同じ Wi-Fi の iPhone から実機確認するため、`-H 0.0.0.0` は残す(ユーザー指定)。
