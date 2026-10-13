@@ -372,16 +372,17 @@
 .a057-sun {
   margin: 2em 0;
 }
+/* 夕焼けの上でも見分けられるよう、図の線は本文の薔薇色より濃くする(2026-10-13 ユーザー指定) */
 .a057-sun__arc {
   fill: none;
-  stroke: var(--rose);
-  stroke-width: 1.4;
+  stroke: #8a3f4b;
+  stroke-width: 1.7;
   stroke-dasharray: 1;
   stroke-dashoffset: 0;
 }
 .a057-sun__arc--main {
-  stroke: var(--wine);
-  stroke-width: 1.8;
+  stroke: #6e1418;
+  stroke-width: 2.4;
 }
 .a057-sun__night {
   fill: none;
@@ -403,25 +404,25 @@
   fill: var(--wine);
 }
 .a057-sun__city rect {
-  fill: rgb(107 82 88 / 0.18);
-  stroke: var(--ink-2);
-  stroke-width: 1;
+  fill: rgb(244 236 228 / 0.55);
+  stroke: #4a3439;
+  stroke-width: 1.2;
 }
 .a057-sun__city line {
-  stroke: var(--ink-2);
-  stroke-width: 1.2;
+  stroke: #4a3439;
+  stroke-width: 1.4;
 }
 .a057-sun__wheel {
   fill: none;
-  stroke: var(--ink-2);
-  stroke-width: 1.4;
+  stroke: #4a3439;
+  stroke-width: 1.6;
 }
 .a057-sun__spoke {
-  stroke: rgb(107 82 88 / 0.5) !important;
+  stroke: rgb(74 52 57 / 0.55) !important;
   stroke-width: 0.8 !important;
 }
 .a057-sun__cabin {
-  fill: var(--rose);
+  fill: #8a3f4b;
 }
 .a057-sun__label {
   font-family: var(--mincho);
