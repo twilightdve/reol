@@ -11,6 +11,8 @@ import OneLdkDesign from "./reol-song-076/OneLdkDesign";
 import DropPopCandyDesign from "./reol-song-004/DropPopCandyDesign";
 import MutantDesign from "./reol-song-082/MutantDesign";
 import VacuumOldRoseDesign from "./reol-song-057/VacuumOldRoseDesign";
+import HeimenkyouDesign from "./reol-song-045/HeimenkyouDesign";
+import EndDesign from "./reol-song-046/EndDesign";
 
 export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-080": BoyDesign,
@@ -21,4 +23,6 @@ export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-004": DropPopCandyDesign,
   "reol-song-082": MutantDesign,
   "reol-song-057": VacuumOldRoseDesign,
+  "reol-song-045": HeimenkyouDesign,
+  "reol-song-046": EndDesign,
 };

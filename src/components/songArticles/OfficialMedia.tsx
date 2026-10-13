@@ -10,7 +10,7 @@ import { trackEvent, trackOfficialLinkClick } from "../../utils/analytics";
  * 記事別デザイン(plan/30)向けに、`format="cinemascope"` では再生前のサムネイルを
  * シネマスコープ比(2.39:1)で見せる(再生時は16:9)。`format="square"` では正方形に切り抜いて見せる
  * (公式配信音源など、正方形のジャケットの左右に帯が付いたサムネイル向け。再生時は16:9)。`unstyled` では色・枠を付けず、
- * `sa-media*` のクラス名でデザイン側のCSSから整える。
+ * `sa-media*` のクラス名でデザイン側のCSSから整える(再生ボタンだけは、画像だけに見えないよう既定で白地に黒)。
  */
 interface OfficialMediaProps {
   videoId: string;
@@ -89,8 +89,10 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
               />
             )}
             <span
+              // unstyled でも、デザイン側が色を付け忘れた時に画像だけに見えないよう、白地に黒の既定の色を付ける
+              // (デザイン側の `.aXXX-video .sa-media__button` の方が詳細度が高いので上書きされる)
               className={`sa-media__button relative flex h-16 w-16 items-center justify-center rounded-full shadow-lg${
-                unstyled ? "" : " bg-bx-yellow text-bx-bg"
+                unstyled ? " bg-white/90 text-black" : " bg-bx-yellow text-bx-bg"
               }`}
             >
               <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7" aria-hidden="true">

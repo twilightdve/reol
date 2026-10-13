@@ -1,0 +1,34 @@
+{
+  "id": "reol-song-045",
+  "kind": "song",
+  "songTitle": "平面鏡",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "d1f3e945d592c79912245cec67a5ac14b9ba2f6f14d4fbc2d1f397648a1d3ea8",
+  "songRefs": [
+    "019e8282-9b2c-7a66-bdf5-273cec80a6c4",
+    "019e8282-9bf7-794d-9501-a2010051b8f9",
+    "019f2411-b166-716d-abd0-59b6f7401218"
+  ],
+  "media": [
+    {
+      "kind": "youtube",
+      "url": "https://youtu.be/Rod2qHh-f8k",
+      "role": "official_live_video"
+    },
+    {
+      "kind": "youtube",
+      "url": "https://youtu.be/qSyHAAvbBYs",
+      "role": "official_live_video"
+    }
+  ],
+  "slug": "heimenkyou",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T05:04:01.998Z",
+  "publishedAt": "2026-10-13T07:21:29.722Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

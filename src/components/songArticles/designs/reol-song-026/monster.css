@@ -281,6 +281,11 @@
 .a026-video .sa-media__thumb {
   opacity: 1;
 }
+/* 再生ボタン(画像だけに見えないように。表紙の動画と同じ色) */
+.a026-video .sa-media__button {
+  background: rgb(239 237 231 / 0.94);
+  color: var(--ink);
+}
 .a026-video .sa-media__caption {
   margin-top: 10px;
   font-size: 13px;

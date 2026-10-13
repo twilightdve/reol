@@ -1,0 +1,624 @@
+/*
+ * 楽曲記事「エンド」(reol-song-046)の記事別デザイン(見本 v1)。根拠は plan/40。
+ * すべて .a046 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --ash 灰色の地 / --ink 墨の文字 / --ink-2 補足 / --link リンク(『虚構集』の深い紺)
+ *   --ice 結びの淡い氷の色(『虚構集』のテーマ色) / --dot 終止符の黒
+ */
+
+.a046 {
+  --ash: #e7e8e9;
+  --ash-2: #d9dbdd;
+  --ink: #17181b;
+  --ink-2: #565a60;
+  --link: #1c2a6b;
+  --navy: #060b28;
+  --ice: #e6f3fc;
+  --dot: #0d0e10;
+  --column: min(620px, calc(100% - 40px));
+
+  color: var(--ink);
+  background: var(--ash);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 曇った海と終止符 ---------- */
+.a046-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #f4f5f6;
+  background: #6c7077;
+  min-height: clamp(520px, 86svh, 720px);
+  display: flex;
+  flex-direction: column;
+}
+.a046-cover__art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.a046-cloud {
+  fill: rgb(255 255 255 / 0.12);
+}
+.a046-cloud--low {
+  fill: rgb(255 255 255 / 0.2);
+}
+.a046-dot {
+  fill: var(--dot);
+}
+.a046-glint {
+  stroke: #e9ecef;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-horizon {
+  stroke: rgb(255 255 255 / 0.35);
+  stroke-width: 1;
+}
+.a046-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a046-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #e3e5e8;
+}
+.a046-crumbs a {
+  color: #e3e5e8;
+  text-decoration: none;
+}
+.a046-crumbs a:hover,
+.a046-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+/* 題名は空の左上寄り(終止符と重ならない) */
+.a046-cover__body {
+  width: min(1040px, calc(100% - 40px));
+  margin: clamp(24px, 6vw, 72px) auto 0;
+}
+.a046-title {
+  margin: 0;
+  font-weight: 800;
+  text-shadow: 0 1px 18px rgb(40 44 50 / 0.35);
+}
+.a046-title__pre {
+  display: block;
+  font-size: clamp(14px, 1.6vw, 17px);
+  letter-spacing: 0.24em;
+  color: #e3e5e8;
+}
+.a046-title__song {
+  display: block;
+  margin-top: 0.15em;
+  font-size: clamp(64px, 13vw, 148px);
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  color: #fbfbfc;
+}
+.a046-title__q {
+  font-size: 0.42em;
+  font-weight: 500;
+  color: #d5d8dc;
+  vertical-align: 0.6em;
+}
+.a046-title__sub {
+  display: block;
+  margin-top: 0.8em;
+  font-size: clamp(17px, 2.2vw, 24px);
+  letter-spacing: 0.14em;
+  color: #f0f1f3;
+}
+.a046-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: #e3e5e8;
+}
+
+/* ---------- 本文 ---------- */
+.a046-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+  background: var(--ash);
+}
+.a046-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a046-video {
+  margin: 0 0 14px;
+}
+.a046-video__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--ink);
+}
+.a046-video .sa-media {
+  margin: 0;
+}
+.a046-video .sa-media__frame {
+  border: 1px solid var(--ink);
+}
+.a046-video .sa-media__thumb {
+  opacity: 1;
+  filter: grayscale(0.2);
+}
+/* 再生ボタン: 灰色の紙面に合わせた白地に墨 */
+.a046-video .sa-media__button {
+  background: rgb(244 245 246 / 0.94);
+  color: var(--ink);
+}
+.a046-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+/* Spotify のリンク(本文のまま)を札に */
+.a046-listen {
+  margin-bottom: clamp(40px, 6vw, 56px);
+  font-size: 13px;
+}
+.a046-listen a {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+}
+.a046-listen a:hover {
+  background: var(--ink);
+  color: var(--ash) !important;
+}
+.a046-text {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a046-text p {
+  margin: 0;
+}
+.a046-text p + p {
+  margin-top: 1.3em;
+}
+/* 見出し: 先頭に小さな黒い丸(終止符)を置く */
+.a046-text h2 {
+  margin: 0 0 1.3em;
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+}
+.a046-text h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: var(--dot);
+  vertical-align: 0.12em;
+}
+.a046-section {
+  margin-bottom: clamp(56px, 8vw, 88px);
+}
+.a046-section--last {
+  margin-bottom: 0;
+}
+.a046-intro {
+  font-size: 18px;
+}
+.a046-intro p:first-child {
+  font-size: clamp(21px, 2.8vw, 26px);
+  font-weight: 800;
+  line-height: 1.7;
+}
+.a046-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a046-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a046-note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a046-note p {
+  margin: 0;
+}
+.a046-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a046-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------- エンドレス → エンド。 ---------- */
+.a046-endless {
+  margin: 1.6em 0;
+  padding: 1.1em 0;
+  border-top: 1px solid var(--ash-2);
+  border-bottom: 1px solid var(--ash-2);
+  text-align: center;
+}
+.a046-endless__word {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(36px, 7vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.a046-endless__less {
+  margin-left: 0.18em;
+  color: #c3c6c9;
+}
+.a046-endless__stop {
+  display: inline-block;
+  width: 0.24em;
+  height: 0.24em;
+  margin-left: 0.04em;
+  border-radius: 50%;
+  background: var(--dot);
+}
+/* 動き: 「エンドレス」が一続きに出て、「エンド」の直後に終止符が打たれ、「レス」が薄れて離れる */
+.a046-endless.is-armed .a046-endless__stop {
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s;
+}
+.a046-endless.is-armed .a046-endless__less {
+  margin-left: 0;
+  color: var(--ink);
+  transition: color 1.2s ease 1.2s, margin-left 0.8s ease 1.2s;
+}
+.a046-endless.is-visible .a046-endless__stop {
+  transform: none;
+}
+.a046-endless.is-visible .a046-endless__less {
+  margin-left: 0.18em;
+  color: #c3c6c9;
+}
+
+/* ---------- 自分自身の葬式: 黒枠 ---------- */
+.a046-funeral {
+  padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
+  border: 4px solid var(--dot);
+  outline: 1px solid var(--dot);
+  outline-offset: 5px;
+  background: #f1f2f3;
+}
+
+/* ---------- 届かない電話 ---------- */
+.a046-call {
+  margin: 1.8em 0;
+}
+.a046-call svg,
+.a046-cocoon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a046-call__me {
+  fill: var(--dot);
+}
+.a046-call__you {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2;
+  stroke-dasharray: 3 4;
+}
+.a046-call__line {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 0.02 0.025;
+}
+.a046-call.is-armed .a046-call__line {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 2.2s steps(14, end) 0.2s;
+}
+.a046-call.is-visible .a046-call__line {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- 図の共通 ---------- */
+.a046-beyond,
+.a046-reach {
+  margin: 1.8em 0;
+}
+.a046-flower {
+  width: min(140px, 38%);
+  margin: 1.8em auto;
+}
+.a046-beyond svg,
+.a046-flower svg,
+.a046-reach svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------- 決められない: 「相手」と「自分」の間で止まる点 ---------- */
+.a046-undecided {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 20px);
+  margin: 1.8em 0;
+  padding: 1.1em 0;
+  border-top: 1px solid var(--ash-2);
+  border-bottom: 1px solid var(--ash-2);
+}
+.a046-undecided__word {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.a046-undecided__track {
+  position: relative;
+  width: clamp(120px, 34vw, 220px);
+  height: 1px;
+  background: #b9bcc0;
+}
+.a046-undecided__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+/* 左右の端(言葉の手前)まで寄っては離れ、だんだん振れが小さくなって真ん中で止まる */
+.a046-undecided.is-visible .a046-undecided__dot {
+  animation: a046-undecided 4.2s ease-in-out 0.3s both;
+}
+@keyframes a046-undecided {
+  0% {
+    transform: translateX(0);
+  }
+  18% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * -0.46));
+  }
+  40% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * 0.42));
+  }
+  60% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * -0.26));
+  }
+  78% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * 0.14));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ---------- 終止符の先へ続く点線 ---------- */
+.a046-beyond__line {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-beyond__after {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 9;
+}
+.a046-beyond.is-armed .a046-beyond__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s ease 0.2s;
+}
+.a046-beyond.is-armed .a046-beyond__stop {
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s;
+}
+.a046-beyond.is-armed .a046-beyond__after {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 2s steps(10, end) 2s;
+}
+.a046-beyond.is-visible .a046-beyond__line {
+  stroke-dashoffset: 0;
+}
+.a046-beyond.is-visible .a046-beyond__stop {
+  transform: none;
+}
+.a046-beyond.is-visible .a046-beyond__after {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- 献花: 黒枠の中の白い花 ---------- */
+.a046-flower__stem {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-flower__leaf {
+  fill: var(--ink);
+}
+.a046-flower__petal {
+  fill: #fff;
+  stroke: #9a9ea4;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.a046-flower__calyx {
+  fill: var(--ink);
+}
+/* 萼の口(80, 88)を起点に、奥の層から順に開く */
+.a046-flower.is-armed .a046-flower__petal {
+  transform: scale(0.1);
+  transform-origin: 80px 88px;
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.6s ease;
+}
+.a046-flower.is-visible .a046-flower__petal {
+  transform: none;
+  opacity: 1;
+}
+
+/* ---------- 届く線: 届かない電話と対になる図 ---------- */
+.a046-reach__from {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2;
+}
+.a046-reach__line {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-reach.is-armed .a046-reach__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2s ease-in-out 0.2s;
+}
+.a046-reach.is-armed .a046-reach__light {
+  opacity: 0;
+  transition: opacity 1.6s ease 2.1s;
+}
+.a046-reach.is-visible .a046-reach__line {
+  stroke-dashoffset: 0;
+}
+.a046-reach.is-visible .a046-reach__light {
+  opacity: 1;
+}
+
+/* ---------- 結び: 淡い氷の色の地と、繭に包まれた終止符 ---------- */
+.a046-last {
+  padding: clamp(56px, 8vw, 88px) 0 clamp(40px, 6vw, 64px);
+  background: linear-gradient(180deg, var(--ash) 0%, #eef3f6 30%, var(--ice) 100%);
+}
+.a046-closing p:last-child {
+  font-weight: 800;
+}
+.a046-cocoon {
+  width: min(180px, 46%);
+  margin: clamp(40px, 6vw, 64px) auto 0;
+}
+.a046-cocoon__shell {
+  fill: none;
+  stroke: #9fb6c6;
+  stroke-width: 1.4;
+}
+.a046-cocoon.is-armed .a046-cocoon__light,
+.a046-cocoon.is-armed .a046-cocoon__shell {
+  opacity: 0;
+  transition: opacity 1.6s ease 0.3s;
+}
+.a046-cocoon.is-visible .a046-cocoon__light,
+.a046-cocoon.is-visible .a046-cocoon__shell {
+  opacity: 1;
+}
+
+/* ---------- 奥付 ---------- */
+.a046-colophon {
+  padding: 28px 0 clamp(48px, 8vw, 88px);
+  background: var(--ice);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a046-colophon__list,
+.a046-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a046-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(23 24 27 / 0.25);
+  display: grid;
+  gap: 10px;
+}
+.a046-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a046-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.a046-colophon dd {
+  margin: 0;
+}
+.a046-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a046-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a046-colophon a {
+  color: var(--link);
+}
+
+/* ---------- フォーカス ---------- */
+.a046 a:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a046-cover a:focus-visible {
+  outline-color: #fff;
+}
+
+@media (max-width: 640px) {
+  .a046-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .a046-intro {
+    font-size: 17px;
+  }
+  .a046-cover__art {
+    width: 230%;
+    left: auto;
+    right: 0;
+  }
+}
+@media print {
+  .a046-cover {
+    color: #000;
+    background: #fff;
+    min-height: 0;
+  }
+  .a046-cover__art {
+    display: none;
+  }
+}
