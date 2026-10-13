@@ -8,10 +8,14 @@
 // 予約公開(plan/43): --at に公開日時(日本時間)を渡すと、その日時を公開日時として記録する。
 // 記事ページはデプロイすれば URL で読めるが、一覧・関連記事・曲ページ・HOME・サイトマップには公開日時を過ぎるまで出ない。
 // 予約中の記事は --at で日時を変えられ、--at now で今すぐ公開に切り替えられる。公開済みの記事の公開日時は変えない。
+// 限定公開(plan/43): --unlisted を付けると、記事ページだけをデプロイして URL で確認できる状態にする
+// (一覧・関連・曲ページ・HOME・サイトマップに出さず、noindex。公開日時は記録しない)。
+// 確認が済んだら --unlisted なしで出し直す(公開日時は今、または --at の日時)。
 //
 // 使い方:
 //   npm run articles:publish -- --id reol-song-080 --revision 1
 //   npm run articles:publish -- --id reol-song-047 --revision 4 --at "2026-10-15 20:00"   (日本時間)
+//   npm run articles:publish -- --id reol-song-047 --revision 4 --unlisted                (限定公開)
 
 import * as crypto from "crypto";
 import * as fs from "fs";
@@ -87,7 +91,12 @@ const previous = fs.existsSync(path.join(dest, "article.json"))
   : null;
 const now = new Date().toISOString();
 const atArg = argValue("--at");
+const unlisted = args.includes("--unlisted");
+if (unlisted && atArg) fail("--unlisted と --at は一緒に使えません");
 const previousIsLive = previous?.publishedAt != null && Date.parse(previous.publishedAt) <= Date.now();
+if (unlisted && previousIsLive) {
+  fail(`${id} は ${previous?.publishedAt} に公開済みです。公開済みの記事を限定公開に戻すことはしません`);
+}
 if (atArg && previousIsLive) {
   fail(`${id} は ${previous?.publishedAt} に公開済みです。公開済みの記事の公開日時は変えません`);
 }
@@ -96,7 +105,9 @@ const publishedAt = atArg ? parseAt(atArg) : previous?.publishedAt ?? now;
 // 更新日時は、公開済みの記事の本文を差し替えた時だけ(予約中の差し替えは更新に数えない)
 const updatedAt =
   previous && previousIsLive && previous.bodySha256 !== data.bodySha256 ? now : previous?.updatedAt ?? null;
-const published: SongArticleFile = { ...data, ...editorial, publishedAt, updatedAt, status: "published" };
+const published: SongArticleFile = unlisted
+  ? { ...data, ...editorial, publishedAt: null, updatedAt: null, status: "unlisted" }
+  : { ...data, ...editorial, publishedAt, updatedAt, status: "published" };
 const tmp = `${dest}.tmp`;
 fs.rmSync(tmp, { recursive: true, force: true });
 fs.mkdirSync(tmp, { recursive: true });
@@ -105,7 +116,9 @@ fs.writeFileSync(path.join(tmp, "article.json"), JSON.stringify(published, null,
 fs.rmSync(dest, { recursive: true, force: true });
 fs.renameSync(tmp, dest);
 console.log(`[articles:publish] ${id} 本文版${revision} を ${path.relative(root, dest)} に置きました。差分を確認してコミットしてください`);
-if (Date.parse(publishedAt) > Date.now()) {
+if (unlisted) {
+  console.log(`[articles:publish] 限定公開: 記事ページだけを置きます(一覧などには出ません)。公開する時は --unlisted なしで出し直してください`);
+} else if (Date.parse(publishedAt) > Date.now()) {
   const jst = new Date(publishedAt).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
   console.log(`[articles:publish] 予約公開: ${jst}(日本時間)まで、一覧などには出ません。記事ページは URL で読めます`);
 }

@@ -13,7 +13,8 @@ export type TriState = boolean | null;
  * review: 確認中。プレビュー(ARTICLES_PREVIEW=1)にだけ出す(取込の既定)
  * published: 公開済み(content/articles/)
  */
-export type PublicationStatus = "draft" | "review" | "published";
+// unlisted = 限定公開(plan/43)。記事ページはデプロイして URL で読めるが、一覧・関連・曲ページ・HOME・サイトマップには出さず、noindex
+export type PublicationStatus = "draft" | "review" | "published" | "unlisted";
 
 /** 掲載用Markdownの記録(4種類の入力キーを正規化したもの) */
 export type PublicationArtifact = {
