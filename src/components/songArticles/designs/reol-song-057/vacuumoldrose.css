@@ -480,13 +480,7 @@
   fill: var(--ink-2);
 }
 /* 太陽と夕焼けの動きは部品の中(JS)で付ける */
-.a057-sun.is-armed .a057-sun__arc {
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.6s ease;
-}
-.a057-sun.is-visible .a057-sun__arc {
-  stroke-dashoffset: 0;
-}
+/* 線が描かれる動きも、太陽の位置に合わせて部品の中(JS)で付ける */
 
 /* ---------- 薄れていく花びら ---------- */
 .a057-petals {

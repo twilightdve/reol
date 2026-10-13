@@ -195,30 +195,32 @@ const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2,
 const SunChart: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.4);
   const H = 190;
-  // 太陽の動き(2026-10-13 ユーザー「太陽を動かしてみて」): 線が描かれたあと、東の地平線から昇って空を渡り、西で半分沈んで止まる。
+  // 太陽の動き(2026-10-13 ユーザー「太陽を動かしてみて」): 東の地平線から昇って空を渡り、西で半分沈んで止まる。線は太陽と一緒に伸びる。
   // 昇る時は淡い金色、沈むにつれて深い赤へ。夕焼けのにじみは西に近づくにつれて現れる。
   // JS なし・動きを減らす設定・最初から画面内なら、完成した絵(西に半分沈んだ太陽と夕焼け)のまま(t = 1)。
   const arcRef = useRef<SVGPathElement>(null);
-  const [sun, setSun] = useState<{ x: number; y: number; t: number }>({ x: 92, y: H, t: 1 });
+  const [sun, setSun] = useState<{ x: number; y: number; t: number; drawn: number }>({ x: 92, y: H, t: 1, drawn: 1 });
   const armed = className.includes("is-armed");
   const visible = className.includes("is-visible");
   useEffect(() => {
     const path = arcRef.current;
     if (!armed || !path) return;
     if (!visible) {
-      setSun({ x: 548, y: H, t: 0 });
+      setSun({ x: 548, y: H, t: 0, drawn: 0 });
       return;
     }
     let raf = 0;
     let start = 0;
-    const DELAY = 1500; // 線が描かれるのを待つ
-    const DURATION = 3600;
+    // 線は太陽が通ったところまで描く(2026-10-13 ユーザー「太陽と線を同時に動かして欲しい」)
+    const DELAY = 300;
+    const DURATION = 4200;
     const len = path.getTotalLength();
     const step = (now: number) => {
       if (!start) start = now;
       const t = Math.min(1, Math.max(0, (now - start - DELAY) / DURATION));
-      const p = path.getPointAtLength(len * easeInOut(t));
-      setSun({ x: p.x, y: p.y, t });
+      const e = easeInOut(t);
+      const p = path.getPointAtLength(len * e);
+      setSun({ x: p.x, y: p.y, t, drawn: e });
       if (t < 1) raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
@@ -289,7 +291,7 @@ const SunChart: React.FC = () => {
             // 東(右)から昇り西(左)へ沈む向きに描く(線が描かれる動きも右から左)
             d={`M${x1},${H} C${x1 - 20},${H - h * 1.3} ${x0 + 20},${H - h * 1.3} ${x0},${H}`}
             className="a057-sun__arc a057-sun__arc--main"
-            style={{ transitionDelay: `${i * 0.2}s` }}
+            style={{ strokeDashoffset: 1 - sun.drawn }}
             pathLength={1}
           />
         ))}
