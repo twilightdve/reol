@@ -19,7 +19,7 @@ import { Kicker } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
 import { formatArticleDate } from "../utils/songArticles/format";
-import { ArticleSeries, seriesPath, showSongKicker, tagFilterPath } from "../utils/songArticles/series";
+import { ArticleSeries, seriesPath, showSongKicker, splitTitleBySong, tagFilterPath } from "../utils/songArticles/series";
 import { fetchArticleLikeCounts } from "../services/articleLikeService";
 
 type IndexEntry = {
@@ -53,6 +53,7 @@ const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null }> = ({ a, activeTag, likes }) => {
   const date = formatArticleDate(a.createdAt);
   const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
+  const parts = splitTitleBySong(a.title, a.songTitle);
   return (
     <li>
       <Link
@@ -64,8 +65,17 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
         {kicker && (
           <p className="mb-2 text-[11px] font-extrabold tracking-[0.2em] text-bx-blue [overflow-wrap:anywhere]">{kicker}</p>
         )}
-        <h3 className="text-[19px] sm:text-[21px] font-extrabold leading-snug text-bx-ink group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
-          {a.title}
+        <h3 className="text-[17px] sm:text-[19px] font-semibold leading-snug text-bx-ink2 group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
+          {/* 曲名の文字だけ強調する(題名の文字はそのまま。2026-10-13 ユーザー指定) */}
+          {parts ? (
+            <>
+              {parts.before}
+              <strong className="font-extrabold text-[1.12em] text-bx-ink group-hover:text-bx-blue">{parts.song}</strong>
+              {parts.after}
+            </>
+          ) : (
+            a.title
+          )}
         </h3>
         {a.summary && <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
         <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-bx-ink3">

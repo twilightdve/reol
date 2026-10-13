@@ -38,7 +38,7 @@ describe("句の切れ目(splitPhrases)", () => {
   });
 });
 
-import { pickRelatedArticles, RelatedCandidate, showSongKicker } from "../songArticles/series";
+import { pickRelatedArticles, RelatedCandidate, showSongKicker, splitTitleBySong } from "../songArticles/series";
 
 describe("関連記事(pickRelatedArticles)", () => {
   const c = (id: string, tags: string[], createdAt: string, seriesSlug = "kyoku-wo-yomu"): RelatedCandidate => ({
@@ -83,5 +83,20 @@ describe("showSongKicker", () => {
   });
   it("題名に曲名が無ければ出す", () => {
     expect(showSongKicker("クラップに歌声が重なる", "Boy")).toBe(true);
+  });
+});
+
+describe("splitTitleBySong", () => {
+  it("題名の中の曲名の位置を返す(題名の文字はそのまま)", () => {
+    expect(splitTitleBySong("雨降りの日に聴きたいdrop pop candy", "drop pop candy (feat. ギガ)")).toEqual({
+      before: "雨降りの日に聴きたい",
+      song: "drop pop candy",
+      after: "",
+    });
+    expect(splitTitleBySong("1LDK――イヤフォンの向こうにいた人", "1LDK")).toEqual({ before: "", song: "1LDK", after: "――イヤフォンの向こうにいた人" });
+    expect(splitTitleBySong("松本凱旋から読み直すno title", "No title")?.song).toBe("no title");
+  });
+  it("曲名が無ければ null", () => {
+    expect(splitTitleBySong("雨の歌", "drop pop candy")).toBeNull();
   });
 });

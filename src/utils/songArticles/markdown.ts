@@ -172,9 +172,20 @@ export const youtubeVideoId = (url: string | null | undefined): string | null =>
 };
 
 /** 一覧・meta description 用。リード(MVリンク)を除いた最初の段落の本文 */
+/** リンクだけの段落か(「聴く：Spotify｜…」のようなリンクの並び。リンク以外の文字が区切りと短い見出しだけ) */
+const isLinkOnlyParagraph = (b: ArticleBlock): boolean => {
+  if (b.t !== "p" || !b.children.some((n) => n.t === "link")) return false;
+  const rest = b.children
+    .filter((n) => n.t !== "link")
+    .map((n) => (n.t === "text" ? n.v : inlineText([n])))
+    .join("")
+    .replace(/[\s｜|:：・、,／/]/g, "");
+  return rest.length <= 4;
+};
+
 export const firstParagraphText = (parsed: ParsedArticle): string | null => {
   const p = parsed.blocks.find(
-    (b, i) => b.t === "p" && !(parsed.lead && parsed.lead.index === i)
+    (b, i) => b.t === "p" && !(parsed.lead && parsed.lead.index === i) && !isLinkOnlyParagraph(b)
   );
   return p && p.t === "p" ? inlineText(p.children).trim() : null;
 };
