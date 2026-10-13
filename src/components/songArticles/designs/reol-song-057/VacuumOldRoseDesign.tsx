@@ -125,6 +125,36 @@ const CoverArt: React.FC = () => (
       className="a057-smoke"
     />
     <path d="M70,520 C58,478 98,452 80,410 C64,374 102,350 90,312" className="a057-smoke a057-smoke--thin" />
+    {/* 覆いの中: 夕陽(オールドローズ色)に染まった街と観覧車(本文版9。2026-10-13 ユーザー「表紙にも街と観覧車を」) */}
+    <defs>
+      <linearGradient id="a057-cover-dusk" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stopColor="#c08081" stopOpacity="0.55" />
+        <stop offset="0.45" stopColor="#d9a0a8" stopOpacity="0.25" />
+        <stop offset="1" stopColor="#f4ece4" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+    <path d="M140,430 L140,210 C140,82 360,82 360,210 L360,430 Z" fill="url(#a057-cover-dusk)" />
+    <g className="a057-seal__city">
+      {(
+        [
+          [152, 22, 18],
+          [172, 36, 13],
+          [187, 18, 20],
+          [212, 28, 12],
+          [270, 24, 14],
+          [286, 14, 18],
+        ] as [number, number, number][]
+      ).map(([x, h, w], i) => (
+        <rect key={i} x={x} y={430 - h} width={w} height={h} />
+      ))}
+      <circle cx={328} cy={378} r={24} className="a057-seal__wheel" />
+      {Array.from({ length: 8 }, (_, i) => {
+        const a = (i / 8) * Math.PI * 2;
+        return <line key={i} x1={328} y1={378} x2={328 + 24 * Math.cos(a)} y2={378 + 24 * Math.sin(a)} className="a057-seal__spoke" />;
+      })}
+      <line x1={320} y1={430} x2={328} y2={378} />
+      <line x1={336} y1={430} x2={328} y2={378} />
+    </g>
     <BellJar cx={250} y={430} w={220} h={330} />
     <Rose x={250} y={240} s={1.15} />
     {/* 覆いの中を漂う花びら一枚 */}

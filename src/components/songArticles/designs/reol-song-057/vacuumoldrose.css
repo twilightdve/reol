@@ -475,6 +475,10 @@
   stroke: #8a3f4b;
   stroke-width: 1.2;
 }
+.a057-seal__spoke {
+  stroke: rgb(138 63 75 / 0.55);
+  stroke-width: 0.8;
+}
 .a057-seal.is-armed .a057-seal__dusk,
 .a057-seal.is-armed .a057-seal__city {
   opacity: 0;
