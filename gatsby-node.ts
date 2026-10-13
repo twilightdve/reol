@@ -2127,12 +2127,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
 
       if (indexEntries.length > 0) {
-        // 新着順。一覧のカードに出している日付(作成日)の降順にそろえる(公開日時順だと、表示の日付が前後して見えるため)。
-        // 作成日が同じなら公開日時の降順
+        // 新着順 = 公開日時の降順(2026-10-13 ユーザー指定。カードの日付も公開日)。
+        // 公開日時の無い記事(限定公開・プレビュー)は末尾で、作成日の降順
         indexEntries.sort(
           (a, b) =>
-            (b.createdAt ?? "").localeCompare(a.createdAt ?? "") ||
-            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "")
+            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
+            (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
         );
         const indexTemplate = path.resolve("./src/templates/song-articles-index.tsx");
         createPage({

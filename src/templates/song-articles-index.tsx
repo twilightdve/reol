@@ -32,7 +32,7 @@ type IndexEntry = {
   songTitle: string;
   versionLabel: string | null;
   summary: string | null;
-  /** 表示する作成日 */
+  /** 作成日(公開日時の無い記事のカードに出す) */
   createdAt: string | null;
   publishedAt: string | null;
   seriesSlug: string;
@@ -81,13 +81,18 @@ const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
   "ここに書いているのは、ファンのひとりとしての個人的な解釈です。正解を示すものではありません。読んだあとにもう一度曲を聴き直すときの、たたき台にしてもらえたらうれしいです。";
 
-const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null; badge?: OwnerBadge | null }> = ({
+const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null; badge?: OwnerBadge | null; now: number }> = ({
   a,
   activeTag,
   likes,
   badge,
+  now,
 }) => {
-  const date = formatArticleDate(a.createdAt);
+  // 一覧は公開日時の新しい順(2026-10-13 ユーザー指定)なので、カードの日付も公開日にそろえる。
+  // 公開日時の無い記事(限定公開・プレビュー)と公開前の予約は作成日
+  const published = !a.unlisted && a.publishedAt != null && isReleased(a.publishedAt, now);
+  const dateIso = published ? a.publishedAt : a.createdAt;
+  const date = formatArticleDate(dateIso);
   const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   const parts = splitTitleBySong(a.title, a.songTitle);
   return (
@@ -122,7 +127,7 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
         <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-bx-ink3">
           {date && (
             <span>
-              <time dateTime={a.createdAt ?? undefined}>{date}</time> 作成
+              <time dateTime={dateIso ?? undefined}>{date}</time> {published ? "公開" : "作成"}
             </span>
           )}
           {likes !== null && (
@@ -363,6 +368,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                   activeTag={activeTag}
                   likes={likeCounts ? likeCounts.get(a.id) ?? 0 : null}
                   badge={isOwner ? ownerBadge(a, now) : null}
+                  now={now}
                 />
               ))}
             </ul>
