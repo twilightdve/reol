@@ -86,6 +86,7 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   // 真空オールドローズ: 明るい紙の地なので、右下のサイト名は白ではなく濃いワイン色に
   "reol-song-057": `
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
+    .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
   `,
   // SCORPION: MVを外して空いた下側を詰め、題名を縦の中央へ
   "reol-song-087": `
