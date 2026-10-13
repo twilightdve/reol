@@ -288,12 +288,16 @@
   text-decoration-thickness: 2px;
 }
 /* 冒頭のリンクの行: 「聴く」+ 札の並び。PC は横並び、スマートフォンは縦に積む(2026-10-13 ユーザー指定) */
+/* 「聴く」は結びと奥付の間に置く */
+.a057-listen {
+  margin-top: clamp(48px, 7vw, 72px);
+}
 .a057-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 12px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   font-size: 13px;
   color: var(--ink-2);
 }
@@ -475,13 +479,7 @@
   font-size: 13px;
   fill: var(--ink-2);
 }
-.a057-sun.is-armed .a057-sun__dusk {
-  opacity: 0;
-  transition: opacity 1.8s ease 0.4s;
-}
-.a057-sun.is-visible .a057-sun__dusk {
-  opacity: 1;
-}
+/* 太陽と夕焼けの動きは部品の中(JS)で付ける */
 .a057-sun.is-armed .a057-sun__arc {
   stroke-dashoffset: 1;
   transition: stroke-dashoffset 1.6s ease;
@@ -542,7 +540,7 @@
 /* ---------- 奥付 ---------- */
 .a057-colophon {
   width: var(--column);
-  margin: clamp(48px, 7vw, 80px) auto 0;
+  margin: clamp(28px, 4vw, 40px) auto 0;
   padding: 28px 0 clamp(48px, 8vw, 88px);
   border-top: 1px solid var(--rose);
   font-family: system-ui, sans-serif;

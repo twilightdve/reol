@@ -184,9 +184,50 @@ const CutLine: React.FC = () => (
 );
 
 /** 太陽の軌道の図(街の情景の節)。東西の弧が季節で少しずつずれ、西に沈む太陽、地平線の下に夜半の太陽、衛星都市と観覧車 */
+/** 2色の間(t: 0〜1)。"#rrggbb" どうし */
+const mixColor = (a: string, b: string, t: number) => {
+  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+  const pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `rgb(${pa.map((v, i) => Math.round(v + (pb[i] - v) * t)).join(" ")})`;
+};
+const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
 const SunChart: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.4);
   const H = 190;
+  // 太陽の動き(2026-10-13 ユーザー「太陽を動かしてみて」): 線が描かれたあと、東の地平線から昇って空を渡り、西で半分沈んで止まる。
+  // 昇る時は淡い金色、沈むにつれて深い赤へ。夕焼けのにじみは西に近づくにつれて現れる。
+  // JS なし・動きを減らす設定・最初から画面内なら、完成した絵(西に半分沈んだ太陽と夕焼け)のまま(t = 1)。
+  const arcRef = useRef<SVGPathElement>(null);
+  const [sun, setSun] = useState<{ x: number; y: number; t: number }>({ x: 92, y: H, t: 1 });
+  const armed = className.includes("is-armed");
+  const visible = className.includes("is-visible");
+  useEffect(() => {
+    const path = arcRef.current;
+    if (!armed || !path) return;
+    if (!visible) {
+      setSun({ x: 548, y: H, t: 0 });
+      return;
+    }
+    let raf = 0;
+    let start = 0;
+    const DELAY = 1500; // 線が描かれるのを待つ
+    const DURATION = 3600;
+    const len = path.getTotalLength();
+    const step = (now: number) => {
+      if (!start) start = now;
+      const t = Math.min(1, Math.max(0, (now - start - DELAY) / DURATION));
+      const p = path.getPointAtLength(len * easeInOut(t));
+      setSun({ x: p.x, y: p.y, t });
+      if (t < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [armed, visible]);
+  // 色は空の高いところでは淡いまま、西へ傾くほど急に赤くなる
+  const sunColor = mixColor("#f0c48e", "#881b1e", Math.pow(sun.t, 2.2));
+  const haloColor = mixColor("#f7dcae", "#e8b39c", Math.pow(sun.t, 1.6));
+  const duskOpacity = Math.max(0, Math.min(1, (sun.t - 0.5) / 0.5));
   // 東(右)から西(左)へ。地図と同じく東を右にする(2026-10-13 ユーザー「通常は東が右のはず」)。季節で高さと出入りの位置が変わる
   // 太陽の通り道は1本だけ(2026-10-13 ユーザー「3本線の意味がわかりにくい。単純化して一本でもいい」。以前は季節でずれる3本)
   const arcs: [number, number, number][] = [[92, 548, 112]];
@@ -235,16 +276,16 @@ const SunChart: React.FC = () => {
           <mask id="a057-edge-mask" maskContentUnits="objectBoundingBox">
             <rect x="0" y="0" width="1" height="1" fill="url(#a057-edge)" />
           </mask>
-          <radialGradient id="a057-halo" gradientUnits="userSpaceOnUse" cx={92} cy={H} r={54}>
-            <stop offset="0" stopColor="#e8b39c" stopOpacity="0.85" />
-            <stop offset="1" stopColor="#e8b39c" stopOpacity="0" />
+          <radialGradient id="a057-halo">
+            <stop offset="0" stopColor={haloColor} stopOpacity="0.85" />
+            <stop offset="1" stopColor={haloColor} stopOpacity="0" />
           </radialGradient>
         </defs>
-        <rect x="0" y="0" width="640" height={H} fill="url(#a057-dusk)" mask="url(#a057-edge-mask)" className="a057-sun__dusk" />
-        <circle cx={92} cy={H} r={54} fill="url(#a057-halo)" clipPath="url(#a057-above)" className="a057-sun__dusk" />
+        <rect x="0" y="0" width="640" height={H} fill="url(#a057-dusk)" mask="url(#a057-edge-mask)" style={{ opacity: duskOpacity }} />
         {arcs.map(([x0, x1, h], i) => (
           <path
             key={i}
+            ref={i === 0 ? arcRef : undefined}
             // 東(右)から昇り西(左)へ沈む向きに描く(線が描かれる動きも右から左)
             d={`M${x1},${H} C${x1 - 20},${H - h * 1.3} ${x0 + 20},${H - h * 1.3} ${x0},${H}`}
             className="a057-sun__arc a057-sun__arc--main"
@@ -276,8 +317,13 @@ const SunChart: React.FC = () => {
           })}
         </g>
         <line x1="20" y1={H} x2="620" y2={H} className="a057-sun__horizon" />
-        {/* 西(左)に沈む太陽(半分が地平線の下) */}
-        <circle cx={92} cy={H} r={16} className="a057-sun__set" clipPath="url(#a057-above)" />
+        {/* 太陽と光の輪(地平線より下は見えない)。完成した絵では西(左)に半分沈む */}
+        <g clipPath="url(#a057-above)">
+          <g transform={`translate(${sun.x.toFixed(1)} ${sun.y.toFixed(1)})`}>
+            <circle r={54} fill="url(#a057-halo)" />
+            <circle r={16} className="a057-sun__set" style={{ fill: sunColor }} />
+          </g>
+        </g>
         <text x="72" y={H + 26} className="a057-sun__label" textAnchor="middle">西</text>
         <text x="568" y={H + 26} className="a057-sun__label" textAnchor="middle">東</text>
       </svg>
@@ -439,24 +485,6 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
 
         <div className="a057-ground">
           <div className="a057-column">
-            {/* 冒頭のリンクの行。文言とリンク先は本文のまま、区切りの「｜」は外して札の並びに。
-                スマートフォンは縦に積み、PC は横に並べる(2026-10-13 ユーザー「最初から縦積みにしては？」) */}
-            {linkRow ? (
-              <nav className="a057-links" aria-label={linkRow.label || "関連リンク"}>
-                {linkRow.label && <p className="a057-links__label">{linkRow.label}</p>}
-                <ul className="a057-links__list">
-                  {linkRow.links.map((l) => (
-                    <li key={l.href}>
-                      <a href={l.href} target="_blank" rel="noopener noreferrer">
-                        {l.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ) : (
-              body(LINKS, INTRO, "a057-text a057-links")
-            )}
             {xfd && (
               <figure className="a057-video">
                 <figcaption className="a057-video__label">『事実上』XFD</figcaption>
@@ -499,6 +527,28 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
               <SealedRose />
               {body(SEAL, blocks.length, "a057-text a057-closing")}
             </section>
+          </div>
+
+          <div className="a057-column a057-listen">
+            {/* 冒頭のリンクの行(本文の段落0)は、ページの下部(結びと奥付の間)に置く(2026-10-13 ユーザー「聴く欄はページ下部に持っていってもいいかも」)。
+                文言とリンク先は本文のまま、区切りの「｜」は外して札の並びに。
+                スマートフォンは縦に積み、PC は横に並べる(2026-10-13 ユーザー「最初から縦積みにしては？」) */}
+            {linkRow ? (
+              <nav className="a057-links" aria-label={linkRow.label || "関連リンク"}>
+                {linkRow.label && <p className="a057-links__label">{linkRow.label}</p>}
+                <ul className="a057-links__list">
+                  {linkRow.links.map((l) => (
+                    <li key={l.href}>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer">
+                        {l.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : (
+              body(LINKS, INTRO, "a057-text a057-links")
+            )}
           </div>
 
           {/* 奥付。サイトの確認済みデータだけ */}
