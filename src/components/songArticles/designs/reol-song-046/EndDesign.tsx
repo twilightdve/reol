@@ -6,9 +6,9 @@
  * - エンドレスからエンドへの節(段落12の後): 文字の図。「エンドレス」の「エンド」の直後に終止符が打たれ、その先の「レス」が薄れて切り離される。
  * - 自分自身の葬式の節: 節全体を黒枠(訃報の黒い縁取り)で囲む。
  * - 届かない電話の節(段落60の後): かける側の点から点線が伸びるが、相手の点に届く前に途切れる。
- * - 君が大嫌いの節(段落26の後): 鏡の図。相手へ伸びた線の先の点が、鏡に映った自分だったと分かる。
+ * - 君が大嫌いの節(段落26の後): 相手へ伸びた線が、相手の手前で折り返して自分の点へ戻る(「君」は自分自身でもある)。鏡は「平面鏡」の記事の題材なので使わない。
  * - 大丈夫ではないまま歌うの節の終わり: 線に終止符が打たれ、その先に細い点線が続く(歌うことで終わらないものを残す)。
- * - 葬式の節(段落50の後): 黒枠の中に白い献花。花びらが開く。
+ * - 葬式の節(段落50の後): 黒枠の中に、白いカーネーションの献花(MV は十字架のある葬式で、白い花束が置かれる)。花びらが開く。
  * - 結びの節(段落72の後): 届かない電話と対になる図。線が最後まで伸びて黒い点に届き、淡い光に包まれる。
  * - 結び(最後の段落の後): 表紙の黒い丸が、淡い光の輪(繭)に包まれて置かれる。
  * - 公式MVは表紙の下にクリックで読み込む形。Spotify のリンクは本文のまま札に。
@@ -32,7 +32,7 @@ const INTRO = 2;
 const S_ENDLESS = 9;
 const ENDLESS_FIG = 13; // 段落12「永遠を願った…終止符を打つ「エンド」へ。」の後
 const S_HATE = 18;
-const MIRROR_FIG = 27; // 段落26(嫌っているのは本当に相手なのか)の後
+const LOOP_FIG = 27; // 段落26(嫌っているのは本当に相手なのか)の後
 const S_OK = 32;
 const S_FUNERAL = 44; // 段落43(歌うことで終わらないものを残す)の後に、終止符の先へ続く点線
 const FLOWER_FIG = 51; // 段落50(見送ることでもある)の後に献花
@@ -135,17 +135,19 @@ const UnreachedCall: React.FC = () => {
   );
 };
 
-/** 鏡(君が大嫌いの節): 黒い点から相手へ線が伸びると、相手は鏡に映った自分(薄い同じ点)だったと分かる */
-const Mirror: React.FC = () => {
+/** 戻ってくる線(君が大嫌いの節): 黒い点から「相手」(輪郭だけの点)へ伸びた線が、相手の手前で折り返して自分の点へ戻ってくる。相手は薄れて消える */
+const SelfLoop: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   return (
-    <div ref={ref} className={`a046-mirror${className}`} aria-hidden="true">
-      <svg viewBox="0 0 600 120">
-        <line x1="300" y1="10" x2="300" y2="110" className="a046-mirror__glass" />
-        <circle cx="150" cy="60" r="16" className="a046-dot" />
-        <line x1="176" y1="60" x2="424" y2="60" className="a046-mirror__ray" pathLength={1} />
-        <circle cx="450" cy="60" r="16" className="a046-mirror__other" />
-        <circle cx="450" cy="60" r="16" className="a046-mirror__self" />
+    <div ref={ref} className={`a046-loop${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 140">
+        <circle cx="470" cy="56" r="16" className="a046-loop__other" />
+        <path
+          d="M176,64 C280,64 380,58 432,40 C470,24 506,40 498,70 C490,100 440,108 380,102 C300,94 230,80 182,74"
+          className="a046-loop__line"
+          pathLength={1}
+        />
+        <circle cx="150" cy="68" r="16" className="a046-dot" />
       </svg>
     </div>
   );
@@ -171,27 +173,30 @@ const BeyondTheStop: React.FC = () => {
   );
 };
 
-/** 献花(葬式の節): 白い花を一輪。画面に入ると花びらが開く */
+/** カーネーションの花びらの層: 中心(80, 86)から扇形に、縁をぎざぎざにした形 */
+function frill(r: number, from: number, to: number, teeth: number): string {
+  const pts: string[] = [];
+  for (let i = 0; i <= teeth * 2; i++) {
+    const t = (from + ((to - from) * i) / (teeth * 2)) * (Math.PI / 180);
+    const rr = i % 2 === 0 ? r : r - 7;
+    pts.push(`${(80 + rr * Math.cos(t)).toFixed(1)},${(86 + rr * Math.sin(t)).toFixed(1)}`);
+  }
+  return `M80,90 L${pts.join(" L")} Z`;
+}
+
+/** 献花(葬式の節): 白いカーネーションを一輪。画面に入ると、萼(がく)から花びらが開く */
 const Flower: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
-  const petals = 16;
+  const layers = [frill(50, -178, -2, 15), frill(42, -165, -15, 12), frill(32, -150, -30, 9)];
   return (
     <div ref={ref} className={`a046-flower${className}`} aria-hidden="true">
-      <svg viewBox="0 0 160 200">
-        <path d="M80,104 C78,140 84,168 80,196" className="a046-flower__stem" />
-        <path d="M80,150 C94,138 108,138 116,144 C106,154 92,156 80,150 Z" className="a046-flower__leaf" />
-        {Array.from({ length: petals }, (_, i) => (
-          <ellipse
-            key={i}
-            cx="80"
-            cy="58"
-            rx="7"
-            ry="22"
-            className="a046-flower__petal"
-            style={{ transform: `rotate(${(360 / petals) * i}deg)`, transformOrigin: "80px 80px", transitionDelay: `${0.05 * i}s` }}
-          />
+      <svg viewBox="0 0 160 220">
+        <path d="M80,110 C78,150 84,184 80,216" className="a046-flower__stem" />
+        <path d="M80,168 C94,156 110,156 118,162 C108,172 92,174 80,168 Z" className="a046-flower__leaf" />
+        {layers.map((d, i) => (
+          <path key={i} d={d} className="a046-flower__petal" style={{ transitionDelay: `${0.25 * i}s` }} />
         ))}
-        <circle cx="80" cy="80" r="9" className="a046-flower__heart" />
+        <path d="M73,114 L71,90 Q80,85 89,90 L87,114 Z" className="a046-flower__calyx" />
       </svg>
     </div>
   );
@@ -323,11 +328,11 @@ const EndDesign: SongArticleDesign = (ctx) => {
               {body(ENDLESS_FIG, S_HATE)}
             </section>
 
-            {/* 君が大嫌い。「君」は自分自身でもある、の段落の後に鏡の図 */}
+            {/* 君が大嫌い。嫌っているのは本当に相手なのか、の段落の後に、自分へ戻ってくる線 */}
             <section className="a046-section">
-              {body(S_HATE, MIRROR_FIG)}
-              <Mirror />
-              {body(MIRROR_FIG, S_OK)}
+              {body(S_HATE, LOOP_FIG)}
+              <SelfLoop />
+              {body(LOOP_FIG, S_OK)}
             </section>
 
             {/* 大丈夫ではないまま歌う。節の終わりに、終止符の先へ続く点線 */}

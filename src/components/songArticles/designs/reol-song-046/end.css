@@ -338,7 +338,7 @@
 }
 
 /* ---------- 図の共通 ---------- */
-.a046-mirror,
+.a046-loop,
 .a046-beyond,
 .a046-reach {
   margin: 1.8em 0;
@@ -347,7 +347,7 @@
   width: min(140px, 38%);
   margin: 1.8em auto;
 }
-.a046-mirror svg,
+.a046-loop svg,
 .a046-beyond svg,
 .a046-flower svg,
 .a046-reach svg {
@@ -357,49 +357,33 @@
   overflow: visible;
 }
 
-/* ---------- 鏡: 相手だと思った点は、鏡に映った自分 ---------- */
-.a046-mirror__glass {
-  stroke: #a9adb2;
-  stroke-width: 1.5;
-  stroke-dasharray: 2 5;
-}
-.a046-mirror__ray {
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-}
-/* 最初は「相手」(輪郭だけの点)。線が届くと、薄い黒い点(鏡に映った自分)に変わる */
-.a046-mirror__other {
+/* ---------- 戻ってくる線: 相手へ向けた線が、自分へ戻る ---------- */
+.a046-loop__other {
   fill: none;
   stroke: var(--ink-2);
   stroke-width: 2;
   opacity: 0;
 }
-.a046-mirror__self {
-  fill: var(--dot);
-  opacity: 0.28;
+.a046-loop__line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: round;
 }
-.a046-mirror.is-armed .a046-mirror__ray {
+.a046-loop.is-armed .a046-loop__other {
+  opacity: 1;
+  transition: opacity 1s ease 1.4s;
+}
+.a046-loop.is-armed .a046-loop__line {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.4s ease 0.2s;
+  transition: stroke-dashoffset 2.6s ease-in-out 0.3s;
 }
-.a046-mirror.is-armed .a046-mirror__other {
-  opacity: 1;
-  transition: opacity 0.6s ease 1.6s;
-}
-.a046-mirror.is-armed .a046-mirror__self {
+.a046-loop.is-visible .a046-loop__other {
   opacity: 0;
-  transition: opacity 1.2s ease 1.6s;
 }
-.a046-mirror.is-visible .a046-mirror__ray {
+.a046-loop.is-visible .a046-loop__line {
   stroke-dashoffset: 0;
-}
-.a046-mirror.is-visible .a046-mirror__other {
-  opacity: 0;
-}
-.a046-mirror.is-visible .a046-mirror__self {
-  opacity: 0.28;
 }
 
 /* ---------- 終止符の先へ続く点線 ---------- */
@@ -452,17 +436,20 @@
   fill: #fff;
   stroke: #9a9ea4;
   stroke-width: 1;
+  stroke-linejoin: round;
 }
-.a046-flower__heart {
-  fill: #c9ccd0;
+.a046-flower__calyx {
+  fill: var(--ink);
 }
+/* 萼の口(80, 88)を起点に、奥の層から順に開く */
 .a046-flower.is-armed .a046-flower__petal {
-  scale: 0.15;
+  transform: scale(0.1);
+  transform-origin: 80px 88px;
   opacity: 0;
-  transition: scale 0.9s ease, opacity 0.6s ease;
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.6s ease;
 }
 .a046-flower.is-visible .a046-flower__petal {
-  scale: 1;
+  transform: none;
   opacity: 1;
 }
 
