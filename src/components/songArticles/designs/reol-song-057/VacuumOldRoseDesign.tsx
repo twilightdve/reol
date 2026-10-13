@@ -120,11 +120,12 @@ const BellJar: React.FC<{ cx: number; y: number; w: number; h: number; className
 /** 表紙の絵: 台の上のガラスの覆いと薔薇、足もとから立ちのぼる一筋の煙。装飾なので読み上げ対象外 */
 const CoverArt: React.FC = () => (
   <svg className="a057-cover__art" viewBox="0 0 420 520" aria-hidden="true">
+    {/* 煙は台の手前に置いた煙草の先から立ちのぼる(イントロの ZIPPO と煙草。2026-10-13 ユーザー「タバコから出ていればわかる」) */}
     <path
-      d="M58,520 C40,470 86,440 66,396 C48,356 92,330 74,286 C58,248 96,224 84,180 C76,150 92,128 88,104"
+      d="M86,434 C78,400 106,374 92,338 C78,302 112,276 100,238 C90,206 108,182 104,152"
       className="a057-smoke"
     />
-    <path d="M70,520 C58,478 98,452 80,410 C64,374 102,350 90,312" className="a057-smoke a057-smoke--thin" />
+    <path d="M88,428 C84,404 108,386 100,358 C92,330 114,308 108,282" className="a057-smoke a057-smoke--thin" />
     {/* 覆いの中: 夕陽(オールドローズ色)に染まった街と観覧車(本文版9。2026-10-13 ユーザー「表紙にも街と観覧車を」) */}
     <defs>
       <linearGradient id="a057-cover-dusk" x1="0" y1="1" x2="0" y2="0">
@@ -157,6 +158,13 @@ const CoverArt: React.FC = () => (
     </g>
     <BellJar cx={250} y={430} w={220} h={330} />
     <Rose x={250} y={240} s={1.15} />
+    {/* 台の手前に置かれた、火のついた煙草(先が少し台の外へ出る) */}
+    <g className="a057-cig" transform="rotate(-6 132 440)">
+      <rect x={86} y={434} width={96} height={11} rx={2} className="a057-cig__paper" />
+      <rect x={160} y={434} width={22} height={11} rx={2} className="a057-cig__filter" />
+      <rect x={86} y={434} width={8} height={11} className="a057-cig__ash" />
+      <circle cx={86} cy={439.5} r={4} className="a057-cig__ember" />
+    </g>
     {/* 覆いの中を漂う花びら一枚 */}
     <path d="M196,372 C204,362 218,362 220,372 C214,380 202,382 196,372 Z" className="a057-petal" />
   </svg>

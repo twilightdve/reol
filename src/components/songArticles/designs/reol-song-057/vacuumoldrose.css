@@ -200,6 +200,22 @@
   stroke-width: 1;
   opacity: 0.35;
 }
+.a057-cig__paper {
+  fill: #fbf8f3;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+}
+.a057-cig__filter {
+  fill: #d9a066;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+}
+.a057-cig__ash {
+  fill: #9a8f92;
+}
+.a057-cig__ember {
+  fill: #d4543c;
+}
 @media (prefers-reduced-motion: no-preference) {
   .a057-smoke {
     animation: a057-drift 7s ease-in-out infinite alternate;
