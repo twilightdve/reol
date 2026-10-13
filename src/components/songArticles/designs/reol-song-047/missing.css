@@ -34,13 +34,13 @@
   flex-direction: column;
   background: radial-gradient(80% 70% at 70% 55%, #1a1d2c 0%, var(--asphalt) 70%);
 }
+/* 環状線の輪は画面からはみ出す大きさで置く(右と下は画面の外)。タクシーは上を横切って右へ消え、しばらくして左から戻ってくる */
 .a047-cover__art {
   position: absolute;
   z-index: -1;
-  right: max(-40px, calc((100% - 1040px) / 2 - 40px));
-  top: 50%;
-  width: min(760px, 70%);
-  transform: translateY(-46%);
+  left: -15.5%;
+  top: -2%;
+  width: 153%;
 }
 .a047-ring {
   display: block;
@@ -579,9 +579,10 @@
   }
   /* スマートフォン: 輪は題名の後ろに薄く */
   .a047-cover__art {
-    right: -30%;
-    width: 130%;
-    opacity: 0.55;
+    left: -30%;
+    top: 8%;
+    width: 260%;
+    opacity: 0.7;
   }
 }
 @media print {
