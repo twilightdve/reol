@@ -369,7 +369,16 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
     linkBlock?.t === "p"
       ? linkBlock.children.find((n) => n.t === "link" && youtubeVideoId(n.href))
       : undefined;
-  const xfd = xfdLink && xfdLink.t === "link" ? { id: youtubeVideoId(xfdLink.href) as string, href: xfdLink.href, text: inlineText(xfdLink.children) } : null;
+  // 埋め込みは「真空オールドローズ」の場面(2:58)から再生する(2026-10-13 ユーザー指定)。新しいタブで開くリンクも同じ位置に
+  const XFD_START = 178;
+  const xfd =
+    xfdLink && xfdLink.t === "link"
+      ? {
+          id: youtubeVideoId(xfdLink.href) as string,
+          href: `https://www.youtube.com/watch?v=${youtubeVideoId(xfdLink.href)}&t=${XFD_START}s`,
+          text: inlineText(xfdLink.children),
+        }
+      : null;
 
   return (
     <main className="a057" lang="ja">
@@ -423,7 +432,7 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
             {xfd && (
               <figure className="a057-video">
                 <figcaption className="a057-video__label">『事実上』XFD</figcaption>
-                <OfficialMedia videoId={xfd.id} href={xfd.href} text={xfd.text} articleId={id} unstyled preferHighRes />
+                <OfficialMedia videoId={xfd.id} href={xfd.href} text={xfd.text} articleId={id} unstyled preferHighRes start={XFD_START} />
               </figure>
             )}
 

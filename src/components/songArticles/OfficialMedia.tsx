@@ -23,6 +23,8 @@ interface OfficialMediaProps {
   unstyled?: boolean;
   /** 16:9 の動画でも高解像度のサムネイル(maxresdefault)を先に試す。hqdefault は4:3で上下に黒帯が入るため(無ければ hqdefault に戻る) */
   preferHighRes?: boolean;
+  /** 再生を始める位置(秒)。埋め込みの start に渡す */
+  start?: number;
 }
 
 // 幅に対する高さ。16:9、2.39:1、1:1
@@ -36,6 +38,7 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
   format = "video",
   unstyled = false,
   preferHighRes = false,
+  start,
 }) => {
   const [playing, setPlaying] = useState(false);
   // 高解像度のサムネイル(maxresdefault)が無い動画もあるため、失敗したら hqdefault、それも失敗したら画像なし
@@ -55,7 +58,7 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
         {playing ? (
           <iframe
             className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0${start ? `&start=${Math.floor(start)}` : ""}`}
             title={text}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
