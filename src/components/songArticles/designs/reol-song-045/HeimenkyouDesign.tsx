@@ -66,7 +66,7 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
   return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
 };
 
-/** ダーツの的: 外側の輪がぼやけ、中心だけがくっきり残る。ぼやけた輪とくっきりした輪を重ね、透明度を入れ替える(WebKit は SVG 要素の CSS filter が効かないため) */
+/** ダーツの的: 矢が中心に刺さり、外側の輪がぼやけ、中心だけがくっきり残る。ぼやけた輪とくっきりした輪を重ね、透明度を入れ替える(WebKit は SVG 要素の CSS filter が効かないため) */
 const Dartboard: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   const outer = [96, 80, 64, 48];
@@ -88,6 +88,16 @@ const Dartboard: React.FC = () => {
         <circle cx="120" cy="120" r="32" className="a045-dart__ring is-dark" />
         <circle cx="120" cy="120" r="16" className="a045-dart__ring is-light" />
         <circle cx="120" cy="120" r="5" className="a045-dart__bull" />
+        {/* ダーツの矢: 右上から飛んできて中心に刺さる。矢の向きの座標(先端が原点、尾が -x)で描いて、中心へ置く */}
+        <g transform="translate(120 120) rotate(135)">
+          <g className="a045-dart__arrow">
+            <path d="M0,0 L-16,-2.2 L-16,2.2 Z" className="a045-dart__tip" />
+            <rect x="-46" y="-4.5" width="30" height="9" rx="3" className="a045-dart__barrel" />
+            <rect x="-74" y="-1.6" width="28" height="3.2" className="a045-dart__shaft" />
+            <path d="M-70,0 L-96,-17 L-100,-17 L-92,0 Z" className="a045-dart__flight" />
+            <path d="M-70,0 L-96,17 L-100,17 L-92,0 Z" className="a045-dart__flight" />
+          </g>
+        </g>
       </svg>
     </div>
   );

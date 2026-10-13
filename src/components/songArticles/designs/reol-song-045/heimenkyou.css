@@ -316,6 +316,34 @@
 .a045-dart__bull {
   fill: var(--stage);
 }
+/* ダーツの矢 */
+.a045-dart__tip {
+  fill: #dfe7f5;
+}
+.a045-dart__barrel {
+  fill: var(--pale);
+  stroke: #fff;
+  stroke-width: 0.8;
+}
+.a045-dart__shaft {
+  fill: #dfe7f5;
+}
+.a045-dart__flight {
+  fill: var(--stage);
+  stroke: var(--pale);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+/* 矢は尾の方向(矢の座標の -x)の遠くから飛んできて刺さる */
+.a045-dart.is-armed .a045-dart__arrow {
+  transform: translateX(-160px);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.3, 0, 0.9, 0.6) 0.3s, opacity 0.2s ease 0.3s;
+}
+.a045-dart.is-visible .a045-dart__arrow {
+  transform: none;
+  opacity: 1;
+}
 /* 完成状態: 外側はぼやけている */
 .a045-dart__sharp {
   opacity: 0;
@@ -325,11 +353,11 @@
 }
 .a045-dart.is-armed .a045-dart__sharp {
   opacity: 1;
-  transition: opacity 1.4s ease 0.6s;
+  transition: opacity 1.4s ease 1s;
 }
 .a045-dart.is-armed .a045-dart__blur {
   opacity: 0;
-  transition: opacity 1.4s ease 0.6s;
+  transition: opacity 1.4s ease 1s;
 }
 .a045-dart.is-visible .a045-dart__sharp {
   opacity: 0;
