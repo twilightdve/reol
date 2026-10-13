@@ -1,0 +1,548 @@
+/*
+ * 楽曲記事「平面鏡」(reol-song-045)の記事別デザイン(見本 v1)。根拠は plan/41。
+ * すべて .a045 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --night 濃い紺の地 / --deep テーマ色のくすんだ紺 / --text 白い文字 / --text-2 補足
+ *   --pale 淡い青(テーマ色。リンク・図・鏡の線) / --stage 2018年の照明の濃い青
+ */
+
+.a045 {
+  --night: #0c1024;
+  --deep: #313b5e;
+  --text: #eef2fa;
+  --text-2: #a9b3c9;
+  --pale: #afc6e8;
+  --stage: #2236c8;
+  --column: min(620px, calc(100% - 40px));
+
+  color: var(--text);
+  background: var(--night);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 濃い青の闇と縦の鏡の線 ---------- */
+.a045-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(520px, 86svh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: #070a1a;
+}
+/* 舞台の濃い青の照明(上から落ちる光) */
+.a045-cover__light {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 55% at 50% 0%, rgb(60 82 255 / 0.55), transparent 70%),
+    radial-gradient(90% 70% at 50% 110%, rgb(49 59 94 / 0.9), transparent 70%),
+    linear-gradient(180deg, #0b1030 0%, #070a1a 100%);
+}
+.a045-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a045-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-2);
+}
+.a045-crumbs a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.a045-crumbs a:hover,
+.a045-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a045-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: clamp(40px, 8vw, 80px);
+  text-align: center;
+}
+.a045-title {
+  margin: 0;
+  font-weight: 800;
+}
+/* 題名と反転像を、縦の鏡の線を挟んで左右に置く */
+.a045-title__pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3vw, 32px);
+  font-size: clamp(42px, 11vw, 120px);
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+}
+.a045-title__song {
+  color: #fff;
+  text-shadow: 0 0 28px rgb(90 110 255 / 0.55);
+}
+.a045-title__glass {
+  flex: none;
+  width: 2px;
+  height: 1.6em;
+  background: linear-gradient(180deg, transparent, var(--pale) 20%, #fff 50%, var(--pale) 80%, transparent);
+  box-shadow: 0 0 18px rgb(175 198 232 / 0.8);
+}
+/* 鏡の向こう: 左右反転し、冷たく薄い */
+.a045-title__mirror {
+  display: inline-block;
+  transform: scaleX(-1);
+  color: var(--pale);
+  opacity: 0.42;
+  text-shadow: 0 0 22px rgb(175 198 232 / 0.4);
+}
+.a045-title__sub {
+  display: block;
+  margin-top: 1.4em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+.a045-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+}
+/* 表紙を開いた時: 鏡の線が光り、反転像が線の側から現れる */
+@media (prefers-reduced-motion: no-preference) {
+  .a045-title__glass {
+    animation: a045-glass 1.2s ease-out both;
+  }
+  .a045-title__mirror {
+    /* 終わった後は clip-path を残さない(残すと光の縁が四角く切れる) */
+    animation: a045-reflect 1.6s ease-out 0.5s backwards;
+  }
+}
+@keyframes a045-glass {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes a045-reflect {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    opacity: 0.42;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a045-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+  background: linear-gradient(180deg, #070a1a 0, var(--night) 240px);
+}
+.a045-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a045-listen {
+  margin-bottom: clamp(36px, 6vw, 52px);
+  font-size: 13px;
+}
+.a045-listen a {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--pale);
+  border-radius: 2px;
+  color: var(--pale) !important;
+  text-decoration: none !important;
+}
+.a045-listen a:hover {
+  background: var(--pale);
+  color: var(--night) !important;
+}
+.a045-text {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a045-text p {
+  margin: 0;
+}
+.a045-text p + p {
+  margin-top: 1.3em;
+}
+/* 見出し: 先頭に縦の鏡の線 */
+.a045-text h2 {
+  position: relative;
+  margin: 0 0 1.3em;
+  padding-left: 0.9em;
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.a045-text h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  background: var(--pale);
+  box-shadow: 0 0 10px rgb(175 198 232 / 0.7);
+}
+.a045-section {
+  margin-bottom: clamp(56px, 8vw, 88px);
+}
+.a045-section--last {
+  margin-bottom: 0;
+}
+.a045-intro p:first-child {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1.7;
+  color: #fff;
+}
+.a045-ground a {
+  color: var(--pale);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a045-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a045-note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a045-note p {
+  margin: 0;
+}
+.a045-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--pale);
+}
+.a045-note__strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ---------- ライヴ映像 ---------- */
+.a045-video {
+  margin: 1.8em 0;
+}
+.a045-video__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--text-2);
+}
+.a045-video__year {
+  margin-right: 0.4em;
+  font-size: 15px;
+  color: var(--pale);
+}
+.a045-video .sa-media {
+  margin: 0;
+}
+.a045-video .sa-media__frame {
+  border: 1px solid rgb(175 198 232 / 0.5);
+  box-shadow: 0 0 40px rgb(34 54 200 / 0.35);
+}
+.a045-video .sa-media__thumb {
+  opacity: 1;
+}
+.a045-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* ---------- 図の共通 ---------- */
+.a045-dart,
+.a045-triptych,
+.a045-order {
+  margin: 2em 0;
+}
+.a045-dart {
+  width: min(240px, 64%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a045-dart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------- ダーツの的: 外側がぼやけ、中心だけが残る ---------- */
+.a045-dart__ring.is-dark {
+  fill: var(--deep);
+  stroke: var(--pale);
+  stroke-width: 1;
+}
+.a045-dart__ring.is-light {
+  fill: #dfe7f5;
+}
+.a045-dart__bull {
+  fill: var(--stage);
+}
+/* 完成状態: 外側はぼやけている */
+.a045-dart__sharp {
+  opacity: 0;
+}
+.a045-dart__blur {
+  opacity: 0.75;
+}
+.a045-dart.is-armed .a045-dart__sharp {
+  opacity: 1;
+  transition: opacity 1.4s ease 0.6s;
+}
+.a045-dart.is-armed .a045-dart__blur {
+  opacity: 0;
+  transition: opacity 1.4s ease 0.6s;
+}
+.a045-dart.is-visible .a045-dart__sharp {
+  opacity: 0;
+}
+.a045-dart.is-visible .a045-dart__blur {
+  opacity: 0.75;
+}
+
+/* ---------- 三面鏡: 左右が閉じて一面になる ---------- */
+.a045-triptych__stage {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: clamp(150px, 34vw, 200px);
+  perspective: 600px;
+}
+.a045-triptych__face,
+.a045-triptych__wing {
+  display: block;
+  border: 1px solid var(--pale);
+  background: linear-gradient(135deg, rgb(175 198 232 / 0.35), rgb(49 59 94 / 0.6) 45%, rgb(175 198 232 / 0.18));
+  box-shadow: inset 0 0 24px rgb(175 198 232 / 0.25);
+}
+.a045-triptych__face {
+  width: clamp(96px, 24vw, 128px);
+  border-radius: 48px 48px 2px 2px;
+}
+.a045-triptych__wing {
+  width: clamp(48px, 12vw, 64px);
+  border-radius: 24px 24px 2px 2px;
+}
+.a045-triptych__wing--l {
+  transform-origin: right center;
+}
+.a045-triptych__wing--r {
+  transform-origin: left center;
+}
+/* 完成状態: 左右の鏡は閉じて見えない(正面の一面だけ) */
+.a045-triptych__wing--l {
+  transform: rotateY(-88deg);
+  opacity: 0.15;
+}
+.a045-triptych__wing--r {
+  transform: rotateY(88deg);
+  opacity: 0.15;
+}
+.a045-triptych.is-armed .a045-triptych__wing {
+  transform: rotateY(0);
+  opacity: 1;
+  transition: transform 1.6s cubic-bezier(0.6, 0, 0.3, 1) 0.8s, opacity 1.6s ease 0.8s;
+}
+.a045-triptych.is-armed.is-visible .a045-triptych__wing--l {
+  transform: rotateY(-88deg);
+  opacity: 0.15;
+}
+.a045-triptych.is-armed.is-visible .a045-triptych__wing--r {
+  transform: rotateY(88deg);
+  opacity: 0.15;
+}
+
+/* ---------- 「無題」の節: 市松の帯 ---------- */
+.a045-checker {
+  height: 12px;
+  margin: -0.4em 0 1.6em;
+  background: repeating-conic-gradient(var(--pale) 0 25%, transparent 0 50%) 0 0 / 12px 12px;
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent);
+  mask-image: linear-gradient(90deg, #000 40%, transparent);
+}
+
+/* ---------- 三つの年の曲順 ---------- */
+.a045-order {
+  display: grid;
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid rgb(175 198 232 / 0.3);
+  border-bottom: 1px solid rgb(175 198 232 / 0.3);
+}
+.a045-order__when {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+}
+.a045-order__year {
+  margin-right: 0.8em;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+.a045-order__songs {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.a045-order__song {
+  padding: 8px 10px;
+  border: 1px solid rgb(175 198 232 / 0.35);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-2);
+}
+.a045-order__song.is-mirror {
+  border-color: var(--pale);
+  background: var(--pale);
+  color: var(--night);
+}
+.a045-order__arrow {
+  color: var(--pale);
+}
+.a045-order.is-armed .a045-order__row {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.a045-order.is-armed .a045-order__row:nth-child(2) {
+  transition-delay: 0.5s;
+}
+.a045-order.is-armed .a045-order__row:nth-child(3) {
+  transition-delay: 1s;
+}
+.a045-order.is-visible .a045-order__row {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 結び ---------- */
+.a045-closing p:last-child {
+  font-weight: 800;
+  color: #fff;
+}
+.a045-endglass {
+  width: 2px;
+  height: 72px;
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  background: linear-gradient(180deg, transparent, var(--pale) 30%, #fff 50%, var(--pale) 70%, transparent);
+  box-shadow: 0 0 16px rgb(175 198 232 / 0.8);
+}
+
+/* ---------- 奥付 ---------- */
+.a045-colophon {
+  padding: clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a045-colophon__list,
+.a045-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a045-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(175 198 232 / 0.3);
+  display: grid;
+  gap: 10px;
+}
+.a045-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a045-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+.a045-colophon dd {
+  margin: 0;
+}
+.a045-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a045-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a045-colophon a {
+  color: var(--pale);
+}
+
+/* ---------- フォーカス ---------- */
+.a045 a:focus-visible {
+  outline: 2px solid var(--pale);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a045-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .a045-order__song {
+    font-size: 14px;
+    padding: 8px 6px;
+  }
+}
+@media print {
+  .a045,
+  .a045-cover,
+  .a045-ground {
+    color: #000;
+    background: #fff;
+  }
+  .a045-cover {
+    min-height: 0;
+  }
+  .a045-cover__light {
+    display: none;
+  }
+}
