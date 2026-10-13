@@ -1,0 +1,492 @@
+/*
+ * 楽曲記事「ミッシング」(reol-song-047)の記事別デザイン(見本 v1)。根拠は plan/42。
+ * すべて .a047 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --asphalt 夜のアスファルトの地 / --text 文字 / --text-2 補足
+ *   --sodium ナトリウム灯の橙(リンク・灯) / --lamp タクシーの表示の赤 / --road 道路の帯
+ */
+
+.a047 {
+  --asphalt: #0d0f16;
+  --asphalt-2: #161924;
+  --text: #ecebe6;
+  --text-2: #a7a59c;
+  --sodium: #f2a03d;
+  --sodium-2: #ffd08a;
+  --lamp: #e5463a;
+  --road: #23273a;
+  --column: min(620px, calc(100% - 40px));
+
+  color: var(--text);
+  background: var(--asphalt);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 夜の環状線 ---------- */
+.a047-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(520px, 86svh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(80% 70% at 70% 55%, #1a1d2c 0%, var(--asphalt) 70%);
+}
+.a047-cover__art {
+  position: absolute;
+  z-index: -1;
+  right: max(-40px, calc((100% - 1040px) / 2 - 40px));
+  top: 50%;
+  width: min(760px, 70%);
+  transform: translateY(-46%);
+}
+.a047-ring {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a047-city {
+  fill: #cfd6ff;
+}
+.a047-city.is-warm {
+  fill: var(--sodium-2);
+}
+.a047-ring__road {
+  fill: none;
+  stroke: var(--road);
+  stroke-width: 26;
+  stroke-linejoin: round;
+}
+.a047-ring__lane {
+  fill: none;
+  stroke: rgb(242 160 61 / 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 10 14;
+}
+.a047-ring__head {
+  fill: var(--sodium-2);
+}
+.a047-ring__tail {
+  fill: var(--sodium);
+}
+.a047-ring__glow {
+  mix-blend-mode: screen;
+}
+.a047-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a047-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-2);
+}
+.a047-crumbs a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.a047-crumbs a:hover,
+.a047-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a047-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: clamp(40px, 8vw, 80px);
+}
+.a047-title {
+  margin: 0;
+  font-weight: 800;
+}
+.a047-title__song {
+  display: block;
+  font-size: clamp(52px, 11vw, 120px);
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  color: #fff;
+  /* 走っている灯の残像のような、横に流れる淡い光 */
+  text-shadow: -18px 0 24px rgb(242 160 61 / 0.35);
+}
+.a047-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-size: clamp(17px, 2.2vw, 23px);
+  letter-spacing: 0.2em;
+  color: var(--sodium-2);
+}
+.a047-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+}
+
+/* ---------- 本文 ---------- */
+.a047-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+  background: var(--asphalt);
+}
+.a047-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a047-listen {
+  margin-bottom: clamp(36px, 6vw, 52px);
+  font-size: 13px;
+}
+.a047-listen a {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--sodium);
+  border-radius: 3px;
+  color: var(--sodium) !important;
+  text-decoration: none !important;
+}
+.a047-listen a:hover {
+  background: var(--sodium);
+  color: var(--asphalt) !important;
+}
+.a047-text {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a047-text p {
+  margin: 0;
+}
+.a047-text p + p {
+  margin-top: 1.3em;
+}
+.a047-section {
+  margin-bottom: clamp(56px, 8vw, 88px);
+}
+.a047-intro p:first-child {
+  font-size: clamp(21px, 2.8vw, 26px);
+  font-weight: 800;
+  line-height: 1.75;
+  color: #fff;
+}
+.a047-ground a {
+  color: var(--sodium-2);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a047-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a047-note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a047-note p {
+  margin: 0;
+}
+.a047-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--sodium);
+}
+.a047-note__strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.a047-closing p:last-child {
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ---------- タクシーメーター ---------- */
+.a047-meter {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  width: min(360px, 100%);
+  margin: 2em auto;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: #07080c;
+  box-shadow: inset 0 0 0 1px #2a2d3a, 0 10px 30px rgb(0 0 0 / 0.45);
+  font-variant-numeric: tabular-nums;
+}
+.a047-meter__lamp {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 3px;
+  background: var(--lamp);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+}
+.a047-meter__rows {
+  flex: 1;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.a047-meter__rows > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.a047-meter dt {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+}
+.a047-meter dd {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.a047-meter__num {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff7a3a;
+  text-shadow: 0 0 10px rgb(255 122 58 / 0.6);
+}
+/* 出発地からの距離は動かない(緑がかった落ち着いた表示) */
+.a047-meter .is-still .a047-meter__num {
+  color: #7fe0a6;
+  text-shadow: 0 0 10px rgb(127 224 166 / 0.5);
+}
+
+/* ---------- 追い越される ---------- */
+.a047-pass {
+  margin: 2em 0;
+}
+.a047-pass__road {
+  position: relative;
+  height: 96px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #11131c, var(--road) 50%, #11131c);
+}
+.a047-pass__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgb(255 255 255 / 0.35) 0 18px, transparent 18px 34px);
+}
+.a047-pass__line--1 {
+  top: 32px;
+}
+.a047-pass__line--2 {
+  top: 64px;
+}
+/* 自分の灯: 真ん中の車線に止まって見える(同じ速さで流れている) */
+.a047-pass__me {
+  position: absolute;
+  left: 30%;
+  top: 48px;
+  width: 54px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent, var(--sodium) 60%, var(--sodium-2));
+  box-shadow: 0 0 14px rgb(242 160 61 / 0.7);
+}
+/* ほかの灯: 後ろから来て追い越していく。完成状態は追い越した後(右側に並ぶ) */
+.a047-pass__car {
+  position: absolute;
+  left: calc(58% + var(--i) * 8%);
+  width: 70px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.7) 70%, #fff);
+  opacity: 0.85;
+}
+.a047-pass__car--lane0 {
+  top: 16px;
+}
+.a047-pass__car--lane2 {
+  top: 80px;
+}
+.a047-pass.is-armed .a047-pass__car {
+  opacity: 0;
+}
+.a047-pass.is-visible .a047-pass__car {
+  animation: a047-overtake 1.6s cubic-bezier(0.3, 0.1, 0.6, 1) both;
+}
+@keyframes a047-overtake {
+  from {
+    left: -20%;
+    opacity: 1;
+  }
+  to {
+    left: calc(58% + var(--i) * 8%);
+    opacity: 0.85;
+  }
+}
+
+/* ---------- XFD ---------- */
+.a047-video {
+  margin: 2em 0;
+}
+.a047-video__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--sodium);
+}
+.a047-video .sa-media {
+  margin: 0;
+}
+.a047-video .sa-media__frame {
+  border: 1px solid #2a2d3a;
+}
+.a047-video .sa-media__thumb {
+  opacity: 1;
+}
+.a047-video .sa-media__button {
+  background: rgb(242 160 61 / 0.95);
+  color: var(--asphalt);
+}
+.a047-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* ---------- 四十九の灯の輪 ---------- */
+.a047-49 {
+  width: min(260px, 70%);
+  margin: 2em auto;
+}
+.a047-49 svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.a047-49__day {
+  fill: var(--sodium);
+}
+.a047-49__day.is-last {
+  fill: var(--lamp);
+  filter: drop-shadow(0 0 4px rgb(229 70 58 / 0.9));
+}
+.a047-49__label {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  fill: var(--text);
+}
+.a047-49.is-armed .a047-49__day {
+  opacity: 0.12;
+  transition: opacity 0.25s ease;
+}
+.a047-49.is-visible .a047-49__day {
+  opacity: 1;
+}
+
+/* ---------- 結び ---------- */
+.a047-end {
+  width: min(280px, 72%);
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  opacity: 0.9;
+}
+
+/* ---------- 奥付 ---------- */
+.a047-colophon {
+  padding: clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a047-colophon__list,
+.a047-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a047-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(242 160 61 / 0.3);
+  display: grid;
+  gap: 10px;
+}
+.a047-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a047-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+.a047-colophon dd {
+  margin: 0;
+}
+.a047-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a047-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a047-colophon a {
+  color: var(--sodium-2);
+}
+
+/* ---------- フォーカス ---------- */
+.a047 a:focus-visible {
+  outline: 2px solid var(--sodium);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a047-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  /* スマートフォン: 輪は題名の後ろに薄く */
+  .a047-cover__art {
+    right: -30%;
+    width: 130%;
+    opacity: 0.55;
+  }
+}
+@media print {
+  .a047,
+  .a047-cover,
+  .a047-ground {
+    color: #000;
+    background: #fff;
+  }
+  .a047-cover {
+    min-height: 0;
+  }
+  .a047-cover__art {
+    display: none;
+  }
+}
