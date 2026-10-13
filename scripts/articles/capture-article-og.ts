@@ -83,6 +83,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .a082-cover__body { padding: 30px 0 0 !important; width: auto !important; margin: 0 80px !important; }
     .a082-title { max-width: none !important; font-size: 50px !important; white-space: nowrap; }
   `,
+  // 真空オールドローズ: 明るい紙の地なので、右下のサイト名は白ではなく濃いワイン色に
+  "reol-song-057": `
+    .og-brand { color: #6b5258 !important; text-shadow: none !important; }
+  `,
   // SCORPION: MVを外して空いた下側を詰め、題名を縦の中央へ
   "reol-song-087": `
     .a087-cover__top { display: none !important; }

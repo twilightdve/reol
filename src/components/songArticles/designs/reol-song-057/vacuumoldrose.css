@@ -1,0 +1,588 @@
+/*
+ * 楽曲記事「真空オールドローズ」(reol-song-057)の記事別デザイン(見本 v1)。根拠は plan/39。
+ * すべて .a057 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --paper 古い紙の地 / --ink 文字(墨に近いワイン色) / --ink-2 補足 / --link リンク
+ *   --rose オールドローズ(くすんだ薔薇色。線・花びら) / --wine アルバムの深い赤(#881B1E) / --smoke 煙・ガラス
+ */
+
+.a057 {
+  --paper: #f4ece4;
+  --paper-2: #ece0d5;
+  --ink: #2e1a1f;
+  --ink-2: #6b5258;
+  --link: #7a2733;
+  --rose: #b5707a;
+  --rose-soft: #e3bfc3;
+  --wine: #881b1e;
+  --smoke: #9a8f92;
+  --glass: #8aa0a6;
+  --column: min(600px, calc(100% - 40px));
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
+
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--mincho);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙 ---------- */
+.a057-cover {
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 60% at 68% 55%, #fbf6f0 0%, transparent 70%),
+    linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+  min-height: clamp(560px, 90svh, 760px);
+  display: flex;
+  flex-direction: column;
+}
+.a057-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a057-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.a057-crumbs a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.a057-crumbs a:hover,
+.a057-crumbs a:focus-visible {
+  color: var(--wine);
+  text-decoration: underline;
+}
+.a057-cover__body {
+  flex: 1;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 24px;
+  padding-bottom: clamp(32px, 5vw, 56px);
+}
+.a057-cover__art {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  justify-self: center;
+}
+/* 明朝体は要素ごとに指定する(サイト全体の書体の指定が見出し・段落に直接かかるため) */
+.a057-title,
+.a057-text,
+.a057-text h2,
+.a057-text p,
+.a057-sun__label {
+  font-family: var(--mincho);
+}
+.a057-title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+.a057-title__pre,
+.a057-title__post {
+  display: block;
+  font-size: clamp(15px, 1.8vw, 18px);
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+}
+.a057-title__post {
+  margin-top: 0.9em;
+}
+.a057-title__song {
+  display: block;
+  margin-top: 0.3em;
+  font-size: clamp(38px, 6.4vw, 72px);
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  color: var(--wine);
+}
+.a057-title__word {
+  white-space: nowrap;
+}
+.a057-title__q {
+  font-size: 0.5em;
+  color: var(--ink-2);
+  vertical-align: 0.35em;
+}
+.a057-date {
+  margin: 22px 0 0;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+}
+
+/* 薔薇・ガラスの覆い・煙 */
+.a057-rose__stem,
+.a057-rose__vein {
+  fill: none;
+  stroke: #5e6b4f;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a057-rose__vein {
+  stroke-width: 1;
+}
+.a057-rose__leaf {
+  fill: rgb(94 107 79 / 0.18);
+  stroke: #5e6b4f;
+  stroke-width: 1.6;
+}
+.a057-rose__thorn {
+  fill: #5e6b4f;
+}
+.a057-rose__cup {
+  fill: var(--rose-soft);
+  stroke: var(--wine);
+  stroke-width: 1.8;
+}
+.a057-rose__line {
+  fill: none;
+  stroke: var(--wine);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.a057-rose__heart {
+  stroke-width: 1.6;
+}
+.a057-petal {
+  fill: var(--rose);
+  opacity: 0.75;
+}
+.a057-jar__base ellipse,
+.a057-jar__base path {
+  fill: #e4d3c3;
+  stroke: var(--ink-2);
+  stroke-width: 1.4;
+}
+.a057-jar__glass path,
+.a057-jar__rim {
+  fill: rgb(255 255 255 / 0.18);
+  stroke: var(--glass);
+  stroke-width: 2;
+}
+.a057-jar__rim {
+  fill: none;
+}
+.a057-jar__knob {
+  fill: rgb(255 255 255 / 0.4);
+  stroke: var(--glass);
+  stroke-width: 2;
+}
+.a057-jar__shine {
+  fill: none !important;
+  stroke: rgb(255 255 255 / 0.9) !important;
+  stroke-width: 3 !important;
+  stroke-linecap: round;
+}
+.a057-smoke {
+  fill: none;
+  stroke: var(--smoke);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+.a057-smoke--thin {
+  stroke-width: 1;
+  opacity: 0.35;
+}
+.a057-cig__paper {
+  fill: #fbf8f3;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+}
+.a057-cig__filter {
+  fill: #d9a066;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+}
+.a057-cig__ash {
+  fill: #9a8f92;
+}
+.a057-cig__ember {
+  fill: #d4543c;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .a057-smoke {
+    animation: a057-drift 7s ease-in-out infinite alternate;
+  }
+  .a057-smoke--thin {
+    animation-duration: 9s;
+  }
+}
+@keyframes a057-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(6px);
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a057-ground {
+  padding-top: clamp(40px, 6vw, 72px);
+  background: var(--paper);
+}
+.a057-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a057-text {
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.a057-text p {
+  margin: 0;
+}
+.a057-text p + p {
+  margin-top: 1.25em;
+}
+/* 見出し: 細い薔薇色の線の下に、明朝体で */
+.a057-text h2 {
+  margin: 0 0 1.4em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--rose);
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  color: var(--wine);
+}
+.a057-section {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+.a057-section--last {
+  margin-bottom: 0;
+}
+.a057-intro {
+  font-size: 18px;
+}
+.a057-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a057-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+/* 冒頭のリンクの行(本文のまま)を、小さな札の列に */
+.a057-links {
+  margin-bottom: 20px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 2.4;
+  color: var(--ink-2);
+}
+.a057-links a {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 2px 12px;
+  border: 1px solid var(--rose);
+  border-radius: 999px;
+  background: #fbf6f0;
+  line-height: 1.8;
+  text-decoration: none;
+}
+.a057-links a:hover {
+  background: var(--rose-soft);
+}
+.a057-video {
+  margin: 0 0 clamp(40px, 6vw, 60px);
+}
+.a057-video__label {
+  margin-bottom: 10px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--wine);
+}
+.a057-video .sa-media {
+  margin: 0;
+}
+.a057-video .sa-media__frame {
+  border: 1px solid var(--rose);
+  padding: 6px;
+  background: #fbf6f0;
+}
+.a057-video .sa-media__thumb {
+  opacity: 1;
+}
+.a057-video .sa-media__button {
+  background: rgb(244 236 228 / 0.94);
+  color: var(--wine);
+}
+.a057-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.a057-note {
+  margin: 0 0 18px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a057-note p {
+  margin: 0;
+}
+.a057-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--wine);
+}
+.a057-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.a057-group {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+/* ---------- 断ち切ったはずの一本の線 ---------- */
+.a057-cut {
+  margin: 0 auto clamp(40px, 6vw, 64px);
+}
+.a057-cut svg,
+.a057-sun svg,
+.a057-petals svg,
+.a057-seal svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a057-cut__line {
+  stroke: var(--wine);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a057-cut__thread {
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 1.2;
+}
+.a057-cut__thread--faint {
+  opacity: 0.45;
+}
+
+/* ---------- 太陽の軌道の図 ---------- */
+.a057-sun {
+  margin: 2em 0;
+}
+/* 夕焼けの上でも見分けられるよう、図の線は本文の薔薇色より濃くする(2026-10-13 ユーザー指定) */
+.a057-sun__arc {
+  fill: none;
+  stroke: #8a3f4b;
+  stroke-width: 1.7;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.a057-sun__arc--main {
+  stroke: #6e1418;
+  stroke-width: 2.4;
+}
+.a057-sun__night {
+  fill: none;
+  stroke: var(--smoke);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 6;
+}
+.a057-sun__hidden {
+  fill: none;
+  stroke: var(--smoke);
+  stroke-width: 1.4;
+  stroke-dasharray: 2 3;
+}
+.a057-sun__horizon {
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+}
+.a057-sun__set {
+  fill: var(--wine);
+}
+.a057-sun__city rect {
+  fill: rgb(244 236 228 / 0.55);
+  stroke: #4a3439;
+  stroke-width: 1.2;
+}
+.a057-sun__city line {
+  stroke: #4a3439;
+  stroke-width: 1.4;
+}
+.a057-sun__wheel {
+  fill: none;
+  stroke: #4a3439;
+  stroke-width: 1.6;
+}
+.a057-sun__spoke {
+  stroke: rgb(74 52 57 / 0.55) !important;
+  stroke-width: 0.8 !important;
+}
+.a057-sun__cabin {
+  fill: #8a3f4b;
+}
+.a057-sun__label {
+  font-family: var(--mincho);
+  font-size: 13px;
+  fill: var(--ink-2);
+}
+.a057-sun.is-armed .a057-sun__dusk {
+  opacity: 0;
+  transition: opacity 1.8s ease 0.4s;
+}
+.a057-sun.is-visible .a057-sun__dusk {
+  opacity: 1;
+}
+.a057-sun.is-armed .a057-sun__arc {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s ease;
+}
+.a057-sun.is-visible .a057-sun__arc {
+  stroke-dashoffset: 0;
+}
+
+/* ---------- 薄れていく花びら ---------- */
+.a057-petals {
+  width: min(420px, 100%);
+  margin: 0 auto clamp(40px, 6vw, 64px);
+}
+
+/* ---------- ガラスの覆いが薔薇にかぶさる ---------- */
+.a057-seal {
+  width: min(240px, 64%);
+  margin: 2.2em auto;
+}
+.a057-seal.is-armed .a057-seal__jar {
+  transform: translateY(-90px);
+  opacity: 0;
+  transition: transform 1.4s cubic-bezier(0.22, 0.8, 0.3, 1), opacity 0.6s ease;
+}
+.a057-seal.is-visible .a057-seal__jar {
+  transform: none;
+  opacity: 1;
+}
+.a057-seal__city rect {
+  fill: rgb(192 128 129 / 0.5);
+  stroke: #8a3f4b;
+  stroke-width: 1;
+}
+.a057-seal__city line,
+.a057-seal__wheel {
+  fill: none;
+  stroke: #8a3f4b;
+  stroke-width: 1.2;
+}
+.a057-seal__spoke {
+  stroke: rgb(138 63 75 / 0.55);
+  stroke-width: 0.8;
+}
+.a057-seal.is-armed .a057-seal__dusk,
+.a057-seal.is-armed .a057-seal__city {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.a057-seal.is-visible .a057-seal__dusk,
+.a057-seal.is-visible .a057-seal__city {
+  opacity: 1;
+}
+.a057-closing p:last-child {
+  color: var(--wine);
+  font-weight: 600;
+}
+
+/* ---------- 奥付 ---------- */
+.a057-colophon {
+  width: var(--column);
+  margin: clamp(48px, 7vw, 80px) auto 0;
+  padding: 28px 0 clamp(48px, 8vw, 88px);
+  border-top: 1px solid var(--rose);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a057-colophon__list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.a057-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a057-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.a057-colophon dd {
+  margin: 0;
+}
+.a057-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a057-next {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a057-colophon a {
+  color: var(--link);
+}
+
+/* ---------- フォーカス ---------- */
+.a057 a:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 760px) {
+  .a057-cover__body {
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+  .a057-cover__art {
+    order: -1;
+    max-width: 240px;
+  }
+}
+@media (max-width: 640px) {
+  .a057-text {
+    font-size: 16px;
+    line-height: 2.05;
+  }
+  .a057-intro {
+    font-size: 17px;
+  }
+}
+@media print {
+  .a057-cover__art,
+  .a057-sun,
+  .a057-seal {
+    display: none;
+  }
+}

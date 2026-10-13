@@ -22,6 +22,26 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // 真空オールドローズ(plan/39)。本文版9(2026-10-13 加筆: 21 オールドローズの色名と夕陽に染まる衛星都市)。
+  // リンクの行(0)・冒頭(1)・見出し(3, 8, 23, 32)・夕陽に染まる衛星都市(21)とその次(22)・蓋をして(46)とその次(47)・結び(50)
+  "reol-song-057": {
+    bodyRevision: 9,
+    bodySha256: "8b58bb80aa52de6f96236b5297e985362fedede5e921cf9f801403973a93ce1a",
+    blockCount: 51,
+    anchors: [
+      { block: 0, textHash: "60187d5eacfb03c0" },
+      { block: 1, textHash: "a5041abb930386d9" },
+      { block: 3, textHash: "19196832ebd8a577" },
+      { block: 8, textHash: "a74b03b3ed6d8a96" },
+      { block: 21, textHash: "58abdebc4c30ed11" },
+      { block: 22, textHash: "61feb4419d0eec12" },
+      { block: 23, textHash: "dae01ff70cddcfa7" },
+      { block: 32, textHash: "ee97f67bace59c62" },
+      { block: 46, textHash: "00d2351fbe1223c7" },
+      { block: 47, textHash: "e0ffb3cbe88ee7af" },
+      { block: 50, textHash: "9ad97f8d20427ecb" },
+    ],
+  },
   // ミュータント(plan/38)。動画へのリンク(0)・一言(1)・作り(4)・題名の意味(5)・場所(6, 11)・埠頭(12)・『虚構集』XFD へのリンク(13)・REOL→Reol(14, 19)・結び(20)
   "reol-song-082": {
     bodyRevision: 2,
