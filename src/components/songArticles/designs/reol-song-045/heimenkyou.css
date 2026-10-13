@@ -335,14 +335,15 @@
   stroke-linejoin: round;
 }
 /* 矢は、外側がぼやけて視界が狭まった後で、尾の方向(矢の座標の -x)の遠くから飛んできて刺さる */
+/* 待機中(画面外)はすぐ隠す。遅延付きの動きは画面に入ってからだけ付ける(待機に入る時にも遅延が掛かると、早く画面に入った時に矢が刺さったままになる) */
 .a045-dart.is-armed .a045-dart__arrow {
   transform: translateX(-160px);
   opacity: 0;
-  transition: transform 0.45s cubic-bezier(0.3, 0, 0.9, 0.6) 1.9s, opacity 0.2s ease 1.9s;
 }
 .a045-dart.is-visible .a045-dart__arrow {
   transform: none;
   opacity: 1;
+  transition: transform 0.45s cubic-bezier(0.3, 0, 0.9, 0.6) 1.9s, opacity 0.2s ease 1.9s;
 }
 /* 完成状態: 外側はぼやけている */
 .a045-dart__sharp {
@@ -353,17 +354,17 @@
 }
 .a045-dart.is-armed .a045-dart__sharp {
   opacity: 1;
-  transition: opacity 1.3s ease 0.4s;
 }
 .a045-dart.is-armed .a045-dart__blur {
   opacity: 0;
-  transition: opacity 1.3s ease 0.4s;
 }
 .a045-dart.is-visible .a045-dart__sharp {
   opacity: 0;
+  transition: opacity 1.3s ease 0.4s;
 }
 .a045-dart.is-visible .a045-dart__blur {
   opacity: 0.75;
+  transition: opacity 1.3s ease 0.4s;
 }
 
 /* ---------- 三面鏡: 手前に角度の付いた三面鏡が開いて平らな3枚になり、左右が消えて一面になる ---------- */
