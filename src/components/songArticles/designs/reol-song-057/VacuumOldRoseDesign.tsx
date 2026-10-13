@@ -5,7 +5,7 @@
  * - 表紙: ガラスの覆い(ベルジャー)に閉じ込められた一輪の薔薇(線画)。足もとから一筋の煙(イントロの ZIPPO と煙草)。
  * - 題名・見出し・本文は明朝体。段落が短いので、行間を広くとって一文ずつ置く。
  * - 「関係ない」の節の後: 断ち切ったはずの一本の線(真ん中で切れているが、細い糸が残ってつながっている)。
- * - 街の情景の節(観覧車の段落の後): 太陽の軌道の図(季節でずれる東西の弧、西に沈む太陽、地平線の下の午前二時、衛星都市と観覧車)。
+ * - 街の情景の節(観覧車の段落の後): 太陽の軌道の図(季節でずれる東西の弧、西に沈む太陽、地平線の下の午前二時、衛星都市と観覧車)。地図と同じく東を右に。
  * - 時が殺してくの節の後: 一枚ずつ薄れていく花びら。
  * - 甘すぎた匂いの節(「蓋をして」の段落の後): ガラスの覆いが薔薇にかぶさる(画面に入ると上から降りて閉じる)。
  * - 冒頭のリンクの行は本文のまま(小さな札の列)。『事実上』XFD は公式の埋め込み(クリックで読み込む)も表紙の下に置く。
@@ -148,7 +148,7 @@ const CutLine: React.FC = () => (
 const SunChart: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.4);
   const H = 190;
-  // 東(左)から西(右)へ。季節で高さと出入りの位置が変わる
+  // 東(右)から西(左)へ。地図と同じく東を右にする(2026-10-13 ユーザー「通常は東が右のはず」)。季節で高さと出入りの位置が変わる
   const arcs: [number, number, number][] = [
     [72, 568, 150],
     [92, 548, 112],
@@ -196,13 +196,13 @@ const SunChart: React.FC = () => {
           })}
         </g>
         <line x1="20" y1={H} x2="620" y2={H} className="a057-sun__horizon" />
-        {/* 西に沈む太陽(半分が地平線の下) */}
+        {/* 西(左)に沈む太陽(半分が地平線の下) */}
         <clipPath id="a057-above">
           <rect x="0" y="0" width="640" height={H} />
         </clipPath>
-        <circle cx={548} cy={H} r={16} className="a057-sun__set" clipPath="url(#a057-above)" />
-        <text x="72" y={H + 26} className="a057-sun__label" textAnchor="middle">東</text>
-        <text x="568" y={H + 26} className="a057-sun__label" textAnchor="middle">西</text>
+        <circle cx={92} cy={H} r={16} className="a057-sun__set" clipPath="url(#a057-above)" />
+        <text x="72" y={H + 26} className="a057-sun__label" textAnchor="middle">西</text>
+        <text x="568" y={H + 26} className="a057-sun__label" textAnchor="middle">東</text>
       </svg>
     </div>
   );
