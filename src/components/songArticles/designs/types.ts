@@ -50,6 +50,8 @@ export interface SongArticlePageContext {
   designId: string | null;
   preview: boolean;
   noindex: boolean;
+  /** 限定公開(plan/43)。URL を知っている人だけが読める */
+  unlisted?: boolean;
   /** ビルド時刻(予約公開の判定に使う。plan/43) */
   builtAt?: number;
 }

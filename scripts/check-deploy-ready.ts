@@ -21,7 +21,7 @@ const missingOg = existsSync(articlesDir)
       const file = path.join(articlesDir, id, "article.json");
       if (!existsSync(file)) return [];
       const a = JSON.parse(readFileSync(file, "utf8"));
-      return a.status === "published" && a.slug && !existsSync(`static/articles-og/${a.slug}.jpg`) ? [`${id}(${a.slug})`] : [];
+      return (a.status === "published" || a.status === "unlisted") && a.slug && !existsSync(`static/articles-og/${a.slug}.jpg`) ? [`${id}(${a.slug})`] : [];
     })
   : [];
 if (missingOg.length > 0) {

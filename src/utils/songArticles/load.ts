@@ -1,7 +1,7 @@
 /**
  * ビルド時に楽曲記事を読み込む(gatsby-node.ts から使う)。
  *
- * - 通常ビルド: content/articles/<id>/ のうち status が "published" のものだけ。
+ * - 通常ビルド: content/articles/<id>/ のうち status が "published" と "unlisted"(限定公開。plan/43)のもの。
  * - ARTICLES_PREVIEW=1: 加えて .articles-local/staging/<id>/ も読む(ローカル確認用)。
  *   プレビュー記事は noindex で、デプロイ前検査(scripts/check-deploy-ready.ts)が止める。
  */
@@ -50,7 +50,7 @@ const loadDir = (dir: string, preview: boolean): LoadedSongArticle => {
 export const loadSongArticles = (rootDir: string): LoadedSongArticle[] => {
   const published = listDirs(path.join(rootDir, PUBLISHED_DIR))
     .map((dir) => loadDir(dir, false))
-    .filter((a) => a.article.status === "published");
+    .filter((a) => a.article.status === "published" || a.article.status === "unlisted");
 
   const result = [...published];
   if (isArticlesPreview()) {

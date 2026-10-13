@@ -1594,7 +1594,8 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
       const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
       homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
         const a = byId.get(id);
-        return a
+        // 限定公開(plan/43)の記事は HOME に出さない
+        return a && a.article.status !== "unlisted"
           ? [
               {
                 slug: a.article.slug as string,
@@ -1942,6 +1943,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
       for (const { article, parsed, preview } of songArticles) {
         const slug = article.slug as string;
+        // 限定公開(plan/43): 記事ページだけ作る。一覧・関連・曲ページには出さず、noindex(サイトマップからも外れる)
+        const unlisted = article.status === "unlisted";
         const songPages = new Map<
           string,
           { songUuid: string; slug: string; songName: string; musicVideoUrl: string | null }
@@ -2032,7 +2035,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         const tags = songArticleTags({ releases: songFacts.releases, extra: article.tags });
 
         const excerpt = article.summary ?? firstParagraphText(parsed);
-        relatedCandidates.push({
+        if (!unlisted) relatedCandidates.push({
           id: article.id,
           slug,
           title: parsed.title,
@@ -2073,7 +2076,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             ogImage: articleOgImagePath(slug),
             designId: designIssues.length === 0 ? article.id : null,
             preview,
-            noindex: preview,
+            noindex: preview || unlisted,
+            unlisted,
             // 予約公開(公開日時が未来)。ページは置くが、サイトマップには載せない(plan/43)。
             // noindex にはしない(公開日時を過ぎても次のデプロイまで静的HTMLに残ってしまうため)
             scheduled: !isReleased(article.publishedAt, BUILT_AT),
@@ -2081,7 +2085,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           },
           },
         });
-        indexEntries.push({
+        if (!unlisted) indexEntries.push({
           id: article.id,
           slug,
           title: parsed.title,
@@ -2096,7 +2100,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           preview,
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
-        for (const page of songPages.values()) {
+        for (const page of unlisted ? [] : songPages.values()) {
           const list = articlesBySongUuid.get(page.songUuid) ?? [];
           list.push({ slug, title: parsed.title, publishedAt: article.publishedAt ?? null });
           articlesBySongUuid.set(page.songUuid, list);
