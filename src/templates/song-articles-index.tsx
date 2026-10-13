@@ -49,6 +49,8 @@ interface SongArticlesIndexContext {
 }
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
+const NOTE =
+  "ここに書いているのは、ファンのひとりとしての個人的な解釈です。正解を示すものではありません。読んだあとにもう一度曲を聴き直すときの、たたき台にしてもらえたらうれしいです。";
 
 const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null }> = ({ a, activeTag, likes }) => {
   const date = formatArticleDate(a.createdAt);
@@ -223,6 +225,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           <Kicker color="text-bx-blue">{current ? "SERIES" : "READING"}</Kicker>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-tight">{current ? current.name : "読みもの"}</h1>
           <p className="mt-3 text-[14px] leading-relaxed text-bx-ink2">{current ? current.description : DESCRIPTION}</p>
+          {/* 断り書き(2026-10-13 ユーザー「あくまで個人の解釈であることで、曲をもう一度聴き直す叩き台にしてほしい旨を記載」) */}
+          <p className="mt-4 border-l-2 border-bx-line pl-3 text-[13px] leading-relaxed text-bx-ink3">{NOTE}</p>
         </header>
 
         {/* タグの絞り込み(記事のタグのリンクから ?tag= で来た時だけ)。絞り込みのボタン群は置かない(2026-10-11 ユーザー「タグで絞り込むは不要になった」) */}
