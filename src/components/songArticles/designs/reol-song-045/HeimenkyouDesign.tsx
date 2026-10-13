@@ -121,7 +121,7 @@ const Triptych: React.FC = () => {
 const ORDER: { year: string; place: string; songs: [string, string] }[] = [
   { year: "2018", place: "MADE IN FACTION", songs: ["平面鏡", "カルト"] },
   { year: "2025", place: "横浜アリーナ『無題』", songs: ["平面鏡", "十中八九"] },
-  { year: "2026", place: "『美辞学』ツアーファイナル", songs: ["うつくしじごく", "平面鏡"] },
+  { year: "2026", place: "『美辞学』", songs: ["うつくしじごく", "平面鏡"] }, // ツアーファイナルだけの曲順ではないので、ツアー名だけ(2026-10-13 ユーザー指摘)
 ];
 const SetOrder: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.4);
