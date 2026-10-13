@@ -337,6 +337,162 @@
   clip-path: inset(0 0 0 0);
 }
 
+/* ---------- 図の共通 ---------- */
+.a046-mirror,
+.a046-beyond,
+.a046-reach {
+  margin: 1.8em 0;
+}
+.a046-flower {
+  width: min(140px, 38%);
+  margin: 1.8em auto;
+}
+.a046-mirror svg,
+.a046-beyond svg,
+.a046-flower svg,
+.a046-reach svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------- 鏡: 相手だと思った点は、鏡に映った自分 ---------- */
+.a046-mirror__glass {
+  stroke: #a9adb2;
+  stroke-width: 1.5;
+  stroke-dasharray: 2 5;
+}
+.a046-mirror__ray {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+/* 最初は「相手」(輪郭だけの点)。線が届くと、薄い黒い点(鏡に映った自分)に変わる */
+.a046-mirror__other {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2;
+  opacity: 0;
+}
+.a046-mirror__self {
+  fill: var(--dot);
+  opacity: 0.28;
+}
+.a046-mirror.is-armed .a046-mirror__ray {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s ease 0.2s;
+}
+.a046-mirror.is-armed .a046-mirror__other {
+  opacity: 1;
+  transition: opacity 0.6s ease 1.6s;
+}
+.a046-mirror.is-armed .a046-mirror__self {
+  opacity: 0;
+  transition: opacity 1.2s ease 1.6s;
+}
+.a046-mirror.is-visible .a046-mirror__ray {
+  stroke-dashoffset: 0;
+}
+.a046-mirror.is-visible .a046-mirror__other {
+  opacity: 0;
+}
+.a046-mirror.is-visible .a046-mirror__self {
+  opacity: 0.28;
+}
+
+/* ---------- 終止符の先へ続く点線 ---------- */
+.a046-beyond__line {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-beyond__after {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 9;
+}
+.a046-beyond.is-armed .a046-beyond__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s ease 0.2s;
+}
+.a046-beyond.is-armed .a046-beyond__stop {
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s;
+}
+.a046-beyond.is-armed .a046-beyond__after {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 2s steps(10, end) 2s;
+}
+.a046-beyond.is-visible .a046-beyond__line {
+  stroke-dashoffset: 0;
+}
+.a046-beyond.is-visible .a046-beyond__stop {
+  transform: none;
+}
+.a046-beyond.is-visible .a046-beyond__after {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- 献花: 黒枠の中の白い花 ---------- */
+.a046-flower__stem {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-flower__leaf {
+  fill: var(--ink);
+}
+.a046-flower__petal {
+  fill: #fff;
+  stroke: #9a9ea4;
+  stroke-width: 1;
+}
+.a046-flower__heart {
+  fill: #c9ccd0;
+}
+.a046-flower.is-armed .a046-flower__petal {
+  scale: 0.15;
+  opacity: 0;
+  transition: scale 0.9s ease, opacity 0.6s ease;
+}
+.a046-flower.is-visible .a046-flower__petal {
+  scale: 1;
+  opacity: 1;
+}
+
+/* ---------- 届く線: 届かない電話と対になる図 ---------- */
+.a046-reach__from {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 2;
+}
+.a046-reach__line {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.a046-reach.is-armed .a046-reach__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2s ease-in-out 0.2s;
+}
+.a046-reach.is-armed .a046-reach__light {
+  opacity: 0;
+  transition: opacity 1.6s ease 2.1s;
+}
+.a046-reach.is-visible .a046-reach__line {
+  stroke-dashoffset: 0;
+}
+.a046-reach.is-visible .a046-reach__light {
+  opacity: 1;
+}
+
 /* ---------- 結び: 淡い氷の色の地と、繭に包まれた終止符 ---------- */
 .a046-last {
   padding: clamp(56px, 8vw, 88px) 0 clamp(40px, 6vw, 64px);

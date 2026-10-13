@@ -6,6 +6,10 @@
  * - エンドレスからエンドへの節(段落12の後): 文字の図。「エンドレス」の「エンド」の直後に終止符が打たれ、その先の「レス」が薄れて切り離される。
  * - 自分自身の葬式の節: 節全体を黒枠(訃報の黒い縁取り)で囲む。
  * - 届かない電話の節(段落60の後): かける側の点から点線が伸びるが、相手の点に届く前に途切れる。
+ * - 君が大嫌いの節(段落26の後): 鏡の図。相手へ伸びた線の先の点が、鏡に映った自分だったと分かる。
+ * - 大丈夫ではないまま歌うの節の終わり: 線に終止符が打たれ、その先に細い点線が続く(歌うことで終わらないものを残す)。
+ * - 葬式の節(段落50の後): 黒枠の中に白い献花。花びらが開く。
+ * - 結びの節(段落72の後): 届かない電話と対になる図。線が最後まで伸びて黒い点に届き、淡い光に包まれる。
  * - 結び(最後の段落の後): 表紙の黒い丸が、淡い光の輪(繭)に包まれて置かれる。
  * - 公式MVは表紙の下にクリックで読み込む形。Spotify のリンクは本文のまま札に。
  * - 歌詞は本文の外に出さない。MV の画面・十字架・棺は描かない。
@@ -28,11 +32,14 @@ const INTRO = 2;
 const S_ENDLESS = 9;
 const ENDLESS_FIG = 13; // 段落12「永遠を願った…終止符を打つ「エンド」へ。」の後
 const S_HATE = 18;
+const MIRROR_FIG = 27; // 段落26(嫌っているのは本当に相手なのか)の後
 const S_OK = 32;
-const S_FUNERAL = 44;
+const S_FUNERAL = 44; // 段落43(歌うことで終わらないものを残す)の後に、終止符の先へ続く点線
+const FLOWER_FIG = 51; // 段落50(見送ることでもある)の後に献花
 const S_PHONE = 57;
 const PHONE_FIG = 61; // 段落60(通話できないことを示す音で終わる)の後
 const S_SOMEDAY = 68;
+const REACH_FIG = 73; // 段落72(今は愛を受け取ることを歌っている)の後に、届く線
 
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
 const useRevealOnce = <T extends Element>(threshold: number) => {
@@ -123,6 +130,89 @@ const UnreachedCall: React.FC = () => {
         <circle cx="40" cy="40" r="11" className="a046-call__me" />
         <line x1="62" y1="40" x2="430" y2="40" className="a046-call__line" pathLength={1} />
         <circle cx="560" cy="40" r="11" className="a046-call__you" />
+      </svg>
+    </div>
+  );
+};
+
+/** 鏡(君が大嫌いの節): 黒い点から相手へ線が伸びると、相手は鏡に映った自分(薄い同じ点)だったと分かる */
+const Mirror: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a046-mirror${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 120">
+        <line x1="300" y1="10" x2="300" y2="110" className="a046-mirror__glass" />
+        <circle cx="150" cy="60" r="16" className="a046-dot" />
+        <line x1="176" y1="60" x2="424" y2="60" className="a046-mirror__ray" pathLength={1} />
+        <circle cx="450" cy="60" r="16" className="a046-mirror__other" />
+        <circle cx="450" cy="60" r="16" className="a046-mirror__self" />
+      </svg>
+    </div>
+  );
+};
+
+/** 終止符の先へ続く点線(大丈夫ではないまま歌うの節の終わり): 線に終止符が打たれても、その先に細い点線が続く */
+const BeyondTheStop: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a046-beyond${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 60">
+        <defs>
+          <linearGradient id="a046-beyond-fade" gradientUnits="userSpaceOnUse" x1="372" y1="0" x2="590" y2="0">
+            <stop offset="0" stopColor="#17181b" stopOpacity="0.8" />
+            <stop offset="1" stopColor="#17181b" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <line x1="20" y1="30" x2="330" y2="30" className="a046-beyond__line" pathLength={1} />
+        <circle cx="348" cy="30" r="9" className="a046-dot a046-beyond__stop" />
+        <line x1="372" y1="30" x2="590" y2="30" stroke="url(#a046-beyond-fade)" className="a046-beyond__after" />
+      </svg>
+    </div>
+  );
+};
+
+/** 献花(葬式の節): 白い花を一輪。画面に入ると花びらが開く */
+const Flower: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  const petals = 16;
+  return (
+    <div ref={ref} className={`a046-flower${className}`} aria-hidden="true">
+      <svg viewBox="0 0 160 200">
+        <path d="M80,104 C78,140 84,168 80,196" className="a046-flower__stem" />
+        <path d="M80,150 C94,138 108,138 116,144 C106,154 92,156 80,150 Z" className="a046-flower__leaf" />
+        {Array.from({ length: petals }, (_, i) => (
+          <ellipse
+            key={i}
+            cx="80"
+            cy="58"
+            rx="7"
+            ry="22"
+            className="a046-flower__petal"
+            style={{ transform: `rotate(${(360 / petals) * i}deg)`, transformOrigin: "80px 80px", transitionDelay: `${0.05 * i}s` }}
+          />
+        ))}
+        <circle cx="80" cy="80" r="9" className="a046-flower__heart" />
+      </svg>
+    </div>
+  );
+};
+
+/** 届く線(結びの節): 届かない電話と対になる図。線が最後まで伸びて黒い点に届き、黒い点が淡い光に包まれる */
+const Reaching: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a046-reach${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 100">
+        <defs>
+          <radialGradient id="a046-reach-light">
+            <stop offset="0" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="560" cy="50" r="60" fill="url(#a046-reach-light)" className="a046-reach__light" />
+        <circle cx="40" cy="50" r="9" className="a046-reach__from" />
+        <line x1="58" y1="50" x2="538" y2="50" className="a046-reach__line" pathLength={1} />
+        <circle cx="560" cy="50" r="12" className="a046-dot" />
       </svg>
     </div>
   );
@@ -233,11 +323,25 @@ const EndDesign: SongArticleDesign = (ctx) => {
               {body(ENDLESS_FIG, S_HATE)}
             </section>
 
-            <section className="a046-section">{body(S_HATE, S_OK)}</section>
-            <section className="a046-section">{body(S_OK, S_FUNERAL)}</section>
+            {/* 君が大嫌い。「君」は自分自身でもある、の段落の後に鏡の図 */}
+            <section className="a046-section">
+              {body(S_HATE, MIRROR_FIG)}
+              <Mirror />
+              {body(MIRROR_FIG, S_OK)}
+            </section>
 
-            {/* 自分自身の葬式: 節全体を黒枠で囲む */}
-            <section className="a046-section a046-funeral">{body(S_FUNERAL, S_PHONE)}</section>
+            {/* 大丈夫ではないまま歌う。節の終わりに、終止符の先へ続く点線 */}
+            <section className="a046-section">
+              {body(S_OK, S_FUNERAL)}
+              <BeyondTheStop />
+            </section>
+
+            {/* 自分自身の葬式: 節全体を黒枠で囲む。見送ることでもある、の段落の後に献花 */}
+            <section className="a046-section a046-funeral">
+              {body(S_FUNERAL, FLOWER_FIG)}
+              <Flower />
+              {body(FLOWER_FIG, S_PHONE)}
+            </section>
 
             {/* 届かない電話。段落60の後に、届かない点線 */}
             <section className="a046-section">
@@ -250,7 +354,11 @@ const EndDesign: SongArticleDesign = (ctx) => {
           {/* 結び: 地が淡い氷の色へ明るくなり、最後に繭に包まれた終止符 */}
           <div className="a046-last">
             <div className="a046-column">
-              <section className="a046-section a046-section--last">{body(S_SOMEDAY, blocks.length, "a046-text a046-closing")}</section>
+              <section className="a046-section a046-section--last">
+                {body(S_SOMEDAY, REACH_FIG)}
+                <Reaching />
+                {body(REACH_FIG, blocks.length, "a046-text a046-closing")}
+              </section>
               <Cocoon />
             </div>
           </div>

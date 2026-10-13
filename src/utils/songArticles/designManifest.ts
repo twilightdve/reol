@@ -22,7 +22,7 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // エンド(plan/40)。MV(0)・Spotify(1)・冒頭(2)・見出し(9, 18, 32, 44, 57, 68)・文字の図の前後(12, 13)・届かない電話の図の前後(60, 61)・結び(82)
+  // エンド(plan/40)。MV(0)・Spotify(1)・冒頭(2)・見出し(9, 18, 32, 44, 57, 68)・文字の図の前後(12, 13)・鏡の図の前後(26, 27)・献花の前後(50, 51)・届かない電話の図の前後(60, 61)・届く線の前後(72, 73)・結び(82)
   "reol-song-046": {
     bodyRevision: 3,
     bodySha256: "b08cbb1c2bb45a31dce85303fea564c8bf362a4820d08963ad7b36a4c14fea5f",
@@ -35,12 +35,18 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 12, textHash: "6995f78e2f0c1605" },
       { block: 13, textHash: "42a4fef9b37f87ca" },
       { block: 18, textHash: "26a70fd4c21a1c3b" },
+      { block: 26, textHash: "981fc046839a44a8" },
+      { block: 27, textHash: "28089db22312fde6" },
       { block: 32, textHash: "8c829a07e038ac28" },
       { block: 44, textHash: "c5eeb726c90f05bf" },
+      { block: 50, textHash: "1edf7417f2a6ec23" },
+      { block: 51, textHash: "4c574b3f8b098eb8" },
       { block: 57, textHash: "465f42740d65b686" },
       { block: 60, textHash: "ec5dcc89a2637373" },
       { block: 61, textHash: "98128f8511b932b2" },
       { block: 68, textHash: "6cc2a78c5f847f69" },
+      { block: 72, textHash: "41d047cbcfbf0c9c" },
+      { block: 73, textHash: "1d6c19963af331ad" },
       { block: 82, textHash: "f9438d8d4e48f776" },
     ],
   },
