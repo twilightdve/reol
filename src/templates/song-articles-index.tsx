@@ -21,6 +21,7 @@ import { trackEvent } from "../utils/analytics";
 import { formatArticleDate } from "../utils/songArticles/format";
 import { ArticleSeries, seriesPath, showSongKicker, splitTitleBySong, tagFilterPath } from "../utils/songArticles/series";
 import { fetchArticleLikeCounts } from "../services/articleLikeService";
+import { isReleased, useNow } from "../utils/songArticles/schedule";
 
 type IndexEntry = {
   /** 記事ID(いいね数の問い合わせに使う) */
@@ -46,6 +47,8 @@ interface SongArticlesIndexContext {
   /** シリーズのページなら、そのシリーズ。/articles/ なら null */
   seriesSlug: string | null;
   noindex: boolean;
+  /** ビルド時刻。予約公開の記事は公開日時を過ぎるまで出さない(plan/43) */
+  builtAt?: number;
 }
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
@@ -124,7 +127,10 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   pageContext,
   location,
 }) => {
-  const { articles, series, seriesSlug } = pageContext;
+  const { articles: allArticles, series, seriesSlug, builtAt } = pageContext;
+  // 予約公開(plan/43): 公開日時を過ぎた記事だけ。静的HTMLはビルド時刻、JS が動いた後は今の時刻で判定する
+  const now = useNow(builtAt);
+  const articles = useMemo(() => allArticles.filter((a) => isReleased(a.publishedAt, now)), [allArticles, now]);
   const current = seriesSlug ? series.find((s) => s.slug === seriesSlug) ?? null : null;
 
   // タグの絞り込みは JS が動いた後だけ(静的HTMLとの食い違いを避ける)

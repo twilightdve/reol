@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { trackEvent } from "../../utils/analytics";
 import { seriesPath, showSongKicker, tagFilterPath } from "../../utils/songArticles/series";
+import { isReleased, useNow } from "../../utils/songArticles/schedule";
 import { ArticleLikeState, fetchArticleLikes, setArticleLike } from "../../services/articleLikeService";
 
 /**
@@ -86,8 +87,13 @@ const ArticleEnd: React.FC<{
   articleId: string;
   series: { slug: string; name: string };
   tags: string[];
-  related: { slug: string; title: string; songTitle: string }[];
-}> = ({ articleId, series, tags, related }) => (
+  related: { slug: string; title: string; songTitle: string; publishedAt?: string | null }[];
+  /** ビルド時刻。予約公開の記事は公開日時を過ぎるまで「その他の記事」に出さない(plan/43) */
+  builtAt?: number;
+}> = ({ articleId, series, tags, related: relatedAll, builtAt }) => {
+  const now = useNow(builtAt);
+  const related = relatedAll.filter((r) => isReleased(r.publishedAt, now)).slice(0, 3);
+  return (
   <div className="border-t border-bx-line bg-bx-bg text-bx-ink">
     <div className="container mx-auto max-w-3xl px-4 sm:px-6 py-10">
       <LikeButton articleId={articleId} />
@@ -150,6 +156,7 @@ const ArticleEnd: React.FC<{
       </nav>
     </div>
   </div>
-);
+  );
+};
 
 export default ArticleEnd;

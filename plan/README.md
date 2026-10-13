@@ -48,6 +48,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [38-mutant-article-design.md](./38-mutant-article-design.md) | 楽曲記事「ミュータント」の記事別デザイン: 夜の海、海に浮かんで溶ける題名、ループ橋と吊り橋、二重の螺旋、世界線の移り変わり |
 | [39-vacuum-oldrose-article-design.md](./39-vacuum-oldrose-article-design.md) | 楽曲記事「真空オールドローズ」の記事別デザイン: 古い紙の地、ガラスの覆いの中の薔薇と煙、断ち切った線、太陽の軌道の図、薄れる花びら、覆いが閉じる結び |
 | [41-heimenkyou-article-design.md](./41-heimenkyou-article-design.md) | 楽曲記事「平面鏡」の記事別デザイン: 濃い青の闇、縦の鏡の線と反転した題名、ダーツの的、閉じる三面鏡、市松の帯、三つの年の曲順 |
+| [43-scheduled-publish.md](./43-scheduled-publish.md) | 楽曲記事の予約公開: 公開日時が未来の記事はページを置き、一覧・関連・曲ページ・HOME・サイトマップには公開日時を過ぎるまで出さない(JS で今の時刻と比べる) |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
