@@ -70,6 +70,17 @@ export const showSongKicker = (title: string, songTitle: string): boolean => {
   return !title.toLowerCase().includes(core.toLowerCase());
 };
 
+/**
+ * 題名の中の曲名の位置(曲名を強調して表示するため)。曲名の末尾の括弧書き(feat. など)は外し、大文字小文字は区別しない。
+ * 見つからなければ null。2026-10-13 ユーザー「読み物一覧において曲名の文字だけ強調表示してください」
+ */
+export const splitTitleBySong = (title: string, songTitle: string): { before: string; song: string; after: string } | null => {
+  const core = songTitle.replace(/\s*[(（][^()（）]*[)）]\s*$/, "").trim() || songTitle;
+  const at = title.toLowerCase().indexOf(core.toLowerCase());
+  if (at < 0 || !core) return null;
+  return { before: title.slice(0, at), song: title.slice(at, at + core.length), after: title.slice(at + core.length) };
+};
+
 export type RelatedCandidate = {
   id: string;
   slug: string;

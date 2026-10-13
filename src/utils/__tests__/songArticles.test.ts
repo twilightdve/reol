@@ -183,6 +183,12 @@ describe("parseArticleMarkdown", () => {
     expect(r.blocks[0].t).toBe("p");
     expect(firstParagraphText(r)).toBe("一段落目。出典の文言を保持する。");
   });
+  it("リンクだけの段落(聴く：…｜…)は要約に使わない", () => {
+    const r = parseArticleMarkdown(
+      "# 題\n\n聴く：[Spotify](https://open.spotify.com/x)｜[公式](https://reol.jp/)\n\n[Spotifyで聴く](https://open.spotify.com/y)\n\n本文の一段落目。\n"
+    );
+    expect(firstParagraphText(r)).toBe("本文の一段落目。");
+  });
   it("H1が二重なら問題として返す", () => {
     expect(parseArticleMarkdown("# A\n\n本文\n\n# B\n").problems.join()).toMatch(/2つ目のH1/);
   });
