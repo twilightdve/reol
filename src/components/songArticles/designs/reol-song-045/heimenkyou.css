@@ -275,6 +275,12 @@
 .a045-video .sa-media__thumb {
   opacity: 1;
 }
+/* 再生ボタン: 淡い青の地に濃い紺 */
+.a045-video .sa-media__button {
+  background: rgb(175 198 232 / 0.94);
+  color: var(--night);
+  box-shadow: 0 0 24px rgb(34 54 200 / 0.5);
+}
 .a045-video .sa-media__caption {
   margin-top: 10px;
   font-size: 13px;

@@ -157,6 +157,11 @@
   opacity: 1;
   filter: grayscale(0.2);
 }
+/* 再生ボタン: 灰色の紙面に合わせた白地に墨 */
+.a046-video .sa-media__button {
+  background: rgb(244 245 246 / 0.94);
+  color: var(--ink);
+}
 .a046-video .sa-media__caption {
   margin-top: 10px;
   font-size: 13px;
