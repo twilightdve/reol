@@ -368,12 +368,6 @@
   stroke-width: 3;
   stroke-dasharray: 28 22;
 }
-.a047-pass__label {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  fill: var(--sodium-2);
-}
 /* 完成状態(JS なし・動きを減らす設定): 追い越していった車は前方(右)に止まっている */
 .a047-pass__other {
   transform: translateX(var(--rest));
