@@ -230,6 +230,9 @@ const SunChart: React.FC = () => {
   const sunColor = mixColor("#f0c48e", "#881b1e", Math.pow(sun.t, 2.2));
   const haloColor = mixColor("#f7dcae", "#e8b39c", Math.pow(sun.t, 1.6));
   const duskOpacity = Math.max(0, Math.min(1, (sun.t - 0.5) / 0.5));
+  // 朝焼け(2026-10-13 ユーザー「太陽が登った直後は淡いオレンジの朝焼けが表示されていてほしい」):
+  // 昇り始めてすぐ東の地平線に現れ、太陽が高くなるにつれて消える。完成した絵(t = 1)と動く前(t = 0)には出ない
+  const dawnOpacity = sun.t <= 0 ? 0 : sun.t < 0.06 ? sun.t / 0.06 : Math.max(0, 1 - (sun.t - 0.06) / 0.34);
   // 東(右)から西(左)へ。地図と同じく東を右にする(2026-10-13 ユーザー「通常は東が右のはず」)。季節で高さと出入りの位置が変わる
   // 太陽の通り道は1本だけ(2026-10-13 ユーザー「3本線の意味がわかりにくい。単純化して一本でもいい」。以前は季節でずれる3本)
   const arcs: [number, number, number][] = [[92, 548, 112]];
@@ -278,12 +281,35 @@ const SunChart: React.FC = () => {
           <mask id="a057-edge-mask" maskContentUnits="objectBoundingBox">
             <rect x="0" y="0" width="1" height="1" fill="url(#a057-edge)" />
           </mask>
+          {/* 東(右)の地平線の朝焼け。淡い橙 */}
+          <radialGradient
+            id="a057-dawn"
+            gradientUnits="userSpaceOnUse"
+            cx={548}
+            cy={H}
+            r={420}
+            gradientTransform={`translate(548 ${H}) scale(1 0.32) translate(-548 ${-H})`}
+          >
+            <stop offset="0" stopColor="#f6bf86" stopOpacity="0.85" />
+            <stop offset="0.35" stopColor="#f6cfa4" stopOpacity="0.55" />
+            <stop offset="0.7" stopColor="#f3dcc4" stopOpacity="0.22" />
+            <stop offset="1" stopColor="#f4ece4" stopOpacity="0" />
+          </radialGradient>
+          {/* 図の右端で朝焼けが切れて見えないよう、右端だけ薄れさせる */}
+          <linearGradient id="a057-edge-r" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0.88" stopColor="#fff" stopOpacity="1" />
+            <stop offset="1" stopColor="#fff" stopOpacity="0" />
+          </linearGradient>
+          <mask id="a057-edge-mask-r" maskContentUnits="objectBoundingBox">
+            <rect x="0" y="0" width="1" height="1" fill="url(#a057-edge-r)" />
+          </mask>
           <radialGradient id="a057-halo">
             <stop offset="0" stopColor={haloColor} stopOpacity="0.85" />
             <stop offset="1" stopColor={haloColor} stopOpacity="0" />
           </radialGradient>
         </defs>
         <rect x="0" y="0" width="640" height={H} fill="url(#a057-dusk)" mask="url(#a057-edge-mask)" style={{ opacity: duskOpacity }} />
+        <rect x="0" y="0" width="640" height={H} fill="url(#a057-dawn)" mask="url(#a057-edge-mask-r)" style={{ opacity: dawnOpacity }} />
         {arcs.map(([x0, x1, h], i) => (
           <path
             key={i}
