@@ -458,11 +458,62 @@
   opacity: 1;
 }
 
-/* ---------- 結び ---------- */
-.a047-end {
-  width: min(280px, 72%);
-  margin: clamp(40px, 6vw, 64px) auto 0;
-  opacity: 0.9;
+/* ---------- 結び: 走り去るタクシー ---------- */
+.a047-exit {
+  margin: clamp(40px, 6vw, 64px) 0 0;
+}
+.a047-exit svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.a047-exit__road {
+  fill: #1a1d29;
+}
+.a047-exit__edge {
+  stroke: rgb(255 255 255 / 0.4);
+  stroke-width: 2;
+}
+.a047-exit__dash {
+  stroke: rgb(255 255 255 / 0.45);
+  stroke-width: 3;
+  stroke-dasharray: 28 22;
+}
+/* 完成状態: もう走り去った後(画面の外) */
+.a047-exit__car {
+  transform: translateX(760px);
+}
+.a047-exit.is-armed .a047-exit__car {
+  transform: translateX(110px);
+}
+.a047-exit__trail {
+  opacity: 0;
+}
+/* 画面に入ったら: 少し止まってから、だんだん速くなって右の外へ。残光は走り出してから伸びる */
+.a047-exit.is-visible .a047-exit__car {
+  animation: a047-exit-run 2.6s cubic-bezier(0.55, 0, 0.9, 0.4) 0.8s both;
+}
+.a047-exit.is-visible .a047-exit__trail {
+  animation: a047-exit-trail 2.6s ease-in 0.8s both;
+}
+@keyframes a047-exit-run {
+  from {
+    transform: translateX(110px);
+  }
+  to {
+    transform: translateX(760px);
+  }
+}
+@keyframes a047-exit-trail {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* ---------- 奥付 ---------- */
