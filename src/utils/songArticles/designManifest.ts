@@ -22,6 +22,26 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // ミッシング(plan/42)。Spotify(0)・冒頭(1, 2)・メーターの前後(5, 6)・追い越しの前後(9, 10)・XFD の前後(12, 13)・四十九の輪の前後(20, 21)・結び(30)
+  "reol-song-047": {
+    bodyRevision: 4,
+    bodySha256: "3bfd175ba80a90cc4488986efcedf89366a82a080c627bda68663af88c358603",
+    blockCount: 31,
+    anchors: [
+      { block: 0, textHash: "266ba8ca7c4455cd" },
+      { block: 1, textHash: "85d146397f27d000" },
+      { block: 2, textHash: "5141c9b52a6a7504" },
+      { block: 5, textHash: "8394dc17f84f379b" },
+      { block: 6, textHash: "674964c7d2478e1c" },
+      { block: 9, textHash: "28c60bebe7daa787" },
+      { block: 10, textHash: "d5caf6612133fb0e" },
+      { block: 12, textHash: "6718d966d85373f1" },
+      { block: 13, textHash: "fae93890d7b53b4a" },
+      { block: 20, textHash: "b6246b48aa03e9be" },
+      { block: 21, textHash: "bb4f15e18c014fc4" },
+      { block: 30, textHash: "a5136aaa35755b06" },
+    ],
+  },
   // 平面鏡(plan/41)。映像へのリンク(0, 1)・Spotify(2)・冒頭(3)・2018年の映像の前後(5, 6)・見出し(12, 26, 36, 47, 68)・ダーツの的の前後(15, 16)・三面鏡の前後(33, 34)・市松の帯の後(48)・2025年の映像の前後(51, 52)・曲順の図の前後(74, 75)・結び(84)
   "reol-song-045": {
     bodyRevision: 3,
