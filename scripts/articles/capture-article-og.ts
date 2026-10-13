@@ -121,7 +121,14 @@ const isolateCover = async (page: Page) => {
 const capture = async (page: Page, a: Published) => {
   await page.goto(`${BASE_URL}/articles/${a.slug}/`, { waitUntil: "load" });
   await page.waitForSelector("[data-og-cover] h1", { timeout: 30000 });
-  const h1 = (await page.locator("[data-og-cover] h1").first().innerText()).replace(/\s+/g, "");
+  // 読み上げ対象外の飾り(平面鏡の反転した題名など)は題名に含めない
+  const h1 = (
+    await page.locator("[data-og-cover] h1").first().evaluate((el) => {
+      const c = el.cloneNode(true) as HTMLElement;
+      c.querySelectorAll('[aria-hidden="true"]').forEach((n) => n.remove());
+      return c.textContent ?? "";
+    })
+  ).replace(/\s+/g, "");
   if (h1 !== a.title.replace(/\s+/g, "")) {
     throw new Error(`${a.id}: 表紙の題名「${h1}」が公開中の題名「${a.title}」と違います(未公開の原稿を表示していませんか)`);
   }

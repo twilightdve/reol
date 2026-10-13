@@ -1,0 +1,27 @@
+{
+  "id": "reol-song-046",
+  "kind": "song",
+  "songTitle": "エンド",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "b08cbb1c2bb45a31dce85303fea564c8bf362a4820d08963ad7b36a4c14fea5f",
+  "songRefs": [
+    "019e8282-9b94-7dd6-8594-018b304cfdcb"
+  ],
+  "media": [
+    {
+      "kind": "youtube",
+      "url": "https://youtu.be/ZwJs5Zc9oFk",
+      "role": null
+    }
+  ],
+  "slug": "endo",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T05:59:53.048Z",
+  "publishedAt": "2026-10-13T07:21:29.203Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
