@@ -247,11 +247,18 @@ const EndDesign: SongArticleDesign = (ctx) => {
   const body = (from: number, to: number, className = "a046-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
-  // 題名「Reol「エンド」　愛した過去に打つ終止符」: 「エンド」を大きく、副題を下に(文言は変えない)
-  const m = title.match(/^(.*?)「(.+?)」\s*(.*)$/);
-  const tPre = m ? m[1].trim() : "";
-  const tSong = m ? m[2] : title;
-  const tSub = m ? m[3].trim() : "";
+  // 題名「エンド　愛した過去に打つ終止符」(旧: 「Reol「エンド」　…」): 「エンド」を大きく、副題を下に(文言は変えない)。
+  // 「Reol「」」付きの旧い題名でも組めるようにしておく(括弧がある時だけ括弧を添える)
+  const SONG = "エンド";
+  const quoted = title.match(/^(.*?)「(.+?)」\s*(.*)$/);
+  const m = quoted
+    ? { pre: quoted[1].trim(), song: quoted[2], sub: quoted[3].trim(), q: true }
+    : title.startsWith(SONG)
+      ? { pre: "", song: SONG, sub: title.slice(SONG.length).trim(), q: false }
+      : null;
+  const tPre = m ? m.pre : "";
+  const tSong = m ? m.song : title;
+  const tSub = m ? m.sub : "";
 
   return (
     <main className="a046" lang="ja">
@@ -274,9 +281,9 @@ const EndDesign: SongArticleDesign = (ctx) => {
                 <>
                   {tPre && <span className="a046-title__pre">{tPre}</span>}
                   <span className="a046-title__song">
-                    <span className="a046-title__q">「</span>
+                    {m.q && <span className="a046-title__q">「</span>}
                     {tSong}
-                    <span className="a046-title__q">」</span>
+                    {m.q && <span className="a046-title__q">」</span>}
                   </span>
                   {tSub && <span className="a046-title__sub">{tSub}</span>}
                 </>
