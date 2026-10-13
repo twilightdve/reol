@@ -119,7 +119,7 @@ const BellJar: React.FC<{ cx: number; y: number; w: number; h: number; className
 
 /** 表紙の絵: 台の上のガラスの覆いと薔薇、足もとから立ちのぼる一筋の煙。装飾なので読み上げ対象外 */
 const CoverArt: React.FC = () => (
-  <svg className="a057-cover__art" viewBox="0 0 420 520" aria-hidden="true">
+  <svg className="a057-cover__art" viewBox="0 0 420 472" aria-hidden="true">
     {/* 煙は台の手前に置いた煙草の先から立ちのぼる(イントロの ZIPPO と煙草。2026-10-13 ユーザー「タバコから出ていればわかる」) */}
     <path
       d="M86,434 C78,400 106,374 92,338 C78,302 112,276 100,238 C90,206 108,182 104,152"
@@ -245,7 +245,8 @@ const SunChart: React.FC = () => {
         {arcs.map(([x0, x1, h], i) => (
           <path
             key={i}
-            d={`M${x0},${H} C${x0 + 20},${H - h * 1.3} ${x1 - 20},${H - h * 1.3} ${x1},${H}`}
+            // 東(右)から昇り西(左)へ沈む向きに描く(線が描かれる動きも右から左)
+            d={`M${x1},${H} C${x1 - 20},${H - h * 1.3} ${x0 + 20},${H - h * 1.3} ${x0},${H}`}
             className="a057-sun__arc a057-sun__arc--main"
             style={{ transitionDelay: `${i * 0.2}s` }}
             pathLength={1}

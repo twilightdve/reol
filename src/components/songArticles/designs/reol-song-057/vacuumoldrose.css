@@ -34,7 +34,7 @@
   background:
     radial-gradient(ellipse 70% 60% at 68% 55%, #fbf6f0 0%, transparent 70%),
     linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
-  min-height: clamp(560px, 90svh, 760px);
+  /* 高さは中身に合わせる(最小の高さを付けると、作成日の下に表紙の余りが残る。2026-10-13 ユーザー指摘) */
   display: flex;
   flex-direction: column;
 }
@@ -68,9 +68,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  align-items: center;
+  /* PC は題名の下端を、ガラスの覆いの台の高さにそろえる */
+  align-items: end;
   gap: 24px;
-  padding-bottom: clamp(32px, 5vw, 56px);
+  padding: clamp(16px, 3vw, 40px) 0 clamp(24px, 3vw, 36px);
+}
+.a057-cover__text {
+  padding-bottom: clamp(4px, 1vw, 12px);
 }
 .a057-cover__art {
   display: block;
@@ -235,7 +239,7 @@
 
 /* ---------- 本文 ---------- */
 .a057-ground {
-  padding-top: clamp(40px, 6vw, 72px);
+  padding-top: clamp(24px, 4vw, 48px);
   background: var(--paper);
 }
 .a057-column {
@@ -589,7 +593,10 @@
 @media (max-width: 760px) {
   .a057-cover__body {
     grid-template-columns: 1fr;
-    align-content: center;
+    align-items: start;
+  }
+  .a057-cover__text {
+    padding-bottom: 0;
   }
   .a057-cover__art {
     order: -1;
