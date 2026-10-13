@@ -4,7 +4,7 @@
  * - 主役は「平面鏡」そのもの。表紙は濃い青の照明の闇に、一本の縦の鏡の線。題名「平面鏡」と、鏡の向こうの左右反転した像。
  * - 紙面は濃い紺の地に白い文字。リンクと図は淡い青(テーマ色)。
  * - 新しい始まりの節(段落15の後): ダーツの的。外側の輪がぼやけ、中心だけがくっきり残る(凝視すると周囲がぼやける)。
- * - 平面鏡が映す節(段落33の後): 三面鏡。左右の鏡が閉じて、正面の一面だけが残る(三面から一面へ)。
+ * - 平面鏡が映す節(段落33の後): 三面鏡。角度の付いた三面鏡が開いて平らな3枚になり、左右が消えて正面の一面だけが残る(三面から一面へ)。
  * - 2018年のライヴ映像は段落5(このライヴ映像がたまらなく好きだ)の後、2025年の映像は「無題」の節の段落51の後。どちらもクリックで読み込む。
  * - 「無題」の節の見出しの下に細い市松模様の帯。
  * - 呪いとじごくの節(段落74の後): 三つの年の曲順。「平面鏡」の札だけ淡い青で、入口の位置が動いていく。
@@ -66,7 +66,7 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
   return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
 };
 
-/** ダーツの的: 矢が中心に刺さり、外側の輪がぼやけ、中心だけがくっきり残る。ぼやけた輪とくっきりした輪を重ね、透明度を入れ替える(WebKit は SVG 要素の CSS filter が効かないため) */
+/** ダーツの的: 外側の輪がぼやけて中心だけがくっきり残り(視界が狭まる)、その後で矢が中心に刺さる。ぼやけた輪とくっきりした輪を重ね、透明度を入れ替える(WebKit は SVG 要素の CSS filter が効かないため) */
 const Dartboard: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   const outer = [96, 80, 64, 48];
@@ -88,8 +88,8 @@ const Dartboard: React.FC = () => {
         <circle cx="120" cy="120" r="32" className="a045-dart__ring is-dark" />
         <circle cx="120" cy="120" r="16" className="a045-dart__ring is-light" />
         <circle cx="120" cy="120" r="5" className="a045-dart__bull" />
-        {/* ダーツの矢: 右上から飛んできて中心に刺さる。矢の向きの座標(先端が原点、尾が -x)で描いて、中心へ置く */}
-        <g transform="translate(120 120) rotate(135)">
+        {/* ダーツの矢: 視界が狭まった後、右上から飛んできて中心に刺さる。矢の向きの座標(先端が原点、尾が -x)で描いて、中心へ置く */}
+        <g transform="translate(120 120) rotate(135) scale(0.62)">
           <g className="a045-dart__arrow">
             <path d="M0,0 L-16,-2.2 L-16,2.2 Z" className="a045-dart__tip" />
             <rect x="-46" y="-4.5" width="30" height="9" rx="3" className="a045-dart__barrel" />
@@ -103,7 +103,7 @@ const Dartboard: React.FC = () => {
   );
 };
 
-/** 三面鏡: 左右の鏡が閉じて、正面の一面だけが残る */
+/** 三面鏡: 左右の鏡が蝶番で角度を付けて手前に出た三面鏡が、開ききって平らな3枚になり、左右の2枚が消えて正面の一面だけが残る */
 const Triptych: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   return (

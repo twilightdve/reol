@@ -334,11 +334,11 @@
   stroke-width: 1;
   stroke-linejoin: round;
 }
-/* 矢は尾の方向(矢の座標の -x)の遠くから飛んできて刺さる */
+/* 矢は、外側がぼやけて視界が狭まった後で、尾の方向(矢の座標の -x)の遠くから飛んできて刺さる */
 .a045-dart.is-armed .a045-dart__arrow {
   transform: translateX(-160px);
   opacity: 0;
-  transition: transform 0.45s cubic-bezier(0.3, 0, 0.9, 0.6) 0.3s, opacity 0.2s ease 0.3s;
+  transition: transform 0.45s cubic-bezier(0.3, 0, 0.9, 0.6) 1.9s, opacity 0.2s ease 1.9s;
 }
 .a045-dart.is-visible .a045-dart__arrow {
   transform: none;
@@ -353,11 +353,11 @@
 }
 .a045-dart.is-armed .a045-dart__sharp {
   opacity: 1;
-  transition: opacity 1.4s ease 1s;
+  transition: opacity 1.3s ease 0.4s;
 }
 .a045-dart.is-armed .a045-dart__blur {
   opacity: 0;
-  transition: opacity 1.4s ease 1s;
+  transition: opacity 1.3s ease 0.4s;
 }
 .a045-dart.is-visible .a045-dart__sharp {
   opacity: 0;
@@ -366,13 +366,12 @@
   opacity: 0.75;
 }
 
-/* ---------- 三面鏡: 左右が閉じて一面になる ---------- */
+/* ---------- 三面鏡: 手前に角度の付いた三面鏡が開いて平らな3枚になり、左右が消えて一面になる ---------- */
 .a045-triptych__stage {
   display: flex;
   justify-content: center;
   align-items: stretch;
   height: clamp(150px, 34vw, 200px);
-  perspective: 600px;
 }
 .a045-triptych__face,
 .a045-triptych__wing {
@@ -389,33 +388,66 @@
   width: clamp(48px, 12vw, 64px);
   border-radius: 24px 24px 2px 2px;
 }
+/* 左右の鏡は、正面の鏡との境目(蝶番)を軸に回る。遠近は親の perspective だと WebKit で平らに描かれるため、各鏡の transform に入れる */
 .a045-triptych__wing--l {
   transform-origin: right center;
 }
 .a045-triptych__wing--r {
   transform-origin: left center;
 }
-/* 完成状態: 左右の鏡は閉じて見えない(正面の一面だけ) */
-.a045-triptych__wing--l {
-  transform: rotateY(-88deg);
-  opacity: 0.15;
+/* 完成状態: 左右の鏡は消え、正面の平らな一面だけが残る */
+.a045-triptych__wing {
+  opacity: 0;
 }
-.a045-triptych__wing--r {
-  transform: rotateY(88deg);
-  opacity: 0.15;
-}
-.a045-triptych.is-armed .a045-triptych__wing {
-  transform: rotateY(0);
+/*
+ * 動き(三面鏡 → 平面鏡):
+ * 1. 左右の鏡が蝶番で角度を付けて手前に出ている、使う時の三面鏡
+ * 2. 左右の鏡が開ききって、平らな鏡が3枚横に並ぶ
+ * 3. 左右の2枚が消え、正面の一面だけが残る
+ */
+.a045-triptych.is-armed .a045-triptych__wing--l {
   opacity: 1;
-  transition: transform 1.6s cubic-bezier(0.6, 0, 0.3, 1) 0.8s, opacity 1.6s ease 0.8s;
+  transform: perspective(420px) rotateY(58deg);
+}
+.a045-triptych.is-armed .a045-triptych__wing--r {
+  opacity: 1;
+  transform: perspective(420px) rotateY(-58deg);
 }
 .a045-triptych.is-armed.is-visible .a045-triptych__wing--l {
-  transform: rotateY(-88deg);
-  opacity: 0.15;
+  animation: a045-wing-l 3.4s ease-in-out 0.6s both;
 }
 .a045-triptych.is-armed.is-visible .a045-triptych__wing--r {
-  transform: rotateY(88deg);
-  opacity: 0.15;
+  animation: a045-wing-r 3.4s ease-in-out 0.6s both;
+}
+@keyframes a045-wing-l {
+  0% {
+    opacity: 1;
+    transform: perspective(420px) rotateY(58deg);
+  }
+  45%,
+  62% {
+    opacity: 1;
+    transform: perspective(420px) rotateY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(420px) rotateY(0deg);
+  }
+}
+@keyframes a045-wing-r {
+  0% {
+    opacity: 1;
+    transform: perspective(420px) rotateY(-58deg);
+  }
+  45%,
+  62% {
+    opacity: 1;
+    transform: perspective(420px) rotateY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(420px) rotateY(0deg);
+  }
 }
 
 /* ---------- 「無題」の節: 市松の帯 ---------- */
