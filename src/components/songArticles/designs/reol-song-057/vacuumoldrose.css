@@ -464,6 +464,26 @@
   transform: none;
   opacity: 1;
 }
+.a057-seal__city rect {
+  fill: rgb(192 128 129 / 0.5);
+  stroke: #8a3f4b;
+  stroke-width: 1;
+}
+.a057-seal__city line,
+.a057-seal__wheel {
+  fill: none;
+  stroke: #8a3f4b;
+  stroke-width: 1.2;
+}
+.a057-seal.is-armed .a057-seal__dusk,
+.a057-seal.is-armed .a057-seal__city {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.a057-seal.is-visible .a057-seal__dusk,
+.a057-seal.is-visible .a057-seal__city {
+  opacity: 1;
+}
 .a057-closing p:last-child {
   color: var(--wine);
   font-weight: 600;
