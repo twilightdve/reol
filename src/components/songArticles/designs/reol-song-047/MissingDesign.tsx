@@ -144,23 +144,23 @@ const RingRoad: React.FC<{ className?: string; idPrefix: string }> = ({ classNam
       {motion &&
         [0.12, 0.22, 0.32, 0.42].map((lag, i) => (
           <circle key={lag} r={3.2 - i * 0.5} className="a047-ring__trail" style={{ opacity: 0.8 - i * 0.18 }}>
-            <animateMotion dur="7s" repeatCount="indefinite" begin={`-${2 - lag}s`} rotate="auto">
+            <animateMotion dur="12s" repeatCount="indefinite" begin={`-${2 - lag}s`} rotate="auto">
               <mpath href={`#${idPrefix}-loop`} />
             </animateMotion>
           </circle>
         ))}
-      {/* タクシー(上から見た車。屋根に表示灯、前にヘッドライトの光)。輪を回り続ける。止まっている時は輪の右下 */}
+      {/* タクシー(上から見た車。屋根に表示灯、前にヘッドライトの光)。画面からはみ出す輪を回り、画面に出入りする。止まっている時は輪の上 */}
       {motion ? (
         <g>
-          <animateMotion dur="7s" repeatCount="indefinite" begin="-2s" rotate="auto">
+          <animateMotion dur="12s" repeatCount="indefinite" begin="-2s" rotate="auto">
             <mpath href={`#${idPrefix}-loop`} />
           </animateMotion>
-          <g transform="scale(0.8)">
+          <g transform="scale(0.6)">
             <Taxi beamId={`${idPrefix}-beam`} />
           </g>
         </g>
       ) : (
-        <g transform="translate(470 296) rotate(141) scale(0.8)">
+        <g transform="translate(300 60) scale(0.6)">
           <Taxi beamId={`${idPrefix}-beam`} />
         </g>
       )}
