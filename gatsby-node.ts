@@ -1936,6 +1936,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         /** 初出の作品(一覧のアルバム絞り込みに使う)。無ければ null */
         album: { title: string; releaseDate: string | null } | null;
         preview: boolean;
+        /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
+        unlisted: boolean;
       }[] = [];
       // 記事ページは、関連記事(全記事のタグがそろってから選ぶ)を入れてから最後にまとめて作る
       const articlePages: { page: Parameters<typeof createPage>[0]; self: { id: string; seriesSlug: string; tags: string[]; relatedArticleIds: string[] } }[] = [];
@@ -2085,7 +2087,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           },
           },
         });
-        if (!unlisted) indexEntries.push({
+        // 限定公開の記事も一覧の情報には入れる(静的HTMLには出さない。運営のログイン時だけ一覧に出す。plan/43)
+        indexEntries.push({
           id: article.id,
           slug,
           title: parsed.title,
@@ -2098,6 +2101,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           tags,
           album: songFacts.releases[0] ? { title: songFacts.releases[0].title, releaseDate: songFacts.releases[0].releaseDate } : null,
           preview,
+          unlisted,
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
         for (const page of unlisted ? [] : songPages.values()) {
