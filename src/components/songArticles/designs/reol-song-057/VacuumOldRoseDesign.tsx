@@ -176,12 +176,14 @@ const SunChart: React.FC = () => {
             gradientUnits="userSpaceOnUse"
             cx={92}
             cy={H}
-            r={460}
-            gradientTransform={`translate(92 ${H}) scale(1 0.42) translate(-92 ${-H})`}
+            r={660}
+            gradientTransform={`translate(92 ${H}) scale(1 0.3) translate(-92 ${-H})`}
           >
+            {/* 衛星都市と観覧車(図の中ほど)まで薔薇色がかかるよう広げる(2026-10-13 ユーザー指定) */}
             <stop offset="0" stopColor="#f2b27a" stopOpacity="0.85" />
-            <stop offset="0.18" stopColor="#e89a86" stopOpacity="0.6" />
-            <stop offset="0.45" stopColor="#d9a0a8" stopOpacity="0.3" />
+            <stop offset="0.2" stopColor="#e89a86" stopOpacity="0.62" />
+            <stop offset="0.52" stopColor="#d9a0a8" stopOpacity="0.4" />
+            <stop offset="0.78" stopColor="#e3bfc3" stopOpacity="0.16" />
             <stop offset="1" stopColor="#f4ece4" stopOpacity="0" />
           </radialGradient>
           <clipPath id="a057-above">
