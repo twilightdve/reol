@@ -291,9 +291,17 @@
   line-height: 2.4;
   color: var(--ink-2);
 }
+/* 折り返した時に札の段が詰まらないよう、並びの上下にも隙間をとる(2026-10-13 ユーザー指定) */
+.a057-links p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 6px;
+  line-height: 1.8;
+}
 .a057-links a {
   display: inline-block;
-  margin: 0 2px;
+  margin: 0;
   padding: 2px 12px;
   border: 1px solid var(--rose);
   border-radius: 999px;
