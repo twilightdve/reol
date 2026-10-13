@@ -1,4 +1,4 @@
-# Reol Boy クラップに歌声が重なる
+# Boy クラップに歌声が重なる
 
 [「Boy」のMVを観る](https://www.youtube.com/watch?v=O4oixjzvrZk)
 

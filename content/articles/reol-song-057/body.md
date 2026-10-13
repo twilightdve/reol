@@ -1,4 +1,4 @@
-# Reol「真空オールドローズ」――記憶を手放すまで
+# 真空オールドローズ――記憶を手放すまで
 
 聴く：[Spotify](https://open.spotify.com/track/782U3IhpWQR99iaZIuQ4x4)｜[アルバム『事実上』公式情報](https://reol.jp/discography/detail/7/)｜[『事実上』クロスフェード](https://www.youtube.com/watch?v=TMw0zYdcK9I)
 
