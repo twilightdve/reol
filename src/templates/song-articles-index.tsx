@@ -22,6 +22,7 @@ import { formatArticleDate } from "../utils/songArticles/format";
 import { ArticleSeries, seriesPath, showSongKicker, splitTitleBySong, tagFilterPath } from "../utils/songArticles/series";
 import { fetchArticleLikeCounts } from "../services/articleLikeService";
 import { isReleased, useNow } from "../utils/songArticles/schedule";
+import { useAuth } from "../contexts/AuthContext";
 
 type IndexEntry = {
   /** 記事ID(いいね数の問い合わせに使う) */
@@ -39,6 +40,31 @@ type IndexEntry = {
   /** 初出の作品(アルバムの絞り込みに使う) */
   album: { title: string; releaseDate: string | null } | null;
   preview: boolean;
+  /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
+  unlisted?: boolean;
+};
+
+/**
+ * 運営のログインID。このIDでログインしている時だけ、限定公開・公開日時前の予約公開の記事も一覧に出す(2026-10-13 ユーザー指定)。
+ * 表示の切り替えだけで、閲覧の制限ではない(限定公開・予約の記事の題名と URL は一覧のページ情報に入っている)
+ */
+const OWNER_USER_ID = "twilightplc";
+
+/** 運営向けの公開状態の札(2026-10-13 ユーザー指定: 運営者にのみ、一覧に公開ステータスを表示) */
+type OwnerBadge = { label: string; tone: "live" | "unlisted" | "scheduled" | "preview" };
+const jstShort = (iso: string) =>
+  new Date(iso).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+const ownerBadge = (a: IndexEntry, now: number): OwnerBadge => {
+  if (a.preview) return { label: "確認中(ローカルのプレビュー)", tone: "preview" };
+  if (a.unlisted) return { label: "限定公開(URL を知っている人だけ)", tone: "unlisted" };
+  if (a.publishedAt && !isReleased(a.publishedAt, now)) return { label: `予約公開 ${jstShort(a.publishedAt)} に公開`, tone: "scheduled" };
+  return { label: a.publishedAt ? `公開中(${jstShort(a.publishedAt)} 公開)` : "公開中", tone: "live" };
+};
+const BADGE_CLASS: Record<OwnerBadge["tone"], string> = {
+  live: "border border-bx-line text-bx-ink2",
+  unlisted: "bg-bx-yellow text-bx-bg",
+  scheduled: "bg-bx-blue text-white",
+  preview: "bg-bx-ink3 text-bx-bg",
 };
 
 interface SongArticlesIndexContext {
@@ -55,7 +81,12 @@ const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
   "ここに書いているのは、ファンのひとりとしての個人的な解釈です。正解を示すものではありません。読んだあとにもう一度曲を聴き直すときの、たたき台にしてもらえたらうれしいです。";
 
-const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null }> = ({ a, activeTag, likes }) => {
+const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null; badge?: OwnerBadge | null }> = ({
+  a,
+  activeTag,
+  likes,
+  badge,
+}) => {
   const date = formatArticleDate(a.createdAt);
   const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   const parts = splitTitleBySong(a.title, a.songTitle);
@@ -66,6 +97,11 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
         onClick={() => trackEvent("article_list_click", { category: "navigation", label: a.slug })}
         className="group block pt-6 pb-3"
       >
+        {badge && (
+          <p className="mb-2">
+            <span className={`inline-block rounded px-2 py-0.5 text-[11px] font-extrabold ${BADGE_CLASS[badge.tone]}`}>{badge.label}</span>
+          </p>
+        )}
         {/* 題名にもう曲名が入っている時は曲名を出さない(版の名前だけは残す) */}
         {kicker && (
           <p className="mb-2 text-[11px] font-extrabold tracking-[0.2em] text-bx-blue [overflow-wrap:anywhere]">{kicker}</p>
@@ -130,7 +166,13 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const { articles: allArticles, series, seriesSlug, builtAt } = pageContext;
   // 予約公開(plan/43): 公開日時を過ぎた記事だけ。静的HTMLはビルド時刻、JS が動いた後は今の時刻で判定する
   const now = useNow(builtAt);
-  const articles = useMemo(() => allArticles.filter((a) => isReleased(a.publishedAt, now)), [allArticles, now]);
+  // 運営のログイン時は、限定公開・公開日時前の記事も出す(静的HTMLとブラウザでの最初の描画はログイン前なので出ない)
+  const { user } = useAuth();
+  const isOwner = user?.id === OWNER_USER_ID;
+  const articles = useMemo(
+    () => allArticles.filter((a) => isOwner || (!a.unlisted && isReleased(a.publishedAt, now))),
+    [allArticles, now, isOwner]
+  );
   const current = seriesSlug ? series.find((s) => s.slug === seriesSlug) ?? null : null;
 
   // タグの絞り込みは JS が動いた後だけ(静的HTMLとの食い違いを避ける)
@@ -315,7 +357,13 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
             {current && <h2 id={`series-${s.slug}`} className="sr-only">{s.name}の記事</h2>}
             <ul className="divide-y divide-bx-line border-t border-b border-bx-line">
               {items.map((a) => (
-                <ArticleItem key={a.slug} a={a} activeTag={activeTag} likes={likeCounts ? likeCounts.get(a.id) ?? 0 : null} />
+                <ArticleItem
+                  key={a.slug}
+                  a={a}
+                  activeTag={activeTag}
+                  likes={likeCounts ? likeCounts.get(a.id) ?? 0 : null}
+                  badge={isOwner ? ownerBadge(a, now) : null}
+                />
               ))}
             </ul>
           </section>
