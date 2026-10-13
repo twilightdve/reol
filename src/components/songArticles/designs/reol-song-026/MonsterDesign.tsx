@@ -17,6 +17,7 @@ import React from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
@@ -30,6 +31,9 @@ const LAST = 4; // 結び(嵐が追いつく)
 
 // サイトの discography データで MONSTER に登録されているライブ映像(liveVideoUrl)
 const LIVE_VIDEO_URL = "https://youtu.be/Zovrx5rpj5I";
+
+// MV の無い曲なので、アルバム『極彩色』の公式 XFD を MONSTER の場面(6:35。ユーザー指定)から再生する(2026-10-13)
+const XFD = { id: "AwfhX1REZ50", start: 395, text: "『極彩色』XFD の「MONSTER」(6:35〜)を観る" };
 
 /** カラス(オリジナルの単純な影絵)。左へ飛ぶ */
 const Crow: React.FC<{ className?: string; style?: React.CSSProperties }> = ({ className, style }) => (
@@ -133,6 +137,19 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
           <section className="a026-section">
             <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={LEDE} to={LEDE + 1} unstyled className="a026-lede" />
             {paragraph(ORIGIN)}
+            {/* 収録作の段落の後に、アルバムの XFD を MONSTER の場面から */}
+            <figure className="a026-video">
+              <figcaption className="a026-video__label">『極彩色』XFD</figcaption>
+              <OfficialMedia
+                videoId={XFD.id}
+                href={`https://www.youtube.com/watch?v=${XFD.id}&t=${XFD.start}s`}
+                text={XFD.text}
+                articleId={id}
+                unstyled
+                preferHighRes
+                start={XFD.start}
+              />
+            </figure>
           </section>
 
           {/* カラスの群れが横切る(止まれずに進む) */}
