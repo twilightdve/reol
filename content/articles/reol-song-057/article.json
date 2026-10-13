@@ -1,0 +1,29 @@
+{
+  "id": "reol-song-057",
+  "kind": "song",
+  "songTitle": "真空オールドローズ",
+  "bodyRevision": 9,
+  "formatRevision": 3,
+  "bodySha256": "8b58bb80aa52de6f96236b5297e985362fedede5e921cf9f801403973a93ce1a",
+  "songRefs": [
+    "019e8282-a3bf-78da-920a-67daf07accf9",
+    "019e8282-ab52-7a08-9023-17f161d82b58",
+    "019f2411-b9ec-7e66-a6c2-baf1fdcf5037"
+  ],
+  "media": [
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=TMw0zYdcK9I",
+      "role": "official_album_xfd"
+    }
+  ],
+  "slug": "shinkuu-ourudorouzu",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T16:03:45.540Z",
+  "publishedAt": "2026-10-13T02:31:54.194Z",
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
