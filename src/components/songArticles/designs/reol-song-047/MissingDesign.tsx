@@ -7,7 +7,7 @@
  * - 段落9の後: 追い越される。上から見た道路。白線が流れ、自分のタクシー(表紙と同じ橙の車)の横を、速い白い車が次々と追い越していく。
  * - 段落12(収録作)の後: 『虚構集』XFD をミッシングの場面から(クリックで読み込む)。
  * - 段落20の後: 四十九の灯の輪。一つずつ点き、最後の一つだけ赤い。
- * - 結び: 表紙と同じ輪を小さく。灯は回り続ける。
+ * - 結び: タクシーが速度を上げて画面の外へ走り抜け、いなくなる(ミッシング)。誰もいない道路だけが残る。
  * - 歌詞は本文の外に出さない。XFD の画面は複製しない。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -175,7 +175,8 @@ const RingRoad: React.FC<{ className?: string; idPrefix: string }> = ({ classNam
 const FARE_FIRST_KM = 1.096;
 const FARE_STEP_KM = 0.255;
 const fareFor = (km: number) => (km <= FARE_FIRST_KM ? 500 : 500 + Math.ceil((km - FARE_FIRST_KM) / FARE_STEP_KM) * 100);
-const METER_FINAL_KM = 48.6;
+// 走行距離は 49 km で止める(四十九日に重ねる。2026-10-13 ユーザー提案)
+const METER_FINAL_KM = 49;
 const Meter: React.FC = () => {
   const { ref, state, className } = useRevealOnce<HTMLDivElement>(0.6);
   const [km, setKm] = useState(METER_FINAL_KM);
@@ -308,6 +309,41 @@ const Overtaken: React.FC = () => {
   );
 };
 
+/**
+ * 結び: タクシーが速度を上げて画面の外へ走り抜け、いなくなる(ミッシング)。残るのは誰もいない道路だけ。
+ * JS なし・動きを減らす設定・最初から画面内なら、もう走り去った後(道路だけ)
+ */
+const Exit: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.7);
+  return (
+    <div ref={ref} className={`a047-exit${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 120">
+        <defs>
+          <linearGradient id="a047-exit-beam" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#fff2c6" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#fff2c6" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="a047-exit-trail" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#ff4a3a" stopOpacity="0" />
+            <stop offset="1" stopColor="#ff4a3a" stopOpacity="0.7" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="20" width="600" height="80" className="a047-exit__road" />
+        <line x1="0" y1="24" x2="600" y2="24" className="a047-exit__edge" />
+        <line x1="0" y1="96" x2="600" y2="96" className="a047-exit__edge" />
+        <line x1="-20" y1="60" x2="620" y2="60" className="a047-exit__dash" />
+        {/* 走り去るタクシーと、テールランプの残光 */}
+        <g className="a047-exit__car">
+          <rect x="-150" y="54" width="122" height="12" rx="6" fill="url(#a047-exit-trail)" className="a047-exit__trail" />
+          <g transform="translate(0 60)">
+            <Taxi beamId="a047-exit-beam" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
 /** 四十九の灯の輪: 一つずつ点き、最後の一つ(四十九日目)だけ赤い */
 const FortyNine: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.5);
@@ -424,10 +460,8 @@ const MissingDesign: SongArticleDesign = (ctx) => {
               {body(RING_FIG, blocks.length, "a047-text a047-closing")}
             </section>
 
-            {/* 結び: 表紙と同じ輪を小さく。灯は回り続ける */}
-            <div className="a047-end">
-              <RingRoad idPrefix="a047-end" />
-            </div>
+            {/* 結び: タクシーが画面の外へ走り抜けて、いなくなる */}
+            <Exit />
           </div>
 
           {/* 奥付。サイトの確認済みデータだけ */}
