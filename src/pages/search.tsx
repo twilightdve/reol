@@ -115,10 +115,22 @@ const KIND_META: Record<
 
 const GROUP_ORDER: Hit["kind"][] = ["song", "album", "live", "place"];
 
+// GitHub Pages は一時的に 5xx(503 など)を返すことがあるため、5xx と通信エラーは間を空けて2回まで取り直す
+const RETRY_WAITS_MS = [800, 2000];
 const fetchJson = async <T,>(url: string): Promise<T> => {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`${url}: ${r.status}`);
-  return r.json();
+  for (let attempt = 0; ; attempt++) {
+    let r: Response | null = null;
+    try {
+      r = await fetch(url);
+    } catch (e) {
+      if (attempt >= RETRY_WAITS_MS.length) throw e;
+    }
+    if (r) {
+      if (r.ok) return r.json();
+      if (r.status < 500 || attempt >= RETRY_WAITS_MS.length) throw new Error(`${url}: ${r.status}`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, RETRY_WAITS_MS[attempt]));
+  }
 };
 
 const SearchPage: React.FC = () => {
