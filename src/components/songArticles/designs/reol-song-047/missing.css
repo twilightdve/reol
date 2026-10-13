@@ -82,13 +82,32 @@
   stroke-width: 1.5;
   stroke-dasharray: 10 14;
 }
-.a047-ring__head {
-  fill: var(--sodium-2);
+/* テールランプの残光 */
+.a047-ring__trail {
+  fill: #ff5a4a;
 }
-.a047-ring__tail {
+
+/* ---------- 車(上から見た形。表紙・追い越しの図で共通) ---------- */
+.a047-car__body {
+  fill: #e9e7e2;
+}
+.a047-car.is-me .a047-car__body {
   fill: var(--sodium);
 }
-.a047-ring__glow {
+.a047-car__glass {
+  fill: #20253a;
+}
+.a047-car__roof {
+  fill: var(--lamp);
+}
+.a047-car__light {
+  fill: #fff6d8;
+}
+.a047-car__tail {
+  fill: #ff4a3a;
+}
+/* ヘッドライトの光(色と薄れ方は SVG のグラデーション) */
+.a047-car__beam {
   mix-blend-mode: screen;
 }
 .a047-cover__top {
@@ -229,131 +248,159 @@
 
 /* ---------- タクシーメーター ---------- */
 .a047-meter {
-  display: flex;
-  align-items: stretch;
-  gap: 14px;
-  width: min(360px, 100%);
+  width: min(380px, 100%);
   margin: 2em auto;
-  padding: 14px 16px;
-  border-radius: 6px;
-  background: #07080c;
-  box-shadow: inset 0 0 0 1px #2a2d3a, 0 10px 30px rgb(0 0 0 / 0.45);
+  padding: 14px 16px 16px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #15171f, #07080c);
+  box-shadow: inset 0 0 0 1px #2c303d, 0 12px 32px rgb(0 0 0 / 0.5);
   font-variant-numeric: tabular-nums;
 }
-.a047-meter__lamp {
+.a047-meter__head {
   display: flex;
-  align-items: center;
-  padding: 0 10px;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.a047-meter__lamp,
+.a047-meter__off {
+  padding: 2px 10px;
   border-radius: 3px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.a047-meter__lamp {
   background: var(--lamp);
   color: #fff;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  writing-mode: vertical-rl;
+  box-shadow: 0 0 12px rgb(229 70 58 / 0.6);
 }
-.a047-meter__rows {
-  flex: 1;
-  margin: 0;
-  display: grid;
-  gap: 8px;
+.a047-meter__off {
+  background: #1c1f29;
+  color: #4b4f5c;
 }
-.a047-meter__rows > div {
+.a047-meter__label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+/* 運賃: 液晶の大きな数字 */
+.a047-meter__fare {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #0b1a12;
+  box-shadow: inset 0 0 0 1px #1d3326;
 }
-.a047-meter dt {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: var(--text-2);
+.a047-meter__yen {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: clamp(30px, 9vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #7dffa8;
+  text-shadow: 0 0 12px rgb(125 255 168 / 0.55);
+  white-space: nowrap;
 }
-.a047-meter dd {
-  margin: 0;
-  font-size: 13px;
-  color: var(--text-2);
+.a047-meter__yen small,
+.a047-meter__num small {
+  margin-left: 0.25em;
+  font-size: 0.45em;
+  font-weight: 700;
+}
+/* 運賃が上がった瞬間に、数字を一瞬明るくする */
+.a047-meter.is-visible .a047-meter__yen {
+  animation: a047-fare-tick 0.35s ease-out;
+}
+@keyframes a047-fare-tick {
+  from {
+    color: #e9fff0;
+    text-shadow: 0 0 22px rgb(180 255 205 / 0.9);
+  }
+}
+.a047-meter__rows {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+.a047-meter__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 4px;
 }
 .a047-meter__num {
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
-  color: #ff7a3a;
-  text-shadow: 0 0 10px rgb(255 122 58 / 0.6);
+  color: #ffb36b;
+  white-space: nowrap;
 }
-/* 出発地からの距離は動かない(緑がかった落ち着いた表示) */
-.a047-meter .is-still .a047-meter__num {
-  color: #7fe0a6;
-  text-shadow: 0 0 10px rgb(127 224 166 / 0.5);
+/* 出発地からの距離は動かない */
+.a047-meter__row.is-still .a047-meter__num {
+  color: var(--text-2);
 }
 
-/* ---------- 追い越される ---------- */
+/* ---------- 追い越される(上から見た道路) ---------- */
 .a047-pass {
   margin: 2em 0;
 }
-.a047-pass__road {
-  position: relative;
-  height: 96px;
-  overflow: hidden;
+.a047-pass svg {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 4px;
-  background: linear-gradient(180deg, #11131c, var(--road) 50%, #11131c);
 }
-.a047-pass__line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: repeating-linear-gradient(90deg, rgb(255 255 255 / 0.35) 0 18px, transparent 18px 34px);
+.a047-pass__asphalt {
+  fill: #1a1d29;
 }
-.a047-pass__line--1 {
-  top: 32px;
+.a047-pass__edge {
+  stroke: rgb(255 255 255 / 0.5);
+  stroke-width: 2;
 }
-.a047-pass__line--2 {
-  top: 64px;
+.a047-pass__dash {
+  stroke: rgb(255 255 255 / 0.55);
+  stroke-width: 3;
+  stroke-dasharray: 28 22;
 }
-/* 自分の灯: 真ん中の車線に止まって見える(同じ速さで流れている) */
-.a047-pass__me {
-  position: absolute;
-  left: 30%;
-  top: 48px;
-  width: 54px;
-  height: 8px;
-  margin-top: -4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, transparent, var(--sodium) 60%, var(--sodium-2));
-  box-shadow: 0 0 14px rgb(242 160 61 / 0.7);
+.a047-pass__label {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  fill: var(--sodium-2);
 }
-/* ほかの灯: 後ろから来て追い越していく。完成状態は追い越した後(右側に並ぶ) */
-.a047-pass__car {
-  position: absolute;
-  left: calc(58% + var(--i) * 8%);
-  width: 70px;
-  height: 6px;
-  margin-top: -3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.7) 70%, #fff);
-  opacity: 0.85;
+/* 完成状態(JS なし・動きを減らす設定): 追い越していった車は前方(右)に止まっている */
+.a047-pass__other {
+  transform: translateX(var(--rest));
 }
-.a047-pass__car--lane0 {
-  top: 16px;
+/* 画面に入ったら: 白線が後ろへ流れ(自分も走っている)、速い車が後ろから追い越していく */
+.a047-pass.is-visible .a047-pass__dashes {
+  animation: a047-dash-flow 0.5s linear infinite;
 }
-.a047-pass__car--lane2 {
-  top: 80px;
+@keyframes a047-dash-flow {
+  to {
+    transform: translateX(-50px);
+  }
 }
-.a047-pass.is-armed .a047-pass__car {
-  opacity: 0;
+.a047-pass.is-armed .a047-pass__other {
+  transform: translateX(-120px);
 }
-.a047-pass.is-visible .a047-pass__car {
-  animation: a047-overtake 1.6s cubic-bezier(0.3, 0.1, 0.6, 1) both;
+.a047-pass.is-visible .a047-pass__other {
+  animation-name: a047-overtake;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 @keyframes a047-overtake {
   from {
-    left: -20%;
-    opacity: 1;
+    transform: translateX(-120px);
   }
   to {
-    left: calc(58% + var(--i) * 8%);
-    opacity: 0.85;
+    transform: translateX(640px);
   }
 }
 

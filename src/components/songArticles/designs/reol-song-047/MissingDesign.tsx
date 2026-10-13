@@ -1,10 +1,10 @@
 /**
  * 楽曲記事「ミッシング」(reol-song-047)の記事別デザイン。設計の根拠は plan/42。
  *
- * - 主役は環状線の輪とタクシーの灯。表紙は夜の街並み(ビルの影と窓の明かり)の上に閉じた輪(実際の地図ではない)、その上を灯が尾を引いて回り続ける。
+ * - 主役は環状線の輪とタクシー。表紙は夜の街並み(ビルの影と窓の明かり)の上に閉じた輪(実際の地図ではない)、その上をタクシー(上から見た車)が赤いテールランプの尾を引いて回り続ける。
  * - 紙面は夜のアスファルトの黒紺の地に、ナトリウム灯の橙と、タクシーの表示の赤。
- * - 段落5の後: タクシーメーター。走行距離は増え続けるのに、出発地からの距離は 0 のまま。
- * - 段落9の後: 追い越される。自分の灯の横を、ほかの灯が次々と追い越していく。
+ * - 段落5の後: タクシーメーター。運賃(100円ずつ)と走行距離は上がり続けるのに、出発地からの距離は 0 のまま。
+ * - 段落9の後: 追い越される。上から見た道路。白線が流れ、「自分」のタクシーの横を、速い車が次々と追い越していく。
  * - 段落12(収録作)の後: 『虚構集』XFD をミッシングの場面から(クリックで読み込む)。
  * - 段落20の後: 四十九の灯の輪。一つずつ点き、最後の一つだけ赤い。
  * - 結び: 表紙と同じ輪を小さく。灯は回り続ける。
@@ -132,105 +132,181 @@ const RingRoad: React.FC<{ className?: string; idPrefix: string }> = ({ classNam
     <svg className={`a047-ring ${className}`} viewBox="0 0 600 400" aria-hidden="true">
       <defs>
         <path id={`${idPrefix}-loop`} d={LOOP_PATH} />
-        <radialGradient id={`${idPrefix}-glow`}>
-          <stop offset="0" stopColor="#ffd08a" stopOpacity="1" />
-          <stop offset="1" stopColor="#f2a03d" stopOpacity="0" />
-        </radialGradient>
+        <linearGradient id={`${idPrefix}-beam`} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#fff2c6" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#fff2c6" stopOpacity="0" />
+        </linearGradient>
       </defs>
       {/* 道路の帯と、点線の車線 */}
       <path d={LOOP_PATH} className="a047-ring__road" />
       <path d={LOOP_PATH} className="a047-ring__lane" />
-      {/* タクシーの灯(先頭が明るく、尾が薄れる)。止まっている時は輪の右下に置く */}
-      {tail.map((lag, i) => (
-        <g key={lag} style={{ opacity: 1 - i * 0.15 }}>
-          {motion ? (
-            <circle r={i === 0 ? 7 : 5 - i * 0.5} className={i === 0 ? "a047-ring__head" : "a047-ring__tail"}>
-              <animateMotion dur="7s" repeatCount="indefinite" begin={`-${lag + 2}s`} rotate="auto">
-                <mpath href={`#${idPrefix}-loop`} />
-              </animateMotion>
-            </circle>
-          ) : (
-            i === 0 && <circle cx="470" cy="296" r="7" className="a047-ring__head" />
-          )}
-        </g>
-      ))}
+      {/* テールランプの残光(赤い尾)。タクシーより少し遅れて同じ道をなぞる */}
+      {motion &&
+        [0.12, 0.22, 0.32, 0.42].map((lag, i) => (
+          <circle key={lag} r={3.2 - i * 0.5} className="a047-ring__trail" style={{ opacity: 0.8 - i * 0.18 }}>
+            <animateMotion dur="7s" repeatCount="indefinite" begin={`-${2 - lag}s`} rotate="auto">
+              <mpath href={`#${idPrefix}-loop`} />
+            </animateMotion>
+          </circle>
+        ))}
+      {/* タクシー(上から見た車。屋根に表示灯、前にヘッドライトの光)。輪を回り続ける。止まっている時は輪の右下 */}
       {motion ? (
-        <circle r="34" fill={`url(#${idPrefix}-glow)`} className="a047-ring__glow">
-          <animateMotion dur="7s" repeatCount="indefinite" begin="-2s">
+        <g>
+          <animateMotion dur="7s" repeatCount="indefinite" begin="-2s" rotate="auto">
             <mpath href={`#${idPrefix}-loop`} />
           </animateMotion>
-        </circle>
+          <g transform="scale(0.8)">
+            <Taxi beamId={`${idPrefix}-beam`} />
+          </g>
+        </g>
       ) : (
-        <circle cx="470" cy="296" r="34" fill={`url(#${idPrefix}-glow)`} className="a047-ring__glow" />
+        <g transform="translate(470 296) rotate(141) scale(0.8)">
+          <Taxi beamId={`${idPrefix}-beam`} />
+        </g>
       )}
     </svg>
   );
 };
 
-/** タクシーメーター: 走行距離は増え続けるのに、出発地からの距離は 0 のまま */
+/**
+ * タクシーメーター: 走るほど運賃(100円ずつ)と走行距離は上がっていくのに、出発地からの距離は 0 のまま。
+ * 数字は図のためのもの(運賃は、初乗り約1km 500円・以降約255mごとに100円で計算)
+ */
+const FARE_FIRST_KM = 1.096;
+const FARE_STEP_KM = 0.255;
+const fareFor = (km: number) => (km <= FARE_FIRST_KM ? 500 : 500 + Math.ceil((km - FARE_FIRST_KM) / FARE_STEP_KM) * 100);
+const METER_FINAL_KM = 48.6;
 const Meter: React.FC = () => {
   const { ref, state, className } = useRevealOnce<HTMLDivElement>(0.6);
-  const FINAL = 48.6;
-  const [km, setKm] = useState(FINAL);
+  const [km, setKm] = useState(METER_FINAL_KM);
   useEffect(() => {
     if (state === "armed") setKm(0);
     if (state !== "visible") return;
     let raf = 0;
     const t0 = performance.now();
-    const DUR = 3200;
+    const DUR = 5200;
     const tick = (t: number) => {
       const p = Math.min(1, (t - t0) / DUR);
-      setKm(FINAL * (1 - Math.pow(1 - p, 2)));
+      // 走り出しはゆっくり、途中から速く(速度を上げていく)
+      setKm(METER_FINAL_KM * p * p);
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [state]);
+  const fare = fareFor(km);
   return (
     <div ref={ref} className={`a047-meter${className}`} aria-hidden="true">
-      <div className="a047-meter__lamp">賃走</div>
-      <dl className="a047-meter__rows">
-        <div>
-          <dt>走行距離</dt>
-          <dd>
-            <span className="a047-meter__num">{km.toFixed(1)}</span> km
-          </dd>
+      <div className="a047-meter__head">
+        <span className="a047-meter__lamp">賃走</span>
+        <span className="a047-meter__off">割増</span>
+        <span className="a047-meter__off">迎車</span>
+      </div>
+      <div className="a047-meter__fare">
+        <span className="a047-meter__label">運賃</span>
+        {/* 運賃が上がるたびに数字を光らせる(key を変えて動きをやり直す) */}
+        <span key={fare} className="a047-meter__yen">
+          {fare.toLocaleString("ja-JP")}
+          <small>円</small>
+        </span>
+      </div>
+      <div className="a047-meter__rows">
+        <div className="a047-meter__row">
+          <span className="a047-meter__label">走行距離</span>
+          <span className="a047-meter__num">
+            {km.toFixed(1)}
+            <small>km</small>
+          </span>
         </div>
-        <div className="is-still">
-          <dt>出発地から</dt>
-          <dd>
-            <span className="a047-meter__num">0.0</span> km
-          </dd>
+        <div className="a047-meter__row is-still">
+          <span className="a047-meter__label">出発地から</span>
+          <span className="a047-meter__num">
+            0.0
+            <small>km</small>
+          </span>
         </div>
-      </dl>
+      </div>
     </div>
   );
 };
 
-/** 追い越される: 自分の灯(橙)の横を、ほかの灯(白)が次々と追い越していく */
+/** 表紙と「追い越される」の図のタクシー(右向き)。上から見た車に、屋根の表示灯 */
+const Taxi: React.FC<{ beamId: string }> = ({ beamId }) => (
+  <g className="a047-car is-me">
+    <path d="M28,-9 L76,-18 L76,18 L28,9 Z" fill={`url(#${beamId})`} className="a047-car__beam" />
+    <rect x="-28" y="-11" width="56" height="22" rx="6" className="a047-car__body" />
+    <rect x="4" y="-8" width="11" height="16" rx="2" className="a047-car__glass" />
+    <rect x="-20" y="-8" width="9" height="16" rx="2" className="a047-car__glass" />
+    <rect x="-8" y="-5" width="10" height="10" rx="2" className="a047-car__roof" />
+    <rect x="24" y="-9" width="4" height="5" rx="1" className="a047-car__light" />
+    <rect x="24" y="4" width="4" height="5" rx="1" className="a047-car__light" />
+    <rect x="-29" y="-9" width="3" height="5" rx="1" className="a047-car__tail" />
+    <rect x="-29" y="4" width="3" height="5" rx="1" className="a047-car__tail" />
+  </g>
+);
+
+/** 上から見た車(右向き)。前にヘッドライトの光 */
+const Car: React.FC<{ className: string; x: number; y: number; beamId: string }> = ({ className, x, y, beamId }) => (
+  <g className={className} transform={`translate(${x} ${y})`}>
+    <path d="M28,-9 L76,-18 L76,18 L28,9 Z" fill={`url(#${beamId})`} className="a047-car__beam" />
+    <rect x="-28" y="-11" width="56" height="22" rx="6" className="a047-car__body" />
+    <rect x="4" y="-8" width="11" height="16" rx="2" className="a047-car__glass" />
+    <rect x="-20" y="-8" width="9" height="16" rx="2" className="a047-car__glass" />
+    <rect x="24" y="-9" width="4" height="5" rx="1" className="a047-car__light" />
+    <rect x="24" y="4" width="4" height="5" rx="1" className="a047-car__light" />
+    <rect x="-29" y="-9" width="3" height="5" rx="1" className="a047-car__tail" />
+    <rect x="-29" y="4" width="3" height="5" rx="1" className="a047-car__tail" />
+  </g>
+);
+
+/**
+ * 追い越される: 上から見た道路。白線が流れて、自分(真ん中の車線のタクシー)も走っているのがわかる。
+ * それより速い車が、後ろから次々と追い越していく。動きを減らす設定・JS なしでは、追い越された後の位置で止まる
+ */
 const Overtaken: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   const others = [
-    { lane: 0, delay: 0.2 },
-    { lane: 2, delay: 0.7 },
-    { lane: 0, delay: 1.3 },
-    { lane: 2, delay: 1.8 },
-    { lane: 0, delay: 2.4 },
+    { lane: 46, delay: 0, dur: 2.2, rest: 300 },
+    { lane: 134, delay: 0.8, dur: 1.9, rest: 380 },
+    { lane: 46, delay: 1.6, dur: 2.1, rest: 450 },
   ];
   return (
     <div ref={ref} className={`a047-pass${className}`} aria-hidden="true">
-      <div className="a047-pass__road">
-        <span className="a047-pass__line a047-pass__line--1" />
-        <span className="a047-pass__line a047-pass__line--2" />
+      <svg viewBox="0 0 520 180">
+        <defs>
+        <linearGradient id="a047-pass-beam" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#fff2c6" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#fff2c6" stopOpacity="0" />
+        </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="520" height="180" className="a047-pass__asphalt" />
+        <line x1="0" y1="6" x2="520" y2="6" className="a047-pass__edge" />
+        <line x1="0" y1="174" x2="520" y2="174" className="a047-pass__edge" />
+        {/* 車線の白線(流れる) */}
+        <g className="a047-pass__dashes">
+          <line x1="-60" y1="62" x2="580" y2="62" className="a047-pass__dash" />
+          <line x1="-60" y1="118" x2="580" y2="118" className="a047-pass__dash" />
+        </g>
+        {/* 自分: 真ん中の車線。屋根に「賃走」の表示 */}
+        <g className="a047-pass__me">
+          <g transform="translate(170 90)">
+            <Taxi beamId="a047-pass-beam" />
+          </g>
+          <text x="170" y="66" textAnchor="middle" className="a047-pass__label">
+            自分
+          </text>
+        </g>
+        {/* 追い越していく車 */}
         {others.map((o, i) => (
-          <span
+          <g
             key={i}
-            className={`a047-pass__car a047-pass__car--lane${o.lane}`}
-            style={{ animationDelay: `${o.delay}s`, ["--i" as string]: i } as React.CSSProperties}
-          />
+            className="a047-pass__other"
+            style={{ animationDelay: `${o.delay}s`, animationDuration: `${o.dur}s`, ["--rest" as string]: `${o.rest}px` } as React.CSSProperties}
+          >
+            <Car className="a047-car" x={0} y={o.lane} beamId="a047-pass-beam" />
+          </g>
         ))}
-        <span className="a047-pass__me" />
-      </div>
+      </svg>
     </div>
   );
 };
