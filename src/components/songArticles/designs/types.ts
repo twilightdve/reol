@@ -13,7 +13,7 @@ export interface SongArticlePageContext {
   series: { slug: string; name: string };
   tags: string[];
   /** 関連記事(記事ページの下部。最大3本。src/utils/songArticles/series.ts の pickRelatedArticles) */
-  related: { slug: string; title: string; songTitle: string }[];
+  related: { slug: string; title: string; songTitle: string; publishedAt?: string | null }[];
   /** 記事に表示する作成日(原稿の作成日) */
   createdAt: string | null;
   /** 表紙を撮った OGP 画像のサイト内パス。無ければ null(キャッシュ対策の ?t= は SEO 部品が付ける) */
@@ -50,6 +50,8 @@ export interface SongArticlePageContext {
   designId: string | null;
   preview: boolean;
   noindex: boolean;
+  /** ビルド時刻(予約公開の判定に使う。plan/43) */
+  builtAt?: number;
 }
 
 export type SongArticleDesign = React.FC<SongArticlePageContext>;

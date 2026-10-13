@@ -5,6 +5,7 @@ import SEO from '../components/SEO'
 import { buildWebSite } from "../utils/jsonLd";
 import { Recommend } from "../types/recommend";
 import { HomeArticle, SiteStats } from "../components/index/sections/HomeSection";
+import { isReleased, useNow } from "../utils/songArticles/schedule";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
 
 type siteMetadata = {
@@ -44,11 +45,13 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: FC<PageProps<any, { lang?: string; homeArticles?: HomeArticle[] }>> = ({ data, pageContext }) => {
+const IndexPage: FC<PageProps<any, { lang?: string; homeArticles?: HomeArticle[]; builtAt?: number }>> = ({ data, pageContext }) => {
   const recommend: Recommend[] = data.recommend.recommend;
   const siteStats: SiteStats = data.siteStats.siteStats;
   // 読みもの(楽曲記事)は日本語だけなので、日本語の HOME にだけ出す
-  const homeArticles = pageContext?.lang ? [] : pageContext?.homeArticles ?? [];
+  // 予約公開(plan/43)の記事は、公開日時を過ぎるまで出さない
+  const now = useNow(pageContext?.builtAt);
+  const homeArticles = pageContext?.lang ? [] : (pageContext?.homeArticles ?? []).filter((a) => isReleased(a.publishedAt, now));
 
   return (
     <>

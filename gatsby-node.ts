@@ -36,8 +36,13 @@ const articleOgImagePath = (slug: string): string | null =>
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
+import { isReleased } from "./src/utils/songArticles/schedule";
 import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
+
+// 楽曲記事の予約公開(plan/43)の判定に使うビルド時刻。公開日時が未来の記事は、静的HTMLの一覧等に出さず、
+// ページ側が JS で今の時刻と比べて、過ぎていれば出す(builtAt をページ情報で渡す)
+const BUILT_AT = Date.now();
 import { resolveSongArtworkUrls } from "./scripts/resolve-song-artwork-urls";
 import {
   MusicBrainzService,
@@ -1584,20 +1589,29 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
   // HOME の「読みもの」欄(2026-10-11): HOME_ARTICLE_IDS の記事を、その順に渡す(公開済みの記事だけ。プレビューでは確認中も含む)。
   // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
-    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null }[] = [];
+    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null }[] = [];
     try {
       const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
       homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
         const a = byId.get(id);
         return a
-          ? [{ slug: a.article.slug as string, title: a.parsed.title, songTitle: a.article.songTitle, createdAt: a.article.createdAt ?? null }]
+          ? [
+              {
+                slug: a.article.slug as string,
+                title: a.parsed.title,
+                songTitle: a.article.songTitle,
+                createdAt: a.article.createdAt ?? null,
+                // 予約公開の記事は、公開日時を過ぎるまで HOME 側で出さない(plan/43)
+                publishedAt: a.article.publishedAt ?? null,
+              },
+            ]
           : [];
       });
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
     }
     actions.deletePage(page);
-    actions.createPage({ ...page, context: { ...context, homeArticles } });
+    actions.createPage({ ...page, context: { ...context, homeArticles, builtAt: BUILT_AT } });
     return;
   }
 
@@ -1830,7 +1844,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // 通常ビルドは content/articles の公開記事だけ。ARTICLES_PREVIEW=1 のときだけ staging も含め、
     // プレビュー記事は noindex(サイトマップからも除外)。未公開記事はページ自体を作らない。
     // 曲ページとの対応は管理表「song対応」の収録uuid → 代表uuid → 曲ページの順で解決し、曲名では照合しない。
-    const articlesBySongUuid = new Map<string, { slug: string; title: string }[]>();
+    const articlesBySongUuid = new Map<string, { slug: string; title: string; publishedAt: string | null }[]>();
     {
       const songArticles = loadSongArticles(process.cwd());
       const canonicalSongUuid = buildCanonicalUuidMap(
@@ -2026,6 +2040,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           seriesSlug: series.slug,
           tags,
           createdAt: article.createdAt ?? null,
+          publishedAt: article.publishedAt ?? null,
         });
         articlePages.push({
           self: { id: article.id, seriesSlug: series.slug, tags, relatedArticleIds: article.relatedArticleIds ?? [] },
@@ -2059,6 +2074,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
             designId: designIssues.length === 0 ? article.id : null,
             preview,
             noindex: preview,
+            // 予約公開(公開日時が未来)。ページは置くが、サイトマップには載せない(plan/43)。
+            // noindex にはしない(公開日時を過ぎても次のデプロイまで静的HTMLに残ってしまうため)
+            scheduled: !isReleased(article.publishedAt, BUILT_AT),
+            builtAt: BUILT_AT,
           },
           },
         });
@@ -2079,18 +2098,23 @@ export const createPages: GatsbyNode["createPages"] = async ({
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
         for (const page of songPages.values()) {
           const list = articlesBySongUuid.get(page.songUuid) ?? [];
-          list.push({ slug, title: parsed.title });
+          list.push({ slug, title: parsed.title, publishedAt: article.publishedAt ?? null });
           articlesBySongUuid.set(page.songUuid, list);
         }
       }
 
-      // 関連記事(記事ページの下部。最大3本)を入れて記事ページを作る
+      // 関連記事(記事ページの下部。最大3本)を入れて記事ページを作る。
+      // 予約公開の記事は、ページ側で公開日時を過ぎるまで外すので、その本数だけ多めに選んで渡す(plan/43)
+      const scheduledCount = relatedCandidates.filter((c) => !isReleased(c.publishedAt, BUILT_AT)).length;
       for (const { page, self } of articlePages) {
-        const related = pickRelatedArticles(self, relatedCandidates).map(({ slug: s, title: t, songTitle: st }) => ({
-          slug: s,
-          title: t,
-          songTitle: st,
-        }));
+        const related = pickRelatedArticles(self, relatedCandidates, 3 + scheduledCount).map(
+          ({ slug: s, title: t, songTitle: st, publishedAt: p }) => ({
+            slug: s,
+            title: t,
+            songTitle: st,
+            publishedAt: p,
+          })
+        );
         createPage({ ...page, context: { ...(page.context as object), related } });
       }
 
@@ -2112,6 +2136,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             seriesSlug: null,
             // 公開記事が無くプレビュー記事だけのときは一覧も noindex
             noindex: indexEntries.every((a) => a.preview),
+            builtAt: BUILT_AT,
           },
         });
         // シリーズごとのページ(記事が1件以上あるシリーズだけ)
@@ -2126,6 +2151,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               series: ARTICLE_SERIES,
               seriesSlug: s.slug,
               noindex: inSeries.every((a) => a.preview),
+              builtAt: BUILT_AT,
             },
           });
         }
@@ -2213,6 +2239,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             : null,
           plays: song.plays,
           articles: articlesBySongUuid.get(song.songUuid) ?? [],
+          builtAt: BUILT_AT,
         },
       });
     });

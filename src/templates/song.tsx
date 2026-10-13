@@ -28,6 +28,7 @@ import { LangLink, useDict, useSiteLang } from "../i18n/site/SiteLangContext";
 import { getDict, SiteDict } from "../i18n/site/dict";
 import { DEFAULT_LANG, INTL_LOCALE, isSiteLang } from "../i18n/site/langs";
 import { localizePath } from "../utils/i18nRoutes";
+import { isReleased, useNow } from "../utils/songArticles/schedule";
 import {
   buildBreadcrumbList,
   buildMusicRecording,
@@ -101,7 +102,9 @@ export interface SongPageContext {
   albumReleaseDate?: string | null;
   plays: Play[];
   /** この曲(収録レコードuuidで対応確認済み)の公開済み楽曲記事(plan/29)。記事は日本語のみ */
-  articles?: { slug: string; title: string }[];
+  articles?: { slug: string; title: string; publishedAt?: string | null }[];
+  /** ビルド時刻。予約公開の記事は公開日時を過ぎるまで出さない(plan/43) */
+  builtAt?: number;
 }
 
 const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext }) => {
@@ -129,8 +132,12 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
     albumPosts,
     albumReleaseDate,
     plays,
-    articles,
+    articles: allArticles,
+    builtAt,
   } = pageContext;
+  // 予約公開(plan/43): 公開日時を過ぎた記事だけ
+  const now = useNow(builtAt);
+  const articles = allArticles?.filter((a) => isReleased(a.publishedAt, now));
 
   const sortedPlays = [...plays].sort((a, b) => b.date.localeCompare(a.date));
 

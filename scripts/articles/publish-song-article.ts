@@ -5,8 +5,13 @@
 // slug が仮置きのまま・作成日が未記録なら拒否する。公開日時は初回公開時に自動で記録する(2026-10-10 ユーザー決定)。
 // 記事別デザイン(src/utils/songArticles/designManifest.ts)がいまの本文に対して無ければ拒否する。
 //
+// 予約公開(plan/43): --at に公開日時(日本時間)を渡すと、その日時を公開日時として記録する。
+// 記事ページはデプロイすれば URL で読めるが、一覧・関連記事・曲ページ・HOME・サイトマップには公開日時を過ぎるまで出ない。
+// 予約中の記事は --at で日時を変えられ、--at now で今すぐ公開に切り替えられる。公開済みの記事の公開日時は変えない。
+//
 // 使い方:
 //   npm run articles:publish -- --id reol-song-080 --revision 1
+//   npm run articles:publish -- --id reol-song-047 --revision 4 --at "2026-10-15 20:00"   (日本時間)
 
 import * as crypto from "crypto";
 import * as fs from "fs";
@@ -29,6 +34,17 @@ const argValue = (name: string): string | null => {
 const fail = (message: string): never => {
   console.error(`[articles:publish] ${message}`);
   process.exit(1);
+};
+
+/** --at の日時(日本時間。「2026-10-15 20:00」「2026-10-15T20:00」、またはタイムゾーン付きのISO形式)をISO(UTC)にする */
+const parseAt = (value: string): string => {
+  if (value === "now") return new Date().toISOString();
+  const local = value.trim().match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/);
+  const t = local ? Date.parse(`${local[1]}-${local[2]}-${local[3]}T${local[4]}:${local[5]}:00+09:00`) : Date.parse(value);
+  if (Number.isNaN(t) || (!local && !/(Z|[+-]\d{2}:?\d{2})$/.test(value.trim()))) {
+    return fail(`--at の日時が読めません: ${value}(例: "2026-10-15 20:00" 日本時間)`);
+  }
+  return new Date(t).toISOString();
 };
 
 const id = argValue("--id") ?? fail("--id を指定してください");
@@ -70,9 +86,16 @@ const previous = fs.existsSync(path.join(dest, "article.json"))
   ? (JSON.parse(fs.readFileSync(path.join(dest, "article.json"), "utf8")) as SongArticleFile)
   : null;
 const now = new Date().toISOString();
-const publishedAt = previous?.publishedAt ?? now;
+const atArg = argValue("--at");
+const previousIsLive = previous?.publishedAt != null && Date.parse(previous.publishedAt) <= Date.now();
+if (atArg && previousIsLive) {
+  fail(`${id} は ${previous?.publishedAt} に公開済みです。公開済みの記事の公開日時は変えません`);
+}
+// 予約公開(--at)なら指定の日時。予約中の記事を --at なしで出し直す時は、予約の日時を引き継ぐ
+const publishedAt = atArg ? parseAt(atArg) : previous?.publishedAt ?? now;
+// 更新日時は、公開済みの記事の本文を差し替えた時だけ(予約中の差し替えは更新に数えない)
 const updatedAt =
-  previous && previous.bodySha256 !== data.bodySha256 ? now : previous?.updatedAt ?? null;
+  previous && previousIsLive && previous.bodySha256 !== data.bodySha256 ? now : previous?.updatedAt ?? null;
 const published: SongArticleFile = { ...data, ...editorial, publishedAt, updatedAt, status: "published" };
 const tmp = `${dest}.tmp`;
 fs.rmSync(tmp, { recursive: true, force: true });
@@ -82,3 +105,7 @@ fs.writeFileSync(path.join(tmp, "article.json"), JSON.stringify(published, null,
 fs.rmSync(dest, { recursive: true, force: true });
 fs.renameSync(tmp, dest);
 console.log(`[articles:publish] ${id} 本文版${revision} を ${path.relative(root, dest)} に置きました。差分を確認してコミットしてください`);
+if (Date.parse(publishedAt) > Date.now()) {
+  const jst = new Date(publishedAt).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
+  console.log(`[articles:publish] 予約公開: ${jst}(日本時間)まで、一覧などには出ません。記事ページは URL で読めます`);
+}
