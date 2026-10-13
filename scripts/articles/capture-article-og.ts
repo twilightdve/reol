@@ -28,7 +28,7 @@ const loadPublished = async (): Promise<Published[]> => {
   const out: Published[] = [];
   for (const id of (await fs.readdir(dir)).sort()) {
     const json = JSON.parse(await fs.readFile(path.join(dir, id, "article.json"), "utf8"));
-    if (json.status !== "published" || !json.slug) continue;
+    if ((json.status !== "published" && json.status !== "unlisted") || !json.slug) continue;
     const body = await fs.readFile(path.join(dir, id, "body.md"), "utf8");
     const title = body.match(/^# (.+)$/m)?.[1]?.trim();
     if (!title) throw new Error(`${id}: body.md に題名(# …)がありません`);

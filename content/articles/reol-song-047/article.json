@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-047",
+  "kind": "song",
+  "songTitle": "ミッシング",
+  "bodyRevision": 4,
+  "formatRevision": 1,
+  "bodySha256": "3bfd175ba80a90cc4488986efcedf89366a82a080c627bda68663af88c358603",
+  "songRefs": [
+    "019e8282-9d1d-7bc5-ab4f-5fd4f07c6c92"
+  ],
+  "media": [],
+  "slug": "misshingu",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T07:09:28.295Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
