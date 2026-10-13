@@ -34,6 +34,8 @@ export interface HomeArticle {
   title: string;
   songTitle: string;
   createdAt: string | null;
+  /** 公開日時(予約公開の判定に使う。plan/43) */
+  publishedAt?: string | null;
 }
 
 interface HomeSectionProps {
