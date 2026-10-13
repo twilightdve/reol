@@ -54,7 +54,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // エンド(plan/40)。MV(0)・Spotify(1)・冒頭(2)・見出し(9, 18, 32, 44, 57, 68)・文字の図の前後(12, 13)・「相手」と「自分」の図の前後(26, 27)・献花の前後(50, 51)・届かない電話の図の前後(60, 61)・届く線の前後(72, 73)・結び(82)
   "reol-song-046": {
     bodyRevision: 3,
-    bodySha256: "b08cbb1c2bb45a31dce85303fea564c8bf362a4820d08963ad7b36a4c14fea5f",
+    bodySha256: "45813c4a325af324e172487473cc75339fab03a95ae382807327349ac64c4860",
     blockCount: 83,
     anchors: [
       { block: 0, textHash: "f808e223725bc280" },
@@ -83,7 +83,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // リンクの行(0)・冒頭(1)・見出し(3, 8, 23, 32)・夕陽に染まる衛星都市(21)とその次(22)・蓋をして(46)とその次(47)・結び(50)
   "reol-song-057": {
     bodyRevision: 9,
-    bodySha256: "8b58bb80aa52de6f96236b5297e985362fedede5e921cf9f801403973a93ce1a",
+    bodySha256: "8750fb111295ea849bfc9df3f7c4d2c58cef012ca14ffd1f6c494569779e4f74",
     blockCount: 51,
     anchors: [
       { block: 0, textHash: "60187d5eacfb03c0" },
@@ -151,7 +151,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // Boy(plan/30)。一言(1)・欄外の注記(2: 収録作、5: 演奏記録)・帯(5の前、8の前)・結び(8)
   "reol-song-080": {
     bodyRevision: 1,
-    bodySha256: "afbffe0ce12f5eea9ea23772460e4f298cce7f5ce52b41687dfb491d4d61f21c",
+    bodySha256: "a97c089df8ca46308f41daba0a5bf04b094213606eb33cfc183d78ba976e544a",
     blockCount: 9,
     anchors: [
       { block: 0, textHash: "793a2b7077106c11" },
