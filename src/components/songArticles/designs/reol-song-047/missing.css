@@ -38,9 +38,9 @@
 .a047-cover__art {
   position: absolute;
   z-index: -1;
-  left: -36%;
-  top: -5%;
-  width: 172%;
+  left: -56%;
+  top: -12%;
+  width: 210%;
 }
 .a047-ring {
   display: block;
@@ -579,9 +579,9 @@
   }
   /* スマートフォン: 輪は題名の後ろに薄く */
   .a047-cover__art {
-    left: -44%;
-    top: 22%;
-    width: 186%;
+    left: -63%;
+    top: 14%;
+    width: 225%;
     opacity: 0.7;
   }
 }
