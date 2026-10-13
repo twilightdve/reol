@@ -180,11 +180,12 @@ const SunChart: React.FC = () => {
             gradientTransform={`translate(92 ${H}) scale(1 0.3) translate(-92 ${-H})`}
           >
             {/* 衛星都市と観覧車(図の中ほど)まで薔薇色がかかるよう広げる(2026-10-13 ユーザー指定) */}
-            {/* 橙色の部分を広めに(2026-10-13 ユーザー「オレンジ色の範囲を広げて」) */}
-            <stop offset="0" stopColor="#f2a866" stopOpacity="0.9" />
-            <stop offset="0.3" stopColor="#f0ae7c" stopOpacity="0.72" />
-            <stop offset="0.5" stopColor="#e89a86" stopOpacity="0.5" />
-            <stop offset="0.72" stopColor="#d9a0a8" stopOpacity="0.28" />
+            {/* 夕陽の色はオールドローズ色(#C08081、灰みのくすんだ薔薇色)に寄せる。太陽のすぐ近くだけ温かみを残す
+                (2026-10-13 ユーザー「夕陽の色をオールドローズ色に近づけてみて」。それまでは橙色) */}
+            <stop offset="0" stopColor="#d9907e" stopOpacity="0.9" />
+            <stop offset="0.3" stopColor="#c8877f" stopOpacity="0.72" />
+            <stop offset="0.5" stopColor="#c08081" stopOpacity="0.5" />
+            <stop offset="0.72" stopColor="#cfa1a3" stopOpacity="0.28" />
             <stop offset="1" stopColor="#f4ece4" stopOpacity="0" />
           </radialGradient>
           <clipPath id="a057-above">
@@ -199,8 +200,8 @@ const SunChart: React.FC = () => {
             <rect x="0" y="0" width="1" height="1" fill="url(#a057-edge)" />
           </mask>
           <radialGradient id="a057-halo" gradientUnits="userSpaceOnUse" cx={92} cy={H} r={54}>
-            <stop offset="0" stopColor="#f6c48e" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#f6c48e" stopOpacity="0" />
+            <stop offset="0" stopColor="#e8b39c" stopOpacity="0.85" />
+            <stop offset="1" stopColor="#e8b39c" stopOpacity="0" />
           </radialGradient>
         </defs>
         <rect x="0" y="0" width="640" height={H} fill="url(#a057-dusk)" mask="url(#a057-edge-mask)" className="a057-sun__dusk" />
