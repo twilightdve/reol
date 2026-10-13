@@ -48,11 +48,27 @@
   height: auto;
   overflow: visible;
 }
+/* 表紙の下の夜の街並み。輪(高架の環状線)はその上に重なる */
 .a047-city {
-  fill: #cfd6ff;
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 46%;
+  pointer-events: none;
 }
-.a047-city.is-warm {
+.a047-city__bldg {
+  fill: #141826;
+}
+.a047-city__win {
+  fill: #c9d3ff;
+  opacity: 0.55;
+}
+.a047-city__win.is-warm {
   fill: var(--sodium-2);
+  opacity: 0.8;
 }
 .a047-ring__road {
   fill: none;

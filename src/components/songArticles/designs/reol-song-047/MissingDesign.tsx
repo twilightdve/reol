@@ -1,7 +1,7 @@
 /**
  * 楽曲記事「ミッシング」(reol-song-047)の記事別デザイン。設計の根拠は plan/42。
  *
- * - 主役は環状線の輪とタクシーの灯。表紙は夜の闇に閉じた輪(実際の地図ではない)、その上を灯が尾を引いて回り続ける。
+ * - 主役は環状線の輪とタクシーの灯。表紙は夜の街並み(ビルの影と窓の明かり)の上に閉じた輪(実際の地図ではない)、その上を灯が尾を引いて回り続ける。
  * - 紙面は夜のアスファルトの黒紺の地に、ナトリウム灯の橙と、タクシーの表示の赤。
  * - 段落5の後: タクシーメーター。走行距離は増え続けるのに、出発地からの距離は 0 のまま。
  * - 段落9の後: 追い越される。自分の灯の横を、ほかの灯が次々と追い越していく。
@@ -76,14 +76,56 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
 };
 
 /** 環状線の輪と、尾を引いて回り続けるタクシーの灯。動きを減らす設定では灯は止まったまま */
-// 表紙の夜の街の灯(輪の内外に散らばる窓明かり)。描画ごとに変わらないよう、決まった計算で並べる
-const CITY_LIGHTS = Array.from({ length: 90 }, (_, i) => {
-  const x = (i * 137.5) % 640 - 20;
-  const y = (i * 71.3 + (i % 7) * 23) % 420 - 10;
-  return { x, y, r: i % 5 === 0 ? 1.8 : 1.1, warm: i % 3 !== 0, o: 0.25 + ((i * 37) % 50) / 100 };
-});
+// 表紙の下の夜の街並み: ビルの影と、点いている窓。描画ごとに変わらないよう、決まった計算で並べる(実在の街並みではない)
+const hash = (n: number) => {
+  const x = Math.sin(n * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+};
+const BUILDINGS = (() => {
+  const list: { x: number; w: number; h: number; windows: { x: number; y: number; warm: boolean }[] }[] = [];
+  let x = -10;
+  let i = 0;
+  while (x < 1210) {
+    const w = 34 + Math.floor(hash(i + 1) * 46);
+    // 中央より左右の端を高く(手前のビル)、ところどころに高いビル
+    const h = 60 + Math.floor(hash(i + 7) * 120) + (hash(i + 3) > 0.82 ? 110 : 0);
+    const windows: { x: number; y: number; warm: boolean }[] = [];
+    for (let cy = 400 - h + 10; cy < 392; cy += 13) {
+      for (let cx = x + 6; cx < x + w - 6; cx += 10) {
+        const k = cx * 7.1 + cy * 3.3;
+        if (hash(k) < 0.24) windows.push({ x: cx, y: cy, warm: hash(k + 1) < 0.7 });
+      }
+    }
+    list.push({ x, w, h, windows });
+    x += w + 2;
+    i++;
+  }
+  return list;
+})();
 
-const RingRoad: React.FC<{ className?: string; idPrefix: string; city?: boolean }> = ({ className = "", idPrefix, city = false }) => {
+/** 表紙の下の夜の街並み(装飾) */
+const NightCity: React.FC = () => (
+  <svg className="a047-city" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="a047-city-haze" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#f2a03d" stopOpacity="0" />
+        <stop offset="1" stopColor="#f2a03d" stopOpacity="0.22" />
+      </linearGradient>
+    </defs>
+    {/* 街の明かりで地平が橙に霞む */}
+    <rect x="0" y="160" width="1200" height="240" fill="url(#a047-city-haze)" />
+    {BUILDINGS.map((bd, i) => (
+      <g key={i}>
+        <rect x={bd.x} y={400 - bd.h} width={bd.w} height={bd.h} className="a047-city__bldg" />
+        {bd.windows.map((wd, j) => (
+          <rect key={j} x={wd.x} y={wd.y} width="4" height="5" className={wd.warm ? "a047-city__win is-warm" : "a047-city__win"} />
+        ))}
+      </g>
+    ))}
+  </svg>
+);
+
+const RingRoad: React.FC<{ className?: string; idPrefix: string }> = ({ className = "", idPrefix }) => {
   const motion = useMotionAllowed();
   const tail = [0, 0.06, 0.12, 0.18, 0.24, 0.3];
   return (
@@ -95,10 +137,6 @@ const RingRoad: React.FC<{ className?: string; idPrefix: string; city?: boolean 
           <stop offset="1" stopColor="#f2a03d" stopOpacity="0" />
         </radialGradient>
       </defs>
-      {city &&
-        CITY_LIGHTS.map((l, i) => (
-          <circle key={i} cx={l.x} cy={l.y} r={l.r} className={l.warm ? "a047-city is-warm" : "a047-city"} style={{ opacity: l.o }} />
-        ))}
       {/* 道路の帯と、点線の車線 */}
       <path d={LOOP_PATH} className="a047-ring__road" />
       <path d={LOOP_PATH} className="a047-ring__lane" />
@@ -241,8 +279,9 @@ const MissingDesign: SongArticleDesign = (ctx) => {
       <article>
         {/* 表紙: 夜の環状線と、回り続けるタクシーの灯 */}
         <header className="a047-cover" data-og-cover>
+          <NightCity />
           <div className="a047-cover__art">
-            <RingRoad idPrefix="a047-cover" city />
+            <RingRoad idPrefix="a047-cover" />
           </div>
           <div className="a047-cover__top">
             <nav aria-label="パンくず" className="a047-crumbs">
