@@ -5,7 +5,7 @@
  * - 表紙: ガラスの覆い(ベルジャー)に閉じ込められた一輪の薔薇(線画)。足もとから一筋の煙(イントロの ZIPPO と煙草)。
  * - 題名・見出し・本文は明朝体。段落が短いので、行間を広くとって一文ずつ置く。
  * - 「関係ない」の節の後: 断ち切ったはずの一本の線(真ん中で切れているが、細い糸が残ってつながっている)。
- * - 街の情景の節(観覧車の段落の後): 太陽の軌道の図(季節でずれる東西の弧、西に沈む太陽、地平線の下の午前二時、衛星都市と観覧車)。地図と同じく東を右に。
+ * - 街の情景の節(観覧車の段落の後): 太陽の軌道の図(季節でずれる東西の弧、西に沈む太陽と夕焼け、地平線の下の午前二時、衛星都市と観覧車)。地図と同じく東を右に。
  * - 時が殺してくの節の後: 一枚ずつ薄れていく花びら。
  * - 甘すぎた匂いの節(「蓋をして」の段落の後): ガラスの覆いが薔薇にかぶさる(画面に入ると上から降りて閉じる)。
  * - 冒頭のリンクの行は本文のまま(小さな札の列)。『事実上』XFD は公式の埋め込み(クリックで読み込む)も表紙の下に置く。
@@ -169,8 +169,47 @@ const SunChart: React.FC = () => {
   return (
     <div ref={ref} className={`a057-sun${className}`} aria-hidden="true">
       <svg viewBox="0 0 640 300">
+        <defs>
+          {/* 西(左)に沈む太陽から空へ広がる夕焼け。地平線に沿って横に長く、太陽の近くは琥珀色、遠くで薔薇色から紙の地へ */}
+          <radialGradient
+            id="a057-dusk"
+            gradientUnits="userSpaceOnUse"
+            cx={92}
+            cy={H}
+            r={460}
+            gradientTransform={`translate(92 ${H}) scale(1 0.42) translate(-92 ${-H})`}
+          >
+            <stop offset="0" stopColor="#f2b27a" stopOpacity="0.85" />
+            <stop offset="0.18" stopColor="#e89a86" stopOpacity="0.6" />
+            <stop offset="0.45" stopColor="#d9a0a8" stopOpacity="0.3" />
+            <stop offset="1" stopColor="#f4ece4" stopOpacity="0" />
+          </radialGradient>
+          <clipPath id="a057-above">
+            <rect x="0" y="0" width="640" height={H} />
+          </clipPath>
+          {/* 図の左端(枠の端)でにじみが切れて見えないよう、左端だけ薄れさせる */}
+          <linearGradient id="a057-edge" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#fff" stopOpacity="0" />
+            <stop offset="0.12" stopColor="#fff" stopOpacity="1" />
+          </linearGradient>
+          <mask id="a057-edge-mask" maskContentUnits="objectBoundingBox">
+            <rect x="0" y="0" width="1" height="1" fill="url(#a057-edge)" />
+          </mask>
+          <radialGradient id="a057-halo" gradientUnits="userSpaceOnUse" cx={92} cy={H} r={54}>
+            <stop offset="0" stopColor="#f6c48e" stopOpacity="0.9" />
+            <stop offset="1" stopColor="#f6c48e" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="640" height={H} fill="url(#a057-dusk)" mask="url(#a057-edge-mask)" className="a057-sun__dusk" />
+        <circle cx={92} cy={H} r={54} fill="url(#a057-halo)" clipPath="url(#a057-above)" className="a057-sun__dusk" />
         {arcs.map(([x0, x1, h], i) => (
-          <path key={i} d={`M${x0},${H} C${x0 + 20},${H - h * 1.3} ${x1 - 20},${H - h * 1.3} ${x1},${H}`} className="a057-sun__arc" style={{ transitionDelay: `${i * 0.2}s` }} pathLength={1} />
+          <path
+            key={i}
+            d={`M${x0},${H} C${x0 + 20},${H - h * 1.3} ${x1 - 20},${H - h * 1.3} ${x1},${H}`}
+            className={`a057-sun__arc${i === 1 ? " a057-sun__arc--main" : ""}`}
+            style={{ transitionDelay: `${i * 0.2}s` }}
+            pathLength={1}
+          />
         ))}
         {/* 地平線の下: 夜半の太陽の道(点線)と、見えない太陽 */}
         <path d={`M548,${H} C528,${H + 92} 112,${H + 92} 92,${H}`} className="a057-sun__night" />
@@ -197,9 +236,6 @@ const SunChart: React.FC = () => {
         </g>
         <line x1="20" y1={H} x2="620" y2={H} className="a057-sun__horizon" />
         {/* 西(左)に沈む太陽(半分が地平線の下) */}
-        <clipPath id="a057-above">
-          <rect x="0" y="0" width="640" height={H} />
-        </clipPath>
         <circle cx={92} cy={H} r={16} className="a057-sun__set" clipPath="url(#a057-above)" />
         <text x="72" y={H + 26} className="a057-sun__label" textAnchor="middle">西</text>
         <text x="568" y={H + 26} className="a057-sun__label" textAnchor="middle">東</text>
