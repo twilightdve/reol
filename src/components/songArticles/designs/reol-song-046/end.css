@@ -338,7 +338,6 @@
 }
 
 /* ---------- 図の共通 ---------- */
-.a046-loop,
 .a046-beyond,
 .a046-reach {
   margin: 1.8em 0;
@@ -347,7 +346,6 @@
   width: min(140px, 38%);
   margin: 1.8em auto;
 }
-.a046-loop svg,
 .a046-beyond svg,
 .a046-flower svg,
 .a046-reach svg {
@@ -357,33 +355,61 @@
   overflow: visible;
 }
 
-/* ---------- 戻ってくる線: 相手へ向けた線が、自分へ戻る ---------- */
-.a046-loop__other {
-  fill: none;
-  stroke: var(--ink-2);
-  stroke-width: 2;
-  opacity: 0;
+/* ---------- 決められない: 「相手」と「自分」の間で止まる点 ---------- */
+.a046-undecided {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 20px);
+  margin: 1.8em 0;
+  padding: 1.1em 0;
+  border-top: 1px solid var(--ash-2);
+  border-bottom: 1px solid var(--ash-2);
 }
-.a046-loop__line {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  stroke-linecap: round;
+.a046-undecided__word {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
-.a046-loop.is-armed .a046-loop__other {
-  opacity: 1;
-  transition: opacity 1s ease 1.4s;
+.a046-undecided__track {
+  position: relative;
+  width: clamp(120px, 34vw, 220px);
+  height: 1px;
+  background: #b9bcc0;
 }
-.a046-loop.is-armed .a046-loop__line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.6s ease-in-out 0.3s;
+.a046-undecided__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--dot);
 }
-.a046-loop.is-visible .a046-loop__other {
-  opacity: 0;
+/* 左右の端(言葉の手前)まで寄っては離れ、だんだん振れが小さくなって真ん中で止まる */
+.a046-undecided.is-visible .a046-undecided__dot {
+  animation: a046-undecided 4.2s ease-in-out 0.3s both;
 }
-.a046-loop.is-visible .a046-loop__line {
-  stroke-dashoffset: 0;
+@keyframes a046-undecided {
+  0% {
+    transform: translateX(0);
+  }
+  18% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * -0.46));
+  }
+  40% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * 0.42));
+  }
+  60% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * -0.26));
+  }
+  78% {
+    transform: translateX(calc(clamp(120px, 34vw, 220px) * 0.14));
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ---------- 終止符の先へ続く点線 ---------- */

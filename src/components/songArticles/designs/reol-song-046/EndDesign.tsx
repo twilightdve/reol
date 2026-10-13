@@ -6,7 +6,7 @@
  * - エンドレスからエンドへの節(段落12の後): 文字の図。「エンドレス」の「エンド」の直後に終止符が打たれ、その先の「レス」が薄れて切り離される。
  * - 自分自身の葬式の節: 節全体を黒枠(訃報の黒い縁取り)で囲む。
  * - 届かない電話の節(段落60の後): かける側の点から点線が伸びるが、相手の点に届く前に途切れる。
- * - 君が大嫌いの節(段落26の後): 相手へ伸びた線が、相手の手前で折り返して自分の点へ戻る(「君」は自分自身でもある)。鏡は「平面鏡」の記事の題材なので使わない。
+ * - 君が大嫌いの節(段落26の後): 本文の「相手」と「自分」の間を黒い点が行き来し、どちらにも止まらず真ん中で止まる(嫌っているのはどちらか決められない)。
  * - 大丈夫ではないまま歌うの節の終わり: 線に終止符が打たれ、その先に細い点線が続く(歌うことで終わらないものを残す)。
  * - 葬式の節(段落50の後): 黒枠の中に、白いカーネーションの献花(MV は十字架のある葬式で、白い花束が置かれる)。花びらが開く。
  * - 結びの節(段落72の後): 届かない電話と対になる図。線が最後まで伸びて黒い点に届き、淡い光に包まれる。
@@ -32,7 +32,7 @@ const INTRO = 2;
 const S_ENDLESS = 9;
 const ENDLESS_FIG = 13; // 段落12「永遠を願った…終止符を打つ「エンド」へ。」の後
 const S_HATE = 18;
-const LOOP_FIG = 27; // 段落26(嫌っているのは本当に相手なのか)の後
+const UNDECIDED_FIG = 27; // 段落26(嫌っているのは本当に相手なのか)の後
 const S_OK = 32;
 const S_FUNERAL = 44; // 段落43(歌うことで終わらないものを残す)の後に、終止符の先へ続く点線
 const FLOWER_FIG = 51; // 段落50(見送ることでもある)の後に献花
@@ -135,20 +135,16 @@ const UnreachedCall: React.FC = () => {
   );
 };
 
-/** 戻ってくる線(君が大嫌いの節): 黒い点から「相手」(輪郭だけの点)へ伸びた線が、相手の手前で折り返して自分の点へ戻ってくる。相手は薄れて消える */
-const SelfLoop: React.FC = () => {
+/** 決められない(君が大嫌いの節): 本文の「相手」と「自分」の間を、黒い点が行き来して、どちらにも止まらず真ん中で止まる */
+const Undecided: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
   return (
-    <div ref={ref} className={`a046-loop${className}`} aria-hidden="true">
-      <svg viewBox="0 0 600 140">
-        <circle cx="470" cy="56" r="16" className="a046-loop__other" />
-        <path
-          d="M176,64 C280,64 380,58 432,40 C470,24 506,40 498,70 C490,100 440,108 380,102 C300,94 230,80 182,74"
-          className="a046-loop__line"
-          pathLength={1}
-        />
-        <circle cx="150" cy="68" r="16" className="a046-dot" />
-      </svg>
+    <div ref={ref} className={`a046-undecided${className}`} aria-hidden="true">
+      <span className="a046-undecided__word">相手</span>
+      <span className="a046-undecided__track">
+        <span className="a046-undecided__dot" />
+      </span>
+      <span className="a046-undecided__word">自分</span>
     </div>
   );
 };
@@ -328,11 +324,11 @@ const EndDesign: SongArticleDesign = (ctx) => {
               {body(ENDLESS_FIG, S_HATE)}
             </section>
 
-            {/* 君が大嫌い。嫌っているのは本当に相手なのか、の段落の後に、自分へ戻ってくる線 */}
+            {/* 君が大嫌い。嫌っているのは本当に相手なのか自分なのか、の段落の後に、どちらにも決められない点 */}
             <section className="a046-section">
-              {body(S_HATE, LOOP_FIG)}
-              <SelfLoop />
-              {body(LOOP_FIG, S_OK)}
+              {body(S_HATE, UNDECIDED_FIG)}
+              <Undecided />
+              {body(UNDECIDED_FIG, S_OK)}
             </section>
 
             {/* 大丈夫ではないまま歌う。節の終わりに、終止符の先へ続く点線 */}

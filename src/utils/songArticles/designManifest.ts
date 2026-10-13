@@ -51,7 +51,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 84, textHash: "fb503ca885bc4c3d" },
     ],
   },
-  // エンド(plan/40)。MV(0)・Spotify(1)・冒頭(2)・見出し(9, 18, 32, 44, 57, 68)・文字の図の前後(12, 13)・自分へ戻る線の前後(26, 27)・献花の前後(50, 51)・届かない電話の図の前後(60, 61)・届く線の前後(72, 73)・結び(82)
+  // エンド(plan/40)。MV(0)・Spotify(1)・冒頭(2)・見出し(9, 18, 32, 44, 57, 68)・文字の図の前後(12, 13)・「相手」と「自分」の図の前後(26, 27)・献花の前後(50, 51)・届かない電話の図の前後(60, 61)・届く線の前後(72, 73)・結び(82)
   "reol-song-046": {
     bodyRevision: 3,
     bodySha256: "b08cbb1c2bb45a31dce85303fea564c8bf362a4820d08963ad7b36a4c14fea5f",
