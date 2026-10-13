@@ -363,8 +363,19 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
   const closeQ = post.startsWith("」") ? "」" : "";
   const tName = pre.slice(0, pre.length - openQ.length);
   const tSub = post.slice(closeQ.length);
-  // 冒頭のリンクの行の YouTube(『事実上』XFD)を、公式の埋め込みにもする
+  // 冒頭のリンクの行(「聴く：」+ リンク3つ)。札の並びにするため、見出しの言葉とリンクを取り出す
   const linkBlock = blocks[LINKS];
+  const linkRow =
+    linkBlock?.t === "p" && linkBlock.children.some((n) => n.t === "link")
+      ? {
+          label: (() => {
+            const first = linkBlock.children[0];
+            return first && first.t === "text" ? first.v.replace(/[：:\s]+$/, "").trim() : "";
+          })(),
+          links: linkBlock.children.flatMap((n) => (n.t === "link" ? [{ href: n.href, text: inlineText(n.children) }] : [])),
+        }
+      : null;
+  // 冒頭のリンクの行の YouTube(『事実上』XFD)を、公式の埋め込みにもする
   const xfdLink =
     linkBlock?.t === "p"
       ? linkBlock.children.find((n) => n.t === "link" && youtubeVideoId(n.href))
@@ -427,8 +438,24 @@ const VacuumOldRoseDesign: SongArticleDesign = (ctx) => {
 
         <div className="a057-ground">
           <div className="a057-column">
-            {/* 冒頭のリンクの行(本文のまま、札の列に) */}
-            {body(LINKS, INTRO, "a057-text a057-links")}
+            {/* 冒頭のリンクの行。文言とリンク先は本文のまま、区切りの「｜」は外して札の並びに。
+                スマートフォンは縦に積み、PC は横に並べる(2026-10-13 ユーザー「最初から縦積みにしては？」) */}
+            {linkRow ? (
+              <nav className="a057-links" aria-label={linkRow.label || "関連リンク"}>
+                {linkRow.label && <p className="a057-links__label">{linkRow.label}</p>}
+                <ul className="a057-links__list">
+                  {linkRow.links.map((l) => (
+                    <li key={l.href}>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer">
+                        {l.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : (
+              body(LINKS, INTRO, "a057-text a057-links")
+            )}
             {xfd && (
               <figure className="a057-video">
                 <figcaption className="a057-video__label">『事実上』XFD</figcaption>
