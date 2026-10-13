@@ -1918,6 +1918,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         publishedAt: string | null;
         seriesSlug: string;
         tags: string[];
+        /** 初出の作品(一覧のアルバム絞り込みに使う)。無ければ null */
+        album: { title: string; releaseDate: string | null } | null;
         preview: boolean;
       }[] = [];
       // 記事ページは、関連記事(全記事のタグがそろってから選ぶ)を入れてから最後にまとめて作る
@@ -2071,6 +2073,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           publishedAt: article.publishedAt,
           seriesSlug: series.slug,
           tags,
+          album: songFacts.releases[0] ? { title: songFacts.releases[0].title, releaseDate: songFacts.releases[0].releaseDate } : null,
           preview,
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)

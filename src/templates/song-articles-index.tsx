@@ -6,6 +6,7 @@
  * - /articles/ はシリーズごとに分けて並べる。/articles/series/<slug>/ はそのシリーズだけ(同じテンプレート)。
  * - タグは ?tag=<タグ> で絞り込む(記事のタグのリンクから)。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
  *   一覧の上の「タグで絞り込む」ボタン群は置かない(2026-10-11 ユーザー指定)。
+ * - アルバム(初出の作品)で絞り込める(2026-10-13 ユーザー指定)。?album=<作品名>。静的HTMLは全件で、JSが動いた後に絞り込む。
  * - 記事ごとのいいね数を表示し、「新着順」「いいねが多い順」で並べ替えられる(2026-10-12 ユーザー指定)。
  *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
  *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
@@ -34,6 +35,8 @@ type IndexEntry = {
   publishedAt: string | null;
   seriesSlug: string;
   tags: string[];
+  /** 初出の作品(アルバムの絞り込みに使う) */
+  album: { title: string; releaseDate: string | null } | null;
   preview: boolean;
 };
 
@@ -148,12 +151,39 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   };
   const sortByLikes = sort === "likes" && likeCounts !== null;
 
+  // アルバム(初出の作品)の一覧。発売日の古い順。記事の数も添える
+  const albums = useMemo(() => {
+    const m = new Map<string, { title: string; releaseDate: string | null; count: number }>();
+    for (const a of articles) {
+      if (!a.album) continue;
+      const cur = m.get(a.album.title);
+      if (cur) cur.count += 1;
+      else m.set(a.album.title, { ...a.album, count: 1 });
+    }
+    return [...m.values()].sort((x, y) => (x.releaseDate ?? "").localeCompare(y.releaseDate ?? ""));
+  }, [articles]);
+  const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
+  useEffect(() => {
+    const album = new URLSearchParams(location.search).get("album");
+    setActiveAlbum(album && albums.some((x) => x.title === album) ? album : null);
+  }, [location.search, albums]);
+  const chooseAlbum = (next: string | null) => {
+    setActiveAlbum(next);
+    trackEvent("article_list_album", { category: "navigation", label: next ?? "all" });
+    const params = new URLSearchParams(window.location.search);
+    if (next) params.set("album", next);
+    else params.delete("album");
+    const q = params.toString();
+    window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
+  };
+
   const visible = useMemo(() => {
-    const filtered = activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles;
+    const byTag = activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles;
+    const filtered = activeAlbum ? byTag.filter((a) => a.album?.title === activeAlbum) : byTag;
     if (!sortByLikes || !likeCounts) return filtered;
     // Array.prototype.sort は安定なので、同数は元の新着順のまま
     return [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0));
-  }, [articles, activeTag, sortByLikes, likeCounts]);
+  }, [articles, activeTag, activeAlbum, sortByLikes, likeCounts]);
   const basePath = current ? seriesPath(current.slug) : "/articles/";
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
@@ -193,6 +223,34 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
               すべて表示
             </Link>
           </p>
+        )}
+
+        {/* アルバムで絞り込む(初出の作品。発売日の古い順) */}
+        {albums.length > 1 && (
+          <div className="mb-3 flex flex-wrap items-center gap-2 text-[12px]">
+            <label htmlFor="article-album" className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">
+              アルバム
+            </label>
+            <select
+              id="article-album"
+              value={activeAlbum ?? ""}
+              onChange={(e) => chooseAlbum(e.target.value || null)}
+              className="max-w-full rounded-full border border-bx-line bg-bx-bg px-3 py-1 font-bold text-bx-ink focus:border-bx-blue"
+            >
+              <option value="">すべて({articles.length})</option>
+              {albums.map((x) => (
+                <option key={x.title} value={x.title}>
+                  {x.title}
+                  {x.releaseDate ? `(${x.releaseDate.slice(0, 4)})` : ""} — {x.count}本
+                </option>
+              ))}
+            </select>
+            {activeAlbum && (
+              <button type="button" onClick={() => chooseAlbum(null)} className="text-bx-ink2 underline underline-offset-4 hover:text-bx-blue">
+                解除
+              </button>
+            )}
+          </div>
         )}
 
         {/* 並べ替え。いいね数が読めない時は、いいね順を選べない */}
