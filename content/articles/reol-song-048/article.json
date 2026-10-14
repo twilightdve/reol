@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-048",
+  "kind": "song",
+  "songTitle": "カルト",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "700bf46a009da31e6326d21e980d308cbcaf97eb16aa0d0edc95bec4d644c395",
+  "songRefs": [
+    "019e8282-9db9-780c-8bac-8a5af7dc20a4"
+  ],
+  "media": [],
+  "slug": "karuto",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T07:59:12.108Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
