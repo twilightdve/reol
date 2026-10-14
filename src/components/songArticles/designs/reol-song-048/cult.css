@@ -264,13 +264,11 @@
 /* ---------- 図の共通 ---------- */
 .a048-etymo,
 .a048-wave,
-.a048-voices,
 .a048-border {
   margin: 2em 0;
 }
 .a048-etymo svg,
-.a048-wave svg,
-.a048-voices svg {
+.a048-wave svg {
   display: block;
   width: 100%;
   height: auto;
@@ -382,83 +380,6 @@
 .a048-video .sa-media__caption {
   margin-top: 10px;
   font-size: 13px;
-}
-
-/* ---------- 表と裏の声 ---------- */
-.a048-voices {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-.a048-voices__panel {
-  margin: 0;
-  padding: 12px 12px 10px;
-  border: 1px solid #2c2224;
-  border-radius: 4px;
-  background: var(--dark-2);
-}
-.a048-voices__panel figcaption {
-  margin-bottom: 6px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--text);
-}
-.a048-voices__front {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 2.5;
-}
-.a048-voices__front.is-dim {
-  stroke-opacity: 0.45;
-}
-.a048-voices__back {
-  fill: none;
-  stroke-width: 2;
-}
-.a048-voices__back.is-buried {
-  stroke: #7d6f68;
-  stroke-opacity: 0.55;
-}
-.a048-voices__back.is-clear {
-  stroke: var(--crimson);
-  stroke-width: 3;
-  filter: drop-shadow(0 0 4px rgb(180 35 44 / 0.8));
-}
-.a048-voices__legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  margin: 6px 0 0;
-  font-size: 11px;
-  line-height: 1.6;
-  color: var(--text-2);
-}
-.a048-voices__legend .is-front::before,
-.a048-voices__legend .is-back::before {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 3px;
-  margin-right: 5px;
-  vertical-align: middle;
-  background: var(--gold);
-}
-.a048-voices__legend .is-back::before {
-  background: #7d6f68;
-}
-.a048-voices__panel.is-mif .a048-voices__legend .is-back::before {
-  background: var(--crimson);
-}
-/* MADE IN FACTION: 裏の声が下(奥)から上(手前)へ出てくる */
-.a048-voices.is-armed .a048-voices__rise {
-  transform: translateY(48px);
-  opacity: 0.3;
-  transition: transform 1.8s ease 0.6s, opacity 1.8s ease 0.6s;
-}
-.a048-voices.is-visible .a048-voices__rise {
-  transform: none;
-  opacity: 1;
 }
 
 /* ---------- 光背が消える ---------- */
@@ -576,9 +497,6 @@
     right: 2%;
     width: 46%;
     opacity: 0.85;
-  }
-  .a048-voices {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media print {
