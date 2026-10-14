@@ -1,0 +1,597 @@
+/*
+ * 楽曲記事「カルト」(reol-song-048)の記事別デザイン(見本 v1)。根拠は plan/44。
+ * すべて .a048 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --dark 闇の地 / --text 文字(ろうそくの光に照らされた紙のような生成り) / --text-2 補足
+ *   --gold ろうそくの金(リンク・図) / --crimson じごくを思わせる深紅(強調)
+ */
+
+.a048 {
+  --dark: #0c0a0b;
+  --dark-2: #171214;
+  --text: #ece4d6;
+  --text-2: #a59a8a;
+  --gold: #f0c46e;
+  --gold-2: #ffdf9e;
+  --crimson: #b4232c;
+  --column: min(620px, calc(100% - 40px));
+
+  color: var(--text);
+  background: var(--dark);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 闇の中のろうそく ---------- */
+.a048-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(520px, 86svh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(60% 70% at 72% 55%, #23191a 0%, var(--dark) 70%);
+}
+.a048-cover__art {
+  position: absolute;
+  z-index: -1;
+  right: max(4%, calc((100% - 1040px) / 2 + 40px));
+  top: 50%;
+  width: min(300px, 34%);
+  transform: translateY(-46%);
+}
+.a048-candle {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a048-candle__wick {
+  stroke: #2a1d16;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.a048-candle__core {
+  fill: #6f8dff;
+  opacity: 0.55;
+}
+.a048-candle__halo {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgb(240 196 110 / 0.9));
+}
+/* 炎のゆらぎ(根元を支点に、わずかに伸び縮みして傾く) */
+@media (prefers-reduced-motion: no-preference) {
+  .a048-candle__flame {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: a048-flicker 2.6s ease-in-out infinite;
+  }
+  .a048-candle__glow {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: a048-glow 2.6s ease-in-out infinite;
+  }
+}
+@keyframes a048-flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0deg);
+  }
+  20% {
+    transform: scale(0.96, 1.06) skewX(-2deg);
+  }
+  45% {
+    transform: scale(1.03, 0.95) skewX(1.5deg);
+  }
+  70% {
+    transform: scale(0.98, 1.04) skewX(-1deg);
+  }
+}
+@keyframes a048-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.82;
+  }
+}
+.a048-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a048-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-2);
+}
+.a048-crumbs a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.a048-crumbs a:hover,
+.a048-crumbs a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.a048-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: clamp(40px, 8vw, 80px);
+}
+.a048-title {
+  margin: 0;
+  font-weight: 800;
+}
+.a048-title__song {
+  display: block;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(60px, 13vw, 140px);
+  line-height: 1.05;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  text-shadow: 0 0 30px rgb(240 196 110 / 0.25);
+}
+.a048-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-size: clamp(17px, 2.2vw, 23px);
+  letter-spacing: 0.22em;
+  color: var(--gold);
+}
+.a048-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+}
+
+/* ---------- 本文 ---------- */
+.a048-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+  background: var(--dark);
+}
+.a048-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a048-listen {
+  margin-bottom: clamp(36px, 6vw, 52px);
+  font-size: 13px;
+}
+.a048-listen a {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  color: var(--gold) !important;
+  text-decoration: none !important;
+}
+.a048-listen a:hover {
+  background: var(--gold);
+  color: var(--dark) !important;
+}
+.a048-text {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a048-text p {
+  margin: 0;
+}
+.a048-text p + p {
+  margin-top: 1.3em;
+}
+/* 見出し: 前に小さな炎の形 */
+.a048-text h2 {
+  position: relative;
+  margin: 0 0 1.3em;
+  padding-left: 1em;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+.a048-text h2::before {
+  content: "";
+  position: absolute;
+  left: 0.1em;
+  top: 0.32em;
+  width: 0.42em;
+  height: 0.72em;
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  background: linear-gradient(0deg, #fff3d0, var(--gold) 45%, #e0601e);
+  box-shadow: 0 0 10px rgb(240 196 110 / 0.8);
+}
+.a048-section {
+  margin-bottom: clamp(56px, 8vw, 88px);
+}
+.a048-section--last {
+  margin-bottom: 0;
+}
+.a048-intro p:first-child {
+  font-size: clamp(20px, 2.7vw, 25px);
+  font-weight: 800;
+  line-height: 1.75;
+  color: #fff;
+}
+.a048-ground a {
+  color: var(--gold-2);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a048-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a048-note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a048-note p {
+  margin: 0;
+}
+.a048-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+.a048-note__strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.a048-closing p:last-child {
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ---------- 図の共通 ---------- */
+.a048-etymo,
+.a048-wave,
+.a048-voices,
+.a048-border {
+  margin: 2em 0;
+}
+.a048-etymo svg,
+.a048-wave svg,
+.a048-voices svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------- 語源の図 ---------- */
+.a048-etymo__root {
+  font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-size: 30px;
+  font-style: italic;
+  fill: var(--gold-2);
+}
+.a048-etymo__note {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  fill: var(--text-2);
+}
+.a048-etymo__branch {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+}
+.a048-etymo__word {
+  font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-size: 26px;
+  font-style: italic;
+  fill: var(--text);
+}
+.a048-etymo__ja {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: var(--text-2);
+}
+.a048-etymo.is-armed .a048-etymo__branch {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s ease 0.3s;
+}
+.a048-etymo.is-armed .a048-etymo__leaf {
+  opacity: 0;
+  transition: opacity 0.8s ease 1.3s;
+}
+.a048-etymo.is-armed .a048-etymo__leaf.is-second {
+  transition-delay: 1.6s;
+}
+.a048-etymo.is-visible .a048-etymo__branch {
+  stroke-dashoffset: 0;
+}
+.a048-etymo.is-visible .a048-etymo__leaf {
+  opacity: 1;
+}
+
+/* ---------- 静けさとハイトーン ---------- */
+.a048-wave__axis {
+  stroke: rgb(236 228 214 / 0.15);
+  stroke-width: 1;
+}
+.a048-wave__line {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.a048-wave__label {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  fill: var(--text-2);
+}
+.a048-wave__label.is-loud {
+  font-weight: 800;
+  fill: var(--crimson);
+}
+/* 左から書かれていき、静かな部分はゆっくり、跳ね上がる所で一気に */
+.a048-wave.is-armed .a048-wave__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 3s cubic-bezier(0.55, 0, 0.75, 0.3) 0.3s;
+}
+.a048-wave.is-visible .a048-wave__line {
+  stroke-dashoffset: 0;
+}
+
+/* ---------- XFD ---------- */
+.a048-video {
+  margin: 2em 0;
+}
+.a048-video__label {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+}
+.a048-video .sa-media {
+  margin: 0;
+}
+.a048-video .sa-media__frame {
+  border: 1px solid #3a2a24;
+}
+.a048-video .sa-media__thumb {
+  opacity: 1;
+}
+.a048-video .sa-media__button {
+  background: rgb(240 196 110 / 0.95);
+  color: var(--dark);
+}
+.a048-video .sa-media__caption {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* ---------- 表と裏の声 ---------- */
+.a048-voices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.a048-voices__panel {
+  margin: 0;
+  padding: 12px 12px 10px;
+  border: 1px solid #2c2224;
+  border-radius: 4px;
+  background: var(--dark-2);
+}
+.a048-voices__panel figcaption {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text);
+}
+.a048-voices__front {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.5;
+}
+.a048-voices__front.is-dim {
+  stroke-opacity: 0.45;
+}
+.a048-voices__back {
+  fill: none;
+  stroke-width: 2;
+}
+.a048-voices__back.is-buried {
+  stroke: #7d6f68;
+  stroke-opacity: 0.55;
+}
+.a048-voices__back.is-clear {
+  stroke: var(--crimson);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 4px rgb(180 35 44 / 0.8));
+}
+.a048-voices__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 6px 0 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+.a048-voices__legend .is-front::before,
+.a048-voices__legend .is-back::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+  background: var(--gold);
+}
+.a048-voices__legend .is-back::before {
+  background: #7d6f68;
+}
+.a048-voices__panel.is-mif .a048-voices__legend .is-back::before {
+  background: var(--crimson);
+}
+/* MADE IN FACTION: 裏の声が下(奥)から上(手前)へ出てくる */
+.a048-voices.is-armed .a048-voices__rise {
+  transform: translateY(48px);
+  opacity: 0.3;
+  transition: transform 1.8s ease 0.6s, opacity 1.8s ease 0.6s;
+}
+.a048-voices.is-visible .a048-voices__rise {
+  transform: none;
+  opacity: 1;
+}
+
+/* ---------- 光背が消える ---------- */
+.a048-halo {
+  width: min(170px, 46%);
+  margin: 2em auto;
+}
+.a048-halo .a048-candle__halo {
+  opacity: 0;
+}
+.a048-halo.is-armed .a048-candle__halo {
+  opacity: 1;
+  transition: opacity 2.2s ease 1s;
+}
+.a048-halo.is-visible .a048-candle__halo {
+  opacity: 0;
+}
+
+/* ---------- 信仰と芸術の境界 ---------- */
+.a048-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 28px);
+  padding: 1.2em 0;
+}
+.a048-border__word {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--text);
+}
+.a048-border__line {
+  width: 2px;
+  height: 2.2em;
+  background: var(--gold);
+  /* 完成状態: 境界はぼやけて、ほとんど見えない */
+  opacity: 0.12;
+  filter: blur(6px);
+}
+.a048-border.is-armed .a048-border__line {
+  opacity: 1;
+  filter: none;
+  transition: opacity 2.4s ease 0.8s, filter 2.4s ease 0.8s;
+}
+.a048-border.is-visible .a048-border__line {
+  opacity: 0.12;
+  filter: blur(6px);
+}
+
+/* ---------- 奥付 ---------- */
+.a048-colophon {
+  padding: clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+.a048-colophon__list,
+.a048-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a048-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(240 196 110 / 0.3);
+  display: grid;
+  gap: 10px;
+}
+.a048-colophon__list > div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+}
+.a048-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+.a048-colophon dd {
+  margin: 0;
+}
+.a048-colophon__src {
+  display: block;
+  font-size: 12px;
+}
+.a048-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a048-colophon a {
+  color: var(--gold-2);
+}
+
+/* ---------- フォーカス ---------- */
+.a048 a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a048-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  /* スマートフォン: ろうそくは題名の後ろ、右寄りに */
+  .a048-cover__art {
+    right: 2%;
+    width: 46%;
+    opacity: 0.85;
+  }
+  .a048-voices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media print {
+  .a048,
+  .a048-cover,
+  .a048-ground {
+    color: #000;
+    background: #fff;
+  }
+  .a048-cover {
+    min-height: 0;
+  }
+  .a048-cover__art {
+    display: none;
+  }
+}

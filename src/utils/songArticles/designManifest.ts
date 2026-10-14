@@ -22,6 +22,33 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // カルト(plan/44)。Spotify(0)・冒頭(1)・語源の図の前後(2, 3)・見出し(5, 16, 37, 51, 62)・波形の前後(12, 13)・XFD の前後(17, 18)・表と裏の声の前後(41, 42)・光背の前後(49, 50)・境界の図の前後(75, 76)
+  "reol-song-048": {
+    bodyRevision: 3,
+    bodySha256: "700bf46a009da31e6326d21e980d308cbcaf97eb16aa0d0edc95bec4d644c395",
+    blockCount: 77,
+    anchors: [
+      { block: 0, textHash: "42d8259b04b539f9" },
+      { block: 1, textHash: "a655851b48b00a28" },
+      { block: 2, textHash: "c6689ff10e157e32" },
+      { block: 3, textHash: "18f45ebd6eb761a2" },
+      { block: 5, textHash: "4c3d6577da0bede6" },
+      { block: 12, textHash: "032dacd529051568" },
+      { block: 13, textHash: "a52e75b2004dc438" },
+      { block: 16, textHash: "3c21b6653314e894" },
+      { block: 17, textHash: "d17d7903b53d664e" },
+      { block: 18, textHash: "a79eb8d210912a4e" },
+      { block: 37, textHash: "99ed0de0eb417544" },
+      { block: 41, textHash: "f3a86ccb4138c7b6" },
+      { block: 42, textHash: "f25131f8c0f5ab84" },
+      { block: 49, textHash: "5a01175bf9305033" },
+      { block: 50, textHash: "0d335783978b0327" },
+      { block: 51, textHash: "2695c5300803000f" },
+      { block: 62, textHash: "0d6cac1a3d34fafe" },
+      { block: 75, textHash: "48848fd60548fca0" },
+      { block: 76, textHash: "183518b8e9474dc0" },
+    ],
+  },
   // ミッシング(plan/42)。Spotify(0)・冒頭(1, 2)・メーターの前後(5, 6)・追い越しの前後(9, 10)・XFD の前後(12, 13)・四十九の輪の前後(20, 21)・結び(30)
   "reol-song-047": {
     bodyRevision: 4,
