@@ -22,7 +22,7 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // カルト(plan/44)。Spotify(0)・冒頭(1)・語源の図の前後(2, 3)・見出し(5, 16, 37, 51, 62)・波形の前後(12, 13)・XFD の前後(17, 18)・光背の前後(49, 50)・境界の図の前後(75, 76)
+  // カルト(plan/44)。Spotify(0)・冒頭(1)・語源の図の前後(2, 3)・見出し(5, 16, 37, 51, 62)・波形の前後(12, 13)・XFD の前後(17, 18)・浴室の前後(23, 24)・八卦の前後(25, 26)・要の一文(27, 35, 44, 50, 66 とその前後)・光背の前後(49, 50)・境界の図の前後(75, 76)
   "reol-song-048": {
     bodyRevision: 3,
     bodySha256: "700bf46a009da31e6326d21e980d308cbcaf97eb16aa0d0edc95bec4d644c395",
@@ -38,11 +38,26 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 16, textHash: "3c21b6653314e894" },
       { block: 17, textHash: "d17d7903b53d664e" },
       { block: 18, textHash: "a79eb8d210912a4e" },
+      { block: 23, textHash: "ca4b4d8e414d2dc5" },
+      { block: 24, textHash: "9bcbdc55160a6507" },
+      { block: 25, textHash: "e3834f05b1347a74" },
+      { block: 26, textHash: "2607ea75271c4811" },
+      { block: 27, textHash: "6411fc01ae19da29" },
+      { block: 28, textHash: "dacc30edf8f0848c" },
+      { block: 34, textHash: "e323bfc36189403a" },
+      { block: 35, textHash: "443fc0068ccce4d9" },
+      { block: 36, textHash: "461f92e9596c7140" },
       { block: 37, textHash: "99ed0de0eb417544" },
+      { block: 43, textHash: "839904b4917b1345" },
+      { block: 44, textHash: "7a565ca0ca37027e" },
+      { block: 45, textHash: "13dde343b1202306" },
       { block: 49, textHash: "5a01175bf9305033" },
       { block: 50, textHash: "0d335783978b0327" },
       { block: 51, textHash: "2695c5300803000f" },
       { block: 62, textHash: "0d6cac1a3d34fafe" },
+      { block: 65, textHash: "915b354d07f225f1" },
+      { block: 66, textHash: "5e78809274320bba" },
+      { block: 67, textHash: "bc0a2c862e421612" },
       { block: 75, textHash: "48848fd60548fca0" },
       { block: 76, textHash: "183518b8e9474dc0" },
     ],
