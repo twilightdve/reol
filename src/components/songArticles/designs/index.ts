@@ -14,6 +14,7 @@ import VacuumOldRoseDesign from "./reol-song-057/VacuumOldRoseDesign";
 import HeimenkyouDesign from "./reol-song-045/HeimenkyouDesign";
 import EndDesign from "./reol-song-046/EndDesign";
 import MissingDesign from "./reol-song-047/MissingDesign";
+import CultDesign from "./reol-song-048/CultDesign";
 
 export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-080": BoyDesign,
@@ -27,4 +28,5 @@ export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-045": HeimenkyouDesign,
   "reol-song-046": EndDesign,
   "reol-song-047": MissingDesign,
+  "reol-song-048": CultDesign,
 };

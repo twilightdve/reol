@@ -1,0 +1,398 @@
+/**
+ * 楽曲記事「カルト」(reol-song-048)の記事別デザイン。設計の根拠は plan/44。
+ *
+ * - 主役は一本のろうそくの炎。表紙は闇の中の小さなろうそく。炎がゆらぎ、周りがほのかに明るい。
+ * - 紙面は闇の黒に、ろうそくの金と、じごくを思わせる深紅。
+ * - 段落2の後: 語源の図。colere から cult(カルト)と culture(カルチャー)へ枝分かれする。
+ * - 段落12の後: 静けさとハイトーン。低く静かな波形が、途中で一気に高く鋭く跳ね上がる。
+ * - 段落17(収録作)の後: 『虚構集』XFD をカルトの場面(1:48)から。
+ * - 段落41の後: 表と裏の声。音源・『音沙汰』では裏の声がかすれて奥に、『MADE IN FACTION』では手前に出てはっきりする。
+ * - 段落49の後: 光背が消える。炎のまわりの光の輪が薄れて消え、小さな炎だけが残る(神聖な仮面を外す)。
+ * - 結び(段落75の後): 「信仰」と「芸術」のあいだの境界線が、ぼやけて消えていく(冒頭の語源の図と対)。
+ * - 歌詞は本文の外に出さない。ライヴ映像・XFD の画面は複製しない。
+ *
+ * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
+ */
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "gatsby";
+import ArticleDate from "../../ArticleDate";
+import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
+import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
+import { trackEvent } from "../../../../utils/analytics";
+import type { SongArticleDesign } from "../types";
+import "./cult.css";
+
+// 段落の位置(designManifest.ts の anchors と対応)
+const SPOTIFY = 0;
+const INTRO = 1;
+const ETYMO_FIG = 3; // 段落2(カルトとカルチャーは同じ語源)の後
+const S_RITUAL = 5;
+const WAVE_FIG = 13; // 段落12(むき出しの感情が一気に解き放たれる)の後
+const S_FACE = 16;
+const XFD_AT = 18; // 段落17(収録作)の後
+const S_CONFESS = 37;
+const LAYER_FIG = 42; // 段落41(MADE IN FACTION では前面に出して歌う)の後
+const HALO_FIG = 50; // 段落49(神聖な仮面を外してしまう)の後
+const S_FAREWELL = 51;
+const S_BORDER = 62;
+const BORDER_FIG = 76; // 段落75(信仰と芸術の境界が曖昧になる)の後
+
+// MV の無い曲なので、アルバム『虚構集』の公式 XFD(サイト登録済み)をカルトの場面から再生する。1:48 はユーザー指定(2026-10-13)
+const XFD = { id: "18AQGiLKVs4", start: 108, text: "『虚構集』XFD の「カルト」(1:48〜)を観る" };
+
+/** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
+const useRevealOnce = <T extends Element>(threshold: number) => {
+  const ref = useRef<T>(null);
+  const [state, setState] = useState<"static" | "armed" | "visible">("static");
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) return;
+    setState("armed");
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setState("visible");
+          io.disconnect();
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
+};
+
+/** ろうそく(炎・芯・ろう)。炎のゆらぎは CSS(動きを減らす設定では止まる) */
+const Candle: React.FC<{ idPrefix: string; halo?: boolean }> = ({ idPrefix, halo = false }) => (
+  <svg className="a048-candle" viewBox="0 0 200 320" aria-hidden="true">
+    <defs>
+      <radialGradient id={`${idPrefix}-glow`}>
+        <stop offset="0" stopColor="#ffd98a" stopOpacity="0.55" />
+        <stop offset="0.45" stopColor="#f3a64a" stopOpacity="0.16" />
+        <stop offset="1" stopColor="#f3a64a" stopOpacity="0" />
+      </radialGradient>
+      <linearGradient id={`${idPrefix}-flame`} x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stopColor="#fff7e0" />
+        <stop offset="0.45" stopColor="#ffd06a" />
+        <stop offset="1" stopColor="#e8631f" />
+      </linearGradient>
+      <linearGradient id={`${idPrefix}-wax`} x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#d9cdb6" />
+        <stop offset="0.5" stopColor="#f3ead8" />
+        <stop offset="1" stopColor="#b9ab92" />
+      </linearGradient>
+    </defs>
+    <circle cx="100" cy="112" r="96" fill={`url(#${idPrefix}-glow)`} className="a048-candle__glow" />
+    {halo && <circle cx="100" cy="112" r="58" className="a048-candle__halo" />}
+    {/* ろう: 上の縁が少し溶けている */}
+    <path d="M78,160 C84,155 90,162 96,157 C102,152 110,160 122,156 L122,300 L78,300 Z" fill={`url(#${idPrefix}-wax)`} />
+    <line x1="100" y1="156" x2="100" y2="140" className="a048-candle__wick" />
+    <g className="a048-candle__flame">
+      <path d="M100,92 C110,108 114,122 110,134 C107,142 93,142 90,134 C86,122 90,108 100,92 Z" fill={`url(#${idPrefix}-flame)`} />
+      <path d="M100,116 C104,124 105,130 102,135 C100,138 97,137 97,133 C96,128 97,122 100,116 Z" className="a048-candle__core" />
+    </g>
+  </svg>
+);
+
+/** 語源の図: colere から cult(カルト)と culture(カルチャー)へ */
+const Etymology: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a048-etymo${className}`} aria-hidden="true">
+      <svg viewBox="0 0 520 210">
+        <text x="260" y="40" textAnchor="middle" className="a048-etymo__root">
+          colere
+        </text>
+        <text x="260" y="62" textAnchor="middle" className="a048-etymo__note">
+          ラテン語
+        </text>
+        <path d="M260,74 C260,110 140,110 140,140" className="a048-etymo__branch" pathLength={1} />
+        <path d="M260,74 C260,110 380,110 380,140" className="a048-etymo__branch" pathLength={1} />
+        <g className="a048-etymo__leaf">
+          <text x="140" y="172" textAnchor="middle" className="a048-etymo__word">
+            cult
+          </text>
+          <text x="140" y="196" textAnchor="middle" className="a048-etymo__ja">
+            カルト
+          </text>
+        </g>
+        <g className="a048-etymo__leaf is-second">
+          <text x="380" y="172" textAnchor="middle" className="a048-etymo__word">
+            culture
+          </text>
+          <text x="380" y="196" textAnchor="middle" className="a048-etymo__ja">
+            カルチャー
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+/** 静けさとハイトーン: 低く静かな波形が、途中で一気に高く鋭く跳ね上がる */
+const WAVE_POINTS = (() => {
+  const pts: string[] = [];
+  for (let x = 0; x <= 600; x += 6) {
+    const loud = x > 380;
+    const amp = loud ? 70 - Math.max(0, x - 520) * 0.4 : 5 + Math.sin(x / 37) * 2;
+    const y = 100 + (x % 12 === 0 ? -1 : 1) * amp * (0.55 + 0.45 * Math.abs(Math.sin(x * 1.7)));
+    pts.push(`${x},${y.toFixed(1)}`);
+  }
+  return pts.join(" ");
+})();
+const HighTone: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a048-wave${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 200">
+        <line x1="0" y1="100" x2="600" y2="100" className="a048-wave__axis" />
+        <polyline points={WAVE_POINTS} className="a048-wave__line" pathLength={1} />
+        <text x="12" y="186" className="a048-wave__label">
+          静けさ
+        </text>
+        <text x="588" y="186" textAnchor="end" className="a048-wave__label is-loud">
+          ハイトーン
+        </text>
+      </svg>
+    </div>
+  );
+};
+
+/** 表と裏の声: 音源・『音沙汰』では裏の声がかすれて奥に、『MADE IN FACTION』では手前に出てはっきりする */
+const VoiceLine: React.FC<{ y: number; className: string; jitter: number }> = ({ y, className, jitter }) => {
+  const pts: string[] = [];
+  for (let x = 0; x <= 240; x += 4) pts.push(`${x},${(y + Math.sin(x / 9) * 8 + (jitter ? Math.sin(x * 2.3) * jitter : 0)).toFixed(1)}`);
+  return <polyline points={pts.join(" ")} className={className} />;
+};
+const FrontBack: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.5);
+  return (
+    <div ref={ref} className={`a048-voices${className}`} aria-hidden="true">
+      <figure className="a048-voices__panel">
+        <figcaption>音源・『音沙汰』</figcaption>
+        <svg viewBox="0 0 240 120">
+          <filter id="a048-voices-blur">
+            <feGaussianBlur stdDeviation="2.2" />
+          </filter>
+          <g filter="url(#a048-voices-blur)">
+            <VoiceLine y={82} className="a048-voices__back is-buried" jitter={5} />
+          </g>
+          <VoiceLine y={46} className="a048-voices__front" jitter={0} />
+        </svg>
+        <p className="a048-voices__legend">
+          <span className="is-front">表の声</span>
+          <span className="is-back">裏の声(奥に埋もれる)</span>
+        </p>
+      </figure>
+      <figure className="a048-voices__panel is-mif">
+        <figcaption>『MADE IN FACTION』</figcaption>
+        <svg viewBox="0 0 240 120">
+          {/* 裏の声が、下(奥)から表の声を越えて上(手前)へ出てくる */}
+          <VoiceLine y={70} className="a048-voices__front is-dim" jitter={0} />
+          <g className="a048-voices__rise">
+            <VoiceLine y={36} className="a048-voices__back is-clear" jitter={0} />
+          </g>
+        </svg>
+        <p className="a048-voices__legend">
+          <span className="is-front">表の声</span>
+          <span className="is-back">裏の声(前に出る)</span>
+        </p>
+      </figure>
+    </div>
+  );
+};
+
+/** 光背が消える: 炎のまわりの光の輪が薄れて消え、小さな炎だけが残る */
+const HaloOff: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a048-halo${className}`} aria-hidden="true">
+      <Candle idPrefix="a048-halo" halo />
+    </div>
+  );
+};
+
+/** 信仰と芸術の境界: あいだの線がぼやけて消えていく */
+const Border: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a048-border${className}`} aria-hidden="true">
+      <span className="a048-border__word">信仰</span>
+      <span className="a048-border__line" />
+      <span className="a048-border__word">芸術</span>
+    </div>
+  );
+};
+
+const CultDesign: SongArticleDesign = (ctx) => {
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const firstRelease = songFacts.releases[0] ?? null;
+  const stats = songFacts.stats;
+  const body = (from: number, to: number, className = "a048-text") => (
+    <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
+  );
+  // 題名「カルト　信仰と芸術の境界」: 曲名を大きく、副題を下に(文言は変えない)
+  const SONG = "カルト";
+  const tSub = title.startsWith(SONG) ? title.slice(SONG.length).trim() : "";
+
+  return (
+    <main className="a048" lang="ja">
+      <article>
+        {/* 表紙: 闇の中の一本のろうそく */}
+        <header className="a048-cover" data-og-cover>
+          <div className="a048-cover__art">
+            <Candle idPrefix="a048-cover" />
+          </div>
+          <div className="a048-cover__top">
+            <nav aria-label="パンくず" className="a048-crumbs">
+              <Link to="/">HOME</Link>
+              <span aria-hidden>/</span>
+              <Link to="/articles/">読みもの</Link>
+              <span aria-hidden>/</span>
+              <span>カルト</span>
+            </nav>
+          </div>
+          <div className="a048-cover__body">
+            <h1 className="a048-title">
+              {tSub ? (
+                <>
+                  <span className="a048-title__song">{SONG}</span>
+                  <span className="a048-title__sub">{tSub}</span>
+                </>
+              ) : (
+                <span className="a048-title__song">{title}</span>
+              )}
+            </h1>
+            <p className="a048-date">
+              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+            </p>
+          </div>
+        </header>
+
+        <div className="a048-ground">
+          <div className="a048-column">
+            {body(SPOTIFY, INTRO, "a048-text a048-listen")}
+
+            {/* 冒頭。前にリリースの注記。段落2の後に語源の図 */}
+            <div className="a048-section">
+              {firstRelease && (
+                <aside className="a048-note">
+                  <p className="a048-note__label">リリース</p>
+                  <p>
+                    <span className="a048-note__strong">{dotDate(firstRelease.releaseDate)}</span> {formatLabel(firstRelease.format)}『
+                    {firstRelease.title}』
+                  </p>
+                </aside>
+              )}
+              {body(INTRO, ETYMO_FIG, "a048-text a048-intro")}
+              <Etymology />
+              {body(ETYMO_FIG, S_RITUAL)}
+            </div>
+
+            {/* ろうそくの炎から始まる儀式。段落12の後に静けさとハイトーン */}
+            <section className="a048-section">
+              {body(S_RITUAL, WAVE_FIG)}
+              <HighTone />
+              {body(WAVE_FIG, S_FACE)}
+            </section>
+
+            {/* 表の顔と裏の顔。収録作の段落の後に XFD */}
+            <section className="a048-section">
+              {body(S_FACE, XFD_AT)}
+              <figure className="a048-video">
+                <figcaption className="a048-video__label">『虚構集』XFD</figcaption>
+                <OfficialMedia
+                  videoId={XFD.id}
+                  href={`https://www.youtube.com/watch?v=${XFD.id}&t=${XFD.start}s`}
+                  text={XFD.text}
+                  articleId={id}
+                  unstyled
+                  preferHighRes
+                  start={XFD.start}
+                />
+              </figure>
+              {body(XFD_AT, S_CONFESS)}
+            </section>
+
+            {/* 裏側の告白を表で歌う。段落41の後に表と裏の声、段落49の後に光背が消える */}
+            <section className="a048-section">
+              {body(S_CONFESS, LAYER_FIG)}
+              <FrontBack />
+              {body(LAYER_FIG, HALO_FIG)}
+              <HaloOff />
+              {body(HALO_FIG, S_FAREWELL)}
+            </section>
+
+            <section className="a048-section">{body(S_FAREWELL, S_BORDER)}</section>
+
+            {/* 信仰と芸術の境界。段落75の後に、境界線がぼやけて消える */}
+            <section className="a048-section a048-section--last">
+              {body(S_BORDER, BORDER_FIG)}
+              <Border />
+              {body(BORDER_FIG, blocks.length, "a048-text a048-closing")}
+            </section>
+          </div>
+
+          {/* 奥付。サイトの確認済みデータだけ */}
+          <footer className="a048-colophon">
+            <dl className="a048-colophon__list">
+              <div>
+                <dt>曲</dt>
+                <dd>{ctx.songTitle}</dd>
+              </div>
+              {songFacts.lyricMember && (
+                <div>
+                  <dt>作詞</dt>
+                  <dd>{songFacts.lyricMember}</dd>
+                </div>
+              )}
+              {songFacts.musicMember && (
+                <div>
+                  <dt>作曲</dt>
+                  <dd>{songFacts.musicMember.replace(/\s*,\s*/g, "、")}</dd>
+                </div>
+              )}
+              {firstRelease && (
+                <div>
+                  <dt>初出</dt>
+                  <dd>
+                    {dotDate(firstRelease.releaseDate)} {formatLabel(firstRelease.format)}『{firstRelease.title}』
+                  </dd>
+                </div>
+              )}
+              {stats && stats.totalPlays > 0 && (
+                <div>
+                  <dt>演奏記録</dt>
+                  <dd>
+                    {stats.totalPlays}回
+                    {stats.lastPlayedDate && <>(最新 {dotDate(stats.lastPlayedDate)})</>}
+                    <span className="a048-colophon__src">!Legit のセットリスト記録より</span>
+                  </dd>
+                </div>
+              )}
+            </dl>
+            <ul className="a048-next">
+              {songPages.map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/songs/${p.slug}/`} onClick={() => trackEvent("article_song_page_click", { category: "navigation", label: id })}>
+                    {p.songName} — 演奏統計・MV・配信リンク
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/articles/">読みもの一覧へ</Link>
+              </li>
+            </ul>
+          </footer>
+        </div>
+      </article>
+    </main>
+  );
+};
+
+export default CultDesign;
