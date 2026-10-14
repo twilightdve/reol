@@ -483,36 +483,20 @@
 .a047-exit__car {
   transform: translateX(760px);
 }
+/* 待機中(画面に入る前)は左の画面外 */
 .a047-exit.is-armed .a047-exit__car {
-  transform: translateX(110px);
+  transform: translateX(-120px);
 }
-.a047-exit__trail {
-  opacity: 0;
-}
-/* 画面に入ったら: 少し止まってから、だんだん速くなって右の外へ。残光は走り出してから伸びる */
+/* 画面に入ったら: 左の画面外から右の画面外へ、止まらずに走り抜ける */
 .a047-exit.is-visible .a047-exit__car {
-  animation: a047-exit-run 2.6s cubic-bezier(0.55, 0, 0.9, 0.4) 0.8s both;
-}
-.a047-exit.is-visible .a047-exit__trail {
-  animation: a047-exit-trail 2.6s ease-in 0.8s both;
+  animation: a047-exit-run 1.8s linear 0.5s both;
 }
 @keyframes a047-exit-run {
   from {
-    transform: translateX(110px);
+    transform: translateX(-120px);
   }
   to {
     transform: translateX(760px);
-  }
-}
-@keyframes a047-exit-trail {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
