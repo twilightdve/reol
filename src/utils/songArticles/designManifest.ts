@@ -22,7 +22,7 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // カルト(plan/44)。Spotify(0)・冒頭(1)・語源の図の前後(2, 3)・見出し(5, 16, 37, 51, 62)・波形の前後(12, 13)・XFD の前後(17, 18)・表と裏の声の前後(41, 42)・光背の前後(49, 50)・境界の図の前後(75, 76)
+  // カルト(plan/44)。Spotify(0)・冒頭(1)・語源の図の前後(2, 3)・見出し(5, 16, 37, 51, 62)・波形の前後(12, 13)・XFD の前後(17, 18)・光背の前後(49, 50)・境界の図の前後(75, 76)
   "reol-song-048": {
     bodyRevision: 3,
     bodySha256: "700bf46a009da31e6326d21e980d308cbcaf97eb16aa0d0edc95bec4d644c395",
@@ -39,8 +39,6 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 17, textHash: "d17d7903b53d664e" },
       { block: 18, textHash: "a79eb8d210912a4e" },
       { block: 37, textHash: "99ed0de0eb417544" },
-      { block: 41, textHash: "f3a86ccb4138c7b6" },
-      { block: 42, textHash: "f25131f8c0f5ab84" },
       { block: 49, textHash: "5a01175bf9305033" },
       { block: 50, textHash: "0d335783978b0327" },
       { block: 51, textHash: "2695c5300803000f" },

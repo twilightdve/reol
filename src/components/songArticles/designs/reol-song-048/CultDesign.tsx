@@ -6,7 +6,6 @@
  * - 段落2の後: 語源の図。colere から cult(カルト)と culture(カルチャー)へ枝分かれする。
  * - 段落12の後: 静けさとハイトーン。低く静かな波形が、途中で一気に高く鋭く跳ね上がる。
  * - 段落17(収録作)の後: 『虚構集』XFD をカルトの場面(1:48)から。
- * - 段落41の後: 表と裏の声。音源・『音沙汰』では裏の声がかすれて奥に、『MADE IN FACTION』では手前に出てはっきりする。
  * - 段落49の後: 光背が消える。炎のまわりの光の輪が薄れて消え、小さな炎だけが残る(神聖な仮面を外す)。
  * - 結び(段落75の後): 「信仰」と「芸術」のあいだの境界線が、ぼやけて消えていく(冒頭の語源の図と対)。
  * - 歌詞は本文の外に出さない。ライヴ映像・XFD の画面は複製しない。
@@ -32,7 +31,6 @@ const WAVE_FIG = 13; // 段落12(むき出しの感情が一気に解き放た�
 const S_FACE = 16;
 const XFD_AT = 18; // 段落17(収録作)の後
 const S_CONFESS = 37;
-const LAYER_FIG = 42; // 段落41(MADE IN FACTION では前面に出して歌う)の後
 const HALO_FIG = 50; // 段落49(神聖な仮面を外してしまう)の後
 const S_FAREWELL = 51;
 const S_BORDER = 62;
@@ -163,50 +161,6 @@ const HighTone: React.FC = () => {
   );
 };
 
-/** 表と裏の声: 音源・『音沙汰』では裏の声がかすれて奥に、『MADE IN FACTION』では手前に出てはっきりする */
-const VoiceLine: React.FC<{ y: number; className: string; jitter: number }> = ({ y, className, jitter }) => {
-  const pts: string[] = [];
-  for (let x = 0; x <= 240; x += 4) pts.push(`${x},${(y + Math.sin(x / 9) * 8 + (jitter ? Math.sin(x * 2.3) * jitter : 0)).toFixed(1)}`);
-  return <polyline points={pts.join(" ")} className={className} />;
-};
-const FrontBack: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLDivElement>(0.5);
-  return (
-    <div ref={ref} className={`a048-voices${className}`} aria-hidden="true">
-      <figure className="a048-voices__panel">
-        <figcaption>音源・『音沙汰』</figcaption>
-        <svg viewBox="0 0 240 120">
-          <filter id="a048-voices-blur">
-            <feGaussianBlur stdDeviation="2.2" />
-          </filter>
-          <g filter="url(#a048-voices-blur)">
-            <VoiceLine y={82} className="a048-voices__back is-buried" jitter={5} />
-          </g>
-          <VoiceLine y={46} className="a048-voices__front" jitter={0} />
-        </svg>
-        <p className="a048-voices__legend">
-          <span className="is-front">表の声</span>
-          <span className="is-back">裏の声(奥に埋もれる)</span>
-        </p>
-      </figure>
-      <figure className="a048-voices__panel is-mif">
-        <figcaption>『MADE IN FACTION』</figcaption>
-        <svg viewBox="0 0 240 120">
-          {/* 裏の声が、下(奥)から表の声を越えて上(手前)へ出てくる */}
-          <VoiceLine y={70} className="a048-voices__front is-dim" jitter={0} />
-          <g className="a048-voices__rise">
-            <VoiceLine y={36} className="a048-voices__back is-clear" jitter={0} />
-          </g>
-        </svg>
-        <p className="a048-voices__legend">
-          <span className="is-front">表の声</span>
-          <span className="is-back">裏の声(前に出る)</span>
-        </p>
-      </figure>
-    </div>
-  );
-};
-
 /** 光背が消える: 炎のまわりの光の輪が薄れて消え、小さな炎だけが残る */
 const HaloOff: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
@@ -319,11 +273,9 @@ const CultDesign: SongArticleDesign = (ctx) => {
               {body(XFD_AT, S_CONFESS)}
             </section>
 
-            {/* 裏側の告白を表で歌う。段落41の後に表と裏の声、段落49の後に光背が消える */}
+            {/* 裏側の告白を表で歌う。段落49の後に光背が消える */}
             <section className="a048-section">
-              {body(S_CONFESS, LAYER_FIG)}
-              <FrontBack />
-              {body(LAYER_FIG, HALO_FIG)}
+              {body(S_CONFESS, HALO_FIG)}
               <HaloOff />
               {body(HALO_FIG, S_FAREWELL)}
             </section>
