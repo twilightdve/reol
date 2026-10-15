@@ -462,6 +462,84 @@
   transform: none;
 }
 
+/* ---------- 要の一文(本文の段落をそのまま大きく) ---------- */
+.a049-text.a049-pull {
+  margin: 1.8em 0;
+  padding: 0.2em 0 0.2em 0.9em;
+  border-left: 3px solid var(--vermilion);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  text-wrap: balance;
+  color: var(--vermilion);
+}
+
+/* ---------- 2018 → 2025 ---------- */
+.a049-years {
+  margin: 2em 0;
+}
+.a049-years svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a049-years__dot.is-past {
+  fill: #8f8578;
+}
+.a049-years__dot.is-now {
+  fill: var(--vermilion);
+}
+.a049-years__year {
+  font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 700;
+  fill: #8f8578;
+}
+.a049-years__year.is-now {
+  fill: var(--vermilion);
+}
+.a049-years__what {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--ink-2);
+}
+.a049-years__span {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  fill: var(--ink-2);
+}
+/* 画面に入ったら: 左から右へ線が伸び、最後に 2025 の点がともる */
+.a049-years.is-armed .a049-years__line {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 2.4s ease-in-out 0.3s;
+}
+.a049-years.is-armed .a049-years__dot.is-now,
+.a049-years.is-armed .a049-years__year.is-now {
+  opacity: 0;
+  transition: opacity 0.8s ease 2.5s;
+}
+.a049-years.is-visible .a049-years__line {
+  clip-path: inset(0 0 0 0);
+}
+.a049-years.is-visible .a049-years__dot.is-now,
+.a049-years.is-visible .a049-years__year.is-now {
+  opacity: 1;
+}
+
+/* ---------- 結びの梅 ---------- */
+.a049-endmark {
+  width: 40px;
+  margin: clamp(32px, 5vw, 48px) auto 0;
+}
+.a049-endmark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ---------- 奥付 ---------- */
 .a049-colophon {
   padding: clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
@@ -538,6 +616,16 @@
   .a049-tracks li {
     min-height: 84px;
     font-size: 12px;
+  }
+  /* スマートフォン: 年表は縮むので、文字を大きめに(表示で 13px 前後) */
+  .a049-years__year {
+    font-size: 34px;
+  }
+  .a049-years__what {
+    font-size: 22px;
+  }
+  .a049-years__span {
+    font-size: 20px;
   }
   .a049-tracks li.is-light {
     grid-column: 1 / -1;

@@ -7,6 +7,7 @@
  * - 段落9(収録作)の後: 『虚構集』XFD をあ可よろしの場面(2:24)から。
  * - 段落11の後: 花札「梅に赤短」の札(梅の枝と花・斜めの朱の短冊を自前で描く)。横に「明らかに宜しい」説(諸説あり)の注。
  * - 段落28の後: 彼岸花の赤を抜けて光へ。赤い彼岸花が並ぶ暗い地平から、空がゆっくり明けていく。
+ * - 後半: 要の一文(段落41・75)を大きな明朝の朱で、段落63の後に 2018 → 2025 の線(かすれた細い線が力強い朱の線へ)、最後に梅の花をひとつ。
  * - 歌詞は本文の外に出さない。XFD・映像の画面は複製しない。花札も特定の絵を写さず自前で描く。
  * - 縦書きは WebKit で幅が 0 になる不具合があるため、短冊の文字は SVG で一文字ずつ縦に並べる。
  *
@@ -34,6 +35,10 @@ const HIGAN_FIG = 29; // 段落28(彼岸花の赤が彩る世界を抜けて、�
 const S_DIRECTION = 32;
 const S_SORROW = 48;
 const S_SAVED = 68;
+// 後半の区切り(2026-10-16 ユーザー「後半ほとんど文章だけ」)
+const PULL_FRONT = 41; // 自分が向いているその先を、前だと言い切っていい。
+const YEARS_FIG = 64; // 段落63(7年の時を経て、力強く響かせようとしている)の後に、2018→2025の線
+const PULL_KINDNESS = 75; // 満身創痍の中で、…搾り出した優しさなのだ。
 
 // MV の無い曲なので、アルバム『虚構集』の公式 XFD(サイト登録済み)をあ可よろしの場面から再生する。2:24 はユーザー指定(2026-10-13)
 const XFD = { id: "18AQGiLKVs4", start: 144, text: "『虚構集』XFD の「あ可よろし」(2:24〜)を観る" };
@@ -165,6 +170,35 @@ const RedRibbon: React.FC = () => {
   );
 };
 
+/**
+ * 2018 → 2025: かすれた細い線(悲壮感を求めた2018年の音)が、7年をかけて力強い朱の線(2025年の新しいアレンジ)へ変わっていく。
+ * 年表の文字は本文の事実だけ
+ */
+const Years: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
+  return (
+    <div ref={ref} className={`a049-years${className}`} aria-hidden="true">
+      <svg viewBox="0 0 600 120">
+        <defs>
+          <linearGradient id="a049-years-line" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#8f8578" stopOpacity="0.6" />
+            <stop offset="1" stopColor="#c23a2b" stopOpacity="1" />
+          </linearGradient>
+        </defs>
+        {/* 細い(かすれた)ところから太い(力強い)ところへ */}
+        <path d="M40,64 L560,58 L560,70 L40,66 Z" fill="url(#a049-years-line)" className="a049-years__line" />
+        <circle cx="40" cy="65" r="5" className="a049-years__dot is-past" />
+        <circle cx="560" cy="64" r="9" className="a049-years__dot is-now" />
+        <text x="40" y="40" className="a049-years__year">2018</text>
+        <text x="40" y="96" className="a049-years__what">『虚構集』</text>
+        <text x="560" y="40" textAnchor="end" className="a049-years__year is-now">2025</text>
+        <text x="560" y="96" textAnchor="end" className="a049-years__what">横浜アリーナ『無題』</text>
+        <text x="300" y="40" textAnchor="middle" className="a049-years__span">7年</text>
+      </svg>
+    </div>
+  );
+};
+
 /** 彼岸花の赤を抜けて光へ: 暗い空が、彼岸花の並ぶ地平からゆっくり明けていく */
 const HIGAN = [40, 105, 160, 230, 300, 360, 430, 495, 560].map((x, i) => ({ x, h: 46 + ((i * 37) % 30), s: 0.8 + ((i * 13) % 5) / 10 }));
 const SpiderLily: React.FC<{ x: number; h: number; s: number }> = ({ x, h, s }) => {
@@ -218,6 +252,8 @@ const AkayoroshiDesign: SongArticleDesign = (ctx) => {
   const body = (from: number, to: number, className = "a049-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
+  // 節の要になる短い一文を、大きく見せる(本文の文言のまま)
+  const pull = (i: number) => body(i, i + 1, "a049-text a049-pull");
   // 題名「あ可よろし　苦しくても、前だと言い切るために」: 曲名を大きく、副題を下に(文言は変えない)
   const SONG = "あ可よろし";
   const tSub = title.startsWith(SONG) ? title.slice(SONG.length).trim() : "";
@@ -304,11 +340,31 @@ const AkayoroshiDesign: SongArticleDesign = (ctx) => {
               {body(HIGAN_FIG, S_DIRECTION)}
             </section>
 
-            <section className="a049-section">{body(S_DIRECTION, S_SORROW)}</section>
+            {/* 自分が向いている方角こそ。要の一文を大きく */}
+            <section className="a049-section">
+              {body(S_DIRECTION, PULL_FRONT)}
+              {pull(PULL_FRONT)}
+              {body(PULL_FRONT + 1, S_SORROW)}
+            </section>
 
-            <section className="a049-section">{body(S_SORROW, S_SAVED)}</section>
+            {/* 悲壮感の中にある希望。段落63の後に 2018 → 2025 の線 */}
+            <section className="a049-section">
+              {body(S_SORROW, YEARS_FIG)}
+              <Years />
+              {body(YEARS_FIG, S_SAVED)}
+            </section>
 
-            <section className="a049-section a049-section--last">{body(S_SAVED, blocks.length, "a049-text a049-closing")}</section>
+            {/* 何年経っても、救われる歌。要の一文を大きく、最後に梅の花をひとつ */}
+            <section className="a049-section a049-section--last">
+              {body(S_SAVED, PULL_KINDNESS)}
+              {pull(PULL_KINDNESS)}
+              {body(PULL_KINDNESS + 1, blocks.length, "a049-text a049-closing")}
+              <div className="a049-endmark" aria-hidden="true">
+                <svg viewBox="-20 -20 40 40">
+                  <Plum x={0} y={0} r={16} />
+                </svg>
+              </div>
+            </section>
           </div>
 
           {/* 奥付。サイトの確認済みデータだけ */}
