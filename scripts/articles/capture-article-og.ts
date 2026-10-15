@@ -84,6 +84,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .a082-title { max-width: none !important; font-size: 50px !important; white-space: nowrap; }
   `,
   // 真空オールドローズ: 明るい紙の地なので、右下のサイト名は白ではなく濃いワイン色に
+  // あ可よろし: 右下が明るい生成りなので、サイト名を濃い茶に
+  "reol-song-049": `
+    .og-brand { color: #5a3f22 !important; text-shadow: none !important; }
+  `,
   "reol-song-057": `
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
     .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
