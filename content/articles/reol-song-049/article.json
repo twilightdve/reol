@@ -1,0 +1,22 @@
+{
+  "id": "reol-song-049",
+  "kind": "song",
+  "songTitle": "あ可よろし",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "487093f8e0ccc2afe616b1068ba19f209ff70ccf2c47d408734d75b9756eb51e",
+  "songRefs": [
+    "019e8282-9e1a-7177-9501-7ac3e24ed303",
+    "019f2411-ba55-79c4-a95e-865a4afa4f1a"
+  ],
+  "media": [],
+  "slug": "akayoroshi",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-03T09:03:39.317Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
