@@ -5,10 +5,9 @@
  * - 表紙: 左上の夜の紺から右へ明けていく空に、光の筋が差し込む。右に赤短の短冊(題名を縦に)。
  * - 段落5の後: 『虚構集』の五曲の並び。四曲は暗い札(各記事へのリンク)、五曲目だけ光る。
  * - 段落9(収録作)の後: 『虚構集』XFD をあ可よろしの場面(2:24)から。
- * - 段落11の後: 赤短。朱の短冊に「あ可よろし」。横に「明らかに宜しい」説(諸説あり)の注。
- * - 段落28の後: 彼岸花の赤を抜けて光へ。赤い彼岸花が並ぶ暗い地平の上に、光が差し込む。
- * - 段落41の後: 方角。迷うように揺れる針が止まり、向いた先に「前」が現れる。
- * - 歌詞は本文の外に出さない。XFD・映像の画面、特定の花札の絵柄は複製しない。
+ * - 段落11の後: 花札「梅に赤短」の札(梅の枝と花・斜めの朱の短冊を自前で描く)。横に「明らかに宜しい」説(諸説あり)の注。
+ * - 段落28の後: 彼岸花の赤を抜けて光へ。赤い彼岸花が並ぶ暗い地平から、空がゆっくり明けていく。
+ * - 歌詞は本文の外に出さない。XFD・映像の画面は複製しない。花札も特定の絵を写さず自前で描く。
  * - 縦書きは WebKit で幅が 0 になる不具合があるため、短冊の文字は SVG で一文字ずつ縦に並べる。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -33,7 +32,6 @@ const TANZAKU_FIG = 12; // 段落11(「明らかに宜しい」説)の後
 const S_FICTION = 19;
 const HIGAN_FIG = 29; // 段落28(彼岸花の赤が彩る世界を抜けて、光が差し込む)の後
 const S_DIRECTION = 32;
-const COMPASS_FIG = 42; // 段落41(自分が向いているその先を、前だと言い切っていい)の後
 const S_SORROW = 48;
 const S_SAVED = 68;
 
@@ -111,21 +109,63 @@ const Tracks: React.FC = () => {
   );
 };
 
-/** 赤短と、語源の説の注 */
+/** 梅の花(五弁)。中心に白いしべ */
+const Plum: React.FC<{ x: number; y: number; r: number }> = ({ x, y, r }) => (
+  <g transform={`translate(${x} ${y})`}>
+    {Array.from({ length: 5 }, (_, i) => {
+      const a = (i * 72 - 90) * (Math.PI / 180);
+      return <circle key={i} cx={Math.cos(a) * r * 0.62} cy={Math.sin(a) * r * 0.62} r={r * 0.52} className="a049-ume__petal" />;
+    })}
+    <circle r={r * 0.32} className="a049-ume__heart" />
+  </g>
+);
+
+/**
+ * 梅に赤短の札(2026-10-16 ユーザー「あ可よろしの札は梅の方で」)。
+ * 特定の花札の絵を写さず、梅の枝と花・斜めに掛かった朱の短冊を自前で描いて、札の形にまとめる
+ */
+const UmeCard: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <svg className={`a049-ume ${className}`} viewBox="0 0 200 320" aria-hidden="true">
+    <rect x="2" y="2" width="196" height="316" rx="12" className="a049-ume__frame" />
+    <rect x="12" y="12" width="176" height="296" rx="6" className="a049-ume__field" />
+    {/* 梅の枝 */}
+    <path d="M24,300 C60,250 70,210 96,180 C120,152 150,140 176,96" className="a049-ume__branch" />
+    <path d="M96,180 C88,150 92,120 112,96" className="a049-ume__branch is-thin" />
+    <path d="M140,148 C160,150 172,160 182,176" className="a049-ume__branch is-thin" />
+    <Plum x={112} y={92} r={16} />
+    <Plum x={176} y={92} r={14} />
+    <Plum x={70} y={226} r={15} />
+    <Plum x={150} y={140} r={12} />
+    <Plum x={182} y={178} r={11} />
+    <Plum x={40} y={278} r={12} />
+    {/* 斜めに掛かった朱の短冊 */}
+    <g transform="rotate(-24 100 150)">
+      <rect x="74" y="40" width="52" height="196" rx="3" className="a049-ume__ribbon" />
+      <rect x="79" y="45" width="42" height="186" rx="2" className="a049-ume__ribbonEdge" />
+      {["あ", "可", "よ", "ろ", "し"].map((ch, i) => (
+        <text key={ch} x="100" y={82 + i * 35} textAnchor="middle" className="a049-ume__char">
+          {ch}
+        </text>
+      ))}
+    </g>
+  </svg>
+);
+
+/** 赤短(梅)と、語源の説の注 */
 const RedRibbon: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.5);
   return (
     <div ref={ref} className={`a049-ribbon${className}`}>
-      <Tanzaku className="a049-ribbon__card" />
+      <UmeCard className="a049-ribbon__card" />
       <p className="a049-ribbon__note">
-        <span className="a049-ribbon__label">花札の赤短</span>
+        <span className="a049-ribbon__label">花札「梅に赤短」</span>
         「明らかに宜しい」が転じたとする説も(語源は諸説)
       </p>
     </div>
   );
 };
 
-/** 彼岸花の赤を抜けて光へ */
+/** 彼岸花の赤を抜けて光へ: 暗い空が、彼岸花の並ぶ地平からゆっくり明けていく */
 const HIGAN = [40, 105, 160, 230, 300, 360, 430, 495, 560].map((x, i) => ({ x, h: 46 + ((i * 37) % 30), s: 0.8 + ((i * 13) % 5) / 10 }));
 const SpiderLily: React.FC<{ x: number; h: number; s: number }> = ({ x, h, s }) => {
   const top = 200 - h;
@@ -153,55 +193,19 @@ const Higanbana: React.FC = () => {
             <stop offset="0" stopColor="#1d1b2b" />
             <stop offset="1" stopColor="#3a1f22" />
           </linearGradient>
-          <linearGradient id="a049-higan-light" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#fff4d6" stopOpacity="0.95" />
-            <stop offset="1" stopColor="#fff4d6" stopOpacity="0" />
-          </linearGradient>
+          {/* 地平から明けていく光(夜明け) */}
+          <radialGradient id="a049-higan-dawn" cx="0.5" cy="1" r="0.9" fx="0.5" fy="1">
+            <stop offset="0" stopColor="#ffe9bf" stopOpacity="1" />
+            <stop offset="0.35" stopColor="#f6c48a" stopOpacity="0.75" />
+            <stop offset="1" stopColor="#f6c48a" stopOpacity="0" />
+          </radialGradient>
         </defs>
         <rect x="0" y="0" width="600" height="220" fill="url(#a049-higan-sky)" />
-        {/* 上から差し込む光の筋 */}
-        <g className="a049-higan__light">
-          {[200, 300, 400].map((x, i) => (
-            <path key={x} d={`M${x - 20 + i * 6},0 L${x + 20 + i * 6},0 L${x + 70},200 L${x - 70},200 Z`} fill="url(#a049-higan-light)" />
-          ))}
-        </g>
+        <rect x="0" y="0" width="600" height="200" fill="url(#a049-higan-dawn)" className="a049-higan__dawn" />
         <rect x="0" y="196" width="600" height="24" className="a049-higan__ground" />
         {HIGAN.map((f) => (
           <SpiderLily key={f.x} {...f} />
         ))}
-      </svg>
-    </div>
-  );
-};
-
-/** 方角: 迷うように揺れる針が止まり、向いた先に「前」が現れる(北などの正しい方角は描かない) */
-const Compass: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLDivElement>(0.6);
-  const ticks = Array.from({ length: 36 }, (_, i) => i * 10);
-  return (
-    <div ref={ref} className={`a049-compass${className}`} aria-hidden="true">
-      <svg viewBox="0 0 260 260">
-        <circle cx="130" cy="130" r="104" className="a049-compass__ring" />
-        {ticks.map((a) => (
-          <line
-            key={a}
-            x1="130"
-            y1={a % 90 === 0 ? 34 : 30}
-            x2="130"
-            y2="26"
-            transform={`rotate(${a} 130 130)`}
-            className="a049-compass__tick"
-          />
-        ))}
-        {/* 針は 28 度の向きで止まる。止まった先に「前」 */}
-        <g className="a049-compass__needle">
-          <path d="M130,44 L138,130 L130,140 L122,130 Z" className="a049-compass__tip" />
-          <path d="M130,216 L138,130 L130,120 L122,130 Z" className="a049-compass__tail" />
-          <circle cx="130" cy="130" r="7" className="a049-compass__pin" />
-        </g>
-        <text x="130" y="18" textAnchor="middle" transform="rotate(28 130 130)" className="a049-compass__front">
-          前
-        </text>
       </svg>
     </div>
   );
@@ -300,12 +304,7 @@ const AkayoroshiDesign: SongArticleDesign = (ctx) => {
               {body(HIGAN_FIG, S_DIRECTION)}
             </section>
 
-            {/* 自分が向いている方角こそ。段落41の後に方角 */}
-            <section className="a049-section">
-              {body(S_DIRECTION, COMPASS_FIG)}
-              <Compass />
-              {body(COMPASS_FIG, S_SORROW)}
-            </section>
+            <section className="a049-section">{body(S_DIRECTION, S_SORROW)}</section>
 
             <section className="a049-section">{body(S_SORROW, S_SAVED)}</section>
 

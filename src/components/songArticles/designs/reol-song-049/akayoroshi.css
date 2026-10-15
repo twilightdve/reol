@@ -352,9 +352,49 @@
 }
 .a049-ribbon__card {
   flex: none;
-  width: clamp(64px, 16vw, 84px);
+  width: clamp(120px, 34vw, 170px);
   transform: rotate(-4deg);
   filter: drop-shadow(0 10px 18px rgb(60 30 20 / 0.25));
+}
+/* 梅に赤短の札 */
+.a049-ume {
+  display: block;
+  height: auto;
+}
+.a049-ume__frame {
+  fill: #2a1f1a;
+}
+.a049-ume__field {
+  fill: #f3ead6;
+}
+.a049-ume__branch {
+  fill: none;
+  stroke: #2b221d;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+.a049-ume__branch.is-thin {
+  stroke-width: 5;
+}
+.a049-ume__petal {
+  fill: #d23a45;
+}
+.a049-ume__heart {
+  fill: #fbe9c8;
+}
+.a049-ume__ribbon {
+  fill: var(--vermilion);
+}
+.a049-ume__ribbonEdge {
+  fill: none;
+  stroke: rgb(255 236 210 / 0.4);
+  stroke-width: 1.2;
+}
+.a049-ume__char {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 26px;
+  font-weight: 700;
+  fill: #1d1714;
 }
 .a049-ribbon__note {
   margin: 0;
@@ -407,91 +447,19 @@
 .a049-higan__heart {
   fill: #e64a3a;
 }
-.a049-higan.is-armed .a049-higan__light {
-  opacity: 0;
-  transition: opacity 2.4s ease 0.8s;
-}
-.a049-higan.is-visible .a049-higan__light {
-  opacity: 1;
-}
-
-/* ---------- 方角 ---------- */
-.a049-compass {
-  width: min(240px, 66%);
-  margin: 2em auto;
-}
-.a049-compass svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-.a049-compass__ring {
-  fill: #fffaf0;
-  stroke: var(--ink);
-  stroke-width: 1.5;
-}
-.a049-compass__tick {
-  stroke: var(--ink-2);
-  stroke-width: 1.5;
-}
-.a049-compass__tip {
-  fill: var(--vermilion);
-}
-.a049-compass__tail {
-  fill: #c9bfae;
-}
-.a049-compass__pin {
-  fill: var(--ink);
-}
-.a049-compass__front {
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
-  font-size: 24px;
-  font-weight: 800;
-  fill: var(--vermilion);
-}
-/* 完成状態: 針は 28 度の向き */
-.a049-compass__needle {
+/* 完成状態: 地平から明けた後。画面に入ると、暗いところからゆっくり明けていく */
+.a049-higan__dawn {
   transform-box: view-box;
-  transform-origin: 130px 130px;
-  transform: rotate(28deg);
+  transform-origin: 300px 200px;
 }
-.a049-compass.is-armed .a049-compass__needle {
-  transform: rotate(-120deg);
-}
-.a049-compass.is-armed .a049-compass__front {
+.a049-higan.is-armed .a049-higan__dawn {
   opacity: 0;
-  transition: opacity 0.8s ease 3.2s;
+  transform: scaleY(0.4);
+  transition: opacity 3.2s ease 0.6s, transform 3.6s ease 0.6s;
 }
-/* 画面に入ったら: 迷うように行き来して、だんだん振れが小さくなって止まる */
-.a049-compass.is-visible .a049-compass__needle {
-  animation: a049-needle 3.2s ease-in-out both;
-}
-.a049-compass.is-visible .a049-compass__front {
+.a049-higan.is-visible .a049-higan__dawn {
   opacity: 1;
-}
-@keyframes a049-needle {
-  0% {
-    transform: rotate(-120deg);
-  }
-  25% {
-    transform: rotate(110deg);
-  }
-  45% {
-    transform: rotate(-40deg);
-  }
-  62% {
-    transform: rotate(70deg);
-  }
-  78% {
-    transform: rotate(10deg);
-  }
-  90% {
-    transform: rotate(36deg);
-  }
-  100% {
-    transform: rotate(28deg);
-  }
+  transform: none;
 }
 
 /* ---------- 奥付 ---------- */
