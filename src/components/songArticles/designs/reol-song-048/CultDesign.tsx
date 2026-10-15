@@ -6,7 +6,6 @@
  * - 段落2の後: 語源の図。colere から cult(カルト)と culture(カルチャー)へ枝分かれする。
  * - 段落12の後: 静けさとハイトーン。低く静かな波形が、途中で一気に高く鋭く跳ね上がる。
  * - 段落17(収録作)の後: 『虚構集』XFD をカルトの場面(1:48)から。
- * - 段落23の後: 明け方四時の浴室(タイルの壁・夜明け前の小窓・裸電球・赤い数字の時計。時計が 3:59 から 4:00 に変わる)。
  * - 段落25の後: 八卦の輪(8つの卦が一つずつ浮かび上がる)。
  * - 文字が続く所の区切りに、節の要になる短い一文(段落27・35・44・50・66。本文のまま)を大きな明朝で見せる。
  * - 段落49の後: 光背が消える。炎のまわりの光の輪が薄れて消え、小さな炎だけが残る(神聖な仮面を外す)。
@@ -33,7 +32,6 @@ const S_RITUAL = 5;
 const WAVE_FIG = 13; // 段落12(むき出しの感情が一気に解き放たれる)の後
 const S_FACE = 16;
 const XFD_AT = 18; // 段落17(収録作)の後
-const BATH_FIG = 24; // 段落23(浴室という私的な空間で苦しむ姿)の後に、明け方四時の浴室
 const HAKKE_FIG = 26; // 段落25(八卦は易に用いられ…)の後に、八卦の輪
 // 文字が続く所の区切りに、節の要になる短い一文(本文のまま)を大きく見せる(2026-10-15 ユーザー「ちょっと文字が多いから何か工夫して」)
 const PULL_ORDER = 27; // そして、繰り返される「見ろ」という命令。
@@ -166,67 +164,6 @@ const HighTone: React.FC = () => {
         </text>
         <text x="588" y="186" textAnchor="end" className="a048-wave__label is-loud">
           ハイトーン
-        </text>
-      </svg>
-    </div>
-  );
-};
-
-/**
- * 明け方四時の浴室: 暗いタイルの壁、夜明け前の青い小窓、裸電球、赤い数字の時計。
- * 画面に入ると時計が 3:59 から 4:00 に変わり、窓がわずかに白む。教祖のような強い言葉の裏側の、私的で冷たい場所
- */
-const Bathroom: React.FC = () => {
-  const { ref, state, className } = useRevealOnce<HTMLDivElement>(0.6);
-  // 完成状態は 4:00。画面に入る前は 3:59 にしておき、入ってから少しして 4:00 に変わる
-  const [minute, setMinute] = useState(0);
-  useEffect(() => {
-    if (state === "armed") setMinute(59);
-    if (state !== "visible") return;
-    const t = window.setTimeout(() => setMinute(0), 1600);
-    return () => window.clearTimeout(t);
-  }, [state]);
-  const hour = minute === 59 ? 3 : 4;
-  const tiles: React.ReactNode[] = [];
-  for (let x = 0; x <= 600; x += 40) tiles.push(<line key={`v${x}`} x1={x} y1="0" x2={x} y2="250" className="a048-bath__grout" />);
-  for (let y = 0; y <= 250; y += 40) tiles.push(<line key={`h${y}`} x1="0" y1={y} x2="600" y2={y} className="a048-bath__grout" />);
-  return (
-    <div ref={ref} className={`a048-bath${className}`} aria-hidden="true">
-      <svg viewBox="0 0 600 340">
-        <defs>
-          <linearGradient id="a048-bath-dawn" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#1b2a4a" />
-            <stop offset="1" stopColor="#4d6a93" />
-          </linearGradient>
-          <radialGradient id="a048-bath-bulb">
-            <stop offset="0" stopColor="#ffe6b0" stopOpacity="0.5" />
-            <stop offset="1" stopColor="#ffe6b0" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <rect x="0" y="0" width="600" height="250" className="a048-bath__wall" />
-        {tiles}
-        {/* 夜明け前の小窓 */}
-        <rect x="420" y="34" width="110" height="74" rx="2" fill="url(#a048-bath-dawn)" className="a048-bath__window" />
-        <rect x="420" y="34" width="110" height="74" rx="2" className="a048-bath__frame" />
-        <line x1="475" y1="34" x2="475" y2="108" className="a048-bath__frame" />
-        {/* 裸電球 */}
-        <line x1="150" y1="0" x2="150" y2="46" className="a048-bath__cord" />
-        <circle cx="150" cy="70" r="70" fill="url(#a048-bath-bulb)" className="a048-bath__bulbglow" />
-        <circle cx="150" cy="56" r="11" className="a048-bath__bulb" />
-        {/* シャワー(壁の金具・ホース・ヘッド)と蛇口 */}
-        <path d="M330,196 L330,150 C330,128 312,120 300,128" className="a048-bath__pipe" />
-        <ellipse cx="296" cy="132" rx="16" ry="7" transform="rotate(-28 296 132)" className="a048-bath__head" />
-        <rect x="318" y="190" width="24" height="10" rx="3" className="a048-bath__tap" />
-        {/* 床と浴槽のふち */}
-        <rect x="0" y="250" width="600" height="90" className="a048-bath__floor" />
-        <rect x="40" y="214" width="330" height="60" rx="22" className="a048-bath__tub" />
-        <rect x="58" y="226" width="294" height="16" rx="8" className="a048-bath__tubinner" />
-        {/* 棚の上の時計 */}
-        <rect x="430" y="196" width="120" height="54" rx="6" className="a048-bath__clock" />
-        <text x="490" y="236" textAnchor="middle" className="a048-bath__time">
-          {hour}
-          <tspan className="a048-bath__colon">:</tspan>
-          {String(minute).padStart(2, "0")}
         </text>
       </svg>
     </div>
@@ -387,9 +324,7 @@ const CultDesign: SongArticleDesign = (ctx) => {
                   start={XFD.start}
                 />
               </figure>
-              {body(XFD_AT, BATH_FIG)}
-              <Bathroom />
-              {body(BATH_FIG, HAKKE_FIG)}
+              {body(XFD_AT, HAKKE_FIG)}
               <Hakke />
               {body(HAKKE_FIG, PULL_ORDER)}
               {pull(PULL_ORDER)}
