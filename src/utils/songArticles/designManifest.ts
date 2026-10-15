@@ -22,7 +22,7 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // あ可よろし(plan/45)。Spotify(0)・冒頭(1)・五曲の並びの前後(5, 6)・見出し(8, 19, 32, 48, 68)・XFD の前後(9, 10)・赤短の前後(11, 12)・彼岸花の前後(28, 29)・結び(79)
+  // あ可よろし(plan/45)。Spotify(0)・冒頭(1)・五曲の並びの前後(5, 6)・見出し(8, 19, 32, 48, 68)・XFD の前後(9, 10)・赤短の前後(11, 12)・彼岸花の前後(28, 29)・要の一文(41, 75 とその前後)・2018→2025 の前後(63, 64)・結び(79)
   "reol-song-049": {
     bodyRevision: 3,
     bodySha256: "487093f8e0ccc2afe616b1068ba19f209ff70ccf2c47d408734d75b9756eb51e",
@@ -41,8 +41,16 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 28, textHash: "14d1882209ca7010" },
       { block: 29, textHash: "af782ae54910ee82" },
       { block: 32, textHash: "560138b91c6367a8" },
+      { block: 40, textHash: "08ddff777a30f219" },
+      { block: 41, textHash: "e38f9e0198bc3db0" },
+      { block: 42, textHash: "36a8326cab62acb5" },
       { block: 48, textHash: "9c21660c900d96f7" },
+      { block: 63, textHash: "fe33e5f0cb9a5075" },
+      { block: 64, textHash: "2d702e3a675af652" },
       { block: 68, textHash: "9b28bc2444f6cfeb" },
+      { block: 74, textHash: "bebaf99791534aab" },
+      { block: 75, textHash: "fbb993ee0db8b62d" },
+      { block: 76, textHash: "9635bfde6ee8df9e" },
       { block: 79, textHash: "9cc345c3872f9181" },
     ],
   },
