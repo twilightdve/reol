@@ -244,73 +244,54 @@
   font-weight: 800;
 }
 
-/* ---------- 五曲の並び ---------- */
+/* ---------- 五曲の並び(文字だけの曲順) ---------- */
 .a049-tracks {
   margin: 2em 0;
+  padding: 1.2em 0;
+  border-top: 1px solid rgb(43 38 34 / 0.25);
+  border-bottom: 1px solid rgb(43 38 34 / 0.25);
+}
+.a049-tracks__title {
+  margin: 0 0 0.6em;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--ink-2);
 }
 .a049-tracks ol {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
+  gap: 0.35em;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .a049-tracks li {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 96px;
-  padding: 10px 8px;
-  border-radius: 3px;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.4;
+  align-items: baseline;
+  gap: 1em;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 18px;
+  line-height: 1.7;
 }
 .a049-tracks__no {
-  font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif;
-  font-size: 18px;
-}
-.a049-tracks li.is-dark {
-  background: #2a2730;
-  color: #cfc8bd;
+  width: 1.2em;
+  font-size: 15px;
+  color: var(--ink-2);
 }
 .a049-ground .a049-tracks li.is-dark a {
-  color: #e9e2d6;
+  color: var(--ink-2);
   text-decoration: none;
 }
 .a049-ground .a049-tracks li.is-dark a:hover {
+  color: var(--ink);
   text-decoration: underline;
 }
 .a049-tracks li.is-light {
-  background: linear-gradient(160deg, #fff8e6, #f3d9a8);
-  color: var(--ink);
-  box-shadow: 0 0 0 1px var(--gold), 0 0 26px rgb(243 196 110 / 0.75);
+  font-weight: 800;
 }
+.a049-tracks li.is-light .a049-tracks__no,
 .a049-tracks__here {
   color: var(--vermilion);
-}
-/* 画面に入ったら: 四曲の暗い札が順に出て、最後に五曲目が光る */
-.a049-tracks.is-armed li {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 1.2s ease;
-}
-.a049-tracks.is-armed li:nth-child(2) {
-  transition-delay: 0.25s;
-}
-.a049-tracks.is-armed li:nth-child(3) {
-  transition-delay: 0.5s;
-}
-.a049-tracks.is-armed li:nth-child(4) {
-  transition-delay: 0.75s;
-}
-.a049-tracks.is-armed li:nth-child(5) {
-  transition-delay: 1.4s;
-}
-.a049-tracks.is-visible li {
-  opacity: 1;
-  transform: none;
 }
 
 /* ---------- XFD ---------- */
@@ -608,32 +589,6 @@
     top: 12%;
     right: 7%;
     width: 58px;
-  }
-  /* スマートフォン: 五曲は2段(上に4曲、下に光る5曲目を横いっぱい) */
-  .a049-tracks ol {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .a049-tracks li {
-    min-height: 84px;
-    font-size: 12px;
-  }
-  /* スマートフォン: 年表は縮むので、文字を大きめに(表示で 13px 前後) */
-  .a049-years__year {
-    font-size: 34px;
-  }
-  .a049-years__what {
-    font-size: 22px;
-  }
-  .a049-years__span {
-    font-size: 20px;
-  }
-  .a049-tracks li.is-light {
-    grid-column: 1 / -1;
-    min-height: 0;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 10px;
-    font-size: 15px;
   }
 }
 @media print {
