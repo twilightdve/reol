@@ -116,6 +116,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
           ))}
         </div>
 
+        {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示)。統計のすぐ下、NEXT LIVE の上(2026-10-18 ユーザー指定) */}
+        <OnThisDay className="mt-6" />
+
         {/* NEXT LIVE行 */}
         {nextLive && (
           <div className="flex items-center flex-wrap gap-3 mt-5 text-xs text-bx-ink2">
@@ -141,9 +144,6 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
           </div>
         )}
       </div>
-
-      {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示)。NEXT LIVE のすぐ下(2026-10-18 ユーザー指定) */}
-      <OnThisDay />
 
       {/* EXPLORE: 主要セクションへの大タイル導線 */}
       <div className="px-2 sm:px-4 pt-6">
