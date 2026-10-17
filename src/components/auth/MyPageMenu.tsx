@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { X, Lock, UserCog, Trash2, LogOut, Edit2, Check, X as XIcon, QrCode, HelpCircle, Award } from 'lucide-react'
+import { X, Lock, UserCog, Trash2, LogOut, Edit2, Check, X as XIcon, QrCode, HelpCircle, Award, IdCard } from 'lucide-react'
+import { Link } from 'gatsby'
 import { FaXTwitter } from 'react-icons/fa6'
 import { useAuth } from '../../contexts/AuthContext'
 import ProfileAvatar from '../reolmap/auth/ProfileAvatar'
@@ -132,6 +133,16 @@ export const MyPageMenu: React.FC<MyPageMenuProps> = ({ onClose }) => {
             <Award className="h-5 w-5" />
             <span>コレクション</span>
           </button>
+
+          {/* プロフィールカード(plan/48) */}
+          <Link
+            to="/card/"
+            onClick={onClose}
+            className="w-full flex items-center gap-3 p-3 text-bx-ink2 hover:bg-bx-surface/5 hover:text-bx-ink rounded-lg transition-colors"
+          >
+            <IdCard className="h-5 w-5" />
+            <span>プロフィールカード</span>
+          </Link>
 
           <hr className="border-bx-line my-2" />
 
