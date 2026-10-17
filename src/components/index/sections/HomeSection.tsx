@@ -142,6 +142,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
         )}
       </div>
 
+      {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示)。NEXT LIVE のすぐ下(2026-10-18 ユーザー指定) */}
+      <OnThisDay />
+
       {/* EXPLORE: 主要セクションへの大タイル導線 */}
       <div className="px-2 sm:px-4 pt-6">
         <ExploreGrid />
@@ -186,9 +189,6 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
           </ul>
         </section>
       )}
-
-      {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示) */}
-      <OnThisDay />
 
       {/* 入口カード：初見の人が最初に触れる導線 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 px-2 sm:px-4 pt-10">
