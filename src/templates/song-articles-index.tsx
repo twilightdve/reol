@@ -25,6 +25,7 @@ import { ArticleSeries, seriesPath, showSongKicker, splitTitleBySong, tagFilterP
 import { fetchArticleLikeCounts } from "../services/articleLikeService";
 import { isReleased, useNow } from "../utils/songArticles/schedule";
 import { useAuth } from "../contexts/AuthContext";
+import { OWNER_USER_ID } from "../constants/owner";
 
 type IndexEntry = {
   /** 記事ID(いいね数の問い合わせに使う) */
@@ -47,12 +48,6 @@ type IndexEntry = {
   /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・限定公開は null */
   pageViews?: number | null;
 };
-
-/**
- * 運営のログインID。このIDでログインしている時だけ、限定公開・公開日時前の予約公開の記事も一覧に出す(2026-10-13 ユーザー指定)。
- * 表示の切り替えだけで、閲覧の制限ではない(限定公開・予約の記事の題名と URL は一覧のページ情報に入っている)
- */
-const OWNER_USER_ID = "twilightplc";
 
 /** 運営向けの公開状態の札(2026-10-13 ユーザー指定: 運営者にのみ、一覧に公開ステータスを表示) */
 type OwnerBadge = { label: string; tone: "live" | "unlisted" | "scheduled" | "preview" };

@@ -5,6 +5,8 @@
  * - 会員・非会員とも使える。非会員はこの端末だけに保存(消えることがある。画面に明記)。会員はアカウントにも保存。
  * - QR はカードの内容そのもの(/card/view/#…)。サーバーには置かない(codec.ts)。
  * - 静的HTMLは説明と空のフォームだけ。入力・保存は JS が動いた後。
+ * - 試験中は運営(OWNER_USER_ID)のログイン時だけ作れる(2026-10-18 ユーザー「一旦自分だけが見れる機能にして」)。
+ *   それ以外(静的HTMLを含む)は「準備中」だけを出し、検索にも出さない。表示の切り替えで、閲覧の制限ではない。
  */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
@@ -20,6 +22,8 @@ import { LiveItemRef, liveLabel, useCardDraft } from "../../components/profileCa
 import { renderCardImage, shareOrDownload } from "../../components/profileCard/cardImage";
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
+import { useAuth } from "../../contexts/AuthContext";
+import { OWNER_USER_ID } from "../../constants/owner";
 
 type CardPageData = {
   live: {
@@ -90,7 +94,7 @@ const ShowMode: React.FC<{ url: string; children: React.ReactNode; onClose: () =
   );
 };
 
-const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
+const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
   const allLives = useMemo<LiveItemRef[]>(
     () =>
       (data.live?.liveInfos ?? []).flatMap((li) =>
@@ -388,6 +392,26 @@ const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
   );
 };
 
+/** 試験中は運営だけ。ほかの人(とログインの確認が済むまで)は「準備中」 */
+const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
+  const { user, loading } = useAuth();
+  if (user?.id === OWNER_USER_ID) return <CardEditor data={data} />;
+  return (
+    <Layout title="プロフィールカード">
+      <main lang="ja" className="container mx-auto max-w-md px-4 py-16 text-center text-bx-ink">
+        {!loading && (
+          <>
+            <p className="text-[15px] font-bold">このページは準備中です</p>
+            <Link to="/" className="mt-4 inline-block text-[13px] text-bx-ink2 underline underline-offset-4 hover:text-bx-blue">
+              HOME へ
+            </Link>
+          </>
+        )}
+      </main>
+    </Layout>
+  );
+};
+
 export default CardPage;
 
 export const query = graphql`
@@ -413,10 +437,14 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC = () => (
-  <SEO
-    title="プロフィールカード"
-    description="ライヴ会場で知り合った人に自己紹介するためのカード。画面を見せる・QR コード・画像で渡せます。"
-    path="/card/"
-    jsonLd={buildBreadcrumbList([{ name: "ホーム", path: "/" }, { name: "プロフィールカード" }])}
-  />
+  <>
+    <SEO
+      title="プロフィールカード"
+      description="ライヴ会場で知り合った人に自己紹介するためのカード。画面を見せる・QR コード・画像で渡せます。"
+      path="/card/"
+      jsonLd={buildBreadcrumbList([{ name: "ホーム", path: "/" }, { name: "プロフィールカード" }])}
+    />
+    {/* 試験中(運営だけ)は検索に出さない */}
+    <meta name="robots" content="noindex,nofollow" />
+  </>
 );

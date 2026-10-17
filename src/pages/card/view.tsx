@@ -13,10 +13,15 @@ import Layout from "../../components/modules/layout";
 import SEO from "../../components/SEO";
 import { ProfileCardFace } from "../../components/profileCard/ProfileCardFace";
 import { CardPayload, decodeCard, encodeCard } from "../../utils/profileCard/codec";
+import { useAuth } from "../../contexts/AuthContext";
+import { OWNER_USER_ID } from "../../constants/owner";
 
 const SESSION_KEY = "reol-profile-card-view";
 
 const CardViewPage: React.FC = () => {
+  // 「カードを作る」の案内は、作れる人(試験中は運営だけ)にだけ出す
+  const { user } = useAuth();
+  const canCreate = user?.id === OWNER_USER_ID;
   const [state, setState] = useState<{ status: "loading" } | { status: "ok"; payload: CardPayload } | { status: "invalid" }>({ status: "loading" });
 
   useEffect(() => {
@@ -58,7 +63,7 @@ const CardViewPage: React.FC = () => {
             <p className="mt-2 text-[13px] leading-relaxed text-bx-ink3">QR コードをもう一度読み取るか、送られたリンクをそのまま開いてください。</p>
           </div>
         )}
-        {state.status !== "loading" && (
+        {state.status !== "loading" && canCreate && (
           <div className="mt-8 rounded-2xl border border-bx-line p-5">
             <p className="text-[14px] font-bold">あなたもカードを作る</p>
             <p className="mt-1 text-[13px] leading-relaxed text-bx-ink2">ライヴ会場での自己紹介に。ログインしなくても作れます。</p>
