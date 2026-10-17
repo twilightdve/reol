@@ -10,6 +10,8 @@
  * - 記事ごとのいいね数を表示し、「新着順」「いいねが多い順」で並べ替えられる(2026-10-12 ユーザー指定)。
  *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
  *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
+ * - 記事ごとの表示回数(GA4)を出し、「よく読まれている順」でも並べ替えられる(2026-10-18 ユーザー指定。plan/46)。
+ *   数はデプロイの前に GA から取ってページ情報に入れる(静的HTMLにも出る)。変わるのはデプロイの時だけ。?sort=views。
  */
 import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
@@ -42,6 +44,8 @@ type IndexEntry = {
   preview: boolean;
   /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
   unlisted?: boolean;
+  /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・限定公開は null */
+  pageViews?: number | null;
 };
 
 /**
@@ -54,6 +58,7 @@ const OWNER_USER_ID = "twilightplc";
 type OwnerBadge = { label: string; tone: "live" | "unlisted" | "scheduled" | "preview" };
 const jstShort = (iso: string) =>
   new Date(iso).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+const jstDate = (iso: string) => new Date(iso).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo", month: "long", day: "numeric" });
 const ownerBadge = (a: IndexEntry, now: number): OwnerBadge => {
   if (a.preview) return { label: "確認中(ローカルのプレビュー)", tone: "preview" };
   if (a.unlisted) return { label: "限定公開(URL を知っている人だけ)", tone: "unlisted" };
@@ -75,7 +80,12 @@ interface SongArticlesIndexContext {
   noindex: boolean;
   /** ビルド時刻。予約公開の記事は公開日時を過ぎるまで出さない(plan/43) */
   builtAt?: number;
+  /** 表示回数を GA から取った日時(plan/46)。取れていない時は null */
+  pageViewsAt?: string | null;
 }
+
+type SortKey = "new" | "likes" | "views";
+const SORT_KEYS: readonly SortKey[] = ["new", "likes", "views"];
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
@@ -130,6 +140,21 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
               <time dateTime={dateIso ?? undefined}>{date}</time> {published ? "公開" : "作成"}
             </span>
           )}
+          {a.pageViews != null && (
+            <span className="inline-flex items-center gap-1" aria-label={`表示 ${a.pageViews}回`} title="表示回数">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true">
+                <path
+                  d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="2" />
+              </svg>
+              <span className="tabular-nums">{a.pageViews.toLocaleString("ja-JP")}</span>
+            </span>
+          )}
           {likes !== null && (
             <span className="inline-flex items-center gap-1" aria-label={`いいね ${likes}`}>
               <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true">
@@ -168,7 +193,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   pageContext,
   location,
 }) => {
-  const { articles: allArticles, series, seriesSlug, builtAt } = pageContext;
+  const { articles: allArticles, series, seriesSlug, builtAt, pageViewsAt } = pageContext;
   // 予約公開(plan/43): 公開日時を過ぎた記事だけ。静的HTMLはビルド時刻、JS が動いた後は今の時刻で判定する
   const now = useNow(builtAt);
   // 運営のログイン時は、限定公開・公開日時前の記事も出す(静的HTMLとブラウザでの最初の描画はログイン前なので出ない)
@@ -199,22 +224,25 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     };
   }, [articles]);
 
-  // 並べ替え: 新着順(既定。静的HTMLと同じ)/ いいねが多い順(同数なら新着順)
-  const [sort, setSort] = useState<"new" | "likes">("new");
+  // 並べ替え: 新着順(既定。静的HTMLと同じ)/ いいねが多い順 / よく読まれている順(どちらも同数なら新着順)
+  const [sort, setSort] = useState<SortKey>("new");
   useEffect(() => {
-    setSort(new URLSearchParams(location.search).get("sort") === "likes" ? "likes" : "new");
+    const q = new URLSearchParams(location.search).get("sort");
+    setSort(SORT_KEYS.find((k) => k === q) ?? "new");
   }, [location.search]);
-  const chooseSort = (next: "new" | "likes") => {
+  const chooseSort = (next: SortKey) => {
     setSort(next);
     trackEvent("article_list_sort", { category: "navigation", label: next });
     // ?sort= を URL に残す(共有・戻る用)。?tag= はそのまま
     const params = new URLSearchParams(window.location.search);
-    if (next === "likes") params.set("sort", "likes");
+    if (next !== "new") params.set("sort", next);
     else params.delete("sort");
     const q = params.toString();
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
   };
-  const sortByLikes = sort === "likes" && likeCounts !== null;
+  const hasViews = articles.some((a) => a.pageViews != null);
+  const sortable: Record<SortKey, boolean> = { new: true, likes: likeCounts !== null, views: hasViews };
+  const activeSort: SortKey = sortable[sort] ? sort : "new";
 
   // アルバム(初出の作品)の一覧。発売日の古い順。記事の数も添える
   const albums = useMemo(() => {
@@ -245,10 +273,11 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const visible = useMemo(() => {
     const byTag = activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles;
     const filtered = activeAlbum ? byTag.filter((a) => a.album?.title === activeAlbum) : byTag;
-    if (!sortByLikes || !likeCounts) return filtered;
     // Array.prototype.sort は安定なので、同数は元の新着順のまま
-    return [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0));
-  }, [articles, activeTag, activeAlbum, sortByLikes, likeCounts]);
+    if (activeSort === "likes" && likeCounts) return [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0));
+    if (activeSort === "views") return [...filtered].sort((x, y) => (y.pageViews ?? 0) - (x.pageViews ?? 0));
+    return filtered;
+  }, [articles, activeTag, activeAlbum, activeSort, likeCounts]);
   const basePath = current ? seriesPath(current.slug) : "/articles/";
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
@@ -320,22 +349,24 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           </div>
         )}
 
-        {/* 並べ替え。いいね数が読めない時は、いいね順を選べない */}
+        {/* 並べ替え。いいね数が読めない時はいいね順を、表示回数が無い時はよく読まれている順を選べない */}
         <div className="mb-6 flex flex-wrap items-center gap-2 text-[12px]" role="group" aria-label="並べ替え">
           <span className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">並べ替え</span>
           {(
             [
               ["new", "新着順"],
               ["likes", "いいねが多い順"],
+              ["views", "よく読まれている順"],
             ] as const
           ).map(([key, label]) => {
-            const active = key === "new" ? !sortByLikes : sortByLikes;
+            if (key === "views" && !hasViews) return null;
+            const active = key === activeSort;
             return (
               <button
                 key={key}
                 type="button"
                 aria-pressed={active}
-                disabled={key === "likes" && likeCounts === null}
+                disabled={!sortable[key]}
                 onClick={() => chooseSort(key)}
                 className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
                   active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
@@ -346,6 +377,11 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
             );
           })}
         </div>
+        {hasViews && pageViewsAt && (
+          <p className="-mt-4 mb-6 text-[11px] text-bx-ink3">
+            表示回数は公開日からの数で、{jstDate(pageViewsAt)}時点のものです(Google アナリティクスの計測。計測されない閲覧もあります)。
+          </p>
+        )}
 
         {groups.map(({ s, items }) => (
           <section key={s.slug} className="mb-12" aria-labelledby={`series-${s.slug}`}>
