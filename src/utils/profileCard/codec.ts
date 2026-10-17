@@ -18,9 +18,9 @@ export const CARD_LIMITS = {
 export type SnsKey = "x" | "ig" | "th" | "bs" | "tt";
 
 export const SNS: { key: SnsKey; label: string; placeholder: string; pattern: RegExp; url: (id: string) => string }[] = [
-  { key: "x", label: "X", placeholder: "reol_official", pattern: /^[A-Za-z0-9_]{1,15}$/, url: (id) => `https://x.com/${id}` },
-  { key: "ig", label: "Instagram", placeholder: "reol_official", pattern: /^[A-Za-z0-9._]{1,30}$/, url: (id) => `https://www.instagram.com/${id}/` },
-  { key: "th", label: "Threads", placeholder: "reol_official", pattern: /^[A-Za-z0-9._]{1,30}$/, url: (id) => `https://www.threads.com/@${id}` },
+  { key: "x", label: "X", placeholder: "ID", pattern: /^[A-Za-z0-9_]{1,15}$/, url: (id) => `https://x.com/${id}` },
+  { key: "ig", label: "Instagram", placeholder: "ID", pattern: /^[A-Za-z0-9._]{1,30}$/, url: (id) => `https://www.instagram.com/${id}/` },
+  { key: "th", label: "Threads", placeholder: "ID", pattern: /^[A-Za-z0-9._]{1,30}$/, url: (id) => `https://www.threads.com/@${id}` },
   {
     key: "bs",
     label: "Bluesky",
@@ -28,7 +28,7 @@ export const SNS: { key: SnsKey; label: string; placeholder: string; pattern: Re
     pattern: /^(?=.{3,253}$)[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$/,
     url: (id) => `https://bsky.app/profile/${id}`,
   },
-  { key: "tt", label: "TikTok", placeholder: "reol_official", pattern: /^[A-Za-z0-9._]{2,24}$/, url: (id) => `https://www.tiktok.com/@${id}` },
+  { key: "tt", label: "TikTok", placeholder: "ID", pattern: /^[A-Za-z0-9._]{2,24}$/, url: (id) => `https://www.tiktok.com/@${id}` },
 ];
 
 /** QR・リンクに入れる中身(短いキー。載せない項目は入れない) */

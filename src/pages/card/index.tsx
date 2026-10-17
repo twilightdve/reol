@@ -330,7 +330,7 @@ const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
               label="参戦記録"
               hint={
                 <>
-                  ライヴのページの「参戦した」で記録した公演から作ります。<Link to="/live/" className="underline underline-offset-4 hover:text-bx-blue">ライヴの一覧へ</Link>
+                  ライヴの一覧で、各公演の「✓」(参戦済み)を付けた公演から作ります。<Link to="/live/" className="underline underline-offset-4 hover:text-bx-blue">ライヴの一覧へ</Link>
                 </>
               }
             >

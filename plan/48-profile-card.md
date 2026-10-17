@@ -68,3 +68,14 @@
 1. 1章の承認を受ける。
 2. 画面(作る・見せる・受け取る)を作り、Chromium・WebKit のスマホ幅で確認 → 限定公開ではなく機能なので、確認用のデプロイの扱いを聞く。
 3. 会員の保存用 SQL を渡す → 実行後につなぐ。
+
+## 3. 実装(2026-10-18、ユーザー「その方針で進めて」)
+
+- 1章のとおり。変えたところ:
+  - アイコン: アイコン画像を登録している会員は0人で、登録する機能も無いため、全員「名前の頭文字」(色は Reol タイプの色)。
+  - アクセス解析: gatsby-plugin-google-gtag はページ表示の page_path に `#` 以降を含めるため、`/card/view/` はページ表示を送らない(gatsby-config の exclude)。受け取る画面は読んだらすぐ URL から `#` 以降を消す(再読み込み用にそのタブの sessionStorage にだけ残す)。noindex・サイトマップから除外・referrer を送らない。
+  - サイト共通の動画プレーヤー: `/card/`・`/card/view/` ではミニに固定し、消音の間は隠す(楽曲記事と同じ)。
+- ファイル: `src/pages/card/index.tsx`(作る・見せる)、`src/pages/card/view.tsx`(受け取る)、`src/components/profileCard/`(見た目・保存・画像)、`src/utils/profileCard/codec.ts`(中身の形と確認)、マイページのメニューに「プロフィールカード」。
+- 会員の保存: `supabase/features/supabase-profile-card.sql`(profiles.card 列、get_my_card / set_my_card、change_user_id に card を写す)。ユーザーが SQL Editor で実行する。実行前は会員もこの端末だけに保存(画面にもそう出る)。
+- 確認: 単体テスト(中身の往復・壊れた中身・長さ・SNS の形)、型チェック。Chromium・WebKit のスマートフォン幅と PC 幅で、入力 → プレビュー → 見せる → リンクで受け取る画面、画像で保存。保存した画像と「見せる」画面の QR を macOS の Vision で読み取り、カードのリンクになっていることを確認。
+- 未確認: 会員(ログイン)での保存(SQL 実行後)。iPhone 実機での共有シート・カメラでの読み取り(ユーザー)。
