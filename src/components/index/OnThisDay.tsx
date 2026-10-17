@@ -71,7 +71,8 @@ const relativeDayLabel = (
   return t.daysLater(n);
 };
 
-const OnThisDay: React.FC = () => {
+/** className: 外側の余白(HOME では統計の下に詰めて置く。2026-10-18) */
+const OnThisDay: React.FC<{ className?: string }> = ({ className = "px-2 sm:px-4 pt-12" }) => {
   const t = useDict().otd;
   const data = useStaticQuery(graphql`
     query OnThisDayEvents {
@@ -187,7 +188,7 @@ const OnThisDay: React.FC = () => {
     mode === "month" ? t.kickerMonth : t.kickerDay;
 
   return (
-    <section className="px-2 sm:px-4 pt-12">
+    <section className={className}>
       <Kicker color="text-bx-yellow">{kickerLabel}</Kicker>
       <ul className="mt-3.5 space-y-2">
         {displayEvents.map((ev, i) => {
