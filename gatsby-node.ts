@@ -37,6 +37,7 @@ import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/mar
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { isReleased } from "./src/utils/songArticles/schedule";
+import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
 import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 
@@ -1938,7 +1939,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
         preview: boolean;
         /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
         unlisted: boolean;
+        /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・公開日時の無い記事は null */
+        pageViews: number | null;
       }[] = [];
+      // 表示回数はデプロイ前に scripts/fetch-article-pageviews.ts が書いたファイルから(無ければ数を出さない)
+      const pageViewsPath = ".analytics-local/article-pageviews.json";
+      const pageViewsFile: PageViewsFile | null = existsSync(pageViewsPath)
+        ? JSON.parse(await fs.readFile(pageViewsPath, "utf8"))
+        : null;
+      if (pageViewsFile) console.log(`[articles] 表示回数: ${pageViewsFile.fetchedAt} に GA から取得したもの`);
       // 記事ページは、関連記事(全記事のタグがそろってから選ぶ)を入れてから最後にまとめて作る
       const articlePages: { page: Parameters<typeof createPage>[0]; self: { id: string; seriesSlug: string; tags: string[]; relatedArticleIds: string[] } }[] = [];
       const relatedCandidates: RelatedCandidate[] = [];
@@ -2102,6 +2111,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           album: songFacts.releases[0] ? { title: songFacts.releases[0].title, releaseDate: songFacts.releases[0].releaseDate } : null,
           preview,
           unlisted,
+          pageViews: unlisted ? null : articlePageViews(pageViewsFile, slug, article.publishedAt),
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
         for (const page of unlisted ? [] : songPages.values()) {
@@ -2145,6 +2155,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             // 公開記事が無くプレビュー記事だけのときは一覧も noindex
             noindex: indexEntries.every((a) => a.preview),
             builtAt: BUILT_AT,
+            pageViewsAt: pageViewsFile?.fetchedAt ?? null,
           },
         });
         // シリーズごとのページ(記事が1件以上あるシリーズだけ)
@@ -2160,6 +2171,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               seriesSlug: s.slug,
               noindex: inSeries.every((a) => a.preview),
               builtAt: BUILT_AT,
+              pageViewsAt: pageViewsFile?.fetchedAt ?? null,
             },
           });
         }
