@@ -20,3 +20,5 @@ master/*.bak*
 .articles-local/
 # 記事の表示回数(GA4 から取ったもの。plan/46)。デプロイのたびに取り直す
 .analytics-local/
+# 毎日の自動デプロイの記録(最後にデプロイした版など。plan/47)
+.deploy-local/

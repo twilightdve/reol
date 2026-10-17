@@ -53,6 +53,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [44-cult-article-design.md](./44-cult-article-design.md) | 楽曲記事「カルト」の記事別デザイン: 闇のろうそく、語源の枝分かれ、静けさとハイトーンの波形、表と裏の声、消える光背、信仰と芸術の境界 |
 | [45-akayoroshi-article-design.md](./45-akayoroshi-article-design.md) | 楽曲記事「あ可よろし」の記事別デザイン: 明るい紙面、明けていく空と赤短、五曲の並び、彼岸花を抜ける光、「前」を指す針 |
 | [46-article-pageviews.md](./46-article-pageviews.md) | 読みものの一覧に表示回数(GA4)を出す: デプロイ前に GA から取得、公開日以降だけ数える、よく読まれている順 |
+| [47-daily-deploy.md](./47-daily-deploy.md) | 毎日の自動デプロイ: 最後に手動で出した版を launchd で毎日作り直す(表示回数・シート・予約公開の反映) |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
