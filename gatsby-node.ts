@@ -1614,6 +1614,11 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
     }
     actions.deletePage(page);
     actions.createPage({ ...page, context: { ...context, homeArticles, builtAt: BUILT_AT } });
+    // ここで作り直したページには onCreatePage がもう一度呼ばれないので、各言語の HOME もここで作る
+    // (2026-10-11〜10-18、これが無く /en/ などが 404 だった)。読みもの欄は日本語の HOME だけ
+    for (const lang of ENABLED_LANGS) {
+      actions.createPage({ ...page, path: localizePath(page.path, lang), context: { ...context, lang } });
+    }
     return;
   }
 
