@@ -162,9 +162,10 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
     [userId, remote]
   );
 
+  // 静的HTMLと最初の描画は null(読み込み後に入れる。食い違いを避ける)
   const typeCode = useMemo(() => {
+    if (!loaded) return null;
     if (profile?.reol_type) return profile.reol_type;
-    if (typeof window === "undefined") return null;
     try {
       return window.localStorage.getItem("reol_type_result");
     } catch {

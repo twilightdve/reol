@@ -6,7 +6,7 @@
  * - QR はカードの内容そのもの(/card/view/#…)。サーバーには置かない(codec.ts)。
  * - 静的HTMLは説明と空のフォームだけ。入力・保存は JS が動いた後。
  */
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 import toast from "react-hot-toast";
@@ -107,17 +107,19 @@ const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
 
   const { draft, update, loaded, payload, typeCode, lives, isMember, remote } = useCardDraft(allLives);
   const [showing, setShowing] = useState(false);
+  const closeShow = useCallback(() => setShowing(false), []);
   const [saving, setSaving] = useState(false);
   const qrCanvasRef = useRef<HTMLDivElement>(null);
 
   const url = payload ? cardViewUrl(SITE_ORIGIN, payload) : "";
   const type = typeCode ? reolTypes[typeCode as TypeCode] : null;
 
-  // 「今日のライヴ」の候補: 前後3日の公演
+  // 「今日のライヴ」の候補: 前後3日の公演(今の時刻を使うので、読み込み後だけ)
   const nearLives = useMemo(() => {
+    if (!loaded) return [];
     const now = Date.now();
     return allLives.filter((l) => l.date && Math.abs(Date.parse(l.date.trim().slice(0, 10)) - now) < 3.5 * 86400_000).map((l) => l.label.replace(/^\S+ /, ""));
-  }, [allLives]);
+  }, [allLives, loaded]);
 
   const saveImage = async () => {
     const canvas = qrCanvasRef.current?.querySelector("canvas");
@@ -378,7 +380,7 @@ const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
         </div>
       </main>
       {showing && payload && (
-        <ShowMode url={url} onClose={() => setShowing(false)}>
+        <ShowMode url={url} onClose={closeShow}>
           <ProfileCardFace payload={payload} />
         </ShowMode>
       )}

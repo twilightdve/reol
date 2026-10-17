@@ -78,4 +78,6 @@
 - ファイル: `src/pages/card/index.tsx`(作る・見せる)、`src/pages/card/view.tsx`(受け取る)、`src/components/profileCard/`(見た目・保存・画像)、`src/utils/profileCard/codec.ts`(中身の形と確認)、マイページのメニューに「プロフィールカード」。
 - 会員の保存: `supabase/features/supabase-profile-card.sql`(profiles.card 列、get_my_card / set_my_card、change_user_id に card を写す)。ユーザーが SQL Editor で実行する。実行前は会員もこの端末だけに保存(画面にもそう出る)。
 - 確認: 単体テスト(中身の往復・壊れた中身・長さ・SNS の形)、型チェック。Chromium・WebKit のスマートフォン幅と PC 幅で、入力 → プレビュー → 見せる → リンクで受け取る画面、画像で保存。保存した画像と「見せる」画面の QR を macOS の Vision で読み取り、カードのリンクになっていることを確認。
-- 未確認: 会員(ログイン)での保存(SQL 実行後)。iPhone 実機での共有シート・カメラでの読み取り(ユーザー)。
+- 本番ビルド(gatsby serve)で確認: 受け取る画面ではページ表示を送らず、スクロールの計測の page_location も `#` 以降が消えた `/card/view/`(GA への送信は記録して止めた)。作る画面で静的HTMLとの食い違いのエラー無し(Chromium・WebKit)。
+- SQL は 2026-10-18 に実行済み(card 列は anon から読めない・関数2つ・change_user_id に card)。ログイン時の verify_user_login / sign_up_user が返すプロフィールにも本人の card が入る(本人の分だけなので問題なし)。
+- 未確認: 会員(ログイン)での保存の動き(本物のアカウントでのログインが要るため、ユーザー確認)。iPhone 実機での共有シート・カメラでの読み取り(ユーザー)。
