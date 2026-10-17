@@ -64,7 +64,7 @@ const config: GatsbyConfig = {
       options: {
         // noindex のページはサイトマップにも載せない。
         // /relive/ は私的再生室、/cgraph/(各言語版を含む)と /quiz/bbq2025 系はページ側で noindex。
-        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/card/view/"],
+        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/card/", "/card/view/"],
         // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する。
         // 予約公開で公開日時がビルド時点でまだ来ていない記事(pageContext.scheduled)も載せない(plan/43)
         query: `
