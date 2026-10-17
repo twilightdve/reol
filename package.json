@@ -18,6 +18,7 @@
     "start-build": "http-server public/",
     "predeploy": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/check-deploy-ready.ts && npm run articles:pageviews && npm run build",
     "deploy": "gh-pages -d public",
+    "postdeploy": "mkdir -p .deploy-local && git rev-parse HEAD > .deploy-local/deployed-commit",
     "typegen:scss": "typed-scss-modules src",
     "test": "jest",
     "test:watch": "jest --watch",
