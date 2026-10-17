@@ -46,6 +46,11 @@ const isFullscreenVizPath = (rawPathname: string): boolean => {
 const isSongArticlePath = (rawPathname: string): boolean =>
   /^\/articles\/[^/]+\/?$/.test(stripLangPrefix(rawPathname).path);
 
+// プロフィールカード(/card/・/card/view/、plan/48)。会場で画面を見せる・受け取ったカードを読むページなので、
+// 動画がカードに重ならないよう、楽曲記事と同じく消音の間は隠す。
+const isProfileCardPath = (rawPathname: string): boolean =>
+  /^\/card(\/view)?\/?$/.test(stripLangPrefix(rawPathname).path);
+
 const defaultOpts: Options = {
   height: "180",
   width: "320",
@@ -140,13 +145,14 @@ const MainVideo: React.FC<Props> = ({
     });
     return () => unlisten();
   }, []);
-  const forceMini = isSecondLevelPath(pathname) || isFullscreenVizPath(pathname);
+  // /card/ は1階層目だが、大きな動画が上にあるとカードの画面が下に押されるのでミニに固定する(消音の間は隠れる)
+  const forceMini = isSecondLevelPath(pathname) || isFullscreenVizPath(pathname) || isProfileCardPath(pathname);
   // 実際に「縮小表示として描画するか」。スクロール連動の縮小(isShrinked && onPlaying)
   // に加え、2階層目のページでは常にミニ表示を強制する。
   const isMini = (isShrinked && onPlaying) || forceMini;
   // 楽曲記事では、消音のまま流れている間は隠す(マウントは保ち、遷移をまたいだ再生は壊さない)。
   // 利用者が音を出して聴いている場合は、止めるための操作が見えるよう表示したままにする。
-  const hiddenOnArticle = isSongArticlePath(pathname) && isMuted;
+  const hiddenOnArticle = (isSongArticlePath(pathname) || isProfileCardPath(pathname)) && isMuted;
 
   useEffect(() => {
     if (!isBrowser) return;
