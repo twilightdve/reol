@@ -6,6 +6,7 @@
  * - QR はカードの内容そのもの(/card/view/#…)。サーバーには置かない(codec.ts)。
  * - 静的HTMLは説明と空のフォームだけ。入力・保存は JS が動いた後。
  * - 試験中は運営(OWNER_USER_ID)のログイン時だけ作れる(2026-10-18 ユーザー「一旦自分だけが見れる機能にして」)。
+ *   切り替えは constants/profileCard.ts の PROFILE_CARD_OWNER_ONLY(false で元に戻る)。
  *   それ以外(静的HTMLを含む)は「準備中」だけを出し、検索にも出さない。表示の切り替えで、閲覧の制限ではない。
  */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -23,7 +24,7 @@ import { renderCardImage, shareOrDownload } from "../../components/profileCard/c
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
 import { useAuth } from "../../contexts/AuthContext";
-import { OWNER_USER_ID } from "../../constants/owner";
+import { PROFILE_CARD_OWNER_ONLY, canCreateProfileCard } from "../../constants/profileCard";
 
 type CardPageData = {
   live: {
@@ -392,10 +393,10 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
   );
 };
 
-/** 試験中は運営だけ。ほかの人(とログインの確認が済むまで)は「準備中」 */
+/** 試験中(PROFILE_CARD_OWNER_ONLY)は運営だけ。ほかの人(とログインの確認が済むまで)は「準備中」 */
 const CardPage: React.FC<PageProps<CardPageData>> = ({ data }) => {
   const { user, loading } = useAuth();
-  if (user?.id === OWNER_USER_ID) return <CardEditor data={data} />;
+  if (canCreateProfileCard(user?.id)) return <CardEditor data={data} />;
   return (
     <Layout title="プロフィールカード">
       <main lang="ja" className="container mx-auto max-w-md px-4 py-16 text-center text-bx-ink">
@@ -445,6 +446,6 @@ export const Head: HeadFC = () => (
       jsonLd={buildBreadcrumbList([{ name: "ホーム", path: "/" }, { name: "プロフィールカード" }])}
     />
     {/* 試験中(運営だけ)は検索に出さない */}
-    <meta name="robots" content="noindex,nofollow" />
+    {PROFILE_CARD_OWNER_ONLY && <meta name="robots" content="noindex,nofollow" />}
   </>
 );
