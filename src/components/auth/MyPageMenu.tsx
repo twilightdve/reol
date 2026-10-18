@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { X, Lock, UserCog, Trash2, LogOut, Edit2, Check, X as XIcon, QrCode, HelpCircle, Award, IdCard } from 'lucide-react'
 import { Link } from 'gatsby'
-import { OWNER_USER_ID } from '../../constants/owner'
+import { canCreateProfileCard } from '../../constants/profileCard'
 import { FaXTwitter } from 'react-icons/fa6'
 import { useAuth } from '../../contexts/AuthContext'
 import ProfileAvatar from '../reolmap/auth/ProfileAvatar'
@@ -136,7 +136,7 @@ export const MyPageMenu: React.FC<MyPageMenuProps> = ({ onClose }) => {
           </button>
 
           {/* プロフィールカード(plan/48)。試験中は運営だけ */}
-          {user.id === OWNER_USER_ID && (
+          {canCreateProfileCard(user.id) && (
           <Link
             to="/card/"
             onClick={onClose}

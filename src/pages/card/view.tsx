@@ -14,14 +14,14 @@ import SEO from "../../components/SEO";
 import { ProfileCardFace } from "../../components/profileCard/ProfileCardFace";
 import { CardPayload, decodeCard, encodeCard } from "../../utils/profileCard/codec";
 import { useAuth } from "../../contexts/AuthContext";
-import { OWNER_USER_ID } from "../../constants/owner";
+import { canCreateProfileCard } from "../../constants/profileCard";
 
 const SESSION_KEY = "reol-profile-card-view";
 
 const CardViewPage: React.FC = () => {
   // 「カードを作る」の案内は、作れる人(試験中は運営だけ)にだけ出す
   const { user } = useAuth();
-  const canCreate = user?.id === OWNER_USER_ID;
+  const canCreate = canCreateProfileCard(user?.id);
   const [state, setState] = useState<{ status: "loading" } | { status: "ok"; payload: CardPayload } | { status: "invalid" }>({ status: "loading" });
 
   useEffect(() => {
