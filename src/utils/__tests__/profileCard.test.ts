@@ -14,6 +14,7 @@ describe("プロフィールカードの中身(plan/48)", () => {
     x: { x: "reol_official", bs: "name.bsky.social" },
     b: "物販列によくいます",
     e: "美辞学 東京公演",
+    y: "color",
   };
 
   it("文字列にして戻すと同じ中身になる(日本語を含む)", () => {
@@ -44,6 +45,12 @@ describe("プロフィールカードの中身(plan/48)", () => {
     const p = sanitizePayload({ v: 1, n: "a", s: ["1", "", "2", "3", "4"], c: ["", "x", "y", "z"] });
     expect(p!.s).toEqual(["1", "2", "3"]);
     expect(p!.c).toEqual(["x", "y"]);
+  });
+
+  it("スタイルは決まったものだけ。既定(dark)は入れない", () => {
+    expect(sanitizePayload({ v: 1, n: "a", y: "legit" })!.y).toBe("legit");
+    expect(sanitizePayload({ v: 1, n: "a", y: "dark" })!.y).toBeUndefined();
+    expect(sanitizePayload({ v: 1, n: "a", y: "neon" })!.y).toBeUndefined();
   });
 
   it("タイプコード・参戦数は決まった形だけ", () => {

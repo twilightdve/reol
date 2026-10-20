@@ -9,7 +9,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useCollectionOwned } from "../../hooks/useCollectionOwned";
-import { CARD_LIMITS, CardPayload, SnsKey, normalizeSnsId, sanitizePayload, SNS } from "../../utils/profileCard/codec";
+import { CARD_LIMITS, CARD_STYLE_IDS, CardPayload, CardStyleId, SnsKey, normalizeSnsId, sanitizePayload, SNS } from "../../utils/profileCard/codec";
 
 export type CardDraft = {
   name: string;
@@ -20,7 +20,10 @@ export type CardDraft = {
   showLives: boolean;
   sns: Partial<Record<SnsKey, string>>;
   bio: string;
-  event: string;
+  /** 好きなライヴ(liveLabel の形) */
+  favoriteLive: string;
+  /** カードのスタイル */
+  style: CardStyleId;
 };
 
 export type LiveItemRef = { uuid: string; date: string | null; label: string };
@@ -28,7 +31,7 @@ export type LiveItemRef = { uuid: string; date: string | null; label: string };
 const STORAGE_KEY = "reol-profile-card";
 const keyFor = (userId: string | null) => (userId ? `${STORAGE_KEY}:${userId}` : STORAGE_KEY);
 
-const emptyDraft = (): CardDraft => ({ name: "", songs: [], covers: [], showType: true, showLives: true, sns: {}, bio: "", event: "" });
+const emptyDraft = (): CardDraft => ({ name: "", songs: [], covers: [], showType: true, showLives: true, sns: {}, bio: "", favoriteLive: "", style: "dark" });
 
 const parseDraft = (raw: unknown): CardDraft | null => {
   if (!raw || typeof raw !== "object") return null;
@@ -41,7 +44,9 @@ const parseDraft = (raw: unknown): CardDraft | null => {
     showLives: r.showLives !== false,
     sns: r.sns && typeof r.sns === "object" ? (r.sns as CardDraft["sns"]) : {},
     bio: typeof r.bio === "string" ? r.bio : "",
-    event: typeof r.event === "string" ? r.event : "",
+    // 前の「今日のライヴ」(event)は意味が違うので引き継がない
+    favoriteLive: typeof r.favoriteLive === "string" ? r.favoriteLive : "",
+    style: (CARD_STYLE_IDS as readonly unknown[]).includes(r.style) ? (r.style as CardStyleId) : "dark",
   };
 };
 
@@ -89,7 +94,8 @@ export const buildPayload = (
         : undefined,
     x,
     b: draft.bio,
-    e: draft.event,
+    e: draft.favoriteLive,
+    y: draft.style,
   });
 };
 

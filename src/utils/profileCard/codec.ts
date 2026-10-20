@@ -12,7 +12,6 @@ export const CARD_LIMITS = {
   songs: 3,
   covers: 2,
   bio: 60,
-  event: 40,
   live: 80,
 } as const;
 
@@ -32,6 +31,10 @@ export const SNS: { key: SnsKey; label: string; placeholder: string; pattern: Re
   { key: "tt", label: "TikTok", placeholder: "ID", pattern: /^[A-Za-z0-9._]{2,24}$/, url: (id) => `https://www.tiktok.com/@${id}` },
 ];
 
+/** カードのスタイル(見た目は components/profileCard/cardStyles.ts)。dark が既定で、中身には入れない */
+export const CARD_STYLE_IDS = ["dark", "color", "light", "legit"] as const;
+export type CardStyleId = (typeof CARD_STYLE_IDS)[number];
+
 /** QR・リンクに入れる中身(短いキー。載せない項目は入れない) */
 export type CardPayload = {
   v: 1;
@@ -49,8 +52,10 @@ export type CardPayload = {
   x?: Partial<Record<SnsKey, string>>;
   /** ひとこと */
   b?: string;
-  /** 今日のライヴ */
+  /** 好きなライヴ(「2018.06.10 公演名」の形の文字) */
   e?: string;
+  /** スタイル(既定の dark の時は入れない) */
+  y?: Exclude<CardStyleId, "dark">;
 };
 
 /** 入力の SNS ID を正規化する(先頭の @ や URL の貼り付けを取り除く)。形が合わなければ null */
@@ -114,8 +119,9 @@ export const sanitizePayload = (raw: unknown): CardPayload | null => {
   }
   const b = clip(r.b, CARD_LIMITS.bio);
   if (b) out.b = b;
-  const e = clip(r.e, CARD_LIMITS.event);
+  const e = clip(r.e, CARD_LIMITS.live);
   if (e) out.e = e;
+  if (typeof r.y === "string" && r.y !== "dark" && (CARD_STYLE_IDS as readonly string[]).includes(r.y)) out.y = r.y as CardPayload["y"];
   return out;
 };
 
