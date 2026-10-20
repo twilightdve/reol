@@ -188,7 +188,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
   const previewAccent = cardAccent({ v: 1, n: "", t: typeCode ?? undefined });
   const type = typeCode ? reolTypes[typeCode as TypeCode] : null;
 
-  // 「好きなライヴ」の候補: 終わった公演を、ツアー・ライヴごと(新しいものから)、中は日付順。
+  // 「想い出のライヴ」の候補: 終わった公演を、ツアー・ライヴごと(新しいものから)、中は日付順。
   // 今日の日付を使うので、読み込み後だけ(静的HTMLとの食い違いを避ける)
   const liveGroups = useMemo(() => {
     if (!loaded) return [];
@@ -437,7 +437,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
               </div>
             </Field>
 
-            <Field label="好きなライヴ" htmlFor="card-favorite-live">
+            <Field label="想い出のライヴ" htmlFor="card-favorite-live">
               <select
                 id="card-favorite-live"
                 value={draft.favoriteLive}

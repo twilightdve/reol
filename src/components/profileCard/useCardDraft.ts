@@ -20,7 +20,7 @@ export type CardDraft = {
   showLives: boolean;
   sns: Partial<Record<SnsKey, string>>;
   bio: string;
-  /** 好きなライヴ(liveLabel の形) */
+  /** 想い出のライヴ(liveLabel の形。日付つきで持ち、カードに載せる時は日付を外す) */
   favoriteLive: string;
   /** カードのスタイル */
   style: CardStyleId;
@@ -94,7 +94,8 @@ export const buildPayload = (
         : undefined,
     x,
     b: draft.bio,
-    e: draft.favoriteLive,
+    // カードには公演名だけ(2026-10-21 ユーザー「表示するライヴ名には日付不要」)
+    e: draft.favoriteLive.replace(/^\d{4}\.\d{1,2}\.\d{1,2}\s+/, ""),
     y: draft.style,
   });
 };

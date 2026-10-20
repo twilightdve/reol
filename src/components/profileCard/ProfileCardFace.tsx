@@ -100,7 +100,7 @@ export const ProfileCardFace: React.FC<{
 
           {p.e && (
             <div>
-              <Label color={st.muted}>FAVORITE LIVE</Label>
+              <Label color={st.muted}>MEMORABLE LIVE</Label>
               <p className="mt-1 text-[15px] font-bold [overflow-wrap:anywhere]">{p.e}</p>
             </div>
           )}

@@ -123,7 +123,7 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement, ico
     y += 24;
   }
   if (p.e) {
-    section("FAVORITE LIVE");
+    section("MEMORABLE LIVE");
     line(p.e, 36, 700);
     y += 24;
   }
