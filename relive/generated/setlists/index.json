@@ -6,6 +6,25 @@
   },
   "setlists": [
     {
+      "setlistId": "live_item_01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "liveUuid": "01a15a41-73e9-73ed-b56e-bd87bc966a76",
+      "liveItemUuid": "01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "title": "COUNTDOWN JAPAN 26/27",
+      "date": "2026-12-26",
+      "venueName": "幕張メッセ",
+      "venueId": "venue_幕張メッセ",
+      "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
       "setlistId": "live_item_019f545f-88be-74fc-a5c1-9cb452b5ee4e",
       "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
       "liveItemUuid": "019f545f-88be-74fc-a5c1-9cb452b5ee4e",

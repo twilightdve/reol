@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T16:54:36.329Z",
+  "generatedAt": "2026-10-20T17:03:51.604Z",
   "source": {
     "liveJsonPath": "static/data/live.json",
     "discographyJsonPath": "static/data/discography.json",
     "venueEnrichmentPath": "static/data/relive-venue-enrichment.json",
     "venueLayoutOverridesPath": "src/data/relive/venue-layout-overrides.json",
-    "liveJsonHash": "5c640c8ddfce85040d775c73055f5826c331d8796fc8c25072a44d2c1dc86a11",
+    "liveJsonHash": "71f5e1f123690e8fc624da8e5185121ee46af3b224eec53f0ba2dc6f6e878eaf",
     "discographyJsonHash": "fa31c7be49179400a6265e55837e794c7415b5fbdf22b69c4c76e9361ffd0ee6",
     "venueEnrichmentHash": "a521d6485a1898eb30b3681e62fe9e87146caa06d66979a76fc15bd2e9105c9d",
     "venueLayoutOverridesHash": "f0ecd8853c39c173bcacab76e0b5b172db41164a14f44b9d8e16d1515ec3bc68"
@@ -14,7 +14,7 @@
   "counts": {
     "tracks": 251,
     "venues": 116,
-    "setlists": 170,
+    "setlists": 171,
     "setlistEntries": 2271
   },
   "paths": {
