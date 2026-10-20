@@ -219,7 +219,10 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           );
         })}
       </div>
-      <p className="text-xs text-right text-bx-ink2">{t.count(currentList.length)}</p>
+      {/* 公演の数(年見出しと同じ数え方。ツアー・イベントの数ではない) */}
+      <p className="text-xs text-right text-bx-ink2">
+        {t.showCount(currentList.reduce((sum, live) => sum + (live.items?.length ?? 0), 0))}
+      </p>
 
       <div style={{ isolation: "isolate" }}>
         {groupedByYear.map(({ year, items }) => (
