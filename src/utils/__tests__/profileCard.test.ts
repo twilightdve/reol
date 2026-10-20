@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { decodeCard, encodeCard, normalizeSnsId, sanitizePayload, CardPayload } from "../profileCard/codec";
+import { decodeCard, encodeCard, liveSummary, normalizeSnsId, sanitizePayload, CardPayload } from "../profileCard/codec";
 
 describe("プロフィールカードの中身(plan/48)", () => {
   const card: CardPayload = {
@@ -10,7 +10,7 @@ describe("プロフィールカードの中身(plan/48)", () => {
     s: ["ギャフンと鳴かせて", "第六感"],
     c: ["ヒビカセ ver れをる"],
     t: "FGSA",
-    a: { c: 12, f: "2018.06.10 ハーメルンの大合唱", l: "2025.08.16 無題" },
+    a: { c: 12, t: ["美辞学", "UNBOX black/pure", "ハーメルンの大号令"], o: 1 },
     x: { x: "reol_official", bs: "name.bsky.social" },
     b: "物販列によくいます",
     e: "美辞学 東京公演",
@@ -51,6 +51,14 @@ describe("プロフィールカードの中身(plan/48)", () => {
     expect(sanitizePayload({ v: 1, n: "a", y: "legit" })!.y).toBe("legit");
     expect(sanitizePayload({ v: 1, n: "a", y: "dark" })!.y).toBeUndefined();
     expect(sanitizePayload({ v: 1, n: "a", y: "neon" })!.y).toBeUndefined();
+  });
+
+  it("LIVE参戦は「全N公演（ツアー、…）」。ツアーは3つまで", () => {
+    expect(liveSummary(card.a!)).toBe("全12公演（美辞学、UNBOX black/pure、ハーメルンの大号令、…）");
+    expect(liveSummary({ c: 1, t: ["無題"] })).toBe("全1公演（無題）");
+    expect(liveSummary({ c: 3 })).toBe("全3公演");
+    const p = sanitizePayload({ v: 1, n: "a", a: { c: 5, t: ["1", "2", "3", "4"], o: 2 } });
+    expect(p!.a).toEqual({ c: 5, t: ["1", "2", "3"] });
   });
 
   it("タイプコード・参戦数は決まった形だけ", () => {

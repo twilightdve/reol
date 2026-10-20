@@ -4,7 +4,7 @@
  */
 import React from "react";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
-import { CardPayload, SNS } from "../../utils/profileCard/codec";
+import { CardPayload, SNS, liveSummary } from "../../utils/profileCard/codec";
 import { cardStyleOf } from "./cardStyles";
 
 const DEFAULT_ACCENT = "#5b8def";
@@ -107,26 +107,8 @@ export const ProfileCardFace: React.FC<{
 
           {p.a && (
             <div>
-              <Label color={st.muted}>LIVE</Label>
-              <p className="mt-1 text-[15px] font-bold">
-                参戦 <span className="text-[22px] tabular-nums">{p.a.c}</span> 公演
-              </p>
-              {(p.a.f || p.a.l) && (
-                <dl className="mt-1 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[12px]" style={{ color: st.ink2 }}>
-                  {p.a.f && (
-                    <>
-                      <dt style={{ color: st.muted }}>はじめて</dt>
-                      <dd className="[overflow-wrap:anywhere]">{p.a.f}</dd>
-                    </>
-                  )}
-                  {p.a.l && p.a.l !== p.a.f && (
-                    <>
-                      <dt style={{ color: st.muted }}>直近</dt>
-                      <dd className="[overflow-wrap:anywhere]">{p.a.l}</dd>
-                    </>
-                  )}
-                </dl>
-              )}
+              <Label color={st.muted}>LIVE参戦</Label>
+              <p className="mt-1 text-[15px] font-bold [overflow-wrap:anywhere]">{liveSummary(p.a)}</p>
             </div>
           )}
 

@@ -25,12 +25,14 @@ import { renderCardImage, shareOrDownload } from "../../components/profileCard/c
 import { loadIconImage, useCardIcon } from "../../components/profileCard/useCardIcon";
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
+import { tourShortName } from "../../utils/profileCard/tourName";
 import { useAuth } from "../../contexts/AuthContext";
 import { PROFILE_CARD_OWNER_ONLY, canCreateProfileCard } from "../../constants/profileCard";
 
 type CardPageData = {
   live: {
     liveInfos: ({
+      liveUuid: string;
       title: string | null;
       items: ({ liveItemUuid: string | null; liveItemName: string | null; date: string | null } | null)[] | null;
     } | null)[];
@@ -137,7 +139,17 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
     () =>
       (data.live?.liveInfos ?? []).flatMap((li) =>
         (li?.items ?? []).flatMap((it) =>
-          it?.liveItemUuid ? [{ uuid: it.liveItemUuid, date: it.date, label: liveLabel(it.date, li?.title ?? null, it.liveItemName) }] : []
+          it?.liveItemUuid && li
+            ? [
+                {
+                  uuid: it.liveItemUuid,
+                  date: it.date,
+                  label: liveLabel(it.date, li.title, it.liveItemName),
+                  tourId: li.liveUuid,
+                  tour: tourShortName(li.title ?? ""),
+                },
+              ]
+            : []
         )
       ),
     [data]
@@ -586,6 +598,7 @@ export const query = graphql`
   query ProfileCardPage {
     live {
       liveInfos {
+        liveUuid
         title
         items {
           liveItemUuid

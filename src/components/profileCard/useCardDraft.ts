@@ -26,7 +26,8 @@ export type CardDraft = {
   style: CardStyleId;
 };
 
-export type LiveItemRef = { uuid: string; date: string | null; label: string };
+/** tour: ツアー・ライヴの短い名前(tourShortName)、tourId: その liveUuid */
+export type LiveItemRef = { uuid: string; date: string | null; label: string; tourId: string; tour: string };
 
 const STORAGE_KEY = "reol-profile-card";
 const keyFor = (userId: string | null) => (userId ? `${STORAGE_KEY}:${userId}` : STORAGE_KEY);
@@ -81,7 +82,15 @@ export const buildPayload = (
     const id = draft.sns[s.key] ? normalizeSnsId(s.key, draft.sns[s.key]!) : null;
     if (id) x[s.key] = id;
   }
-  const sorted = [...sources.lives].sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+  // 参戦した公演の多いツアーから(同じ数なら最近行った方を先に)
+  const byTour = new Map<string, { name: string; count: number; last: string }>();
+  for (const l of sources.lives) {
+    const cur = byTour.get(l.tourId) ?? { name: l.tour, count: 0, last: "" };
+    cur.count += 1;
+    if ((l.date ?? "") > cur.last) cur.last = l.date ?? "";
+    byTour.set(l.tourId, cur);
+  }
+  const tours = [...byTour.values()].sort((a, b) => b.count - a.count || b.last.localeCompare(a.last));
   return sanitizePayload({
     v: 1,
     n: draft.name,
@@ -89,8 +98,12 @@ export const buildPayload = (
     c: draft.covers,
     t: draft.showType ? sources.typeCode ?? undefined : undefined,
     a:
-      draft.showLives && sorted.length > 0
-        ? { c: sorted.length, f: sorted[0].label, l: sorted[sorted.length - 1].label }
+      draft.showLives && sources.lives.length > 0
+        ? {
+            c: sources.lives.length,
+            t: tours.slice(0, CARD_LIMITS.tours).map((x) => x.name),
+            o: tours.length > CARD_LIMITS.tours ? 1 : undefined,
+          }
         : undefined,
     x,
     b: draft.bio,

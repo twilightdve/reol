@@ -13,6 +13,9 @@ export const CARD_LIMITS = {
   covers: 2,
   bio: 60,
   live: 80,
+  /** 「LIVE参戦」に載せるツアー: 数と、1つの名前の長さ */
+  tours: 3,
+  tour: 30,
 } as const;
 
 export type SnsKey = "x" | "ig" | "th" | "bs" | "tt";
@@ -46,8 +49,8 @@ export type CardPayload = {
   c?: string[];
   /** Reol タイプ診断のタイプコード */
   t?: string;
-  /** 参戦記録: 参戦数・はじめて行ったライヴ・直近のライヴ(「2018.06.10 公演名」の形の文字) */
-  a?: { c: number; f?: string; l?: string };
+  /** 参戦記録: 参戦した公演の数・参戦した公演の多いツアー(短い名前。3つまで)・ほかにもツアーがあるか */
+  a?: { c: number; t?: string[]; o?: 1 };
   /** SNS の ID */
   x?: Partial<Record<SnsKey, string>>;
   /** ひとこと */
@@ -91,8 +94,8 @@ export const sanitizePayload = (raw: unknown): CardPayload | null => {
   const n = clip(r.n, CARD_LIMITS.name);
   if (!n) return null;
   const out: CardPayload = { v: 1, n };
-  const songList = (v: unknown, max: number) =>
-    Array.isArray(v) ? v.map((x) => clip(x, CARD_LIMITS.song)).filter((x): x is string => !!x).slice(0, max) : [];
+  const songList = (v: unknown, max: number, len: number = CARD_LIMITS.song) =>
+    Array.isArray(v) ? v.map((x) => clip(x, len)).filter((x): x is string => !!x).slice(0, max) : [];
   const s = songList(r.s, CARD_LIMITS.songs);
   if (s.length) out.s = s;
   const c = songList(r.c, CARD_LIMITS.covers);
@@ -103,10 +106,9 @@ export const sanitizePayload = (raw: unknown): CardPayload | null => {
     const c = typeof a.c === "number" && Number.isInteger(a.c) && a.c >= 0 && a.c <= 9999 ? a.c : null;
     if (c !== null) {
       out.a = { c };
-      const f = clip(a.f, CARD_LIMITS.live);
-      const l = clip(a.l, CARD_LIMITS.live);
-      if (f) out.a.f = f;
-      if (l) out.a.l = l;
+      const tours = songList(a.t, CARD_LIMITS.tours, CARD_LIMITS.tour);
+      if (tours.length) out.a.t = tours;
+      if (a.o === 1) out.a.o = 1;
     }
   }
   if (r.x && typeof r.x === "object") {
@@ -149,6 +151,10 @@ export const decodeCard = (fragment: string): CardPayload | null => {
     return null;
   }
 };
+
+/** 「全73公演（美辞学、UNBOX、…）」(2026-10-21 ユーザー指定の書き方) */
+export const liveSummary = (a: NonNullable<CardPayload["a"]>): string =>
+  `全${a.c}公演` + (a.t?.length ? `（${a.t.join("、")}${a.o ? "、…" : ""}）` : "");
 
 export const CARD_VIEW_PATH = "/card/view/";
 export const cardViewUrl = (origin: string, payload: CardPayload) => `${origin}${CARD_VIEW_PATH}#${encodeCard(payload)}`;
