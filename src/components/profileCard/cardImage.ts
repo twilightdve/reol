@@ -3,7 +3,7 @@
  * 画像には QR も入れる(画像を受け取った人も読み取れる)。
  */
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
-import { CardPayload, SNS } from "../../utils/profileCard/codec";
+import { CardPayload, SNS, liveSummary } from "../../utils/profileCard/codec";
 import { cardAccent, cardInitial } from "./ProfileCardFace";
 import { cardStyleOf } from "./cardStyles";
 
@@ -128,10 +128,8 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement, ico
     y += 24;
   }
   if (p.a) {
-    section("LIVE");
-    line(`参戦 ${p.a.c} 公演`, 40, 700);
-    if (p.a.f) line(`はじめて  ${p.a.f}`, 28, 400, st.ink2);
-    if (p.a.l && p.a.l !== p.a.f) line(`直近  ${p.a.l}`, 28, 400, st.ink2);
+    section("LIVE参戦");
+    line(liveSummary(p.a), 38, 700);
     y += 24;
   }
   const sns = SNS.filter((s) => p.x?.[s.key]);
