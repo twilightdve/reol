@@ -152,9 +152,9 @@ export const decodeCard = (fragment: string): CardPayload | null => {
   }
 };
 
-/** 「全73公演（美辞学、UNBOX、…）」(2026-10-21 ユーザー指定の書き方) */
+/** 「全73公演（美辞学、UNBOX、カルチュア・カリキュラム等）」(2026-10-21 ユーザー指定の書き方。ほかにもあれば「等」) */
 export const liveSummary = (a: NonNullable<CardPayload["a"]>): string =>
-  `全${a.c}公演` + (a.t?.length ? `（${a.t.join("、")}${a.o ? "、…" : ""}）` : "");
+  `全${a.c}公演` + (a.t?.length ? `（${a.t.join("、")}${a.o ? "等" : ""}）` : "");
 
 export const CARD_VIEW_PATH = "/card/view/";
 export const cardViewUrl = (origin: string, payload: CardPayload) => `${origin}${CARD_VIEW_PATH}#${encodeCard(payload)}`;

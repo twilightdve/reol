@@ -22,7 +22,8 @@ import { CARD_STYLES } from "../../components/profileCard/cardStyles";
 import { ProfileCardFace, cardAccent, cardInitial } from "../../components/profileCard/ProfileCardFace";
 import { LiveItemRef, liveLabel, useCardDraft } from "../../components/profileCard/useCardDraft";
 import { renderCardImage, shareOrDownload } from "../../components/profileCard/cardImage";
-import { loadIconImage, useCardIcon } from "../../components/profileCard/useCardIcon";
+import { fileToSource, loadIconImage, useCardIcon } from "../../components/profileCard/useCardIcon";
+import { IconCrop, IconCropper } from "../../components/profileCard/IconCropper";
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
 import { tourShortName } from "../../utils/profileCard/tourName";
@@ -180,16 +181,28 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
     else toast.error("保存できませんでした。通信できる所でもう一度保存してください(この端末には残っています)");
     trackEvent("profile_card_save", { category: "engagement", label: ok ? (toAccount ? "account" : "local") : "error" });
   };
-  const { iconSrc, setFromFile: setIconFile, clear: clearIcon } = useCardIcon();
+  const { iconSrc, source: iconSource, applyCrop, clear: clearIcon } = useCardIcon();
+  // 範囲を決める画面に出している画像(新しく選んだもの、または「位置を調整」の元の画像)
+  const [cropping, setCropping] = useState<{ src: string; crop: IconCrop | null } | null>(null);
   const pickIcon = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    const result = await setIconFile(file);
+    try {
+      setCropping({ src: await fileToSource(file), crop: null });
+    } catch {
+      toast.error("この画像は使えませんでした");
+    }
+  };
+  const confirmCrop = async (crop: IconCrop) => {
+    if (!cropping) return;
+    const result = await applyCrop(cropping.src, crop);
+    setCropping(null);
     if (result === "error") toast.error("この画像は使えませんでした");
     else if (result === "unsaved") toast("この端末に保存できなかったので、画面を閉じると外れます");
     trackEvent("profile_card_icon", { category: "engagement", label: result });
   };
+  const cancelCrop = useCallback(() => setCropping(null), []);
   const [showing, setShowing] = useState(false);
   const closeShow = useCallback(() => setShowing(false), []);
   const [saving, setSaving] = useState(false);
@@ -392,7 +405,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
               label="アイコン"
               hint="画像はこの端末にだけ保存し、サイトには送りません。画面で見せる時と「画像で保存」したカードには入りますが、QR コード・リンクで渡したカードには入らず、名前の頭文字になります。"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-bx-line bg-bx-surface/5 text-[20px] font-extrabold text-bx-ink3">
                   {iconSrc ? <img src={iconSrc} alt="選んだアイコン" className="h-full w-full object-cover" /> : cardInitial(draft.name)}
                 </div>
@@ -400,6 +413,15 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
                   画像を選ぶ
                   <input type="file" accept="image/*" onChange={pickIcon} className="sr-only" />
                 </label>
+                {iconSrc && iconSource && (
+                  <button
+                    type="button"
+                    onClick={() => setCropping(iconSource)}
+                    className="text-[13px] text-bx-ink3 underline underline-offset-4 hover:text-bx-blue"
+                  >
+                    位置を調整
+                  </button>
+                )}
                 {iconSrc && (
                   <button type="button" onClick={clearIcon} className="text-[13px] text-bx-ink3 underline underline-offset-4 hover:text-bx-blue">
                     外す
@@ -563,6 +585,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
           </section>
         </div>
       </main>
+      {cropping && <IconCropper src={cropping.src} initial={cropping.crop} onCancel={cancelCrop} onConfirm={confirmCrop} />}
       {showing && payload && (
         <ShowMode url={url} onClose={closeShow}>
           <ProfileCardFace payload={payload} iconSrc={iconSrc} />

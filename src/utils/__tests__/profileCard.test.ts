@@ -53,8 +53,8 @@ describe("プロフィールカードの中身(plan/48)", () => {
     expect(sanitizePayload({ v: 1, n: "a", y: "neon" })!.y).toBeUndefined();
   });
 
-  it("LIVE参戦は「全N公演（ツアー、…）」。ツアーは3つまで", () => {
-    expect(liveSummary(card.a!)).toBe("全12公演（美辞学、UNBOX black/pure、ハーメルンの大号令、…）");
+  it("LIVE参戦は「全N公演（ツアー、…等）」。ツアーは3つまで", () => {
+    expect(liveSummary(card.a!)).toBe("全12公演（美辞学、UNBOX black/pure、ハーメルンの大号令等）");
     expect(liveSummary({ c: 1, t: ["無題"] })).toBe("全1公演（無題）");
     expect(liveSummary({ c: 3 })).toBe("全3公演");
     const p = sanitizePayload({ v: 1, n: "a", a: { c: 5, t: ["1", "2", "3", "4"], o: 2 } });
