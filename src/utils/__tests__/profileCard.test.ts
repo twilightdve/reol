@@ -8,6 +8,7 @@ describe("プロフィールカードの中身(plan/48)", () => {
     v: 1,
     n: "ぽち",
     s: ["ギャフンと鳴かせて", "第六感"],
+    c: ["ヒビカセ ver れをる"],
     t: "FGSA",
     a: { c: 12, f: "2018.06.10 ハーメルンの大合唱", l: "2025.08.16 無題" },
     x: { x: "reol_official", bs: "name.bsky.social" },
@@ -37,6 +38,12 @@ describe("プロフィールカードの中身(plan/48)", () => {
   it("SNS は ID の形を満たすものだけ残す(URL・スクリプトは入らない)", () => {
     const p = sanitizePayload({ v: 1, n: "a", x: { x: "javascript:alert(1)", ig: "ok_name", zz: "x" } });
     expect(p!.x).toEqual({ ig: "ok_name" });
+  });
+
+  it("好きな曲はオリジナル3曲・カバー2曲まで(空の欄は入れない)", () => {
+    const p = sanitizePayload({ v: 1, n: "a", s: ["1", "", "2", "3", "4"], c: ["", "x", "y", "z"] });
+    expect(p!.s).toEqual(["1", "2", "3"]);
+    expect(p!.c).toEqual(["x", "y"]);
   });
 
   it("タイプコード・参戦数は決まった形だけ", () => {

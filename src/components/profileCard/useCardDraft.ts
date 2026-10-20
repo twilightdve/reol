@@ -14,6 +14,8 @@ import { CARD_LIMITS, CardPayload, SnsKey, normalizeSnsId, sanitizePayload, SNS 
 export type CardDraft = {
   name: string;
   songs: string[];
+  /** カバー曲(歌ってみた) */
+  covers: string[];
   showType: boolean;
   showLives: boolean;
   sns: Partial<Record<SnsKey, string>>;
@@ -26,7 +28,7 @@ export type LiveItemRef = { uuid: string; date: string | null; label: string };
 const STORAGE_KEY = "reol-profile-card";
 const keyFor = (userId: string | null) => (userId ? `${STORAGE_KEY}:${userId}` : STORAGE_KEY);
 
-const emptyDraft = (): CardDraft => ({ name: "", songs: [], showType: true, showLives: true, sns: {}, bio: "", event: "" });
+const emptyDraft = (): CardDraft => ({ name: "", songs: [], covers: [], showType: true, showLives: true, sns: {}, bio: "", event: "" });
 
 const parseDraft = (raw: unknown): CardDraft | null => {
   if (!raw || typeof raw !== "object") return null;
@@ -34,6 +36,7 @@ const parseDraft = (raw: unknown): CardDraft | null => {
   return {
     name: typeof r.name === "string" ? r.name : "",
     songs: Array.isArray(r.songs) ? r.songs.filter((s): s is string => typeof s === "string").slice(0, CARD_LIMITS.songs) : [],
+    covers: Array.isArray(r.covers) ? r.covers.filter((s): s is string => typeof s === "string").slice(0, CARD_LIMITS.covers) : [],
     showType: r.showType !== false,
     showLives: r.showLives !== false,
     sns: r.sns && typeof r.sns === "object" ? (r.sns as CardDraft["sns"]) : {},
@@ -78,6 +81,7 @@ export const buildPayload = (
     v: 1,
     n: draft.name,
     s: draft.songs,
+    c: draft.covers,
     t: draft.showType ? sources.typeCode ?? undefined : undefined,
     a:
       draft.showLives && sorted.length > 0
@@ -90,6 +94,8 @@ export const buildPayload = (
 };
 
 type RemoteState = "unknown" | "available" | "unavailable";
+/** アカウントへの保存の状態(会員でアカウントに保存できる時だけ使う) */
+export type SaveState = "saved" | "pending" | "saving" | "error";
 
 export const useCardDraft = (allLives: LiveItemRef[]) => {
   const { user, profile } = useAuth();
@@ -97,6 +103,8 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
   const [draft, setDraft] = useState<CardDraft>(emptyDraft);
   const [loaded, setLoaded] = useState(false);
   const [remote, setRemote] = useState<RemoteState>("unknown");
+  // 保存する時に送る最新の入力(タイマーから読むため ref にも持つ)
+  const latest = useRef<CardDraft>(emptyDraft());
   const { owned: attended, mounted: attendedMounted } = useCollectionOwned("attended");
 
   // 読み込み: この端末の保存 → (会員なら)アカウントの保存で上書き。何も無ければプロフィールから最初の値を入れる
@@ -109,6 +117,7 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
       songs: profile?.favorite_song ? [profile.favorite_song] : [],
     };
     setDraft(initial);
+    latest.current = initial;
     setLoaded(true);
     if (!userId) {
       setRemote("unavailable");
@@ -125,6 +134,7 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
         const fromRemote = parseDraft(data);
         if (fromRemote) {
           setDraft(fromRemote);
+          latest.current = fromRemote;
           writeLocal(userId, fromRemote);
         }
       } catch {
@@ -138,28 +148,60 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
-  // 保存: この端末にはすぐ、アカウントには少し待ってから
+  // 保存: この端末にはすぐ、アカウントには少し待ってから(「保存」ボタンでは待たずに)
   const timer = useRef<number | null>(null);
+  const [saveState, setSaveState] = useState<SaveState>("saved");
+  const useRemote = !!userId && remote === "available";
+
+  const pushRemote = useCallback(async (): Promise<boolean> => {
+    if (timer.current) window.clearTimeout(timer.current);
+    timer.current = null;
+    setSaveState("saving");
+    try {
+      const { supabase } = await import("../../lib/supabase");
+      if (!supabase) throw new Error("no supabase");
+      const { data, error } = await supabase.rpc("set_my_card", { p_card: latest.current });
+      if (error || data !== true) throw error ?? new Error("not saved");
+      // 保存している間に書き換えた時は、まだ保存待ち
+      setSaveState(timer.current ? "pending" : "saved");
+      return true;
+    } catch {
+      // この端末には残っている。次の変更か「保存」でまた送る
+      setSaveState("error");
+      return false;
+    }
+  }, []);
+
   const update = useCallback(
     (patch: Partial<CardDraft>) => {
       setDraft((prev) => {
         const next = { ...prev, ...patch };
+        latest.current = next;
         writeLocal(userId, next);
-        if (userId && remote === "available") {
+        if (useRemote) {
+          setSaveState("pending");
           if (timer.current) window.clearTimeout(timer.current);
-          timer.current = window.setTimeout(async () => {
-            try {
-              const { supabase } = await import("../../lib/supabase");
-              await supabase?.rpc("set_my_card", { p_card: next });
-            } catch {
-              // 次の変更でまた保存する。この端末には残っている
-            }
-          }, 800);
+          timer.current = window.setTimeout(() => void pushRemote(), 800);
         }
         return next;
       });
     },
-    [userId, remote]
+    [userId, useRemote, pushRemote]
+  );
+
+  /** 「保存」ボタン: 会員はアカウントへすぐ送る。非会員はこの端末に保存し直す */
+  const saveNow = useCallback(async (): Promise<boolean> => {
+    writeLocal(userId, latest.current);
+    if (!useRemote) return true;
+    return pushRemote();
+  }, [userId, useRemote, pushRemote]);
+
+  // ページを離れる時に保存待ちがあれば送る
+  useEffect(
+    () => () => {
+      if (timer.current) void pushRemote();
+    },
+    [pushRemote]
   );
 
   // 静的HTMLと最初の描画は null(読み込み後に入れる。食い違いを避ける)
@@ -182,5 +224,5 @@ export const useCardDraft = (allLives: LiveItemRef[]) => {
 
   const payload = useMemo(() => buildPayload(draft, { typeCode, lives }), [draft, typeCode, lives]);
 
-  return { draft, update, loaded, payload, typeCode, lives, isMember: !!userId, remote };
+  return { draft, update, loaded, payload, typeCode, lives, isMember: !!userId, remote, saveState, saveNow };
 };
