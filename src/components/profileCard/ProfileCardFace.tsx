@@ -69,17 +69,24 @@ export const ProfileCardFace: React.FC<{
             </div>
           )}
 
-          {p.s && p.s.length > 0 && (
-            <div>
-              <Label>FAVORITE SONGS</Label>
-              <ul className="mt-1 space-y-0.5 text-[15px] font-bold">
-                {p.s.map((s, i) => (
-                  <li key={i} className="[overflow-wrap:anywhere]">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {[
+            { label: "FAVORITE SONGS", songs: p.s },
+            { label: "FAVORITE COVERS", songs: p.c },
+          ].map(
+            ({ label, songs }) =>
+              songs &&
+              songs.length > 0 && (
+                <div key={label}>
+                  <Label>{label}</Label>
+                  <ul className="mt-1 space-y-0.5 text-[15px] font-bold">
+                    {songs.map((s, i) => (
+                      <li key={i} className="[overflow-wrap:anywhere]">
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
           )}
 
           {p.a && (

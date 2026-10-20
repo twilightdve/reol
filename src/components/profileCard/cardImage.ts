@@ -111,9 +111,13 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
     line(`${type.emoji} ${type.name}  ${type.songLabel}`, 38, 700);
     y += 24;
   }
-  if (p.s?.length) {
-    section("FAVORITE SONGS");
-    p.s.forEach((s) => line(s, 38, 700));
+  for (const [label, songs] of [
+    ["FAVORITE SONGS", p.s],
+    ["FAVORITE COVERS", p.c],
+  ] as const) {
+    if (!songs?.length) continue;
+    section(label);
+    songs.forEach((s) => line(s, 38, 700));
     y += 24;
   }
   if (p.a) {

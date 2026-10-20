@@ -10,6 +10,7 @@ export const CARD_LIMITS = {
   name: 24,
   song: 40,
   songs: 3,
+  covers: 2,
   bio: 60,
   event: 40,
   live: 80,
@@ -36,8 +37,10 @@ export type CardPayload = {
   v: 1;
   /** 名前 */
   n: string;
-  /** 好きな曲(3曲まで) */
+  /** 好きな曲(オリジナル。3曲まで) */
   s?: string[];
+  /** 好きなカバー曲(歌ってみた。2曲まで) */
+  c?: string[];
   /** Reol タイプ診断のタイプコード */
   t?: string;
   /** 参戦記録: 参戦数・はじめて行ったライヴ・直近のライヴ(「2018.06.10 公演名」の形の文字) */
@@ -83,10 +86,12 @@ export const sanitizePayload = (raw: unknown): CardPayload | null => {
   const n = clip(r.n, CARD_LIMITS.name);
   if (!n) return null;
   const out: CardPayload = { v: 1, n };
-  if (Array.isArray(r.s)) {
-    const s = r.s.map((x) => clip(x, CARD_LIMITS.song)).filter((x): x is string => !!x).slice(0, CARD_LIMITS.songs);
-    if (s.length) out.s = s;
-  }
+  const songList = (v: unknown, max: number) =>
+    Array.isArray(v) ? v.map((x) => clip(x, CARD_LIMITS.song)).filter((x): x is string => !!x).slice(0, max) : [];
+  const s = songList(r.s, CARD_LIMITS.songs);
+  if (s.length) out.s = s;
+  const c = songList(r.c, CARD_LIMITS.covers);
+  if (c.length) out.c = c;
   if (typeof r.t === "string" && TYPE_CODE.test(r.t)) out.t = r.t;
   if (r.a && typeof r.a === "object") {
     const a = r.a as Record<string, unknown>;

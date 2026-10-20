@@ -33,8 +33,17 @@ type CardPageData = {
       items: ({ liveItemUuid: string | null; liveItemName: string | null; date: string | null } | null)[] | null;
     } | null)[];
   } | null;
-  discography: { discographyWithSongs: ({ songs: ({ songName: string | null } | null)[] | null } | null)[] } | null;
+  discography: {
+    discographyWithSongs: ({ discographyUuid: string; title: string | null; format: string | null; releaseDate: string | null } | null)[];
+  } | null;
+  /** 曲ページ・楽曲ソーターと同じ代表曲(副題違い・インストをまとめたもの) */
+  songStats: { songStats: ({ songName: string | null; discographyUuid: string | null } | null)[] } | null;
 };
+
+/** 歌ってみた(カバー)の作品。曲は作品名そのもの */
+const COVER_FORMAT = "歌ってみた";
+
+type SongGroup = { label: string; songs: string[] };
 
 const SITE_ORIGIN = "https://reol.twilightea.com";
 /** これより長い URL は QR が細かくなり、暗い会場で読み取りにくい */
@@ -52,6 +61,32 @@ const Field: React.FC<{ label: string; htmlFor?: string; hint?: React.ReactNode;
     {hint && <div className="mt-1 text-[12px] leading-relaxed text-bx-ink3">{hint}</div>}
   </div>
 );
+
+/** 曲を選ぶ欄。ほかの欄で選んだ曲は選べない。一覧に無い曲(前に手で入力した曲など)はそのまま残す */
+const SongSelect: React.FC<{
+  label: string;
+  value: string;
+  groups: SongGroup[];
+  taken: string[];
+  onChange: (v: string) => void;
+}> = ({ label, value, groups, taken, onChange }) => {
+  const known = groups.some((g) => g.songs.includes(value));
+  return (
+    <select aria-label={label} value={value} onChange={(e) => onChange(e.target.value)} className={`${inputClass} ${value ? "" : "text-bx-ink3"}`}>
+      <option value="">選ばない</option>
+      {value && !known && <option value={value}>{value}</option>}
+      {groups.map((g) => (
+        <optgroup key={g.label} label={g.label}>
+          {g.songs.map((s) => (
+            <option key={s} value={s} disabled={s !== value && taken.includes(s)}>
+              {s}
+            </option>
+          ))}
+        </optgroup>
+      ))}
+    </select>
+  );
+};
 
 const Toggle: React.FC<{ checked: boolean; onChange: (v: boolean) => void; label: string }> = ({ checked, onChange, label }) => (
   <label className="inline-flex cursor-pointer items-center gap-2 text-[13px] text-bx-ink2">
@@ -105,12 +140,32 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
       ),
     [data]
   );
-  const songNames = useMemo(
-    () => [...new Set((data.discography?.discographyWithSongs ?? []).flatMap((d) => (d?.songs ?? []).map((s) => s?.songName?.trim() ?? "")))].filter(Boolean),
-    [data]
-  );
+  // オリジナル: 代表曲を、最初に入った作品ごと(新しい作品から)。カバー: 歌ってみたの作品名(新しい順)
+  const { originalGroups, coverGroups } = useMemo(() => {
+    const discs = (data.discography?.discographyWithSongs ?? []).flatMap((d) => (d ? [d] : []));
+    const newestFirst = [...discs].sort((a, b) => (b.releaseDate ?? "").localeCompare(a.releaseDate ?? ""));
+    const songsByDisc = new Map<string, string[]>();
+    for (const s of data.songStats?.songStats ?? []) {
+      const name = s?.songName?.trim();
+      if (!name || !s?.discographyUuid) continue;
+      songsByDisc.set(s.discographyUuid, [...(songsByDisc.get(s.discographyUuid) ?? []), name]);
+    }
+    const groups: SongGroup[] = newestFirst.flatMap((d) => {
+      const songs = songsByDisc.get(d.discographyUuid);
+      return songs?.length ? [{ label: `${(d.releaseDate ?? "").slice(0, 4)} ${d.title ?? ""}`.trim(), songs }] : [];
+    });
+    const covers = [...new Set(newestFirst.filter((d) => d.format === COVER_FORMAT).map((d) => d.title?.trim() ?? "").filter(Boolean))];
+    return { originalGroups: groups, coverGroups: [{ label: "歌ってみた", songs: covers }] };
+  }, [data]);
 
-  const { draft, update, loaded, payload, typeCode, lives, isMember, remote } = useCardDraft(allLives);
+  const { draft, update, loaded, payload, typeCode, lives, isMember, remote, saveState, saveNow } = useCardDraft(allLives);
+  const toAccount = isMember && remote === "available";
+  const save = async () => {
+    const ok = await saveNow();
+    if (ok) toast.success(toAccount ? "アカウントに保存しました" : "この端末に保存しました");
+    else toast.error("保存できませんでした。通信できる所でもう一度保存してください(この端末には残っています)");
+    trackEvent("profile_card_save", { category: "engagement", label: ok ? (toAccount ? "account" : "local") : "error" });
+  };
   const [showing, setShowing] = useState(false);
   const closeShow = useCallback(() => setShowing(false), []);
   const [saving, setSaving] = useState(false);
@@ -151,10 +206,11 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
     }
   };
 
-  const setSong = (i: number, v: string) => {
-    const songs = [...draft.songs];
-    songs[i] = v;
-    update({ songs: songs.slice(0, CARD_LIMITS.songs) });
+  const setSong = (key: "songs" | "covers", i: number, v: string) => {
+    const list = [...draft[key]];
+    list[i] = v;
+    // 間の空いた欄は空文字で詰める(カードには空の欄は入らない)
+    update({ [key]: Array.from(list, (x) => x ?? "").slice(0, key === "songs" ? CARD_LIMITS.songs : CARD_LIMITS.covers) });
   };
 
   return (
@@ -290,25 +346,33 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
               </datalist>
             </Field>
 
-            <Field label="好きな曲(3曲まで)">
-              <div className="space-y-2">
-                {[0, 1, 2].map((i) => (
-                  <input
-                    key={i}
-                    aria-label={`好きな曲 ${i + 1}`}
-                    value={draft.songs[i] ?? ""}
-                    maxLength={CARD_LIMITS.song}
-                    list="card-songs"
-                    onChange={(e) => setSong(i, e.target.value)}
-                    placeholder={`曲名 ${i + 1}`}
-                    className={inputClass}
-                  />
+            <Field label="好きな曲">
+              <div className="space-y-4">
+                {(
+                  [
+                    { key: "songs", title: "オリジナル", max: CARD_LIMITS.songs, groups: originalGroups },
+                    { key: "covers", title: "カバー(歌ってみた)", max: CARD_LIMITS.covers, groups: coverGroups },
+                  ] as const
+                ).map(({ key, title, max, groups }) => (
+                  <div key={key}>
+                    <p className="text-[12px] font-bold text-bx-ink3">
+                      {title}
+                      <span className="ml-1.5 font-normal">{max}曲まで</span>
+                    </p>
+                    <div className="mt-1 space-y-2">
+                      {Array.from({ length: max }, (_, i) => (
+                        <SongSelect
+                          key={i}
+                          label={`${title} ${i + 1}`}
+                          value={draft[key][i] ?? ""}
+                          groups={groups}
+                          taken={draft[key]}
+                          onChange={(v) => setSong(key, i, v)}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 ))}
-                <datalist id="card-songs">
-                  {songNames.map((s) => (
-                    <option key={s} value={s} />
-                  ))}
-                </datalist>
               </div>
             </Field>
 
@@ -378,8 +442,29 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
               </div>
             </Field>
 
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-bx-line pt-5">
+              <button
+                type="button"
+                disabled={!loaded || saveState === "saving"}
+                onClick={save}
+                className="rounded-full bg-bx-blue px-6 py-2.5 text-[14px] font-extrabold text-bx-bg disabled:opacity-40"
+              >
+                {saveState === "saving" ? "保存中…" : "保存"}
+              </button>
+              <p className="text-[12px] text-bx-ink3" aria-live="polite">
+                {!loaded
+                  ? ""
+                  : !toAccount
+                    ? "この端末に保存されています"
+                    : saveState === "error"
+                      ? "アカウントに保存できませんでした(この端末には残っています)"
+                      : saveState === "saved"
+                        ? "アカウントに保存済み"
+                        : "保存待ち…"}
+              </p>
+            </div>
             <p className="text-[12px] text-bx-ink3">
-              入力は自動で保存されます。受け取った人には <code className="text-bx-ink2">{CARD_VIEW_PATH}</code> のページでカードが開きます。
+              入力は自動でも保存されます。受け取った人には <code className="text-bx-ink2">{CARD_VIEW_PATH}</code> のページでカードが開きます。
             </p>
           </section>
         </div>
@@ -429,9 +514,16 @@ export const query = graphql`
     }
     discography {
       discographyWithSongs {
-        songs {
-          songName
-        }
+        discographyUuid
+        title
+        format
+        releaseDate
+      }
+    }
+    songStats {
+      songStats {
+        songName
+        discographyUuid
       }
     }
   }
