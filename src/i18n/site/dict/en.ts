@@ -183,6 +183,7 @@ const en: SiteDict = {
     unmarkAttended: "Remove from attended",
     attended: "Attended",
     attendedInYear: (n: number) => `Attended ${n}`,
+    showCount: (n: number) => `${n} ${n === 1 ? "show" : "shows"}`,
     songCount: (n: number) => `${n} ${n === 1 ? "song" : "songs"}`,
     detailTitle: "See the show page (setlist, venue, related posts)",
     detail: "Details",

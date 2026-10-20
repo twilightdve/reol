@@ -179,6 +179,7 @@ const zhHant: SiteDict = {
     unmarkAttended: "從已參加中移除",
     attended: "已參加",
     attendedInYear: (n: number) => `已參加 ${n} 場`,
+    showCount: (n: number) => `${n} 場公演`,
     songCount: (n: number) => `${n} 首`,
     detailTitle: "查看這場演出的頁面(歌單、會場、相關貼文)",
     detail: "詳細",

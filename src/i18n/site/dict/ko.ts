@@ -179,6 +179,7 @@ const ko: SiteDict = {
     unmarkAttended: "참전 완료에서 제외",
     attended: "참전 완료",
     attendedInYear: (n: number) => `참전 ${n}회`,
+    showCount: (n: number) => `${n}공연`,
     songCount: (n: number) => `${n}곡`,
     detailTitle: "이 공연의 상세 페이지(세트리스트·공연장·관련 게시물) 보기",
     detail: "상세",
