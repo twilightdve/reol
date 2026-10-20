@@ -5,6 +5,7 @@
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
 import { CardPayload, SNS } from "../../utils/profileCard/codec";
 import { cardAccent, cardInitial } from "./ProfileCardFace";
+import { cardStyleOf } from "./cardStyles";
 
 const W = 1080;
 const PAD = 80;
@@ -23,8 +24,9 @@ const wrap = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
   let line = "";
   for (const ch of Array.from(text)) {
     if (ctx.measureText(line + ch).width > maxWidth && line) {
-      lines.push(line);
-      line = ch;
+      lines.push(line.trimEnd());
+      // 折り返した行の頭の空白は落とす
+      line = ch.trim();
     } else line += ch;
   }
   if (line) lines.push(line);
@@ -38,42 +40,32 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   canvas.height = 3000;
   const ctx = canvas.getContext("2d")!;
   const accent = cardAccent(p);
+  const st = cardStyleOf(p.y);
   const inner = W - PAD * 2;
   ctx.textBaseline = "top";
 
-  ctx.fillStyle = "#101014";
-  ctx.fillRect(0, 0, W, canvas.height);
-  ctx.fillStyle = accent;
+  // 背景は、高さが決まった後に下の out へ描く(グラデーションを最後まで伸ばすため)。ここは文字だけ
+  ctx.fillStyle = st.bar(accent);
   ctx.fillRect(0, 0, W, 14);
 
   let y = 70;
-  ctx.fillStyle = "rgba(255,255,255,.6)";
+  ctx.fillStyle = st.muted;
   ctx.font = `800 26px ${FONT}`;
   ctx.fillText("PROFILE CARD", PAD, y);
-  if (p.e) {
-    ctx.font = `700 28px ${FONT}`;
-    const label = wrap(ctx, p.e, 560)[0];
-    const w = ctx.measureText(label).width + 40;
-    ctx.strokeStyle = "rgba(255,255,255,.3)";
-    ctx.lineWidth = 2;
-    roundRect(ctx, W - PAD - w, y - 10, w, 50, 25);
-    ctx.stroke();
-    ctx.fillStyle = "rgba(255,255,255,.85)";
-    ctx.fillText(label, W - PAD - w + 20, y + 1);
-  }
   y += 80;
 
   // アイコン(頭文字)と名前
   const R = 80;
-  ctx.fillStyle = accent;
+  ctx.fillStyle = st.avatarBg(accent);
   ctx.beginPath();
   ctx.arc(PAD + R, y + R, R, 0, Math.PI * 2);
   ctx.fill();
-  ctx.fillStyle = "#fff";
+  ctx.fillStyle = st.avatarInk;
   ctx.font = `800 76px ${FONT}`;
   ctx.textAlign = "center";
   ctx.fillText(cardInitial(p.n), PAD + R, y + R - 40);
   ctx.textAlign = "left";
+  ctx.fillStyle = st.ink;
   ctx.font = `800 64px ${FONT}`;
   const nameLines = wrap(ctx, p.n, inner - R * 2 - 40);
   const nameTop = y + R - (nameLines.length * 78) / 2;
@@ -81,7 +73,7 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   y += Math.max(R * 2, nameLines.length * 78) + 40;
 
   if (p.b) {
-    ctx.fillStyle = "rgba(255,255,255,.9)";
+    ctx.fillStyle = st.ink2;
     ctx.font = `400 38px ${FONT}`;
     for (const l of wrap(ctx, p.b, inner)) {
       ctx.fillText(l, PAD, y);
@@ -91,12 +83,12 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   }
 
   const section = (label: string) => {
-    ctx.fillStyle = "rgba(255,255,255,.5)";
+    ctx.fillStyle = st.muted;
     ctx.font = `800 24px ${FONT}`;
     ctx.fillText(label, PAD, y);
     y += 40;
   };
-  const line = (text: string, size: number, weight: number, color = "#fff", indent = 0) => {
+  const line = (text: string, size: number, weight: number, color = st.ink, indent = 0) => {
     ctx.fillStyle = color;
     ctx.font = `${weight} ${size}px ${FONT}`;
     for (const l of wrap(ctx, text, inner - indent)) {
@@ -120,11 +112,16 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
     songs.forEach((s) => line(s, 38, 700));
     y += 24;
   }
+  if (p.e) {
+    section("FAVORITE LIVE");
+    line(p.e, 36, 700);
+    y += 24;
+  }
   if (p.a) {
     section("LIVE");
     line(`参戦 ${p.a.c} 公演`, 40, 700);
-    if (p.a.f) line(`はじめて  ${p.a.f}`, 28, 400, "rgba(255,255,255,.75)");
-    if (p.a.l && p.a.l !== p.a.f) line(`直近  ${p.a.l}`, 28, 400, "rgba(255,255,255,.75)");
+    if (p.a.f) line(`はじめて  ${p.a.f}`, 28, 400, st.ink2);
+    if (p.a.l && p.a.l !== p.a.f) line(`直近  ${p.a.l}`, 28, 400, st.ink2);
     y += 24;
   }
   const sns = SNS.filter((s) => p.x?.[s.key]);
@@ -143,12 +140,12 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   ctx.imageSmoothingEnabled = false;
   ctx.drawImage(qr, (W - Q) / 2, y + 30, Q, Q);
   y += Q + 60 + 24;
-  ctx.fillStyle = "rgba(255,255,255,.6)";
+  ctx.fillStyle = st.muted;
   ctx.font = `400 26px ${FONT}`;
   ctx.textAlign = "center";
   ctx.fillText("読み取るとカードが開きます", W / 2, y);
   y += 70;
-  ctx.fillStyle = "rgba(255,255,255,.35)";
+  ctx.fillStyle = st.faint;
   ctx.font = `700 22px ${FONT}`;
   ctx.fillText("!Legit — reol.twilightea.com", W / 2, y);
   y += 70;
@@ -156,7 +153,14 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   const out = document.createElement("canvas");
   out.width = W;
   out.height = y;
-  out.getContext("2d")!.drawImage(canvas, 0, 0);
+  const octx = out.getContext("2d")!;
+  const [top, bottom] = st.bg(accent);
+  const grad = octx.createLinearGradient(0, 0, 0, y);
+  grad.addColorStop(0, top);
+  grad.addColorStop(1, bottom);
+  octx.fillStyle = grad;
+  octx.fillRect(0, 0, W, y);
+  octx.drawImage(canvas, 0, 0);
   return new Promise((resolve, reject) => out.toBlob((b) => (b ? resolve(b) : reject(new Error("toBlob failed"))), "image/png"));
 };
 

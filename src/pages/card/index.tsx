@@ -18,7 +18,8 @@ import SEO from "../../components/SEO";
 import { Kicker } from "../../components/redesign";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
 import { trackEvent } from "../../utils/analytics";
-import { ProfileCardFace } from "../../components/profileCard/ProfileCardFace";
+import { CARD_STYLES } from "../../components/profileCard/cardStyles";
+import { ProfileCardFace, cardAccent } from "../../components/profileCard/ProfileCardFace";
 import { LiveItemRef, liveLabel, useCardDraft } from "../../components/profileCard/useCardDraft";
 import { renderCardImage, shareOrDownload } from "../../components/profileCard/cardImage";
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
@@ -172,14 +173,35 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
   const qrCanvasRef = useRef<HTMLDivElement>(null);
 
   const url = payload ? cardViewUrl(SITE_ORIGIN, payload) : "";
+  // スタイルの見本の色(名前が未入力でカードがまだ無い時も、タイプの色で見せる)
+  const previewAccent = cardAccent({ v: 1, n: "", t: typeCode ?? undefined });
   const type = typeCode ? reolTypes[typeCode as TypeCode] : null;
 
-  // 「今日のライヴ」の候補: 前後3日の公演(今の時刻を使うので、読み込み後だけ)
-  const nearLives = useMemo(() => {
+  // 「好きなライヴ」の候補: 終わった公演を、ツアー・ライヴごと(新しいものから)、中は日付順。
+  // 今日の日付を使うので、読み込み後だけ(静的HTMLとの食い違いを避ける)
+  const liveGroups = useMemo(() => {
     if (!loaded) return [];
-    const now = Date.now();
-    return allLives.filter((l) => l.date && Math.abs(Date.parse(l.date.trim().slice(0, 10)) - now) < 3.5 * 86400_000).map((l) => l.label.replace(/^\S+ /, ""));
-  }, [allLives, loaded]);
+    const today = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 10);
+    return (data.live?.liveInfos ?? [])
+      .flatMap((li) => {
+        const items = (li?.items ?? [])
+          .flatMap((it) => (it?.liveItemUuid && it.date && it.date.trim().slice(0, 10) <= today ? [it] : []))
+          .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+        if (!items.length) return [];
+        return [
+          {
+            label: li?.title ?? "",
+            last: items[items.length - 1].date ?? "",
+            options: items.map((it) => ({
+              value: liveLabel(it.date, li?.title ?? null, it.liveItemName),
+              text: liveLabel(it.date, null, it.liveItemName) || (li?.title ?? ""),
+            })),
+          },
+        ];
+      })
+      .sort((a, b) => b.last.localeCompare(a.last));
+  }, [data, loaded]);
+  const favoriteLiveKnown = liveGroups.some((g) => g.options.some((o) => o.value === draft.favoriteLive));
 
   const saveImage = async () => {
     const canvas = qrCanvasRef.current?.querySelector("canvas");
@@ -263,6 +285,31 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
                 名前を入れると、ここにカードができます
               </div>
             )}
+            {/* スタイル(Spotify の共有カードのように選ぶ。受け取った人にも同じ見た目で出る) */}
+            <div role="radiogroup" aria-label="カードのスタイル" className="mt-4 flex justify-center gap-4">
+              {CARD_STYLES.map((st) => {
+                const [top, bottom] = st.bg(previewAccent);
+                const selected = draft.style === st.id;
+                return (
+                  <button
+                    key={st.id}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    disabled={!loaded}
+                    onClick={() => update({ style: st.id })}
+                    className="flex flex-col items-center gap-1.5 text-[11px] font-bold text-bx-ink2 disabled:opacity-40"
+                  >
+                    <span
+                      aria-hidden
+                      className={`h-10 w-10 rounded-full border ring-offset-2 ring-offset-bx-bg ${selected ? "ring-2 ring-bx-blue" : ""}`}
+                      style={{ background: `linear-gradient(135deg, ${top} 0 50%, ${bottom} 50% 100%)`, borderColor: st.line }}
+                    />
+                    <span className={selected ? "text-bx-ink" : ""}>{st.label}</span>
+                  </button>
+                );
+              })}
+            </div>
             <div className="mt-4 grid grid-cols-3 gap-2">
               <button
                 type="button"
@@ -329,23 +376,6 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
               />
             </Field>
 
-            <Field label="今日のライヴ" htmlFor="card-event" hint="カードの右上に出ます。どこで会ったかの手がかりに。">
-              <input
-                id="card-event"
-                value={draft.event}
-                maxLength={CARD_LIMITS.event}
-                list="card-near-lives"
-                onChange={(e) => update({ event: e.target.value })}
-                placeholder="公演名(任意)"
-                className={inputClass}
-              />
-              <datalist id="card-near-lives">
-                {nearLives.map((l) => (
-                  <option key={l} value={l} />
-                ))}
-              </datalist>
-            </Field>
-
             <Field label="好きな曲">
               <div className="space-y-4">
                 {(
@@ -374,6 +404,27 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
                   </div>
                 ))}
               </div>
+            </Field>
+
+            <Field label="好きなライヴ" htmlFor="card-favorite-live">
+              <select
+                id="card-favorite-live"
+                value={draft.favoriteLive}
+                onChange={(e) => update({ favoriteLive: e.target.value })}
+                className={`${inputClass} ${draft.favoriteLive ? "" : "text-bx-ink3"}`}
+              >
+                <option value="">選ばない</option>
+                {draft.favoriteLive && !favoriteLiveKnown && <option value={draft.favoriteLive}>{draft.favoriteLive}</option>}
+                {liveGroups.map((g) => (
+                  <optgroup key={g.label} label={g.label}>
+                    {g.options.map((o) => (
+                      <option key={o.value} value={o.value}>
+                        {o.text}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
             </Field>
 
             <Field
