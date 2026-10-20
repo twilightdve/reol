@@ -180,6 +180,7 @@ const ja = {
     unmarkAttended: "参戦済みから外す",
     attended: "参戦済み",
     attendedInYear: (n: number) => `参戦 ${n}回`,
+    showCount: (n: number) => `${n}公演`,
     songCount: (n: number) => `${n}曲`,
     detailTitle: "この公演の詳細ページ(セットリスト・会場・関連ポスト)を見る",
     detail: "詳細",
