@@ -24,8 +24,10 @@ export const ProfileCardFace: React.FC<{
   payload: CardPayload;
   /** SNS をリンクにする(受け取った人のページ) */
   linkSns?: boolean;
+  /** アイコン画像(この端末だけ。カードの中身には入らないので、受け取った人のページでは無し) */
+  iconSrc?: string | null;
   className?: string;
-}> = ({ payload: p, linkSns = false, className = "" }) => {
+}> = ({ payload: p, linkSns = false, iconSrc = null, className = "" }) => {
   const accent = cardAccent(p);
   const st = cardStyleOf(p.y);
   const [bgTop, bgBottom] = st.bg(accent);
@@ -46,10 +48,10 @@ export const ProfileCardFace: React.FC<{
         <div className="mt-4 flex items-center gap-4">
           <div
             aria-hidden
-            className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full text-[28px] font-extrabold"
+            className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[28px] font-extrabold"
             style={{ background: st.avatarBg(accent), color: st.avatarInk }}
           >
-            {cardInitial(p.n)}
+            {iconSrc ? <img src={iconSrc} alt="" className="h-full w-full object-cover" /> : cardInitial(p.n)}
           </div>
           <h2 className="min-w-0 text-[26px] font-extrabold leading-tight [overflow-wrap:anywhere]">{p.n}</h2>
         </div>
