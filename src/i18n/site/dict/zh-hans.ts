@@ -177,6 +177,7 @@ const zhHans: SiteDict = {
     markAttended: "标记为已参加",
     unmarkAttended: "从已参加中移除",
     attended: "已参加",
+    attendedInYear: (n: number) => `已参加 ${n} 场`,
     songCount: (n: number) => `${n} 首`,
     detailTitle: "查看这场演出的页面(歌单、会场、相关帖子)",
     detail: "详情",

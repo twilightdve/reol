@@ -540,7 +540,19 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                     </h3>
                   </div>
 
-                  <div className="flex flex-shrink-0 items-center gap-2">
+                  {/* 展開ボタンと、その下に参戦済みのチェック(1公演だけの時) */}
+                  <div className="flex flex-shrink-0 flex-col items-center gap-2">
+                    <button
+                      onClick={handleTitleClick}
+                      className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
+                      aria-label={t.expand}
+                    >
+                      <GoChevronUp
+                        className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
+                          isExpand ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
                     {onlyItemUuid && (
                       <button
                         type="button"
@@ -553,18 +565,6 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                         ✓
                       </button>
                     )}
-                    {/* 展開ボタン */}
-                    <button
-                      onClick={handleTitleClick}
-                      className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
-                      aria-label={t.expand}
-                    >
-                      <GoChevronUp
-                        className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
-                          isExpand ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
                   </div>
                 </div>
               </div>

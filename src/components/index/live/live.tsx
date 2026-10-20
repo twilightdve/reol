@@ -6,6 +6,7 @@ import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Tim
 import { LiveInfo } from "../../../types/live";
 import EnhancedLiveTimelineItem from "./enhanced-timeline-item";
 import { useDict } from "../../../i18n/site/SiteLangContext";
+import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 
 interface LiveProps {
   data: LiveInfo[];
@@ -246,6 +247,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
               <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">
                 {t.count(items.length)}
               </span>
+              <AttendedInYear lives={items} />
             </h2>
             <Timeline theme={timelineRootTheme}>
               {items.map((live) => (
@@ -256,6 +258,21 @@ const Live: React.FC<LiveProps> = ({ data }) => {
         ))}
       </div>
     </div>
+  );
+};
+
+/** 年見出しの横の参戦回数(この年のライヴのうち参戦済みにした公演の数。0回の年は出さない) */
+const AttendedInYear: React.FC<{ lives: LiveInfo[] }> = ({ lives }) => {
+  const t = useDict().live;
+  const { owned: attended, mounted } = useCollectionOwned("attended");
+  if (!mounted) return null;
+  const n = lives.reduce((sum, live) => sum + (live.items ?? []).filter((it) => attended.has(it.liveItemUuid)).length, 0);
+  if (n === 0) return null;
+  return (
+    <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-bx-blue/15 px-2 py-0.5 align-middle text-xs font-bold text-bx-blue sm:text-sm">
+      <span aria-hidden>✓</span>
+      {t.attendedInYear(n)}
+    </span>
   );
 };
 
