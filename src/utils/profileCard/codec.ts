@@ -52,7 +52,7 @@ export type CardPayload = {
   x?: Partial<Record<SnsKey, string>>;
   /** ひとこと */
   b?: string;
-  /** 好きなライヴ(「2018.06.10 公演名」の形の文字) */
+  /** 想い出のライヴ(公演名。日付は入れない) */
   e?: string;
   /** スタイル(既定の dark の時は入れない) */
   y?: Exclude<CardStyleId, "dark">;
