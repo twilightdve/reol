@@ -221,21 +221,6 @@ const Live: React.FC<LiveProps> = ({ data }) => {
       </div>
       <p className="text-xs text-right text-bx-ink2">{t.count(currentList.length)}</p>
 
-      {/* 年ジャンプ索引(スティッキー) */}
-      {groupedByYear.length > 1 && (
-        <div className="sticky top-0 z-20 -mx-2 sm:-mx-10 px-2 sm:px-10 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line overflow-x-auto whitespace-nowrap">
-          {groupedByYear.map(({ year }) => (
-            <a
-              key={`live-year-jump-${year}`}
-              href={`#live-year-${year}`}
-              className="inline-block px-2 py-1 mr-1 text-xs font-bold rounded-md text-bx-ink3 hover:text-bx-blue hover:bg-bx-surface/5 transition-colors"
-            >
-              {year}
-            </a>
-          ))}
-        </div>
-      )}
-
       <div style={{ isolation: "isolate" }}>
         {groupedByYear.map(({ year, items }) => (
           <div key={`live-year-${year}`}>
