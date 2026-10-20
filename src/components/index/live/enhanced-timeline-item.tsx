@@ -17,6 +17,7 @@ import {
   timelinePointTheme,
   timelineContentTheme,
 } from "./enhanced-live";
+import { checkCircleClass } from "../../collection/checkCircle";
 
 type Props = {
   live: LiveInfo;
@@ -112,9 +113,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
             }
             title={isAttended ? t.attended : t.markAttended}
             className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
-              isAttended
-                ? "border-bx-blue bg-bx-blue text-bx-bg"
-                : "border-bx-blue text-transparent"
+              checkCircleClass(isAttended)
             }`}
           >
             ✓
@@ -292,6 +291,19 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const t = useDict().live;
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
+
+  // 1公演だけのライヴは、展開前のカードにも参戦済みのチェックを出す(2026-10-21 ユーザー指定)。
+  // 公演の中のチェック(SetCard)と同じ記録なので、どちらで押しても同じ。
+  const onlyItemUuid = live.items?.length === 1 ? live.items[0].liveItemUuid : null;
+  const { owned: attended, mounted: attendedMounted, toggle: toggleAttended } = useCollectionOwned("attended");
+  const isOnlyItemAttended = !!onlyItemUuid && attendedMounted && attended.has(onlyItemUuid);
+  const handleToggleOnlyItem = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (onlyItemUuid) toggleAttended(onlyItemUuid);
+    },
+    [onlyItemUuid, toggleAttended]
+  );
 
   // セットリスト曲から楽曲詳細ページ(/songs/<slug>/)へリンクするための songUuid → slug 解決マップ。
   // ページは songStats(代表曲のみ)にしか存在しないため、discographyの全曲(重複あり)
@@ -528,18 +540,32 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                     </h3>
                   </div>
 
-                  {/* 展開ボタン */}
-                  <button
-                    onClick={handleTitleClick}
-                    className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
-                    aria-label={t.expand}
-                  >
-                    <GoChevronUp
-                      className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
-                        isExpand ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                  <div className="flex flex-shrink-0 items-center gap-2">
+                    {onlyItemUuid && (
+                      <button
+                        type="button"
+                        onClick={handleToggleOnlyItem}
+                        aria-pressed={isOnlyItemAttended}
+                        aria-label={isOnlyItemAttended ? t.unmarkAttended : t.markAttended}
+                        title={isOnlyItemAttended ? t.attended : t.markAttended}
+                        className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${checkCircleClass(isOnlyItemAttended)}`}
+                      >
+                        ✓
+                      </button>
+                    )}
+                    {/* 展開ボタン */}
+                    <button
+                      onClick={handleTitleClick}
+                      className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
+                      aria-label={t.expand}
+                    >
+                      <GoChevronUp
+                        className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
+                          isExpand ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : (

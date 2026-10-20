@@ -16,6 +16,7 @@ import { Kicker } from "../../redesign";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { usePageDict } from "../../../i18n/site/SiteLangContext";
 import { placeDict } from "../../../i18n/site/pages/place";
+import { checkCircleClass } from "../../collection/checkCircle";
 
 // Leaflet は SSR で動かないので動的読み込み
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -401,9 +402,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   >
                     <span
                       className={`w-8 h-8 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-                        isVisited
-                          ? "border-bx-blue bg-bx-blue text-bx-bg"
-                          : "border-bx-line text-transparent"
+                        checkCircleClass(isVisited)
                       }`}
                     >
                       ✓
@@ -618,9 +617,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                               aria-label={isVisited ? t.unmarkVisited : t.markVisited}
                               title={isVisited ? t.visited : t.markVisited}
                               className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
-                                isVisited
-                                  ? "border-bx-blue bg-bx-blue text-bx-bg"
-                                  : "border-bx-blue text-transparent"
+                                checkCircleClass(isVisited)
                               }`}
                             >
                               ✓
@@ -673,9 +670,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   aria-label={isVisited ? t.unmarkVisited : t.markVisited}
                                   title={isVisited ? t.visited : t.markVisited}
                                   className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
-                                    isVisited
-                                      ? "border-bx-blue bg-bx-blue text-bx-bg"
-                                      : "border-bx-blue text-transparent"
+                                    checkCircleClass(isVisited)
                                   }`}
                                 >
                                   ✓

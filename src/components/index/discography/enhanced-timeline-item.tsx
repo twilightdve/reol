@@ -20,6 +20,7 @@ import {
 import { trackEvent } from "../../../utils/analytics";
 import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
 import { formatLabel } from "../../../i18n/site/dict";
+import { checkCircleClass } from "../../collection/checkCircle";
 
 type Props = {
   item: DiscographyWithSongs;
@@ -228,9 +229,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
       aria-label={isOwned ? t.unmarkOwned : t.markOwned}
       title={isOwned ? t.owned : t.markOwned}
       className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
-        isOwned
-          ? "border-bx-blue bg-bx-blue text-bx-bg"
-          : "border-bx-line text-transparent hover:border-bx-blue"
+        checkCircleClass(isOwned)
       }`}
     >
       ✓
