@@ -33,7 +33,8 @@ const wrap = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
   return lines;
 };
 
-export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Promise<Blob> => {
+/** icon: アイコン画像(この端末だけのもの。無ければ頭文字) */
+export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement, icon: HTMLImageElement | null = null): Promise<Blob> => {
   if (document.fonts?.ready) await document.fonts.ready;
   const canvas = document.createElement("canvas");
   canvas.width = W;
@@ -60,11 +61,20 @@ export const renderCardImage = async (p: CardPayload, qr: HTMLCanvasElement): Pr
   ctx.beginPath();
   ctx.arc(PAD + R, y + R, R, 0, Math.PI * 2);
   ctx.fill();
-  ctx.fillStyle = st.avatarInk;
-  ctx.font = `800 76px ${FONT}`;
-  ctx.textAlign = "center";
-  ctx.fillText(cardInitial(p.n), PAD + R, y + R - 40);
-  ctx.textAlign = "left";
+  if (icon) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(PAD + R, y + R, R, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(icon, PAD, y, R * 2, R * 2);
+    ctx.restore();
+  } else {
+    ctx.fillStyle = st.avatarInk;
+    ctx.font = `800 76px ${FONT}`;
+    ctx.textAlign = "center";
+    ctx.fillText(cardInitial(p.n), PAD + R, y + R - 40);
+    ctx.textAlign = "left";
+  }
   ctx.fillStyle = st.ink;
   ctx.font = `800 64px ${FONT}`;
   const nameLines = wrap(ctx, p.n, inner - R * 2 - 40);

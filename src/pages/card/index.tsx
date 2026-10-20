@@ -19,9 +19,10 @@ import { Kicker } from "../../components/redesign";
 import { buildBreadcrumbList } from "../../utils/jsonLd";
 import { trackEvent } from "../../utils/analytics";
 import { CARD_STYLES } from "../../components/profileCard/cardStyles";
-import { ProfileCardFace, cardAccent } from "../../components/profileCard/ProfileCardFace";
+import { ProfileCardFace, cardAccent, cardInitial } from "../../components/profileCard/ProfileCardFace";
 import { LiveItemRef, liveLabel, useCardDraft } from "../../components/profileCard/useCardDraft";
 import { renderCardImage, shareOrDownload } from "../../components/profileCard/cardImage";
+import { loadIconImage, useCardIcon } from "../../components/profileCard/useCardIcon";
 import { CARD_LIMITS, CARD_VIEW_PATH, SNS, cardViewUrl, normalizeSnsId } from "../../utils/profileCard/codec";
 import { reolTypes, TypeCode } from "../../data/reol-type/types";
 import { useAuth } from "../../contexts/AuthContext";
@@ -167,6 +168,16 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
     else toast.error("保存できませんでした。通信できる所でもう一度保存してください(この端末には残っています)");
     trackEvent("profile_card_save", { category: "engagement", label: ok ? (toAccount ? "account" : "local") : "error" });
   };
+  const { iconSrc, setFromFile: setIconFile, clear: clearIcon } = useCardIcon();
+  const pickIcon = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    const result = await setIconFile(file);
+    if (result === "error") toast.error("この画像は使えませんでした");
+    else if (result === "unsaved") toast("この端末に保存できなかったので、画面を閉じると外れます");
+    trackEvent("profile_card_icon", { category: "engagement", label: result });
+  };
   const [showing, setShowing] = useState(false);
   const closeShow = useCallback(() => setShowing(false), []);
   const [saving, setSaving] = useState(false);
@@ -208,7 +219,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
     if (!payload || !canvas) return;
     setSaving(true);
     try {
-      const blob = await renderCardImage(payload, canvas);
+      const blob = await renderCardImage(payload, canvas, await loadIconImage(iconSrc));
       const result = await shareOrDownload(blob, "profile-card.png");
       trackEvent("profile_card_image", { category: "engagement", label: result });
     } catch {
@@ -279,7 +290,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
           {/* プレビューと渡すボタン */}
           <section aria-label="カードのプレビュー" className="md:sticky md:top-20 md:self-start">
             {payload ? (
-              <ProfileCardFace payload={payload} />
+              <ProfileCardFace payload={payload} iconSrc={iconSrc} />
             ) : (
               <div className="flex aspect-[3/4] items-center justify-center rounded-2xl border border-dashed border-bx-line p-6 text-center text-[14px] text-bx-ink3">
                 名前を入れると、ここにカードができます
@@ -363,6 +374,26 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
                 className={inputClass}
                 autoComplete="nickname"
               />
+            </Field>
+
+            <Field
+              label="アイコン"
+              hint="画像はこの端末にだけ保存し、サイトには送りません。画面で見せる時と「画像で保存」したカードには入りますが、QR コード・リンクで渡したカードには入らず、名前の頭文字になります。"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-bx-line bg-bx-surface/5 text-[20px] font-extrabold text-bx-ink3">
+                  {iconSrc ? <img src={iconSrc} alt="選んだアイコン" className="h-full w-full object-cover" /> : cardInitial(draft.name)}
+                </div>
+                <label className="cursor-pointer rounded-full border border-bx-line px-4 py-2 text-[13px] font-bold text-bx-ink hover:border-bx-blue">
+                  画像を選ぶ
+                  <input type="file" accept="image/*" onChange={pickIcon} className="sr-only" />
+                </label>
+                {iconSrc && (
+                  <button type="button" onClick={clearIcon} className="text-[13px] text-bx-ink3 underline underline-offset-4 hover:text-bx-blue">
+                    外す
+                  </button>
+                )}
+              </div>
             </Field>
 
             <Field label="ひとこと" htmlFor="card-bio" hint={`${Array.from(draft.bio).length} / ${CARD_LIMITS.bio}字`}>
@@ -522,7 +553,7 @@ const CardEditor: React.FC<{ data: CardPageData }> = ({ data }) => {
       </main>
       {showing && payload && (
         <ShowMode url={url} onClose={closeShow}>
-          <ProfileCardFace payload={payload} />
+          <ProfileCardFace payload={payload} iconSrc={iconSrc} />
         </ShowMode>
       )}
     </Layout>
