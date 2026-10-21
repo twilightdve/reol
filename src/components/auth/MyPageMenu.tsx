@@ -135,7 +135,7 @@ export const MyPageMenu: React.FC<MyPageMenuProps> = ({ onClose }) => {
             <span>コレクション</span>
           </button>
 
-          {/* プロフィールカード(plan/48)。試験中は運営だけ */}
+          {/* プロフィールカード(plan/48)。試験中(PROFILE_CARD_OWNER_ONLY)は運営だけ */}
           {canCreateProfileCard(user.id) && (
           <Link
             to="/card/"
