@@ -72,34 +72,27 @@ const TWILIGHT = ["#2c2f63", "#8c5a8f", "#ec9a63"];
 /**
  * 『極彩色』の曲順(サイトの discography)。記事のある曲は記事へ。
  * 色は、歌詞と構成から拾った色と明暗(ユーザーの「曲ごとの色彩対応表」、2026-10-22)。公式のイメージカラーではない。
- * 生命線・ハルシアンは色の名前ではなく手がかりから色を選ぶ。歌詞の無い -orderly- だけ塗らない(colors が空)
+ * 生命線・ハルシアンは色の名前ではなく手がかりから色を選ぶ。歌詞の無い -orderly- だけ塗らない(colors が空)。
+ * 色の説明は書かない(ユーザー、2026-10-23)。lines は輪の外に書く曲名の改行(スマートフォン幅で収めるため)
  */
-const TRACKS: { name: string; article?: string; colors: string[]; label: string }[] = [
-  { name: "-nil-", colors: [], label: "無" },
-  { name: "極彩色", colors: RAINBOW, label: "すべての色" },
-  { name: "生命線", colors: [C.blueprint, C.pigment], label: "色素・青写真" },
-  { name: "水底游歩道", colors: [C.blue, C.white, C.gray, C.black], label: "青・白・灰・黒" },
-  { name: "ハルシアン", colors: [C.bordeaux], label: "大人の色" },
-  { name: "ロジックエージェント", colors: [C.light, C.shade], label: "光・影" },
-  { name: "-orderly-", colors: [], label: "インスト(対応なし)" },
-  { name: "mede:mede", colors: [C.white, C.light], label: "白・光" },
-  { name: "Syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]], label: "薄紅・虹色" },
-  { name: "ラ・タタン", colors: [C.white, C.black, ...TWILIGHT], label: "白黒・トワイライト" },
-  { name: "ミッドナイトストロウラ", colors: [C.light, C.dark, C.shade], label: "光・暗闇・影" },
-  { name: "Behind The Night", colors: [C.light, C.dark, C.shade], label: "月明かり・闇・影" },
-  { name: "ROXY", colors: [C.red], label: "赤" },
-  { name: "約束の蒼", colors: [C.ao], label: "蒼" },
-  { name: "MONSTER", article: "monster", colors: [C.red, C.dark, C.shade], label: "赤・闇・影" },
-  { name: "染", colors: [C.orange, C.shade], label: "橙・影" },
+const TRACKS: { name: string; article?: string; colors: string[]; lines?: string[] }[] = [
+  { name: "-nil-", colors: [] },
+  { name: "極彩色", colors: RAINBOW },
+  { name: "生命線", colors: [C.blueprint, C.pigment] },
+  { name: "水底游歩道", colors: [C.blue, C.white, C.gray, C.black] },
+  { name: "ハルシアン", colors: [C.bordeaux] },
+  { name: "ロジックエージェント", colors: [C.light, C.shade], lines: ["ロジック", "エージェント"] },
+  { name: "-orderly-", colors: [] },
+  { name: "mede:mede", colors: [C.white, C.light] },
+  { name: "Syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]] },
+  { name: "ラ・タタン", colors: [C.white, C.black, ...TWILIGHT] },
+  { name: "ミッドナイトストロウラ", colors: [C.light, C.dark, C.shade], lines: ["ミッドナイト", "ストロウラ"] },
+  { name: "Behind The Night", colors: [C.light, C.dark, C.shade], lines: ["Behind", "The Night"] },
+  { name: "ROXY", colors: [C.red] },
+  { name: "約束の蒼", colors: [C.ao] },
+  { name: "MONSTER", article: "monster", colors: [C.red, C.dark, C.shade] },
+  { name: "染", colors: [C.orange, C.shade] },
 ];
-
-/** 一覧の色見本: 色を等分した円(塗らない曲は空) */
-const swatchBg = (colors: string[]): string | undefined => {
-  if (colors.length === 0) return undefined;
-  if (colors.length === 1) return colors[0];
-  const step = 360 / colors.length;
-  return `conic-gradient(${colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(", ")})`;
-};
 
 /** 輪の点: 色を等分した扇形。12時から時計回り */
 const Wedges: React.FC<{ cx: number; cy: number; r: number; colors: string[] }> = ({ cx, cy, r, colors }) => {
@@ -244,56 +237,63 @@ const Seam: React.FC = () => {
   );
 };
 
-/** 段落12の後: 『極彩色』16曲の輪。-nil- と染に鼓動の印 */
+/** 段落12の後: 『極彩色』16曲の輪。曲名は輪の外側に。-nil- と染に鼓動の印 */
 const Ring: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLDivElement>(0.4);
+  const { ref, className } = useRevealOnce<HTMLElement>(0.4);
   const n = TRACKS.length;
-  const R = 120;
-  const pos = (i: number) => {
-    const a = (i / n) * Math.PI * 2 - Math.PI / 2;
-    return { x: 160 + Math.cos(a) * R, y: 160 + Math.sin(a) * R };
-  };
+  const W = 360;
+  const c = W / 2;
+  const R = 100;
+  const L = R + 14; // 曲名を置く距離
+  const FS = 12;
+  const LH = 14;
+  const angle = (i: number) => (i / n) * Math.PI * 2;
+  const at = (i: number, r: number) => ({ x: c + Math.sin(angle(i)) * r, y: c - Math.cos(angle(i)) * r });
   return (
     <figure ref={ref} className={`a012-ring${className}`}>
-      <div className="a012-ring__body">
-        <svg viewBox="0 0 320 320" aria-hidden="true" className="a012-ring__svg">
-          <circle cx="160" cy="160" r={R} className="a012-ring__track" />
-          {TRACKS.map((t, i) => {
-            const p = pos(i);
-            const beat = i === 0 || i === n - 1;
-            return (
-              <g key={t.name} className="a012-ring__dot" style={{ animationDelay: `${i * 70}ms` }}>
-                {beat && <circle cx={p.x} cy={p.y} r="17" className="a012-ring__beat" />}
-                {t.colors.length > 0 && <Wedges cx={p.x} cy={p.y} r={11} colors={t.colors} />}
-                <circle cx={p.x} cy={p.y} r="11" className={t.colors.length > 0 ? "a012-ring__edge" : i === 0 ? "a012-ring__nil" : "a012-ring__blank"} />
-              </g>
-            );
-          })}
-          <text x="160" y="152" textAnchor="middle" className="a012-ring__center">『極彩色』</text>
-          <text x="160" y="176" textAnchor="middle" className="a012-ring__centerSub">
-            16曲
-          </text>
-        </svg>
-        <ol className="a012-ring__list">
-          {TRACKS.map((t, i) => (
-            <li key={t.name}>
-              <span className={`a012-ring__swatch${t.colors.length || i === 0 ? "" : " is-blank"}`} style={{ background: i === 0 ? C.white : swatchBg(t.colors) }} aria-hidden="true" />
-              <span className="a012-ring__name">
-                {t.article ? (
-                  <Link to={`/articles/${t.article}/`} onClick={() => trackEvent("article_related_click", { category: "navigation", label: `reol-song-012->${t.article}` })}>
-                    {t.name}
-                  </Link>
-                ) : (
-                  <span className={i === 0 || i === 1 ? "is-here" : undefined}>{t.name}</span>
-                )}
-                {(i === 0 || i === n - 1) && <span className="a012-ring__mark">鼓動</span>}
-                <span className="a012-ring__label">{t.label}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <figcaption className="a012-caption">歌詞と曲の構成から拾った色と明暗です(公式のイメージカラーではありません)。光・影・闇は灰色の濃さで描いています。生命線とハルシアンは、色の名前ではなく色の手がかりから選んだ色です。</figcaption>
+      <svg viewBox={`0 0 ${W} ${W}`} className="a012-ring__svg" role="group" aria-label="『極彩色』の16曲">
+        <circle cx={c} cy={c} r={R} className="a012-ring__track" />
+        {TRACKS.map((t, i) => {
+          const p = at(i, R);
+          const q = at(i, L);
+          const sin = Math.sin(angle(i));
+          const cos = Math.cos(angle(i));
+          const anchor = Math.abs(sin) < 0.2 ? "middle" : sin > 0 ? "start" : "end";
+          const lines = t.lines ?? [t.name];
+          // 上は文字の下端を、下は上端を点に寄せ、横は点の高さに中心をそろえる
+          const top = cos > 0.9 ? q.y - (lines.length - 1) * LH - 2 : cos < -0.9 ? q.y + FS : q.y - ((lines.length - 1) * LH) / 2 + FS * 0.36;
+          const beat = i === 0 || i === n - 1;
+          const label = (
+            <text x={q.x} y={top} textAnchor={anchor} className={`a012-ring__name${i <= 1 ? " is-here" : ""}`}>
+              {lines.map((line, k) => (
+                <tspan key={line} x={q.x} dy={k === 0 ? 0 : LH}>
+                  {line}
+                </tspan>
+              ))}
+            </text>
+          );
+          return (
+            <g key={t.name} className="a012-ring__dot" style={{ animationDelay: `${i * 70}ms` }}>
+              {beat && <circle cx={p.x} cy={p.y} r="14" className="a012-ring__beat" />}
+              {t.colors.length > 0 && <Wedges cx={p.x} cy={p.y} r={9} colors={t.colors} />}
+              <circle cx={p.x} cy={p.y} r="9" className={t.colors.length > 0 ? "a012-ring__edge" : i === 0 ? "a012-ring__nil" : "a012-ring__blank"} />
+              {t.article ? (
+                <Link to={`/articles/${t.article}/`} className="a012-ring__link" onClick={() => trackEvent("article_related_click", { category: "navigation", label: `reol-song-012->${t.article}` })}>
+                  {label}
+                </Link>
+              ) : (
+                label
+              )}
+            </g>
+          );
+        })}
+        <text x={c} y={c - 4} textAnchor="middle" className="a012-ring__center">
+          『極彩色』
+        </text>
+        <text x={c} y={c + 16} textAnchor="middle" className="a012-ring__centerSub">
+          16曲
+        </text>
+      </svg>
     </figure>
   );
 };
