@@ -4,7 +4,7 @@
 
 [「極彩色」公式MVを観る](https://www.youtube.com/watch?v=5vebKoO__8A)
 
-れをるの1stフルアルバム『極彩色』は、表題曲ではなく、ギガによる36秒のインストゥルメンタル「-nil-」から始まる。([tower.jp](https://tower.jp/item/3906848?utm_source=chatgpt.com))
+れをるの1stフルアルバム『極彩色』は、表題曲ではなく、ギガによる36秒のインストゥルメンタル「-nil-」から始まる。
 
 「nil」は、無を意味する言葉。
 

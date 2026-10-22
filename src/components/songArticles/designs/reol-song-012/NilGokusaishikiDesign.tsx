@@ -508,7 +508,7 @@ const NilGokusaishikiDesign: SongArticleDesign = (ctx) => {
                   </p>
                 </aside>
               )}
-              {body(INTRO, SEAM_FIG, "a012-text a012-intro")}
+              {body(INTRO, SEAM_FIG, "a012-text")}
               <Seam />
               {body(SEAM_FIG, S_CYCLE)}
             </div>
