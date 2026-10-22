@@ -4,7 +4,7 @@
  * - 紙面は白(無)。色は水彩のにじみだけで入れる。地の白と墨の文字は最後まで同じで、節ごとに見出しのにじみの色が一つずつ増える(静的)。
  * - 表紙: 白い紙の真ん中で鼓動の輪が二度広がり、そこから水彩の色がにじみ広がる。題名は墨。
  * - 段落1: 「極彩色」公式MV(冒頭リンクが Spotify なので自分で置く)。段落5の後: 灰色の鼓動が切れ目なく色の帯へ変わる。
- * - 段落12の後: 『極彩色』16曲の輪(-nil- の白から色が濃くなり、染でいちばん深く、また白へ)。色は記事のイメージで、曲ごとの色ではない。
+ * - 段落12の後: 『極彩色』16曲の輪。点の色は、歌詞と構成から拾った曲ごとの色と明暗(公式のイメージカラーではない。色名の無い曲は塗らない)。
  * - 段落24(歌詞ではない文)を大きく。段落30の後: 四人の表現の四つのにじみが重なる。段落46の後: 名義の年表。
  * - 武道館の節: 武道館の「極彩色」ライヴ映像(サイトのセットリストに登録済み)、段落64の後に二つの輪(終わりを次の始まりへ)。
  * - 段落70の後: 本文に出る色の言葉の色見本。結び: 色が引いて白に戻る鼓動の輪。
@@ -47,38 +47,70 @@ const S_RETURN = 76;
 const MV_ID = "5vebKoO__8A";
 const LIVE = { id: "38zFT05sqfE", text: "日本武道館「No title」(2024)の「極彩色」を観る" };
 
-// 『極彩色』の曲順(サイトの discography)。記事のある曲は記事へ
-const TRACKS: { name: string; article?: string }[] = [
-  { name: "-nil-" },
-  { name: "極彩色" },
-  { name: "生命線" },
-  { name: "水底游歩道" },
-  { name: "ハルシアン" },
-  { name: "ロジックエージェント" },
-  { name: "-orderly-" },
-  { name: "mede:mede" },
-  { name: "Syrup" },
-  { name: "ラ・タタン" },
-  { name: "ミッドナイトストロウラ" },
-  { name: "Behind The Night" },
-  { name: "ROXY" },
-  { name: "約束の蒼" },
-  { name: "MONSTER", article: "monster" },
-  { name: "染" },
-];
+// 色見本と輪で使う色(水底游歩道・Syrup・ラ・タタンは色見本と同じ色)
+const C = {
+  blue: "#2f64a8",
+  white: "#ffffff",
+  gray: "#9b9ea3",
+  black: "#1b1c1f",
+  pink: "#f2b8c4",
+  red: "#c9343f",
+  ao: "#2a6f8c",
+  orange: "#e8893a",
+  // 明暗は色ではなく、灰色の濃さで描く
+  light: "#ece6d4",
+  shade: "#8d939a",
+  dark: "#2b2d32",
+};
+const RAINBOW = ["#e9566a", "#f2a541", "#f4dc5a", "#5cc08a", "#4f9fd8", "#8d6cc9"];
+const TWILIGHT = ["#2c2f63", "#8c5a8f", "#ec9a63"];
 
 /**
- * 輪の色: -nil- は白、そこから色相を回しながら色を濃くし、染でいちばん深く。
- * 記事のイメージで、曲ごとの色ではない(図の下に注記する)
+ * 『極彩色』の曲順(サイトの discography)。記事のある曲は記事へ。
+ * 色は、歌詞と構成から拾った色と明暗(ユーザーの「曲ごとの色彩対応表」、2026-10-22)。公式のイメージカラーではない。
+ * 色名が出てこない曲は塗らない(colors が空)。label は色の名前だけで、歌詞は出さない
  */
-const ringColor = (i: number): string => {
-  if (i === 0) return "#ffffff";
-  const t = i / (TRACKS.length - 1);
-  // 青 → 緑 → 黄 → 橙 → 紅 → 染の深い藍(色相を逆回りに)
-  const hue = Math.round((205 - t * 315 + 720) % 360);
-  const sat = Math.round(35 + t * 30);
-  const light = Math.round(76 - t * 46);
-  return `hsl(${hue} ${sat}% ${light}%)`;
+const TRACKS: { name: string; article?: string; colors: string[]; label: string }[] = [
+  { name: "-nil-", colors: [], label: "無" },
+  { name: "極彩色", colors: RAINBOW, label: "すべての色" },
+  { name: "生命線", colors: [], label: "色名なし" },
+  { name: "水底游歩道", colors: [C.blue, C.white, C.gray, C.black], label: "青・白・灰・黒" },
+  { name: "ハルシアン", colors: [], label: "色名なし" },
+  { name: "ロジックエージェント", colors: [C.light, C.shade], label: "光・影" },
+  { name: "-orderly-", colors: [], label: "インスト(対応なし)" },
+  { name: "mede:mede", colors: [C.white, C.light], label: "白・光" },
+  { name: "Syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]], label: "薄紅・虹色" },
+  { name: "ラ・タタン", colors: [C.white, C.black, ...TWILIGHT], label: "白黒・トワイライト" },
+  { name: "ミッドナイトストロウラ", colors: [C.light, C.dark, C.shade], label: "光・暗闇・影" },
+  { name: "Behind The Night", colors: [C.light, C.dark, C.shade], label: "月明かり・闇・影" },
+  { name: "ROXY", colors: [C.red], label: "赤" },
+  { name: "約束の蒼", colors: [C.ao], label: "蒼" },
+  { name: "MONSTER", article: "monster", colors: [C.red, C.dark, C.shade], label: "赤・闇・影" },
+  { name: "染", colors: [C.orange, C.shade], label: "橙・影" },
+];
+
+/** 一覧の色見本: 色を等分した円(塗らない曲は空) */
+const swatchBg = (colors: string[]): string | undefined => {
+  if (colors.length === 0) return undefined;
+  if (colors.length === 1) return colors[0];
+  const step = 360 / colors.length;
+  return `conic-gradient(${colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(", ")})`;
+};
+
+/** 輪の点: 色を等分した扇形。12時から時計回り */
+const Wedges: React.FC<{ cx: number; cy: number; r: number; colors: string[] }> = ({ cx, cy, r, colors }) => {
+  if (colors.length === 1) return <circle cx={cx} cy={cy} r={r} fill={colors[0]} />;
+  const at = (k: number) => {
+    const a = (k / colors.length) * Math.PI * 2 - Math.PI / 2;
+    return `${(cx + Math.cos(a) * r).toFixed(2)} ${(cy + Math.sin(a) * r).toFixed(2)}`;
+  };
+  return (
+    <>
+      {colors.map((c, k) => (
+        <path key={k} d={`M${cx} ${cy}L${at(k)}A${r} ${r} 0 0 1 ${at(k + 1)}Z`} fill={c} />
+      ))}
+    </>
+  );
 };
 
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
@@ -228,7 +260,8 @@ const Ring: React.FC = () => {
             return (
               <g key={t.name} className="a012-ring__dot" style={{ animationDelay: `${i * 70}ms` }}>
                 {beat && <circle cx={p.x} cy={p.y} r="17" className="a012-ring__beat" />}
-                <circle cx={p.x} cy={p.y} r="11" fill={ringColor(i)} className={i === 0 ? "a012-ring__nil" : undefined} />
+                {t.colors.length > 0 && <Wedges cx={p.x} cy={p.y} r={11} colors={t.colors} />}
+                <circle cx={p.x} cy={p.y} r="11" className={t.colors.length > 0 ? "a012-ring__edge" : i === 0 ? "a012-ring__nil" : "a012-ring__blank"} />
               </g>
             );
           })}
@@ -240,20 +273,23 @@ const Ring: React.FC = () => {
         <ol className="a012-ring__list">
           {TRACKS.map((t, i) => (
             <li key={t.name}>
-              <span className="a012-ring__swatch" style={{ background: ringColor(i) }} aria-hidden="true" />
-              {t.article ? (
-                <Link to={`/articles/${t.article}/`} onClick={() => trackEvent("article_related_click", { category: "navigation", label: `reol-song-012->${t.article}` })}>
-                  {t.name}
-                </Link>
-              ) : (
-                <span className={i === 0 || i === 1 ? "is-here" : undefined}>{t.name}</span>
-              )}
-              {(i === 0 || i === n - 1) && <span className="a012-ring__mark">鼓動</span>}
+              <span className={`a012-ring__swatch${t.colors.length || i === 0 ? "" : " is-blank"}`} style={{ background: i === 0 ? C.white : swatchBg(t.colors) }} aria-hidden="true" />
+              <span className="a012-ring__name">
+                {t.article ? (
+                  <Link to={`/articles/${t.article}/`} onClick={() => trackEvent("article_related_click", { category: "navigation", label: `reol-song-012->${t.article}` })}>
+                    {t.name}
+                  </Link>
+                ) : (
+                  <span className={i === 0 || i === 1 ? "is-here" : undefined}>{t.name}</span>
+                )}
+                {(i === 0 || i === n - 1) && <span className="a012-ring__mark">鼓動</span>}
+                <span className="a012-ring__label">{t.label}</span>
+              </span>
             </li>
           ))}
         </ol>
       </div>
-      <figcaption className="a012-caption">輪の色は、この記事でのイメージです(曲ごとの色ではありません)。</figcaption>
+      <figcaption className="a012-caption">歌詞と曲の構成から拾った色と明暗です(公式のイメージカラーではありません)。光・影・闇は灰色の濃さで描き、色の名前が出てこない曲は塗っていません。</figcaption>
     </figure>
   );
 };
@@ -387,24 +423,24 @@ const SWATCHES: { song: string; colors: { name: string; bg: string }[] }[] = [
   {
     song: "水底游歩道",
     colors: [
-      { name: "青", bg: "#2f64a8" },
-      { name: "白", bg: "#ffffff" },
-      { name: "灰", bg: "#9b9ea3" },
-      { name: "黒", bg: "#1b1c1f" },
+      { name: "青", bg: C.blue },
+      { name: "白", bg: C.white },
+      { name: "灰", bg: C.gray },
+      { name: "黒", bg: C.black },
     ],
   },
   {
     song: "Syrup",
     colors: [
-      { name: "薄紅", bg: "#f2b8c4" },
-      { name: "虹色", bg: "linear-gradient(90deg, #e9566a, #f2a541, #f4dc5a, #5cc08a, #4f9fd8, #8d6cc9)" },
+      { name: "薄紅", bg: C.pink },
+      { name: "虹色", bg: `linear-gradient(90deg, ${RAINBOW.join(", ")})` },
     ],
   },
   {
     song: "ラ・タタン",
     colors: [
       { name: "白黒", bg: "linear-gradient(90deg, #ffffff 50%, #1b1c1f 50%)" },
-      { name: "トワイライト", bg: "linear-gradient(90deg, #2c2f63, #8c5a8f, #ec9a63)" },
+      { name: "トワイライト", bg: `linear-gradient(90deg, ${TWILIGHT.join(", ")})` },
     ],
   },
 ];

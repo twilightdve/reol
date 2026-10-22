@@ -413,7 +413,7 @@
 }
 .a012-ring__body {
   display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
   gap: clamp(16px, 4vw, 36px);
   align-items: center;
 }
@@ -428,8 +428,22 @@
   stroke-width: 1;
 }
 .a012-ring__nil {
+  fill: #ffffff;
   stroke: #9aa0a6;
   stroke-width: 1.2;
+}
+/* 色の点の縁(白い扇形も紙から見分けられるように) */
+.a012-ring__edge {
+  fill: none;
+  stroke: rgb(31 34 38 / 0.3);
+  stroke-width: 1;
+}
+/* 色の名前が出てこない曲: 塗らずに点線の輪だけ */
+.a012-ring__blank {
+  fill: var(--paper);
+  stroke: rgb(31 34 38 / 0.4);
+  stroke-width: 1;
+  stroke-dasharray: 2 2.5;
 }
 .a012-ring__beat {
   fill: none;
@@ -466,30 +480,49 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  columns: 2;
+  /* 段組(columns)だと WebKit で2列目の色名が列からはみ出すため、grid で縦に8曲ずつ */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(8, auto);
+  grid-auto-flow: column;
   column-gap: 20px;
+  row-gap: 6px;
   font-size: 13px;
-  line-height: 2;
+  line-height: 1.6;
 }
 .a012-ring__list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  break-inside: avoid;
   color: var(--ink-2);
 }
 .a012-ring__swatch {
   flex: none;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgb(31 34 38 / 0.25);
+}
+.a012-ring__swatch.is-blank {
+  box-shadow: none;
+  border: 1px dashed rgb(31 34 38 / 0.45);
+}
+.a012-ring__name {
+  min-width: 0;
+}
+.a012-ring__label {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-2);
+  opacity: 0.85;
 }
 .a012-ring__list .is-here {
   font-weight: 800;
   color: var(--ink);
 }
 .a012-ring__mark {
+  margin-left: 6px;
   font-size: 10px;
   letter-spacing: 0.1em;
   padding: 0 6px;
