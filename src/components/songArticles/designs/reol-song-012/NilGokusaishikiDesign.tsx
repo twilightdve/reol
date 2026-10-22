@@ -298,12 +298,16 @@ const Ring: React.FC = () => {
   );
 };
 
-/** 段落30の後: 四人の表現が重なる四つのにじみ */
+/**
+ * 段落30の後: 四人の表現が重なる四つのにじみ。
+ * 色は四人それぞれに決まっている色(ユーザー、2026-10-23): れをる 群青、ギガ 深い緑、お菊 赤に近いピンク、望月けい くすんだゴールド(生姜のような)
+ */
+const MEMBER = { reol: "#2f4fa2", giga: "#1e5c45", okiku: "#e0405e", kei: "#b38a45" };
 const FOUR = [
-  { cx: 220, cy: 150, r: 112, color: "#6fa1ce", what: "音楽", who: "ギガ", lx: 120, ly: 64 },
-  { cx: 380, cy: 150, r: 112, color: "#e0607e", what: "イラスト", who: "望月けい", lx: 480, ly: 64 },
-  { cx: 220, cy: 270, r: 112, color: "#f2b544", what: "映像", who: "お菊", lx: 120, ly: 384 },
-  { cx: 380, cy: 270, r: 112, color: "#3fb3a3", what: "言葉と歌声", who: "れをる", lx: 480, ly: 384 },
+  { cx: 220, cy: 150, r: 112, color: MEMBER.giga, what: "音楽", who: "ギガ", lx: 120, ly: 64 },
+  { cx: 380, cy: 150, r: 112, color: MEMBER.kei, what: "イラスト", who: "望月けい", lx: 480, ly: 64 },
+  { cx: 220, cy: 270, r: 112, color: MEMBER.okiku, what: "映像", who: "お菊", lx: 120, ly: 384 },
+  { cx: 380, cy: 270, r: 112, color: MEMBER.reol, what: "言葉と歌声", who: "れをる", lx: 480, ly: 384 },
 ];
 const Four: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLDivElement>(0.5);
