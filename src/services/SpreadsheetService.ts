@@ -499,7 +499,8 @@ export class SheetService {
         memo: str(row[COL.placeItem.memo]),
         needsCost: !!row[COL.placeItem.needsCost],
         needsPermission: !!row[COL.placeItem.needsPermission],
-        placeUrl: str(row[COL.placeItem.placeUrl]),
+        // 店舗サイトのURLも、地図の店舗情報から写すと utm_* が付いてくるので外す
+        placeUrl: stripTrackingParams(str(row[COL.placeItem.placeUrl])),
         address: str(row[COL.placeItem.address]),
         mapsUrl: str(row[COL.placeItem.mapsUrl]),
         mapsEmbedUrl: str(row[COL.placeItem.mapsEmbedUrl]),

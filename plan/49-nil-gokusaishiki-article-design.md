@@ -132,3 +132,4 @@
 
 - ユーザー「基本的にリンクには utm_source をつけないでください」。本文の出典リンク5つ(natalie.mu ×3、billboard-japan.com、victor-store.jp)から `?utm_source=chatgpt.com` を外した(body.md を手で直し、sha256 を付け直し。段落のハッシュは変わらない)。公開済みだが文言は変わらないので、更新日時は付けない。
 - サイト全体でも外した: 会場サイトのURL(シートの placeSite を取り込むときに `stripTrackingParams` で utm_* を外す)、名古屋市公会堂の会場データ、Spotify 埋め込みの `utm_source=generator`、Reolタイプ診断の共有URLの `utm_source=share_x`。
+- 続けて「全記事で見直して」: 全記事の本文(content/articles)と記事別デザインのリンクを調べ、計測用のパラメータ(utm_*・si・fbclid など)が残っていないことを確かめた(残っていたのは 012 だけで、上で外した)。あわせて、PLACE の店舗サイトのURL(placeUrl)にも utm_* が付いていたので、取り込み時に外すようにした。
