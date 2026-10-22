@@ -22,6 +22,42 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // -nil-／極彩色(plan/49)。Spotify(0)・MV(1)・冒頭(2)・境目の帯の前後(5, 6)・見出し(9, 16, 28, 43, 55, 67, 76)・16曲の輪の前後(12, 13)・要の一文(24 とその前後)・四つのにじみの前後(30, 31)・年表の前後(46, 47)・武道館の映像の前後(57, 58)・二つの輪の前後(64, 65)・色見本の前後(70, 71)・結び(80)
+  "reol-song-012": {
+    bodyRevision: 2,
+    bodySha256: "a88ca3ec292253766bf3450a3c694dc2d8a9f09fe4d5be0e6f7ff0fe8d151573",
+    blockCount: 81,
+    anchors: [
+      { block: 0, textHash: "cea5894b1fa5bbcb" },
+      { block: 1, textHash: "b16101997af010cc" },
+      { block: 2, textHash: "5616e04a83704ed7" },
+      { block: 5, textHash: "bbe4e93e9d951c05" },
+      { block: 6, textHash: "26ec04b6e9aa3f04" },
+      { block: 9, textHash: "3cf242f9bedddf32" },
+      { block: 12, textHash: "7721e58c8bbf9a88" },
+      { block: 13, textHash: "21dc43b857fdc7be" },
+      { block: 16, textHash: "4ff980ea31716819" },
+      { block: 23, textHash: "99a89b83835ff8b9" },
+      { block: 24, textHash: "518f72bc960b3ca3" },
+      { block: 25, textHash: "67e628648f5ce686" },
+      { block: 28, textHash: "e38e2e2f3bcbbe2d" },
+      { block: 30, textHash: "05ee8ce99b46c738" },
+      { block: 31, textHash: "a2beae89a0f804cb" },
+      { block: 43, textHash: "1b73b5818d738fc8" },
+      { block: 46, textHash: "094250a47051ef62" },
+      { block: 47, textHash: "146a3b481582ee7c" },
+      { block: 55, textHash: "d54658a4bc1efebc" },
+      { block: 57, textHash: "8a4b3020102ede70" },
+      { block: 58, textHash: "ccb0cfb3deab0149" },
+      { block: 64, textHash: "cc9b35e0d79feee8" },
+      { block: 65, textHash: "37d4d5803b6532b5" },
+      { block: 67, textHash: "78673d9a1cc63673" },
+      { block: 70, textHash: "19f8ab4f630f268d" },
+      { block: 71, textHash: "b831161b6d289fe9" },
+      { block: 76, textHash: "9d0caaceba232987" },
+      { block: 80, textHash: "873a46001b3d18b6" },
+    ],
+  },
   // あ可よろし(plan/45)。Spotify(0)・冒頭(1)・五曲の並びの前後(5, 6)・見出し(8, 19, 32, 48, 68)・XFD の前後(9, 10)・赤短の前後(11, 12)・彼岸花の前後(28, 29)・要の一文(41, 75 とその前後)・2018→2025 の前後(63, 64)・結び(79)
   "reol-song-049": {
     bodyRevision: 3,

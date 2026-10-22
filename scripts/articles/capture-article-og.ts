@@ -88,6 +88,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   "reol-song-049": `
     .og-brand { color: #5a3f22 !important; text-shadow: none !important; }
   `,
+  // -nil-／極彩色: 白い紙なので、名前の文字を墨に
+  "reol-song-012": `
+    .og-brand { color: #646a72 !important; text-shadow: none !important; }
+  `,
   "reol-song-057": `
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
     .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
