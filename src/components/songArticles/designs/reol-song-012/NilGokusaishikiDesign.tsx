@@ -45,6 +45,8 @@ const S_RETURN = 76;
 
 // 公式MV(管理表 official_mv)と、武道館の「極彩色」(サイトの武道館のセットリストに登録済み)。どちらも見ていない
 const MV_ID = "5vebKoO__8A";
+// 本文の出典のうち、何度も出てくる音楽ナタリーの特集(本文からはリンクを外し、奥付に一度だけ)
+const NATALIE = { url: "https://natalie.mu/music/pp/reol", text: "音楽ナタリー「れをる『極彩色』特集」" };
 const LIVE = { id: "38zFT05sqfE", text: "日本武道館「No title」(2024)の「極彩色」を観る" };
 
 // 色見本と輪で使う色(水底游歩道・Syrup・ラ・タタンは色見本と同じ色)
@@ -634,6 +636,16 @@ const NilGokusaishikiDesign: SongArticleDesign = (ctx) => {
                   </dd>
                 </div>
               )}
+              {/* 本文の発言の多くはこの特集から。本文の中で毎回リンクせず、ここに一度だけ置く(ユーザー、2026-10-23) */}
+              <div>
+                <dt>参考</dt>
+                <dd>
+                  <a href={NATALIE.url} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("article_source_click", { category: "outbound", label: "reol-song-012->natalie" })}>
+                    {NATALIE.text}
+                  </a>
+                  (全3ページ。れをる・ギガ・お菊の発言の多くはここから)
+                </dd>
+              </div>
             </dl>
             <ul className="a012-next">
               {songPages.map((p) => (

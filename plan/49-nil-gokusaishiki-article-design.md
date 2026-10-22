@@ -133,3 +133,9 @@
 - ユーザー「基本的にリンクには utm_source をつけないでください」。本文の出典リンク5つ(natalie.mu ×3、billboard-japan.com、victor-store.jp)から `?utm_source=chatgpt.com` を外した(body.md を手で直し、sha256 を付け直し。段落のハッシュは変わらない)。公開済みだが文言は変わらないので、更新日時は付けない。
 - サイト全体でも外した: 会場サイトのURL(シートの placeSite を取り込むときに `stripTrackingParams` で utm_* を外す)、名古屋市公会堂の会場データ、Spotify 埋め込みの `utm_source=generator`、Reolタイプ診断の共有URLの `utm_source=share_x`。
 - 続けて「全記事で見直して」: 全記事の本文(content/articles)と記事別デザインのリンクを調べ、計測用のパラメータ(utm_*・si・fbclid など)が残っていないことを確かめた(残っていたのは 012 だけで、上で外した)。あわせて、PLACE の店舗サイトのURL(placeUrl)にも utm_* が付いていたので、取り込み時に外すようにした。
+
+## 12. 音楽ナタリーの出典を奥付に一度だけ(2026-10-23)
+
+- ユーザー「大量に同じナタリーへのリンクがあるから共通化してほしい」。本文の段落末の `([音楽ナタリー](…/pp/reol/page/N))`・`([natalie.mu](…/pp/reol))` 12個を外し、奥付に「参考 音楽ナタリー「れをる『極彩色』特集」(全3ページ。れをる・ギガ・お菊の発言の多くはここから)」を一度だけ置いた。ほかの出典(billboard-japan・victor-store・realsound・ぴあ・reol.jp・uta-net)は一度ずつなので本文のまま。
+- body.md の sha256 と段落12のハッシュを付け直した。文言は変わらないので更新日時は付けない。
+- 確認: 開発サーバーの Chromium・WebKit、390・1280px。ナタリーへのリンクはページに1つ、横はみ出し・エラーなし。
