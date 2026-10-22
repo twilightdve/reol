@@ -25,7 +25,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // -nil-／極彩色(plan/49)。Spotify(0)・MV(1)・冒頭(2)・境目の帯の前後(5, 6)・見出し(9, 16, 28, 43, 55, 67, 76)・16曲の輪の前後(12, 13)・要の一文(24 とその前後)・四つのにじみの前後(30, 31)・年表の前後(46, 47)・武道館の映像の前後(57, 58)・二つの輪の前後(64, 65)・色見本の前後(70, 71)・結び(80)
   "reol-song-012": {
     bodyRevision: 2,
-    bodySha256: "e5736f436343fd454b67fb4360b50f8bc9cb8850205ae98c405a14b9d4b2d6b5",
+    bodySha256: "bd35832a5af58efb52c8c7230a4a8f5dc6c4b3918d50836ea4489502b92658a4",
     blockCount: 81,
     anchors: [
       { block: 0, textHash: "cea5894b1fa5bbcb" },
@@ -34,7 +34,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 5, textHash: "bbe4e93e9d951c05" },
       { block: 6, textHash: "26ec04b6e9aa3f04" },
       { block: 9, textHash: "3cf242f9bedddf32" },
-      { block: 12, textHash: "7721e58c8bbf9a88" },
+      { block: 12, textHash: "c6dfbc7f6f0aae36" },
       { block: 13, textHash: "21dc43b857fdc7be" },
       { block: 16, textHash: "4ff980ea31716819" },
       { block: 23, textHash: "99a89b83835ff8b9" },
