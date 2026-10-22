@@ -373,7 +373,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
               <div className="rounded-xl border border-bx-line overflow-hidden">
                 <iframe
                   className="block w-full"
-                  src={`https://open.spotify.com/embed/track/${spotifyTrackId}?utm_source=generator`}
+                  src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
                   width="100%"
                   height="152"
                   allowFullScreen

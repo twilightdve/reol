@@ -289,7 +289,7 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
       name: localTypeInfo.name,
       song: localTypeInfo.songLabel,
       summary: localTypeInfo.summary.slice(0, 60) + '…',
-      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${typeCode.toLowerCase()}/?utm_source=share_x`, lang)}`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${typeCode.toLowerCase()}/`, lang)}`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -360,7 +360,7 @@ const ReolTypeDetailPage = ({ pageContext }: PageProps<object, PageContext>) => 
         {typeInfo.spotifyTrackId && (
           <div className="rounded-xl overflow-hidden">
             <iframe
-              src={`https://open.spotify.com/embed/track/${typeInfo.spotifyTrackId}?utm_source=generator&theme=0`}
+              src={`https://open.spotify.com/embed/track/${typeInfo.spotifyTrackId}?theme=0`}
               width="100%"
               height="152"
               frameBorder="0"
