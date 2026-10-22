@@ -25,12 +25,12 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // -nil-／極彩色(plan/49)。Spotify(0)・MV(1)・冒頭(2)・境目の帯の前後(5, 6)・見出し(9, 16, 28, 43, 55, 67, 76)・16曲の輪の前後(12, 13)・要の一文(24 とその前後)・四つのにじみの前後(30, 31)・年表の前後(46, 47)・武道館の映像の前後(57, 58)・二つの輪の前後(64, 65)・色見本の前後(70, 71)・結び(80)
   "reol-song-012": {
     bodyRevision: 2,
-    bodySha256: "a88ca3ec292253766bf3450a3c694dc2d8a9f09fe4d5be0e6f7ff0fe8d151573",
+    bodySha256: "e0035e4e9b30a658f790185d4be159577f668369be512596a5d2191c54ad2cf0",
     blockCount: 81,
     anchors: [
       { block: 0, textHash: "cea5894b1fa5bbcb" },
       { block: 1, textHash: "b16101997af010cc" },
-      { block: 2, textHash: "5616e04a83704ed7" },
+      { block: 2, textHash: "7bfeb1b40c91dd6b" },
       { block: 5, textHash: "bbe4e93e9d951c05" },
       { block: 6, textHash: "26ec04b6e9aa3f04" },
       { block: 9, textHash: "3cf242f9bedddf32" },

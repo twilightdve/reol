@@ -294,11 +294,6 @@
 .a012-section--last {
   margin-bottom: 0;
 }
-.a012-intro p:first-child {
-  font-size: clamp(20px, 2.7vw, 25px);
-  font-weight: 800;
-  line-height: 1.75;
-}
 .a012-pull {
   margin: 2em 0;
   padding: 0.2em 0 0.2em 1em;
