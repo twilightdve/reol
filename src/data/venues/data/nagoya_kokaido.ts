@@ -125,7 +125,7 @@ export const nagoya_kokaido: Venue = {
         description: '名鉄協商パーキング 鶴舞の駐車場情報',
         price: '料金要確認',
         distance: '距離要確認',
-        website: 'https://mkp.jp/search/detail/004575-0/?utm_source=gbp&utm_medium=profile&utm_campaign=4575',
+        website: 'https://mkp.jp/search/detail/004575-0/',
         mapsUrl: 'https://www.google.com/maps/search/名鉄協商パーキング+鶴舞',
       },
     ],

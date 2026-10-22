@@ -25,6 +25,7 @@ import {
 } from "../types/live";
 import { Recommend } from "../types/recommend";
 import { Place, PlaceItem } from "../types/places";
+import { stripTrackingParams } from "../utils/stripTrackingParams";
 
 export type Index = {
   id: string;
@@ -398,7 +399,8 @@ export class SheetService {
         liveItemName: strOrNull(row[COL.liveItem.liveItemName]),
         date: str(row[COL.liveItem.date]),
         place: strOrNull(row[COL.liveItem.place]),
-        placeSite: strOrNull(row[COL.liveItem.placeSite]),
+        // 会場サイトのURLは Google の店舗情報から写すと utm_* が付いてくるので外す
+        placeSite: ((v) => (v ? stripTrackingParams(v) : null))(strOrNull(row[COL.liveItem.placeSite])),
         address: strOrNull(row[COL.liveItem.address]),
         googleMapsUrl: strOrNull(row[COL.liveItem.googleMapsUrl]),
         spotifyPlaylistId: strOrNull(row[COL.liveItem.spotifyPlaylistId]),

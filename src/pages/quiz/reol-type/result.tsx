@@ -282,7 +282,7 @@ const ResultPage = () => {
       ai: percentages.AI,
       aiR: 100 - percentages.AI,
       // タイプ別OG画像が出るようタイプ詳細ページのURLを共有する
-      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${result.typeCode.toLowerCase()}/?utm_source=share_x`, lang)}`,
+      url: `${SITE_URL}${localizePath(`/quiz/reol-type/types/${result.typeCode.toLowerCase()}/`, lang)}`,
     });
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');

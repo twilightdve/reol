@@ -125,7 +125,7 @@ export const nagoya_kokaido_en: Venue = {
       description: 'Meitetsu Kyoso Parking Tsurumai information',
       price: 'Check for rates',
       distance: 'Check for distance',
-      website: 'https://mkp.jp/search/detail/004575-0/?utm_source=gbp&utm_medium=profile&utm_campaign=4575',
+      website: 'https://mkp.jp/search/detail/004575-0/',
       mapsUrl: 'https://www.google.com/maps/search/Meitetsu+Kyoso+Parking+Tsurumai',
     },
   ],

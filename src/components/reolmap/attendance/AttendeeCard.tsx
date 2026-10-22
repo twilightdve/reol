@@ -455,7 +455,7 @@ export const AttendeeCard: React.FC<AttendeeCardProps> = ({
                 <span>推し曲: {favoriteSong}</span>
               </div>
               <iframe
-                src={`https://open.spotify.com/embed/track/${favoriteSongData.spotifyTrackId}?utm_source=generator&theme=0`}
+                src={`https://open.spotify.com/embed/track/${favoriteSongData.spotifyTrackId}?theme=0`}
                 width="100%"
                 height="152"
                 frameBorder="0"

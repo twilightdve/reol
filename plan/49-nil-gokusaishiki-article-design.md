@@ -127,3 +127,8 @@
 
 - ユーザー「公開OK」。`article.json` の status を published に、publishedAt を 2026-10-22T17:47:47.547Z にした(`articles:publish` は staging の本文で body.md を上書きし、5章で外した tower.jp のリンクが戻るため使わない。前例 13cf7c3993 と同じ書き換え)。
 - slug は `nil-gokusaishiki` のまま公開した。
+
+## 11. 出典リンクの utm_source を外す(2026-10-23)
+
+- ユーザー「基本的にリンクには utm_source をつけないでください」。本文の出典リンク5つ(natalie.mu ×3、billboard-japan.com、victor-store.jp)から `?utm_source=chatgpt.com` を外した(body.md を手で直し、sha256 を付け直し。段落のハッシュは変わらない)。公開済みだが文言は変わらないので、更新日時は付けない。
+- サイト全体でも外した: 会場サイトのURL(シートの placeSite を取り込むときに `stripTrackingParams` で utm_* を外す)、名古屋市公会堂の会場データ、Spotify 埋め込みの `utm_source=generator`、Reolタイプ診断の共有URLの `utm_source=share_x`。

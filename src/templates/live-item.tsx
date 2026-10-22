@@ -394,7 +394,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
               <div className="rounded-xl border border-bx-line overflow-hidden">
                 <iframe
                   className="block w-full"
-                  src={`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}?utm_source=generator`}
+                  src={`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}`}
                   width="100%"
                   height="400"
                   allowFullScreen
