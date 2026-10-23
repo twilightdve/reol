@@ -1373,7 +1373,12 @@ const createSongStatsNodes = async (
     console.log(
       `[setlist-grammar] pairs=${pairCounts.size} openers=${openerCount.size} closers=${closerCount.size} tourDiffs=${tourDiffs.length} workTrends=${workTrends.length}`
     );
-  }
+  }  // サイト既定のOG画像にトップと同じ数字を載せるため、集計値を返す
+  return {
+    songCount: siteStats.songCount,
+    liveItemCount: siteStats.liveItemCount,
+    performanceCount: siteStats.performanceCount,
+  };
 };
 
 /**
@@ -1526,7 +1531,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
       createPostsIndexNode(sheet, args),
     ]);
     // disc/live のロード後に楽曲×ライブのインデックスを作る
-    await createSongStatsNodes(sheet, args);
+    const siteOgStats = await createSongStatsNodes(sheet, args);
     const relive = await generateReliveData({
       liveJsonPath: "static/data/live.json",
       discographyJsonPath: "static/data/discography.json",
@@ -1548,6 +1553,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (args) => {
     const siteOg = await generateSiteOgImage({
       outputDir: "static",
       mirrorOutputDir: "public",
+      stats: siteOgStats,
     });
     console.log(`[site-og] generated=${siteOg.generated}, skipped=${siteOg.skipped}`);
   } catch (error) {
