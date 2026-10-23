@@ -106,7 +106,7 @@ const CoverArt: React.FC = () => (
   </svg>
 );
 
-/** 段落10の後: 四角い断片(漢字の多い短い言葉)が詰まって並び、サビで同じ列が区切りなくひと続きになる */
+/** 段落10の後: 四角い断片(漢字の多い短い言葉)が上下を囲まれた狭い帯に詰まって並び、サビの境目で囲いが終わって、線が上下いっぱいに開ける */
 const CHOP_ROWS = (() => {
   const rnd = seeded(5);
   return [0, 1, 2].map(() => {
@@ -123,17 +123,37 @@ const CHOP_ROWS = (() => {
     return cells;
   });
 })();
+const CHOP_ROW_Y = [80, 110, 140]; // 各列の中心
+// サビ: 境目の帯の中(左)から出て、右端では上下いっぱいに広がる線。[出る高さ, 右端の高さ]
+const CHOP_OPEN: [number, number][] = [
+  [80, 12],
+  [95, 61],
+  [110, 110],
+  [125, 159],
+  [140, 208],
+];
+const openPath = ([y0, y1]: [number, number]) => `M352 ${y0} C 430 ${y0}, 470 ${y1}, 600 ${y1}`;
 const Chop: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
-    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで区切りなくひと続きになる">
-      <svg viewBox="0 0 600 150" aria-hidden="true">
+    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで一気に開ける">
+      <svg viewBox="0 0 600 220" aria-hidden="true">
+        <defs>
+          <linearGradient id="a014-chop-glow" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor="#c8a6b8" stopOpacity="0" />
+            <stop offset="1" stopColor="#c8a6b8" stopOpacity="0.22" />
+          </linearGradient>
+        </defs>
+        <path d="M10 62 H340 M10 158 H340" className="a014-chop__wall" />
         {CHOP_ROWS.map((row, r) =>
-          row.map((x, i) => <rect key={`${r}-${i}`} x={20 + x} y={30 + r * 36} width="12" height="12" className="a014-chop__cell" style={{ animationDelay: `${(r * row.length + i) * 12}ms` }} />)
+          row.map((x, i) => (
+            <rect key={`${r}-${i}`} x={20 + x} y={CHOP_ROW_Y[r] - 6} width="12" height="12" className="a014-chop__cell" style={{ animationDelay: `${(r * row.length + i) * 12}ms` }} />
+          ))
         )}
-        <line x1="340" y1="18" x2="340" y2="132" className="a014-chop__seam" />
-        {CHOP_ROWS.map((_, r) => (
-          <rect key={r} x="352" y={30 + r * 36} width="238" height="12" className={`a014-chop__run${r === 1 ? " is-2" : ""}`} />
+        <line x1="340" y1="40" x2="340" y2="180" className="a014-chop__seam" />
+        <path d="M352 74 C 430 74, 470 4, 600 4 V 216 C 470 216, 430 146, 352 146 Z" className="a014-chop__glow" fill="url(#a014-chop-glow)" />
+        {CHOP_OPEN.map((l, i) => (
+          <path key={i} d={openPath(l)} className={`a014-chop__line${i === 2 ? " is-2" : ""}`} pathLength={1} />
         ))}
       </svg>
       <div className="a014-chop__labels" aria-hidden="true">

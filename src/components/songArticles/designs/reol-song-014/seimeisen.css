@@ -332,17 +332,22 @@
   stroke-width: 1;
   stroke-dasharray: 3 4;
 }
-/* サビ: 断片と同じ枠の列が、区切りなしに右端まで続く */
-.a014-chop__run {
+/* 断片を詰めた狭い帯の上下の囲い。サビの境目で終わる */
+.a014-chop__wall {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+}
+/* サビ: 囲いがなくなり、線が上下いっぱいに広がる。広がった場所に淡い藤色の明るさ */
+.a014-chop__line {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 1.4;
-  transform-box: fill-box;
-  transform-origin: left center;
+  stroke-width: 1.6;
+  stroke-linecap: round;
 }
-.a014-chop__run.is-2 {
-  fill: var(--mauve);
+.a014-chop__line.is-2 {
   stroke: var(--mauve);
+  stroke-width: 3;
 }
 .a014-chop__labels {
   display: grid;
@@ -357,22 +362,29 @@
 .a014-chop.is-armed .a014-chop__cell {
   opacity: 0;
 }
-.a014-chop.is-armed .a014-chop__run {
-  transform: scaleX(0);
+.a014-chop.is-armed .a014-chop__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.a014-chop.is-armed .a014-chop__glow {
+  opacity: 0;
 }
 .a014-chop.is-visible .a014-chop__cell {
   animation: a014-bit 0.15s ease-out both;
 }
-.a014-chop.is-visible .a014-chop__run {
-  animation: a014-run 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s both;
+.a014-chop.is-visible .a014-chop__line {
+  animation: a014-draw 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s both;
+}
+.a014-chop.is-visible .a014-chop__glow {
+  animation: a014-glow 0.9s ease-out 1.6s both;
 }
 
-@keyframes a014-run {
+@keyframes a014-glow {
   from {
-    transform: scaleX(0);
+    opacity: 0;
   }
   to {
-    transform: scaleX(1);
+    opacity: 1;
   }
 }
 @keyframes a014-fade {
