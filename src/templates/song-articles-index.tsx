@@ -43,6 +43,8 @@ type IndexEntry = {
   tags: string[];
   /** 初出の作品(アルバムの絞り込みに使う) */
   album: { title: string; releaseDate: string | null } | null;
+  /** カードの表紙の画像(記事の表紙を撮ったもの。npm run articles:og)。無ければ null */
+  cover?: string | null;
   preview: boolean;
   /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
   unlisted?: boolean;
@@ -101,13 +103,33 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
   const date = formatArticleDate(dateIso);
   const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   const parts = splitTitleBySong(a.title, a.songTitle);
+  // カード型(2026-10-23 ユーザー「記事の表紙デザインを反映させたカード型のアイテムにしたい」)。上に記事の表紙の画像
   return (
-    <li>
-      <Link
-        to={`/articles/${a.slug}/`}
-        onClick={() => trackEvent("article_list_click", { category: "navigation", label: a.slug })}
-        className="group block pt-6 pb-3"
-      >
+    <li className="flex">
+      <article className="group flex w-full flex-col overflow-hidden rounded-lg border border-bx-line transition-colors hover:border-bx-blue">
+        <Link
+          to={`/articles/${a.slug}/`}
+          onClick={() => trackEvent("article_list_click", { category: "navigation", label: a.slug })}
+          className="block"
+        >
+          <div className="relative aspect-[40/21] overflow-hidden border-b border-bx-line bg-bx-line/40">
+            {a.cover ? (
+              <img
+                src={a.cover}
+                alt=""
+                width={800}
+                height={420}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            ) : (
+              <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center px-6 text-center text-2xl font-extrabold text-bx-ink3">
+                {a.songTitle}
+              </span>
+            )}
+          </div>
+          <div className="px-4 pt-4 pb-2">
         {badge && (
           <p className="mb-2">
             <span className={`inline-block rounded px-2 py-0.5 text-[11px] font-extrabold ${BADGE_CLASS[badge.tone]}`}>{badge.label}</span>
@@ -117,7 +139,7 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
         {kicker && (
           <p className="mb-2 text-[11px] font-extrabold tracking-[0.2em] text-bx-blue [overflow-wrap:anywhere]">{kicker}</p>
         )}
-        <h3 className="text-[17px] sm:text-[19px] font-semibold leading-snug text-bx-ink2 group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
+        <h3 className="text-[16px] sm:text-[17px] font-semibold leading-snug text-bx-ink2 group-hover:text-bx-blue transition-colors [overflow-wrap:anywhere]">
           {/* 曲名の文字だけ強調する(題名の文字はそのまま。2026-10-13 ユーザー指定) */}
           {parts ? (
             <>
@@ -129,7 +151,7 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
             a.title
           )}
         </h3>
-        {a.summary && <p className="mt-2 text-[14px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
+        {a.summary && <p className="mt-2 text-[13px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
         <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-bx-ink3">
           {date && (
             <span>
@@ -166,9 +188,10 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
             </span>
           )}
         </p>
-      </Link>
+          </div>
+        </Link>
       {a.tags.length > 0 && (
-        <ul className="flex flex-wrap gap-x-3 gap-y-1 pb-6 text-[12px]" aria-label="タグ">
+        <ul className="mt-auto flex flex-wrap gap-x-3 gap-y-1 px-4 pt-1 pb-4 text-[12px]" aria-label="タグ">
           {a.tags.map((t) => (
             <li key={t}>
               <Link
@@ -181,6 +204,7 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
           ))}
         </ul>
       )}
+      </article>
     </li>
   );
 };
@@ -281,7 +305,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
 
   return (
     <Layout title={current ? `${current.name}|読みもの` : "読みもの"}>
-      <main lang="ja" className="container mx-auto px-4 sm:px-6 py-8 max-w-3xl text-bx-ink">
+      <main lang="ja" className="container mx-auto px-4 sm:px-6 py-8 max-w-5xl text-bx-ink">
         <nav aria-label="パンくず" className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-bx-ink3">
           <Link to="/" className="hover:text-bx-blue transition-colors">
             HOME
@@ -299,7 +323,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
             <span className="text-bx-ink">読みもの</span>
           )}
         </nav>
-        <header className="mt-6 mb-6">
+        <header className="mt-6 mb-6 max-w-3xl">
           <Kicker color="text-bx-blue">{current ? "SERIES" : "READING"}</Kicker>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-tight">{current ? current.name : "読みもの"}</h1>
           <p className="mt-3 text-[14px] leading-relaxed text-bx-ink2">{current ? current.description : DESCRIPTION}</p>
@@ -403,7 +427,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
               </header>
             )}
             {current && <h2 id={`series-${s.slug}`} className="sr-only">{s.name}の記事</h2>}
-            <ul className="divide-y divide-bx-line border-t border-b border-bx-line">
+            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((a) => (
                 <ArticleItem
                   key={a.slug}

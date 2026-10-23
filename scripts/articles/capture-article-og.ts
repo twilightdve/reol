@@ -6,6 +6,7 @@
 // - 開発サーバー(npm run develop / articles:preview。既定 http://localhost:8000)が動いている状態で実行する。
 //   ビルド(gatsby build)の中では撮らない(デプロイの手順にブラウザを持ち込まないため)。
 // - 書き出し先は static/articles-og/<slug>.jpg。リポジトリにコミットする(ビルドでは作り直さない)。
+// - 同じ表紙から、読みもの一覧のカード用の画像 static/articles-cover/<slug>.jpg(800x420、右下のサイト名なし)も書き出す。
 //   表紙のデザインや題名を変えたら撮り直す。公開中の記事に画像が無いとデプロイ前チェックで止まる。
 // - 表紙のうち各記事の data-og-cover を付けた要素だけを残し、サイトの枠・パンくず・リンクは隠す。
 //   MVのサムネイルやジャケットなど公式の画像は、画像として焼き込まない(サイトでは公式の埋め込み・リンクだけを使うため)。
@@ -14,10 +15,13 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { webkit, type Page } from "playwright";
+import sharp from "sharp";
 
 const ROOT = process.cwd();
 const BASE_URL = process.env.ARTICLES_OG_BASE_URL || "http://localhost:8000";
 const OUT_DIR = path.join(ROOT, "static/articles-og");
+const COVER_DIR = path.join(ROOT, "static/articles-cover");
+const COVER_WIDTH = 800;
 const WIDTH = 1200;
 const HEIGHT = 630;
 
@@ -118,11 +122,16 @@ const isolateCover = async (page: Page) => {
         for (const prop of ["margin", "padding", "min-height", "border"]) parent.style.setProperty(prop, "0", "important");
       }
     }
+    window.scrollTo(0, 0);
+  });
+};
+
+const addBrand = async (page: Page) => {
+  await page.evaluate(() => {
     const brand = document.createElement("div");
     brand.className = "og-brand";
     brand.textContent = "!Legit — Reol 非公式ファンサイト";
-    cover.appendChild(brand);
-    window.scrollTo(0, 0);
+    document.querySelector("[data-og-cover]")?.appendChild(brand);
   });
 };
 
@@ -149,8 +158,13 @@ const capture = async (page: Page, a: Published) => {
     );
   });
   await page.waitForTimeout(800);
+  const clip = { x: 0, y: 0, width: WIDTH, height: HEIGHT };
+  // カード用(サイト名なし)を先に撮って縮める
+  const raw = await page.screenshot({ type: "png", clip });
+  await sharp(raw).resize(COVER_WIDTH).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(COVER_DIR, `${a.slug}.jpg`));
+  await addBrand(page);
   const file = path.join(OUT_DIR, `${a.slug}.jpg`);
-  await page.screenshot({ path: file, type: "jpeg", quality: 88, clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT } });
+  await page.screenshot({ path: file, type: "jpeg", quality: 88, clip });
   return file;
 };
 
@@ -159,13 +173,14 @@ const main = async () => {
   const targets = (await loadPublished()).filter((a) => only.length === 0 || only.includes(a.slug) || only.includes(a.id));
   if (targets.length === 0) throw new Error("撮る記事がありません");
   await fs.mkdir(OUT_DIR, { recursive: true });
+  await fs.mkdir(COVER_DIR, { recursive: true });
   const browser = await webkit.launch();
   try {
     for (const a of targets) {
       const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1, reducedMotion: "reduce" });
       const file = await capture(page, a);
       const { size } = await fs.stat(file);
-      console.log(`[articles-og] ${a.id} → ${path.relative(ROOT, file)} (${Math.round(size / 1024)}KB)`);
+      console.log(`[articles-og] ${a.id} → ${path.relative(ROOT, file)} (${Math.round(size / 1024)}KB) + articles-cover`);
       await page.close();
     }
   } finally {
