@@ -35,7 +35,6 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: clamp(540px, 88svh, 760px);
   display: flex;
   flex-direction: column;
   background: radial-gradient(120% 90% at 85% 10%, var(--blue) 0%, transparent 60%), var(--ground);
@@ -43,13 +42,13 @@
 .a014-title__row {
   display: flex;
   align-items: center;
-  gap: 0.12em;
-  font-size: clamp(76px, 17vw, 184px);
+  gap: 0.1em;
+  font-size: clamp(92px, 25vw, 150px);
 }
-/* 題名の右の円弧。題名の文字の大きさに合わせる(線の太さは viewBox の単位。狭い画面では太くする) */
+/* 題名の右の円弧。縦に積んだ題名(3文字)と同じ高さ(線の太さは viewBox の単位) */
 .a014-cover__art {
   flex: none;
-  height: 1.45em;
+  height: 3em;
   width: auto;
   aspect-ratio: 270 / 640;
   overflow: visible;
@@ -57,25 +56,25 @@
 .a014-cover__bits path {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 10;
+  stroke-width: 8;
   opacity: 0.85;
 }
 .a014-cover__open {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 9;
+  stroke-width: 6;
   stroke-linecap: round;
 }
 .a014-cover__echo {
   fill: none;
   stroke: var(--mauve);
-  stroke-width: 2.5;
+  stroke-width: 2;
   opacity: 0.7;
 }
 .a014-cover__node {
   fill: var(--ground);
   stroke: var(--ink);
-  stroke-width: 5;
+  stroke-width: 4;
 }
 @media (prefers-reduced-motion: no-preference) {
   /* 断片が刻むように次々と現れ、そのあと一本の線が伸びて開ける */
@@ -149,24 +148,23 @@
   text-decoration: underline;
 }
 .a014-cover__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   width: min(1040px, calc(100% - 40px));
   margin: 0 auto;
-  padding-bottom: clamp(40px, 8vw, 80px);
+  padding: clamp(16px, 4vw, 40px) 0 clamp(40px, 7vw, 72px);
 }
 .a014-title {
   margin: 0;
 }
 .a014-title__song {
-  display: block;
-  font-size: 1em;
+  display: flex;
+  flex-direction: column;
   font-weight: 900;
   line-height: 1;
-  letter-spacing: -0.02em;
   color: var(--ink);
+}
+.a014-title__char {
+  display: block;
+  height: 1em;
 }
 .a014-title__sub {
   display: block;
@@ -491,18 +489,7 @@
   .a014-chop__labels {
     font-size: 11px;
   }
-  .a014-cover__bits path {
-    stroke-width: 20;
-  }
-  .a014-cover__open {
-    stroke-width: 18;
-  }
-  .a014-cover__echo {
-    stroke-width: 5;
-  }
-  .a014-cover__node {
-    stroke-width: 10;
-  }
+
   /* 狭い画面では表紙の線を大きく、左右は画面の外へはみ出させる */
 }
 @media print {
