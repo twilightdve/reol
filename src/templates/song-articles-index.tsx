@@ -374,7 +374,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
         </div>
         {hasViews && pageViewsAt && (
           <p className="-mt-4 mb-6 text-[11px] text-bx-ink3">
-            表示回数は公開日からの数で、{jstDate(pageViewsAt)}時点のものです(Google アナリティクスの計測。計測されない閲覧もあります)。
+            表示回数は公開日からの数で、{jstDate(pageViewsAt)}時点のものです(計測されない閲覧もあります)。
           </p>
         )}
 
