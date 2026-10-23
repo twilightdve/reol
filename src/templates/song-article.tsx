@@ -19,6 +19,7 @@ import { trackEvent } from "../utils/analytics";
 import type { SongArticlePageContext } from "../components/songArticles/designs/types";
 import { SONG_ARTICLE_DESIGNS } from "../components/songArticles/designs";
 import { isReleased, useNow } from "../utils/songArticles/schedule";
+import { ARTICLES_FEED_PATH, ARTICLES_FEED_TITLE } from "../utils/songArticles/feed";
 
 export type { SongArticlePageContext };
 
@@ -172,6 +173,7 @@ export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) =>
   }
   return (
     <>
+      <link rel="alternate" type="application/rss+xml" title={ARTICLES_FEED_TITLE} href={ARTICLES_FEED_PATH} />
       <SEO
         title={title}
         description={description ?? undefined}
