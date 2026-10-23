@@ -92,10 +92,6 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   "reol-song-012": `
     .og-brand { color: #646a72 !important; text-shadow: none !important; }
   `,
-  // 生命線: 横長に切ると表紙の線が題名に重なるので、線を上の空きへ寄せる
-  "reol-song-014": `
-    .a014-cover__art { top: 24px !important; }
-  `,
   "reol-song-057": `
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
     .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
