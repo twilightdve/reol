@@ -92,9 +92,9 @@ const COVER_BITS = (() => {
   return bits;
 })();
 
-/** 表紙: 手相の生命線。前半は断片が刻むように並び、後半は一本の線になって手首へ伸びる */
+/** 表紙: 題名の右に置く生命線の円弧。前半は断片が刻むように並び、後半は一本の線になる */
 const CoverArt: React.FC = () => (
-  <svg className="a014-cover__art" viewBox="0 0 600 820" aria-hidden="true">
+  <svg className="a014-cover__art" viewBox="180 100 270 640" aria-hidden="true">
     <g className="a014-cover__bits">
       {COVER_BITS.map((b, i) => (
         <path key={i} d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${b.from} ${b.len} 2`} style={{ animationDelay: `${0.2 + i * 0.05}s` }} />
@@ -102,7 +102,7 @@ const CoverArt: React.FC = () => (
     </g>
     <path className="a014-cover__echo" d={ECHO_LINE} />
     <path className="a014-cover__open" d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${SPLIT} ${1 - SPLIT} 2`} />
-    <circle cx="265" cy="716" r="9" className="a014-cover__node" />
+    <circle cx="265" cy="716" r="16" className="a014-cover__node" />
   </svg>
 );
 
@@ -165,7 +165,7 @@ const Palm: React.FC = () => {
   }, []);
   return (
     <figure ref={ref} className={`a014-palm${className}`} aria-label="傷も、大切に思う気持ちも、同じ一本の線の上にある">
-      <svg viewBox="0 0 600 820" aria-hidden="true">
+      <svg viewBox="150 90 330 660" aria-hidden="true">
         <path d={PALM} className="a014-palm__glow" />
         <path ref={pathRef} d={PALM} className="a014-palm__line" pathLength={1} />
         {nicks.map((n, i) => (
@@ -193,7 +193,6 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
     <main className="a014" lang="ja">
       <article>
         <header className="a014-cover" data-og-cover>
-          <CoverArt />
           <div className="a014-cover__top">
             <nav aria-label="パンくず" className="a014-crumbs">
               <Link to="/">HOME</Link>
@@ -205,7 +204,11 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
           </div>
           <div className="a014-cover__body">
             <h1 className="a014-title">
-              <span className="a014-title__song">{tMain}</span>
+              {/* 生命線の円弧は題名のすぐ右に置く(ユーザー、2026-10-23) */}
+              <span className="a014-title__row">
+                <span className="a014-title__song">{tMain}</span>
+                <CoverArt />
+              </span>
               {tSub && <span className="a014-title__sub">{tSub}</span>}
             </h1>
             <p className="a014-date">
