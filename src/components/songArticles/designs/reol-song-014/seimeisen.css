@@ -1,0 +1,535 @@
+/*
+ * 楽曲記事「生命線」(reol-song-014)の記事別デザイン(見本 v1)。根拠は plan/50。
+ * すべて .a014 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --ground 深い青の地 / --ink 白い文字・線 / --ink-2 補足
+ *   --blue 『-nil-／極彩色』の輪で「生命線」に当てた深い青 #1d4f7a / --mauve 同じく淡い藤色 #c8a6b8(差し色)
+ *   --link 深い地で読める明るい青
+ */
+
+.a014 {
+  --ground: #0e1d30;
+  --ground-2: #13283f;
+  --blue: #1d4f7a;
+  --mauve: #c8a6b8;
+  --ink: #eef1f5;
+  --ink-2: #a6b2c1;
+  --line: rgb(238 241 245 / 0.16);
+  --link: #a9cdf0;
+  --column: min(640px, calc(100% - 56px));
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--ink);
+  background: var(--ground);
+  /* 暗い地に白い文字は太って見えるので、輪郭のなめらかさを抑える */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 断片が詰まって並び、一本の線になって開ける ---------- */
+.a014-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(540px, 88svh, 760px);
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(120% 90% at 85% 10%, var(--blue) 0%, transparent 60%), var(--ground);
+}
+.a014-cover__art {
+  position: absolute;
+  z-index: -1;
+  top: clamp(72px, 16%, 150px);
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.a014-cover__bits rect {
+  fill: var(--ink);
+  opacity: 0.85;
+}
+.a014-cover__open {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.a014-cover__glow {
+  fill: none;
+  stroke: var(--mauve);
+  stroke-width: 22;
+  stroke-linecap: round;
+  opacity: 0.3;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* 断片が刻むように次々と現れ、そのあと一本の線が伸びて開ける */
+  .a014-cover__bits rect {
+    animation: a014-bit 0.15s ease-out both;
+  }
+  .a014-cover__open,
+  .a014-cover__glow {
+    stroke-dasharray: 1;
+    animation: a014-draw 1.4s cubic-bezier(0.3, 0.6, 0.2, 1) 1.15s both;
+  }
+}
+@keyframes a014-bit {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+@keyframes a014-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.a014-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a014-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.a014-crumbs a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.a014-crumbs a:hover,
+.a014-crumbs a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.a014-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: clamp(40px, 8vw, 80px);
+}
+.a014-title {
+  margin: 0;
+}
+.a014-title__song {
+  display: block;
+  font-size: clamp(76px, 17vw, 184px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.a014-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-size: clamp(15px, 2vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a014-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+}
+
+/* ---------- 本文: 左に記事を貫く一本の線 ---------- */
+.a014-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+  background: var(--ground);
+}
+.a014-column {
+  position: relative;
+  width: var(--column);
+  margin: 0 auto;
+}
+.a014-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(-40px, -4vw, -18px);
+  width: 2px;
+  background: linear-gradient(var(--ink), var(--ink)) top / 2px 100% no-repeat;
+  opacity: 0.28;
+}
+.a014-endmark {
+  position: relative;
+  height: 40px;
+}
+.a014-endmark::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: calc(clamp(-40px, -4vw, -18px) - 6px);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--ground);
+}
+.a014-listen {
+  margin: 0 0 18px;
+  font-size: 13px;
+}
+.a014-listen a {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.a014-listen a:hover {
+  background: var(--ink);
+  color: var(--ground);
+}
+.a014-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+  color: #e2e7ed;
+}
+.a014-text p {
+  margin: 0;
+}
+.a014-text p + p {
+  margin-top: 1.3em;
+}
+/* 見出し: 左の線の上の節目(線に乗った四角) */
+.a014-text h2 {
+  position: relative;
+  margin: 0 0 1.3em;
+  padding-top: 1.4em;
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  word-break: auto-phrase;
+}
+.a014-text h2::before {
+  content: "";
+  position: absolute;
+  top: calc(1.4em + 0.42em);
+  left: calc(clamp(-40px, -4vw, -18px) - 5px);
+  width: 12px;
+  height: 12px;
+  background: var(--mauve);
+}
+.a014-section {
+  margin-bottom: clamp(56px, 8vw, 88px);
+}
+.a014-section--last {
+  margin-bottom: 0;
+}
+.a014-text.a014-pull {
+  margin: 1.6em 0;
+  color: var(--ink);
+  font-size: clamp(21px, 3vw, 27px);
+  font-weight: 900;
+  line-height: 1.7;
+}
+.a014-ground a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a014-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.a014-ground .a014-listen a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.a014-ground .a014-listen a:hover {
+  color: var(--ground);
+}
+.a014-note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a014-note p {
+  margin: 0;
+}
+.a014-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--mauve);
+}
+.a014-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------- 断片から一本の線へ ---------- */
+.a014-chop {
+  margin: 2.4em 0;
+}
+.a014-chop svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.a014-chop__cell {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+.a014-chop__seam {
+  stroke: var(--mauve);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+.a014-chop__line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.a014-chop__line.is-2 {
+  stroke: var(--mauve);
+}
+.a014-chop__labels {
+  display: grid;
+  grid-template-columns: 340fr 260fr;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+}
+.a014-chop.is-armed .a014-chop__cell {
+  opacity: 0;
+}
+.a014-chop.is-armed .a014-chop__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.a014-chop.is-visible .a014-chop__cell {
+  animation: a014-bit 0.15s ease-out both;
+}
+.a014-chop.is-visible .a014-chop__line {
+  animation: a014-draw 1.1s cubic-bezier(0.3, 0.6, 0.2, 1) 1.5s both;
+}
+
+/* ---------- 一本の線の上と下 ---------- */
+.a014-sides {
+  margin: 2.4em 0;
+}
+.a014-sides svg {
+  display: block;
+  width: 100%;
+  height: clamp(90px, 16vw, 130px);
+}
+.a014-sides__up {
+  fill: rgb(200 166 184 / 0.16);
+}
+.a014-sides__down {
+  fill: rgb(29 79 122 / 0.55);
+}
+.a014-sides__line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.a014-sides__label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.a014-sides__label.is-up {
+  margin-bottom: 10px;
+  color: var(--mauve);
+}
+.a014-sides__label.is-down {
+  margin-top: 10px;
+  text-align: right;
+  color: var(--link);
+}
+.a014-sides.is-armed .a014-sides__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.a014-sides.is-armed .a014-sides__up,
+.a014-sides.is-armed .a014-sides__down,
+.a014-sides.is-armed .a014-sides__label {
+  opacity: 0;
+}
+.a014-sides.is-visible .a014-sides__line {
+  animation: a014-draw 1.2s cubic-bezier(0.3, 0.6, 0.2, 1) both;
+}
+.a014-sides.is-visible .a014-sides__up,
+.a014-sides.is-visible .a014-sides__down,
+.a014-sides.is-visible .a014-sides__label {
+  animation: a014-fade 0.8s ease-out 0.9s both;
+}
+@keyframes a014-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- 手のひらの線 ---------- */
+.a014-palm {
+  margin: 2.4em 0;
+}
+.a014-palm svg {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+}
+.a014-palm__glow {
+  fill: none;
+  stroke: var(--mauve);
+  stroke-width: 30;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+.a014-palm__line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.a014-palm__nick {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+.a014-palm.is-armed .a014-palm__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.a014-palm.is-armed .a014-palm__glow,
+.a014-palm.is-armed .a014-palm__nick {
+  opacity: 0;
+}
+.a014-palm.is-visible .a014-palm__line {
+  animation: a014-draw 1.4s cubic-bezier(0.3, 0.6, 0.2, 1) both;
+}
+.a014-palm.is-visible .a014-palm__glow {
+  animation: a014-glow 1.2s ease-out 1.2s both;
+}
+.a014-palm.is-visible .a014-palm__nick {
+  animation: a014-fade 0.25s ease-out both;
+}
+@keyframes a014-glow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+/* ---------- 奥付 ---------- */
+.a014-colophon {
+  padding: clamp(48px, 7vw, 72px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a014-colophon__list,
+.a014-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a014-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+}
+.a014-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a014-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.a014-colophon dd {
+  margin: 0;
+}
+.a014-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+/* ---------- フォーカス ---------- */
+.a014 a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a014-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .a014-text.a014-pull {
+    font-size: 21px;
+  }
+  .a014-chop__labels {
+    font-size: 11px;
+  }
+  /* 狭い画面では表紙の線を大きく、左右は画面の外へはみ出させる */
+  .a014-cover__art {
+    top: clamp(96px, 22%, 180px);
+    left: -25%;
+    width: 150%;
+  }
+}
+@media print {
+  .a014,
+  .a014-ground,
+  .a014-cover {
+    color: #000;
+    background: #fff;
+  }
+  .a014-cover {
+    min-height: 0;
+  }
+  .a014-cover__art,
+  .a014-column::before {
+    display: none;
+  }
+}

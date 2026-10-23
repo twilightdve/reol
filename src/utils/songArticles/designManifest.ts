@@ -22,6 +22,27 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // 生命線(plan/50)。冒頭(0)・クレジットの段落(3)・見出し(4, 12, 23)・断片から線への図の前後(10, 11)・線の上と下の図の前後(16, 17)・手のひらの線の前後(25, 26)・要の一文(29)・結び(30)
+  "reol-song-014": {
+    bodyRevision: 3,
+    bodySha256: "8cdc99cf699f611d2a394035a37257a4a9edaac2f2a62686f7e8b2e2e39544ee",
+    blockCount: 31,
+    anchors: [
+      { block: 0, textHash: "f5be222fe4823dc7" },
+      { block: 3, textHash: "92d2e8573b17d1e3" },
+      { block: 4, textHash: "7cc182b637570ae8" },
+      { block: 10, textHash: "393ff89086be9131" },
+      { block: 11, textHash: "b45a30cf9408f37c" },
+      { block: 12, textHash: "aa9e1b521ff4eda4" },
+      { block: 16, textHash: "c8f7789f14f91656" },
+      { block: 17, textHash: "e199eba17ceda37d" },
+      { block: 23, textHash: "81c3f3ab1b4d77c1" },
+      { block: 25, textHash: "23b4e54c4a11f749" },
+      { block: 26, textHash: "90038c199c22267d" },
+      { block: 29, textHash: "830c882d61d88fff" },
+      { block: 30, textHash: "f14db42ee4f7c2fc" },
+    ],
+  },
   // -nil-／極彩色(plan/49)。Spotify(0)・MV(1)・冒頭(2)・境目の帯の前後(5, 6)・見出し(9, 16, 28, 43, 55, 67, 76)・16曲の輪の前後(12, 13)・要の一文(24 とその前後)・四つのにじみの前後(30, 31)・年表の前後(46, 47)・武道館の映像の前後(57, 58)・二つの輪の前後(64, 65)・色見本の前後(70, 71)・結び(80)
   "reol-song-012": {
     bodyRevision: 2,
