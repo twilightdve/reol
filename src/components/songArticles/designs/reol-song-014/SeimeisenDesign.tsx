@@ -3,7 +3,7 @@
  *
  * - 一本の線の記事。細かく区切られた断片(言葉と音)が、サビで一本の線に開ける(本文 段落1・5〜10)。
  * - 地は深い青、文字は白。色は『-nil-／極彩色』の16曲の輪で「生命線」に当てた深い青と淡い藤色だけ。
- * - 表紙: 手相の生命線(右の手のひら。左から右へ)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
+ * - 表紙: 手相の生命線を円弧に抽象化した線(右の手のひらの向き。左から右へ)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
  * - 本文の左に、記事を貫く一本の線。見出しはその線の上の節目。
  * - 段落10の後: 四角い断片(助詞の少ない、漢字の多い短い言葉)が詰まって並び、サビで一本の線になる。
  * - 段落25の後: 表紙と同じ生命線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
@@ -74,7 +74,10 @@ const seeded = (seed: number) => {
  * 手相の生命線(右の手のひらを見た向き。左から右へ読めるように): 親指と人差し指の間(左上)から、
  * 親指の付け根を囲むように斜め右下へ弧を描き、手首(下)へ向かう。表紙と段落25の後の図で同じ形を使う
  */
-const LIFE_LINE = "M130 70 C 270 120, 400 270, 395 450 S 310 700, 270 770";
+// 手相そのままだと生々しいので、曲率の一定な円弧に抽象化する(中心 (100, 430)、半径 330、-70°〜60°)
+const LIFE_LINE = "M213 120 A330 330 0 0 1 265 716";
+// 表紙で内側に添える細い円弧(同じ中心、半径 290)
+const ECHO_LINE = "M199 157 A290 290 0 0 1 245 681";
 // 表紙: 線の前半は不揃いな断片(細かく区切られた言葉と音)、後半は一本の線(サビで開ける)。値は線の長さを1とした割合
 const SPLIT = 0.46;
 const COVER_BITS = (() => {
@@ -92,18 +95,14 @@ const COVER_BITS = (() => {
 /** 表紙: 手相の生命線。前半は断片が刻むように並び、後半は一本の線になって手首へ伸びる */
 const CoverArt: React.FC = () => (
   <svg className="a014-cover__art" viewBox="0 0 600 820" aria-hidden="true">
-    <defs>
-      <filter id="a014-cover-blur" x="-30%" y="-10%" width="160%" height="120%">
-        <feGaussianBlur stdDeviation="12" />
-      </filter>
-    </defs>
     <g className="a014-cover__bits">
       {COVER_BITS.map((b, i) => (
         <path key={i} d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${b.from} ${b.len} 2`} style={{ animationDelay: `${0.2 + i * 0.05}s` }} />
       ))}
     </g>
-    <path className="a014-cover__glow" d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${SPLIT} ${1 - SPLIT} 2`} filter="url(#a014-cover-blur)" />
+    <path className="a014-cover__echo" d={ECHO_LINE} />
     <path className="a014-cover__open" d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${SPLIT} ${1 - SPLIT} 2`} />
+    <circle cx="265" cy="716" r="9" className="a014-cover__node" />
   </svg>
 );
 
@@ -167,12 +166,7 @@ const Palm: React.FC = () => {
   return (
     <figure ref={ref} className={`a014-palm${className}`} aria-label="傷も、大切に思う気持ちも、同じ一本の線の上にある">
       <svg viewBox="0 0 600 820" aria-hidden="true">
-        <defs>
-          <filter id="a014-blur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="9" />
-          </filter>
-        </defs>
-        <path d={PALM} className="a014-palm__glow" filter="url(#a014-blur)" />
+        <path d={PALM} className="a014-palm__glow" />
         <path ref={pathRef} d={PALM} className="a014-palm__line" pathLength={1} />
         {nicks.map((n, i) => (
           <line key={i} x1={n.x} y1={n.y - 11} x2={n.x} y2={n.y + 11} transform={`rotate(${n.a - 90} ${n.x} ${n.y}) rotate(${i % 2 ? 18 : -14} ${n.x} ${n.y})`} className="a014-palm__nick" style={{ animationDelay: `${0.9 + i * 0.06}s` }} />
