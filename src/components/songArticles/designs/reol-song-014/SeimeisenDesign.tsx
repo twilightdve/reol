@@ -164,6 +164,11 @@ const Chop: React.FC = () => {
 /** 見出し「感性へのプライドが、生命線になる」の上: 手のひらの線のような一本の曲線。細かな刻みと淡い色が、同じ線の同じ場所に重なる */
 const PALM = LIFE_LINE;
 const NICKS = [0.08, 0.15, 0.21, 0.3, 0.37, 0.45, 0.52, 0.6, 0.66, 0.74, 0.81, 0.9];
+// 刻みの長さは不揃いに。線の両側にはみ出す長さを別々に決める(固定の種なので毎回同じ形)
+const NICK_LEN = (() => {
+  const rnd = seeded(14);
+  return NICKS.map(() => [4 + Math.round(rnd() * 16), 4 + Math.round(rnd() * 16)] as const);
+})();
 const Palm: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.45);
   const pathRef = useRef<SVGPathElement>(null);
@@ -187,7 +192,7 @@ const Palm: React.FC = () => {
         <path d={PALM} className="a014-palm__glow" />
         <path ref={pathRef} d={PALM} className="a014-palm__line" pathLength={1} />
         {nicks.map((n, i) => (
-          <line key={i} x1={n.x} y1={n.y - 11} x2={n.x} y2={n.y + 11} transform={`rotate(${n.a - 90} ${n.x} ${n.y}) rotate(${i % 2 ? 18 : -14} ${n.x} ${n.y})`} className="a014-palm__nick" style={{ animationDelay: `${0.9 + i * 0.06}s` }} />
+          <line key={i} x1={n.x} y1={n.y - NICK_LEN[i][0]} x2={n.x} y2={n.y + NICK_LEN[i][1]} transform={`rotate(${n.a - 90} ${n.x} ${n.y}) rotate(${i % 2 ? 18 : -14} ${n.x} ${n.y})`} className="a014-palm__nick" style={{ animationDelay: `${0.9 + i * 0.06}s` }} />
         ))}
       </svg>
     </figure>
