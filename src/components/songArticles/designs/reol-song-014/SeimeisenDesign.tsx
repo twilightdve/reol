@@ -5,10 +5,10 @@
  * - 地は深い青、文字は白。色は『-nil-／極彩色』の16曲の輪で「生命線」に当てた深い青と淡い藤色だけ。
  * - 表紙: 題名を一文字ずつ縦に積み、すぐ右に手相の生命線を円弧に抽象化した線(右の手のひらの向き。左上から右下へ)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
  * - 本文の左に、記事を貫く一本の線。見出しはその線の上の節目。
- * - 段落10の後: 途切れ途切れの短い線(細かく区切られた言葉と音)が狭い帯に詰まって並び、サビでそのまま長い線になって上下に開ける。
+ * - 段落10の後: 実際の歌詞を引用して比べる。左に細かく区切られた言葉(語ごとに短い線)、右にサビの開けた言葉(一本の長い線)。
  * - 見出し「感性へのプライドが、生命線になる」の上: 表紙と同じ生命線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
  * - 段落29(歌詞ではない文)を大きく。
- * - 歌詞は本文の外に出さない。ジャケット・映像は複製しない。
+ * - 歌詞は本文の外に出さない。ただし段落10の後の比べる引用だけは例外(2026-10-23 ユーザーの指示。引用する行もユーザーが選んだ)。ジャケット・映像は複製しない。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
  */
@@ -24,7 +24,7 @@ import "./seimeisen.css";
 // 本文の段落位置(blocks の添字)
 const INTRO = 0;
 const S_CHOP = 4; // 見出し「細かく刻まれる言葉と、サビの開放感」
-const CHOP_FIG = 11; // 段落10の後: 断片から一本の線へ
+const CHOP_FIG = 11; // 段落10の後: 歌詞の引用で、区切られた言葉とサビを比べる
 const S_SIDES = 12; // 見出し「嫌いなところも、好きなところも」
 const S_LINE = 23; // 見出し「感性へのプライドが、生命線になる」
 const PULL = 29; // 要の一文(歌詞ではない文)
@@ -105,58 +105,43 @@ const CoverArt: React.FC = () => (
   </svg>
 );
 
-/** 段落10の後: 途切れ途切れの短い線が上下を囲まれた狭い帯に詰まって並び、サビの境目で囲いが終わって、同じ線がそのまま長く伸びて上下いっぱいに開ける */
-const CHOP_SEAM = 340;
-// サビの線: [帯の中の高さ, 右端の高さ]。左ではこの高さで短い線が途切れ途切れに並ぶ
-const CHOP_OPEN: [number, number][] = [
-  [80, 12],
-  [95, 61],
-  [110, 110],
-  [125, 159],
-  [140, 208],
-];
-// 各列の短い線 [始まり, 長さ]。境目に近いほど線が長く、すき間が短くなる
-const CHOP_ROWS = (() => {
-  const rnd = seeded(5);
-  return CHOP_OPEN.map(() => {
-    const dashes: [number, number][] = [];
-    let x = 14 + Math.round(rnd() * 10);
-    while (x < CHOP_SEAM - 14) {
-      const t = x / CHOP_SEAM;
-      const len = Math.min(4 + Math.round(rnd() * 8 + t * 14), CHOP_SEAM - 8 - x);
-      dashes.push([x, len]);
-      x += len + 5 + Math.round(rnd() * 7 * (1 - t * 0.6));
-    }
-    return dashes;
-  });
-})();
-const openPath = ([y0, y1]: [number, number]) => `M${CHOP_SEAM - 6} ${y0} C 430 ${y0}, 470 ${y1}, 600 ${y1}`;
-const Chop: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLElement>(0.5);
+/**
+ * 段落10の後: 実際の歌詞を引用して、細かく区切られた言葉と、サビで開ける言葉を比べる。
+ * 引用する行は 2026-10-23 にユーザーが選んだもの。左は語ごとに区切り(語の下に短い線)、右は行を一続きに(下に一本の長い線)。
+ */
+const LYRIC_CHOP = ["色素 現代 青写真の鍵", "縛り 緩急 交差点に恋"];
+const LYRIC_OPEN = ["誰も気付かないような感覚を", "独り占めしていくのさ"];
+const Compare: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLElement>(0.4);
   return (
-    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで一気に開ける">
-      <svg viewBox="0 0 600 220" aria-hidden="true">
-        <defs>
-          <linearGradient id="a014-chop-glow" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" stopColor="#c8a6b8" stopOpacity="0" />
-            <stop offset="1" stopColor="#c8a6b8" stopOpacity="0.22" />
-          </linearGradient>
-        </defs>
-        <path d={`M10 66 H${CHOP_SEAM} M10 154 H${CHOP_SEAM}`} className="a014-chop__wall" />
-        {CHOP_ROWS.map((row, r) =>
-          row.map(([x, len], i) => (
-            <line key={`${r}-${i}`} x1={x} x2={x + len} y1={CHOP_OPEN[r][0]} y2={CHOP_OPEN[r][0]} className={`a014-chop__dash${r === 2 ? " is-2" : ""}`} style={{ animationDelay: `${(i * CHOP_OPEN.length + r) * 10}ms` }} />
-          ))
-        )}
-        <path d="M334 72 C 430 72, 470 4, 600 4 V 216 C 470 216, 430 148, 334 148 Z" className="a014-chop__glow" fill="url(#a014-chop-glow)" />
-        {CHOP_OPEN.map((l, i) => (
-          <path key={i} d={openPath(l)} className={`a014-chop__line${i === 2 ? " is-2" : ""}`} pathLength={1} />
-        ))}
-      </svg>
-      <div className="a014-chop__labels" aria-hidden="true">
-        <span>細かく区切られた言葉と音</span>
-        <span>サビで、一気に開ける</span>
+    <figure ref={ref} className={`a014-compare${className}`}>
+      <div className="a014-compare__grid">
+        <div className="a014-compare__side is-chop">
+          <p className="a014-compare__label">細かく区切られた言葉と音</p>
+          <blockquote className="a014-compare__quote">
+            {LYRIC_CHOP.map((line, i) => (
+              <p key={i} className="a014-compare__line">
+                {line.split(" ").map((w, j) => (
+                  <span key={j} className="a014-compare__word" style={{ animationDelay: `${(i * 3 + j) * 90}ms` }}>
+                    {w}
+                  </span>
+                ))}
+              </p>
+            ))}
+          </blockquote>
+        </div>
+        <div className="a014-compare__side is-open">
+          <p className="a014-compare__label">サビで、一気に開ける</p>
+          <blockquote className="a014-compare__quote">
+            {LYRIC_OPEN.map((line, i) => (
+              <p key={i} className="a014-compare__line">
+                {line}
+              </p>
+            ))}
+          </blockquote>
+        </div>
       </div>
+      <figcaption className="a014-compare__cite">「生命線」(作詞: L.Petty)より</figcaption>
     </figure>
   );
 };
@@ -269,7 +254,7 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
 
             <section className="a014-section">
               {body(S_CHOP, CHOP_FIG)}
-              <Chop />
+              <Compare />
               {body(CHOP_FIG, S_SIDES)}
             </section>
 

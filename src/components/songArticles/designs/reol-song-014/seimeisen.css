@@ -314,78 +314,70 @@
 }
 
 /* ---------- 断片から一本の線へ ---------- */
-.a014-chop {
+/* 段落10の後: 歌詞の引用で比べる。左は語ごとに区切り、右は一続きに開ける */
+.a014-compare {
   margin: 2.4em 0;
 }
-.a014-chop svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* 途切れ途切れの短い線。サビの線と同じ太さ・色で、境目からそのまま長い線に続く */
-.a014-chop__dash {
-  stroke: var(--ink);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-}
-.a014-chop__dash.is-2 {
-  stroke: var(--mauve);
-  stroke-width: 3;
-}
-/* 断片を詰めた狭い帯の上下の囲い。サビの境目で終わる */
-.a014-chop__wall {
-  fill: none;
-  stroke: var(--ink-2);
-  stroke-width: 1;
-}
-/* サビ: 囲いがなくなり、線が上下いっぱいに広がる。広がった場所に淡い藤色の明るさ */
-.a014-chop__line {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-}
-.a014-chop__line.is-2 {
-  stroke: var(--mauve);
-  stroke-width: 3;
-}
-.a014-chop__labels {
+.a014-compare__grid {
   display: grid;
-  grid-template-columns: 340fr 260fr;
-  gap: 12px;
-  margin-top: 8px;
+  grid-template-columns: max-content 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.a014-compare__label {
+  margin: 0 0 14px;
   font-size: 12px;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--ink-2);
 }
-.a014-chop.is-armed .a014-chop__dash {
+.a014-compare__quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+.a014-compare__line {
+  margin: 0;
+}
+/* 区切られた言葉: 語のあいだを空け、語ごとに下へ短い線 */
+.is-chop .a014-compare__quote {
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 2.4;
+}
+.a014-compare__word {
+  display: inline-block;
+  margin-right: 0.9em;
+  line-height: 1.5;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ink-2);
+}
+.a014-compare__word:last-child {
+  margin-right: 0;
+}
+/* 開ける言葉: 大きく、行ごと一続きに。下に一本の長い藤色の線 */
+.is-open .a014-compare__quote {
+  font-size: clamp(20px, 2.4vw, 23px);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--mauve);
+}
+.a014-compare__cite {
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--ink-2);
+  text-align: right;
+}
+.a014-compare.is-armed .a014-compare__word,
+.a014-compare.is-armed .is-open .a014-compare__quote {
   opacity: 0;
 }
-.a014-chop.is-armed .a014-chop__line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+.a014-compare.is-visible .a014-compare__word {
+  animation: a014-fade 0.2s ease-out both;
 }
-.a014-chop.is-armed .a014-chop__glow {
-  opacity: 0;
-}
-.a014-chop.is-visible .a014-chop__dash {
-  animation: a014-bit 0.15s ease-out both;
-}
-.a014-chop.is-visible .a014-chop__line {
-  animation: a014-draw 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s both;
-}
-.a014-chop.is-visible .a014-chop__glow {
-  animation: a014-glow 0.9s ease-out 1.6s both;
-}
-
-@keyframes a014-glow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.a014-compare.is-visible .is-open .a014-compare__quote {
+  animation: a014-fade 0.6s ease-out 0.7s both;
 }
 @keyframes a014-fade {
   from {
@@ -512,8 +504,9 @@
   .a014-text.a014-pull {
     font-size: 21px;
   }
-  .a014-chop__labels {
-    font-size: 11px;
+  .a014-compare__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   /* 狭い画面では表紙の線を大きく、左右は画面の外へはみ出させる */
