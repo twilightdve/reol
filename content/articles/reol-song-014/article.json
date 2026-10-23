@@ -1,0 +1,22 @@
+{
+  "id": "reol-song-014",
+  "kind": "song",
+  "songTitle": "生命線",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "8cdc99cf699f611d2a394035a37257a4a9edaac2f2a62686f7e8b2e2e39544ee",
+  "songRefs": [
+    "019e8282-89a5-74fb-af3d-eba9f9d552a6",
+    "019e8282-da0b-75e5-9430-f8c49ba7c2f8"
+  ],
+  "media": [],
+  "slug": "seimei-sen",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T21:07:29.377Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
