@@ -7,6 +7,7 @@ import { AuthProvider } from "./src/contexts/AuthContext";
 import { SiteLangProvider } from "./src/i18n/site/SiteLangContext";
 import { isSiteLang, DEFAULT_LANG, HTML_LANG } from "./src/i18n/site/langs";
 import { stripLangPrefix } from "./src/utils/i18nRoutes";
+import { OWNER_USER_ID } from "./src/constants/owner";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathname }) => {
   return (
@@ -27,9 +28,20 @@ export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element, props }
   );
 };
 
+// 運営のログイン中は GA に送らない(2026-10-23 ユーザー指定。自分の確認で記事の表示回数が増えないように)。
+// 保存済みのセッションが運営なら、gtag の設定より前に ga-disable-<測定ID> を立てる(gtag の公式の止め方)。
+// そのため <head> の先頭に置く。ログイン・ログアウトの後は AuthContext が切り替える
+const gaOwnerOptOut = (): React.ReactNode => {
+  const gaId = process.env.GA_MEASUREMENT_ID;
+  if (!gaId) return null;
+  const js = `(function(){var k=${JSON.stringify(`ga-disable-${gaId}`)};window.__gaDisableKey=k;try{var s=JSON.parse(localStorage.getItem("reol_user_session")||"null");if(s&&s.id===${JSON.stringify(OWNER_USER_ID)}){window[k]=true;}}catch(e){}})();`;
+  return <script key="ga-owner-optout" dangerouslySetInnerHTML={{ __html: js }} />;
+};
+
 // Gatsby は本番ビルドでグローバルCSSを全ページの <style> にインライン展開する。
 // CSS が大きく(数百KB)、ページ間で共通なので、ハッシュ付きの外部CSSへの <link> に
 // 置き換えてブラウザ/Service Worker にキャッシュさせる(ページ遷移ごとの再ダウンロードを避ける)。
+// あわせて <head> の先頭に、運営のログイン中は GA に送らないためのスクリプトを置く。
 export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
   getHeadComponents,
   replaceHeadComponents,
@@ -46,7 +58,7 @@ export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
       />
     );
   });
-  replaceHeadComponents(headComponents);
+  replaceHeadComponents([gaOwnerOptOut(), ...headComponents]);
 };
 
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
