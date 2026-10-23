@@ -106,7 +106,7 @@ const CoverArt: React.FC = () => (
   </svg>
 );
 
-/** 段落10の後: 四角い断片(漢字の多い短い言葉)が詰まって並び、サビで一本の線になる */
+/** 段落10の後: 四角い断片(漢字の多い短い言葉)が詰まって並び、サビで同じ列が区切りなくひと続きになる */
 const CHOP_ROWS = (() => {
   const rnd = seeded(5);
   return [0, 1, 2].map(() => {
@@ -126,18 +126,19 @@ const CHOP_ROWS = (() => {
 const Chop: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
-    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで大きく広がる">
+    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで区切りなくひと続きになる">
       <svg viewBox="0 0 600 150" aria-hidden="true">
         {CHOP_ROWS.map((row, r) =>
           row.map((x, i) => <rect key={`${r}-${i}`} x={20 + x} y={30 + r * 36} width="12" height="12" className="a014-chop__cell" style={{ animationDelay: `${(r * row.length + i) * 12}ms` }} />)
         )}
         <line x1="340" y1="18" x2="340" y2="132" className="a014-chop__seam" />
-        <path d="M352 72 C 420 72, 450 70, 500 52 S 560 22, 590 20" className="a014-chop__line" pathLength={1} />
-        <path d="M352 72 C 420 72, 450 74, 500 92 S 560 122, 590 124" className="a014-chop__line is-2" pathLength={1} />
+        {CHOP_ROWS.map((_, r) => (
+          <rect key={r} x="352" y={30 + r * 36} width="238" height="12" className={`a014-chop__run${r === 1 ? " is-2" : ""}`} />
+        ))}
       </svg>
       <div className="a014-chop__labels" aria-hidden="true">
         <span>細かく区切られた言葉と音</span>
-        <span>サビで大きく広がる音</span>
+        <span>サビで、一気に開ける</span>
       </div>
     </figure>
   );
