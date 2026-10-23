@@ -26,6 +26,7 @@ import { fetchArticleLikeCounts } from "../services/articleLikeService";
 import { isReleased, useNow } from "../utils/songArticles/schedule";
 import { useAuth } from "../contexts/AuthContext";
 import { OWNER_USER_ID } from "../constants/owner";
+import { ARTICLES_FEED_PATH, ARTICLES_FEED_TITLE } from "../utils/songArticles/feed";
 
 type IndexEntry = {
   /** 記事ID(いいね数の問い合わせに使う) */
@@ -304,6 +305,17 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           <p className="mt-3 text-[14px] leading-relaxed text-bx-ink2">{current ? current.description : DESCRIPTION}</p>
           {/* 断り書き(2026-10-13 ユーザー「あくまで個人の解釈であることで、曲をもう一度聴き直す叩き台にしてほしい旨を記載」) */}
           <p className="mt-4 border-l-2 border-bx-line pl-3 text-[13px] leading-relaxed text-bx-ink3">{NOTE}</p>
+          {/* RSS フィード(2026-10-23 ユーザー「記事のRSSフィードを設定できるようにしたい」)。リーダーに登録する URL */}
+          <p className="mt-3 text-[13px] text-bx-ink3">
+            <a href={ARTICLES_FEED_PATH} className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-bx-blue">
+              <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="currentColor">
+                <circle cx="3" cy="13" r="2" />
+                <path d="M1 6.5a8.5 8.5 0 0 1 8.5 8.5h-2.2A6.3 6.3 0 0 0 1 8.7z" />
+                <path d="M1 1.5A13.5 13.5 0 0 1 14.5 15h-2.2A11.3 11.3 0 0 0 1 3.7z" />
+              </svg>
+              RSS フィード
+            </a>
+          </p>
         </header>
 
         {/* タグの絞り込み(記事のタグのリンクから ?tag= で来た時だけ)。絞り込みのボタン群は置かない(2026-10-11 ユーザー「タグで絞り込むは不要になった」) */}
@@ -426,6 +438,7 @@ export const Head: HeadFC<object, SongArticlesIndexContext> = ({ pageContext }) 
         )}
       />
       {pageContext.noindex && <meta name="robots" content="noindex,nofollow" />}
+      <link rel="alternate" type="application/rss+xml" title={ARTICLES_FEED_TITLE} href={ARTICLES_FEED_PATH} />
     </>
   );
 };

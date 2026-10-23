@@ -37,6 +37,7 @@ import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/mar
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { isReleased } from "./src/utils/songArticles/schedule";
+import { ARTICLES_FEED_PATH, buildArticlesFeed } from "./src/utils/songArticles/feed";
 import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
 import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
@@ -2148,6 +2149,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
           (a, b) =>
             (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
             (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
+        );
+        // RSS フィード(全体公開の記事だけ)。/articles/feed.xml に書き出す
+        const feedFile = path.join(process.cwd(), "public", ARTICLES_FEED_PATH);
+        await fs.mkdir(path.dirname(feedFile), { recursive: true });
+        await fs.writeFile(
+          feedFile,
+          buildArticlesFeed({
+            siteUrl: "https://reol.twilightea.com",
+            description: "Reolの曲やライヴについての読みもの。",
+            articles: indexEntries,
+            builtAt: BUILT_AT,
+          })
         );
         const indexTemplate = path.resolve("./src/templates/song-articles-index.tsx");
         createPage({
