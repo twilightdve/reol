@@ -322,15 +322,15 @@
   width: 100%;
   height: auto;
 }
-.a014-chop__cell {
-  fill: none;
+/* 途切れ途切れの短い線。サビの線と同じ太さ・色で、境目からそのまま長い線に続く */
+.a014-chop__dash {
   stroke: var(--ink);
-  stroke-width: 1.4;
+  stroke-width: 1.6;
+  stroke-linecap: round;
 }
-.a014-chop__seam {
+.a014-chop__dash.is-2 {
   stroke: var(--mauve);
-  stroke-width: 1;
-  stroke-dasharray: 3 4;
+  stroke-width: 3;
 }
 /* 断片を詰めた狭い帯の上下の囲い。サビの境目で終わる */
 .a014-chop__wall {
@@ -359,7 +359,7 @@
   letter-spacing: 0.06em;
   color: var(--ink-2);
 }
-.a014-chop.is-armed .a014-chop__cell {
+.a014-chop.is-armed .a014-chop__dash {
   opacity: 0;
 }
 .a014-chop.is-armed .a014-chop__line {
@@ -369,7 +369,7 @@
 .a014-chop.is-armed .a014-chop__glow {
   opacity: 0;
 }
-.a014-chop.is-visible .a014-chop__cell {
+.a014-chop.is-visible .a014-chop__dash {
   animation: a014-bit 0.15s ease-out both;
 }
 .a014-chop.is-visible .a014-chop__line {

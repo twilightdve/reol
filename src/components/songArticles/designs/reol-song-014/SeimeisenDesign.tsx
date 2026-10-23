@@ -5,7 +5,7 @@
  * - 地は深い青、文字は白。色は『-nil-／極彩色』の16曲の輪で「生命線」に当てた深い青と淡い藤色だけ。
  * - 表紙: 題名を一文字ずつ縦に積み、すぐ右に手相の生命線を円弧に抽象化した線(右の手のひらの向き。左上から右下へ)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
  * - 本文の左に、記事を貫く一本の線。見出しはその線の上の節目。
- * - 段落10の後: 四角い断片(助詞の少ない、漢字の多い短い言葉)が詰まって並び、サビで一本の線になる。
+ * - 段落10の後: 途切れ途切れの短い線(細かく区切られた言葉と音)が狭い帯に詰まって並び、サビでそのまま長い線になって上下に開ける。
  * - 段落25の後: 表紙と同じ生命線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
  * - 段落29(歌詞ではない文)を大きく。
  * - 歌詞は本文の外に出さない。ジャケット・映像は複製しない。
@@ -106,25 +106,9 @@ const CoverArt: React.FC = () => (
   </svg>
 );
 
-/** 段落10の後: 四角い断片(漢字の多い短い言葉)が上下を囲まれた狭い帯に詰まって並び、サビの境目で囲いが終わって、線が上下いっぱいに開ける */
-const CHOP_ROWS = (() => {
-  const rnd = seeded(5);
-  return [0, 1, 2].map(() => {
-    const cells: number[] = [];
-    let x = 0;
-    while (x < 300) {
-      const n = 1 + Math.floor(rnd() * 3); // 2〜3文字ほどの塊
-      for (let k = 0; k < n && x < 300; k++) {
-        cells.push(x);
-        x += 15;
-      }
-      x += 4 + Math.round(rnd() * 5);
-    }
-    return cells;
-  });
-})();
-const CHOP_ROW_Y = [80, 110, 140]; // 各列の中心
-// サビ: 境目の帯の中(左)から出て、右端では上下いっぱいに広がる線。[出る高さ, 右端の高さ]
+/** 段落10の後: 途切れ途切れの短い線が上下を囲まれた狭い帯に詰まって並び、サビの境目で囲いが終わって、同じ線がそのまま長く伸びて上下いっぱいに開ける */
+const CHOP_SEAM = 340;
+// サビの線: [帯の中の高さ, 右端の高さ]。左ではこの高さで短い線が途切れ途切れに並ぶ
 const CHOP_OPEN: [number, number][] = [
   [80, 12],
   [95, 61],
@@ -132,7 +116,22 @@ const CHOP_OPEN: [number, number][] = [
   [125, 159],
   [140, 208],
 ];
-const openPath = ([y0, y1]: [number, number]) => `M352 ${y0} C 430 ${y0}, 470 ${y1}, 600 ${y1}`;
+// 各列の短い線 [始まり, 長さ]。境目に近いほど線が長く、すき間が短くなる
+const CHOP_ROWS = (() => {
+  const rnd = seeded(5);
+  return CHOP_OPEN.map(() => {
+    const dashes: [number, number][] = [];
+    let x = 14 + Math.round(rnd() * 10);
+    while (x < CHOP_SEAM - 14) {
+      const t = x / CHOP_SEAM;
+      const len = Math.min(4 + Math.round(rnd() * 8 + t * 14), CHOP_SEAM - 8 - x);
+      dashes.push([x, len]);
+      x += len + 5 + Math.round(rnd() * 7 * (1 - t * 0.6));
+    }
+    return dashes;
+  });
+})();
+const openPath = ([y0, y1]: [number, number]) => `M${CHOP_SEAM - 6} ${y0} C 430 ${y0}, 470 ${y1}, 600 ${y1}`;
 const Chop: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
@@ -144,14 +143,13 @@ const Chop: React.FC = () => {
             <stop offset="1" stopColor="#c8a6b8" stopOpacity="0.22" />
           </linearGradient>
         </defs>
-        <path d="M10 62 H340 M10 158 H340" className="a014-chop__wall" />
+        <path d={`M10 66 H${CHOP_SEAM} M10 154 H${CHOP_SEAM}`} className="a014-chop__wall" />
         {CHOP_ROWS.map((row, r) =>
-          row.map((x, i) => (
-            <rect key={`${r}-${i}`} x={20 + x} y={CHOP_ROW_Y[r] - 6} width="12" height="12" className="a014-chop__cell" style={{ animationDelay: `${(r * row.length + i) * 12}ms` }} />
+          row.map(([x, len], i) => (
+            <line key={`${r}-${i}`} x1={x} x2={x + len} y1={CHOP_OPEN[r][0]} y2={CHOP_OPEN[r][0]} className={`a014-chop__dash${r === 2 ? " is-2" : ""}`} style={{ animationDelay: `${(i * CHOP_OPEN.length + r) * 10}ms` }} />
           ))
         )}
-        <line x1="340" y1="40" x2="340" y2="180" className="a014-chop__seam" />
-        <path d="M352 74 C 430 74, 470 4, 600 4 V 216 C 470 216, 430 146, 352 146 Z" className="a014-chop__glow" fill="url(#a014-chop-glow)" />
+        <path d="M334 72 C 430 72, 470 4, 600 4 V 216 C 470 216, 430 148, 334 148 Z" className="a014-chop__glow" fill="url(#a014-chop-glow)" />
         {CHOP_OPEN.map((l, i) => (
           <path key={i} d={openPath(l)} className={`a014-chop__line${i === 2 ? " is-2" : ""}`} pathLength={1} />
         ))}
