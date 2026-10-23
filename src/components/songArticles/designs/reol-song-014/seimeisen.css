@@ -40,37 +40,42 @@
   flex-direction: column;
   background: radial-gradient(120% 90% at 85% 10%, var(--blue) 0%, transparent 60%), var(--ground);
 }
+.a014-title__row {
+  display: flex;
+  align-items: center;
+  gap: 0.12em;
+  font-size: clamp(76px, 17vw, 184px);
+}
+/* 題名の右の円弧。題名の文字の大きさに合わせる(線の太さは viewBox の単位。狭い画面では太くする) */
 .a014-cover__art {
-  position: absolute;
-  z-index: -1;
-  top: 5%;
-  right: max(2%, calc((100% - 1040px) / 2));
-  height: 92%;
+  flex: none;
+  height: 1.45em;
   width: auto;
-  aspect-ratio: 600 / 820;
+  aspect-ratio: 270 / 640;
+  overflow: visible;
 }
 .a014-cover__bits path {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 7;
+  stroke-width: 10;
   opacity: 0.85;
 }
 .a014-cover__open {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 6;
+  stroke-width: 9;
   stroke-linecap: round;
 }
 .a014-cover__echo {
   fill: none;
   stroke: var(--mauve);
-  stroke-width: 1.5;
+  stroke-width: 2.5;
   opacity: 0.7;
 }
 .a014-cover__node {
   fill: var(--ground);
   stroke: var(--ink);
-  stroke-width: 3;
+  stroke-width: 5;
 }
 @media (prefers-reduced-motion: no-preference) {
   /* 断片が刻むように次々と現れ、そのあと一本の線が伸びて開ける */
@@ -157,7 +162,7 @@
 }
 .a014-title__song {
   display: block;
-  font-size: clamp(76px, 17vw, 184px);
+  font-size: 1em;
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -486,12 +491,19 @@
   .a014-chop__labels {
     font-size: 11px;
   }
-  /* 狭い画面では表紙の線を大きく、左右は画面の外へはみ出させる */
-  .a014-cover__art {
-    top: 7%;
-    right: -12%;
-    height: 70%;
+  .a014-cover__bits path {
+    stroke-width: 20;
   }
+  .a014-cover__open {
+    stroke-width: 18;
+  }
+  .a014-cover__echo {
+    stroke-width: 5;
+  }
+  .a014-cover__node {
+    stroke-width: 10;
+  }
+  /* 狭い画面では表紙の線を大きく、左右は画面の外へはみ出させる */
 }
 @media print {
   .a014,
