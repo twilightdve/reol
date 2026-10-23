@@ -3,11 +3,10 @@
  *
  * - 一本の線の記事。細かく区切られた断片(言葉と音)が、サビで一本の線に開ける(本文 段落1・5〜10)。
  * - 地は深い青、文字は白。色は『-nil-／極彩色』の16曲の輪で「生命線」に当てた深い青と淡い藤色だけ。
- * - 表紙: 短い断片が詰まって並び、途中から一本の線になって大きく開ける。題名はゴシックで太く。
+ * - 表紙: 手相の生命線(左の手のひら)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
  * - 本文の左に、記事を貫く一本の線。見出しはその線の上の節目。
  * - 段落10の後: 四角い断片(助詞の少ない、漢字の多い短い言葉)が詰まって並び、サビで一本の線になる。
- * - 段落16の後: 一本の線の上と下に「悩みの種」と「自分を好きだと思える理由」(どちらも本文の地の文)。
- * - 段落25の後: 手のひらの線のような一本の曲線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
+ * - 段落25の後: 表紙と同じ生命線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
  * - 段落29(歌詞ではない文)を大きく。
  * - 歌詞は本文の外に出さない。ジャケット・映像は複製しない。
  *
@@ -27,7 +26,6 @@ const INTRO = 0;
 const S_CHOP = 4; // 見出し「細かく刻まれる言葉と、サビの開放感」
 const CHOP_FIG = 11; // 段落10の後: 断片から一本の線へ
 const S_SIDES = 12; // 見出し「嫌いなところも、好きなところも」
-const SIDES_FIG = 17; // 段落16の後: 一本の線の上と下
 const S_LINE = 23; // 見出し「感性へのプライドが、生命線になる」
 const LINE_FIG = 26; // 段落25の後: 傷と色が同じ線に重なる
 const PULL = 29; // 要の一文(歌詞ではない文)
@@ -72,35 +70,40 @@ const seeded = (seed: number) => {
   };
 };
 
-// 表紙の断片: 左から詰まって並ぶ短い線。間隔も長さも不揃い
+/**
+ * 手相の生命線(左の手のひらを見た向き): 親指と人差し指の間(右上)から、親指の付け根を囲むように
+ * 斜め左下へ弧を描き、手首(下)へ向かう。表紙と段落25の後の図で同じ形を使う
+ */
+const LIFE_LINE = "M470 70 C 330 120, 200 270, 205 450 S 290 700, 330 770";
+// 表紙: 線の前半は不揃いな断片(細かく区切られた言葉と音)、後半は一本の線(サビで開ける)。値は線の長さを1とした割合
+const SPLIT = 0.46;
 const COVER_BITS = (() => {
   const rnd = seeded(14);
-  const bits: { x: number; w: number; y: number }[] = [];
-  let x = 24;
-  while (x < 560) {
-    const w = 6 + Math.round(rnd() * 22);
-    bits.push({ x, w, y: Math.round((rnd() - 0.5) * 10) });
-    x += w + 5 + Math.round(rnd() * 7);
+  const bits: { from: number; len: number }[] = [];
+  let t = 0;
+  while (t < SPLIT - 0.02) {
+    const len = Math.min(0.012 + rnd() * 0.03, SPLIT - t);
+    bits.push({ from: t, len });
+    t += len + 0.008 + rnd() * 0.012;
   }
   return bits;
 })();
 
-/** 表紙: 断片が詰まって並び、途中から一本の線になって大きく開ける(題名の上の空きに置く) */
-const COVER_LINE = "M572 200 C 680 200, 740 196, 810 156 S 920 40, 1000 22";
+/** 表紙: 手相の生命線。前半は断片が刻むように並び、後半は一本の線になって手首へ伸びる */
 const CoverArt: React.FC = () => (
-  <svg className="a014-cover__art" viewBox="0 0 1000 260" aria-hidden="true">
+  <svg className="a014-cover__art" viewBox="0 0 600 820" aria-hidden="true">
     <defs>
-      <filter id="a014-cover-blur" x="-10%" y="-60%" width="120%" height="220%">
-        <feGaussianBlur stdDeviation="10" />
+      <filter id="a014-cover-blur" x="-30%" y="-10%" width="160%" height="120%">
+        <feGaussianBlur stdDeviation="12" />
       </filter>
     </defs>
     <g className="a014-cover__bits">
       {COVER_BITS.map((b, i) => (
-        <rect key={i} x={b.x} y={197 + b.y} width={b.w} height="6" style={{ animationDelay: `${0.2 + i * 0.028}s` }} />
+        <path key={i} d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${b.from} ${b.len} 2`} style={{ animationDelay: `${0.2 + i * 0.05}s` }} />
       ))}
     </g>
-    <path className="a014-cover__glow" d={COVER_LINE} pathLength={1} filter="url(#a014-cover-blur)" />
-    <path className="a014-cover__open" d={COVER_LINE} pathLength={1} />
+    <path className="a014-cover__glow" d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${SPLIT} ${1 - SPLIT} 2`} filter="url(#a014-cover-blur)" />
+    <path className="a014-cover__open" d={LIFE_LINE} pathLength={1} strokeDasharray={`0 ${SPLIT} ${1 - SPLIT} 2`} />
   </svg>
 );
 
@@ -141,25 +144,8 @@ const Chop: React.FC = () => {
   );
 };
 
-/** 段落16の後: 一本の線の上と下。どちらも同じ線(感性)の側 */
-const Sides: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLElement>(0.5);
-  const d = "M0 70 C 80 52, 140 88, 220 70 S 360 52, 440 70 S 560 88, 600 70";
-  return (
-    <figure ref={ref} className={`a014-sides${className}`} aria-label="同じ一本の線の上に「悩みの種」、下に「自分を好きだと思える理由」">
-      <p className="a014-sides__label is-up">悩みの種</p>
-      <svg viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true">
-        <path d={`${d} L600 0 L0 0 Z`} className="a014-sides__up" />
-        <path d={`${d} L600 140 L0 140 Z`} className="a014-sides__down" />
-        <path d={d} className="a014-sides__line" pathLength={1} vectorEffect="non-scaling-stroke" />
-      </svg>
-      <p className="a014-sides__label is-down">自分を好きだと思える理由</p>
-    </figure>
-  );
-};
-
 /** 段落25の後: 手のひらの線のような一本の曲線。細かな刻みと淡い色が、同じ線の同じ場所に重なる */
-const PALM = "M60 40 C 70 150, 120 250, 250 300 S 470 330, 560 300";
+const PALM = LIFE_LINE;
 const NICKS = [0.08, 0.15, 0.21, 0.3, 0.37, 0.45, 0.52, 0.6, 0.66, 0.74, 0.81, 0.9];
 const Palm: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.45);
@@ -180,7 +166,7 @@ const Palm: React.FC = () => {
   }, []);
   return (
     <figure ref={ref} className={`a014-palm${className}`} aria-label="傷も、大切に思う気持ちも、同じ一本の線の上にある">
-      <svg viewBox="0 0 620 360" aria-hidden="true">
+      <svg viewBox="0 0 600 820" aria-hidden="true">
         <defs>
           <filter id="a014-blur" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="9" />
@@ -260,11 +246,7 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
               {body(CHOP_FIG, S_SIDES)}
             </section>
 
-            <section className="a014-section">
-              {body(S_SIDES, SIDES_FIG)}
-              <Sides />
-              {body(SIDES_FIG, S_LINE)}
-            </section>
+            <section className="a014-section">{body(S_SIDES, S_LINE)}</section>
 
             <section className="a014-section a014-section--last">
               {body(S_LINE, LINE_FIG)}
