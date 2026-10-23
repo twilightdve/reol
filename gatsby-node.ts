@@ -33,6 +33,9 @@ import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/lo
  *  SNS のキャッシュ対策のビルド時刻(?t=)は SEO 部品が付ける */
 const articleOgImagePath = (slug: string): string | null =>
   existsSync(path.join(process.cwd(), "static/articles-og", `${slug}.jpg`)) ? `/articles-og/${slug}.jpg` : null;
+/** 読みもの一覧のカードに載せる表紙の画像(static/articles-cover/<slug>.jpg。npm run articles:og が書き出す)。無ければ null */
+const articleCoverPath = (slug: string): string | null =>
+  existsSync(path.join(process.cwd(), "static/articles-cover", `${slug}.jpg`)) ? `/articles-cover/${slug}.jpg` : null;
 import { firstParagraphText, youtubeVideoId } from "./src/utils/songArticles/markdown";
 import { designProblems } from "./src/utils/songArticles/designCheck";
 import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
@@ -1941,6 +1944,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         tags: string[];
         /** 初出の作品(一覧のアルバム絞り込みに使う)。無ければ null */
         album: { title: string; releaseDate: string | null } | null;
+        /** カードの表紙の画像。無ければ null */
+        cover: string | null;
         preview: boolean;
         /** 限定公開(plan/43)。運営のログイン時だけ一覧に出す */
         unlisted: boolean;
@@ -2114,6 +2119,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           seriesSlug: series.slug,
           tags,
           album: songFacts.releases[0] ? { title: songFacts.releases[0].title, releaseDate: songFacts.releases[0].releaseDate } : null,
+          cover: articleCoverPath(slug),
           preview,
           unlisted,
           pageViews: unlisted ? null : articlePageViews(pageViewsFile, slug, article.publishedAt),
