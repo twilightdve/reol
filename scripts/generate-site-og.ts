@@ -19,12 +19,18 @@ const BX_INK3 = "#a5a4ac";
 const BX_BLUE = "#6b8ce0";
 const BX_YELLOW = "#e2bf57";
 
-// ヘッダーのロゴ(!Legit)と同じ Cormorant 500。サイトは Google Fonts から読むが、ここではパッケージの woff を使う
+// ヘッダーのロゴ(!Legit)と同じ Cormorant 500。サイトは Google Fonts から読むが、ここではパッケージの woff を使う。
+// gatsby-node はまとめてから読み込まれるので、読み込み時ではなく描く直前に登録する(リポジトリ直下で実行する前提)
 const LOGO_FAMILY = "Cormorant OG";
-registerFont(require.resolve("@fontsource/cormorant/files/cormorant-latin-500-normal.woff"), {
-  family: LOGO_FAMILY,
-  weight: "500",
-});
+let logoFontRegistered = false;
+const registerLogoFont = () => {
+  if (logoFontRegistered) return;
+  registerFont(
+    path.resolve("node_modules/@fontsource/cormorant/files/cormorant-latin-500-normal.woff"),
+    { family: LOGO_FAMILY, weight: "500" }
+  );
+  logoFontRegistered = true;
+};
 
 const fontJp = (size: number, weight = "400") =>
   `${weight} ${size}px "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif`;
@@ -53,6 +59,7 @@ const drawTracked = (
 };
 
 const drawOgImage = (stats?: SiteOgStats): Buffer => {
+  registerLogoFont();
   const canvas = createCanvas(WIDTH, HEIGHT);
   const ctx = canvas.getContext("2d");
   const LEFT = 88;
