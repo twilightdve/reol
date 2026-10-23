@@ -2,9 +2,10 @@
 // npm run deploy の前(predeploy)に動く。ビルドはこのファイルを読んで一覧に数を入れる。
 //
 // - 認証はこの PC の Application Default Credentials(GA の読み取り権限。analytics-mcp と同じもの)。
-//   秘密情報はビルドの出力にもリポジトリにも入れない。書くのは記事ごと・日ごとの表示回数だけ。
+//   秘密情報はビルドの出力にもリポジトリにも入れない。書くのは記事ごと・分ごとの表示回数だけ。
 // - 本番のホスト(reol.twilightea.com)の /articles/<slug>/ だけを数える(開発サーバーの表示は入れない)。
-// - 公開前(限定公開の確認中)の表示を数えないよう、日ごとに残す。公開日より前の日はビルド側で捨てる。
+// - 公開前(限定公開の確認中)の表示を数えないよう、分ごと(dateHourMinute。日本時間)に残す。公開日時より前はビルド側で捨てる。
+//   日ごとだと、公開した日の公開前の確認まで数えてしまう(2026-10-23)。
 // - 取れなかった時は前回のファイルを残して警告だけ出す(デプロイは止めない。数が古くなるだけ)。
 
 import { mkdirSync, writeFileSync } from "fs";
@@ -27,7 +28,7 @@ const main = async () => {
       property: PROPERTY,
       requestBody: {
         dateRanges: [{ startDate: START_DATE, endDate: "today" }],
-        dimensions: [{ name: "pagePath" }, { name: "date" }],
+        dimensions: [{ name: "pagePath" }, { name: "dateHourMinute" }],
         metrics: [{ name: "screenPageViews" }],
         dimensionFilter: {
           andGroup: {
@@ -43,14 +44,15 @@ const main = async () => {
     });
     const rows = res.data.rows ?? [];
     for (const row of rows) {
-      const [pagePath, date] = (row.dimensionValues ?? []).map((v) => v.value ?? "");
+      const [pagePath, at] = (row.dimensionValues ?? []).map((v) => v.value ?? "");
       // /articles/<slug>/ だけ(一覧・シリーズのページは除く)
       const m = /^\/articles\/([a-z0-9-]+)\/?$/.exec(pagePath);
       if (!m || m[1] === "series") continue;
       const n = Number(row.metricValues?.[0]?.value ?? 0);
-      const day = `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`;
+      // YYYYMMDDHHmm → YYYY-MM-DDTHH:mm
+      const key = `${at.slice(0, 4)}-${at.slice(4, 6)}-${at.slice(6, 8)}T${at.slice(8, 10)}:${at.slice(10, 12)}`;
       const bySlug = (views[m[1]] ??= {});
-      bySlug[day] = (bySlug[day] ?? 0) + n;
+      bySlug[key] = (bySlug[key] ?? 0) + n;
     }
     if (rows.length < pageSize) break;
   }
