@@ -179,10 +179,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // 運営のログイン中は GA に送らない(2026-10-23 ユーザー指定。自分の確認で記事の表示回数が増えないように)。
   // ページを開いた直後は gatsby-ssr の先頭のスクリプトが保存済みのセッションから判定し、ここではログイン・ログアウトに追従する
+  // セッションを復元する前(user がまだ null)に解除しないよう、ログアウトの判定は保存済みのセッションが消えたかで見る
   useEffect(() => {
     if (typeof window === 'undefined') return
     const key = (window as unknown as { __gaDisableKey?: string }).__gaDisableKey
-    if (key) (window as unknown as Record<string, unknown>)[key] = user?.id === OWNER_USER_ID
+    if (!key) return
+    const flags = window as unknown as Record<string, unknown>
+    if (user) flags[key] = user.id === OWNER_USER_ID
+    else if (!localStorage.getItem('reol_user_session')) flags[key] = false
   }, [user])
   
   // 開発モードの検出
