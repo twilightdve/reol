@@ -80,7 +80,7 @@ const TWILIGHT = ["#2c2f63", "#8c5a8f", "#ec9a63"];
 const TRACKS: { name: string; article?: string; colors: string[]; lines?: string[] }[] = [
   { name: "-nil-", colors: [] },
   { name: "極彩色", colors: RAINBOW },
-  { name: "生命線", colors: [C.blueprint, C.pigment] },
+  { name: "生命線", article: "seimei-sen", colors: [C.blueprint, C.pigment] },
   { name: "水底游歩道", colors: [C.blue, C.white, C.gray, C.black] },
   { name: "ハルシアン", colors: [C.bordeaux] },
   { name: "ロジックエージェント", colors: [C.light, C.shade], lines: ["ロジック", "エージェント"] },
