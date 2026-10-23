@@ -126,7 +126,7 @@ const CHOP_ROWS = (() => {
 const Chop: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
-    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで一本の線になって開ける">
+    <figure ref={ref} className={`a014-chop${className}`} aria-label="細かく区切られた言葉と音が、サビで大きく広がる">
       <svg viewBox="0 0 600 150" aria-hidden="true">
         {CHOP_ROWS.map((row, r) =>
           row.map((x, i) => <rect key={`${r}-${i}`} x={20 + x} y={30 + r * 36} width="12" height="12" className="a014-chop__cell" style={{ animationDelay: `${(r * row.length + i) * 12}ms` }} />)
@@ -137,7 +137,7 @@ const Chop: React.FC = () => {
       </svg>
       <div className="a014-chop__labels" aria-hidden="true">
         <span>細かく区切られた言葉と音</span>
-        <span>サビで、一気に開ける</span>
+        <span>サビで大きく広がる音</span>
       </div>
     </figure>
   );
