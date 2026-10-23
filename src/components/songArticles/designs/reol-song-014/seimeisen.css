@@ -400,6 +400,10 @@
 .a014-palm {
   margin: 2.4em 0;
 }
+/* 最後の章の扉として見出しの上に置く */
+.a014-section > .a014-palm:first-child {
+  margin: 0 0 2em;
+}
 .a014-palm svg {
   display: block;
   width: 100%;
