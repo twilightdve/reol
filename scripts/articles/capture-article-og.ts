@@ -100,6 +100,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
     .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
   `,
+  // ハルシアン: 明るい方眼ノートの地なので、サイト名をボルドーに
+  "reol-song-016": `
+    .og-brand { color: #7a2e3f !important; text-shadow: none !important; }
+  `,
   // 水底游歩道: 水面近くの明るい地なので、サイト名を深い青に
   "reol-song-015": `
     .og-brand { color: #2f64a8 !important; text-shadow: none !important; }

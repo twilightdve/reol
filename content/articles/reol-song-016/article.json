@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-016",
+  "kind": "song",
+  "songTitle": "ハルシアン",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "53267b6cfe3fde3f8b5e516f7f13a2acc81557f6837e4690dffab409d09c1526",
+  "songRefs": [
+    "019e8282-8a79-7924-be2a-2ae51e764636"
+  ],
+  "media": [],
+  "slug": "harushian",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T22:05:02.837Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

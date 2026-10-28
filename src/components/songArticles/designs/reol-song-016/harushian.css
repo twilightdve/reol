@@ -1,0 +1,556 @@
+/*
+ * 楽曲記事「ハルシアン」(reol-song-016)の記事別デザイン(見本 v1)。根拠は plan/55。
+ * すべて .a016 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --paper 方眼ノートの紙 / --grid 方眼の線(学校の側) / --ink 鉛筆に近い濃い文字
+ *   --bordeaux 背伸びして塗る大人びた色(『-nil-／極彩色』の輪で「ハルシアン」に当てた #7a2e3f)。題名・印・引用の線
+ */
+
+.a016 {
+  --paper: #fbfaf6;
+  --grid: rgb(120 150 185 / 0.16);
+  --grid-strong: rgb(120 150 185 / 0.28);
+  --ink: #2b2729;
+  --ink-2: #6c6669;
+  --bordeaux: #7a2e3f;
+  --bordeaux-soft: rgb(122 46 63 / 0.14);
+  --column: min(640px, calc(100% - 40px));
+  --maru: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "Zen Maru Gothic", "M PLUS Rounded 1c", "Hiragino Sans", sans-serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--ink);
+  /* 方眼: 6mm ほどの升目(24px) */
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 目盛りと、背伸びした題名 ---------- */
+.a016-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(84svh, 760px);
+  border-bottom: 1px solid var(--grid-strong);
+}
+.a016-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a016-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.a016-crumbs a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.a016-crumbs a:hover,
+.a016-crumbs a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.a016-cover__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 32px);
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px) 0 clamp(40px, 7vw, 72px);
+}
+.a016-cover__ruler {
+  flex: none;
+  width: clamp(54px, 10vw, 104px);
+  height: auto;
+  overflow: visible;
+}
+.a016-cover__text {
+  --ruler-gap: calc(clamp(54px, 10vw, 104px) + clamp(12px, 3vw, 32px));
+  min-width: 0;
+}
+.a016-title {
+  margin: 0;
+  font-family: var(--maru);
+}
+/* 題名は背伸びの分だけ浮かせる(表紙の目盛りの点線とボルドーの線の差) */
+.a016-title__song {
+  position: relative;
+  display: block;
+  font-size: clamp(50px, 13vw, 128px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--bordeaux);
+  transform: translateY(-0.2em);
+}
+/* 題名の頭の高さの印。目盛りから題名の頭まで伸ばす。
+   ボルドーの線は浮いた題名の頭、点線は浮く前の頭(題名と一緒に動くので、点線は浮いた分だけ下に置く) */
+.a016-title__song::before,
+.a016-title__song::after {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--ruler-gap));
+  width: calc(var(--ruler-gap) + 0.3em);
+  height: 0;
+}
+.a016-title__song::after {
+  top: 0.15em;
+  border-top: 3px solid var(--bordeaux);
+}
+.a016-title__song::before {
+  top: 0.35em;
+  border-top: 3px dotted var(--ink-2);
+}
+.a016-title__sub {
+  display: block;
+  margin-top: 0.5em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+}
+.a016-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+}
+
+/* 目盛り・印(表紙と図) */
+.a016-ruler line {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  opacity: 0.55;
+}
+.a016-mark {
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.a016-mark.is-real {
+  stroke: var(--ink-2);
+  stroke-dasharray: 2 7;
+}
+.a016-mark.is-tiptoe {
+  stroke: var(--bordeaux);
+}
+.a016-mark.is-him {
+  stroke: var(--ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .a016-title__song {
+    animation: a016-tiptoe 1.2s cubic-bezier(0.3, 1.4, 0.5, 1) 0.3s both;
+  }
+  /* シーソーはどちらにも落ち着かず揺れ続ける */
+  .a016-seesaw__beam {
+    animation: a016-rock 3.6s ease-in-out infinite alternate;
+  }
+}
+@keyframes a016-tiptoe {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-0.2em);
+  }
+}
+@keyframes a016-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes a016-rock {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a016-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+}
+.a016-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a016-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a016-text p {
+  margin: 0;
+}
+.a016-text p + p {
+  margin-top: 1.3em;
+}
+.a016-text + .a016-text {
+  margin-top: 1.3em;
+}
+/* 見出し: 丸ゴシック。頭にボルドーの短い印(ノートの見出しに引く線) */
+.a016-text h2 {
+  margin: 0 0 1.2em;
+  font-family: var(--maru);
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  word-break: auto-phrase;
+}
+.a016-text h2::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 0.8em;
+  border-radius: 2px;
+  background: var(--bordeaux);
+}
+.a016-section {
+  margin-top: clamp(56px, 8vw, 88px);
+}
+.a016-listen {
+  margin: 0 0 24px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.a016 .a016-listen a {
+  display: inline-block;
+  padding: 5px 16px;
+  border: 1.5px solid var(--bordeaux);
+  border-radius: 999px;
+  color: var(--bordeaux);
+  background: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+}
+.a016 .a016-listen a:hover {
+  background: var(--bordeaux);
+  color: var(--paper);
+}
+.a016-text.a016-opening {
+  margin: 0 0 1.4em;
+  font-family: var(--maru);
+  font-size: clamp(19px, 2.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.85;
+}
+.a016-note {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a016-note p {
+  margin: 0;
+}
+.a016-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--bordeaux);
+}
+.a016-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* 本文の引用: 大きく、ボルドーのペンで引いたような線 */
+.a016-text.a016-quote {
+  margin: 1.8em 0 0.6em;
+}
+.a016-quote blockquote {
+  margin: 0;
+  padding: 0;
+  font-family: var(--maru);
+  font-size: clamp(24px, 3.6vw, 32px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.a016-quote blockquote p {
+  display: inline;
+  padding: 0 0.1em;
+  background: linear-gradient(transparent 62%, var(--bordeaux-soft) 62%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.a016-text.a016-source {
+  margin-top: 0;
+  margin-bottom: 1.8em;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a016-text.a016-pull {
+  margin: 1.6em 0;
+  font-family: var(--maru);
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--bordeaux);
+}
+
+.a016-ground a {
+  color: var(--bordeaux);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a016-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- 図 ---------- */
+.a016-seesaw,
+.a016-gap,
+.a016-click {
+  margin: 2.6em 0 0;
+}
+.a016-gap {
+  margin-bottom: 2.4em;
+}
+.a016-seesaw svg,
+.a016-gap svg {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  overflow: visible;
+}
+.a016-seesaw__beam {
+  transform-box: view-box;
+  transform-origin: 280px 120px;
+  transform: rotate(-7deg);
+}
+.a016-seesaw__beam line {
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.a016-seesaw__word {
+  font-family: var(--maru);
+  font-size: 26px;
+  font-weight: 800;
+  fill: var(--ink);
+}
+.a016-seesaw__word.is-even {
+  fill: var(--bordeaux);
+}
+.a016-seesaw__pivot {
+  fill: var(--bordeaux);
+}
+.a016-seesaw__ground {
+  stroke: var(--ink-2);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.a016-gap__label {
+  font-family: var(--maru);
+  font-size: 22px;
+  font-weight: 800;
+  fill: var(--ink);
+}
+.a016-gap__label.is-self {
+  fill: var(--bordeaux);
+}
+.a016-gap__space {
+  stroke: var(--ink-2);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+.a016-gap__note {
+  font-family: var(--maru);
+  font-size: 18px;
+  font-weight: 700;
+  fill: var(--ink-2);
+}
+/* 背伸びで上がるが、届かない: 点線(本当の背)から少し行き過ぎて戻る */
+.a016-gap.is-armed .a016-gap__self {
+  transform: translateY(50px);
+}
+.a016-gap.is-armed .a016-gap__space,
+.a016-gap.is-armed .a016-gap__note {
+  opacity: 0;
+}
+.a016-gap.is-visible .a016-gap__self {
+  animation: a016-reach 1.6s cubic-bezier(0.3, 1.3, 0.5, 1) 0.2s both;
+}
+.a016-gap.is-visible .a016-gap__space,
+.a016-gap.is-visible .a016-gap__note {
+  animation: a016-fade 0.5s ease-out 1.6s both;
+}
+@keyframes a016-reach {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 「舌打ち」の「ち」が、はじける音に */
+.a016-click {
+  margin-bottom: 2.4em;
+  text-align: center;
+}
+.a016-click__word {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  font-family: var(--maru);
+  font-size: clamp(56px, 12vw, 88px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.a016-click__slot {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1.2em;
+}
+.a016-click__chi {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+.a016-click__burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.95em;
+  height: 0.95em;
+  margin: -0.475em 0 0 -0.475em;
+}
+.a016-click__burst path {
+  fill: var(--bordeaux);
+}
+.a016-click__cap {
+  margin-top: 0.6em;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+.a016-click.is-armed .a016-click__chi {
+  opacity: 1;
+}
+.a016-click.is-armed .a016-click__burst {
+  opacity: 0;
+  transform: scale(0.2);
+}
+.a016-click.is-visible .a016-click__chi {
+  animation: a016-chi 0.9s ease-in 0.5s both;
+}
+.a016-click.is-visible .a016-click__burst {
+  animation: a016-pop 0.5s cubic-bezier(0.3, 1.8, 0.5, 1) 1.2s both;
+}
+@keyframes a016-chi {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes a016-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ---------- 奥付 ---------- */
+.a016-colophon {
+  padding: clamp(48px, 7vw, 72px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a016-colophon__list,
+.a016-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a016-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 2px solid var(--bordeaux);
+  display: grid;
+  gap: 10px;
+}
+.a016-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a016-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.a016-colophon dd {
+  margin: 0;
+}
+.a016-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.a016 a:focus-visible {
+  outline: 2px solid var(--bordeaux);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a016-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+@media print {
+  .a016 {
+    background: #fff;
+  }
+  .a016-cover {
+    min-height: 0;
+  }
+}
