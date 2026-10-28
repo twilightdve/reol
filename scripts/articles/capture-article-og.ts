@@ -100,6 +100,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .og-brand { color: #6b5258 !important; text-shadow: none !important; }
     .a057-cover__body { align-items: center !important; padding: 0 0 56px !important; }
   `,
+  // 水底游歩道: 水面近くの明るい地なので、サイト名を深い青に
+  "reol-song-015": `
+    .og-brand { color: #2f64a8 !important; text-shadow: none !important; }
+  `,
   // SCORPION: MVを外して空いた下側を詰め、題名を縦の中央へ
   "reol-song-087": `
     .a087-cover__top { display: none !important; }
