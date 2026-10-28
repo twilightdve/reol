@@ -81,7 +81,7 @@ const TRACKS: { name: string; article?: string; colors: string[]; lines?: string
   { name: "-nil-", colors: [] },
   { name: "極彩色", colors: RAINBOW },
   { name: "生命線", article: "seimei-sen", colors: [C.blueprint, C.pigment] },
-  { name: "水底游歩道", colors: [C.blue, C.white, C.gray, C.black] },
+  { name: "水底游歩道", article: "minasoko-yuu-hodou", colors: [C.blue, C.white, C.gray, C.black] },
   { name: "ハルシアン", colors: [C.bordeaux] },
   { name: "ロジックエージェント", colors: [C.light, C.shade], lines: ["ロジック", "エージェント"] },
   { name: "-orderly-", colors: [] },
