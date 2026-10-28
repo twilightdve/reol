@@ -22,6 +22,24 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // 水底游歩道(plan/54)。聴くリンク(0)・冒頭の一文(1)・見出し(4, 12, 19)・月の図の前(5)・浮かんでは潜る線の前(11)・手紙の図の前(13)・要の一文(27)・結び(28)
+  "reol-song-015": {
+    bodyRevision: 6,
+    bodySha256: "487a2799311ec4f92ccc1ff64096abf5058baf1470de470df6428382e4bdf5bf",
+    blockCount: 29,
+    anchors: [
+      { block: 0, textHash: "d93279c0a9adc074" },
+      { block: 1, textHash: "96bff712576aed26" },
+      { block: 4, textHash: "a7bb13a5850c9ccc" },
+      { block: 5, textHash: "39fc0b2974c20ae5" },
+      { block: 11, textHash: "2693cd2c81a7c7ae" },
+      { block: 12, textHash: "4e31197d6da6ca4b" },
+      { block: 13, textHash: "0d6e517ec20f955c" },
+      { block: 19, textHash: "84d5f064e2f5f7e1" },
+      { block: 27, textHash: "9cb95adbba1a180a" },
+      { block: 28, textHash: "3729cae9299847cb" },
+    ],
+  },
   // 生命線(plan/50)。冒頭(0)・クレジットの段落(3)・見出し(4, 12, 23)・断片から線への図の前後(10, 11)・線の上と下の図の前後(16, 17)・手のひらの線の前後(25, 26)・要の一文(29)・結び(30)
   "reol-song-014": {
     bodyRevision: 3,

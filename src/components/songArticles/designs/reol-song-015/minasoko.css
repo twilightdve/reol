@@ -1,0 +1,594 @@
+/*
+ * 楽曲記事「水底游歩道」(reol-song-015)の記事別デザイン(見本 v1)。根拠は plan/54。
+ * すべて .a015 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割(『-nil-／極彩色』の輪で「水底游歩道」に当てた 青・白・灰・黒。012 と同じ値):
+ *   --blue #2f64a8 / --white / --gray #9b9ea3 / --black #1b1c1f
+ * 地は読み進めるほど沈む: 水面(白に青を少し) → 青 → 灰を帯びた深い色 → 黒。
+ */
+
+.a015 {
+  --blue: #2f64a8;
+  --white: #ffffff;
+  --gray: #9b9ea3;
+  --black: #1b1c1f;
+  --surface: #eef3f8;
+  --shallow: #d6e2ee;
+  --slate: #3a3f47;
+  --floor: #141518;
+  --ink-dark: #17212d;
+  --ink-light: #eef1f4;
+  --column: min(640px, calc(100% - 40px));
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--ink-dark);
+  background: var(--floor);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 水面近く。光の筋が差し、題名が少しずつ沈む ---------- */
+.a015-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: min(92svh, 860px);
+  background: linear-gradient(180deg, var(--surface) 0%, #e2ebf4 55%, var(--shallow) 100%);
+}
+.a015-cover__rays {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.a015-cover__rays polygon {
+  opacity: 0.6;
+}
+.a015-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a015-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #4d5b6b;
+}
+.a015-crumbs a {
+  color: #4d5b6b;
+  text-decoration: none;
+}
+.a015-crumbs a:hover,
+.a015-crumbs a:focus-visible {
+  color: var(--ink-dark);
+  text-decoration: underline;
+}
+.a015-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 48px) 0 clamp(32px, 6vw, 64px);
+}
+.a015-title {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 600;
+}
+.a015-title__song {
+  display: flex;
+  font-size: clamp(54px, 15vw, 132px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  /* 沈んだ分だけ下に余白をとる(4文字目の沈み) */
+  padding-bottom: 0.6em;
+}
+/* 一文字ずつ沈み、深いほど青く */
+.a015-title__char {
+  display: block;
+  transform: translateY(calc(var(--i) * 0.15em));
+  color: color-mix(in srgb, var(--blue) calc(var(--i) * 22%), var(--ink-dark));
+}
+.a015-title__sub {
+  display: block;
+  margin-top: 0.4em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--ink-dark);
+}
+.a015-cover__path {
+  display: block;
+  width: min(520px, 100%);
+  height: auto;
+  margin-top: clamp(20px, 4vw, 36px);
+  overflow: visible;
+}
+.a015-cover__path path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 0 0.022;
+}
+.a015-cover__path circle {
+  fill: var(--blue);
+}
+.a015-date {
+  margin: 20px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: #4d5b6b;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .a015-cover__rays polygon {
+    animation: a015-sway 9s ease-in-out infinite alternate;
+    transform-origin: 50% 0;
+  }
+  .a015-title__char {
+    animation: a015-sink 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(0.1s + var(--i) * 0.14s);
+  }
+  .a015-cover__path path {
+    animation: a015-walk 2.4s ease-out 0.9s both;
+  }
+}
+@keyframes a015-sway {
+  from {
+    opacity: 0.4;
+    transform: skewX(-2deg);
+  }
+  to {
+    opacity: 0.7;
+    transform: skewX(2deg);
+  }
+}
+@keyframes a015-sink {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(calc(var(--i) * 0.15em));
+  }
+}
+/* 点線の道を手前から奥へ伸ばす(点の並びは変えず、見える範囲だけ広げる) */
+@keyframes a015-walk {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- 本文の地: 節ごとに沈む ---------- */
+.a015-layer {
+  position: relative;
+  padding: clamp(48px, 7vw, 72px) 0 clamp(56px, 8vw, 88px);
+}
+.a015-layer.is-shallow {
+  background: var(--shallow);
+  padding-top: clamp(32px, 5vw, 48px);
+}
+/* 節の境目: 前の地の色から、長い距離をかけて沈む(上の空きが下りていく水) */
+.a015-layer.is-blue {
+  padding-top: clamp(120px, 18vw, 180px);
+  background: linear-gradient(180deg, var(--shallow) 0, var(--blue) clamp(110px, 16vw, 160px)) var(--blue);
+}
+.a015-layer.is-gray {
+  padding-top: clamp(120px, 18vw, 180px);
+  background: linear-gradient(180deg, var(--blue) 0, var(--slate) clamp(110px, 16vw, 160px)) var(--slate);
+}
+.a015-layer.is-floor {
+  padding-top: clamp(120px, 18vw, 180px);
+  padding-bottom: 0;
+  background: linear-gradient(180deg, var(--slate) 0, var(--floor) clamp(110px, 16vw, 160px)) var(--floor);
+}
+.a015-layer.is-blue,
+.a015-layer.is-gray,
+.a015-layer.is-floor {
+  color: var(--ink-light);
+  /* 暗い地に白い文字は太って見えるので、輪郭のなめらかさを抑える */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.a015-column {
+  position: relative;
+  width: var(--column);
+  margin: 0 auto;
+}
+
+.a015-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a015-text p {
+  margin: 0;
+}
+.a015-text p + p {
+  margin-top: 1.3em;
+}
+.a015-text + .a015-text {
+  margin-top: 1.3em;
+}
+/* 見出し: 明朝。上に短い水平の線(水の層) */
+.a015-text h2 {
+  margin: 0 0 1.3em;
+  font-family: var(--mincho);
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  word-break: auto-phrase;
+}
+.a015-text h2::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin-bottom: 1em;
+  background: currentColor;
+  opacity: 0.6;
+}
+.is-shallow .a015-text {
+  color: var(--ink-dark);
+}
+.is-blue .a015-text {
+  color: #f1f4f8;
+}
+.is-gray .a015-text {
+  color: #e4e7ea;
+}
+.is-floor .a015-text {
+  color: #d9dbdd;
+}
+
+.a015-listen {
+  margin: 0 0 28px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.a015 .a015-listen a {
+  display: inline-block;
+  padding: 5px 16px;
+  border: 1px solid var(--ink-dark);
+  border-radius: 999px;
+  color: var(--ink-dark);
+  text-decoration: none;
+}
+.a015 .a015-listen a:hover {
+  background: var(--ink-dark);
+  color: var(--shallow);
+}
+/* 冒頭の一文: 明朝で大きく */
+.a015-text.a015-opening {
+  margin: 0 0 1.4em;
+  font-family: var(--mincho);
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.a015-note {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #4d5b6b;
+}
+.a015-note p {
+  margin: 0;
+}
+.a015-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+}
+.a015-note__strong {
+  font-weight: 700;
+  color: var(--ink-dark);
+}
+.a015-text.a015-pull {
+  margin: 1.8em 0;
+  font-family: var(--mincho);
+  color: var(--white);
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 600;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  word-break: auto-phrase;
+  text-shadow: 0 0 28px rgb(47 100 168 / 0.7);
+}
+
+.a015-ground a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.a015-ground a:hover {
+  text-decoration-thickness: 2px;
+}
+.is-shallow .a015-text a {
+  color: #1f4f8c;
+}
+
+/* ---------- 図の共通 ---------- */
+.a015-moons,
+.a015-drift,
+.a015-letter {
+  position: relative;
+  margin: 2.6em 0;
+}
+.a015-moons svg,
+.a015-drift svg,
+.a015-letter svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* 段落5の後: 光の中を、月が白・灰・黒と沈む */
+.a015-moons {
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 2px;
+}
+.a015-moons__rays {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.a015-moons__rays polygon {
+  opacity: 0.22;
+}
+.a015-moons__surface {
+  stroke: var(--white);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+.a015-moon circle {
+  stroke-width: 1.5;
+}
+.a015-moon.is-white circle {
+  fill: var(--white);
+  stroke: var(--white);
+}
+.a015-moon.is-gray circle {
+  fill: var(--gray);
+  stroke: var(--gray);
+}
+.a015-moon.is-black circle {
+  fill: var(--black);
+  stroke: rgb(255 255 255 / 0.55);
+}
+.a015-moons.is-armed .a015-moon {
+  opacity: 0;
+  transform: translateY(-36px);
+}
+.a015-moons.is-visible .a015-moon {
+  animation: a015-moon 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes a015-moon {
+  from {
+    opacity: 0;
+    transform: translateY(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 段落11の後: 浮かんでは潜る線 */
+.a015-drift__surface {
+  stroke: var(--white);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+  opacity: 0.7;
+}
+.a015-drift__line {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.a015-drift__end {
+  fill: var(--white);
+}
+.a015-drift__label {
+  font-family: var(--mincho);
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  fill: rgb(255 255 255 / 0.8);
+}
+.a015-drift.is-armed .a015-drift__line {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+}
+.a015-drift.is-armed .a015-drift__end {
+  opacity: 0;
+}
+.a015-drift.is-visible .a015-drift__line {
+  animation: a015-draw 3.2s ease-in-out both;
+}
+.a015-drift.is-visible .a015-drift__end {
+  animation: a015-fade 0.5s ease-out 3.1s both;
+}
+@keyframes a015-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes a015-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 段落13の後: 手紙の行がほどけて沈む */
+.a015-letter svg {
+  max-width: 520px;
+}
+.a015-letter__paper {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.55);
+  stroke-width: 1.2;
+}
+.a015-letter__paper.is-melting {
+  stroke-dasharray: 18 8 10 14 5 22 3 30;
+}
+.a015-letter__ink {
+  stroke: #eef1f4;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  /* 完成状態: 右へ行くほど沈んで薄い */
+  transform: translateY(var(--sink));
+  opacity: var(--fade);
+}
+.a015-letter.is-armed .a015-letter__ink {
+  transform: none;
+  opacity: 1;
+}
+.a015-letter.is-visible .a015-letter__ink {
+  animation: a015-melt 2.4s cubic-bezier(0.4, 0, 0.3, 1) both;
+}
+@keyframes a015-melt {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(var(--sink));
+    opacity: var(--fade);
+  }
+}
+
+/* ---------- 結び: 水底に横へ続く点線の道 ---------- */
+.a015-floor {
+  position: relative;
+  margin-top: clamp(56px, 8vw, 88px);
+  height: 60px;
+}
+.a015-floor svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+.a015-floor path {
+  fill: none;
+  stroke: var(--gray);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 0 12;
+  vector-effect: non-scaling-stroke;
+}
+/* 道の上の小さな明かり(居心地のよさ) */
+.a015-floor__light {
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 0 18px 6px rgb(47 100 168 / 0.8);
+}
+
+/* ---------- 奥付 ---------- */
+.a015-colophon {
+  padding: clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: #a7abb1;
+}
+.a015-colophon__list,
+.a015-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a015-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+  display: grid;
+  gap: 10px;
+}
+.a015-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a015-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+}
+.a015-colophon dd {
+  margin: 0;
+}
+.a015-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+/* ---------- フォーカス ---------- */
+.a015 a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a015-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+@media print {
+  .a015,
+  .a015-layer,
+  .a015-cover {
+    color: #000;
+    background: #fff;
+  }
+  .a015-cover {
+    min-height: 0;
+  }
+  .a015-cover__rays,
+  .a015-moons__rays,
+  .a015-floor {
+    display: none;
+  }
+}

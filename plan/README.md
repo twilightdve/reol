@@ -60,6 +60,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [51-articles-rss-feed.md](./51-articles-rss-feed.md) | 読みものの RSS フィード(/articles/feed.xml): 全体公開の記事だけ、一覧にリンク、head に alternate |
 | [52-articles-index-cards.md](./52-articles-index-cards.md) | 読みもの一覧をカード型に: 記事の表紙を撮った画像(articles-cover)を上に、1〜3列 |
 | [53-site-og-refresh.md](./53-site-og-refresh.md) | サイト共通OGP画像をトップのヒーローと同じ構成に(ロゴ・見出し・数字)。説明文の切れも解消 |
+| [54-minasoko-article-design.md](./54-minasoko-article-design.md) | 楽曲記事「水底游歩道」のデザイン: 読み進めるほど水の底へ沈む地、沈む月、浮かんでは潜る線、ほどける手紙 |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |

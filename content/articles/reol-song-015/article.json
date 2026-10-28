@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-015",
+  "kind": "song",
+  "songTitle": "水底游歩道",
+  "bodyRevision": 6,
+  "formatRevision": 1,
+  "bodySha256": "487a2799311ec4f92ccc1ff64096abf5058baf1470de470df6428382e4bdf5bf",
+  "songRefs": [
+    "019e8282-8a0e-7ef8-9d60-9a12bc681430"
+  ],
+  "media": [],
+  "slug": "minasoko-yuu-hodou",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T21:19:04.500Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}
