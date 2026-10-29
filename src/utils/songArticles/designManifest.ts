@@ -22,10 +22,10 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // ハルシアン(plan/55)。聴くリンク(0)・冒頭(1)・見出し(4, 10, 19)・学校の言葉(5)・シーソーの前(9)・引用と出典(12, 13)・差の図の前(15)・要の一文(16)・舌打ちの図の前(20)・見返すページの前後(21, 22)・ハルとシアンの図の前(23)・結び(26)
+  // ハルシアン(plan/55)。聴くリンク(0)・冒頭(1)・見出し(4, 10, 19)・学校の言葉(5)・シーソーの前(9)・引用と出典(12, 13)・差の図の前(15)・要の一文(16)・舌打ちの図の前(20)・見返すページの前後(21, 22)・春・青の図の前(23)・結び(26)
   "reol-song-016": {
-    bodyRevision: 5,
-    bodySha256: "0bd4f28ef6616ceb1cc4ea4b4980bbadd5ac86c717c77be229c2bd31f4ebc892",
+    bodyRevision: 6,
+    bodySha256: "c8a3f28c824180f1e27ccb9569e8ed376884ba0b741d2c8455a3904867cb8c6f",
     blockCount: 27,
     anchors: [
       { block: 0, textHash: "a48c85475537b26d" },
@@ -42,7 +42,7 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 20, textHash: "646e7bed74acab18" },
       { block: 21, textHash: "49b064277b6a0738" },
       { block: 22, textHash: "919e412b96d99889" },
-      { block: 23, textHash: "374e10d9785d5831" },
+      { block: 23, textHash: "a17315b3a8ba8c9a" },
       { block: 26, textHash: "67a7cbd0c39097cc" },
     ],
   },

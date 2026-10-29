@@ -10,8 +10,8 @@
  * - 段落20の後: 文字の図。「舌打ち」の最後の「ち」が、舌打ちの音(はじける形)に置き換わる。
  * - 段落22から(本文版4で加わった、曲名「Halcyon」と振り返る視点): 同じノートをあとから開いたページ。紙が少し黄ばみ、方眼が薄くなる。
  *   見出しは足さない(本文を変えない)。
- * - 段落23の後(本文版5): 「アオハル」「ハルシアン」「シアン(cyan)」を、重なる文字の列でそろえて並べる文字の図。
- *   「ハル」はボルドー、「シアン」はシアンの色。本文の通り、命名意図ではなく「重ねて聴く」読みとして示す。結び(段落25)の終わりに、舌打ちの図と同じはじける形を小さく置く。
+ * - 段落23の後(本文版6): ハル・シアンは春・青。下に「青春」、上に入れ替わった「春」「青」を置き、交差する矢印で結ぶ。
+ *   春はボルドー、青はシアンの色。命名意図ではないと本文(段落24)が断る読みとして、文字の並びだけを示す。結び(段落25)の終わりに、舌打ちの図と同じはじける形を小さく置く。
  * - 歌詞は本文の外に出さない(引用は本文の段落12だけ)。図の言葉は本文の地の文から。ジャケット・映像は複製しない。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -38,7 +38,7 @@ const PULL = 16; // 結局、子どもなのは自分だ。
 const S_CLICK = 19; // 見出し「言葉が、そのまま舌打ちになる」
 const CLICK_FIG = 21; // 段落20の後
 const LATER = 22; // この曲の英語表記は「Halcyon」。ここから、あとから開いたページ
-const HARU_FIG = 24; // 段落23(「青春」を「アオハル」と読むように)の後
+const REV_FIG = 24; // 段落23(ハル・シアンは春・青)の後
 const LAST = 26; // 結び(あの舌打ちには)
 
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
@@ -211,49 +211,37 @@ const ClickFig: React.FC = () => {
 };
 
 /**
- * 段落23の後: 「アオハル」「ハルシアン」「シアン」を、重なる文字の列でそろえる。
- * 「ハル」に青春の春(ボルドー)、「シアン」に青系の色のシアン(シアンの色)。命名意図ではなく、重ねて聴く読み
+ * 段落23の後: ハル・シアンは春・青。「青春」の二文字が、逆の順番に並ぶ(ひっくり返った青春)。
+ * 春はボルドー、青はシアンの色。動きのある環境では、「青春」の順から二文字が入れ替わる
  */
-const HARU_ROWS = [
-  { label: "青春", chars: ["ア", "オ", "ハ", "ル"], start: 1 },
-  { label: "Halcyon", chars: ["ハ", "ル", "シ", "ア", "ン"], start: 3 },
-  { label: "cyan", chars: ["シ", "ア", "ン"], start: 5 },
-];
-const charTone = (col: number) =>
-  col === 3 || col === 4 ? " is-haru" : col >= 5 ? " is-cyan" : "";
-const HaruFig: React.FC = () => {
+const ReverseFig: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
     <figure
       ref={ref}
-      className={`a016-haru${className}`}
-      aria-label="「ハルシアン」の「ハル」に青春の「春」を、「シアン」に青系の色のシアンを重ねて聴く"
+      className={`a016-rev${className}`}
+      aria-label="ハル・シアンは、春・青。青春の二文字が逆の順番に並ぶ"
     >
-      <div className="a016-haru__grid" aria-hidden="true">
-        <span className="a016-haru__band is-haru" />
-        <span className="a016-haru__band is-cyan" />
-        {HARU_ROWS.map((row, r) => (
-          <React.Fragment key={row.label}>
-            {row.chars.map((c, i) => {
-              const col = row.start + i;
-              return (
-                <span
-                  key={i}
-                  className={`a016-haru__char${charTone(col)}`}
-                  style={{ gridColumn: col, gridRow: r + 1 }}
-                >
-                  {c}
-                </span>
-              );
-            })}
-            <span className="a016-haru__label" style={{ gridRow: r + 1 }}>
-              {row.label}
-            </span>
-          </React.Fragment>
-        ))}
+      <div className="a016-rev__grid" aria-hidden="true">
+        <span className="a016-rev__kana is-haru">ハル</span>
+        <span className="a016-rev__kana is-cyan">シアン</span>
+        <span className="a016-rev__kanji is-haru">春</span>
+        <span className="a016-rev__kanji is-cyan">青</span>
+        <svg className="a016-rev__cross" viewBox="0 0 340 80">
+          <path
+            d="M85 72 L 255 10 M 236 12 L 255 10 L 241 26"
+            className="is-cyan"
+          />
+          <path
+            d="M255 72 L 85 10 M 104 12 L 85 10 L 99 26"
+            className="is-haru"
+          />
+        </svg>
+        <span className="a016-rev__small is-cyan">青</span>
+        <span className="a016-rev__small is-haru">春</span>
       </div>
-      <figcaption className="a016-haru__cap">
-        「ハル」に春を、「シアン」に青を重ねて聴く
+      <figcaption className="a016-rev__cap">
+        ハル・シアンは、春・青。青春が逆に並ぶ
       </figcaption>
     </figure>
   );
@@ -367,9 +355,9 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
           {/* 同じノートを、あとから開いたページ */}
           <div className="a016-later">
             <div className="a016-column">
-              {body(LATER, HARU_FIG)}
-              <HaruFig />
-              {body(HARU_FIG, LAST)}
+              {body(LATER, REV_FIG)}
+              <ReverseFig />
+              {body(REV_FIG, LAST)}
               {body(LAST, blocks.length, "a016-text a016-last")}
             </div>
 
