@@ -10,8 +10,8 @@
  * - 段落20の後: 文字の図。「舌打ち」の最後の「ち」が、舌打ちの音(はじける形)に置き換わる。
  * - 段落22から(本文版4で加わった、曲名「Halcyon」と振り返る視点): 同じノートをあとから開いたページ。紙が少し黄ばみ、方眼が薄くなる。
  *   見出しは足さない(本文を変えない)。
- * - 段落23の後: 「ハルシアン」と「アオハル」を、重なる「ハル」でそろえて並べる文字の図。本文の通り、命名意図ではなく
- *   「重ねて聴く」読みとして示す。結び(段落25)の終わりに、舌打ちの図と同じはじける形を小さく置く。
+ * - 段落23の後(本文版5): 「アオハル」「ハルシアン」「シアン(cyan)」を、重なる文字の列でそろえて並べる文字の図。
+ *   「ハル」はボルドー、「シアン」はシアンの色。本文の通り、命名意図ではなく「重ねて聴く」読みとして示す。結び(段落25)の終わりに、舌打ちの図と同じはじける形を小さく置く。
  * - 歌詞は本文の外に出さない(引用は本文の段落12だけ)。図の言葉は本文の地の文から。ジャケット・映像は複製しない。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -39,7 +39,7 @@ const S_CLICK = 19; // 見出し「言葉が、そのまま舌打ちになる」
 const CLICK_FIG = 21; // 段落20の後
 const LATER = 22; // この曲の英語表記は「Halcyon」。ここから、あとから開いたページ
 const HARU_FIG = 24; // 段落23(「青春」を「アオハル」と読むように)の後
-const LAST = 25; // 結び(あの舌打ちには)
+const LAST = 26; // 結び(あの舌打ちには)
 
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
 const useRevealOnce = <T extends Element>(threshold: number) => {
@@ -210,21 +210,28 @@ const ClickFig: React.FC = () => {
   );
 };
 
-/** 段落23の後: 「ハルシアン」と「アオハル」を、重なる「ハル」の位置でそろえる。命名意図ではなく、重ねて聴く読み */
+/**
+ * 段落23の後: 「アオハル」「ハルシアン」「シアン」を、重なる文字の列でそろえる。
+ * 「ハル」に青春の春(ボルドー)、「シアン」に青系の色のシアン(シアンの色)。命名意図ではなく、重ねて聴く読み
+ */
 const HARU_ROWS = [
-  { label: "Halcyon", chars: ["ハ", "ル", "シ", "ア", "ン"], start: 3 },
   { label: "青春", chars: ["ア", "オ", "ハ", "ル"], start: 1 },
+  { label: "Halcyon", chars: ["ハ", "ル", "シ", "ア", "ン"], start: 3 },
+  { label: "cyan", chars: ["シ", "ア", "ン"], start: 5 },
 ];
+const charTone = (col: number) =>
+  col === 3 || col === 4 ? " is-haru" : col >= 5 ? " is-cyan" : "";
 const HaruFig: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
     <figure
       ref={ref}
       className={`a016-haru${className}`}
-      aria-label="「ハルシアン」の響きに、「アオハル」の「ハル」を重ねて聴く"
+      aria-label="「ハルシアン」の「ハル」に青春の「春」を、「シアン」に青系の色のシアンを重ねて聴く"
     >
       <div className="a016-haru__grid" aria-hidden="true">
-        <span className="a016-haru__band" />
+        <span className="a016-haru__band is-haru" />
+        <span className="a016-haru__band is-cyan" />
         {HARU_ROWS.map((row, r) => (
           <React.Fragment key={row.label}>
             {row.chars.map((c, i) => {
@@ -232,32 +239,21 @@ const HaruFig: React.FC = () => {
               return (
                 <span
                   key={i}
-                  className={`a016-haru__char${
-                    col === 3 || col === 4 ? " is-haru" : ""
-                  }`}
-                  style={{
-                    gridColumn: col,
-                    gridRow: r * 2 + (r === 0 ? 2 : 1),
-                  }}
+                  className={`a016-haru__char${charTone(col)}`}
+                  style={{ gridColumn: col, gridRow: r + 1 }}
                 >
                   {c}
                 </span>
               );
             })}
-            <span
-              className="a016-haru__label"
-              style={{
-                gridColumn: `${row.start} / span ${row.chars.length}`,
-                gridRow: r === 0 ? 1 : 4,
-              }}
-            >
+            <span className="a016-haru__label" style={{ gridRow: r + 1 }}>
               {row.label}
             </span>
           </React.Fragment>
         ))}
       </div>
       <figcaption className="a016-haru__cap">
-        響きに、青春の「春」を重ねて聴く
+        「ハル」に春を、「シアン」に青を重ねて聴く
       </figcaption>
     </figure>
   );
