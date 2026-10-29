@@ -25,6 +25,7 @@ const ko: SiteDict = {
     disclaimer:
       "이 사이트는 Reol 공식과 관계없는 비공식 팬사이트입니다. 음원·영상은 공식 임베드/링크만 사용합니다.",
     operator: "운영(비공식 팬사이트)",
+    privacy: "개인정보 처리방침(일본어)",
     mtNotice: "이 페이지는 일본어를 기계 번역한 것입니다. 번역 오류나 어색한 표현을 발견하시면 알려 주세요:",
     mtContact: "X @twilightplc",
   },
