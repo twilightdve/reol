@@ -138,6 +138,89 @@
   color: var(--ink-2);
 }
 
+/* 表紙の余白: 『極彩色』XFD を、ノートにマスキングテープで貼った写真のように。下に Spotify で聴くリンク */
+.a016-cover__body {
+  position: relative;
+  flex-wrap: wrap;
+}
+.a016-cover__media {
+  flex: 0 0 100%;
+  max-width: 420px;
+  margin-top: 8px;
+}
+.a016-cover__photo {
+  position: relative;
+  padding: 8px 8px 0;
+  background: #fff;
+  box-shadow: 0 10px 24px -14px rgb(43 39 41 / 0.45);
+  transform: rotate(-1.2deg);
+}
+/* マスキングテープ(左上と右上) */
+.a016-cover__photo::before,
+.a016-cover__photo::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  width: 64px;
+  height: 20px;
+  background: rgb(122 46 63 / 0.22);
+  pointer-events: none;
+}
+.a016-cover__photo::before {
+  left: -14px;
+  transform: rotate(-24deg);
+}
+.a016-cover__photo::after {
+  right: -14px;
+  transform: rotate(20deg);
+}
+.a016-cover__media .sa-media {
+  margin: 0;
+}
+.a016-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+.a016-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.a016-cover__media .sa-media__button {
+  width: 48px;
+  height: 48px;
+  background: var(--bordeaux);
+  color: var(--paper);
+}
+.a016-cover__media .sa-media__caption {
+  padding: 8px 2px 10px;
+  font-family: var(--maru);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.a016-cover__media .sa-media__caption a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.a016-cover__media .sa-media__caption a:hover {
+  color: var(--bordeaux);
+  text-decoration: underline;
+}
+.a016-cover__media .a016-listen {
+  margin: 18px 0 0;
+}
+/* 広い画面: 題名の右下の余白に */
+@media (min-width: 1100px) {
+  .a016-cover__media {
+    position: absolute;
+    right: 0;
+    bottom: clamp(24px, 4vw, 48px);
+    width: 380px;
+    margin: 0;
+  }
+}
+
 /* 目盛り・印(表紙と図) */
 .a016-ruler line {
   stroke: var(--ink);

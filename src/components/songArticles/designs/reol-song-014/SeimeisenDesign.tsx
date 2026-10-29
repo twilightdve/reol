@@ -4,6 +4,8 @@
  * - 一本の線の記事。細かく区切られた断片(言葉と音)が、サビで一本の線に開ける(本文 段落1・5〜10)。
  * - 地は深い青、文字は白。色は『-nil-／極彩色』の16曲の輪で「生命線」に当てた深い青と淡い藤色だけ。
  * - 表紙: 題名を一文字ずつ縦に積み、すぐ右に手相の生命線を円弧に抽象化した線(右の手のひらの向き。左上から右下へ)。前半は短い断片が詰まって並び、後半は一本の線になって手首へ伸びる。題名はゴシックで太く。
+ *   表紙の右の余白に、『極彩色』XFD を生命線の場面から(MV の無い曲。2026-10-29 ユーザー)。生命線の円弧が伸びていく先に置き、
+ *   細い白の線で囲む。その下に Spotify で聴くリンク。
  * - 本文の左に、記事を貫く一本の線。見出しはその線の上の節目。
  * - 段落10の後: 実際の歌詞を引用して比べる。左に細かく区切られた言葉(語ごとに短い線)、右にサビの開けた言葉(一本の長い線)。
  * - 見出し「感性へのプライドが、生命線になる」の上: 表紙と同じ生命線に、細かな傷の刻みと淡い色が同じ場所に重なる(文字は置かない)。
@@ -16,6 +18,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
+import { gokusaishikiXfd } from "../gokusaishikiXfd";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent, trackOfficialLinkClick } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
@@ -187,6 +191,7 @@ const Palm: React.FC = () => {
 const SeimeisenDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
+  const xfd = gokusaishikiXfd("生命線");
   const body = (from: number, to: number, className = "a014-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -229,16 +234,20 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
             <p className="a014-date">
               <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
             </p>
+            {/* 表紙の余白に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}
+            <div className="a014-cover__media">
+              <OfficialMedia {...xfd} articleId={id} unstyled preferHighRes />
+              <p className="a014-listen">
+                <a href={`https://open.spotify.com/track/${SPOTIFY_TRACK}`} target="_blank" rel="noopener noreferrer" onClick={() => trackOfficialLinkClick("spotify")}>
+                  Spotifyで「生命線」を聴く
+                </a>
+              </p>
+            </div>
           </div>
         </header>
 
         <div className="a014-ground">
           <div className="a014-column">
-            <p className="a014-listen">
-              <a href={`https://open.spotify.com/track/${SPOTIFY_TRACK}`} target="_blank" rel="noopener noreferrer" onClick={() => trackOfficialLinkClick("spotify")}>
-                Spotifyで「生命線」を聴く
-              </a>
-            </p>
 
             <div className="a014-section a014-section--0">
               {firstRelease && (

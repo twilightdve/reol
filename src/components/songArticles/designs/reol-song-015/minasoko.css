@@ -125,6 +125,58 @@
 .a015-cover__path circle {
   fill: var(--blue);
 }
+/* 表紙の余白: 『極彩色』XFD を、点線の道の先の水の中に。水色の縁と、水面からの光のにじみ。下に Spotify で聴くリンク */
+.a015-cover__body {
+  position: relative;
+}
+.a015-cover__media {
+  width: min(420px, 100%);
+  margin-top: 28px;
+}
+.a015-cover__media .sa-media {
+  margin: 0;
+}
+.a015-cover__media .sa-media__frame {
+  border-radius: 4px;
+  outline: 1px solid rgb(47 100 168 / 0.35);
+  outline-offset: 6px;
+  box-shadow: 0 18px 40px -18px rgb(27 40 64 / 0.55);
+}
+.a015-cover__media .sa-media__thumb {
+  opacity: 1;
+  filter: saturate(0.85);
+}
+.a015-cover__media .sa-media__button {
+  width: 52px;
+  height: 52px;
+  background: rgb(255 255 255 / 0.9);
+  color: var(--blue);
+}
+.a015-cover__media .sa-media__caption {
+  margin-top: 14px;
+  font-family: var(--mincho);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.a015-cover__media .sa-media__caption a {
+  color: var(--ink-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgb(47 100 168 / 0.5);
+}
+.a015-cover__media .a015-listen {
+  margin: 16px 0 0;
+}
+/* 広い画面: 題名の下、点線の道が下りていく先(右下)の余白に */
+@media (min-width: 1000px) {
+  .a015-cover__media {
+    position: absolute;
+    right: 0;
+    bottom: clamp(32px, 6vw, 64px);
+    width: 400px;
+    margin: 0;
+  }
+}
 .a015-date {
   margin: 20px 0 0;
   font-size: 12px;
