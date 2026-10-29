@@ -4,6 +4,8 @@
  * - 主役は「背伸び」。紙面は学校の方眼ノート(購買・部活・期末テストの側)に、背伸びして塗る大人びたボルドー
  *   (『-nil-／極彩色』の16曲の輪で「ハルシアン」に当てた色、012)を差す。題名・見出し・図の文字は丸ゴシック。
  * - 表紙: 題名の左に身長を測る目盛り。点線が本当の背の高さ、ボルドーの線が背伸びして届いた高さ。題名はその差の分だけ浮いている。
+ *   表紙の右下の余白に、『極彩色』XFD をハルシアンの場面から(MV の無い曲。2026-10-29 ユーザー)。ノートにマスキングテープで貼った写真のように。
+ *   その下に Spotify で聴くリンク(段落0)。
  * - 段落9の後: 「甘えること」と「対等でいること」を両端に載せたシーソー。どちらにも落ち着かず揺れ続ける。
  * - 段落12の引用(本文の一部): ボルドーのペンで引いたような線を下に。段落16(結局、子どもなのは自分だ。)を大きく。
  * - 段落15の後: 表紙の目盛りで「埋まらない差」。自分の印が背伸びで上がっても、彼の印には届かない。
@@ -20,6 +22,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
+import { gokusaishikiXfd } from "../gokusaishikiXfd";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
@@ -259,6 +263,7 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
     updatedAt,
   } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
+  const xfd = gokusaishikiXfd("ハルシアン");
   const body = (from: number, to: number, className = "a016-text") => (
     <ArticleBody
       blocks={blocks}
@@ -310,12 +315,18 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
                 <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
               </p>
             </div>
+            {/* 表紙の余白に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}
+            <div className="a016-cover__media">
+              <div className="a016-cover__photo">
+                <OfficialMedia {...xfd} articleId={id} unstyled preferHighRes />
+              </div>
+              {body(LISTEN, OPENING, "a016-text a016-listen")}
+            </div>
           </div>
         </header>
 
         <div className="a016-ground">
           <div className="a016-column">
-            {body(LISTEN, OPENING, "a016-text a016-listen")}
             {body(OPENING, INTRO, "a016-text a016-opening")}
             {firstRelease && (
               <aside className="a016-note">

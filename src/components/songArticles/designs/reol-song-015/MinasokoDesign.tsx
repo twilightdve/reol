@@ -4,6 +4,8 @@
  * - 記事を読み進めることが、水の底へ下りていくことになる。地は節ごとに沈む: 表紙の水面近くの明るさ → 青 → 灰を帯びた深い色 → 黒。
  *   色は『-nil-／極彩色』の16曲の輪で「水底游歩道」に当てた 青・白・灰・黒(012)だけ。
  * - 表紙: 明朝の題名が一文字ずつ少しずつ沈み、水面からの光の筋が差す。題名の下から、点線の道(游歩道)が水底へ下りていく。
+ *   表紙の余白(点線の道の先)に、『極彩色』XFD を水底游歩道の場面から(MV の無い曲。2026-10-29 ユーザー)。水の中から見上げるように、
+ *   水色の縁で囲む。その下に Spotify で聴くリンク(段落0)。
  * - 段落5の後: 光の差す中を、月が白・灰・黒と色を変えながら深く沈む(本文「月の色も白から灰、黒へ」)。
  * - 段落11の後: 水面の近くまで浮かんでは、また深く潜る一本の線(本文「夢と覚醒の間を行き来する」)。
  * - 段落13の後: 手紙の行が右へ行くほど途切れ、ほどけた欠片が沈んでいく(本文「言葉や手紙も、水に濡れ、滲み、やがて溶かされていく」)。
@@ -17,6 +19,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import ArticleDate from "../../ArticleDate";
 import ArticleBody from "../../ArticleBody";
+import OfficialMedia from "../../OfficialMedia";
+import { gokusaishikiXfd } from "../gokusaishikiXfd";
 import { dotDate, formatLabel } from "../../../../utils/songArticles/format";
 import { trackEvent } from "../../../../utils/analytics";
 import type { SongArticleDesign } from "../types";
@@ -218,6 +222,7 @@ const FloorPath: React.FC = () => (
 const MinasokoDesign: SongArticleDesign = (ctx) => {
   const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
+  const xfd = gokusaishikiXfd("水底游歩道");
   const body = (from: number, to: number, className = "a015-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -260,13 +265,17 @@ const MinasokoDesign: SongArticleDesign = (ctx) => {
             <p className="a015-date">
               <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
             </p>
+            {/* 表紙の余白(点の道の先の水の中)に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}
+            <div className="a015-cover__media">
+              <OfficialMedia {...xfd} articleId={id} unstyled preferHighRes />
+              {body(LISTEN, OPENING, "a015-text a015-listen")}
+            </div>
           </div>
         </header>
 
         <div className="a015-ground">
           <div className="a015-layer is-shallow">
             <div className="a015-column">
-              {body(LISTEN, OPENING, "a015-text a015-listen")}
               {body(OPENING, INTRO, "a015-text a015-opening")}
               {firstRelease && (
                 <aside className="a015-note">

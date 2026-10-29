@@ -152,6 +152,54 @@
   margin: 0 auto;
   padding: clamp(16px, 4vw, 40px) 0 clamp(40px, 7vw, 72px);
 }
+/* 表紙の余白: 『極彩色』XFD を、生命線の円弧が伸びていく先に。細い白の線で囲む。下に Spotify で聴くリンク */
+.a014-cover__body {
+  position: relative;
+}
+.a014-cover__media {
+  width: min(440px, 100%);
+  margin-top: 32px;
+}
+.a014-cover__media .sa-media {
+  margin: 0;
+}
+.a014-cover__media .sa-media__frame {
+  border: 1px solid rgb(238 241 245 / 0.7);
+  box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.7);
+}
+.a014-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+.a014-cover__media .sa-media__button {
+  width: 52px;
+  height: 52px;
+  background: var(--ink);
+  color: var(--ground);
+}
+.a014-cover__media .sa-media__caption {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.a014-cover__media .sa-media__caption a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.a014-cover__media .a014-listen {
+  margin: 18px 0 0;
+}
+/* 広い画面: 題名の右、円弧が伸びていく先の余白に */
+@media (min-width: 900px) {
+  .a014-cover__media {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(460px, 44%);
+    margin: 0;
+  }
+}
 .a014-title {
   margin: 0;
 }
