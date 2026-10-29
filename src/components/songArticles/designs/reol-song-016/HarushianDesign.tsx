@@ -8,6 +8,10 @@
  * - 段落12の引用(本文の一部): ボルドーのペンで引いたような線を下に。段落16(結局、子どもなのは自分だ。)を大きく。
  * - 段落15の後: 表紙の目盛りで「埋まらない差」。自分の印が背伸びで上がっても、彼の印には届かない。
  * - 段落20の後: 文字の図。「舌打ち」の最後の「ち」が、舌打ちの音(はじける形)に置き換わる。
+ * - 段落22から(本文版4で加わった、曲名「Halcyon」と振り返る視点): 同じノートをあとから開いたページ。紙が少し黄ばみ、方眼が薄くなる。
+ *   見出しは足さない(本文を変えない)。
+ * - 段落23の後: 「ハルシアン」と「アオハル」を、重なる「ハル」でそろえて並べる文字の図。本文の通り、命名意図ではなく
+ *   「重ねて聴く」読みとして示す。結び(段落25)の終わりに、舌打ちの図と同じはじける形を小さく置く。
  * - 歌詞は本文の外に出さない(引用は本文の段落12だけ)。図の言葉は本文の地の文から。ジャケット・映像は複製しない。
  *
  * 本文の段落位置に依存するため、designManifest.ts の本文版・ハッシュと一致した時だけ使われる。
@@ -33,6 +37,9 @@ const GAP_FIG = 16; // 段落15の後
 const PULL = 16; // 結局、子どもなのは自分だ。
 const S_CLICK = 19; // 見出し「言葉が、そのまま舌打ちになる」
 const CLICK_FIG = 21; // 段落20の後
+const LATER = 22; // この曲の英語表記は「Halcyon」。ここから、あとから開いたページ
+const HARU_FIG = 24; // 段落23(「青春」を「アオハル」と読むように)の後
+const LAST = 25; // 結び(あの舌打ちには)
 
 /** 画面に入った時に一度だけ動きを付ける。JSなし・動きを減らす設定・最初から画面内なら完成状態のまま */
 const useRevealOnce = <T extends Element>(threshold: number) => {
@@ -57,18 +64,37 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
     io.observe(el);
     return () => io.disconnect();
   }, [threshold]);
-  return { ref, className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible" };
+  return {
+    ref,
+    className:
+      state === "static"
+        ? ""
+        : state === "armed"
+        ? " is-armed"
+        : " is-armed is-visible",
+  };
 };
 
 /** 身長を測る目盛り(表紙と「埋まらない差」の図で同じ形)。y0〜y1 の間に、5ごとに長い目盛り */
-const Ruler: React.FC<{ x: number; y0: number; y1: number; step: number }> = ({ x, y0, y1, step }) => {
+const Ruler: React.FC<{ x: number; y0: number; y1: number; step: number }> = ({
+  x,
+  y0,
+  y1,
+  step,
+}) => {
   const ticks: number[] = [];
   for (let y = y1, i = 0; y >= y0; y -= step, i++) ticks.push(i);
   return (
     <g className="a016-ruler">
       <line x1={x} y1={y0} x2={x} y2={y1} />
       {ticks.map((i) => (
-        <line key={i} x1={x} y1={y1 - i * step} x2={x + (i % 5 === 0 ? 16 : 8)} y2={y1 - i * step} />
+        <line
+          key={i}
+          x1={x}
+          y1={y1 - i * step}
+          x2={x + (i % 5 === 0 ? 16 : 8)}
+          y2={y1 - i * step}
+        />
       ))}
     </g>
   );
@@ -83,15 +109,33 @@ const CoverRuler: React.FC = () => (
 
 /** 段落9の後: 甘えることと、対等でいること。両端に載せたシーソーは、どちらにも落ち着かない */
 const Seesaw: React.FC = () => (
-  <figure className="a016-seesaw" aria-label="甘えることと、対等でいること。その両方を求めて、どちらにも落ち着かない">
+  <figure
+    className="a016-seesaw"
+    aria-label="甘えることと、対等でいること。その両方を求めて、どちらにも落ち着かない"
+  >
     <svg viewBox="0 0 560 220" aria-hidden="true">
       <g className="a016-seesaw__beam">
         <line x1="40" y1="120" x2="520" y2="120" />
-        <text x="70" y="96" className="a016-seesaw__word">甘えること</text>
-        <text x="490" y="96" textAnchor="end" className="a016-seesaw__word is-even">対等でいること</text>
+        <text x="70" y="96" className="a016-seesaw__word">
+          甘えること
+        </text>
+        <text
+          x="490"
+          y="96"
+          textAnchor="end"
+          className="a016-seesaw__word is-even"
+        >
+          対等でいること
+        </text>
       </g>
       <path d="M280 124 L 250 184 H 310 Z" className="a016-seesaw__pivot" />
-      <line x1="200" y1="186" x2="360" y2="186" className="a016-seesaw__ground" />
+      <line
+        x1="200"
+        y1="186"
+        x2="360"
+        y2="186"
+        className="a016-seesaw__ground"
+      />
     </svg>
   </figure>
 );
@@ -100,29 +144,56 @@ const Seesaw: React.FC = () => (
 const GapFig: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.45);
   return (
-    <figure ref={ref} className={`a016-gap${className}`} aria-label="背伸びをしても、彼との差は埋まらない">
+    <figure
+      ref={ref}
+      className={`a016-gap${className}`}
+      aria-label="背伸びをしても、彼との差は埋まらない"
+    >
       <svg viewBox="0 0 560 300" aria-hidden="true">
         <Ruler x={60} y0={20} y1={290} step={10} />
         <line x1="60" y1="60" x2="480" y2="60" className="a016-mark is-him" />
-        <text x="490" y="66" className="a016-gap__label">彼</text>
-        <line x1="60" y1="170" x2="480" y2="170" className="a016-mark is-real" />
+        <text x="490" y="66" className="a016-gap__label">
+          彼
+        </text>
+        <line
+          x1="60"
+          y1="170"
+          x2="480"
+          y2="170"
+          className="a016-mark is-real"
+        />
         <g className="a016-gap__self">
-          <line x1="60" y1="120" x2="480" y2="120" className="a016-mark is-tiptoe" />
-          <text x="490" y="126" className="a016-gap__label is-self">自分</text>
+          <line
+            x1="60"
+            y1="120"
+            x2="480"
+            y2="120"
+            className="a016-mark is-tiptoe"
+          />
+          <text x="490" y="126" className="a016-gap__label is-self">
+            自分
+          </text>
         </g>
         <path d="M300 64 V 116" className="a016-gap__space" />
-        <text x="314" y="96" className="a016-gap__note">埋まらない差</text>
+        <text x="314" y="96" className="a016-gap__note">
+          埋まらない差
+        </text>
       </svg>
     </figure>
   );
 };
 
 /** 段落20の後: 「舌打ち」の最後の「ち」が、舌打ちの音に置き換わる */
-const BURST = "M0 -30 L7 -10 L28 -14 L12 2 L24 22 L3 13 L-8 30 L-10 9 L-30 4 L-12 -6 L-20 -26 L-3 -12 Z";
+const BURST =
+  "M0 -30 L7 -10 L28 -14 L12 2 L24 22 L3 13 L-8 30 L-10 9 L-30 4 L-12 -6 L-20 -26 L-3 -12 Z";
 const ClickFig: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
-    <figure ref={ref} className={`a016-click${className}`} aria-label="「舌打ち」の最後の「ち」が、本当の舌打ちの音に置き換わる">
+    <figure
+      ref={ref}
+      className={`a016-click${className}`}
+      aria-label="「舌打ち」の最後の「ち」が、本当の舌打ちの音に置き換わる"
+    >
       <p className="a016-click__word" aria-hidden="true">
         <span>舌打</span>
         <span className="a016-click__slot">
@@ -132,25 +203,104 @@ const ClickFig: React.FC = () => {
           </svg>
         </span>
       </p>
-      <figcaption className="a016-click__cap">「ち」が、本当の舌打ちの音に</figcaption>
+      <figcaption className="a016-click__cap">
+        「ち」が、本当の舌打ちの音に
+      </figcaption>
+    </figure>
+  );
+};
+
+/** 段落23の後: 「ハルシアン」と「アオハル」を、重なる「ハル」の位置でそろえる。命名意図ではなく、重ねて聴く読み */
+const HARU_ROWS = [
+  { label: "Halcyon", chars: ["ハ", "ル", "シ", "ア", "ン"], start: 3 },
+  { label: "青春", chars: ["ア", "オ", "ハ", "ル"], start: 1 },
+];
+const HaruFig: React.FC = () => {
+  const { ref, className } = useRevealOnce<HTMLElement>(0.5);
+  return (
+    <figure
+      ref={ref}
+      className={`a016-haru${className}`}
+      aria-label="「ハルシアン」の響きに、「アオハル」の「ハル」を重ねて聴く"
+    >
+      <div className="a016-haru__grid" aria-hidden="true">
+        <span className="a016-haru__band" />
+        {HARU_ROWS.map((row, r) => (
+          <React.Fragment key={row.label}>
+            {row.chars.map((c, i) => {
+              const col = row.start + i;
+              return (
+                <span
+                  key={i}
+                  className={`a016-haru__char${
+                    col === 3 || col === 4 ? " is-haru" : ""
+                  }`}
+                  style={{
+                    gridColumn: col,
+                    gridRow: r * 2 + (r === 0 ? 2 : 1),
+                  }}
+                >
+                  {c}
+                </span>
+              );
+            })}
+            <span
+              className="a016-haru__label"
+              style={{
+                gridColumn: `${row.start} / span ${row.chars.length}`,
+                gridRow: r === 0 ? 1 : 4,
+              }}
+            >
+              {row.label}
+            </span>
+          </React.Fragment>
+        ))}
+      </div>
+      <figcaption className="a016-haru__cap">
+        響きに、青春の「春」を重ねて聴く
+      </figcaption>
     </figure>
   );
 };
 
 const HarushianDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const {
+    id,
+    title,
+    blocks,
+    leadMedia,
+    songPages,
+    songFacts,
+    createdAt,
+    updatedAt,
+  } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const body = (from: number, to: number, className = "a016-text") => (
-    <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
+    <ArticleBody
+      blocks={blocks}
+      leadMedia={leadMedia}
+      articleId={id}
+      from={from}
+      to={to}
+      unstyled
+      className={className}
+    />
   );
-  // 題名「ハルシアン　背伸びと舌打ち」: 曲名と副題を分ける(文言は変えない)
+  // 題名「ハルシアン　青春に舌打ち」: 曲名と副題を分ける(文言は変えない)
   const [tMain, ...tRest] = title.split("　");
   const tSub = tRest.join("　").trim();
-  const pages = songPages.filter((p, i) => songPages.findIndex((q) => q.songName === p.songName) === i);
+  const pages = songPages.filter(
+    (p, i) => songPages.findIndex((q) => q.songName === p.songName) === i
+  );
   const credit =
     songFacts.lyricMember && songFacts.lyricMember === songFacts.musicMember
       ? `作詞・作曲 ${songFacts.lyricMember}`
-      : [songFacts.lyricMember && `作詞 ${songFacts.lyricMember}`, songFacts.musicMember && `作曲 ${songFacts.musicMember}`].filter(Boolean).join(" / ");
+      : [
+          songFacts.lyricMember && `作詞 ${songFacts.lyricMember}`,
+          songFacts.musicMember && `作曲 ${songFacts.musicMember}`,
+        ]
+          .filter(Boolean)
+          .join(" / ");
 
   return (
     <main className="a016" lang="ja">
@@ -187,7 +337,10 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
               <aside className="a016-note">
                 <p className="a016-note__label">リリース</p>
                 <p>
-                  <span className="a016-note__strong">{dotDate(firstRelease.releaseDate)}</span> {formatLabel(firstRelease.format)}『{firstRelease.title}』
+                  <span className="a016-note__strong">
+                    {dotDate(firstRelease.releaseDate)}
+                  </span>{" "}
+                  {formatLabel(firstRelease.format)}『{firstRelease.title}』
                 </p>
               </aside>
             )}
@@ -211,53 +364,73 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
             <section className="a016-section a016-section--last">
               {body(S_CLICK, CLICK_FIG)}
               <ClickFig />
-              {body(CLICK_FIG, blocks.length)}
+              {body(CLICK_FIG, LATER)}
             </section>
           </div>
 
-          <footer className="a016-colophon">
-            <dl className="a016-colophon__list">
-              <div>
-                <dt>曲</dt>
-                <dd>{ctx.songTitle}</dd>
-              </div>
-              {credit && (
+          {/* 同じノートを、あとから開いたページ */}
+          <div className="a016-later">
+            <div className="a016-column">
+              {body(LATER, HARU_FIG)}
+              <HaruFig />
+              {body(HARU_FIG, LAST)}
+              {body(LAST, blocks.length, "a016-text a016-last")}
+            </div>
+
+            <footer className="a016-colophon">
+              <dl className="a016-colophon__list">
                 <div>
-                  <dt>クレジット</dt>
-                  <dd>{credit}</dd>
+                  <dt>曲</dt>
+                  <dd>{ctx.songTitle}</dd>
                 </div>
-              )}
-              {firstRelease && (
-                <div>
-                  <dt>初出</dt>
-                  <dd>
-                    {dotDate(firstRelease.releaseDate)} {formatLabel(firstRelease.format)}『{firstRelease.title}』
-                  </dd>
-                </div>
-              )}
-              {songFacts.stats && songFacts.stats.totalPlays > 0 && (
-                <div>
-                  <dt>ライヴ</dt>
-                  <dd>
-                    サイトの記録で{songFacts.stats.totalPlays}公演
-                    {songFacts.stats.lastPlayedDate && `(最後は ${dotDate(songFacts.stats.lastPlayedDate)})`}
-                  </dd>
-                </div>
-              )}
-            </dl>
-            <ul className="a016-next">
-              {pages.map((p) => (
-                <li key={p.slug}>
-                  <Link to={`/songs/${p.slug}/`} onClick={() => trackEvent("article_song_page_click", { category: "navigation", label: id })}>
-                    {p.songName} — 演奏統計・配信リンク
-                  </Link>
+                {credit && (
+                  <div>
+                    <dt>クレジット</dt>
+                    <dd>{credit}</dd>
+                  </div>
+                )}
+                {firstRelease && (
+                  <div>
+                    <dt>初出</dt>
+                    <dd>
+                      {dotDate(firstRelease.releaseDate)}{" "}
+                      {formatLabel(firstRelease.format)}『{firstRelease.title}』
+                    </dd>
+                  </div>
+                )}
+                {songFacts.stats && songFacts.stats.totalPlays > 0 && (
+                  <div>
+                    <dt>ライヴ</dt>
+                    <dd>
+                      サイトの記録で{songFacts.stats.totalPlays}公演
+                      {songFacts.stats.lastPlayedDate &&
+                        `(最後は ${dotDate(songFacts.stats.lastPlayedDate)})`}
+                    </dd>
+                  </div>
+                )}
+              </dl>
+              <ul className="a016-next">
+                {pages.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      to={`/songs/${p.slug}/`}
+                      onClick={() =>
+                        trackEvent("article_song_page_click", {
+                          category: "navigation",
+                          label: id,
+                        })
+                      }
+                    >
+                      {p.songName} — 演奏統計・配信リンク
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/articles/">読みもの一覧へ</Link>
                 </li>
-              ))}
-              <li>
-                <Link to="/articles/">読みもの一覧へ</Link>
-              </li>
-            </ul>
-          </footer>
+              </ul>
+            </footer>
+          </div>
         </div>
       </article>
     </main>

@@ -5,6 +5,7 @@
  * 色の役割:
  *   --paper 方眼ノートの紙 / --grid 方眼の線(学校の側) / --ink 鉛筆に近い濃い文字
  *   --bordeaux 背伸びして塗る大人びた色(『-nil-／極彩色』の輪で「ハルシアン」に当てた #7a2e3f)。題名・印・引用の線
+ *   --aged / --grid-aged 同じノートをあとから開いたページ(本文版4の最後の節)。少し黄ばんだ紙と、薄くなった方眼
  */
 
 .a016 {
@@ -15,6 +16,8 @@
   --ink-2: #6c6669;
   --bordeaux: #7a2e3f;
   --bordeaux-soft: rgb(122 46 63 / 0.14);
+  --aged: #f4ecdc;
+  --grid-aged: rgb(160 128 92 / 0.12);
   --column: min(640px, calc(100% - 40px));
   --maru: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "Zen Maru Gothic", "M PLUS Rounded 1c", "Hiragino Sans", sans-serif;
   --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
@@ -87,9 +90,11 @@
 .a016-title__song {
   position: relative;
   display: block;
-  font-size: clamp(50px, 13vw, 128px);
+  /* 360px 幅でも「ン」だけが次の行に落ちないよう、目盛りの分を引いた幅に5文字が収まる大きさ */
+  font-size: clamp(40px, 12vw, 128px);
   font-weight: 800;
   line-height: 1.05;
+  white-space: nowrap;
   letter-spacing: 0.01em;
   color: var(--bordeaux);
   transform: translateY(-0.2em);
@@ -492,6 +497,94 @@
   }
 }
 
+/* ---------- あとから開いたページ(段落22から奥付まで) ---------- */
+.a016-later {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: clamp(48px, 7vw, 72px);
+  background-color: var(--aged);
+  background-image: linear-gradient(var(--grid-aged) 1px, transparent 1px), linear-gradient(90deg, var(--grid-aged) 1px, transparent 1px);
+  background-size: 24px 24px;
+  /* ページの境目: 下の紙に重なる、ごく薄い影 */
+  box-shadow: inset 0 10px 14px -12px rgb(90 60 30 / 0.35);
+}
+
+/* 「ハルシアン」と「アオハル」を、重なる「ハル」でそろえる */
+.a016-haru {
+  margin: 2.6em 0 2.4em;
+  text-align: center;
+}
+.a016-haru__grid {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(7, 1.12em);
+  grid-template-rows: auto 1.3em 1.3em auto;
+  font-family: var(--maru);
+  font-size: clamp(34px, 9vw, 60px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+.a016-haru__band {
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 2;
+  margin: 0.04em -0.04em;
+  border-radius: 0.2em;
+  background: var(--bordeaux-soft);
+  transform-origin: top;
+}
+.a016-haru__char {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-2);
+  opacity: 0.6;
+}
+.a016-haru__char.is-haru {
+  color: var(--bordeaux);
+  opacity: 1;
+}
+.a016-haru__label {
+  justify-self: center;
+  padding: 0.5em 0;
+  font-family: var(--gothic);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+}
+.a016-haru__cap {
+  margin-top: 0.4em;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+/* 上の段から下の段へ、重なる「ハル」に線を引く */
+.a016-haru.is-armed .a016-haru__band {
+  transform: scaleY(0);
+}
+.a016-haru.is-visible .a016-haru__band {
+  animation: a016-draw 0.8s ease-out 0.4s both;
+}
+@keyframes a016-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* 結びの終わりに、舌打ちの図と同じはじける形を小さく */
+.a016-last p:last-child::after {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.3em;
+  vertical-align: -0.1em;
+  background: var(--bordeaux);
+  clip-path: polygon(50% 0, 61.7% 33.3%, 96.7% 26.7%, 70% 53.3%, 90% 86.7%, 55% 71.7%, 36.7% 100%, 33.3% 65%, 0 56.7%, 30% 40%, 16.7% 6.7%, 45% 30%);
+}
+
 /* ---------- 奥付 ---------- */
 .a016-colophon {
   padding: clamp(48px, 7vw, 72px) 0 clamp(48px, 8vw, 88px);
@@ -547,8 +640,10 @@
   }
 }
 @media print {
-  .a016 {
+  .a016,
+  .a016-later {
     background: #fff;
+    box-shadow: none;
   }
   .a016-cover {
     min-height: 0;
