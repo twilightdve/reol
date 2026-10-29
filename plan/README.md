@@ -64,6 +64,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [55-harushian-article-design.md](./55-harushian-article-design.md) | 楽曲記事「ハルシアン」のデザイン: 方眼ノートとボルドー、背伸びの目盛り、甘えと対等のシーソー、舌打ちの文字の図。本文版4〜6で、あとから開いたページと、春・青(ひっくり返った青春)の図 |
 | [56-privacy-policy.md](./56-privacy-policy.md) | プライバシーポリシー(/privacy/): GA4・アカウント・いいね・外部の埋め込みの事実だけを書く。OAuth 同意画面の本番化のため |
 | [57-gokusaishiki-xfd-covers.md](./57-gokusaishiki-xfd-covers.md) | MV の無い『極彩色』の曲(生命線・水底游歩道・ハルシアン)の表紙に、XFD を曲の場面から置き、下に Spotify で聴くリンク |
+| [58-ga-skip-automated-browsers.md](./58-ga-skip-automated-browsers.md) | 自動操作のブラウザ(Claude の Playwright での確認)では GA に送らない |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |
