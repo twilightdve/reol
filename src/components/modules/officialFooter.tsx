@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import {
   FaGlobe,
   FaYoutube,
@@ -109,7 +110,7 @@ const OfficialFooter: React.FC = () => {
       <p className="text-center text-[11px] leading-relaxed text-bx-ink3 max-w-xl mx-auto mb-3">
         {dict.footer.disclaimer}
       </p>
-      <div className="flex justify-center items-center gap-2 text-[11px] text-bx-ink3">
+      <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-[11px] text-bx-ink3">
         <a
           href="https://twitter.com/twilightplc"
           target="_blank"
@@ -120,6 +121,11 @@ const OfficialFooter: React.FC = () => {
           <span>{dict.footer.operator}</span>
           <GoLinkExternal className="text-[10px]" />
         </a>
+        <span aria-hidden>|</span>
+        {/* プライバシーポリシーは日本語版だけ(/privacy/) */}
+        <Link to="/privacy/" className="hover:text-bx-ink transition-colors">
+          {dict.footer.privacy}
+        </Link>
         <span aria-hidden>|</span>
         {/* SSGのためビルド時点の年で焼き込まれる(デプロイごとに更新される) */}
         <span>&copy; 2023–{new Date().getFullYear()} Pochi</span>

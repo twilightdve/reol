@@ -25,6 +25,7 @@ const zhHant: SiteDict = {
     disclaimer:
       "本網站為非官方粉絲網站，與 Reol 官方無任何關係。歌曲與影片僅使用官方嵌入及連結。",
     operator: "營運者(非官方粉絲網站)",
+    privacy: "隱私權政策(日文)",
     mtNotice: "本頁由日文機器翻譯而成。若發現翻譯錯誤或不自然的表達，歡迎告訴我們：",
     mtContact: "X @twilightplc",
   },
