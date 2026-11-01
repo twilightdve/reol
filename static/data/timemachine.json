@@ -4256,7 +4256,7 @@
       "newSongs": []
     },
     {
-      "month": "2026-10",
+      "month": "2026-11",
       "songCount": 113,
       "liveItemCount": 166,
       "performanceCount": 2229,
@@ -4273,7 +4273,16 @@
         "liveSlug": "reol-secret-live-legit-2"
       },
       "releases": [],
-      "lives": [],
+      "lives": [
+        {
+          "title": "Reol Secret Live #極秘LEGIT #2",
+          "itemName": "大阪",
+          "date": "2026-11-29",
+          "place": "GORILLA HALL OSAKA",
+          "liveSlug": "reol-secret-live-legit-2",
+          "liveItemSlug": "ousaka-12"
+        }
+      ],
       "newSongs": []
     }
   ]
