@@ -15,6 +15,7 @@ interface NavigationOptions {
 // 該当ルートが追加されたら、このマップにエントリを追加することで
 // TrackingFooter などの既存ナビゲーションから遷移できるようになる。
 const ROUTE_PATHS: Record<string, string> = {
+  READING: "/articles/",
   DISCOGRAPHY: "/discography/",
   LIVE: "/live/",
   PLACE: "/place/",

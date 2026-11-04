@@ -22,7 +22,7 @@ const PhotosPage: FC<PageProps<PhotosPageData>> = ({ data }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(setRoute({ currentRoute: ROUTE_NAMES[4] }));
+    dispatch(setRoute({ currentRoute: ROUTE_NAMES[5] }));
   }, [dispatch]);
 
   return (

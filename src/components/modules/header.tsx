@@ -71,7 +71,9 @@ const LanguageSwitcher: React.FC<{ pathname: string }> = ({ pathname }) => {
   );
 };
 
+// READING(読みもの)は日本語のページだけ(記事が日本語だけのため。plan/59)
 const NAV_ITEMS = [
+  { label: "READING", to: "/articles/", jaOnly: true },
   { label: "DISCOGRAPHY", to: "/discography/" },
   { label: "LIVE", to: "/live/" },
   { label: "PLACE", to: "/place/" },
@@ -86,6 +88,7 @@ const truncateNickname = (name: string): string =>
 
 const TopHeader: React.FC<Props> = ({ title, pathname }) => {
   const dict = useDict();
+  const lang = useSiteLang();
   const { theme, toggleTheme } = useTheme();
   const { user } = useAuth();
   const [showMenu, setShowMenu] = useState(false);
@@ -111,7 +114,7 @@ const TopHeader: React.FC<Props> = ({ title, pathname }) => {
 
           <div className="flex items-center gap-4 sm:gap-5 flex-shrink-0">
             <nav className="hidden md:flex items-center gap-4 sm:gap-5">
-              {NAV_ITEMS.map((item) => (
+              {NAV_ITEMS.filter((item) => !("jaOnly" in item) || lang === DEFAULT_LANG).map((item) => (
                 <LangLink
                   key={item.label}
                   to={item.to}

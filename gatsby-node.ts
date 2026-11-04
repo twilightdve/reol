@@ -1600,7 +1600,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
   // HOME の「読みもの」欄(2026-10-11): HOME_ARTICLE_IDS の記事を、その順に渡す(公開済みの記事だけ。プレビューでは確認中も含む)。
   // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
-    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null }[] = [];
+    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null }[] = [];
     try {
       const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
       homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
@@ -1615,6 +1615,8 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
                 createdAt: a.article.createdAt ?? null,
                 // 予約公開の記事は、公開日時を過ぎるまで HOME 側で出さない(plan/43)
                 publishedAt: a.article.publishedAt ?? null,
+                // 表紙の画像(plan/59。HOME でも表紙を見せる)
+                cover: articleCoverPath(a.article.slug as string),
               },
             ]
           : [];
@@ -2149,6 +2151,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             title: t,
             songTitle: st,
             publishedAt: p,
+            cover: articleCoverPath(s),
           })
         );
         createPage({ ...page, context: { ...(page.context as object), related } });

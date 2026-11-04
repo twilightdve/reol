@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { trackEvent } from "../../utils/analytics";
-import { seriesPath, showSongKicker, tagFilterPath } from "../../utils/songArticles/series";
+import { seriesPath, tagFilterPath } from "../../utils/songArticles/series";
+import ArticleCoverCard from "./ArticleCoverCard";
 import { isReleased, useNow } from "../../utils/songArticles/schedule";
 import { ArticleLikeState, fetchArticleLikes, setArticleLike } from "../../services/articleLikeService";
 
@@ -87,7 +88,7 @@ const ArticleEnd: React.FC<{
   articleId: string;
   series: { slug: string; name: string };
   tags: string[];
-  related: { slug: string; title: string; songTitle: string; publishedAt?: string | null }[];
+  related: { slug: string; title: string; songTitle: string; publishedAt?: string | null; cover?: string | null }[];
   /** ビルド時刻。予約公開の記事は公開日時を過ぎるまで「その他の記事」に出さない(plan/43) */
   builtAt?: number;
 }> = ({ articleId, series, tags, related: relatedAll, builtAt }) => {
@@ -103,21 +104,17 @@ const ArticleEnd: React.FC<{
           <h2 id="article-others" className="text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">
             その他の記事
           </h2>
-          <ul className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {/* 表紙付きのカード(plan/59)。スマホは手で横にめくる棚、sm 以上は3列 */}
+          <ul className="mt-3 -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
             {related.map((r) => (
-              <li key={r.slug}>
-                <Link
-                  to={`/articles/${r.slug}/`}
+              <li key={r.slug} className="w-[78%] flex-shrink-0 snap-start sm:w-auto">
+                <ArticleCoverCard
+                  slug={r.slug}
+                  title={r.title}
+                  songTitle={r.songTitle}
+                  cover={r.cover}
                   onClick={() => trackEvent("article_related_click", { category: "navigation", label: `${articleId}->${r.slug}` })}
-                  className="group block h-full rounded-lg border border-bx-line p-4 hover:border-bx-yellow transition-colors"
-                >
-                  {showSongKicker(r.title, r.songTitle) && (
-                    <p className="mb-2 text-[10px] font-extrabold tracking-[0.2em] text-bx-yellow [overflow-wrap:anywhere]">{r.songTitle}</p>
-                  )}
-                  <p className="text-[14px] font-bold leading-snug text-bx-ink group-hover:text-bx-yellow [overflow-wrap:anywhere]">
-                    {r.title}
-                  </p>
-                </Link>
+                />
               </li>
             ))}
           </ul>

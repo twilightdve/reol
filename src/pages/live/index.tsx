@@ -29,7 +29,7 @@ const LivePage: FC<PageProps<LivePageData>> = ({ data }) => {
 
   // TrackingFooter で LIVE タブをアクティブ表示にするため Redux ルートを更新
   useEffect(() => {
-    dispatch(setRoute({ currentRoute: ROUTE_NAMES[2] }));
+    dispatch(setRoute({ currentRoute: ROUTE_NAMES[3] }));
   }, [dispatch]);
 
   // #live-N / #live-item-N-M のディープリンク対応

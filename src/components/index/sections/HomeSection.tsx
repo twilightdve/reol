@@ -7,7 +7,7 @@ import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 import OnThisDay from "../OnThisDay";
-import { showSongKicker } from "../../../utils/songArticles/series";
+import ArticleCoverCard from "../../songArticles/ArticleCoverCard";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -36,6 +36,8 @@ export interface HomeArticle {
   createdAt: string | null;
   /** 公開日時(予約公開の判定に使う。plan/43) */
   publishedAt?: string | null;
+  /** 表紙の画像(plan/59) */
+  cover?: string | null;
 }
 
 interface HomeSectionProps {
@@ -150,7 +152,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
         <ExploreGrid />
       </div>
 
-      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → drop pop candy → 1LDK)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
+      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → drop pop candy → 1LDK)と一覧への導線。記事が無い時は出さない(2026-10-11)。
+          表紙の画像を出す(plan/59) */}
       {homeArticles.length > 0 && (
         <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-10">
           <div className="flex flex-wrap items-end justify-between gap-2">
@@ -168,22 +171,17 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               読みもの一覧へ →
             </Link>
           </div>
-          <ul className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          {/* 表紙付きのカード(plan/59)。スマホは手で横にめくる棚(次の1枚が少しのぞく)、md 以上は3列 */}
+          <ul className="mt-4 -mx-2 flex snap-x snap-mandatory scroll-px-2 gap-3 overflow-x-auto px-2 pb-2 sm:-mx-4 sm:scroll-px-4 sm:px-4 md:mx-0 md:grid md:grid-cols-3 md:gap-3.5 md:overflow-visible md:px-0 md:pb-0">
             {homeArticles.map((a) => (
-              <li key={a.slug}>
-                <GlassCard
-                  to={`/articles/${a.slug}/`}
-                  accent="yellow"
-                  className="h-full p-4"
+              <li key={a.slug} className="w-[78%] flex-shrink-0 snap-start sm:w-[46%] md:w-auto">
+                <ArticleCoverCard
+                  slug={a.slug}
+                  title={a.title}
+                  songTitle={a.songTitle}
+                  cover={a.cover}
                   onClick={() => trackEvent("home_reading_click", { category: "navigation", label: a.slug })}
-                >
-                  {showSongKicker(a.title, a.songTitle) && (
-                    <p className="mb-2 text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow [overflow-wrap:anywhere]">
-                      {a.songTitle}
-                    </p>
-                  )}
-                  <h3 className="text-[15px] font-bold leading-snug text-bx-ink [overflow-wrap:anywhere]">{a.title}</h3>
-                </GlassCard>
+                />
               </li>
             ))}
           </ul>

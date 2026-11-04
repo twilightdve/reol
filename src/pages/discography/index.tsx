@@ -23,7 +23,7 @@ const DiscographyPage: FC<PageProps<DiscographyPageData>> = ({ data }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(setRoute({ currentRoute: ROUTE_NAMES[1] }));
+    dispatch(setRoute({ currentRoute: ROUTE_NAMES[2] }));
   }, [dispatch]);
 
   useDeepLinkScroll();

@@ -25,7 +25,7 @@ const PlacePage: FC<PageProps<PlacePageData>> = ({ data }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(setRoute({ currentRoute: ROUTE_NAMES[3] }));
+    dispatch(setRoute({ currentRoute: ROUTE_NAMES[4] }));
   }, [dispatch]);
 
   useDeepLinkScroll();

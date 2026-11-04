@@ -202,7 +202,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
         className={
           isFullscreenViz
             ? ""
-            : "pb-[calc(3.5rem+env(safe-area-inset-bottom))]"
+            : "pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0"
         }
       >
         <Layout title={data.site.siteMetadata.title} children={children} />
@@ -210,7 +210,8 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
         {!isFullscreenViz && <OfficialFooter />}
       </div>
       {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(quiz/cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
-      {!isFullscreenViz && <TrackingFooter />}
+      {/* md 以上はヘッダーにナビがあるので下部タブは隠す(plan/59) */}
+      {!isFullscreenViz && <TrackingFooter pathname={pathname} />}
     </SiteLangProvider>
   );
 };

@@ -1,18 +1,36 @@
 import React, { useCallback, memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RouteState } from "../../redux/store";
-import { FaMusic, FaCompactDisc } from "react-icons/fa6";
+import { FaMusic, FaCompactDisc, FaBookOpen } from "react-icons/fa6";
 import { BsSpeakerFill } from "react-icons/bs";
 import { ROUTE_NAMES } from "../../types/common";
 import { TbMapPinHeart } from "react-icons/tb";
 import { FaPhotoVideo } from "react-icons/fa";
 import { useNavigation } from "../../hooks/useNavigation";
+import { useSiteLang } from "../../i18n/site/SiteLangContext";
+import { DEFAULT_LANG } from "../../i18n/site/langs";
+import { stripLangPrefix } from "../../utils/i18nRoutes";
 
-const TrackingFooter: React.FC = () => {
+type Props = {
+  /** 今のパス。読みもの(/articles/ 以下)を開いている時は READING を選択中にする */
+  pathname?: string;
+};
+
+const TrackingFooter: React.FC<Props> = ({ pathname = "" }) => {
   const { navigateToRoute } = useNavigation();
-  const currentRoute = useSelector(
+  const selectedRoute = useSelector(
     (state: RouteState) => state.route.currentRoute
   );
+  // 読みものは日本語だけなので、ほかの言語ではタブを出さない(plan/59)
+  const lang = useSiteLang();
+  const routes = useMemo(
+    () => ROUTE_NAMES.filter((r) => r !== "READING" || lang === DEFAULT_LANG),
+    [lang]
+  );
+  // 記事のページは Redux の currentRoute を更新しないので、パスで決める
+  const currentRoute = stripLangPrefix(pathname || "/").path.startsWith("/articles/")
+    ? "READING"
+    : selectedRoute;
 
   // アイコンマッピングをuseMemoで最適化
   const iconMap = useMemo(() => {
@@ -21,13 +39,15 @@ const TrackingFooter: React.FC = () => {
       "aria-hidden": "true" as const,
     };
 
-    return {
-      [ROUTE_NAMES[0]]: <FaMusic {...iconProps} />,
-      [ROUTE_NAMES[1]]: <FaCompactDisc {...iconProps} />,
-      [ROUTE_NAMES[2]]: <BsSpeakerFill {...iconProps} />,
-      [ROUTE_NAMES[3]]: <TbMapPinHeart {...iconProps} />,
-      [ROUTE_NAMES[4]]: <FaPhotoVideo {...iconProps} />,
+    const icons: Record<string, JSX.Element> = {
+      HOME: <FaMusic {...iconProps} />,
+      READING: <FaBookOpen {...iconProps} />,
+      DISCOGRAPHY: <FaCompactDisc {...iconProps} />,
+      LIVE: <BsSpeakerFill {...iconProps} />,
+      PLACE: <TbMapPinHeart {...iconProps} />,
+      PHOTO: <FaPhotoVideo {...iconProps} />,
     };
+    return icons;
   }, []);
 
   const renderIcon = useCallback(
@@ -53,12 +73,12 @@ const TrackingFooter: React.FC = () => {
   try {
     return (
       <nav
-        className="fixed bottom-0 z-[50] w-full bg-bx-bg/95 border-t border-bx-line backdrop-blur pb-[env(safe-area-inset-bottom)]"
+        className="fixed bottom-0 z-[50] w-full md:hidden bg-bx-bg/95 border-t border-bx-line backdrop-blur pb-[env(safe-area-inset-bottom)]"
         role="navigation"
         aria-label="Main navigation"
       >
         <ul className="flex list-none w-full" role="tablist">
-          {ROUTE_NAMES.map((route: string, index: number) => (
+          {routes.map((route: string, index: number) => (
             <li
               key={`route-${route}`}
               role="tab"
@@ -74,9 +94,9 @@ const TrackingFooter: React.FC = () => {
                   e.preventDefault();
                   const nextIndex =
                     e.key === "ArrowLeft"
-                      ? (index - 1 + ROUTE_NAMES.length) % ROUTE_NAMES.length
-                      : (index + 1) % ROUTE_NAMES.length;
-                  const nextRoute = ROUTE_NAMES[nextIndex];
+                      ? (index - 1 + routes.length) % routes.length
+                      : (index + 1) % routes.length;
+                  const nextRoute = routes[nextIndex];
                   handleNavigation(nextRoute)();
                 }
               }}
