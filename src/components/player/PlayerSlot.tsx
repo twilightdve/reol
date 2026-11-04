@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useId, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { playMedia } from "../../redux/slices/playerSlice";
+import { adoptSlot, playMedia } from "../../redux/slices/playerSlice";
 import { useDict } from "../../i18n/site/SiteLangContext";
-import { registerSlot } from "./slotRegistry";
+import { getSlot, registerSlot } from "./slotRegistry";
 
 /**
  * ページの中の動画の枠(plan/60)。サムネイルと再生ボタンだけを持ち、押すとサイト全体で1つのプレイヤー
@@ -48,11 +48,11 @@ export const usePlayerSlot = ({
   onStart,
 }: Pick<PlayerSlotProps, "videoId" | "list" | "start" | "title" | "autoStart" | "onStart">) => {
   const dispatch = useAppDispatch();
-  // 同じ動画が1ページに2つあっても区別できるよう、置き場所(useId)と中身の両方で決める。
-  // ページを移って戻ってきた時は同じ値になるので、流れていた動画がまた枠の上に戻る
+  // 同じ動画が1ページに2つあっても区別できるよう、置き場所(useId)と中身の両方で決める
   const reactId = useId();
   const slotId = `${reactId}|${videoId ?? ""}|${list ?? ""}|${start ?? 0}`;
   const active = useAppSelector((state) => state.player.current?.slotId === slotId);
+  const current = useAppSelector((state) => state.player.current);
 
   // 再生前と再生中で付く要素が入れ替わっても登録し直せるよう、callback ref にする
   const unregister = useRef<(() => void) | null>(null);
@@ -74,6 +74,15 @@ export const usePlayerSlot = ({
     // 出した時に1回だけ
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // 小窓で流れている動画と同じものの枠が出てきたら(元のページに戻ってきた時など)、その枠の上に戻す。
+  // 元の枠がまだ画面のどこかにある間は替えない
+  useEffect(() => {
+    if (!current || active || getSlot(current.slotId)) return;
+    if ((current.videoId ?? "") === (videoId ?? "") && (current.list ?? "") === (list ?? "") && (current.start ?? 0) === (start ?? 0)) {
+      dispatch(adoptSlot(slotId));
+    }
+  }, [current, active, videoId, list, start, slotId, dispatch]);
 
   return { ref, active, start: startPlayback };
 };

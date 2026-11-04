@@ -21,7 +21,8 @@ const PlayButton: React.FC<Props> = ({ videoId, title, label, onStart, className
   const dispatch = useAppDispatch();
   const dict = useDict();
   const slotId = `button|${videoId}`;
-  const playing = useAppSelector((state) => state.player.current?.slotId === slotId);
+  // 同じ動画の枠のあるページでは枠の方に重なる(adoptSlot)ので、枠ではなく動画で見る
+  const playing = useAppSelector((state) => state.player.current?.videoId === videoId);
 
   return (
     <button

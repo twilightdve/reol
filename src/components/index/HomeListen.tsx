@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { LangLink, useDict } from "../../i18n/site/SiteLangContext";
+import { formatLabel } from "../../i18n/site/dict";
 import { Kicker } from "../redesign";
 import PlayerSlot from "../player/PlayerSlot";
 import { trackEvent } from "../../utils/analytics";
@@ -15,7 +16,8 @@ type Disc = { slug: string; title: string; releaseDate?: string | null; format?:
 const videoIdOf = (url: string) => /(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/.exec(url)?.[1] ?? null;
 
 const HomeListen: React.FC = () => {
-  const t = useDict().home;
+  const dict = useDict();
+  const t = dict.home;
   const data = useStaticQuery(graphql`
     query HomeListenLatestRelease {
       discography {
@@ -51,7 +53,7 @@ const HomeListen: React.FC = () => {
           </h2>
           <p className="mt-1 text-[12.5px] text-bx-ink2">
             {latest.releaseDate && <span className="tabular-nums">{latest.releaseDate.replaceAll("-", ".")}</span>}
-            {latest.format && <span className="ml-2">{latest.format}</span>}
+            {latest.format && <span className="ml-2">{formatLabel(dict, latest.format)}</span>}
             <span className="ml-2">XFD</span>
           </p>
           <LangLink

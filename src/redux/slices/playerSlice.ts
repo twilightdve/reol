@@ -34,12 +34,16 @@ export const playerSlice = createSlice({
     playMedia: (state, action: PayloadAction<PlayerMedia>) => {
       state.current = action.payload;
     },
+    /** 流しているものはそのままで、重ねる枠だけ替える(同じ動画の枠のあるページに戻ってきた時) */
+    adoptSlot: (state, action: PayloadAction<string>) => {
+      if (state.current) state.current.slotId = action.payload;
+    },
     stopMedia: (state) => {
       state.current = null;
     },
   },
 });
 
-export const { playMedia, stopMedia } = playerSlice.actions;
+export const { playMedia, adoptSlot, stopMedia } = playerSlice.actions;
 
 export default playerSlice.reducer;

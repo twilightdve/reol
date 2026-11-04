@@ -30,6 +30,19 @@ const isFullscreenVizPath = (path: string) =>
 // Relive は独自の再生室なので、二重に鳴らないよう止める
 const isRelivePath = (path: string) => path === "/relive" || path.startsWith("/relive/");
 
+// 要素とその親に掛かっている回転を足し合わせる(ラジアン)。回転していなければ 0
+const rotationOf = (el: HTMLElement): number => {
+  let angle = 0;
+  for (let e: HTMLElement | null = el; e && e !== document.body; e = e.parentElement) {
+    const t = getComputedStyle(e).transform;
+    if (t && t !== "none") {
+      const m = new DOMMatrixReadOnly(t);
+      angle += Math.atan2(m.b, m.a);
+    }
+  }
+  return Math.abs(angle) < 0.001 ? 0 : angle;
+};
+
 // ヘッダー(h-16)が画面に残っている間は、小窓をその下に出す
 const HEADER_HEIGHT_PX = 64;
 // 枠がこの割合以上見えている間は枠の上に重ねる
@@ -56,7 +69,8 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
     if (mounted && current && isRelivePath(path)) dispatch(stopMedia());
   }, [mounted, current, path, dispatch]);
 
-  // 再生を始めた枠が今のページにあるか(ページを移ると枠が外れ、戻ると同じ枠が付き直す)
+  // 再生を始めた枠が今のページにあるか(ページを移ると枠が外れる。同じ動画の枠のあるページに戻ると、
+  // その枠が adoptSlot で付き直す: PlayerSlot)
   const slotId = current?.slotId;
   useEffect(() => {
     const sync = () => setSlotEl(getSlot(slotId));
@@ -84,15 +98,22 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
     const box = boxRef.current;
     if (!box) return;
     if (!docked || !slotEl) {
-      box.style.top = box.style.left = box.style.width = box.style.height = box.style.borderRadius = "";
+      box.style.top = box.style.left = box.style.width = box.style.height = box.style.borderRadius = box.style.transform = "";
       return;
     }
     const place = () => {
       const r = slotEl.getBoundingClientRect();
-      box.style.top = `${r.top + window.scrollY}px`;
-      box.style.left = `${r.left + window.scrollX}px`;
-      box.style.width = `${r.width}px`;
-      box.style.height = `${r.height}px`;
+      // 記事のデザインで枠が傾けてある時(ハルシアンの写真など)は、同じだけ傾けて重ねる。
+      // 傾いた枠の getBoundingClientRect は外接する四角なので、大きさは傾ける前の幅・高さ、位置は中心で合わせる
+      const angle = rotationOf(slotEl);
+      const cs = angle ? getComputedStyle(slotEl) : null;
+      const w = cs ? parseFloat(cs.width) : r.width;
+      const h = cs ? parseFloat(cs.height) : r.height;
+      box.style.top = `${r.top + r.height / 2 - h / 2 + window.scrollY}px`;
+      box.style.left = `${r.left + r.width / 2 - w / 2 + window.scrollX}px`;
+      box.style.width = `${w}px`;
+      box.style.height = `${h}px`;
+      box.style.transform = angle ? `rotate(${angle}rad)` : "";
       // 枠の角丸に合わせる(記事ごとのデザインの角丸も写す)
       box.style.borderRadius = getComputedStyle(slotEl).borderRadius;
     };
@@ -180,8 +201,9 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
     >
       <div className={docked ? "h-full w-full" : "relative w-full"} style={docked ? undefined : { aspectRatio: "16 / 9" }}>
         <YouTube
-          // 別の動画を選んだ時は iframe を作り直す(押した直後に作るので、そのまま再生が始まる)
-          key={`${current.slotId}|${label}|${current.start ?? 0}`}
+          // 別の動画を選んだ時は iframe を作り直す(押した直後に作るので、そのまま再生が始まる)。
+          // 同じ動画のまま重ねる枠だけ替わった時は作り直さない(流れ続ける)
+          key={`${label}|${current.start ?? 0}`}
           videoId={current.videoId}
           opts={opts}
           className="h-full w-full"

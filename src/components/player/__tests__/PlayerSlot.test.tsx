@@ -65,4 +65,28 @@ describe("PlayerSlot", () => {
     expect(getSlot(slotId)).toBeNull();
     expect(store.getState().player.current?.list).toBe("PLxxxxxxxxxxxx");
   });
+
+  it("小窓で流れている動画と同じ枠が出てきたら、その枠に付き直す(作り直さないよう中身はそのまま)", () => {
+    const store = createStore();
+    const first = render(
+      <Provider store={store}>
+        <PlayerSlot videoId="abcdefghijk" title="元の枠" />
+      </Provider>
+    );
+    fireEvent.click(screen.getByRole("button", { name: /元の枠/ }));
+    const before = store.getState().player.current;
+    first.unmount();
+    const { container } = render(
+      <Provider store={store}>
+        <PlayerSlot videoId="zzzzzzzzzzz" title="別の動画" />
+        <PlayerSlot videoId="abcdefghijk" title="戻ってきた枠" />
+      </Provider>
+    );
+    const after = store.getState().player.current;
+    expect(after?.slotId).not.toBe(before?.slotId);
+    expect(after).toMatchObject({ videoId: "abcdefghijk", title: "元の枠" });
+    const slots = container.querySelectorAll("[data-player-slot]");
+    expect(slots[0].getAttribute("data-player-slot")).toBe("idle");
+    expect(slots[1].getAttribute("data-player-slot")).toBe("active");
+  });
 });
