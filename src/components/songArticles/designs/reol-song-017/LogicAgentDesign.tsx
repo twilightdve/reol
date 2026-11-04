@@ -4,13 +4,13 @@
  * - 主役は「同じ声が、二つの高さで並んで進む」。色は『-nil-／極彩色』の16曲の輪で「ロジックエージェント」に当てた
  *   光(#ece6d4)と影(#8d939a)だけ。012 の方針どおり色ではなく灰色の濃さで描く。地は影の濃い灰。
  * - 題名と見出しには、少し下にずれた影の写しを重ねる(同じ声の、別の高さのハモリ)。
- * - 表紙: 上から差す光の中に題名。下に公式MV(押すとサイト全体のプレイヤーで流れる)と、本文の聴く・観るリンク(段落0)。
+ * - 表紙: サビの景色(白と濃い灰の雲が流れる空と、空を映す地面)。地面の側に題名、下(広い画面では右)に公式MV(押すとサイト全体のプレイヤーで流れる)と、\n *   本文の観る・聴くリンク(段落0)。本文は筒の中(メロ)の暗い地で始まり、段落17の後の円柱の図を抜けるとサビの空が開け、そこから奥付まで明るい紙面になる。
  * - 段落8の後: 同じ形の線が、光と影の二本で、高さを変えて並んで進む。
  * - 段落12の後: 2014年の別々の音源(れをる版・ボーカロイド版)から、2024年の武道館で一つに交わる二本の線。
  * - 見出し「巻き戻される景色の中へ」: 下に、右から左へ戻る再生位置の線。
  * - 段落17の後: 円柱状の空間を奥へ通り抜ける。四角いパネルを並べた輪が奥から手前へ流れ、長い筋が奥の一点へ集まる(MV の画面は複製しない)。
  * - 段落24の後: 「君の記憶にいる僕」(影)と「今ここにいる僕」(光)。重なっていた二つが、ずれたまま並ぶ。
- * - 段落27の後: 見る側の視線。ファインダーの角が、奥の影の「僕」へ寄っていく。
+ * - 段落27の後: 見る側の視線。ファインダーの角が、サビの景色の奥に立つ人影へ寄っていく。
  * - 結び(段落35)の後: 段落8の後の二本の線が、交わってはまた離れる(そのたびに出会い直す)。
  * - 歌詞は本文の外に出さない。図の言葉は本文の地の文から。MV・ジャケットは複製しない(MV は未視聴。本文の記述だけを使う)。
  * - 歌ネットの同じ歌詞ページへのリンク(段落7・18・30)は本文から外し、奥付の「参考」に一度だけ置く。
@@ -83,6 +83,92 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
     className: state === "static" ? "" : state === "armed" ? " is-armed" : " is-armed is-visible",
   };
 };
+
+/**
+ * サビの景色(本文の段落18: 空と陸の境目がわからない世界が開け、雲が高速で流れていく)。
+ * 上は白と濃い灰の雲が横へ流れる空、地平の光の帯を挟んで、下は空を映す地面(雲が逆さに映り、奥へ暗くなる)。
+ * 白い筋がときどき落ちる。表紙・サビの帯・視線の図で使う。MV の画面は複製せず、空・地平・映り込みの作りだけ
+ */
+type Cloud = [x: number, y: number, rx: number, ry: number, color: string];
+const CLOUDS_FAR: Cloud[] = [
+  [8, 70, 30, 10, "255 255 255 / 0.95"],
+  [30, 82, 26, 7, "70 72 82 / 0.7"],
+  [52, 66, 34, 11, "255 255 255 / 0.9"],
+  [76, 84, 28, 8, "60 62 72 / 0.65"],
+  [92, 62, 26, 9, "255 255 255 / 0.85"],
+  [20, 52, 28, 9, "80 82 92 / 0.6"],
+  [64, 50, 24, 8, "245 243 236 / 0.8"],
+  [44, 94, 30, 6, "255 255 255 / 0.9"],
+];
+const CLOUDS_NEAR: Cloud[] = [
+  [12, 14, 40, 18, "30 32 40 / 0.92"],
+  [46, 8, 36, 16, "36 38 46 / 0.9"],
+  [82, 18, 42, 18, "28 30 38 / 0.9"],
+  [30, 36, 34, 12, "240 238 232 / 0.85"],
+  [68, 38, 32, 12, "230 228 222 / 0.8"],
+  [94, 40, 26, 10, "60 62 72 / 0.7"],
+  [56, 26, 24, 9, "255 255 255 / 0.7"],
+  [4, 40, 22, 9, "90 92 102 / 0.7"],
+];
+// 速く流れる細い筋(雲が高速で流れる)
+const CLOUDS_STREAK: Cloud[] = [
+  [6, 22, 18, 2, "255 255 255 / 0.7"],
+  [28, 48, 22, 2.5, "40 42 50 / 0.6"],
+  [44, 30, 16, 1.6, "255 255 255 / 0.75"],
+  [60, 58, 24, 2, "255 255 255 / 0.8"],
+  [78, 26, 20, 2.2, "40 42 50 / 0.55"],
+  [90, 52, 18, 1.8, "255 255 255 / 0.7"],
+  [16, 68, 20, 2, "255 255 255 / 0.85"],
+  [52, 76, 26, 1.6, "60 62 72 / 0.5"],
+  [70, 12, 22, 2.4, "255 255 255 / 0.5"],
+  [36, 88, 18, 1.4, "255 255 255 / 0.9"],
+];
+// 雲の層は空の幅の2倍。同じ雲を空の幅ごとにずらして4組並べ、半分だけ流すと継ぎ目なく繰り返す
+const cloudLayer = (clouds: Cloud[]) =>
+  [-1, 0, 1, 2]
+    .flatMap((k) =>
+      clouds.map(
+        ([x, y, rx, ry, c]) =>
+          `radial-gradient(ellipse ${rx / 2}% ${ry}% at ${(x + 100 * k) / 2}% ${y}%, rgb(${c}), transparent 70%)`
+      )
+    )
+    .join(", ");
+const FAR_BG = cloudLayer(CLOUDS_FAR);
+const NEAR_BG = cloudLayer(CLOUDS_NEAR);
+const STREAK_BG = cloudLayer(CLOUDS_STREAK);
+// 落ちる白い筋: [横の位置 %, 遅れ 秒, 長さ px]
+const DROPS: [number, number, number][] = [
+  [6, 0, 14], [14, 1.3, 10], [23, 0.6, 18], [31, 2.1, 12], [39, 0.2, 9], [47, 1.7, 16], [55, 0.9, 11],
+  [63, 2.4, 15], [71, 0.4, 10], [79, 1.5, 18], [87, 2.8, 12], [94, 1.1, 14],
+];
+const Sky: React.FC<{ className?: string; children?: React.ReactNode }> = ({ className = "", children }) => (
+  <div className={`a017-sky ${className}`} aria-hidden="true">
+    <div className="a017-sky__up">
+      <div className="a017-sky__clouds is-far" style={{ backgroundImage: FAR_BG }} />
+      <div className="a017-sky__clouds is-near" style={{ backgroundImage: NEAR_BG }} />
+      <div className="a017-sky__clouds is-streak" style={{ backgroundImage: STREAK_BG }} />
+    </div>
+    <div className="a017-sky__down">
+      <div className="a017-sky__flip">
+        <div className="a017-sky__clouds is-far" style={{ backgroundImage: FAR_BG }} />
+        <div className="a017-sky__clouds is-near" style={{ backgroundImage: NEAR_BG }} />
+        <div className="a017-sky__clouds is-streak" style={{ backgroundImage: STREAK_BG }} />
+      </div>
+    </div>
+    <div className="a017-sky__horizon" />
+    {DROPS.map(([x, d, h], i) => (
+      <span key={i} className="a017-sky__drop" style={{ left: `${x}%`, height: h, animationDelay: `${-d}s` }} />
+    ))}
+    {children}
+  </div>
+);
+
+/** 段落17の後、筒を抜けた先: サビで開ける空。ここから先の紙面は明るくなる */
+const ChorusBand: React.FC = () => (
+  <figure className="a017-band" aria-label="サビでは、空と陸の境目がわからない世界が開け、雲が高速で流れていく">
+    <Sky className="a017-band__sky" />
+  </figure>
+);
 
 // 声の線(段落8の後と結びで同じ形)。ゆるく上下しながら進む旋律の輪郭
 const CONTOUR =
@@ -198,18 +284,18 @@ const TwoFig: React.FC = () => {
   );
 };
 
-/** 段落27の後: カメラは呼びかけを受け取る君の目になる。ファインダーの角が、奥の影の「僕」へ寄っていく */
+/** 段落27の後: カメラは呼びかけを受け取る君の目になる。ファインダーの角が、サビの景色の奥に立つ人影へ寄っていく */
 const GazeFig: React.FC = () => {
   const { ref, className } = useRevealOnce<HTMLElement>(0.5);
   return (
-    <figure ref={ref} className={`a017-gaze${className}`} aria-label="カメラは、呼びかけを受け取る君の目になる。記憶の奥にある姿へ近づいていく">
-      <div className="a017-gaze__view" aria-hidden="true">
-        <span className="a017-gaze__boku">僕</span>
+    <figure ref={ref} className={`a017-gaze${className}`} aria-label="カメラは、呼びかけを受け取る君の目になる。記憶の奥にある人影へ近づいていく">
+      <Sky className="a017-gaze__view">
+        <span className="a017-gaze__figure" />
         <span className="a017-gaze__corner is-tl" />
         <span className="a017-gaze__corner is-tr" />
         <span className="a017-gaze__corner is-bl" />
         <span className="a017-gaze__corner is-br" />
-      </div>
+      </Sky>
       <figcaption className="a017-cap">カメラは、呼びかけを受け取る君の目になる</figcaption>
     </figure>
   );
@@ -256,6 +342,7 @@ const LogicAgentDesign: SongArticleDesign = (ctx) => {
     <main className="a017" lang="ja">
       <article>
         <header className="a017-cover" data-og-cover>
+          <Sky className="a017-cover__sky" />
           <div className="a017-cover__top">
             <nav aria-label="パンくず" className="a017-crumbs">
               <Link to="/">HOME</Link>
@@ -302,23 +389,29 @@ const LogicAgentDesign: SongArticleDesign = (ctx) => {
               {body(S_REWIND, S_REWIND + 1, "a017-text a017-rewind")}
               {body(S_REWIND + 1, TUNNEL_FIG)}
               <TunnelFig />
-              {body(TUNNEL_FIG, S_TWO)}
-            </section>
-
-            <section className="a017-section">
-              {body(S_TWO, TWO_FIG)}
-              <TwoFig />
-              {body(TWO_FIG, GAZE_FIG)}
-              <GazeFig />
-              {body(GAZE_FIG, S_FIND)}
-            </section>
-
-            <section className="a017-section">
-              {body(S_FIND, LAST)}
-              {body(LAST, blocks.length, "a017-text a017-last")}
-              <AgainFig />
             </section>
           </div>
+
+          {/* 筒を抜けると、サビの空が開ける。ここから奥付まで明るい紙面 */}
+          <ChorusBand />
+          <div className="a017-day">
+            <div className="a017-column">
+              {body(TUNNEL_FIG, S_TWO)}
+
+              <section className="a017-section">
+                {body(S_TWO, TWO_FIG)}
+                <TwoFig />
+                {body(TWO_FIG, GAZE_FIG)}
+                <GazeFig />
+                {body(GAZE_FIG, S_FIND)}
+              </section>
+
+              <section className="a017-section">
+                {body(S_FIND, LAST)}
+                {body(LAST, blocks.length, "a017-text a017-last")}
+                <AgainFig />
+              </section>
+            </div>
 
           <footer className="a017-colophon">
             <dl className="a017-colophon__list">
@@ -380,6 +473,7 @@ const LogicAgentDesign: SongArticleDesign = (ctx) => {
               </li>
             </ul>
           </footer>
+          </div>
         </div>
       </article>
     </main>
