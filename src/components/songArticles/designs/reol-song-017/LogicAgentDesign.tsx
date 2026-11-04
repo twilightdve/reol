@@ -8,7 +8,7 @@
  * - 段落8の後: 同じ形の線が、光と影の二本で、高さを変えて並んで進む。
  * - 段落12の後: 2014年の別々の音源(れをる版・ボーカロイド版)から、2024年の武道館で一つに交わる二本の線。
  * - 見出し「巻き戻される景色の中へ」: 下に、右から左へ戻る再生位置の線。
- * - 段落17の後: 円柱状の空間を奥へ通り抜ける輪(本文の記述から。MV の画面は複製しない)。
+ * - 段落17の後: 円柱状の空間を奥へ通り抜ける。四角いパネルを並べた輪が奥から手前へ流れ、長い筋が奥の一点へ集まる(MV の画面は複製しない)。
  * - 段落24の後: 「君の記憶にいる僕」(影)と「今ここにいる僕」(光)。重なっていた二つが、ずれたまま並ぶ。
  * - 段落27の後: 見る側の視線。ファインダーの角が、奥の影の「僕」へ寄っていく。
  * - 結び(段落35)の後: 段落8の後の二本の線が、交わってはまた離れる(そのたびに出会い直す)。
@@ -138,22 +138,45 @@ const MeetFig: React.FC = () => {
   );
 };
 
-/** 段落17の後: 円柱状の空間を、奥へ通り抜けていく(本文の記述から。MV の画面は描かない) */
+/**
+ * 段落17の後: 円柱状の空間を、奥へ通り抜けていく。筒の内側を正面から見た形で、壁は四角いパネルを輪に並べたもの
+ * (ところどころ欠けている)と、奥の一点へ集まる長い筋。パネルの輪が奥から手前へ流れてくる(進んでいく)。
+ * MV の画面は複製せず、本文の記述(円柱状の空間・ワームホール)と MV の筒の作りから描いた抽象
+ */
+const TUNNEL_PANELS = 12;
+const TUNNEL_RINGS = 6;
+const panelPath = (k: number, rOut: number, rIn: number) => {
+  const step = (Math.PI * 2) / TUNNEL_PANELS;
+  const a0 = k * step + step * 0.08;
+  const a1 = (k + 1) * step - step * 0.08;
+  const pt = (r: number, a: number) => `${(r * Math.cos(a)).toFixed(1)} ${(r * Math.sin(a)).toFixed(1)}`;
+  return `M${pt(rOut, a0)} A${rOut} ${rOut} 0 0 1 ${pt(rOut, a1)} L${pt(rIn, a1)} A${rIn} ${rIn} 0 0 0 ${pt(rIn, a0)} Z`;
+};
+// 輪ごとに欠けるパネル(決まった並び。毎回同じ形にする)
+const missing = (ring: number, k: number) => (k * 7 + ring * 5) % 9 === 0 || (k + ring * 3) % 11 === 0;
+const RAILS = Array.from({ length: 16 }, (_, i) => (i * Math.PI * 2) / 16 + 0.1);
 const TunnelFig: React.FC = () => (
   <figure className="a017-tunnel" aria-label="円柱状の空間を通り抜けていく。場所だけでなく、時間の中を移動しているように">
-    <svg viewBox="-200 -110 400 220" aria-hidden="true">
-      <defs>
-        <radialGradient id="a017-tunnel-light">
-          <stop offset="0" stopColor="#ece6d4" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#ece6d4" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <ellipse cx="0" cy="0" rx="46" ry="30" fill="url(#a017-tunnel-light)" />
-      <g>
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <ellipse key={i} cx="0" cy="0" rx="190" ry="100" className="a017-tunnel__ring" style={{ animationDelay: `${-i}s` }} />
-        ))}
-      </g>
+    <svg viewBox="-200 -112 400 224" aria-hidden="true">
+      {RAILS.map((a, i) => (
+        <line
+          key={i}
+          x1={(16 * Math.cos(a)).toFixed(1)}
+          y1={(16 * Math.sin(a)).toFixed(1)}
+          x2={(260 * Math.cos(a)).toFixed(1)}
+          y2={(260 * Math.sin(a)).toFixed(1)}
+          className="a017-tunnel__rail"
+        />
+      ))}
+      {Array.from({ length: TUNNEL_RINGS }, (_, ring) => (
+        <g key={ring} className="a017-tunnel__ring" style={{ animationDelay: `${-ring}s` }}>
+          <g transform={`rotate(${ring * 13})`}>
+            {Array.from({ length: TUNNEL_PANELS }, (_, k) =>
+              missing(ring, k) ? null : <path key={k} d={panelPath(k, 100, 82)} className={k % 3 === 0 ? "is-lit" : undefined} />
+            )}
+          </g>
+        </g>
+      ))}
     </svg>
     <figcaption className="a017-cap">円柱状の空間を、時間の中を進むように通り抜ける</figcaption>
   </figure>

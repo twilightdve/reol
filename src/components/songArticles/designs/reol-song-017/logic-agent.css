@@ -406,54 +406,70 @@
   transition: opacity 0.6s ease 2s;
 }
 
-/* 円柱状の空間: 輪が手前へ広がり、奥から次の輪が来る(通り抜けていく) */
-.a017-tunnel svg {
-  max-width: 520px;
+/* 円柱状の空間: パネルの輪が奥から手前へ流れてくる(通り抜けていく)。奥は暗いまま */
+.a017 .a017-tunnel svg {
+  max-width: 560px;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 4px;
+  background: radial-gradient(circle at 50% 50%, #0d0e10 0, #0d0e10 12%, #16181b 70%);
+}
+.a017-tunnel__rail {
+  stroke: var(--shade);
+  stroke-width: 1;
+  opacity: 0.35;
+  vector-effect: non-scaling-stroke;
 }
 .a017-tunnel__ring {
-  fill: none;
-  stroke: var(--shade);
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
   transform-origin: 0 0;
   transform-box: view-box;
 }
+.a017-tunnel__ring path {
+  fill: rgb(141 147 154 / 0.06);
+  stroke: var(--shade);
+  stroke-width: 1.3;
+  vector-effect: non-scaling-stroke;
+}
+.a017-tunnel__ring path.is-lit {
+  fill: rgb(236 230 212 / 0.1);
+  stroke: var(--light);
+}
 /* 動きを減らす設定では、奥へ小さくなる輪を止めて並べる */
 .a017-tunnel__ring:nth-of-type(1) {
-  transform: scale(1);
+  transform: scale(2.2);
 }
 .a017-tunnel__ring:nth-of-type(2) {
-  transform: scale(0.66);
+  transform: scale(1.45);
 }
 .a017-tunnel__ring:nth-of-type(3) {
-  transform: scale(0.44);
+  transform: scale(0.95);
 }
 .a017-tunnel__ring:nth-of-type(4) {
-  transform: scale(0.3);
+  transform: scale(0.62);
 }
 .a017-tunnel__ring:nth-of-type(5) {
-  transform: scale(0.2);
+  transform: scale(0.4);
 }
 .a017-tunnel__ring:nth-of-type(6) {
-  transform: scale(0.13);
+  transform: scale(0.26);
 }
 @media (prefers-reduced-motion: no-preference) {
   .a017-tunnel__ring {
-    animation: a017-through 6s linear infinite;
+    animation: a017-through 6s cubic-bezier(0.55, 0, 1, 0.6) infinite;
   }
 }
+/* 奥(小さい)から手前(画面の外)へ。手前ほど速く見えるよう、だんだん速く */
 @keyframes a017-through {
   from {
-    transform: scale(0.12);
+    transform: scale(0.16);
     opacity: 0;
   }
-  20% {
-    opacity: 0.9;
+  15% {
+    opacity: 1;
   }
   to {
-    transform: scale(1.25);
-    opacity: 0;
+    transform: scale(3.2);
+    opacity: 1;
   }
 }
 
