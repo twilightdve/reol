@@ -22,6 +22,26 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // ロジックエージェント(plan/61)。観る・聴くリンク(0)・冒頭の一文(1)・見出し(6, 13, 20, 29)・声の線の前(8)・交わる線の前(12)・円柱の前(17)・二つの僕の前(24)・視線の前(27)・結び(35)
+  "reol-song-017": {
+    bodyRevision: 3,
+    bodySha256: "5df74aa043991978adc343b52dea5bb6a8372a286253c470d6085032f97cf516",
+    blockCount: 36,
+    anchors: [
+      { block: 0, textHash: "21ddca9ca0f55036" },
+      { block: 1, textHash: "2e4f5518bc7f7013" },
+      { block: 6, textHash: "d955e0c88519fa4e" },
+      { block: 8, textHash: "3f120f3f8e02bac7" },
+      { block: 12, textHash: "cc4abfc33010ef30" },
+      { block: 13, textHash: "abfa13e520ba29bd" },
+      { block: 17, textHash: "c5d1a491ac92b323" },
+      { block: 20, textHash: "d2d5249698b4fef3" },
+      { block: 24, textHash: "47247443c3da8680" },
+      { block: 27, textHash: "f8eae7a8275559d9" },
+      { block: 29, textHash: "2268dd14251e8799" },
+      { block: 35, textHash: "ad67b2dc8eaa4adf" },
+    ],
+  },
   // ハルシアン(plan/55)。聴くリンク(0)・冒頭(1)・見出し(4, 10, 19)・学校の言葉(5)・シーソーの前(9)・引用と出典(12, 13)・差の図の前(15)・要の一文(16)・舌打ちの図の前(20)・見返すページの前後(21, 22)・春・青の図の前(23)・結び(26)
   "reol-song-016": {
     bodyRevision: 6,

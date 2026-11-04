@@ -1,0 +1,27 @@
+{
+  "id": "reol-song-017",
+  "kind": "song",
+  "songTitle": "ロジックエージェント",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "5df74aa043991978adc343b52dea5bb6a8372a286253c470d6085032f97cf516",
+  "songRefs": [
+    "019e8282-8ae7-74d5-9842-69f7b5f41756"
+  ],
+  "media": [
+    {
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WwX5E63wGF4",
+      "role": null
+    }
+  ],
+  "slug": "rojikkuejento",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-01T23:09:49.556Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

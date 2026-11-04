@@ -104,6 +104,13 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   "reol-song-016": `
     .og-brand { color: #7a2e3f !important; text-shadow: none !important; }
   `,
+  // ロジックエージェント: MV を外して空いた右側を使い、題名を大きく1行に。上から差す光の中央に置く
+  "reol-song-017": `
+    .a017-cover__top { display: none !important; }
+    .a017-cover__body { display: flex !important; flex-direction: column !important; justify-content: center !important; width: auto !important; margin: 0 !important; padding: 0 96px !important; }
+    .a017-title, .a017-date { align-self: flex-start !important; }
+    .a017-title__song { font-size: 104px !important; }
+  `,
   // 水底游歩道: 水面近くの明るい地なので、サイト名を深い青に
   "reol-song-015": `
     .og-brand { color: #2f64a8 !important; text-shadow: none !important; }

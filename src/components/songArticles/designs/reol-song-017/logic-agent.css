@@ -1,0 +1,667 @@
+/*
+ * 楽曲記事「ロジックエージェント」(reol-song-017)の記事別デザイン(見本 v1)。根拠は plan/61。
+ * すべて .a017 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割(『-nil-／極彩色』の輪で「ロジックエージェント」に当てた 光・影。色ではなく灰色の濃さで描く):
+ *   --ground 影の濃い灰(地) / --light 光(#ece6d4。本文・題名・高い方の声) / --shade 影(#8d939a。写し・低い方の声・記憶の側)
+ */
+
+.a017 {
+  --ground: #1b1d20;
+  --ground-2: #24272b;
+  --light: #ece6d4;
+  --light-2: rgb(236 230 212 / 0.74);
+  --shade: #8d939a;
+  --shade-soft: rgb(141 147 154 / 0.42);
+  --rule: rgb(141 147 154 / 0.26);
+  --column: min(640px, calc(100% - 40px));
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--light);
+  background-color: var(--ground);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 上から差す光の中の題名 ---------- */
+.a017-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(88svh, 800px);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -8%, rgb(236 230 212 / 0.2), transparent 70%),
+    linear-gradient(180deg, #23262a, var(--ground) 70%);
+  border-bottom: 1px solid var(--rule);
+}
+.a017-cover__top {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a017-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--shade);
+}
+.a017-crumbs a {
+  color: var(--shade);
+  text-decoration: none;
+}
+.a017-crumbs a:hover,
+.a017-crumbs a:focus-visible {
+  color: var(--light);
+  text-decoration: underline;
+}
+.a017-cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px) 0 clamp(40px, 7vw, 72px);
+}
+.a017-title {
+  margin: 0;
+}
+/* 題名には、少し下にずれた影の写しを重ねる(同じ声の、別の高さのハモリ) */
+.a017-title__song {
+  display: block;
+  font-size: clamp(34px, 9.4vw, 104px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  color: var(--light);
+  text-shadow: 0.06em 0.11em 0 var(--shade-soft);
+}
+.a017-title__song > span {
+  display: inline-block;
+  white-space: nowrap;
+}
+.a017-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--light-2);
+}
+.a017-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--shade);
+}
+
+/* 表紙の下: 公式MV と観る・聴くリンク */
+.a017-cover__media {
+  width: min(560px, 100%);
+  margin-top: clamp(32px, 5vw, 48px);
+}
+.a017-cover__label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color: var(--shade);
+}
+.a017-cover__media .sa-media {
+  margin: 0;
+}
+.a017-cover__media .sa-media__frame {
+  border: 1px solid var(--shade-soft);
+  background: #000;
+}
+.a017-cover__media .sa-media__thumb {
+  opacity: 0.86;
+}
+.a017-cover__media .sa-media__button {
+  width: 56px;
+  height: 56px;
+  background: var(--light);
+  color: var(--ground);
+}
+/* MV の下の文言は、すぐ下の本文のリンク(段落0)と同じなので出さない(JS が無くても本文のリンクで公式ページへ行ける) */
+.a017-cover__media .sa-media__caption {
+  display: none;
+}
+/* 広い画面: 題名の右に MV */
+@media (min-width: 1100px) {
+  .a017-cover__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 440px;
+    grid-template-rows: auto auto;
+    column-gap: 56px;
+    align-content: center;
+  }
+  /* 「エージェント」の6文字が、MV の左の幅に収まる大きさ */
+  .a017-title__song {
+    font-size: clamp(56px, 6.4vw, 84px);
+  }
+  .a017-title,
+  .a017-date {
+    grid-column: 1;
+  }
+  /* MV の高さで行が伸びても、題名と日付は離さず、二つまとめて MV の高さの中ほどに */
+  .a017-title {
+    align-self: end;
+  }
+  .a017-date {
+    align-self: start;
+  }
+  .a017-cover__media {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a017-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+}
+.a017-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a017-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+  color: var(--light);
+}
+.a017-text p {
+  margin: 0;
+}
+.a017-text p + p {
+  margin-top: 1.3em;
+}
+.a017-text + .a017-text {
+  margin-top: 1.3em;
+}
+.a017-text a {
+  color: var(--light);
+  text-decoration: underline;
+  text-decoration-color: var(--shade);
+  text-underline-offset: 0.25em;
+}
+.a017-text a:hover {
+  text-decoration-color: var(--light);
+}
+/* 見出し: 題名と同じく、影の写しを少し下に */
+.a017-text h2 {
+  margin: 0 0 1.2em;
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-break: auto-phrase;
+  text-shadow: 0.05em 0.1em 0 var(--shade-soft);
+}
+.a017-section {
+  margin-top: clamp(64px, 9vw, 96px);
+}
+.a017-listen {
+  margin: 18px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.a017 .a017-listen p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.a017 .a017-listen br {
+  display: none;
+}
+.a017 .a017-listen a {
+  display: inline-block;
+  padding: 5px 16px;
+  border: 1px solid var(--shade);
+  border-radius: 999px;
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 700;
+}
+.a017 .a017-listen a:hover {
+  border-color: var(--light);
+  background: var(--light);
+  color: var(--ground);
+}
+.a017-text.a017-opening {
+  margin: 0 0 1.6em;
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 800;
+  line-height: 1.6;
+  text-shadow: 0.05em 0.1em 0 var(--shade-soft);
+}
+
+/* 見出し「巻き戻される景色の中へ」: 下に、右から左へ戻る再生位置の線 */
+.a017-rewind h2::after {
+  content: "";
+  display: block;
+  height: 10px;
+  margin-top: 0.7em;
+  background:
+    linear-gradient(var(--shade-soft), var(--shade-soft)) 0 50% / 100% 2px no-repeat,
+    linear-gradient(var(--light), var(--light)) 0 50% / var(--a017-pos, 38%) 2px no-repeat;
+}
+.a017-rewind h2 {
+  position: relative;
+}
+.a017-rewind h2::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--a017-pos, 38%) - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--light);
+}
+@property --a017-pos {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 38%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .a017-rewind h2 {
+    animation: a017-rewind 6s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+  }
+}
+@keyframes a017-rewind {
+  0% {
+    --a017-pos: 100%;
+  }
+  70%,
+  100% {
+    --a017-pos: 0%;
+  }
+}
+
+/* 結び */
+.a017-text.a017-last {
+  margin-top: 1.6em;
+  font-size: clamp(18px, 2.2vw, 20px);
+  font-weight: 700;
+  line-height: 2;
+}
+
+/* ---------- 図 ---------- */
+.a017-voice,
+.a017-meet,
+.a017-tunnel,
+.a017-two,
+.a017-gaze,
+.a017-again {
+  margin: clamp(40px, 6vw, 56px) 0;
+}
+.a017 figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.a017-cap {
+  margin-top: 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--shade);
+}
+.a017-line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.a017-line.is-light {
+  stroke: var(--light);
+}
+.a017-line.is-shade {
+  stroke: var(--shade);
+}
+/* 線を描く動き(画面に入った時だけ) */
+.is-armed .a017-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.is-armed.is-visible .a017-line {
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.45, 0, 0.2, 1);
+  stroke-dashoffset: 0;
+}
+
+/* 2014 → 2024: 二本の線が上から下へ進み、一つに交わる */
+.a017-meet {
+  width: min(380px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a017-meet__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 6px;
+  text-align: center;
+}
+.a017-meet__year {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--shade);
+}
+.a017-meet__src {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.a017-meet__src.is-light {
+  color: var(--light);
+}
+.a017-meet__src.is-shade {
+  color: var(--shade);
+}
+.a017 .a017-meet__lanes {
+  height: 180px;
+  margin-top: 10px;
+}
+.a017-meet__lanes .a017-line {
+  vector-effect: non-scaling-stroke;
+}
+.a017-meet__foot {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  margin-top: -2px;
+}
+.a017-meet__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--light);
+  box-shadow: 0 0 0 6px rgb(236 230 212 / 0.14);
+}
+.a017-meet__stage {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.a017-meet.is-armed .a017-meet__foot {
+  opacity: 0;
+}
+.a017-meet.is-armed.is-visible .a017-meet__foot {
+  opacity: 1;
+  transition: opacity 0.6s ease 2s;
+}
+
+/* 円柱状の空間: 輪が手前へ広がり、奥から次の輪が来る(通り抜けていく) */
+.a017-tunnel svg {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.a017-tunnel__ring {
+  fill: none;
+  stroke: var(--shade);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 0 0;
+  transform-box: view-box;
+}
+/* 動きを減らす設定では、奥へ小さくなる輪を止めて並べる */
+.a017-tunnel__ring:nth-of-type(1) {
+  transform: scale(1);
+}
+.a017-tunnel__ring:nth-of-type(2) {
+  transform: scale(0.66);
+}
+.a017-tunnel__ring:nth-of-type(3) {
+  transform: scale(0.44);
+}
+.a017-tunnel__ring:nth-of-type(4) {
+  transform: scale(0.3);
+}
+.a017-tunnel__ring:nth-of-type(5) {
+  transform: scale(0.2);
+}
+.a017-tunnel__ring:nth-of-type(6) {
+  transform: scale(0.13);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .a017-tunnel__ring {
+    animation: a017-through 6s linear infinite;
+  }
+}
+@keyframes a017-through {
+  from {
+    transform: scale(0.12);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* 二つの「僕」: 影(記憶の側)は少し上、左にずれたまま */
+.a017-two__stage {
+  position: relative;
+  height: clamp(220px, 46vw, 280px);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.a017-two__boku {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  font-size: clamp(120px, 30vw, 180px);
+  font-weight: 800;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+.a017-two__boku.is-light {
+  color: var(--light);
+}
+.a017-two__boku.is-shade {
+  color: var(--shade);
+  opacity: 0.55;
+  transform: translate(calc(-50% - 0.2em), calc(-50% - 0.14em));
+}
+.a017-two__label {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.a017-two__label.is-shade {
+  top: 0;
+  left: 0;
+  color: var(--shade);
+}
+.a017-two__label.is-light {
+  right: 0;
+  bottom: 0;
+  color: var(--light);
+}
+.a017-two.is-armed .a017-two__boku.is-shade {
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+}
+.a017-two.is-armed.is-visible .a017-two__boku.is-shade {
+  transform: translate(calc(-50% - 0.2em), calc(-50% - 0.14em));
+  opacity: 0.55;
+  transition: transform 1.8s cubic-bezier(0.3, 0, 0.2, 1) 0.3s, opacity 1.8s ease 0.3s;
+}
+
+/* 見る側の視線: ファインダーの角が、奥の影の「僕」へ寄る */
+.a017-gaze__view {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 520px;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  background: radial-gradient(ellipse at 50% 55%, rgb(236 230 212 / 0.08), transparent 65%);
+}
+.a017-gaze__boku {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--shade);
+  transform: translate(-50%, -50%);
+}
+.a017-gaze__corner {
+  --inset-x: 34%;
+  --inset-y: 26%;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--light);
+  border-style: solid;
+  border-width: 0;
+}
+.a017-gaze__corner.is-tl {
+  left: var(--inset-x);
+  top: var(--inset-y);
+  border-left-width: 2px;
+  border-top-width: 2px;
+}
+.a017-gaze__corner.is-tr {
+  right: var(--inset-x);
+  top: var(--inset-y);
+  border-right-width: 2px;
+  border-top-width: 2px;
+}
+.a017-gaze__corner.is-bl {
+  left: var(--inset-x);
+  bottom: var(--inset-y);
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+.a017-gaze__corner.is-br {
+  right: var(--inset-x);
+  bottom: var(--inset-y);
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+.a017-gaze.is-armed .a017-gaze__corner {
+  --inset-x: 6%;
+  --inset-y: 8%;
+}
+.a017-gaze.is-armed.is-visible .a017-gaze__corner {
+  --inset-x: 34%;
+  --inset-y: 26%;
+  transition: left 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, right 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+    top 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, bottom 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+.a017-gaze.is-armed .a017-gaze__boku {
+  color: rgb(141 147 154 / 0.5);
+}
+.a017-gaze.is-armed.is-visible .a017-gaze__boku {
+  color: var(--light);
+  transition: color 1s ease 1.6s;
+}
+
+/* 交わってはまた離れる二本の線 */
+.a017-again__meet {
+  fill: var(--light);
+}
+.a017-again.is-armed .a017-again__meet {
+  opacity: 0;
+}
+.a017-again.is-armed.is-visible .a017-again__meet {
+  opacity: 1;
+  transition: opacity 0.5s ease 1.6s;
+}
+
+/* ---------- 奥付 ---------- */
+.a017-colophon {
+  padding: clamp(48px, 7vw, 72px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--shade);
+}
+.a017-colophon__list,
+.a017-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a017-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--shade);
+  display: grid;
+  gap: 10px;
+}
+.a017-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a017-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--light);
+}
+.a017-colophon dd {
+  margin: 0;
+}
+.a017-colophon__release {
+  display: block;
+}
+.a017-colophon a,
+.a017-next a {
+  color: var(--light-2);
+  text-decoration: underline;
+  text-decoration-color: var(--shade-soft);
+  text-underline-offset: 0.25em;
+}
+.a017-colophon a:hover,
+.a017-next a:hover {
+  color: var(--light);
+}
+.a017-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.a017 a:focus-visible {
+  outline: 2px solid var(--light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a017-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+@media print {
+  .a017 {
+    background: #fff;
+    color: #222;
+  }
+}
