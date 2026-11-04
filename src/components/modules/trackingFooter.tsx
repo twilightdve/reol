@@ -11,6 +11,12 @@ import { useSiteLang } from "../../i18n/site/SiteLangContext";
 import { DEFAULT_LANG } from "../../i18n/site/langs";
 import { stripLangPrefix } from "../../utils/i18nRoutes";
 
+// 下部タブだけの短い表示名(2026-11-04 ユーザー「DISCOGRAPHY、DISCO に短縮表示する？メニューだけ」)。
+// 読み上げ(aria-label)とヘッダーのナビは元の名前のまま
+const TAB_LABEL: Record<string, string> = {
+  DISCOGRAPHY: "DISCO",
+};
+
 type Props = {
   /** 今のパス。読みもの(/articles/ 以下)を開いている時は READING を選択中にする */
   pathname?: string;
@@ -109,7 +115,7 @@ const TrackingFooter: React.FC<Props> = ({ pathname = "" }) => {
               }`}
             >
               {renderIcon(route)}
-              <span className="text-[0.6rem] leading-4">{route}</span>
+              <span className="text-[0.6rem] leading-4">{TAB_LABEL[route] ?? route}</span>
             </li>
           ))}
         </ul>
