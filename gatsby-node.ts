@@ -1597,24 +1597,25 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
 
   const context = (page.context ?? {}) as Record<string, unknown>;
 
-  // HOME の「読みもの」のカルーセル(plan/59): 公開日時の新しい順に HOME_ARTICLE_COUNT 本を渡す。
+  // HOME の「読みもの」(plan/59): 公開日時の新しい順に、大きく出す1本+カルーセルの HOME_ARTICLE_COUNT 本を渡す。
   // 限定公開(plan/43)と公開日時の無い記事は出さない。予約公開の記事は HOME 側で公開日時を過ぎるまで外すので、その本数だけ多めに渡す。
   // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
-    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null }[] = [];
+    let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null; ogImage: string | null }[] = [];
     try {
       const listed = loadSongArticles(process.cwd())
         .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt)
         .sort((x, y) => String(y.article.publishedAt).localeCompare(String(x.article.publishedAt)));
       const scheduledCount = listed.filter((a) => !isReleased(a.article.publishedAt, BUILT_AT)).length;
-      homeArticles = listed.slice(0, HOME_ARTICLE_COUNT + scheduledCount).map((a) => ({
+      homeArticles = listed.slice(0, 1 + HOME_ARTICLE_COUNT + scheduledCount).map((a) => ({
         slug: a.article.slug as string,
         title: a.parsed.title,
         songTitle: a.article.songTitle,
         createdAt: a.article.createdAt ?? null,
         publishedAt: a.article.publishedAt ?? null,
-        // 表紙の画像(plan/59)
+        // 表紙の画像(plan/59)。大きく出す1本は、より大きい OGP 画像(1200×630)も使う
         cover: articleCoverPath(a.article.slug as string),
+        ogImage: articleOgImagePath(a.article.slug as string),
       }));
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);

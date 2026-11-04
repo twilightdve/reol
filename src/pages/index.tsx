@@ -50,9 +50,9 @@ const IndexPage: FC<PageProps<any, { lang?: string; homeArticles?: HomeArticle[]
   const recommend: Recommend[] = data.recommend.recommend;
   const siteStats: SiteStats = data.siteStats.siteStats;
   // 読みもの(楽曲記事)は日本語だけなので、日本語の HOME にだけ出す
-  // 予約公開(plan/43)の記事は、公開日時を過ぎるまで出さない。公開日時の新しい順に10本(plan/59)
+  // 予約公開(plan/43)の記事は、公開日時を過ぎるまで出さない。公開日時の新しい順に、大きく出す1本+カルーセルの10本(plan/59)
   const now = useNow(pageContext?.builtAt);
-  const homeArticles = pageContext?.lang ? [] : (pageContext?.homeArticles ?? []).filter((a) => isReleased(a.publishedAt, now)).slice(0, HOME_ARTICLE_COUNT);
+  const homeArticles = pageContext?.lang ? [] : (pageContext?.homeArticles ?? []).filter((a) => isReleased(a.publishedAt, now)).slice(0, 1 + HOME_ARTICLE_COUNT);
 
   return (
     <>

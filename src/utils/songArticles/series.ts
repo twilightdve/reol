@@ -55,6 +55,7 @@ export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
 
 /**
  * HOME の「読みもの」のカルーセルに出す本数。公開日時の新しい順(2026-11-04 ユーザー「表示件数は10枚はどう？」。plan/59)。
+ * いちばん新しい1本はカルーセルの上に大きく出すので、HOME にはこれ+1本を渡す。
  * それまでは手で選んだ3本(No title → drop pop candy → 1LDK)だった。
  */
 export const HOME_ARTICLE_COUNT = 10;

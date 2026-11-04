@@ -8,6 +8,7 @@ import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 import OnThisDay from "../OnThisDay";
 import ArticleCarousel from "../../songArticles/ArticleCarousel";
+import FeaturedArticle from "../FeaturedArticle";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -38,6 +39,8 @@ export interface HomeArticle {
   publishedAt?: string | null;
   /** 表紙の画像(plan/59) */
   cover?: string | null;
+  /** OGP 画像(1200×630)。HOME でいちばん大きく出す1本に使う(plan/59 段3) */
+  ogImage?: string | null;
 }
 
 interface HomeSectionProps {
@@ -64,10 +67,14 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
     { value: performanceCount, label: "PERFORMANCES" },
   ];
 
-  return (
-    <section id="HOME" style={{ contentVisibility: "auto" }} className="max-w-5xl mx-auto">
-      {/* ヒーロー: 巨大タイポ+動くデータ */}
-      <div className="px-2 sm:px-4 pt-10 sm:pt-14 pb-6">
+  // 読みもの(日本語の HOME だけ)がある時は、いちばん新しい1本を大きく出し、残りをカルーセルにする(plan/59 段3)
+  const [featured, ...shelf] = homeArticles;
+  const hasReading = featured !== undefined;
+
+  // サイトの紹介(巨大タイポ+統計)。読みものがある時は HOME の終わりに、無い時(日本語以外)は先頭に置く
+  const about = (padding: string) => (
+    <div className="px-2 sm:px-4">
+      <div className={padding}>
         <p className="flex items-center gap-2.5 text-[11px] font-extrabold tracking-[0.3em] text-bx-blue">
           UNBOXED — SINCE 2012
           <span aria-hidden className="inline-block h-px w-16 bg-bx-blue opacity-60" />
@@ -117,44 +124,46 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
 
-        {/* ON THIS DAY: 今日は何の日(該当イベントがある日のみ表示)。統計のすぐ下、NEXT LIVE の上(2026-10-18 ユーザー指定) */}
-        <OnThisDay className="mt-6" />
-
-        {/* NEXT LIVE行 */}
+  // TODAY: NEXT LIVE と「今日は何の日」を1つの帯にまとめる(plan/59 段3)。PC は2列。
+  // 「今日は何の日」は「今日」がビルド時に決まらないので、表示はマウント後(それまで NEXT LIVE だけ)
+  const today = (
+    <section aria-label="TODAY" className="px-2 sm:px-4 pt-8">
+      <div className="grid gap-x-8 gap-y-6 rounded-xl border border-bx-line px-4 py-5 sm:px-6 md:grid-cols-2 empty:hidden">
         {nextLive && (
-          <div className="flex items-center flex-wrap gap-3 mt-5 text-xs text-bx-ink2">
-            <span
-              aria-hidden
-              className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-bx-yellow shadow-[0_0_10px_rgba(226,191,87,0.8)]"
-            />
-            <span>
-              <b className="font-bold text-bx-ink">NEXT LIVE:</b>{" "}
+          <div>
+            <Kicker color="text-bx-yellow">NEXT LIVE</Kicker>
+            <p className="mt-2 text-[15px] font-bold leading-snug text-bx-ink [overflow-wrap:anywhere]">
               {nextLive.title}
-              {nextLive.itemName ? ` ${nextLive.itemName}` : ""} —{" "}
-              {formatMonthDay(nextLive.date)} {nextLive.place}
-            </span>
+              {nextLive.itemName ? ` ${nextLive.itemName}` : ""}
+            </p>
+            <p className="mt-1 text-[12.5px] text-bx-ink2">
+              <span className="tabular-nums">{formatMonthDay(nextLive.date)}</span> {nextLive.place}
+            </p>
             <a
               href="https://reol.jp/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackOfficialLinkClick("site")}
-              className="ml-auto font-extrabold tracking-wide rounded-full px-4 py-1.5 border border-bx-yellow text-bx-yellow"
+              className="mt-3 inline-flex items-center rounded-full bg-bx-yellow px-4 py-1.5 text-[12.5px] font-extrabold tracking-wide text-bx-bg transition-opacity hover:opacity-90"
             >
               {t.ticketCta}
             </a>
           </div>
         )}
+        <OnThisDay className={nextLive ? "md:border-l md:border-bx-line md:pl-8" : ""} />
       </div>
+    </section>
+  );
 
-      {/* EXPLORE: 主要セクションへの大タイル導線 */}
-      <div className="px-2 sm:px-4 pt-6">
-        <ExploreGrid />
-      </div>
-
-      {/* 読みもの: 公開日時の新しい順に10本(plan/59)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
-      {homeArticles.length > 0 && (
-        <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-10">
+  return (
+    <section id="HOME" style={{ contentVisibility: "auto" }} className="max-w-5xl mx-auto">
+      {hasReading ? (
+        // 読みもの: いちばん新しい1本を大きく、続く10本をカルーセルで(plan/59)。一覧への導線
+        <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-6 sm:pt-10">
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div>
               <Kicker color="text-bx-yellow">READING</Kicker>
@@ -170,22 +179,36 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               読みもの一覧へ →
             </Link>
           </div>
+          <div className="mt-4">
+            <FeaturedArticle article={featured} />
+          </div>
           {/* 表紙付きのカードのカルーセル(plan/59)。自動で次へ送る。スマホ1枚・sm 2枚・md 3枚ずつ */}
-          <ArticleCarousel
-            className="mt-4"
-            layout="home"
-            label="読みもの"
-            items={homeArticles.map((a) => ({
-              key: a.slug,
-              slug: a.slug,
-              title: a.title,
-              songTitle: a.songTitle,
-              cover: a.cover,
-              onClick: () => trackEvent("home_reading_click", { category: "navigation", label: a.slug }),
-            }))}
-          />
+          {shelf.length > 0 && (
+            <ArticleCarousel
+              className="mt-4"
+              layout="home"
+              label="ほかの読みもの"
+              items={shelf.map((a) => ({
+                key: a.slug,
+                slug: a.slug,
+                title: a.title,
+                songTitle: a.songTitle,
+                cover: a.cover,
+                onClick: () => trackEvent("home_reading_click", { category: "navigation", label: a.slug }),
+              }))}
+            />
+          )}
         </section>
+      ) : (
+        about("pt-10 sm:pt-14 pb-2")
       )}
+
+      {today}
+
+      {/* EXPLORE: 主要セクションへの大タイル導線 */}
+      <div className="px-2 sm:px-4 pt-8">
+        <ExploreGrid />
+      </div>
 
       {/* 入口カード：初見の人が最初に触れる導線 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 px-2 sm:px-4 pt-10">
@@ -392,6 +415,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
           <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
         </GlassCard>
       </div>
+
+      {/* サイトの紹介(読みものがある時は、ここ= HOME の終わりに置く。plan/59 段3) */}
+      {hasReading && about("mt-12 pt-10 border-t border-bx-line")}
 
       {/* Pick Up Post */}
       <div id="RECOMMEND" className="pt-10">
