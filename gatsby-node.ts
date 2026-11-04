@@ -42,7 +42,7 @@ import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { isReleased } from "./src/utils/songArticles/schedule";
 import { ARTICLES_FEED_PATH, buildArticlesFeed } from "./src/utils/songArticles/feed";
 import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
-import { ARTICLE_SERIES, HOME_ARTICLE_IDS, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
+import { ARTICLE_SERIES, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 
 // 楽曲記事の予約公開(plan/43)の判定に使うビルド時刻。公開日時が未来の記事は、静的HTMLの一覧等に出さず、
@@ -1597,30 +1597,25 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
 
   const context = (page.context ?? {}) as Record<string, unknown>;
 
-  // HOME の「読みもの」欄(2026-10-11): HOME_ARTICLE_IDS の記事を、その順に渡す(公開済みの記事だけ。プレビューでは確認中も含む)。
+  // HOME の「読みもの」のカルーセル(plan/59): 公開日時の新しい順に HOME_ARTICLE_COUNT 本を渡す。
+  // 限定公開(plan/43)と公開日時の無い記事は出さない。予約公開の記事は HOME 側で公開日時を過ぎるまで外すので、その本数だけ多めに渡す。
   // 記事が0本なら空配列で、欄を出さない(本番で /articles/ が無い時にリンク切れにしない)。日本語の HOME だけで使う
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
     let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null }[] = [];
     try {
-      const byId = new Map(loadSongArticles(process.cwd()).map((a) => [a.article.id, a]));
-      homeArticles = HOME_ARTICLE_IDS.flatMap((id) => {
-        const a = byId.get(id);
-        // 限定公開(plan/43)の記事は HOME に出さない
-        return a && a.article.status !== "unlisted"
-          ? [
-              {
-                slug: a.article.slug as string,
-                title: a.parsed.title,
-                songTitle: a.article.songTitle,
-                createdAt: a.article.createdAt ?? null,
-                // 予約公開の記事は、公開日時を過ぎるまで HOME 側で出さない(plan/43)
-                publishedAt: a.article.publishedAt ?? null,
-                // 表紙の画像(plan/59。HOME でも表紙を見せる)
-                cover: articleCoverPath(a.article.slug as string),
-              },
-            ]
-          : [];
-      });
+      const listed = loadSongArticles(process.cwd())
+        .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt)
+        .sort((x, y) => String(y.article.publishedAt).localeCompare(String(x.article.publishedAt)));
+      const scheduledCount = listed.filter((a) => !isReleased(a.article.publishedAt, BUILT_AT)).length;
+      homeArticles = listed.slice(0, HOME_ARTICLE_COUNT + scheduledCount).map((a) => ({
+        slug: a.article.slug as string,
+        title: a.parsed.title,
+        songTitle: a.article.songTitle,
+        createdAt: a.article.createdAt ?? null,
+        publishedAt: a.article.publishedAt ?? null,
+        // 表紙の画像(plan/59)
+        cover: articleCoverPath(a.article.slug as string),
+      }));
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
     }

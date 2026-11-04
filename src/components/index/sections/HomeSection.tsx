@@ -152,8 +152,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
         <ExploreGrid />
       </div>
 
-      {/* 読みもの: 選んだ楽曲記事(HOME_ARTICLE_IDS の順。No title → drop pop candy → 1LDK)と一覧への導線。記事が無い時は出さない(2026-10-11)。
-          表紙の画像を出す(plan/59) */}
+      {/* 読みもの: 公開日時の新しい順に10本(plan/59)と一覧への導線。記事が無い時は出さない(2026-10-11) */}
       {homeArticles.length > 0 && (
         <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-10">
           <div className="flex flex-wrap items-end justify-between gap-2">
@@ -171,10 +170,10 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               読みもの一覧へ →
             </Link>
           </div>
-          {/* 表紙付きのカード(plan/59)。スマホ・タブレットは1枚ずつのカルーセル、md 以上は3列 */}
+          {/* 表紙付きのカードのカルーセル(plan/59)。自動で次へ送る。スマホ1枚・sm 2枚・md 3枚ずつ */}
           <ArticleCarousel
             className="mt-4"
-            gridFrom="md"
+            layout="home"
             label="読みもの"
             items={homeArticles.map((a) => ({
               key: a.slug,

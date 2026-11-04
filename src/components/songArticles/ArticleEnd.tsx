@@ -107,7 +107,7 @@ const ArticleEnd: React.FC<{
           {/* 表紙付きのカード(plan/59)。スマホは1枚ずつのカルーセル、sm 以上は3列 */}
           <ArticleCarousel
             className="mt-3"
-            gridFrom="sm"
+            layout="related"
             label="その他の記事"
             items={related.map((r) => ({
               key: r.slug,

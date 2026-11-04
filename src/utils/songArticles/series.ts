@@ -54,11 +54,10 @@ export const tagFilterPath = (tag: string): string => `/articles/?tag=${encodeUR
 export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;
 
 /**
- * HOME の「読みもの」欄に出す記事と順番(記事ID)。2026-10-12 ユーザー指定: No title → drop pop candy → 1LDK
- * (2026-10-11 は No title → 1LDK → Boy)。
- * まだ公開されていない記事(通常ビルド)や未完成(draft)の記事は飛ばす。1本も無ければ欄を出さない。
+ * HOME の「読みもの」のカルーセルに出す本数。公開日時の新しい順(2026-11-04 ユーザー「表示件数は10枚はどう？」。plan/59)。
+ * それまでは手で選んだ3本(No title → drop pop candy → 1LDK)だった。
  */
-export const HOME_ARTICLE_IDS = ["reol-song-006", "reol-song-004", "reol-song-076"];
+export const HOME_ARTICLE_COUNT = 10;
 
 /**
  * カードの上に小さく曲名を出すか。題名にもう曲名が入っている時(「MONSTER 欲しがる…」「…読み直すNo title」)は出さない

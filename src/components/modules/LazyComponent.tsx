@@ -51,7 +51,8 @@ const LazyComponent: React.FC<PropsWithChildren<Props>> = ({
 
   const renderLoading = useCallback(() => {
     return (
-      <div className="w-full bg-gray-600">
+      // 読み込み中のくるくるを、この枠の中に出す(高さ0・relative 無しだと、外側の <main> の中央に重なって出ていた。plan/59)
+      <div className="relative h-10 w-full">
         <AiOutlineLoading className="absolute h-6 w-6 animate-spin top-0 bottom-0 left-0 right-0 m-auto" />
       </div>
     );
