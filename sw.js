@@ -27,22 +27,19 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-67b98a4290fa28e8a3de.js"
-  },
-  {
-    "url": "styles.04330aef232dfaa5f88c.css"
+    "url": "webpack-runtime-349b8cacb63b55a7351e.js"
   },
   {
     "url": "framework-c6c022f8847ce856cbce.js"
   },
   {
+    "url": "styles.d44bfa6fb73f4dd03bd3.css"
+  },
+  {
     "url": "d0c16330-0cc1f233a1a6d80ce8db.js"
   },
   {
-    "url": "ae51ba48-8c4721053d7f97ea3bc6.js"
-  },
-  {
-    "url": "d64684d8-90ae9ae316d5cb6b654d.js"
+    "url": "ae51ba48-f32c93753d879181a99b.js"
   },
   {
     "url": "7779ef99-622b0ed279526fb29d17.js"
@@ -57,11 +54,11 @@ self.__precacheManifest = [
     "url": "0c428ae2-9a1c799a336720a8b6ba.js"
   },
   {
-    "url": "app-9ac1e8921b8a9bbb8331.js"
+    "url": "app-dcb1b6666e7a860a7a6f.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "56ee87d883526acdb034ca3db3286276"
+    "revision": "f7042b0eb46b391685e1c401ed8ebb0f"
   },
   {
     "url": "static/webfonts/s/cormorant/v24/H4c2BXOCl9bbnla_nHIA47NMUjsNbCVrFhFTc7Nq7Q.woff2"
@@ -181,7 +178,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-9ac1e8921b8a9bbb8331.js`))) {
+  if (!resources || !(await caches.match(`/app-dcb1b6666e7a860a7a6f.js`))) {
     return await fetch(event.request)
   }
 
