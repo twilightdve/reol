@@ -71,7 +71,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
   const [featured, ...shelf] = homeArticles;
   const hasReading = featured !== undefined;
 
-  // サイトの紹介(巨大タイポ+統計)。読みものがある時は HOME の終わりに、無い時(日本語以外)は先頭に置く
+  // サイトの紹介(巨大タイポ+統計)。HOME の先頭に置く(2026-11-04 ユーザー「サイトの紹介はやっぱり最初に来るべき」)
   const about = (padding: string) => (
     <div className="px-2 sm:px-4">
       <div className={padding}>
@@ -161,9 +161,11 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
 
   return (
     <section id="HOME" style={{ contentVisibility: "auto" }} className="max-w-5xl mx-auto">
-      {hasReading ? (
+      {about("pt-10 sm:pt-14 pb-2")}
+
+      {hasReading && (
         // 読みもの: いちばん新しい1本を大きく、続く10本をカルーセルで(plan/59)。一覧への導線
-        <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-6 sm:pt-10">
+        <section aria-labelledby="home-reading" className="px-2 sm:px-4 pt-8 sm:pt-10">
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div>
               <Kicker color="text-bx-yellow">READING</Kicker>
@@ -199,8 +201,6 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
             />
           )}
         </section>
-      ) : (
-        about("pt-10 sm:pt-14 pb-2")
       )}
 
       {today}
@@ -415,9 +415,6 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
           <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
         </GlassCard>
       </div>
-
-      {/* サイトの紹介(読みものがある時は、ここ= HOME の終わりに置く。plan/59 段3) */}
-      {hasReading && about("mt-12 pt-10 border-t border-bx-line")}
 
       {/* Pick Up Post */}
       <div id="RECOMMEND" className="pt-10">
