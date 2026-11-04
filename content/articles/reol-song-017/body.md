@@ -3,7 +3,7 @@
 [「ロジックエージェント」のMVを観る](https://www.youtube.com/watch?v=WwX5E63wGF4)  
 [Spotifyで聴く](https://open.spotify.com/track/0aPmJfAIIoPJW7FyLGWgtW)
 
-『極彩色』の中で、いちばん好きな曲だ。
+『極彩色』の中でいちばん好きな曲
 
 フェードインしてくる音に、広い空間を感じる。そこへスネアとハイハットの刻みが入り、世界の輪郭が少しずつ現れてくる。音数が増すにつれて、期待も膨らんでいく。
 

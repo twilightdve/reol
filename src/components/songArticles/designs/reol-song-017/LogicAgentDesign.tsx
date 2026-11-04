@@ -29,7 +29,7 @@ import "./logic-agent.css";
 
 // 本文の段落位置(blocks の添字)
 const LISTEN = 0; // 「ロジックエージェント」のMVを観る / Spotifyで聴く
-const OPENING = 1; // 『極彩色』の中で、いちばん好きな曲だ。
+const OPENING = 1; // 『極彩色』の中でいちばん好きな曲
 const INTRO = 2;
 const S_VOICE = 6; // 見出し「重なる声と、パラレル仕様」
 const VOICE_FIG = 9; // 段落8の後

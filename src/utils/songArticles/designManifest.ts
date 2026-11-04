@@ -25,11 +25,11 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // ロジックエージェント(plan/61)。観る・聴くリンク(0)・冒頭の一文(1)・見出し(6, 13, 20, 29)・声の線の前(8)・交わる線の前(12)・円柱の前(17)・二つの僕の前(24)・視線の前(27)・結び(35)
   "reol-song-017": {
     bodyRevision: 3,
-    bodySha256: "5df74aa043991978adc343b52dea5bb6a8372a286253c470d6085032f97cf516",
+    bodySha256: "9ec77289ff96335dd2d1321b60d55c9a26bf3a26c3bc400c4e35ba791da798a5",
     blockCount: 36,
     anchors: [
       { block: 0, textHash: "21ddca9ca0f55036" },
-      { block: 1, textHash: "2e4f5518bc7f7013" },
+      { block: 1, textHash: "9a79b72bb6f88eaf" },
       { block: 6, textHash: "d955e0c88519fa4e" },
       { block: 8, textHash: "3f120f3f8e02bac7" },
       { block: 12, textHash: "cc4abfc33010ef30" },
