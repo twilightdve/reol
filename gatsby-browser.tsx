@@ -40,7 +40,7 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   );
 };
 
-// MainVideo と TopHeader は Body 内で wrapRootElement に載っている。
+// 動画プレイヤー(GlobalPlayer)と TopHeader は Body 内で wrapRootElement に載っている。
 // ページ本体には pageContext.lang の言語を渡す(多言語ページ: plan/28)。
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,

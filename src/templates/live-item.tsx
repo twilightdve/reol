@@ -16,7 +16,9 @@ import SEO from "../components/SEO";
 import EmptyState from "../components/common/EmptyState";
 import LazyComponent from "../components/modules/LazyComponent";
 import Tweets from "../components/modules/tweets";
-import YouTube from "react-youtube";
+import PlayerSlot from "../components/player/PlayerSlot";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { stopMedia } from "../redux/slices/playerSlice";
 import { FiMusic, FiPlay, FiX, FiCopy, FiCheck } from "react-icons/fi";
 import { GlassCard, Kicker } from "../components/redesign";
 import { trackEvent } from "../utils/analytics";
@@ -109,10 +111,13 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
   const [expandedSongVideos, setExpandedSongVideos] = useState<Set<string>>(
     new Set()
   );
-  const toggleSongVideo = (key: string) => {
+  const dispatch = useAppDispatch();
+  const playingVideoId = useAppSelector((state) => state.player.current?.videoId);
+  const toggleSongVideo = (key: string, videoId?: string | null) => {
+    // 閉じる時は、その映像が流れていれば止める(閉じても右上の小窓で流れ続けないように)
+    if (expandedSongVideos.has(key) && videoId && playingVideoId === videoId) dispatch(stopMedia());
     setExpandedSongVideos((prev) => {
-      // 同時に複数の動画が自動再生されて音声が二重にならないよう、
-      // 開く際は他を全て閉じて常に最大1件だけ展開する
+      // 開く際は他を全て閉じて常に最大1件だけ展開する(プレイヤーは1つなので、開いた方に切り替わる)
       if (prev.has(key)) return new Set();
       trackEvent("live_item_song_video_toggle", {
         category: "engagement",
@@ -257,22 +262,11 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
         {/* ④'YouTube(公演のアーカイブ動画等) */}
         {youtubeVideoId && (
           <section className="mb-8">
-            <LazyComponent>
-              <div className="rounded-xl border border-bx-line overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
-                <iframe
-                  src={
-                    isYoutubePlaylistId(youtubeVideoId)
-                      ? `https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`
-                      : `https://www.youtube-nocookie.com/embed/${youtubeVideoId}`
-                  }
-                  title={`YouTube - ${heading}`}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </LazyComponent>
+            <PlayerSlot
+              {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
+              title={heading}
+              className="rounded-xl border border-bx-line"
+            />
           </section>
         )}
 
@@ -345,7 +339,7 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                       {song.youtubeVideoId && (
                         <button
                           type="button"
-                          onClick={() => toggleSongVideo(song.liveItemSongUuid)}
+                          onClick={() => toggleSongVideo(song.liveItemSongUuid, song.youtubeVideoId)}
                           aria-expanded={isVideoExpanded}
                           className="ml-2 inline-flex items-center gap-1 align-middle text-[11px] text-bx-blue hover:opacity-80 transition-opacity"
                         >
@@ -363,21 +357,12 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
                         </button>
                       )}
                       {song.youtubeVideoId && isVideoExpanded && (
-                        <div
-                          className="mt-2 mb-1 rounded-lg border border-bx-line overflow-hidden"
-                          style={{ aspectRatio: "16 / 9" }}
-                        >
-                          <YouTube
-                            videoId={song.youtubeVideoId}
-                            opts={{
-                              width: "100%",
-                              height: "100%",
-                              playerVars: { autoplay: 1 },
-                            }}
-                            style={{ width: "100%", height: "100%" }}
-                            className="w-full h-full"
-                          />
-                        </div>
+                        <PlayerSlot
+                          videoId={song.youtubeVideoId}
+                          title={`${song.liveItemSongName.replace(/<br\s*\/?>/gi, " / ")}(${heading})`}
+                          className="mt-2 mb-1 rounded-lg border border-bx-line"
+                          autoStart
+                        />
                       )}
                     </li>
                   );

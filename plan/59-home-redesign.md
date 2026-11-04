@@ -103,7 +103,7 @@
 | 1 | `ArticleCoverCard` を切り出し、HOME の読みもの欄と記事末尾に表紙を出す | song-articles-index.tsx、新しい ArticleCoverCard.tsx、HomeSection.tsx、ArticleEnd.tsx |
 | 2 | ナビに読みもの。PC では下部タブを隠す | header、SimpleTrackingFooter.tsx |
 | 3 | HOME 上半分の組み替え(特集・棚・TODAY 帯) | HomeSection.tsx、OnThisDay |
-| 4 | MainVideo を HOME で帯に畳む。サムネの解像度も上げる | mainVideo.tsx |
+| 4 | ~~MainVideo を HOME で帯に畳む。サムネの解像度も上げる~~ → MainVideo ごとやめる。[plan/60](./60-global-player.md) に置き換え | mainVideo.tsx |
 | 5 | 下半分を統合(ARCHIVE・TOOLS) | ExploreGrid.tsx、HomeSection.tsx、home 辞書(5言語) |
 
 - **効果の測り方**:`home_reading_click` と `article_related_click` を、10/30 以降(plan/58 で運営の確認を数えなくなった後)で比べる。

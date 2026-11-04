@@ -15,6 +15,7 @@ import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { reolTypes } from "../data/reol-type/types";
 import { ACTIVITY_START_YEAR, activityYears } from "../constants/artist";
 import { Kicker } from "../components/redesign";
+import PlayerSlot from "../components/player/PlayerSlot";
 import { LangLink as Link, pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
 import { welcomeDict } from "../i18n/site/pages/welcome";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
@@ -197,16 +198,7 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                 className="rounded-lg border border-bx-line bg-bx-surface/5 overflow-hidden"
               >
                 {videoId && (
-                  <div className="aspect-w-16 aspect-h-9 bg-black">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                      title={t.mvTitle(song.songName)}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
-                  </div>
+                  <PlayerSlot videoId={videoId} title={t.mvTitle(song.songName)} />
                 )}
                 <div className="p-3 sm:p-4">
                   <h3 className="text-base sm:text-lg font-semibold text-bx-ink">

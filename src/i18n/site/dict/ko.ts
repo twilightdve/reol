@@ -30,11 +30,11 @@ const ko: SiteDict = {
     mtContact: "X @twilightplc",
   },
   video: {
-    expand: "영상을 전체 너비로 되돌리기",
     close: "영상 닫기",
-    unmute: "음소거 해제",
-    mute: "음소거",
     play: "영상 재생",
+    back: "영상 위치로",
+    playing: "오른쪽 위에서 재생 중",
+    region: "재생 중인 영상",
   },
   home: {
     heroLine1Before: "Reol의 ",

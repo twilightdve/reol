@@ -2,8 +2,7 @@ import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { TbMapPinHeart } from "react-icons/tb";
 import { GoLinkExternal, GoChevronUp, GoChevronDown } from "react-icons/go";
 import { Badge } from "flowbite-react";
-import YouTube from "react-youtube";
-import LazyComponent from "../../modules/LazyComponent";
+import PlayerSlot from "../../player/PlayerSlot";
 import UtilityService from "../../../services/UtilityService";
 import { Place, PlaceItem } from "../../../types/places";
 import type { PlaceMarker } from "./PlaceMap";
@@ -692,25 +691,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
 
                             {place.url && place.url.indexOf("youtu.be") !== -1 && (
                               <div className="mb-4" onClick={(e) => e.stopPropagation()}>
-                                <LazyComponent>
-                                  <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                                    <YouTube
-                                      videoId={place.url.replace("https://youtu.be/", "")}
-                                      opts={{
-                                        playerVars: {
-                                          autoplay: 0,
-                                          enablejsapi: 1,
-                                          playsinline: 1,
-                                          loop: 1,
-                                          rel: 0,
-                                          color: "white",
-                                        },
-                                      }}
-                                      className="absolute top-0 left-0 w-full h-full"
-                                      iframeClassName="w-full h-full rounded"
-                                    />
-                                  </div>
-                                </LazyComponent>
+                                <PlayerSlot
+                                  videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
+                                  title={place.title}
+                                  className="rounded"
+                                />
                               </div>
                             )}
 

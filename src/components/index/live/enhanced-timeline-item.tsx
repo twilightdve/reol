@@ -8,7 +8,7 @@ import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
-import YouTube from "react-youtube";
+import PlayerSlot from "../../player/PlayerSlot";
 import { trackEvent } from "../../../utils/analytics";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { supabase } from "../../../lib/supabase";
@@ -162,41 +162,13 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
           onClick={(e) => e.stopPropagation()}
         >
           {setlist.youtubeVideoId && (
-            <div
-              className="mb-3 rounded-lg border border-bx-line bg-bx-surface/5"
-              style={{
-                overflow: "hidden",
-                position: "relative",
-                paddingBottom: "56.25%", // 16:9アスペクト比
-                height: 0,
-              }}
-            >
-              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-                {isYoutubePlaylistId(setlist.youtubeVideoId) ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/videoseries?list=${setlist.youtubeVideoId}`}
-                    title={t.youtubePlaylist}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full"
-                    style={{ border: 0 }}
-                  />
-                ) : (
-                  <YouTube
-                    videoId={setlist.youtubeVideoId}
-                    opts={{
-                      width: "100%",
-                      height: "100%",
-                      playerVars: {
-                        autoplay: 0,
-                      },
-                    }}
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                )}
-              </div>
-            </div>
+            <PlayerSlot
+              {...(isYoutubePlaylistId(setlist.youtubeVideoId)
+                ? { list: setlist.youtubeVideoId }
+                : { videoId: setlist.youtubeVideoId })}
+              title={setlist.liveItemName ? `${liveTitle} ${setlist.liveItemName}` : liveTitle}
+              className="mb-3 rounded-lg border border-bx-line"
+            />
           )}
           {attendedCount !== null && attendedCount > 0 && (
             <p className="text-xs text-bx-ink3 mb-2">{t.attendedCount(attendedCount)}</p>
@@ -599,42 +571,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           {isExpand && (
             <>
               {youtubeVideoId && (
-                <div
-                  className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-bx-surface/5"
-                  style={{
-                    overflow: "hidden",
-                    position: "relative",
-                    paddingBottom: "56.25%", // 16:9アスペクト比
-                    height: 0,
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-                    {isYoutubePlaylistId(youtubeVideoId) ? (
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/videoseries?list=${youtubeVideoId}`}
-                        title={t.youtubePlaylist}
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="w-full h-full"
-                        style={{ border: 0 }}
-                      />
-                    ) : (
-                      <YouTube
-                        videoId={youtubeVideoId}
-                        opts={{
-                          width: "100%",
-                          height: "100%",
-                          playerVars: {
-                            autoplay: 0,
-                          },
-                        }}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    )}
-                  </div>
-                </div>
+                <PlayerSlot
+                  {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
+                  title={live.title}
+                  className="mt-4 rounded-lg border border-bx-line"
+                />
               )}
               {live.items && live.items.length > 0 && (
                 <div

@@ -8,7 +8,7 @@ import { globalHistory } from "@gatsbyjs/reach-router";
 import { Toaster } from "react-hot-toast";
 import Layout from "./layout";
 import TopHeader from "./header";
-import PersistentMainVideo from "./persistentMainVideo";
+import GlobalPlayer from "../player/GlobalPlayer";
 import OfficialFooter from "./officialFooter";
 import QuizMachineTranslationNote from "./QuizMachineTranslationNote";
 import TrackingFooter from "./trackingFooter";
@@ -29,7 +29,7 @@ type Props = {
 
 /**
  * 美辞学ナビ (/bijigaku-navi 配下) は和紙背景・独自ヘッダーを持つ実質別サイト。
- * Reol ファンサイト側のテーマ (空グラデ背景 / TopHeader / PersistentMainVideo) を
+ * Reol ファンサイト側のテーマ (空グラデ背景 / TopHeader) を
  * 適用しないよう、ここで pathname を見て出し分ける。
  */
 const isBijigakuNaviPath = (pathname: string): boolean => {
@@ -49,8 +49,8 @@ const isReolTypeQuizPath = (pathname: string): boolean => {
 };
 
 /**
- * 相関図 (/cgraph) はフルスクリーンのグラフ描画ページ。ヘッダー/mainVideoは
- * 表示して遷移後も動画再生を継続できるようにするが、下部の送客フッター/
+ * 相関図 (/cgraph) はフルスクリーンのグラフ描画ページ。ヘッダーは表示し、
+ * 動画は小窓で流し続けるが、下部の送客フッター/
  * タブバーは可視領域を圧迫するため出さない。
  */
 const isCGraphPath = (pathname: string): boolean => {
@@ -60,7 +60,7 @@ const isCGraphPath = (pathname: string): boolean => {
 
 /**
  * 開催地マップ (/live/heatmap 配下) もフルスクリーンのマップ表示。
- * isCGraphPath と同様、ヘッダー/mainVideoは表示し送客フッター/タブバーのみ出さない。
+ * isCGraphPath と同様、ヘッダーは表示し送客フッター/タブバーのみ出さない。
  */
 const isLiveHeatmapPath = (pathname: string): boolean => {
   if (!pathname) return false;
@@ -139,6 +139,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     // 背景には和紙テクスチャを敷いて別サイトの雰囲気を出す。
     return (
       <SiteLangProvider lang={lang}>
+        <GlobalPlayer pathname={pathname} />
         <div
           aria-hidden
           style={{ backgroundImage: `url(${WashiBackgroundImage})` }}
@@ -155,6 +156,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
     return (
       <SiteLangProvider lang={lang}>
+        <GlobalPlayer pathname={pathname} />
         <Layout title={data.site.siteMetadata.title} children={children} />
         {isReolTypeQuiz && <QuizMachineTranslationNote />}
       </SiteLangProvider>
@@ -163,16 +165,18 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
 
   // 相関図 / 開催地マップはフルスクリーンのビジュアライゼーションのため、
   // 可視領域を圧迫する送客フッター/下部タブ/固定背景グローは出さない。
-  // ただし TopHeader / PersistentMainVideo は「通常ページ」と全く同じ
+  // ただし GlobalPlayer / TopHeader は「通常ページ」と全く同じ
   // JSXツリー上の位置に置き続けること。isCGraph/isLiveHeatmap によって
-  // early return で別のフラグメントに分けてしまうと、Reactがこの2つを
+  // early return で別のフラグメントに分けてしまうと、Reactがこれらを
   // 別コンポーネントとして扱い、HOME→/cgraph/のような遷移時に
-  // PersistentMainVideo(ひいては再生中のiframe)がアンマウント→再マウント
+  // GlobalPlayer(ひいては再生中のiframe)がアンマウント→再マウント
   // され、遷移をまたいだ動画再生の継続が壊れる。
   const isFullscreenViz = isCGraph || isLiveHeatmap;
 
   return (
     <SiteLangProvider lang={lang}>
+      {/* 動画プレイヤー(plan/60)。どの出し分けでも最初の子に置き、ページを移っても外さない(外すと再生が止まる) */}
+      <GlobalPlayer pathname={pathname} />
       {!isFullscreenViz && (
         <>
           {/*
@@ -190,14 +194,9 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
           />
         </>
       )}
-      {/*
-        ヘッダーと永続 MainVideo はページ遷移をまたいで位置/状態を保ちたいため
-        ページ本体 (Layout > children) の上に出している。
-        順序を TopHeader → PersistentMainVideo にして、ヘッダーが常に動画の上に位置するようにしている。
-      */}
+      {/* ヘッダーはページ遷移をまたいで状態を保ちたいため、ページ本体 (Layout > children) の外に出している */}
       <TopHeader title={data.site.siteMetadata.title} pathname={pathname} />
       <Toaster position="top-center" />
-      <PersistentMainVideo initialPathname={pathname} />
       <div
         className={
           isFullscreenViz

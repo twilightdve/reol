@@ -30,11 +30,11 @@ const zhHant: SiteDict = {
     mtContact: "X @twilightplc",
   },
   video: {
-    expand: "將影片恢復為全寬顯示",
     close: "關閉影片",
-    unmute: "取消靜音",
-    mute: "靜音",
     play: "播放影片",
+    back: "回到影片位置",
+    playing: "正在右上角播放",
+    region: "正在播放的影片",
   },
   home: {
     heroLine1Before: "認識 Reol 的",

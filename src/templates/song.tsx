@@ -16,7 +16,9 @@ import React, { useState } from "react";
 import { HeadFC, PageProps } from "gatsby";
 import { FiMic, FiPlay, FiX } from "react-icons/fi";
 import { GoLinkExternal } from "react-icons/go";
-import YouTube from "react-youtube";
+import PlayerSlot from "../components/player/PlayerSlot";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { stopMedia } from "../redux/slices/playerSlice";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import EmptyState from "../components/common/EmptyState";
@@ -145,10 +147,13 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
   const [expandedPlayVideos, setExpandedPlayVideos] = useState<Set<string>>(
     new Set()
   );
-  const togglePlayVideo = (key: string) => {
+  const dispatch = useAppDispatch();
+  const playingVideoId = useAppSelector((state) => state.player.current?.videoId);
+  const togglePlayVideo = (key: string, videoId?: string | null) => {
+    // 閉じる時は、その映像が流れていれば止める(閉じても右上の小窓で流れ続けないように)
+    if (expandedPlayVideos.has(key) && videoId && playingVideoId === videoId) dispatch(stopMedia());
     setExpandedPlayVideos((prev) => {
-      // 同時に複数の動画が自動再生されて音声が二重にならないよう、
-      // 開く際は他を全て閉じて常に最大1件だけ展開する
+      // 開く際は他を全て閉じて常に最大1件だけ展開する(プレイヤーは1つなので、開いた方に切り替わる)
       if (prev.has(key)) return new Set();
       trackEvent("song_play_video_toggle", {
         category: "engagement",
@@ -326,22 +331,18 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                 <p className="mb-2 text-[11px] font-extrabold tracking-wide text-bx-ink3">
                   {label}
                 </p>
-                <div
-                  className="rounded-xl border border-bx-line bg-bx-surface/5 overflow-hidden relative"
-                  style={{ paddingBottom: "56.25%", height: 0 }}
-                >
-                  <div className="absolute top-0 left-0 w-full h-full">
-                    {youTubeId ? (
-                      <YouTube
-                        videoId={youTubeId}
-                        opts={{
-                          width: "100%",
-                          height: "100%",
-                          playerVars: { autoplay: 0 },
-                        }}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    ) : (
+                {youTubeId ? (
+                  <PlayerSlot
+                    videoId={youTubeId}
+                    title={`${songName} ${label}`}
+                    className="rounded-xl border border-bx-line"
+                  />
+                ) : (
+                  <div
+                    className="rounded-xl border border-bx-line bg-bx-surface/5 overflow-hidden relative"
+                    style={{ paddingBottom: "56.25%", height: 0 }}
+                  >
+                    <div className="absolute top-0 left-0 w-full h-full">
                       <iframe
                         src={`https://player.bilibili.com/player.html?bvid=${bvid}&page=1&autoplay=0`}
                         style={{
@@ -358,9 +359,9 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                         loading="lazy"
                         title={`${label} - ${songName}`}
                       />
-                    )}
+                    </div>
                   </div>
-                </div>
+                )}
               </LazyComponent>
             ))}
           </section>
@@ -465,7 +466,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                     {p.youtubeVideoId && (
                       <button
                         type="button"
-                        onClick={() => togglePlayVideo(p.liveItemSongUuid)}
+                        onClick={() => togglePlayVideo(p.liveItemSongUuid, p.youtubeVideoId)}
                         aria-expanded={expandedPlayVideos.has(p.liveItemSongUuid)}
                         className="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-bx-blue hover:opacity-80 transition-opacity"
                       >
@@ -484,21 +485,12 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                     )}
                     {p.youtubeVideoId &&
                       expandedPlayVideos.has(p.liveItemSongUuid) && (
-                        <div
-                          className="mt-2 rounded-lg border border-bx-line overflow-hidden"
-                          style={{ aspectRatio: "16 / 9" }}
-                        >
-                          <YouTube
-                            videoId={p.youtubeVideoId}
-                            opts={{
-                              width: "100%",
-                              height: "100%",
-                              playerVars: { autoplay: 1 },
-                            }}
-                            style={{ width: "100%", height: "100%" }}
-                            className="w-full h-full"
-                          />
-                        </div>
+                        <PlayerSlot
+                          videoId={p.youtubeVideoId}
+                          title={`${songName}(${formattedDate}${p.place ? ` ${p.place}` : ""})`}
+                          className="mt-2 rounded-lg border border-bx-line"
+                          autoStart
+                        />
                       )}
                   </div>
                 );

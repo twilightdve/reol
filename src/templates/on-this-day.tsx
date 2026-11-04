@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeadFC, PageProps } from "gatsby";
-import YouTube from "react-youtube";
+import PlayerSlot from "../components/player/PlayerSlot";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
 import { GlassCard, Kicker } from "../components/redesign";
@@ -191,12 +191,6 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
     parseInt(monthDay.slice(0, 2), 10)
   );
 
-  // タップされたMVだけ実際のiframeに差し替える(mainVideo.tsxと同じファサード方式)。
-  // サムネイル(静的画像)は常時表示し、ネットワーク負荷や意図しない自動再生を避ける。
-  const [activatedMv, setActivatedMv] = useState<Set<string>>(new Set());
-  const activateMv = (key: string) =>
-    setActivatedMv((prev) => new Set(prev).add(key));
-
   return (
     <Layout title={t.title(label)}>
       <main className="container mx-auto px-3 sm:px-4 py-4 max-w-2xl text-bx-ink">
@@ -318,55 +312,19 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   {ev.musicVideos.length > 0 && (
                     <div className="mt-2.5 pt-2.5 border-t border-bx-line space-y-3">
                       {ev.musicVideos.map((mv) => {
-                        const key = `${i}-${mv.slug}`;
                         const videoId = getYouTubeVideoId(mv.url);
                         if (!videoId) return null;
-                        const isActive = activatedMv.has(key);
                         return (
                           <div key={mv.slug}>
                             <div className="text-[11px] text-bx-ink3 mb-1">
                               {t.mv(mv.name)}
                             </div>
-                            <div
-                              className="relative rounded-lg overflow-hidden border border-bx-line bg-black"
-                              style={{ paddingBottom: "56.25%", height: 0 }}
-                            >
-                              {isActive ? (
-                                <YouTube
-                                  videoId={videoId}
-                                  opts={{
-                                    width: "100%",
-                                    height: "100%",
-                                    playerVars: { autoplay: 1 },
-                                  }}
-                                  style={{
-                                    position: "absolute",
-                                    inset: 0,
-                                    width: "100%",
-                                    height: "100%",
-                                  }}
-                                />
-                              ) : (
-                                <button
-                                  type="button"
-                                  onClick={() => activateMv(key)}
-                                  aria-label={t.playMv(mv.name)}
-                                  className="group absolute inset-0 w-full h-full"
-                                >
-                                  <img
-                                    src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-                                    alt=""
-                                    loading="lazy"
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                  />
-                                  <span className="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/15 transition-colors">
-                                    <span className="w-12 h-12 rounded-full bg-bx-yellow/90 flex items-center justify-center text-bx-bg text-xl shadow-lg">
-                                      ▶
-                                    </span>
-                                  </span>
-                                </button>
-                              )}
-                            </div>
+                            {/* 押した時だけサイト全体のプレイヤーで流す(plan/60) */}
+                            <PlayerSlot
+                              videoId={videoId}
+                              title={t.mv(mv.name)}
+                              className="rounded-lg border border-bx-line"
+                            />
                           </div>
                         );
                       })}

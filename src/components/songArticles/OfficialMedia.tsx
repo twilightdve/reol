@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { trackEvent, trackOfficialLinkClick } from "../../utils/analytics";
+import { usePlayerSlot } from "../player/PlayerSlot";
 
 /**
  * 楽曲記事の公式MV(plan/29)。
  * - 自動再生しない。最初は公式YouTubeへのリンク(サムネイル付き)で、JSが動かなくてもそのまま公式ページへ進める。
  * - クリックした時だけプレイヤーを読み込む。読み込めなくても下の本文リンクで公式ページへ行ける。
+ * - 再生はサイト全体で1つのプレイヤー(GlobalPlayer、plan/60)で行う。この枠が画面にある間は枠の上に重なり、
+ *   スクロールで外れたり別のページへ移ったりすると、右上隅の小窓で流れ続ける。
  * - 本文の「MVを観る」リンクの文言とリンク先はそのまま残す(代替操作)。
  *
  * 記事別デザイン(plan/30)向けに、`format="cinemascope"` では再生前のサムネイルを
@@ -40,7 +43,8 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
   preferHighRes = false,
   start,
 }) => {
-  const [playing, setPlaying] = useState(false);
+  const slot = usePlayerSlot({ videoId, start, title: text });
+  const playing = slot.active;
   // 高解像度のサムネイル(maxresdefault)が無い動画もあるため、失敗したら hqdefault、それも失敗したら画像なし
   const [thumb, setThumb] = useState<"maxresdefault" | "hqdefault" | null>(
     format === "video" && !preferHighRes ? "hqdefault" : "maxresdefault"
@@ -55,14 +59,11 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
         }`}
         style={{ paddingBottom: playing ? RATIO.video : RATIO[format], height: 0 }}
       >
+        {/* 再生中はプレイヤー(GlobalPlayer)がこの要素に重なる */}
+        <span ref={slot.ref} aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[inherit]" />
         {playing ? (
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0${start ? `&start=${Math.floor(start)}` : ""}`}
-            title={text}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          // プレイヤーが上に重なる。小窓に移っている間だけ、この黒地が見える
+          <span className="absolute inset-0 bg-black" aria-hidden="true" />
         ) : (
           <a
             href={href}
@@ -73,7 +74,7 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
               e.preventDefault();
               trackEvent("article_media_open", { category: "engagement", label: articleId });
-              setPlaying(true);
+              slot.start();
             }}
             // 枠が overflow-hidden で、サムネイルが全面を覆うため、フォーカス表示は ::after で画像の上に重ねる
             className="sa-media__play group absolute inset-0 flex items-center justify-center focus-visible:outline-none after:pointer-events-none after:absolute after:inset-0 after:content-[''] focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-bx-yellow"

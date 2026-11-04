@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Button, FlowbiteTimelineTheme, Timeline } from "flowbite-react";
 import { DiscographyWithSongs } from "../../../types/discography";
-import { RouteState } from "../../../redux/store";
-import { connect } from "react-redux";
 import { FlowbiteTimelinePointTheme } from "flowbite-react/lib/esm/components/Timeline/TimelinePoint";
 import { FlowbiteTimelineContentTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineContent";
 import { FlowbiteTimelineItemTheme } from "flowbite-react/lib/esm/components/Timeline/TimelineItem";
@@ -14,10 +12,6 @@ type Props = {
   data: DiscographyWithSongs[];
   /** 表示言語の辞書(クラスコンポーネントのためラッパーから渡す) */
   dict: SiteDict;
-  isLoaded: any;
-  currentVideoId: any;
-  isShrinked: any;
-  playerRef: any;
 };
 
 type State = {
@@ -309,13 +303,9 @@ class Discography extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: RouteState) => state.player;
-
-const ConnectedDiscography = connect(mapStateToProps)(Discography);
-
 // クラスコンポーネントでは useDict を使えないため、辞書をラッパーから props で渡す
 const DiscographyWithDict: React.FC<{ data: DiscographyWithSongs[] }> = ({ data }) => (
-  <ConnectedDiscography data={data} dict={useDict()} />
+  <Discography data={data} dict={useDict()} />
 );
 
 export default DiscographyWithDict;

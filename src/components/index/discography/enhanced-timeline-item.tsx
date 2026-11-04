@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Timeline } from "flowbite-react";
 import { DiscographyWithSongs, Song } from "../../../types/discography";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaMusic } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
 import { FiCopy, FiCheck } from "react-icons/fi";
@@ -10,7 +9,7 @@ import { useColorPalette } from "../../../hooks/useColorPalette";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { supabase } from "../../../lib/supabase";
 import { addAlpha } from "../../../utils/colorExtractor";
-import YouTube from "react-youtube";
+import PlayerSlot from "../../player/PlayerSlot";
 import Tweets from "../../modules/tweets";
 import {
   timelineItemTheme,
@@ -90,10 +89,6 @@ SongCard.displayName = 'SongCard';
 const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
   const dict = useDict();
   const t = dict.discography;
-  const dispatch = useAppDispatch();
-  const { isLoaded, currentVideoId, isShrinked, playerRef } = useAppSelector(
-    (state) => state.player
-  );
 
   const [isExpand, setIsExpand] = useState(false);
 
@@ -351,29 +346,11 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
               {isExpand && (
                 <>
                   {youtubeVideoId && (
-                    <div
-                      className="mt-4 transition-all duration-300 rounded-lg border border-bx-line bg-bx-surface/5"
-                      style={{
-                        overflow: "hidden",
-                        position: "relative",
-                        paddingBottom: "56.25%", // 16:9アスペクト比
-                        height: 0,
-                      }}
-                    >
-                      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
-                        <YouTube
-                          videoId={youtubeVideoId}
-                          opts={{
-                            width: "100%",
-                            height: "100%",
-                            playerVars: {
-                              autoplay: 0,
-                            },
-                          }}
-                          style={{ width: "100%", height: "100%" }}
-                        />
-                      </div>
-                    </div>
+                    <PlayerSlot
+                      videoId={youtubeVideoId}
+                      title={`${item.title} XFD`}
+                      className="mt-4 rounded-lg border border-bx-line"
+                    />
                   )}
                   {item.songs.length > 0 && (
                     <div className="mt-4 transition-all duration-300">

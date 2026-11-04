@@ -19,7 +19,7 @@ export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathnam
   );
 };
 
-// MainVideo と TopHeader は Body 内で wrapRootElement に載っている。
+// 動画プレイヤー(GlobalPlayer)と TopHeader は Body 内で wrapRootElement に載っている。
 // ページ本体には pageContext.lang の言語を渡す(多言語ページ: plan/28)。
 export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element, props }) => {
   const lang = (props.pageContext as { lang?: unknown })?.lang;

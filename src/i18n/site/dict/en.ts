@@ -31,11 +31,11 @@ const en: SiteDict = {
     mtContact: "X @twilightplc",
   },
   video: {
-    expand: "Expand the video",
     close: "Close the video",
-    unmute: "Unmute",
-    mute: "Mute",
     play: "Play the video",
+    back: "Back to video",
+    playing: "Playing in the corner",
+    region: "Now playing",
   },
   home: {
     heroLine1Before: "Reol — ",

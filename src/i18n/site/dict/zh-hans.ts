@@ -29,11 +29,11 @@ const zhHans: SiteDict = {
     mtContact: "X @twilightplc",
   },
   video: {
-    expand: "将视频恢复为全宽显示",
     close: "关闭视频",
-    unmute: "取消静音",
-    mute: "静音",
     play: "播放视频",
+    back: "回到视频位置",
+    playing: "正在右上角播放",
+    region: "正在播放的视频",
   },
   home: {
     heroLine1Before: "了解 Reol 的",
