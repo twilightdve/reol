@@ -48,6 +48,8 @@ const ko: SiteDict = {
     heroLead1: "곡·라이브·세트리스트·촬영지. 「れをる」 시절부터 현재까지,",
     heroLead2: "공식 콘텐츠로 안내하는 역할도 겸한 비공식 아카이브.",
     ticketCta: "공식 사이트에서 티켓 →",
+    // HOME の NEW RELEASE(plan/60)
+    listenCta: "디스코그래피에서 보기 →",
     welcomeTitle: "처음 만나는 Reol",
     welcomeDesc: "대표곡과 시기별 가이드. 어느 시기부터 입문해도 헤매지 않아요.",
     liveTitle: "라이브 보러 가기",

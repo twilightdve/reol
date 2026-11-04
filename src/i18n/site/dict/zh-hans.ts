@@ -47,6 +47,8 @@ const zhHans: SiteDict = {
     heroLead1: "歌曲、演唱会、歌单、取景地。从「れをる」时期至今，",
     heroLead2: "同时也是引导你前往官方内容的非官方资料库。",
     ticketCta: "前往官方网站购票 →",
+    // HOME の NEW RELEASE(plan/60)
+    listenCta: "在作品列表中查看 →",
     welcomeTitle: "初识 Reol",
     welcomeDesc: "代表曲与各时期导览，从哪个时期入坑都不会迷路。",
     liveTitle: "去看演唱会",

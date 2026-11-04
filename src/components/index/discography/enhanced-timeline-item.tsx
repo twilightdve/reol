@@ -10,6 +10,7 @@ import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { supabase } from "../../../lib/supabase";
 import { addAlpha } from "../../../utils/colorExtractor";
 import PlayerSlot from "../../player/PlayerSlot";
+import PlayButton from "../../player/PlayButton";
 import Tweets from "../../modules/tweets";
 import {
   timelineItemTheme,
@@ -56,6 +57,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
     songSlugByUuid.byUuid.get(song.songUuid) ??
     songSlugByUuid.byName.get(song.songName) ??
     null;
+  const mvId = getYouTubeVideoId(song.musicVideoUrl);
   return (
     <li
       className="rounded-lg overflow-hidden border border-bx-line bg-bx-surface/5"
@@ -70,6 +72,8 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
           {String(index + 1).padStart(2, "0")}
         </span>
         <span className="flex-1 font-medium text-bx-ink">{song.songName}</span>
+        {/* MV があれば、カードの中に枠を置かず右上の小窓ですぐ流す(plan/60) */}
+        {mvId && <PlayButton videoId={mvId} title={`${song.songName} MV`} label="MV" />}
         {detailSlug && (
           <LangLink
             to={`/songs/${detailSlug}/`}

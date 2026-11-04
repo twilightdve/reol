@@ -49,6 +49,8 @@ const en: SiteDict = {
     heroLead1: "Songs, live shows, setlists and filming locations, from the れをる era to today.",
     heroLead2: "An unofficial archive that also points you to official content.",
     ticketCta: "Tickets on the official site →",
+    // HOME の NEW RELEASE(plan/60)
+    listenCta: "See it in the discography →",
     welcomeTitle: "New to Reol?",
     welcomeDesc: "Signature songs and an era-by-era guide, wherever you start.",
     liveTitle: "Go to a show",

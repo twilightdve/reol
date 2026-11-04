@@ -41,17 +41,20 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   const reducedMotion = useReducedMotion();
   const current = useAppSelector((state) => state.player.current);
   const boxRef = useRef<HTMLDivElement>(null);
+  const markerRef = useRef<HTMLSpanElement>(null);
+  // Gatsby は Head API の描画でも wrapRootElement(= Body)を、文書に付いていない別の div にもう一度描く。
+  // そちらのプレイヤーまで document.body に出ると2つ重なるので、本体(#___gatsby の中)にいる時だけ出す
   const [mounted, setMounted] = useState(false);
   const [slotEl, setSlotEl] = useState<HTMLElement | null>(null);
   const [slotVisible, setSlotVisible] = useState(false);
   const [nearTop, setNearTop] = useState(true);
   const path = stripLangPrefix(pathname || "/").path;
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => setMounted(markerRef.current?.closest("#___gatsby") != null), []);
 
   useEffect(() => {
-    if (current && isRelivePath(path)) dispatch(stopMedia());
-  }, [current, path, dispatch]);
+    if (mounted && current && isRelivePath(path)) dispatch(stopMedia());
+  }, [mounted, current, path, dispatch]);
 
   // 再生を始めた枠が今のページにあるか(ページを移ると枠が外れ、戻ると同じ枠が付き直す)
   const slotId = current?.slotId;
@@ -143,7 +146,8 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
     UtilityService.gtag({ category: "youtube", action: "end", label });
   }, [label]);
 
-  if (!mounted || !current) return null;
+  const marker = <span ref={markerRef} hidden />;
+  if (!mounted || !current) return marker;
 
   const opts = {
     width: "100%",
@@ -161,7 +165,7 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
 
   const miniTop = isFullscreenVizPath(path) ? "top-[7.5rem]" : nearTop ? "top-[4.25rem]" : "top-2";
 
-  return createPortal(
+  const panel = (
     <div
       ref={boxRef}
       id="GlobalPlayer"
@@ -209,8 +213,14 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
           </button>
         </div>
       )}
-    </div>,
-    document.body
+    </div>
+  );
+
+  return (
+    <>
+      {marker}
+      {createPortal(panel, document.body)}
+    </>
   );
 };
 

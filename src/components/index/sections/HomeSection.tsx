@@ -7,6 +7,7 @@ import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 import OnThisDay from "../OnThisDay";
+import HomeListen from "../HomeListen";
 import ArticleCarousel from "../../songArticles/ArticleCarousel";
 import FeaturedArticle from "../FeaturedArticle";
 
@@ -204,6 +205,9 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
       )}
 
       {today}
+
+      {/* NEW RELEASE: いちばん新しい作品の XFD(MainVideo の代わり、plan/60) */}
+      <HomeListen />
 
       {/* EXPLORE: 主要セクションへの大タイル導線 */}
       <div className="px-2 sm:px-4 pt-8">

@@ -54,6 +54,8 @@ const ja = {
     heroLead1: "楽曲・ライブ・セトリ・ロケ地。れをる時代から現在まで、",
     heroLead2: "公式コンテンツへの案内板を兼ねた非公式アーカイブ。",
     ticketCta: "公式サイトでチケット →",
+    // HOME の NEW RELEASE(plan/60)
+    listenCta: "ディスコグラフィで見る →",
     welcomeTitle: "はじめてのReol",
     welcomeDesc: "代表曲と年代別ガイド。どのeraから入っても迷わない。",
     liveTitle: "ライブに行く",
