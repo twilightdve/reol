@@ -7,7 +7,7 @@ import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
 import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
 import OnThisDay from "../OnThisDay";
-import ArticleCoverCard from "../../songArticles/ArticleCoverCard";
+import ArticleCarousel from "../../songArticles/ArticleCarousel";
 
 /**
  * トップページ本体。リデザインB案「BLACKBOX / CHRONICLE」(plan/15, plan/16)の
@@ -171,20 +171,20 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               読みもの一覧へ →
             </Link>
           </div>
-          {/* 表紙付きのカード(plan/59)。スマホは手で横にめくる棚(次の1枚が少しのぞく)、md 以上は3列 */}
-          <ul className="mt-4 -mx-2 flex snap-x snap-mandatory scroll-px-2 gap-3 overflow-x-auto px-2 pb-2 sm:-mx-4 sm:scroll-px-4 sm:px-4 md:mx-0 md:grid md:grid-cols-3 md:gap-3.5 md:overflow-visible md:px-0 md:pb-0">
-            {homeArticles.map((a) => (
-              <li key={a.slug} className="w-[78%] flex-shrink-0 snap-start sm:w-[46%] md:w-auto">
-                <ArticleCoverCard
-                  slug={a.slug}
-                  title={a.title}
-                  songTitle={a.songTitle}
-                  cover={a.cover}
-                  onClick={() => trackEvent("home_reading_click", { category: "navigation", label: a.slug })}
-                />
-              </li>
-            ))}
-          </ul>
+          {/* 表紙付きのカード(plan/59)。スマホ・タブレットは1枚ずつのカルーセル、md 以上は3列 */}
+          <ArticleCarousel
+            className="mt-4"
+            gridFrom="md"
+            label="読みもの"
+            items={homeArticles.map((a) => ({
+              key: a.slug,
+              slug: a.slug,
+              title: a.title,
+              songTitle: a.songTitle,
+              cover: a.cover,
+              onClick: () => trackEvent("home_reading_click", { category: "navigation", label: a.slug }),
+            }))}
+          />
         </section>
       )}
 

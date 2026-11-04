@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { trackEvent } from "../../utils/analytics";
 import { seriesPath, tagFilterPath } from "../../utils/songArticles/series";
-import ArticleCoverCard from "./ArticleCoverCard";
+import ArticleCarousel from "./ArticleCarousel";
 import { isReleased, useNow } from "../../utils/songArticles/schedule";
 import { ArticleLikeState, fetchArticleLikes, setArticleLike } from "../../services/articleLikeService";
 
@@ -104,20 +104,20 @@ const ArticleEnd: React.FC<{
           <h2 id="article-others" className="text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">
             その他の記事
           </h2>
-          {/* 表紙付きのカード(plan/59)。スマホは手で横にめくる棚、sm 以上は3列 */}
-          <ul className="mt-3 -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
-            {related.map((r) => (
-              <li key={r.slug} className="w-[78%] flex-shrink-0 snap-start sm:w-auto">
-                <ArticleCoverCard
-                  slug={r.slug}
-                  title={r.title}
-                  songTitle={r.songTitle}
-                  cover={r.cover}
-                  onClick={() => trackEvent("article_related_click", { category: "navigation", label: `${articleId}->${r.slug}` })}
-                />
-              </li>
-            ))}
-          </ul>
+          {/* 表紙付きのカード(plan/59)。スマホは1枚ずつのカルーセル、sm 以上は3列 */}
+          <ArticleCarousel
+            className="mt-3"
+            gridFrom="sm"
+            label="その他の記事"
+            items={related.map((r) => ({
+              key: r.slug,
+              slug: r.slug,
+              title: r.title,
+              songTitle: r.songTitle,
+              cover: r.cover,
+              onClick: () => trackEvent("article_related_click", { category: "navigation", label: `${articleId}->${r.slug}` }),
+            }))}
+          />
         </section>
       )}
 
