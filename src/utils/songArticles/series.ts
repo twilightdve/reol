@@ -3,7 +3,7 @@
  *
  * - シリーズ: 1記事に1つ(必須)。一覧はシリーズで分け、シリーズごとのページ(/articles/series/<slug>/)を作る。
  * - タグ: 1記事に複数(任意)。一覧で絞り込む(/articles/?tag=<タグ>)。
- *   楽曲記事はサイトの確認済みデータ(初出の作品・初出の年)から自動で付け、editorial.json の tags を足す。
+ *   楽曲記事はサイトの確認済みデータ(初出の作品・その名義・作詞作曲者)から自動で付け、editorial.json の tags を足す。
  *   曲名はタグにしない(記事が曲ごとに1本で、一覧の曲名表示と重なるため。2026-10-10 ユーザー決定)。
  */
 
@@ -29,19 +29,26 @@ export const SONG_ARTICLE_SERIES = "kyoku-wo-yomu";
 export const seriesBySlug = (slug: string): ArticleSeries | undefined =>
   ARTICLE_SERIES.find((s) => s.slug === slug);
 
+/** 作詞・作曲の欄(「Reol,Giga」「ツミキ・Reol」「Reol, Masayoshi Iimori」)を一人ずつに分ける */
+const splitMembers = (value: string | null | undefined): string[] => (value ?? "").split(/\s*[,、・]\s*/);
+
 /**
- * 楽曲記事のタグ。初出の作品名、初出の年(「2015年」)に、編集で足したタグを加える。
- * 重複と空文字は除き、順序は 作品 → 年 → 編集タグ。
+ * 楽曲記事のタグ。初出の作品名、その作品の名義(れをる / REOL / Reol など。管理表の表記のまま)、
+ * 作詞者、作曲者(一人ずつ)に、編集で足したタグを加える。重複と空文字は除き、順序は 作品 → 名義 → 作詞 → 作曲 → 編集タグ。
+ * 2026-11-05 ユーザー「〜年というタグは不要だかられをるの名義(れをるなのかREOLなのかReolなのか...)と作詞作曲者の名前をタグにしてほしい」
  */
 export const songArticleTags = (input: {
-  releases: { title: string; releaseDate: string | null }[];
+  releases: { title: string; releaseDate: string | null; artist?: string | null }[];
+  lyricMember?: string | null;
+  musicMember?: string | null;
   extra?: string[] | null;
 }): string[] => {
   const first = input.releases[0] ?? null;
-  const year = first?.releaseDate?.slice(0, 4);
   const tags = [
     first?.title ?? null,
-    year && /^\d{4}$/.test(year) ? `${year}年` : null,
+    first?.artist ?? null,
+    ...splitMembers(input.lyricMember),
+    ...splitMembers(input.musicMember),
     ...(input.extra ?? []),
   ]
     .map((t) => (t ?? "").trim())

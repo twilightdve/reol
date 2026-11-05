@@ -1739,6 +1739,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         title: string | null;
         format: string | null;
         releaseDate: string | null;
+        name: string | null;
         reports: {
           discographyRepoUuid: string;
           discographyReportName: string;
@@ -1797,6 +1798,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           title
           format
           releaseDate
+          name
           reports {
             discographyRepoUuid
             discographyReportName
@@ -2022,7 +2024,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
 
         // 締めのクレジット等に使う、サイトの確認済みデータ(収録作・発売日・作詞作曲)。収録uuidから引く
-        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null }>();
+        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null; artist: string | null }>();
         let lyricMember: string | null = null;
         let musicMember: string | null = null;
         let tieup: string | null = null;
@@ -2034,7 +2036,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             tieup = tieup ?? (s.tieupDescription?.trim() || null);
             const title = disc.title ?? s.discographyTitle;
             if (title && !releases.has(disc.discographyUuid)) {
-              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate });
+              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate, artist: disc.name });
             }
           }
         }
@@ -2058,7 +2060,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
         };
         // 読みものの分類(シリーズ+タグ)。楽曲記事は「曲を読む」、タグはサイトのデータから(src/utils/songArticles/series.ts)
         const series = seriesBySlug(SONG_ARTICLE_SERIES) ?? ARTICLE_SERIES[0];
-        const tags = songArticleTags({ releases: songFacts.releases, extra: article.tags });
+        const tags = songArticleTags({
+          releases: songFacts.releases,
+          lyricMember: songFacts.lyricMember,
+          musicMember: songFacts.musicMember,
+          extra: article.tags,
+        });
 
         const excerpt = article.summary ?? firstParagraphText(parsed);
         if (!unlisted) relatedCandidates.push({

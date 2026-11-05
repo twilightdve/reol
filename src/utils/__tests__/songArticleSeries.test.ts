@@ -5,16 +5,31 @@ describe("読みものの分類(plan/33)", () => {
     expect(seriesBySlug(SONG_ARTICLE_SERIES)?.name).toBe("曲を読む");
   });
 
-  it("タグは 初出の作品 → 初出の年 → 編集タグ の順で、重複と空を除く(曲名は付けない)", () => {
+  it("タグは 初出の作品 → 名義 → 作詞 → 作曲 → 編集タグ の順で、重複と空を除く(年・曲名は付けない)", () => {
     expect(
       songArticleTags({
         releases: [
-          { title: "極彩色", releaseDate: "2015-07-29" },
-          { title: "別の作品", releaseDate: "2020-01-01" },
+          { title: "極彩色", releaseDate: "2015-07-29", artist: "れをる" },
+          { title: "別の作品", releaseDate: "2020-01-01", artist: "Reol" },
         ],
-        extra: ["2015年", " ", "ライヴ"],
+        lyricMember: "れをる",
+        musicMember: "れをる・ギガ",
+        extra: ["ギガ", " ", "ライヴ"],
       })
-    ).toEqual(["極彩色", "2015年", "ライヴ"]);
+    ).toEqual(["極彩色", "れをる", "ギガ", "ライヴ"]);
+  });
+
+  it("作詞・作曲の欄は , ・ 、 で一人ずつに分ける", () => {
+    expect(
+      songArticleTags({
+        releases: [{ title: "SCORPION", releaseDate: "2022-10-28", artist: "Reol" }],
+        lyricMember: "Reol",
+        musicMember: "Reol, Masayoshi Iimori",
+      })
+    ).toEqual(["SCORPION", "Reol", "Masayoshi Iimori"]);
+    expect(
+      songArticleTags({ releases: [], lyricMember: "Reol・ツミキ", musicMember: "ツミキ、Reol,Giga" })
+    ).toEqual(["Reol", "ツミキ", "Giga"]);
   });
 
   it("収録作が無ければ編集タグだけ", () => {
