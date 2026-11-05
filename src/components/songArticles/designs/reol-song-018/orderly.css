@@ -309,67 +309,26 @@
   text-wrap: balance;
 }
 
-/* ---------- 段落2の後: 同じループを4周、5周目は空の枠 ---------- */
+/* ---------- 段落2の後: ループの小さな見取り図を横に4つ、5つ目は空の枠(大げさにしない) ---------- */
 .a018-passes {
-  margin: clamp(40px, 6vw, 56px) 0;
-}
-.a018-passes__list {
-  display: grid;
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0;
 }
 .a018-pass {
   display: grid;
-  grid-template-columns: 2.6em minmax(0, 1fr);
-  align-items: center;
-  gap: 10px;
-}
-.a018-pass__no {
-  font-family: var(--latin);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-variant-numeric: tabular-nums;
-}
-.a018-pass__grid {
-  display: grid;
-  gap: 2px;
-  max-width: 480px;
-}
-.a018-pass__row {
-  display: grid;
-  grid-template-columns: repeat(16, minmax(0, 1fr));
-  gap: 2px;
-}
-.a018-pass__cell {
-  position: relative;
-  height: 13px;
+  grid-template-columns: repeat(16, 2px);
+  grid-template-rows: repeat(5, 2px);
+  gap: 1px;
+  padding: 3px;
   border: 1px solid var(--slot);
-  border-radius: 1px;
 }
-.a018-pass__cell .a018-pad.is-bar {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
-.a018-pass__cell .a018-pad.is-dot,
-.a018-pass__cell .a018-pad.is-square {
-  height: 70%;
-}
-.a018-pass__cell .a018-pad.is-diamond {
-  height: 60%;
-}
-.a018-pass__cell .a018-pad.is-tick {
-  width: 2px;
-  height: 100%;
-}
-.a018-pass.is-next .a018-pass__cell {
+.a018-pass.is-next {
   border-style: dashed;
 }
-.a018-pass.is-next .a018-pass__no {
-  color: var(--ink-2);
+.a018-pass__dot {
+  background: var(--ink);
 }
 
 /* ---------- 段落3の後: 軸と、受け止められる音 ---------- */
@@ -549,17 +508,6 @@
       a018-join5 var(--cycle) infinite;
   }
 
-  /* 4周が順に現れ、最後に空の5周目 */
-  .a018-passes.is-armed .a018-pass {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  .a018-passes.is-visible .a018-pass {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transition-delay: calc(var(--a018-pass) * 0.28s);
-  }
 
   /* 音が上下から寄ってきて、軸の上で受け止められる */
   .a018-axis.is-armed .a018-axis__mark {
@@ -704,9 +652,6 @@
   .a018-text {
     font-size: 16px;
     line-height: 2;
-  }
-  .a018-pass__cell {
-    height: 11px;
   }
 }
 @media print {

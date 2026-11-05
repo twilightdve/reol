@@ -6,7 +6,7 @@
  * - 表紙: 16升×5段のループ。真ん中の段(軸のメロディー)は毎回同じで、ループが一周するたびに上下の段の音が一つずつ加わる。
  *   まだ鳴っていない升は空の枠のまま待っている(次に加わる音への予感)。広い画面では右、狭い画面では題名の下。
  *   その下(広い画面では右下)に、『極彩色』XFD と Spotify で聴くリンク。本文に聴くリンクの段落が無いので、サイトの曲データの Spotify から置く。
- * - 段落2の後: 同じループを4周、上から下へ並べる。周を重ねるごとに音が増え、5周目は空の枠だけ(この先、何が始まるのだろう)。
+ * - 段落2の後: 同じループの小さな見取り図を横に4つ、5つ目は空の枠(控えめに。本文1行ほどの大きさ)。
  * - 段落3の後: 横一本の軸(同じフレーズの繰り返し)に、形の違う音が上下から寄って、軸の上で受け止められる。
  * - 段落4の後: 『極彩色』の6〜8曲目。ロジックエージェント(記事へ)→ -orderly- → mede:mede。
  * - 結び(段落5)の後: 軸の段が一周し、その先に空の升が続いていく。カーソルが次の升で待つ。
@@ -109,33 +109,26 @@ const CoverLoop: React.FC = () => (
   </div>
 );
 
-/** 段落2の後: 同じループを4周。周を重ねるごとに音が増え、5周目は空の枠だけ */
-const PassFig: React.FC = () => {
-  const { ref, className } = useRevealOnce<HTMLElement>(0.3);
-  return (
-    <figure ref={ref} className={`a018-passes${className}`}>
-      <ol className="a018-passes__list" aria-hidden="true">
-        {[1, 2, 3, 4, 5].map((pass) => (
-          <li key={pass} className={`a018-pass${pass === 5 ? " is-next" : ""}`} style={{ "--a018-pass": pass } as React.CSSProperties}>
-            <span className="a018-pass__no">{pass === 5 ? "?" : String(pass).padStart(2, "0")}</span>
-            <div className="a018-pass__grid">
-              {VOICES.map((v) => (
-                <div key={v.key} className={`a018-pass__row${v === AXIS ? " is-axis" : ""}`}>
-                  {Array.from({ length: STEPS }, (_, s) => (
-                    <span key={s} className="a018-pass__cell">
-                      {pass < 5 && v.join <= pass && v.steps.includes(s) && <Pad shape={v.shape} />}
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </li>
-        ))}
-      </ol>
-      <figcaption className="a018-cap">繰り返されるメロディーを追いながらも、耳は次に加わる音を待っている</figcaption>
-    </figure>
-  );
-};
+/**
+ * 段落2の後: 同じループの小さな見取り図を4つ、横に。周を重ねるごとに音が増え、5つ目は空の枠だけ。
+ * 大げさにしない(2026-11-05 ユーザー「こんな大層に表現しなくていい」)。番号・説明は付けず、本文の一行ほどの大きさ
+ */
+const PassFig: React.FC = () => (
+  <figure className="a018-passes" aria-label="同じメロディーが繰り返され、そのたびに音が加わる。その次は、まだ空いている">
+    {[1, 2, 3, 4, 5].map((pass) => (
+      <span key={pass} className={`a018-pass${pass === 5 ? " is-next" : ""}`} aria-hidden="true">
+        {pass < 5 &&
+          VOICES.flatMap((v, row) =>
+            v.join <= pass
+              ? v.steps.map((s) => (
+                  <i key={`${v.key}${s}`} className="a018-pass__dot" style={{ gridRow: row + 1, gridColumn: s + 1 }} />
+                ))
+              : []
+          )}
+      </span>
+    ))}
+  </figure>
+);
 
 /** 段落3の後: 同じフレーズを繰り返す横一本の軸に、形の違う音が上下から寄って受け止められる */
 const AXIS_MARKS: { x: number; side: -1 | 1; shape: Voice["shape"] }[] = [
