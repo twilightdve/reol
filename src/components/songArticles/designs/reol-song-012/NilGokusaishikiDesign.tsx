@@ -84,7 +84,7 @@ const TRACKS: { name: string; article?: string; colors: string[]; lines?: string
   { name: "水底游歩道", article: "minasoko-yuu-hodou", colors: [C.blue, C.white, C.gray, C.black] },
   { name: "ハルシアン", article: "harushian", colors: [C.bordeaux] },
   { name: "ロジックエージェント", article: "rojikkuejento", colors: [C.light, C.shade], lines: ["ロジック", "エージェント"] },
-  { name: "-orderly-", colors: [] },
+  { name: "-orderly-", article: "orderly", colors: [] },
   { name: "mede:mede", colors: [C.white, C.light] },
   { name: "Syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]] },
   { name: "ラ・タタン", colors: [C.white, C.black, ...TWILIGHT] },
