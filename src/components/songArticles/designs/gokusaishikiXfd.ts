@@ -9,6 +9,7 @@ const START: Record<string, number | null> = {
   生命線: 64, // 1:04
   水底游歩道: 96, // 1:36
   ハルシアン: 131, // 2:11
+  "-orderly-": 184, // 3:04(2026-11-05 ユーザー指定)
 };
 
 const mmss = (sec: number) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}`;
