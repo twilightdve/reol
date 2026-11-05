@@ -86,56 +86,51 @@ const useRevealOnce = <T extends Element>(threshold: number) => {
 
 /**
  * サビの景色(本文の段落18: 空と陸の境目がわからない世界が開け、雲が高速で流れていく)。
- * 上は白と濃い灰の雲が横へ流れる空、地平の光の帯を挟んで、下は空を映す地面(雲が逆さに映り、奥へ暗くなる)。
- * 白い筋がときどき落ちる。表紙・サビの帯・視線の図で使う。MV の画面は複製せず、空・地平・映り込みの作りだけ
+ * 上は雲が奥(地平の一点)から手前(画面の上・左右)へ迫ってくる空。
+ * 地平の光の帯を挟んで、下は空を映す地面(雲を逆さに映し、奥へ暗くなる)。白い筋がときどき落ちる。
+ * 表紙・サビの帯・視線の図で使う。MV の画面は複製せず、空・地平・映り込みの作りだけ
+ * 2026-11-05 ユーザー「雲の流れの方向が間違えている 右から左ではなく奥から手前」
  */
-type Cloud = [x: number, y: number, rx: number, ry: number, color: string];
-const CLOUDS_FAR: Cloud[] = [
-  [8, 70, 30, 10, "255 255 255 / 0.95"],
-  [30, 82, 26, 7, "70 72 82 / 0.7"],
-  [52, 66, 34, 11, "255 255 255 / 0.9"],
-  [76, 84, 28, 8, "60 62 72 / 0.65"],
-  [92, 62, 26, 9, "255 255 255 / 0.85"],
-  [20, 52, 28, 9, "80 82 92 / 0.6"],
-  [64, 50, 24, 8, "245 243 236 / 0.8"],
-  [44, 94, 30, 6, "255 255 255 / 0.9"],
-];
-const CLOUDS_NEAR: Cloud[] = [
-  [12, 14, 40, 18, "30 32 40 / 0.92"],
-  [46, 8, 36, 16, "36 38 46 / 0.9"],
-  [82, 18, 42, 18, "28 30 38 / 0.9"],
-  [30, 36, 34, 12, "240 238 232 / 0.85"],
-  [68, 38, 32, 12, "230 228 222 / 0.8"],
-  [94, 40, 26, 10, "60 62 72 / 0.7"],
-  [56, 26, 24, 9, "255 255 255 / 0.7"],
-  [4, 40, 22, 9, "90 92 102 / 0.7"],
-];
-// 速く流れる細い筋(雲が高速で流れる)
-const CLOUDS_STREAK: Cloud[] = [
-  [6, 22, 18, 2, "255 255 255 / 0.7"],
-  [28, 48, 22, 2.5, "40 42 50 / 0.6"],
-  [44, 30, 16, 1.6, "255 255 255 / 0.75"],
-  [60, 58, 24, 2, "255 255 255 / 0.8"],
-  [78, 26, 20, 2.2, "40 42 50 / 0.55"],
-  [90, 52, 18, 1.8, "255 255 255 / 0.7"],
-  [16, 68, 20, 2, "255 255 255 / 0.85"],
-  [52, 76, 26, 1.6, "60 62 72 / 0.5"],
-  [70, 12, 22, 2.4, "255 255 255 / 0.5"],
-  [36, 88, 18, 1.4, "255 255 255 / 0.9"],
-];
-// 雲の層は空の幅の2倍。同じ雲を空の幅ごとにずらして4組並べ、半分だけ流すと継ぎ目なく繰り返す
-const cloudLayer = (clouds: Cloud[]) =>
-  [-1, 0, 1, 2]
-    .flatMap((k) =>
-      clouds.map(
-        ([x, y, rx, ry, c]) =>
-          `radial-gradient(ellipse ${rx / 2}% ${ry}% at ${(x + 100 * k) / 2}% ${y}%, rgb(${c}), transparent 70%)`
-      )
-    )
-    .join(", ");
-const FAR_BG = cloudLayer(CLOUDS_FAR);
-const NEAR_BG = cloudLayer(CLOUDS_NEAR);
-const STREAK_BG = cloudLayer(CLOUDS_STREAK);
+// 雲は地平の一点(消失点)から放射状の線の上を手前へ進み、近づくほど大きく速くなる(天井に浮かぶ雲を遠近で見た動き)。
+// 3D の変形は使わず、線の向きに回した枠の中で、前進と拡大を同じ時間・同じ加速で動かす。
+// [線の角度(地平から上へ 度), 遅れ(周期の割合), 大きさ(空の幅に対する %), 色, 種類]
+type Puff = [angle: number, delay: number, size: number, color: string, kind: "mass" | "streak"];
+const PUFF_COLORS = ["255 255 255 / 0.95", "34 36 44 / 0.9", "240 238 232 / 0.9", "60 62 72 / 0.8", "255 255 255 / 0.8"];
+const STREAK_COLORS = ["255 255 255 / 0.9", "40 42 50 / 0.6", "255 255 255 / 0.75"];
+// 決まった並びの乱数(サーバーで描いた HTML と画面で同じ位置になるように)
+const seeded = (seed: number) => () => {
+  seed = (seed * 1103515245 + 12345) % 2147483648;
+  return seed / 2147483648;
+};
+const PUFFS: Puff[] = (() => {
+  const r = seeded(17);
+  const mass: Puff[] = Array.from({ length: 40 }, (_, i) => [
+    3 + ((i * 7 * 174) / 40 + r() * 10) % 174,
+    i / 40,
+    40 + r() * 60,
+    PUFF_COLORS[Math.floor(r() * PUFF_COLORS.length)],
+    "mass",
+  ]);
+  const streak: Puff[] = Array.from({ length: 18 }, (_, i) => [
+    6 + r() * 168,
+    (i + r()) / 18,
+    22 + r() * 22,
+    STREAK_COLORS[Math.floor(r() * STREAK_COLORS.length)],
+    "streak",
+  ]);
+  return [...mass, ...streak];
+})();
+const Rays: React.FC = () => (
+  <div className="a017-sky__rays">
+    {PUFFS.map(([angle, delay, size, color, kind], i) => (
+      <div key={i} className="a017-sky__ray" style={{ transform: `rotate(${-angle.toFixed(2)}deg)` }}>
+        <div className={`a017-sky__carrier is-${kind}`} style={{ "--a017-delay": delay.toFixed(3) } as React.CSSProperties}>
+          <i className="a017-sky__puff" style={{ width: `${size.toFixed(1)}%`, color: `rgb(${color})` }} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
 // 落ちる白い筋: [横の位置 %, 遅れ 秒, 長さ px]
 const DROPS: [number, number, number][] = [
   [6, 0, 14], [14, 1.3, 10], [23, 0.6, 18], [31, 2.1, 12], [39, 0.2, 9], [47, 1.7, 16], [55, 0.9, 11],
@@ -144,15 +139,11 @@ const DROPS: [number, number, number][] = [
 const Sky: React.FC<{ className?: string; children?: React.ReactNode }> = ({ className = "", children }) => (
   <div className={`a017-sky ${className}`} aria-hidden="true">
     <div className="a017-sky__up">
-      <div className="a017-sky__clouds is-far" style={{ backgroundImage: FAR_BG }} />
-      <div className="a017-sky__clouds is-near" style={{ backgroundImage: NEAR_BG }} />
-      <div className="a017-sky__clouds is-streak" style={{ backgroundImage: STREAK_BG }} />
+      <Rays />
     </div>
     <div className="a017-sky__down">
       <div className="a017-sky__flip">
-        <div className="a017-sky__clouds is-far" style={{ backgroundImage: FAR_BG }} />
-        <div className="a017-sky__clouds is-near" style={{ backgroundImage: NEAR_BG }} />
-        <div className="a017-sky__clouds is-streak" style={{ backgroundImage: STREAK_BG }} />
+        <Rays />
       </div>
     </div>
     <div className="a017-sky__horizon" />

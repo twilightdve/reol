@@ -5,7 +5,7 @@
  * 色の役割(『-nil-／極彩色』の輪で「ロジックエージェント」に当てた 光・影。色ではなく灰色の濃さで描く):
  *   --ground 影の濃い灰(地) / --light 光(#ece6d4。本文・題名・高い方の声) / --shade 影(#8d939a。写し・低い方の声・記憶の側)
  *   --day サビの空が開けたあとの明るい地。.a017-day の中では、文字は墨(--light を墨に置き換える)、写しは濃い灰
- * サビの景色(.a017-sky): 白と濃い灰の雲が横へ流れる空、地平の光の帯、空を映す地面。色は光・影の灰色の幅の中で
+ * サビの景色(.a017-sky): 白と濃い灰の雲が奥から手前へ迫る空、地平の光の帯、空を映す地面。色は光・影の灰色の幅の中で
  */
 
 .a017 {
@@ -217,21 +217,49 @@
   inset: 0;
   background: linear-gradient(180deg, transparent 0%, rgb(27 29 32 / 0.35) 40%, var(--ground) 100%);
 }
-.a017-sky__clouds {
+/* 雲: 消失点(空の下端の中央 = 地平)から放射状に。地面の側は .a017-sky__flip で上下を返すので、
+   同じ雲が地平から下へ広がる映り込みになる */
+.a017-sky__rays {
   position: absolute;
-  top: 0;
+  inset: 0;
+}
+.a017-sky__ray {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 110%;
+  height: 0;
+  transform-origin: 0 0;
+}
+/* 線の上を前へ運ぶ枠(枠の幅 = 線の長さ)。中の雲は同じ時間・同じ加速で大きくなる。
+   遅れは周期の割合(--a017-delay)で、動きを減らす設定では止めたまま、その位置に置く */
+.a017-sky__carrier {
+  --a017-dur: 3s;
+  position: absolute;
+  inset: 0;
+  animation: a017-come var(--a017-dur) cubic-bezier(0.5, 0, 1, 1) infinite;
+  animation-delay: calc(var(--a017-delay) * var(--a017-dur) * -1);
+}
+.a017-sky__carrier.is-streak {
+  --a017-dur: 1.1s;
+}
+.a017-sky__puff {
+  position: absolute;
   left: 0;
-  width: 200%;
-  height: 100%;
-  background-repeat: no-repeat;
-  filter: blur(4px);
-  will-change: transform;
+  top: 0;
+  aspect-ratio: 3 / 1;
+  background: radial-gradient(closest-side, currentColor, transparent);
+  animation: a017-grow var(--a017-dur) cubic-bezier(0.5, 0, 1, 1) infinite;
+  animation-delay: inherit;
 }
-.a017-sky__clouds.is-near {
-  filter: blur(7px);
+.a017-sky__carrier.is-streak .a017-sky__puff {
+  aspect-ratio: 30 / 1;
 }
-.a017-sky__clouds.is-streak {
-  filter: blur(1.5px);
+@media (prefers-reduced-motion: reduce) {
+  .a017-sky__carrier,
+  .a017-sky__puff {
+    animation-play-state: paused;
+  }
 }
 /* 地平の光の帯 */
 .a017-sky__horizon {
@@ -253,25 +281,33 @@
   opacity: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .a017-sky__clouds.is-far {
-    animation: a017-drift 6s linear infinite;
-  }
-  .a017-sky__clouds.is-near {
-    animation: a017-drift 2.6s linear infinite;
-  }
-  .a017-sky__clouds.is-streak {
-    animation: a017-drift 1.2s linear infinite;
-  }
   .a017-sky__drop {
     animation: a017-fall 3.2s linear infinite;
   }
 }
-@keyframes a017-drift {
+@keyframes a017-come {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(100%);
+  }
+}
+@keyframes a017-grow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.05);
+    opacity: 0;
+  }
+  /* 地平の近くでは光に溶けて薄く、手前へ来るほど濃く */
+  18% {
+    opacity: 0.35;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 }
 @keyframes a017-fall {
