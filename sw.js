@@ -58,7 +58,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "4f9f4f48fb934ad40ca07c2206e84d68"
+    "revision": "1a85b639d062d14764cb51a8eafd463d"
   },
   {
     "url": "static/webfonts/s/cormorant/v24/H4c2BXOCl9bbnla_nHIA47NMUjsNbCVrFhFTc7Nq7Q.woff2"
