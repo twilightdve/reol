@@ -111,3 +111,6 @@
 - 第4版の原稿にも残っていた次の2点は、前と同じく body.md で直して sha を付け直した: 冒頭の一文を「『極彩色』の中でいちばん好きな曲」に(§5)/歌ネットの歌詞リンク3つを本文から外す(奥付の「参考」に一度だけ)。
 - デザイン: 結び(太字の大きめの文)を段落36に。本人の言葉の段落35は本文の文字のまま、結びの直前に置く。結びの後の交わる線の図はそのまま。
 - 確認: 開発サーバーの Chromium・WebKit、390・1280px。記事別デザインが使われ、結びは新しい段落、直前に本人の言葉とリンク2つ。歌ネットのリンクは1つ、横はみ出しなし、ページのエラーなし。
+- デプロイ後、本番で「更新」日が出ていなかった。原因: Gatsby が pageContext の `updatedAt` を内部用として消す(node_modules/gatsby/dist/query/query-runner.js の `delete result.pageContext.updatedAt`)。これまで更新日のある記事が無く、表に出ていなかった。
+  - 記事ページへ渡す名前を `modifiedAt` に変えた(gatsby-node.ts・src/templates/song-article.tsx・designs/types.ts と各記事別デザイン)。article.json の `updatedAt` はそのまま。
+  - 確認: 開発サーバーの Chromium・WebKit、390px。ロジックエージェントは「2026年10月2日 作成 ・ 2026年11月5日 更新」、構造化データの dateModified も入る。更新の無いハルシアンは作成日だけ。typecheck・jest 163件通過。

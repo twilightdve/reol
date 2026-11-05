@@ -2092,7 +2092,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             description: excerpt,
             createdAt: article.createdAt ?? null,
             publishedAt: article.publishedAt,
-            updatedAt: article.updatedAt,
+            // Gatsby は pageContext の updatedAt を消すので、別の名前で渡す
+            modifiedAt: article.updatedAt ?? null,
             series: { slug: series.slug, name: series.name },
             tags,
             bodyRevision: article.bodyRevision,

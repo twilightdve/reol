@@ -20,7 +20,11 @@ export interface SongArticlePageContext {
   ogImage?: string | null;
   /** 初回公開日時(表示しない。構造化データ用) */
   publishedAt: string | null;
-  updatedAt: string | null;
+  /**
+   * 公開後に本文を差し替えた日時(article.json の updatedAt)。無ければ null。
+   * pageContext では updatedAt という名前を使えない(Gatsby がページ情報から updatedAt を消すため、ページに届かない)
+   */
+  modifiedAt: string | null;
   bodyRevision: number;
   blocks: ArticleBlock[];
   leadMedia: LeadMedia | null;

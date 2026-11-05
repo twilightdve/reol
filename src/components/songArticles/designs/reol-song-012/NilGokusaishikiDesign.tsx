@@ -491,7 +491,7 @@ const EndMark: React.FC = () => {
 };
 
 const NilGokusaishikiDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
   // 収録作は日付順。いちばん古いもの(『極彩色』)を初出にする(武道館のライヴ盤も対応する曲に入っているため)
   const firstRelease = songFacts.releases[0] ?? null;
   const body = (from: number, to: number, className = "a012-text") => (
@@ -531,7 +531,7 @@ const NilGokusaishikiDesign: SongArticleDesign = (ctx) => {
               {tSub && <span className="a012-title__sub">{tSub}</span>}
             </h1>
             <p className="a012-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

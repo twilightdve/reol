@@ -135,7 +135,7 @@ const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, c
 );
 
 const ScorpionDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt, preview } = ctx;
   const tail = useRevealOnce<HTMLDivElement>(0.4);
 
   // H1 の文言はそのまま。「――」の前の曲名を輪郭だけの大きな文字で、後ろを極太で組む(文字は変えない)
@@ -192,7 +192,7 @@ const ScorpionDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a087-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
             <div className="a087-cover__media">{body(0, LEDE, "")}</div>
           </div>

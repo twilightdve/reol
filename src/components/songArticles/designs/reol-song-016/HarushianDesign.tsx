@@ -260,7 +260,7 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
     songPages,
     songFacts,
     createdAt,
-    updatedAt,
+    modifiedAt,
   } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const xfd = gokusaishikiXfd("ハルシアン");
@@ -312,7 +312,7 @@ const HarushianDesign: SongArticleDesign = (ctx) => {
                 {tSub && <span className="a016-title__sub">{tSub}</span>}
               </h1>
               <p className="a016-date">
-                <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+                <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
               </p>
             </div>
             {/* 表紙の余白に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}

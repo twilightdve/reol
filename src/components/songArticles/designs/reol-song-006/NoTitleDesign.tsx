@@ -183,7 +183,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     songFacts,
     liveRefs,
     createdAt,
-    updatedAt,
+    modifiedAt,
     preview,
   } = ctx;
   const splash = useRevealOnce<HTMLDivElement>(0.7);
@@ -275,7 +275,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
                 </h1>
                 <p className="a006-date">
                   {/* 縦書きなので漢数字で組む */}
-                  <ArticleDate createdAt={createdAt} updatedAt={updatedAt} kanji />
+                  <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} kanji />
                 </p>
               </div>
             </div>

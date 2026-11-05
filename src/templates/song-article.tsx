@@ -63,7 +63,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
     songTitle,
     versionLabel,
     createdAt,
-    updatedAt,
+    modifiedAt,
     blocks,
     leadMedia,
     songPages,
@@ -105,7 +105,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
             {title}
           </h1>
           <p className="mt-4 text-[12px] text-bx-ink3">
-            <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+            <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
           </p>
         </header>
 
@@ -147,7 +147,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
 };
 
 export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) => {
-  const { slug, title, songTitle, description, createdAt, publishedAt, updatedAt, noindex } = pageContext;
+  const { slug, title, songTitle, description, createdAt, publishedAt, modifiedAt, noindex } = pageContext;
   const path = `/articles/${slug}/`;
   const jsonLd: object[] = [
     buildBreadcrumbList([
@@ -164,7 +164,7 @@ export const Head: HeadFC<object, SongArticlePageContext> = ({ pageContext }) =>
         path,
         description,
         datePublished: publishedAt,
-        dateModified: updatedAt,
+        dateModified: modifiedAt,
         dateCreated: createdAt,
         keywords: pageContext.tags,
         songName: songTitle,

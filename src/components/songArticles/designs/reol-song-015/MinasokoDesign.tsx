@@ -220,7 +220,7 @@ const FloorPath: React.FC = () => (
 );
 
 const MinasokoDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const xfd = gokusaishikiXfd("水底游歩道");
   const body = (from: number, to: number, className = "a015-text") => (
@@ -263,7 +263,7 @@ const MinasokoDesign: SongArticleDesign = (ctx) => {
             </h1>
             <CoverPath />
             <p className="a015-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
             {/* 表紙の余白(点の道の先の水の中)に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}
             <div className="a015-cover__media">

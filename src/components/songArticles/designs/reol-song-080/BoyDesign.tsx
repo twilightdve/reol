@@ -112,7 +112,7 @@ const ClauseText: React.FC<{ nodes: ArticleInline[] }> = ({ nodes }) => {
 };
 
 const BoyDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt, preview } = ctx;
   const band1 = useRevealOnce();
   const band2 = useRevealOnce();
 
@@ -219,7 +219,7 @@ const BoyDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a080-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
           </header>
           <div className="a080-screen">

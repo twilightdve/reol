@@ -291,7 +291,7 @@ const Umbrella: React.FC = () => (
 );
 
 const DropPopCandyDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, updatedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
   const body = (from: number, to: number, className = "a004-text") => (
@@ -355,7 +355,7 @@ const DropPopCandyDesign: SongArticleDesign = (ctx) => {
               </span>
             </h1>
             <p className="a004-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

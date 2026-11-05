@@ -373,7 +373,7 @@ const FortyNine: React.FC = () => {
 };
 
 const MissingDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
   const body = (from: number, to: number, className = "a047-text") => (
@@ -413,7 +413,7 @@ const MissingDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a047-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

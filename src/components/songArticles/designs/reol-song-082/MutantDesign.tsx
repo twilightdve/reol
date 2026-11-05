@@ -288,7 +288,7 @@ const Video: React.FC<{ label: string; v: { id: string; href: string; text: stri
 );
 
 const MutantDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, updatedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
   const body = (from: number, to: number, className = "a082-text") => (
@@ -324,7 +324,7 @@ const MutantDesign: SongArticleDesign = (ctx) => {
               <Phrased text={title} />
             </p>
             <p className="a082-date">
-              <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>
