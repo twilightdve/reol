@@ -2,9 +2,9 @@
   "id": "reol-song-017",
   "kind": "song",
   "songTitle": "ロジックエージェント",
-  "bodyRevision": 3,
+  "bodyRevision": 4,
   "formatRevision": 1,
-  "bodySha256": "9ec77289ff96335dd2d1321b60d55c9a26bf3a26c3bc400c4e35ba791da798a5",
+  "bodySha256": "732586bc673a7d01b8d332ac1ba651b7a61d8e71ba2adcb9779facd6d75d7fc8",
   "songRefs": [
     "019e8282-8ae7-74d5-9842-69f7b5f41756"
   ],
@@ -22,6 +22,6 @@
   "versionLabel": null,
   "createdAt": "2026-10-01T23:09:49.556Z",
   "publishedAt": "2026-11-05T01:26:21.000Z",
-  "updatedAt": null,
+  "updatedAt": "2026-11-05T02:36:13.027Z",
   "relatedArticleIds": []
 }

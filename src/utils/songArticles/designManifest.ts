@@ -22,11 +22,11 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
-  // ロジックエージェント(plan/61)。観る・聴くリンク(0)・冒頭の一文(1)・見出し(6, 13, 20, 29)・声の線の前(8)・交わる線の前(12)・円柱の前(17)・二つの僕の前(24)・視線の前(27)・結び(35)
+  // ロジックエージェント(plan/61)。観る・聴くリンク(0)・冒頭の一文(1)・見出し(6, 13, 20, 29)・声の線の前(8)・交わる線の前(12)・円柱の前(17)・二つの僕の前(24)・視線の前(27)・本人の言葉(35)・結び(36)
   "reol-song-017": {
-    bodyRevision: 3,
-    bodySha256: "9ec77289ff96335dd2d1321b60d55c9a26bf3a26c3bc400c4e35ba791da798a5",
-    blockCount: 36,
+    bodyRevision: 4,
+    bodySha256: "732586bc673a7d01b8d332ac1ba651b7a61d8e71ba2adcb9779facd6d75d7fc8",
+    blockCount: 37,
     anchors: [
       { block: 0, textHash: "21ddca9ca0f55036" },
       { block: 1, textHash: "9a79b72bb6f88eaf" },
@@ -39,7 +39,8 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
       { block: 24, textHash: "47247443c3da8680" },
       { block: 27, textHash: "f8eae7a8275559d9" },
       { block: 29, textHash: "2268dd14251e8799" },
-      { block: 35, textHash: "ad67b2dc8eaa4adf" },
+      { block: 35, textHash: "af6c8916e2c0df2b" },
+      { block: 36, textHash: "f4eded64cb9aae7e" },
     ],
   },
   // ハルシアン(plan/55)。聴くリンク(0)・冒頭(1)・見出し(4, 10, 19)・学校の言葉(5)・シーソーの前(9)・引用と出典(12, 13)・差の図の前(15)・要の一文(16)・舌打ちの図の前(20)・見返すページの前後(21, 22)・春・青の図の前(23)・結び(26)
