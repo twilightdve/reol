@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-018",
+  "kind": "song",
+  "songTitle": "-orderly-",
+  "bodyRevision": 3,
+  "formatRevision": 1,
+  "bodySha256": "795f41a082bcc15ae3f189f74b3e5b081a357a94eba2eb985953c0b4062408a0",
+  "songRefs": [
+    "019e8282-8b44-7bc7-9a6e-e263b24876f2"
+  ],
+  "media": [],
+  "slug": "orderly",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-02T00:07:43.623Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

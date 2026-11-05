@@ -1,0 +1,716 @@
+/*
+ * 楽曲記事「-orderly-」(reol-song-018)の記事別デザイン(見本 v1)。根拠は plan/62。
+ * すべて .a018 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割(『-nil-／極彩色』の輪で -orderly- だけ塗らなかったので、色を使わない):
+ *   --paper 白い地 / --ink 黒。題名・音の点・軸 / --ink-2 補足の文字 / --slot まだ鳴っていない升の枠
+ */
+
+.a018 {
+  --paper: #ffffff;
+  --ink: #121212;
+  --ink-2: #6a6a6a;
+  --slot: rgb(18 18 18 / 0.13);
+  --head: rgb(18 18 18 / 0.07);
+  --loop: 2.4s;
+  --cycle: 12s; /* 5周で一巡(段が一つずつ加わる) */
+  --column: min(640px, calc(100% - 40px));
+  --latin: "Avenir Next", "Futura", "Helvetica Neue", Arial, sans-serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--ink);
+  background: var(--paper);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 音の点(升の中。段ごとに形が違う) ---------- */
+.a018-pad {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+.a018-pad.is-bar {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 2px;
+}
+.a018-pad.is-dot {
+  height: 54%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.a018-pad.is-square {
+  height: 52%;
+  aspect-ratio: 1;
+}
+.a018-pad.is-diamond {
+  height: 44%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.a018-pad.is-tick {
+  width: 3px;
+  height: 78%;
+}
+
+/* ---------- 表紙: 題名と、16升×5段のループ ---------- */
+.a018-cover {
+  display: flex;
+  flex-direction: column;
+  min-height: min(84svh, 760px);
+  border-bottom: 1px solid var(--ink);
+}
+.a018-cover__top {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a018-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.a018-crumbs a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.a018-crumbs a:hover,
+.a018-crumbs a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.a018-cover__body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  gap: clamp(28px, 5vw, 48px);
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px) 0 clamp(40px, 7vw, 72px);
+}
+.a018-title {
+  margin: 0;
+}
+.a018-title__song {
+  display: block;
+  font-family: var(--latin);
+  /* 360px 幅でも1行に収まる大きさ */
+  font-size: clamp(54px, 16vw, 150px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.a018-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.a018-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+}
+
+/* ループ: 升は正方形。升ごとに1/16の幅を取り、内側に枠を描く(再生位置の帯と幅をそろえるため、升の間に隙間は取らない) */
+.a018-cover__loop {
+  width: 100%;
+  max-width: 560px;
+}
+.a018-loop {
+  position: relative;
+  display: grid;
+  gap: 0;
+}
+.a018-loop__row {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+.a018-loop__cell {
+  position: relative;
+  aspect-ratio: 1;
+}
+.a018-loop__cell::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--slot);
+  border-radius: 2px;
+}
+/* 4升ごと(拍の頭)の枠を少し濃く */
+.a018-loop__cell:nth-child(4n + 1)::before {
+  border-color: rgb(18 18 18 / 0.26);
+}
+.a018-loop__hit {
+  position: absolute;
+  inset: 0;
+}
+/* 再生位置(1升分の帯)。動きのある環境だけ */
+.a018-loop__head {
+  display: none;
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: 0;
+  width: 6.25%;
+  background: var(--head);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  pointer-events: none;
+}
+
+/* 表紙の XFD と聴くリンク */
+.a018-cover__media {
+  width: 100%;
+  max-width: 560px;
+}
+.a018-cover__media .sa-media {
+  margin: 0;
+}
+.a018-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+.a018-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.a018-cover__media .sa-media__button {
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.a018-cover__media .sa-media__caption {
+  padding: 8px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.a018-cover__media .sa-media__caption a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.a018-cover__media .sa-media__caption a:hover {
+  text-decoration: underline;
+}
+.a018-listen {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.a018 .a018-listen a {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  color: var(--ink);
+  background: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+}
+.a018 .a018-listen a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* 広い画面: 左に題名、右にループ、その下に XFD */
+@media (min-width: 1000px) {
+  .a018-cover__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+    column-gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  .a018-cover__text {
+    grid-row: 1 / span 2;
+  }
+  .a018-cover__media {
+    max-width: 480px;
+  }
+  .a018-title__song {
+    font-size: clamp(96px, 10vw, 150px);
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a018-ground {
+  padding-top: clamp(40px, 6vw, 64px);
+}
+.a018-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a018-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a018-text p {
+  margin: 0;
+}
+.a018-text p + p,
+.a018-text + .a018-text {
+  margin-top: 1.3em;
+}
+.a018-text a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+.a018-text.a018-opening {
+  margin: 0 0 1.4em;
+  font-size: clamp(20px, 2.8vw, 25px);
+  font-weight: 700;
+  line-height: 1.8;
+}
+.a018-note {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a018-note p {
+  margin: 0;
+}
+.a018-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a018-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.a018-text.a018-last {
+  font-weight: 700;
+}
+
+/* 図の説明(本文の地の文から) */
+.a018-cap {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  text-wrap: balance;
+}
+
+/* ---------- 段落2の後: 同じループを4周、5周目は空の枠 ---------- */
+.a018-passes {
+  margin: clamp(40px, 6vw, 56px) 0;
+}
+.a018-passes__list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a018-pass {
+  display: grid;
+  grid-template-columns: 2.6em minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.a018-pass__no {
+  font-family: var(--latin);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.a018-pass__grid {
+  display: grid;
+  gap: 2px;
+  max-width: 480px;
+}
+.a018-pass__row {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 2px;
+}
+.a018-pass__cell {
+  position: relative;
+  height: 13px;
+  border: 1px solid var(--slot);
+  border-radius: 1px;
+}
+.a018-pass__cell .a018-pad.is-bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.a018-pass__cell .a018-pad.is-dot,
+.a018-pass__cell .a018-pad.is-square {
+  height: 70%;
+}
+.a018-pass__cell .a018-pad.is-diamond {
+  height: 60%;
+}
+.a018-pass__cell .a018-pad.is-tick {
+  width: 2px;
+  height: 100%;
+}
+.a018-pass.is-next .a018-pass__cell {
+  border-style: dashed;
+}
+.a018-pass.is-next .a018-pass__no {
+  color: var(--ink-2);
+}
+
+/* ---------- 段落3の後: 軸と、受け止められる音 ---------- */
+.a018-axis {
+  margin: clamp(40px, 6vw, 56px) 0;
+}
+.a018-axis__stage {
+  position: relative;
+  height: 150px;
+}
+.a018-axis__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  height: 14px;
+  transform: translateY(-50%);
+  border-top: 2px solid var(--ink);
+}
+.a018-axis__beat.is-on {
+  margin: 3px 2px 0;
+  background: var(--ink);
+}
+/* 音は軸の上下に、細い線で軸につながる */
+.a018-axis__mark {
+  --x: calc((var(--a018-x) + 0.5) * 100% / 16);
+  position: absolute;
+  left: var(--x);
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+}
+.a018-axis__mark.is-above {
+  top: calc(50% - 52px);
+}
+.a018-axis__mark.is-below {
+  top: calc(50% + 34px);
+}
+.a018-axis__mark::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  background: var(--ink);
+  opacity: 0.4;
+}
+.a018-axis__mark.is-above::before {
+  top: 100%;
+  height: 30px;
+}
+.a018-axis__mark.is-below::before {
+  bottom: 100%;
+  height: 26px;
+}
+
+/* ---------- 段落4の後: 『極彩色』の6〜8曲目 ---------- */
+.a018-tracks {
+  margin: clamp(36px, 5vw, 48px) 0;
+}
+.a018-tracks ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.a018-tracks li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 14px 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.a018-tracks li + li {
+  border-left: 1px solid var(--slot);
+}
+/* 曲の流れ(左から右へ) */
+.a018-tracks li + li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-top: 1.5px solid var(--ink);
+  border-right: 1.5px solid var(--ink);
+  background: var(--paper);
+  transform: rotate(45deg);
+}
+.a018-tracks__no {
+  font-family: var(--latin);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+.a018-tracks a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.a018-tracks li.is-here {
+  background: var(--ink);
+  color: var(--paper);
+}
+.a018-tracks li.is-here .a018-tracks__no {
+  color: rgb(255 255 255 / 0.7);
+}
+.a018-tracks li.is-next {
+  color: var(--ink-2);
+}
+
+/* ---------- 結びの後: 軸の一周と、その先に続く空の升 ---------- */
+.a018-end {
+  display: flex;
+  gap: 3px;
+  margin: 36px 0 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #000 70%, transparent);
+  mask-image: linear-gradient(90deg, #000 70%, transparent);
+}
+.a018-end__cell {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--slot);
+  border-radius: 1px;
+}
+.a018-end__cell .a018-pad.is-bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.a018-end__cell.is-ahead {
+  border-style: dashed;
+}
+.a018-end__cell.is-cursor {
+  border: 2px solid var(--ink);
+}
+
+/* ---------- 動き(動きを減らす設定・JSなしでは、全部の音が鳴っている完成状態) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .a018-loop__head {
+    display: block;
+    animation: a018-sweep var(--loop) steps(16, end) infinite;
+  }
+  /* 再生位置が通る時に、その升の音が弾む */
+  .a018-loop__hit {
+    animation: a018-hit var(--loop) linear infinite;
+    animation-delay: calc((var(--a018-step) / 16 - 1) * var(--loop));
+  }
+  /* 一周ごとに段が一つずつ加わる(2〜5周目) */
+  .a018-loop__row.is-join2 .a018-loop__hit {
+    animation: a018-hit var(--loop) linear calc((var(--a018-step) / 16 - 1) * var(--loop)) infinite,
+      a018-join2 var(--cycle) infinite;
+  }
+  .a018-loop__row.is-join3 .a018-loop__hit {
+    animation: a018-hit var(--loop) linear calc((var(--a018-step) / 16 - 1) * var(--loop)) infinite,
+      a018-join3 var(--cycle) infinite;
+  }
+  .a018-loop__row.is-join4 .a018-loop__hit {
+    animation: a018-hit var(--loop) linear calc((var(--a018-step) / 16 - 1) * var(--loop)) infinite,
+      a018-join4 var(--cycle) infinite;
+  }
+  .a018-loop__row.is-join5 .a018-loop__hit {
+    animation: a018-hit var(--loop) linear calc((var(--a018-step) / 16 - 1) * var(--loop)) infinite,
+      a018-join5 var(--cycle) infinite;
+  }
+
+  /* 4周が順に現れ、最後に空の5周目 */
+  .a018-passes.is-armed .a018-pass {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .a018-passes.is-visible .a018-pass {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: calc(var(--a018-pass) * 0.28s);
+  }
+
+  /* 音が上下から寄ってきて、軸の上で受け止められる */
+  .a018-axis.is-armed .a018-axis__mark {
+    opacity: 0;
+  }
+  .a018-axis.is-armed .a018-axis__mark.is-above {
+    transform: translateY(-36px);
+  }
+  .a018-axis.is-armed .a018-axis__mark.is-below {
+    transform: translateY(36px);
+  }
+  .a018-axis.is-visible .a018-axis__mark {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1);
+    transition-delay: calc(var(--a018-i) * 0.16s);
+  }
+
+  /* 次の升で待つカーソル */
+  .a018-end__cell.is-cursor {
+    animation: a018-blink 1.2s steps(1, end) infinite;
+  }
+}
+@keyframes a018-sweep {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1600%);
+  }
+}
+@keyframes a018-hit {
+  0% {
+    transform: scale(1.3);
+  }
+  14%,
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes a018-join2 {
+  0% {
+    opacity: 0;
+    animation-timing-function: steps(1, end);
+  }
+  20%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a018-join3 {
+  0% {
+    opacity: 0;
+    animation-timing-function: steps(1, end);
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a018-join4 {
+  0% {
+    opacity: 0;
+    animation-timing-function: steps(1, end);
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a018-join5 {
+  0% {
+    opacity: 0;
+    animation-timing-function: steps(1, end);
+  }
+  80%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a018-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* ---------- 奥付 ---------- */
+.a018-colophon {
+  padding: clamp(56px, 8vw, 88px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a018-colophon__list,
+.a018-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a018-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: grid;
+  gap: 10px;
+}
+.a018-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a018-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.a018-colophon dd {
+  margin: 0;
+}
+.a018-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.a018-next a {
+  color: var(--ink);
+}
+
+.a018 a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .a018-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .a018-pass__cell {
+    height: 11px;
+  }
+}
+@media print {
+  .a018-cover {
+    min-height: 0;
+  }
+}

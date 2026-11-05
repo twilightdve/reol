@@ -112,6 +112,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .a017-title, .a017-date { align-self: flex-start !important; }
     .a017-title__song { font-size: 100px !important; }
   `,
+  // -orderly-: 白い地なので、サイト名を黒に
+  "reol-song-018": `
+    .og-brand { color: #121212 !important; text-shadow: none !important; }
+  `,
   // 水底游歩道: 水面近くの明るい地なので、サイト名を深い青に
   "reol-song-015": `
     .og-brand { color: #2f64a8 !important; text-shadow: none !important; }

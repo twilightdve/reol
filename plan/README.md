@@ -68,6 +68,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [59-home-redesign.md](./59-home-redesign.md) | HOME とサイト全体のデザイン再考。読みものの表紙を主役に、層を分けて組み直す案と段取り |
 | [60-global-player.md](./60-global-player.md) | MainVideo をやめ、どこからでも再生できて、スクロール・画面遷移しても右上隅で流れ続けるプレイヤーにする |
 | [61-logic-agent-article-design.md](./61-logic-agent-article-design.md) | 楽曲記事「ロジックエージェント」の記事別デザイン(光と影、二つの高さで並ぶ声) |
+| [62-orderly-article-design.md](./62-orderly-article-design.md) | 楽曲記事「-orderly-」の記事別デザイン(白と黒、ループに加わっていく音) |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |

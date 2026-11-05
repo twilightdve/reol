@@ -22,6 +22,19 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // -orderly-(plan/62)。冒頭の一文(0)・ループの4周の前(2)・軸の図の前(3)・6〜8曲目の前(4)・結び(5)
+  "reol-song-018": {
+    bodyRevision: 3,
+    bodySha256: "795f41a082bcc15ae3f189f74b3e5b081a357a94eba2eb985953c0b4062408a0",
+    blockCount: 6,
+    anchors: [
+      { block: 0, textHash: "bdc7a11a5c532a2e" },
+      { block: 2, textHash: "f520f197d499a2e8" },
+      { block: 3, textHash: "391cc18d127feb7d" },
+      { block: 4, textHash: "8395b01d6da2212e" },
+      { block: 5, textHash: "c96b074982e8bcf9" },
+    ],
+  },
   // ロジックエージェント(plan/61)。観る・聴くリンク(0)・冒頭の一文(1)・見出し(6, 13, 20, 29)・声の線の前(8)・交わる線の前(12)・円柱の前(17)・二つの僕の前(24)・視線の前(27)・本人の言葉(35)・結び(36)
   "reol-song-017": {
     bodyRevision: 4,
