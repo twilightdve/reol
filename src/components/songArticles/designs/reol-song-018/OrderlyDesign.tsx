@@ -6,8 +6,8 @@
  * - 表紙: 16升×5段のループ。真ん中の段(軸のメロディー)は毎回同じで、ループが一周するたびに上下の段の音が一つずつ加わる。
  *   まだ鳴っていない升は空の枠のまま待っている(次に加わる音への予感)。広い画面では右、狭い画面では題名の下。
  *   その下(広い画面では右下)に、『極彩色』XFD と Spotify で聴くリンク。本文に聴くリンクの段落が無いので、サイトの曲データの Spotify から置く。
- * - 段落2の後: 同じループの小さな見取り図を横に4つ、5つ目は空の枠(控えめに。本文1行ほどの大きさ)。
- * - 段落3の後: 横一本の軸(同じフレーズの繰り返し)に、形の違う音が上下から寄って、軸の上で受け止められる。
+ * - 段落2の後: 横一本の軸(同じフレーズの繰り返し)に、形の違う音が上下から寄って、軸の上で受け止められる。
+ *   (はじめは段落3の後。段落2の後のループの見取り図と置き換えた。2026-11-06 ユーザー指定)
  * - 段落4の後: 『極彩色』の6〜8曲目。ロジックエージェント(記事へ)→ -orderly- → mede:mede。
  * - 結び(段落5)の後: 軸の段が一周し、その先に空の升が続いていく。カーソルが次の升で待つ。
  * - 升の並び(どの升で鳴るか)は図としての抽象で、曲の譜面ではない(音源は未聴。本文の記述だけを使う)。図の言葉は本文の地の文から。
@@ -28,8 +28,7 @@ import "./orderly.css";
 // 本文の段落位置(blocks の添字)
 const OPENING = 0; // 「-orderly-」を聴くと、ワクワクする。
 const INTRO = 1; // 『極彩色』の7曲目に収録された、ギガによるインストゥルメンタル
-const PASS_FIG = 3; // 段落2(シンプルなメロディーがループし)の後
-const AXIS_FIG = 4; // 段落3(「orderly」には)の後
+const AXIS_FIG = 3; // 段落2(シンプルなメロディーがループし)の後
 const TRACK_FIG = 5; // 段落4(そして、アルバムは次の「mede:mede」へ)の後
 const LAST = 5; // 結び
 
@@ -109,28 +108,7 @@ const CoverLoop: React.FC = () => (
   </div>
 );
 
-/**
- * 段落2の後: 同じループの小さな見取り図を4つ、横に。周を重ねるごとに音が増え、5つ目は空の枠だけ。
- * 大げさにしない(2026-11-05 ユーザー「こんな大層に表現しなくていい」)。番号・説明は付けず、本文の一行ほどの大きさ
- */
-const PassFig: React.FC = () => (
-  <figure className="a018-passes" aria-label="同じメロディーが繰り返され、そのたびに音が加わる。その次は、まだ空いている">
-    {[1, 2, 3, 4, 5].map((pass) => (
-      <span key={pass} className={`a018-pass${pass === 5 ? " is-next" : ""}`} aria-hidden="true">
-        {pass < 5 &&
-          VOICES.flatMap((v, row) =>
-            v.join <= pass
-              ? v.steps.map((s) => (
-                  <i key={`${v.key}${s}`} className="a018-pass__dot" style={{ gridRow: row + 1, gridColumn: s + 1 }} />
-                ))
-              : []
-          )}
-      </span>
-    ))}
-  </figure>
-);
-
-/** 段落3の後: 同じフレーズを繰り返す横一本の軸に、形の違う音が上下から寄って受け止められる */
+/** 段落2の後: 同じフレーズを繰り返す横一本の軸に、形の違う音が上下から寄って受け止められる */
 const AXIS_MARKS: { x: number; side: -1 | 1; shape: Voice["shape"] }[] = [
   { x: 1, side: -1, shape: "dot" },
   { x: 3, side: 1, shape: "square" },
@@ -273,9 +251,7 @@ const OrderlyDesign: SongArticleDesign = (ctx) => {
                 </p>
               </aside>
             )}
-            {body(INTRO, PASS_FIG)}
-            <PassFig />
-            {body(PASS_FIG, AXIS_FIG)}
+            {body(INTRO, AXIS_FIG)}
             <AxisFig />
             {body(AXIS_FIG, TRACK_FIG)}
             <TrackFig articleId={id} />

@@ -309,29 +309,7 @@
   text-wrap: balance;
 }
 
-/* ---------- 段落2の後: ループの小さな見取り図を横に4つ、5つ目は空の枠(大げさにしない) ---------- */
-.a018-passes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 28px 0;
-}
-.a018-pass {
-  display: grid;
-  grid-template-columns: repeat(16, 2px);
-  grid-template-rows: repeat(5, 2px);
-  gap: 1px;
-  padding: 3px;
-  border: 1px solid var(--slot);
-}
-.a018-pass.is-next {
-  border-style: dashed;
-}
-.a018-pass__dot {
-  background: var(--ink);
-}
-
-/* ---------- 段落3の後: 軸と、受け止められる音 ---------- */
+/* ---------- 段落2の後: 軸と、受け止められる音 ---------- */
 .a018-axis {
   margin: clamp(40px, 6vw, 56px) 0;
 }
