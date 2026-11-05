@@ -294,10 +294,17 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     const byTag = activeTag ? articles.filter((a) => a.tags.includes(activeTag)) : articles;
     const filtered = activeAlbum ? byTag.filter((a) => a.album?.title === activeAlbum) : byTag;
     // Array.prototype.sort は安定なので、同数は元の新着順のまま
-    if (activeSort === "likes" && likeCounts) return [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0));
-    if (activeSort === "views") return [...filtered].sort((x, y) => (y.pageViews ?? 0) - (x.pageViews ?? 0));
-    return filtered;
-  }, [articles, activeTag, activeAlbum, activeSort, likeCounts]);
+    const sorted =
+      activeSort === "likes" && likeCounts
+        ? [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0))
+        : activeSort === "views"
+        ? [...filtered].sort((x, y) => (y.pageViews ?? 0) - (x.pageViews ?? 0))
+        : filtered;
+    // まだ公開していない記事(限定公開・予約公開・プレビュー)は、どの並べ替えでも一番上に(2026-11-05 ユーザー指定)。
+    // 出るのは運営のログイン時だけ(上の articles の絞り込みはそのまま)
+    const isPublic = (a: IndexEntry) => !a.preview && !a.unlisted && isReleased(a.publishedAt, now);
+    return [...sorted.filter((a) => !isPublic(a)), ...sorted.filter(isPublic)];
+  }, [articles, activeTag, activeAlbum, activeSort, likeCounts, now]);
   const basePath = current ? seriesPath(current.slug) : "/articles/";
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
