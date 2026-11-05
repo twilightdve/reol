@@ -254,13 +254,13 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .a017-sky__clouds.is-far {
-    animation: a017-drift 18s linear infinite;
+    animation: a017-drift 6s linear infinite;
   }
   .a017-sky__clouds.is-near {
-    animation: a017-drift 7s linear infinite;
+    animation: a017-drift 2.6s linear infinite;
   }
   .a017-sky__clouds.is-streak {
-    animation: a017-drift 3.2s linear infinite;
+    animation: a017-drift 1.2s linear infinite;
   }
   .a017-sky__drop {
     animation: a017-fall 3.2s linear infinite;
