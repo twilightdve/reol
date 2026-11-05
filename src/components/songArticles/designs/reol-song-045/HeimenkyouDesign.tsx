@@ -155,7 +155,7 @@ const videoFrom = (block: ArticleBlock | undefined) => {
 };
 
 const HeimenkyouDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
   const body = (from: number, to: number, className = "a045-text") => (
@@ -200,7 +200,7 @@ const HeimenkyouDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a045-date">
-              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+              <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

@@ -312,7 +312,7 @@ const AgainFig: React.FC = () => {
 };
 
 const LogicAgentDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, modifiedAt } = ctx;
   const body = (from: number, to: number, className = "a017-text") => (
     <ArticleBody blocks={blocks} leadMedia={leadMedia} articleId={id} from={from} to={to} unstyled className={className} />
   );
@@ -353,7 +353,7 @@ const LogicAgentDesign: SongArticleDesign = (ctx) => {
               {tSub && <span className="a017-title__sub">{tSub}</span>}
             </h1>
             <p className="a017-date">
-              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+              <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
             </p>
             {/* 公式MV(押した時だけ読み込む)と、本文の観る・聴くリンク(OGP の撮影では __media ごと隠れる) */}
             <div className="a017-cover__media">

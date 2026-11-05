@@ -14,11 +14,11 @@ export interface SongArticlePageContext {
   tags: string[];
   /** 関連記事(記事ページの下部。最大3本。src/utils/songArticles/series.ts の pickRelatedArticles) */
   related: { slug: string; title: string; songTitle: string; publishedAt?: string | null }[];
-  /** 記事に表示する作成日(原稿の作成日) */
+  /** 原稿の作成日(表示しない。構造化データの dateCreated 用) */
   createdAt: string | null;
   /** 表紙を撮った OGP 画像のサイト内パス。無ければ null(キャッシュ対策の ?t= は SEO 部品が付ける) */
   ogImage?: string | null;
-  /** 初回公開日時(表示しない。構造化データ用) */
+  /** 初回公開日時(記事に表示する日付。一覧のカードと同じ) */
   publishedAt: string | null;
   /**
    * 公開後に本文を差し替えた日時(article.json の updatedAt)。無ければ null。

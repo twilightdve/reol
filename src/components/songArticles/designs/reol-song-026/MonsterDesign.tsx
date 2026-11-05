@@ -50,7 +50,7 @@ const Note: React.FC<{ label: string; children: React.ReactNode }> = ({ label, c
 );
 
 const MonsterDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, modifiedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, publishedAt, modifiedAt, preview } = ctx;
 
   // H1 の文言はそのまま。最初の空白で「MONSTER」と副題の2行に組む(文字は変えない)
   const sp = title.indexOf(" ");
@@ -123,7 +123,7 @@ const MonsterDesign: SongArticleDesign = (ctx) => {
                 )}
               </h1>
               <p className="a026-date">
-                <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+                <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
               </p>
             </div>
             <div className="a026-cover__media">

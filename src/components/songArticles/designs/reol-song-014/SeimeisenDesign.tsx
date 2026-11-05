@@ -189,7 +189,7 @@ const Palm: React.FC = () => {
 };
 
 const SeimeisenDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const xfd = gokusaishikiXfd("生命線");
   const body = (from: number, to: number, className = "a014-text") => (
@@ -232,7 +232,7 @@ const SeimeisenDesign: SongArticleDesign = (ctx) => {
               {tSub && <span className="a014-title__sub">{tSub}</span>}
             </h1>
             <p className="a014-date">
-              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+              <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
             </p>
             {/* 表紙の余白に XFD と聴くリンク(OGP の撮影では __media ごと隠れる) */}
             <div className="a014-cover__media">

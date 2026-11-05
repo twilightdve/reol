@@ -241,7 +241,7 @@ const Cocoon: React.FC = () => {
 };
 
 const EndDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, createdAt, modifiedAt } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, publishedAt, modifiedAt } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const stats = songFacts.stats;
   const body = (from: number, to: number, className = "a046-text") => (
@@ -292,7 +292,7 @@ const EndDesign: SongArticleDesign = (ctx) => {
               )}
             </h1>
             <p className="a046-date">
-              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+              <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

@@ -62,7 +62,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
     title,
     songTitle,
     versionLabel,
-    createdAt,
+    publishedAt,
     modifiedAt,
     blocks,
     leadMedia,
@@ -105,7 +105,7 @@ const SongArticlePage: React.FC<PageProps<object, SongArticlePageContext>> = ({ 
             {title}
           </h1>
           <p className="mt-4 text-[12px] text-bx-ink3">
-            <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+            <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
           </p>
         </header>
 

@@ -185,7 +185,7 @@ const WallOfFrames: React.FC = () => {
 };
 
 const OneLdkDesign: SongArticleDesign = (ctx) => {
-  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, createdAt, modifiedAt, preview } = ctx;
+  const { id, title, blocks, leadMedia, songPages, songFacts, liveRefs, publishedAt, modifiedAt, preview } = ctx;
   const firstRelease = songFacts.releases[0] ?? null;
   const live = liveRefs[0] ?? null;
   // 本文の冒頭のリンク(新式浪漫 東京公演のライヴ映像)。LIVE VIDEO #2 のリンクとして使う
@@ -226,7 +226,7 @@ const OneLdkDesign: SongArticleDesign = (ctx) => {
               <Phrased text={title} />
             </h1>
             <p className="a076-date">
-              <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} />
+              <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} />
             </p>
           </div>
         </header>

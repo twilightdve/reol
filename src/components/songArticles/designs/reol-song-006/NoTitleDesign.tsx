@@ -182,7 +182,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
     songPages,
     songFacts,
     liveRefs,
-    createdAt,
+    publishedAt,
     modifiedAt,
     preview,
   } = ctx;
@@ -275,7 +275,7 @@ const NoTitleDesign: SongArticleDesign = (ctx) => {
                 </h1>
                 <p className="a006-date">
                   {/* 縦書きなので漢数字で組む */}
-                  <ArticleDate createdAt={createdAt} updatedAt={modifiedAt} kanji />
+                  <ArticleDate publishedAt={publishedAt} updatedAt={modifiedAt} kanji />
                 </p>
               </div>
             </div>
