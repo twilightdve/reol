@@ -8,10 +8,18 @@ import { trackEvent } from "../../utils/analytics";
 
 /**
  * HOME の NEW RELEASE(plan/60)。いちばん新しい作品の XFD を、押すとサイト全体のプレイヤーで流す。
+ * XFD の無い配信シングルなどは、収録曲の MV を流す。
  * MainVideo(全ページの一番上で XFD を流していた)をやめた代わりに、HOME に動画を1本置く。
  * 流し始めたあとは、スクロールしても別のページへ移っても右上の小窓で流れ続ける。
  */
-type Disc = { slug: string; title: string; releaseDate?: string | null; format?: string | null; xfdUrl?: string | null };
+type Disc = {
+  slug: string;
+  title: string;
+  releaseDate?: string | null;
+  format?: string | null;
+  xfdUrl?: string | null;
+  songs?: { musicVideoUrl?: string | null }[] | null;
+};
 
 const videoIdOf = (url: string) => /(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/.exec(url)?.[1] ?? null;
 
@@ -27,22 +35,32 @@ const HomeListen: React.FC = () => {
           releaseDate
           format
           xfdUrl
+          songs {
+            musicVideoUrl
+          }
         }
       }
     }
   `);
-  // 一覧は発売日の新しい順(gatsby-node)。XFD のある最初の1枚
+  // 一覧は発売日の新しい順(gatsby-node)。XFD か収録曲の MV がある最初の1枚
   const discs: Disc[] = data?.discography?.discographyWithSongs ?? [];
-  const latest = discs.find((d) => d.xfdUrl && videoIdOf(d.xfdUrl));
-  if (!latest?.xfdUrl) return null;
-  const videoId = videoIdOf(latest.xfdUrl) as string;
+  const videoOf = (d: Disc) => {
+    const xfd = d.xfdUrl ? videoIdOf(d.xfdUrl) : null;
+    if (xfd) return { videoId: xfd, label: "XFD" };
+    const mv = (d.songs ?? []).map((s) => (s.musicVideoUrl ? videoIdOf(s.musicVideoUrl) : null)).find(Boolean);
+    return mv ? { videoId: mv, label: "MV" } : null;
+  };
+  const latest = discs.find((d) => videoOf(d));
+  const video = latest && videoOf(latest);
+  if (!latest || !video) return null;
+  const { videoId, label } = video;
 
   return (
     <section aria-labelledby="home-listen" className="px-2 sm:px-4 pt-8">
       <div className="grid items-center gap-x-8 gap-y-4 md:grid-cols-[3fr_2fr]">
         <PlayerSlot
           videoId={videoId}
-          title={`${latest.title} XFD`}
+          title={`${latest.title} ${label}`}
           className="rounded-xl border border-bx-line"
           onStart={() => trackEvent("home_listen_play", { category: "engagement", label: latest.slug })}
         />
@@ -54,7 +72,7 @@ const HomeListen: React.FC = () => {
           <p className="mt-1 text-[12.5px] text-bx-ink2">
             {latest.releaseDate && <span className="tabular-nums">{latest.releaseDate.replaceAll("-", ".")}</span>}
             {latest.format && <span className="ml-2">{formatLabel(dict, latest.format)}</span>}
-            <span className="ml-2">XFD</span>
+            <span className="ml-2">{label}</span>
           </p>
           <LangLink
             to={`/discography/#disc-${latest.slug}`}

@@ -217,7 +217,11 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     // Play処理は将来実装予定
   }, [item.title]);
 
-  const youtubeVideoId = getYouTubeVideoId(item.xfdUrl);
+  // 作品の動画は XFD。XFD の無い配信シングルなどは、収録曲の MV で代える(サムネイルと展開時のプレイヤー)
+  const xfdVideoId = getYouTubeVideoId(item.xfdUrl);
+  const youtubeVideoId =
+    xfdVideoId ?? item.songs.map((s) => getYouTubeVideoId(s.musicVideoUrl)).find(Boolean) ?? null;
+  const videoLabel = xfdVideoId ? "XFD" : "MV";
 
   // コレクション台帳の所有/視聴済みトグル(カード全体のクリック=展開と競合しないようstopPropagation)
   const ownedToggleButton = (
@@ -352,7 +356,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   {youtubeVideoId && (
                     <PlayerSlot
                       videoId={youtubeVideoId}
-                      title={`${item.title} XFD`}
+                      title={`${item.title} ${videoLabel}`}
                       className="mt-4 rounded-lg border border-bx-line"
                     />
                   )}
