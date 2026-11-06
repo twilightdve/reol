@@ -28,7 +28,7 @@ import "./mede-mede.css";
 
 // 本文の段落位置(blocks の添字)
 const LISTEN = 0; // 「mede:mede」をSpotifyで聴く
-const OPENING = 1; // れをるの歌詞の中でも、ずいぶん率直な曲
+const OPENING = 1; // れをるの歌詞の中でも、等身大の姿が率直に映し出されている(第4版)
 const INTRO = 2;
 const S_LIFE = 4; // 見出し「手応えと、先の見えない暮らし」
 const NOTITLE_NOTE = 11; // 段落10(前年のコミックマーケットで『No title』)の後

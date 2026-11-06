@@ -24,13 +24,13 @@ export type DesignManifestEntry = {
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // mede:mede(plan/63)。聴くリンク(0)・冒頭の一文(1)・本文の始まり(2)・見出し(4, 15, 21)・No title の注記の後(11)・間取りの後(28)・結び(32)
   "reol-song-019": {
-    bodyRevision: 3,
-    bodySha256: "9a05f8f99900f0f1fbf1429894026868907dcfa174012b25b28e6c31c95c512d",
+    bodyRevision: 4,
+    bodySha256: "cfce0616207db0d54f73adab38b680b8733e85277c54d2b8c07206aa75ae1671",
     blockCount: 33,
     anchors: [
       { block: 0, textHash: "eb6bd277957ce56c" },
-      { block: 1, textHash: "4d4319babd172f99" },
-      { block: 2, textHash: "616769fd37158f4d" },
+      { block: 1, textHash: "ff40ade054b7cc09" },
+      { block: 2, textHash: "adc0f93f5820671c" },
       { block: 4, textHash: "970a6151e03bf31d" },
       { block: 11, textHash: "068561ce7728af01" },
       { block: 15, textHash: "00a5cfebd211dbef" },
