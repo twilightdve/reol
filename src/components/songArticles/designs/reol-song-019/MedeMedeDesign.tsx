@@ -38,8 +38,8 @@ const S_ROOM = 21; // 見出し「1LDKよりも、1K」
 const ROOM_FIG = 28; // 段落27(1LDKには、少し距離を取れる余地)の後
 const LAST = 32; // 結び
 
-// 段落20の後に回る言葉。歌詞の2行(2026-11-06 ユーザーから)。行の切れ目は全角の空き
-const LOOP_TEXT = "(巡る巡る 見えた世界が霞む\u3000end ぐるぐる もう終止符を打つ?)";
+// 段落20の後に回る言葉。歌詞の2行(2026-11-06 ユーザーから。原文の括弧は外す)。行の切れ目は全角の空き
+const LOOP_TEXT = "巡る巡る 見えた世界が霞む\u3000end ぐるぐる もう終止符を打つ?";
 
 /** 斜めに差し込む光の形(窓は描かない) */
 const Light: React.FC<{ className: string }> = ({ className }) => <span className={className} aria-hidden="true" />;
