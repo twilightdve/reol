@@ -97,13 +97,14 @@ const RoomFig: React.FC<{ articleId: string }> = ({ articleId }) => (
         <svg viewBox="0 0 240 250" className="a019-room__plan" role="img" aria-label="1LDK。寝室とは別に過ごす場所がある">
           <polygon className="a019-room__light" points="130,40 196,40 226,130 160,130" />
           <path className="a019-room__wall" d="M160,240 H230 V10 H10 V240 H120" />
-          {/* 洋室と LDK の仕切り。扉の分だけ開ける */}
-          <path className="a019-room__inner" d="M110,10 V100 M110,140 V240" />
+          {/* 洋室と LDK の仕切り、LDK と玄関の仕切り(1K と同じ右下に玄関)。どちらも扉の分だけ開ける */}
+          <path className="a019-room__inner" d="M110,10 V100 M110,140 V240 M150,170 H230" />
           <text x="60" y="80" className="a019-room__name">洋室</text>
           <text x="60" y="122" className="a019-room__act">寝る</text>
-          <text x="170" y="80" className="a019-room__name">LDK</text>
-          <text x="148" y="162" className="a019-room__act">作る</text>
-          <text x="196" y="200" className="a019-room__act">考える</text>
+          <text x="170" y="70" className="a019-room__name">LDK</text>
+          <text x="150" y="122" className="a019-room__act">作る</text>
+          <text x="186" y="150" className="a019-room__act">考える</text>
+          <text x="190" y="212" className="a019-room__name is-small">玄関</text>
         </svg>
         <p className="a019-room__label">
           <Link
