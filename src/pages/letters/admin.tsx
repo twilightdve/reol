@@ -164,7 +164,7 @@ const LetterRow: React.FC<{
           {l.reviewedVersion && <button onClick={() => onAct("unapprove")}>確認を外す(Webから下げる)</button>}
           {l.webHidden ? <button onClick={() => onAct("show")}>Webに出す</button> : <button onClick={() => onAct("hide")}>Webに出さない(本には載せる)</button>}
           {l.withdrawnAt ? (
-            <button onClick={() => onAct("restore")}>取り下げを戻す</button>
+            l.withdrawnBy !== "author" && <button onClick={() => onAct("restore")}>取り下げを戻す</button>
           ) : (
             <button onClick={() => window.confirm("この手紙を取り下げにしますか(Webにも本にも載せない)") && onAct("withdraw")}>取り下げにする</button>
           )}

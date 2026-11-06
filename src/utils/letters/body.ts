@@ -20,6 +20,17 @@ export const bodyLength = (body: LetterBody): number => body.reduce((n, p) => n 
 export const bodyHasText = (body: LetterBody): boolean => /\S/.test(bodyText(body));
 
 /** DB に送ってよい形か(DB 側でも同じ検査をする) */
+/**
+ * 制御文字(改行を除く)と、見えない文字・文字の向きを変える文字。DB(_letters_bad_chars)も同じ文字を拒む。
+ * ゼロ幅接合子(U+200D)は絵文字の組み合わせに使うので残す
+ */
+// eslint-disable-next-line no-control-regex
+const INVISIBLE_RE = /[\u0000-\u0009\u000b-\u001f\u007f-\u009f\u00ad\u061c\u180e\u200b\u200c\u200e\u200f\u202a-\u202e\u2060-\u2069\ufeff]/;
+const INVISIBLE_RE_G = new RegExp(INVISIBLE_RE.source, "g");
+
+/** 貼り付けなどで入った見えない文字を落とす(宛名・差出人・本文) */
+export const stripInvisible = (s: string) => s.replace(INVISIBLE_RE_G, "");
+
 export const isValidBody = (body: unknown): body is LetterBody => {
   if (!Array.isArray(body) || body.length < 1 || body.length > 60) return false;
   let len = 0;
@@ -32,8 +43,7 @@ export const isValidBody = (body: unknown): body is LetterBody => {
       if (!r || typeof r !== "object" || Array.isArray(r)) return false;
       if (Object.keys(r).some((k) => !["t", "b", "c", "s"].includes(k))) return false;
       if (typeof r.t !== "string" || r.t.length === 0) return false;
-      // eslint-disable-next-line no-control-regex
-      if (/[\u0000-\u0009\u000b-\u001f\u007f-\u009f]/.test(r.t)) return false;
+      if (INVISIBLE_RE.test(r.t)) return false;
       if ("b" in r && r.b !== true) return false;
       if ("c" in r && !COLOR_IDS.has(r.c)) return false;
       if ("s" in r && r.s !== "s" && r.s !== "l") return false;
@@ -67,9 +77,8 @@ export const fromEditorJson = (doc: PMNode): LetterBody => {
         continue;
       }
       if (child.type !== "text" || !child.text) continue;
-      // 貼り付けで入る制御文字は落とす(タブは空白に)
-      // eslint-disable-next-line no-control-regex
-      const run: LetterRun = { t: child.text.replace(/\t/g, " ").replace(/[\u0000-\u0009\u000b-\u001f\u007f-\u009f]/g, "") };
+      // 貼り付けで入る制御文字・見えない文字は落とす(タブは空白に)
+      const run: LetterRun = { t: stripInvisible(child.text.replace(/\t/g, " ")) };
       for (const m of child.marks ?? []) {
         if (m.type === "bold") run.b = true;
         if (m.type === "letterColor" && typeof m.attrs?.color === "string" && COLOR_IDS.has(m.attrs.color)) run.c = m.attrs.color as TextColor;

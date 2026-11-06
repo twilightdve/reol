@@ -153,6 +153,8 @@ export const ERROR_MESSAGES: Record<string, string> = {
   busy: "いま投稿が混み合っています。少し時間をおいて、もう一度お試しください。",
   conflict: "別の画面で先に修正されています。ページを読み込み直してから直してください。",
   withdrawn: "この手紙は取り下げ済みです。",
+  too_many_edits: "この手紙はこれ以上修正できません。直したい時は運営までご連絡ください。",
+  author_withdrawn: "本人が取り下げた手紙は戻せません。",
   not_found: "手紙が見つかりませんでした。修正用のURLをもう一度確かめてください。",
   invalid: "送信内容を確かめられませんでした。ページを読み込み直してお試しください。",
   "invalid:eventKey": "宛先を選び直してください。",
@@ -166,6 +168,6 @@ export const ERROR_MESSAGES: Record<string, string> = {
   "invalid:motif": "カードの絵柄を選び直してください。",
   "invalid:visibility": "本文の公開範囲を選んでください。",
   "invalid:consent": "運営による確認・印刷への同意にチェックを入れてください。",
-  "invalid:body": "本文を確かめてください(空の本文や、1,200字を超える本文は送れません)。",
+  "invalid:body": "本文を確かめてください(空の本文、1,200字を超える本文、装飾を細かく切り替えすぎた本文は送れません)。",
 };
 export const errorMessage = (code: string) => ERROR_MESSAGES[code] ?? "送信できませんでした。時間をおいてもう一度お試しください。";

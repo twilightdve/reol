@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS public.birthday_letter_versions (
   created_at timestamptz NOT NULL DEFAULT now(),
   PRIMARY KEY (letter_id, version)
 );
+CREATE INDEX IF NOT EXISTS birthday_letter_versions_created_idx ON public.birthday_letter_versions (created_at);
 
 CREATE TABLE IF NOT EXISTS public.birthday_letter_print_batches (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -111,6 +112,17 @@ AS $$
   SELECT CASE WHEN jsonb_typeof(p -> p_key) = 'string' THEN btrim(p ->> p_key, E' \t　') END;
 $$;
 
+-- 見えない文字・向きを変える文字(なりすまし・表示の乱れに使える)と制御文字を含むか。改行は本文だけ別に許す。
+-- U+200D(ゼロ幅接合子)は絵文字の組み合わせに使うので許す
+CREATE OR REPLACE FUNCTION public._letters_bad_chars(p text)
+RETURNS boolean
+LANGUAGE sql
+IMMUTABLE
+SET search_path = ''
+AS $$
+  SELECT p ~ '[[:cntrl:]]' OR p ~ '[\u00AD\u061C\u180E\u200B\u200C\u200E\u200F\u202A-\u202E\u2060-\u2069\uFEFF]';
+$$;
+
 -- 本文: [{ "a": "l"|"c", "r": [{ "t": 文字, "b": true, "c": 色, "s": "s"|"l" }] }]
 CREATE OR REPLACE FUNCTION public._letters_body_ok(b jsonb)
 RETURNS boolean
@@ -126,7 +138,7 @@ DECLARE
   v_visible integer := 0;
 BEGIN
   IF b IS NULL OR jsonb_typeof(b) <> 'array' OR jsonb_array_length(b) < 1
-     OR jsonb_array_length(b) > 60 OR octet_length(b::text) > 32768 THEN
+     OR jsonb_array_length(b) > 60 OR octet_length(b::text) > 16384 THEN
     RETURN false;
   END IF;
   FOR para IN SELECT value FROM jsonb_array_elements(b) LOOP
@@ -139,7 +151,7 @@ BEGIN
       IF EXISTS (SELECT 1 FROM jsonb_object_keys(run) k WHERE k NOT IN ('t', 'b', 'c', 's')) THEN RETURN false; END IF;
       IF jsonb_typeof(run -> 't') IS DISTINCT FROM 'string' THEN RETURN false; END IF;
       v_t := run ->> 't';
-      IF length(v_t) = 0 OR replace(v_t, E'\n', '') ~ '[[:cntrl:]]' THEN RETURN false; END IF;
+      IF length(v_t) = 0 OR public._letters_bad_chars(replace(v_t, E'\n', '')) THEN RETURN false; END IF;
       IF run ? 'b' AND (run -> 'b') <> 'true'::jsonb THEN RETURN false; END IF;
       IF run ? 'c' AND (run -> 'c') NOT IN ('"rose"'::jsonb, '"indigo"'::jsonb, '"gold"'::jsonb, '"teal"'::jsonb) THEN RETURN false; END IF;
       IF run ? 's' AND (run -> 's') NOT IN ('"s"'::jsonb, '"l"'::jsonb) THEN RETURN false; END IF;
@@ -172,11 +184,11 @@ DECLARE
 BEGIN
   IF p IS NULL OR jsonb_typeof(p) <> 'object' THEN RAISE EXCEPTION 'invalid:letter'; END IF;
   IF v_event_key IS NULL OR v_event_key !~ '^(release|live|era):[A-Za-z0-9-]{1,64}$' THEN RAISE EXCEPTION 'invalid:eventKey'; END IF;
-  IF v_event_label IS NULL OR length(v_event_label) NOT BETWEEN 1 AND 80 OR v_event_label ~ '[[:cntrl:]]' THEN RAISE EXCEPTION 'invalid:eventLabel'; END IF;
+  IF v_event_label IS NULL OR length(v_event_label) NOT BETWEEN 1 AND 80 OR public._letters_bad_chars(v_event_label) THEN RAISE EXCEPTION 'invalid:eventLabel'; END IF;
   IF v_event_date IS NOT NULL AND v_event_date !~ '^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$' THEN RAISE EXCEPTION 'invalid:eventDate'; END IF;
   IF v_era IS NULL OR v_era NOT IN ('reoru', 'unit', 'reol', 'other') THEN RAISE EXCEPTION 'invalid:era'; END IF;
-  IF v_address IS NULL OR length(v_address) NOT BETWEEN 1 AND 30 OR v_address ~ '[[:cntrl:]]' THEN RAISE EXCEPTION 'invalid:address'; END IF;
-  IF v_sender IS NULL OR length(v_sender) NOT BETWEEN 1 AND 20 OR v_sender ~ '[[:cntrl:]]' THEN RAISE EXCEPTION 'invalid:sender'; END IF;
+  IF v_address IS NULL OR length(v_address) NOT BETWEEN 1 AND 30 OR public._letters_bad_chars(v_address) THEN RAISE EXCEPTION 'invalid:address'; END IF;
+  IF v_sender IS NULL OR length(v_sender) NOT BETWEEN 1 AND 20 OR public._letters_bad_chars(v_sender) THEN RAISE EXCEPTION 'invalid:sender'; END IF;
   IF v_sns_type IS NOT NULL AND v_sns_type NOT IN ('x', 'instagram', 'tiktok', 'bluesky', 'threads') THEN RAISE EXCEPTION 'invalid:snsType'; END IF;
   IF (v_sns_type IS NULL) <> (v_sns_id IS NULL) THEN RAISE EXCEPTION 'invalid:snsId'; END IF;
   IF v_sns_id IS NOT NULL AND v_sns_id !~ '^[A-Za-z0-9_.-]{1,40}$' THEN RAISE EXCEPTION 'invalid:snsId'; END IF;
@@ -201,8 +213,10 @@ BEGIN
 END;
 $$;
 
--- 一般向けに出してよい項目だけ(本文は「Webでも公開」の時だけ、p_with_body の時だけ)
-CREATE OR REPLACE FUNCTION public._letters_public_card(p_id uuid, p_content jsonb, p_created timestamptz, p_with_body boolean)
+-- 一般向けに出してよい項目だけ。p_content は確認済みの版、p_current は今の版。
+-- 本人が後から公開を狭めた変更(本文を「贈る本だけ」に、SNS を外す・変える)は、再確認を待たずにすぐ効かせる。
+-- 本文は「Webでも公開」が両方の版で選ばれていて、p_with_body の時だけ
+CREATE OR REPLACE FUNCTION public._letters_public_card(p_id uuid, p_content jsonb, p_current jsonb, p_created timestamptz, p_with_body boolean)
 RETURNS jsonb
 LANGUAGE sql
 IMMUTABLE
@@ -216,22 +230,27 @@ AS $$
     'era', p_content -> 'era',
     'address', p_content -> 'address',
     'sender', p_content -> 'sender',
-    'snsType', p_content -> 'snsType',
-    'snsId', p_content -> 'snsId',
+    'snsType', CASE WHEN x.sns_same THEN p_content -> 'snsType' END,
+    'snsId', CASE WHEN x.sns_same THEN p_content -> 'snsId' END,
     'motif', p_content -> 'motif',
-    'visibility', p_content -> 'visibility',
+    'visibility', CASE WHEN x.is_public THEN 'public' ELSE 'book' END,
     'createdAt', p_created,
-    'body', CASE WHEN p_with_body AND p_content ->> 'visibility' = 'public' THEN p_content -> 'body' END
-  );
+    'body', CASE WHEN p_with_body AND x.is_public THEN p_content -> 'body' END
+  )
+  FROM (SELECT
+    coalesce(p_content ->> 'visibility' = 'public' AND p_current ->> 'visibility' = 'public', false) AS is_public,
+    coalesce(p_content -> 'snsType' = p_current -> 'snsType' AND p_content -> 'snsId' = p_current -> 'snsId', false) AS sns_same
+  ) x;
 $$;
 
 REVOKE ALL ON FUNCTION public._letters_is_open(timestamptz) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_is_admin() FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_key_hash(text) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_str(jsonb, text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_bad_chars(text) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_body_ok(jsonb) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_clean(jsonb) FROM PUBLIC, anon, authenticated;
-REVOKE ALL ON FUNCTION public._letters_public_card(uuid, jsonb, timestamptz, boolean) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_public_card(uuid, jsonb, jsonb, timestamptz, boolean) FROM PUBLIC, anon, authenticated;
 
 -- ============================================================
 -- 3. 誰でも使える関数
@@ -285,13 +304,14 @@ BEGIN
     RETURN jsonb_build_object('ok', false, 'error', SQLERRM);
   END;
 
-  -- DB の容量を守る上限(ふだんの規模より十分に多い)
+  -- DB の容量を守る上限(ふだんの規模より十分に多い)。全体で 10 分に 120 通・1 日 1000 通まで。
+  -- 1 通は最大 16KB なので、上限いっぱいに荒らされても 1 日 16MB ほど(修正と合わせて 32MB ほど)に収まる
   SELECT count(*) INTO v_recent FROM public.birthday_letters l WHERE l.created_at > now() - interval '10 minutes';
   IF v_recent >= 120 THEN
     RETURN jsonb_build_object('ok', false, 'error', 'busy');
   END IF;
   SELECT count(*) INTO v_recent FROM public.birthday_letters l WHERE l.created_at > now() - interval '1 day';
-  IF v_recent >= 3000 THEN
+  IF v_recent >= 1000 THEN
     RETURN jsonb_build_object('ok', false, 'error', 'busy');
   END IF;
 
@@ -315,6 +335,7 @@ BEGIN
 END;
 $$;
 
+-- 一般向けの 3 つの関数は確認済みの版を出す。ただし本人が後から差出人の名前を変えたら、再確認まで出さない
 -- 届いた手紙の一覧(宛名面だけ。本文は返さない)
 -- p_order: 'new'(届いた順の新しい順)/ 'timeline'(宛先の日付の新しい順)
 CREATE OR REPLACE FUNCTION public.letters_public_list(
@@ -332,14 +353,16 @@ SET search_path = ''
 AS $$
   SELECT coalesce(jsonb_agg(x.card ORDER BY x.ord), '[]'::jsonb)
   FROM (
-    SELECT public._letters_public_card(l.id, v.content, l.created_at, false) AS card,
+    SELECT public._letters_public_card(l.id, v.content, c.content, l.created_at, false) AS card,
            row_number() OVER (
              ORDER BY CASE WHEN p_order = 'timeline' THEN v.content ->> 'eventDate' END DESC NULLS LAST,
                       l.created_at DESC
            ) AS ord
     FROM public.birthday_letters l
     JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
+    JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL
+      AND v.content -> 'sender' = c.content -> 'sender'
       AND NOT l.web_hidden
       AND l.reviewed_version IS NOT NULL
       AND (p_event_key IS NULL OR v.content ->> 'eventKey' = p_event_key)
@@ -358,10 +381,12 @@ STABLE
 SECURITY DEFINER
 SET search_path = ''
 AS $$
-  SELECT public._letters_public_card(l.id, v.content, l.created_at, true)
+  SELECT public._letters_public_card(l.id, v.content, c.content, l.created_at, true)
   FROM public.birthday_letters l
   JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
+  JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
   WHERE l.id = p_id
+    AND v.content -> 'sender' = c.content -> 'sender'
     AND l.withdrawn_at IS NULL
     AND NOT l.web_hidden
     AND l.reviewed_version IS NOT NULL;
@@ -380,7 +405,9 @@ AS $$
     SELECT v.content ->> 'eventKey' AS k, count(*) AS n
     FROM public.birthday_letters l
     JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
+    JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL AND NOT l.web_hidden AND l.reviewed_version IS NOT NULL
+      AND v.content -> 'sender' = c.content -> 'sender'
     GROUP BY 1
   ) x;
 $$;
@@ -425,6 +452,7 @@ DECLARE
   v_row record;
   v_content jsonb;
   v_current jsonb;
+  v_recent integer;
 BEGIN
   SELECT l.id, l.current_version, l.withdrawn_at INTO v_row
     FROM public.birthday_letters l
@@ -447,6 +475,21 @@ BEGIN
   END IF;
   IF p_base_version IS DISTINCT FROM v_row.current_version THEN
     RETURN jsonb_build_object('ok', false, 'error', 'conflict');
+  END IF;
+
+  -- DB の容量を守る上限。1 通あたり 30 版まで・10 分に 10 回まで、全体で 1 日 1000 回まで
+  IF v_row.current_version >= 30 THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'too_many_edits');
+  END IF;
+  SELECT count(*) INTO v_recent FROM public.birthday_letter_versions v
+   WHERE v.letter_id = p_id AND v.version > 1 AND v.created_at > now() - interval '10 minutes';
+  IF v_recent >= 10 THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'busy');
+  END IF;
+  SELECT count(*) INTO v_recent FROM public.birthday_letter_versions v
+   WHERE v.version > 1 AND v.created_at > now() - interval '1 day';
+  IF v_recent >= 1000 THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'busy');
   END IF;
 
   INSERT INTO public.birthday_letter_versions (letter_id, version, content)
@@ -534,9 +577,10 @@ SET search_path = ''
 AS $$
 DECLARE
   v_current integer;
+  v_withdrawn_by text;
 BEGIN
   IF NOT public._letters_is_admin() THEN RAISE EXCEPTION 'forbidden'; END IF;
-  SELECT l.current_version INTO v_current FROM public.birthday_letters l WHERE l.id = p_id FOR UPDATE;
+  SELECT l.current_version, l.withdrawn_by INTO v_current, v_withdrawn_by FROM public.birthday_letters l WHERE l.id = p_id FOR UPDATE;
   IF NOT FOUND THEN RETURN jsonb_build_object('ok', false, 'error', 'not_found'); END IF;
 
   IF p_action = 'approve' THEN
@@ -551,6 +595,8 @@ BEGIN
   ELSIF p_action = 'withdraw' THEN
     UPDATE public.birthday_letters SET withdrawn_at = coalesce(withdrawn_at, now()), withdrawn_by = coalesce(withdrawn_by, 'admin') WHERE id = p_id;
   ELSIF p_action = 'restore' THEN
+    -- 本人が取り下げた手紙は、運営が戻さない
+    IF v_withdrawn_by = 'author' THEN RETURN jsonb_build_object('ok', false, 'error', 'author_withdrawn'); END IF;
     UPDATE public.birthday_letters SET withdrawn_at = NULL, withdrawn_by = NULL, pulled_at = NULL WHERE id = p_id;
   ELSIF p_action = 'pulled' THEN
     UPDATE public.birthday_letters SET pulled_at = now() WHERE id = p_id;

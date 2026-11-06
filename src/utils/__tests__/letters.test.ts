@@ -1,4 +1,4 @@
-import { bodyLength, fromEditorJson, isValidBody, toEditorJson, trimBody } from "../letters/body";
+import { bodyLength, fromEditorJson, isValidBody, stripInvisible, toEditorJson, trimBody } from "../letters/body";
 import { buildAddress, buildLetterEvents, eraOfName, splitAddress } from "../letters/timeline";
 
 describe("手紙の本文(plan/64)", () => {
@@ -33,6 +33,13 @@ describe("手紙の本文(plan/64)", () => {
   test("往復しても変わらない", () => {
     const body = trimBody(fromEditorJson(doc));
     expect(trimBody(fromEditorJson(toEditorJson(body)))).toEqual(body);
+  });
+
+  test("見えない文字・向きを変える文字は落とす(絵文字のゼロ幅接合子は残す)", () => {
+    const body = fromEditorJson({ type: "doc", content: [{ type: "paragraph", content: [{ type: "text", text: "Re\u202Eol\u200B👨\u200D👩\uFEFF" }] }] });
+    expect(body[0].r[0].t).toBe("Reol👨\u200D👩");
+    expect(isValidBody([{ r: [{ t: "a\u2066b" }] }])).toBe(false);
+    expect(stripInvisible("\u00ADれをる\u200F")).toBe("れをる");
   });
 
   test("貼り付けの制御文字は落とし、タブは空白に", () => {

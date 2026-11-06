@@ -5,7 +5,7 @@
  */
 import React, { Suspense, useEffect, useId, useMemo, useState } from "react";
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
-import { bodyHasText, bodyLength, emptyBody, LetterBody, trimBody } from "../../utils/letters/body";
+import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
 import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
 
@@ -91,8 +91,8 @@ export const Composer: React.FC<Props> = ({ mode, event, value, onChange, availa
       eventLabel: event.label,
       eventDate: event.date || null,
       era: event.era,
-      address: value.address.trim(),
-      sender: value.sender.trim(),
+      address: stripInvisible(value.address).trim(),
+      sender: stripInvisible(value.sender).trim(),
       snsType: value.snsType || null,
       snsId: value.snsType ? value.snsId.replace(/^@/, "").trim() : null,
       motif: value.motif,
