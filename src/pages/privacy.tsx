@@ -6,7 +6,8 @@
  * - アクセス解析: gatsby-plugin-google-gtag(GA4)。/card/view/ はページ表示を送らない(gatsby-config.ts)
  * - アカウント: services/authService.ts と supabase/migrations(パスワードは DB 側で bcrypt)。削除は delete_account
  * - 記事のいいね: services/articleLikeService.ts(ブラウザごとの無作為な ID)
- * - 外部の埋め込み: YouTube は押した時だけ読み込む(OfficialMedia)。Spotify・X・地図のタイルは表示時に読み込む
+ * - 外部の埋め込み: YouTube は押した時に読み込む。iPhone・iPad・Mac の Safari だけは、1回押すだけで流れるよう、
+ *   枠が画面に入った時点で再生しないまま読み込む(GlobalPlayer、plan/60 の 5章)。Spotify・X・地図のタイルは表示時に読み込む
  */
 import React from "react";
 import { HeadFC, Link } from "gatsby";
@@ -112,7 +113,8 @@ const PrivacyPage: React.FC = () => (
       <p>ページによっては、次の外部サービスの埋め込みや画像を使っています。それぞれのサービスに、ブラウザから直接接続します。</p>
       <ul className={listCls}>
         <li>
-          YouTube: 動画の画像(サムネイル)は表示時に読み込みます。動画そのものは、再生ボタンを押した時だけ読み込みます(youtube-nocookie.com)。
+          YouTube: 動画の画像(サムネイル)は表示時に読み込みます。動画のプレイヤーは、再生ボタンを押した時に読み込みます(youtube-nocookie.com)。ただし
+          iPhone・iPad・Mac の Safari では、1回押すだけで再生できるよう、動画の枠が画面に入った時点でプレイヤーを読み込みます(押すまでは再生しません)。
         </li>
         <li>Spotify: 曲のページなどの再生プレーヤーは、表示した時に読み込まれ、Spotify の Cookie が保存されることがあります。</li>
         <li>X(旧Twitter): トップページの投稿の表示は、表示した時に読み込まれ、X の Cookie が保存されることがあります。</li>

@@ -59,9 +59,9 @@ export const usePlayerSlot = ({
   const ref = useCallback(
     (el: HTMLElement | null) => {
       unregister.current?.();
-      unregister.current = el ? registerSlot(slotId, el) : null;
+      unregister.current = el ? registerSlot(slotId, el, { videoId, list, start, title }) : null;
     },
-    [slotId]
+    [slotId, videoId, list, start, title]
   );
 
   const startPlayback = useCallback(() => {
