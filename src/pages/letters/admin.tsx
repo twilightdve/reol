@@ -189,6 +189,25 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
       .catch(() => setErr("束を読み込めませんでした"));
   }, [id]);
   useEffect(load, [load]);
+  // 印刷するこのブラウザーで、裏の本文が枠に入っているかを測り直す(書いた人の端末と書体が違うことがあるため)
+  const [over, setOver] = useState<Set<number>>(new Set());
+  useEffect(() => {
+    if (!batch) return;
+    let cancelled = false;
+    const measure = () => {
+      if (cancelled) return;
+      const found = new Set<number>();
+      document.querySelectorAll<HTMLElement>(".lp-print-page .msg").forEach((el) => {
+        if (el.scrollHeight > el.clientHeight + 1) found.add(Number(el.dataset.position));
+      });
+      setOver(found);
+    };
+    measure();
+    (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts?.ready.then(measure).catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, [batch]);
   if (err) return <p className="lp-alert">{err}</p>;
   if (!batch) return <p className="lp-note">読み込んでいます…</p>;
   const stale = batch.items.filter((i) => i.withdrawn || i.currentVersion !== i.version);
@@ -207,6 +226,11 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
           用紙 100×148mm・余白なしで、表 → 裏 の順に交互に出ます(両面印刷は「短辺とじ/長辺とじ」をプリンターで試し刷りして合わせてください)。
           {" "}本文は束を作った時の版で固定しています。
         </p>
+        {over.size > 0 && (
+          <p className="lp-alert">
+            {over.size}枚の裏面で、本文が枠からはみ出しています(表の「はみ出し」)。このまま刷ると切れます。束から外すか、書いた人に直してもらってください。
+          </p>
+        )}
         {stale.length > 0 && (
           <p className="lp-alert">
             束を作った後に、{stale.length}枚が直されたか取り下げられています(表の「今の版」を確認)。この束で刷っても記録は刷った版で残り、直された手紙は「再印刷が必要」に出ます。
@@ -222,6 +246,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
                 type="button"
                 className="lp-secondary"
                 onClick={async () => {
+                  if (over.size && !window.confirm(`${over.size}枚の本文がはみ出しています。それでも記録しますか。`)) return;
                   if (!window.confirm("この束を実際に印刷し終えましたか。印刷済みとして記録します。")) return;
                   await adminMarkPrinted(batch.id);
                   load();
@@ -253,6 +278,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
               <th>差出人</th>
               <th>刷る版</th>
               <th>今の版</th>
+              <th>はみ出し</th>
               <th>ID</th>
             </tr>
           </thead>
@@ -264,6 +290,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
                 <td>{i.content.sender}</td>
                 <td>{i.version}</td>
                 <td>{i.withdrawn ? "取り下げ" : i.currentVersion}</td>
+                <td>{over.has(i.position) ? "あり" : ""}</td>
                 <td style={{ fontFamily: "monospace", fontSize: 10 }}>{i.id.slice(0, 8)}</td>
               </tr>
             ))}
@@ -277,7 +304,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
               <CardFront face={i.content} />
             </div>
             <div className="lp-print-page">
-              <CardBack motif={i.content.motif} sender={i.content.sender} body={i.content.body} />
+              <CardBack motif={i.content.motif} sender={i.content.sender} body={i.content.body} position={i.position} over={over.has(i.position)} />
             </div>
           </React.Fragment>
         ))}

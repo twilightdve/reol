@@ -121,7 +121,9 @@ export const CardBack: React.FC<{
   hiddenNote?: string;
   over?: boolean;
   msgRef?: React.Ref<HTMLDivElement>;
-}> = ({ motif, sender, body, hiddenNote, over, msgRef }) => (
+  /** 運営の印刷画面で、どのカードかを測るための番号 */
+  position?: number;
+}> = ({ motif, sender, body, hiddenNote, over, msgRef, position }) => (
   <div className={`lp-card ${motif} is-back`}>
     <div className="motif" />
     <div className="back-label">
@@ -129,7 +131,7 @@ export const CardBack: React.FC<{
       <span>WITH LOVE.</span>
     </div>
     {body ? (
-      <div className={`msg${over ? " is-over" : ""}`} ref={msgRef}>
+      <div className={`msg${over ? " is-over" : ""}`} ref={msgRef} data-position={position}>
         <LetterBodyView body={body} />
       </div>
     ) : (

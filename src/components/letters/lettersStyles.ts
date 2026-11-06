@@ -358,6 +358,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
   .lp-print-page{width:100mm;height:148mm;page-break-after:always;break-after:page;overflow:hidden}
   .lp-print-page .lp-card{border-left:0;border-right:0;border-bottom:0;box-shadow:none}
   .lp-print-page .lp-card:after{display:none}
+  .lp-card .msg.is-over{box-shadow:none}
   .lp-card,.lp-card *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 `;

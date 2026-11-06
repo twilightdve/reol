@@ -28,7 +28,7 @@ const LettersPage: React.FC = () => {
   const [availability, setAvailability] = useState<"loading" | "open" | "closed" | "unavailable">("loading");
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [submitState, setSubmitState] = useState<SubmitState>({ kind: "idle" });
-  const [done, setDone] = useState<{ id: string; url: string } | null>(null);
+  const [done, setDone] = useState<{ id: string; url: string; synced: boolean } | null>(null);
   const [bodyResetKey, setBodyResetKey] = useState(0);
   const pending = useRef<{ requestId: string; editKey: string } | null>(null);
   const loaded = useRef(false);
@@ -103,18 +103,21 @@ const LettersPage: React.FC = () => {
         if (r.error === "closed") setAvailability("closed");
         return;
       }
-      // 前回の送信が実は届いていた場合は、いま画面にある内容に直しておく
+      // 受け付けられた(ここから先で失敗しても、受付は取り消さない)
+      // 前回の送信が実は届いていた場合は、いま画面にある内容に直しておく。直せなかった時は、そのことを完了画面で伝える
+      let synced = true;
       if (retry) {
-        const u = await updateOwnLetter(r.id, p.editKey, r.version, content);
-        if (!u.ok) {
-          setSubmitState({ kind: "error", message: errorMessage(u.error) });
-          return;
+        try {
+          const u = await updateOwnLetter(r.id, p.editKey, r.version, content);
+          synced = u.ok;
+        } catch {
+          synced = false;
         }
       }
       rememberMyLetter({ id: r.id, key: p.editKey, address: content.address, createdAt: new Date().toISOString() });
       pending.current = null;
       saveDraft(null);
-      setDone({ id: r.id, url: editUrl(r.id, p.editKey) });
+      setDone({ id: r.id, url: editUrl(r.id, p.editKey), synced });
       setSubmitState({ kind: "idle" });
       window.requestAnimationFrame(() => document.getElementById("letter")?.scrollIntoView({ block: "start" }));
     } catch (e) {
@@ -285,6 +288,11 @@ const LettersPage: React.FC = () => {
             <p className="lp-note" style={{ marginTop: 8 }}>
               ありがとうございます。運営が内容を確認してから、Webの「届いた手紙」に載ります(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。
             </p>
+            {!done.synced && (
+              <p className="lp-alert">
+                通信が切れる前に送った内容で受け付けています。そのあと書き足した内容は、下の修正用のURLから直してください。
+              </p>
+            )}
             <p style={{ marginTop: 16, fontSize: 14 }}>この手紙を直す・取り下げるためのURL</p>
             <div className="lp-copy">
               <input readOnly value={done.url} onFocus={(e) => e.currentTarget.select()} aria-label="修正用のURL" />

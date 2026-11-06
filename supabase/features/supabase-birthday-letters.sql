@@ -8,6 +8,9 @@
 -- - 運営の関数は、ログイン中のセッションが運営の ID(twilightplc)の時だけ使える。
 -- - 受付は 2026-12-21 00:00(日本時間)= 2026-12-20 15:00 UTC で締める。サーバーの時計で判定する。
 --
+-- この DB は public に作った関数・テーブルを、既定で anon / authenticated にも直接開く設定(pg_default_acl)。
+-- そのため PUBLIC だけでなく anon / authenticated からも明示的に取り上げる。
+--
 -- 何度実行しても同じ結果になる。
 
 BEGIN;
@@ -222,13 +225,13 @@ AS $$
   );
 $$;
 
-REVOKE ALL ON FUNCTION public._letters_is_open(timestamptz) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_is_admin() FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_key_hash(text) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_str(jsonb, text) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_body_ok(jsonb) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_clean(jsonb) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public._letters_public_card(uuid, jsonb, timestamptz, boolean) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public._letters_is_open(timestamptz) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_is_admin() FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_key_hash(text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_str(jsonb, text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_body_ok(jsonb) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_clean(jsonb) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_public_card(uuid, jsonb, timestamptz, boolean) FROM PUBLIC, anon, authenticated;
 
 -- ============================================================
 -- 3. 誰でも使える関数
