@@ -166,6 +166,11 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   const handleEnd = useCallback(() => {
     UtilityService.gtag({ category: "youtube", action: "end", label });
   }, [label]);
+  // iPhone の Safari などは、押した後に作った iframe の autoplay を音ありでは通さず、YouTube 側の再生ボタンを
+  // もう一度押させる。読み込めた時点で API からも再生を指示して、押すのを1回で済ませる(lite-youtube-embed と同じ)
+  const handleReady = useCallback((e: { target: { playVideo: () => void } }) => {
+    e.target.playVideo();
+  }, []);
 
   const marker = <span ref={markerRef} hidden />;
   if (!mounted || !current) return marker;
@@ -209,6 +214,7 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
           className="h-full w-full"
           iframeClassName="h-full w-full"
           title={current.title}
+          onReady={handleReady}
           onPlay={handlePlay}
           onEnd={handleEnd}
         />
