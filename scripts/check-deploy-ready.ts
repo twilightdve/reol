@@ -2,7 +2,8 @@
 // デプロイすると、本番がgitから再現できなくなるため中止する。
 //
 // ビルドのたびにシートやローカルデータから再生成される出力(static/data・
-// static/relive/generated・static/og)は、ビルド自体が作り直すので対象外にする。
+// static/relive/generated・static/og・曲数や公演数を描くサイト共通の static/ogimage.png)は、
+// ビルド自体が作り直すので対象外にする。
 
 import { execSync } from "child_process";
 import { existsSync, readdirSync, readFileSync } from "fs";
@@ -31,7 +32,7 @@ if (missingOg.length > 0) {
   process.exit(1);
 }
 
-const GENERATED_PATHS = ["static/data", "static/relive/generated", "static/og"];
+const GENERATED_PATHS = ["static/data", "static/relive/generated", "static/og", "static/ogimage.png"];
 
 const pathspec = [".", ...GENERATED_PATHS.map((p) => `':!${p}'`)].join(" ");
 const status = execSync(`git status --porcelain -- ${pathspec}`, { encoding: "utf8" }).trim();
