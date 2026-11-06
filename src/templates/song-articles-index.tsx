@@ -7,6 +7,10 @@
  * - タグは ?tag=<タグ> で絞り込む(記事のタグのリンクから)。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
  *   一覧の上の「タグで絞り込む」ボタン群は置かない(2026-10-11 ユーザー指定)。
  * - アルバム(初出の作品)で絞り込める(2026-10-13 ユーザー指定)。?album=<作品名>。静的HTMLは全件で、JSが動いた後に絞り込む。
+ * - 絞り込んでいない時は、アルバムごとにまとめて横一列に並べる(2026-11-06 ユーザー「縦にどんどん長くなって下の方の記事は
+ *   読まれづらくなるためアルバム単位でグループ表示したい」)。アルバムの順は並べ替えの順で先に出てくる記事の順。
+ *   広い画面では記事の少ないアルバムを隣に詰める。
+ *   「すべて見る」でそのアルバムの絞り込み(全件のグリッド)にする。
  * - 記事ごとのいいね数を表示し、「新着順」「いいねが多い順」で並べ替えられる(2026-10-12 ユーザー指定)。
  *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
  *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
@@ -89,13 +93,14 @@ const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
   "ここに書いているのは、ファンのひとりとしての個人的な解釈です。正解を示すものではありません。読んだあとにもう一度曲を聴き直すときの、たたき台にしてもらえたらうれしいです。";
 
-const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: number | null; badge?: OwnerBadge | null; now: number }> = ({
-  a,
-  activeTag,
-  likes,
-  badge,
-  now,
-}) => {
+const ArticleItem: React.FC<{
+  a: IndexEntry;
+  activeTag: string | null;
+  likes: number | null;
+  badge?: OwnerBadge | null;
+  now: number;
+  className?: string;
+}> = ({ a, activeTag, likes, badge, now, className = "" }) => {
   // 一覧は公開日時の新しい順(2026-10-13 ユーザー指定)なので、カードの日付も公開日にそろえる。
   // 公開日時の無い記事(限定公開・プレビュー)と公開前の予約は作成日
   const published = !a.unlisted && a.publishedAt != null && isReleased(a.publishedAt, now);
@@ -105,7 +110,7 @@ const ArticleItem: React.FC<{ a: IndexEntry; activeTag: string | null; likes: nu
   const parts = splitTitleBySong(a.title, a.songTitle);
   // カード型(2026-10-23 ユーザー「記事の表紙デザインを反映させたカード型のアイテムにしたい」)。上に記事の表紙の画像
   return (
-    <li className="flex">
+    <li className={`flex ${className}`}>
       <article className="group flex w-full flex-col overflow-hidden rounded-lg border border-bx-line transition-colors hover:border-bx-blue">
         <Link
           to={`/articles/${a.slug}/`}
@@ -309,6 +314,25 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
     .filter((g) => g.items.length > 0);
+  // アルバムごとのまとまり(アルバムで絞り込んでいない時)。並べ替えの順で先に出てくる記事の順に並べる。初出の作品が無い記事は最後に
+  const byAlbum = (items: IndexEntry[]) => {
+    const m = new Map<string, { title: string | null; releaseDate: string | null; items: IndexEntry[] }>();
+    for (const a of items) {
+      const key = a.album?.title ?? "";
+      const cur = m.get(key);
+      if (cur) cur.items.push(a);
+      else m.set(key, { title: a.album?.title ?? null, releaseDate: a.album?.releaseDate ?? null, items: [a] });
+    }
+    const list = [...m.values()];
+    return [...list.filter((g) => g.title), ...list.filter((g) => !g.title)];
+  };
+  const itemProps = (a: IndexEntry) => ({
+    a,
+    activeTag,
+    likes: likeCounts ? likeCounts.get(a.id) ?? 0 : null,
+    badge: isOwner ? ownerBadge(a, now) : null,
+    now,
+  });
 
   return (
     <Layout title={current ? `${current.name}|読みもの` : "読みもの"}>
@@ -434,18 +458,54 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
               </header>
             )}
             {current && <h2 id={`series-${s.slug}`} className="sr-only">{s.name}の記事</h2>}
-            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((a) => (
-                <ArticleItem
-                  key={a.slug}
-                  a={a}
-                  activeTag={activeTag}
-                  likes={likeCounts ? likeCounts.get(a.id) ?? 0 : null}
-                  badge={isOwner ? ownerBadge(a, now) : null}
-                  now={now}
-                />
-              ))}
-            </ul>
+            {activeAlbum ? (
+              <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {items.map((a) => (
+                  <ArticleItem key={a.slug} {...itemProps(a)} />
+                ))}
+              </ul>
+            ) : (
+              // 狭い画面はアルバムごとに横一列。広い画面は記事の数だけ列を使い(3本以上は3列で横スクロール)、
+              // 1〜2本のアルバムは隣に詰める(1本のアルバムが1段を使って縦に長くならないように)
+              <div className="grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 [grid-auto-flow:dense]">
+                {byAlbum(items).map((g) => {
+                  const n = g.items.length;
+                  const span = n >= 3 ? "sm:col-span-2 lg:col-span-3" : n === 2 ? "sm:col-span-2" : "";
+                  const card =
+                    n >= 3
+                      ? "sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
+                      : n === 2
+                      ? "sm:w-[calc((100%-1.25rem)/2)]"
+                      : "sm:w-full";
+                  return (
+                    <section key={g.title ?? ""} className={`min-w-0 ${span}`} aria-label={g.title ?? "その他"}>
+                      <header className="mb-2 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                        <h3 className="text-[15px] font-extrabold text-bx-ink [overflow-wrap:anywhere]">
+                          {g.title ? `『${g.title}』` : "その他"}
+                          {g.releaseDate && <span className="ml-2 text-[12px] font-semibold text-bx-ink3 tabular-nums">{g.releaseDate.slice(0, 4)}</span>}
+                          <span className="ml-2 text-[12px] font-semibold text-bx-ink3">{n}本</span>
+                        </h3>
+                        {g.title && n > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => chooseAlbum(g.title)}
+                            className="text-[12px] text-bx-ink2 underline underline-offset-4 hover:text-bx-blue"
+                          >
+                            すべて見る
+                          </button>
+                        )}
+                      </header>
+                      {/* はみ出す分は横にスクロール。狭い画面は次のカードが少し見えるようにして、続きがあると分かるようにする */}
+                      <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-3 sm:mx-0 sm:gap-5 sm:scroll-px-0 sm:px-0">
+                        {g.items.map((a) => (
+                          <ArticleItem key={a.slug} {...itemProps(a)} className={`w-[78%] max-w-[300px] shrink-0 snap-start sm:max-w-none ${card}`} />
+                        ))}
+                      </ul>
+                    </section>
+                  );
+                })}
+              </div>
+            )}
           </section>
         ))}
       </main>
