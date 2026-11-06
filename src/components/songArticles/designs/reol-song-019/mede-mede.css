@@ -296,9 +296,8 @@
 }
 .a019-loop__text {
   font-family: var(--mincho);
-  /* 円周(約740)をほぼ一周する長さ */
-  font-size: 17px;
-  letter-spacing: 0.06em;
+  /* 一周の長さは textLength で揃える(字間が広がりすぎない大きさ) */
+  font-size: 20px;
   fill: var(--ink);
 }
 .a019-loop__turn {

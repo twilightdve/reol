@@ -38,13 +38,13 @@ const S_ROOM = 21; // 見出し「1LDKよりも、1K」
 const ROOM_FIG = 28; // 段落27(1LDKには、少し距離を取れる余地)の後
 const LAST = 32; // 結び
 
-// 段落20の後に回る言葉。本文の地の文(段落13・20)から
-const LOOP_TEXT = "このまま続けていいのか。どこかで区切りをつけるべきなのか。どう生きたいのか。";
+// 段落20の後に回る言葉。歌詞の2行(2026-11-06 ユーザーから)。行の切れ目は全角の空き
+const LOOP_TEXT = "(巡る巡る 見えた世界が霞む\u3000end ぐるぐる もう終止符を打つ?)";
 
 /** 斜めに差し込む光の形(窓は描かない) */
 const Light: React.FC<{ className: string }> = ({ className }) => <span className={className} aria-hidden="true" />;
 
-/** 段落20の後: 問いが円を描いて回る。同じ円を2枚重ね、片側だけにじんだ方を見せる */
+/** 段落20の後: 歌詞の2行が円を描いて回る。同じ円を2枚重ね、片側だけにじんだ方を見せる */
 const LoopCircle: React.FC<{ id: string }> = ({ id }) => (
   <svg viewBox="0 0 300 300" className="a019-loop__svg">
     <defs>
@@ -52,13 +52,16 @@ const LoopCircle: React.FC<{ id: string }> = ({ id }) => (
     </defs>
     <g className="a019-loop__turn">
       <text className="a019-loop__text">
-        <textPath href={`#${id}`}>{LOOP_TEXT}</textPath>
+        {/* 字の幅はブラウザで違うので、字間で円周(約741)の一周に揃える。継ぎ目に一字分空ける */}
+        <textPath href={`#${id}`} textLength={720} lengthAdjust="spacing">
+          {LOOP_TEXT}
+        </textPath>
       </text>
     </g>
   </svg>
 );
 const LoopFig: React.FC = () => (
-  <figure className="a019-loop" aria-label={`回り続ける問い: ${LOOP_TEXT}`}>
+  <figure className="a019-loop" aria-label={`歌詞より: ${LOOP_TEXT}`}>
     <div className="a019-loop__stage" aria-hidden="true">
       <div className="a019-loop__layer is-sharp">
         <LoopCircle id="a019-loop-a" />
