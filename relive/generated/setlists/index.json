@@ -6,9 +6,28 @@
   },
   "setlists": [
     {
-      "setlistId": "live_item_01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "setlistId": "live_item_01a1afd0-172a-71ea-bc0d-585982729ed6",
+      "liveUuid": "01a1afd0-1339-7779-b46d-6a9c119a4798",
+      "liveItemUuid": "01a1afd0-172a-71ea-bc0d-585982729ed6",
+      "title": "MIKITOP Tribute Live ”MIKIROCK PARTY”",
+      "date": "2027-02-11",
+      "venueName": "東京ガーデンシアター",
+      "venueId": "venue_東京ガ_デンシアタ",
+      "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_01a1afd0-16cf-7912-b454-7b28ff0b8bcc",
       "liveUuid": "01a15a41-73e9-73ed-b56e-bd87bc966a76",
-      "liveItemUuid": "01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "liveItemUuid": "01a1afd0-16cf-7912-b454-7b28ff0b8bcc",
       "title": "COUNTDOWN JAPAN 26/27",
       "date": "2026-12-26",
       "venueName": "幕張メッセ",
@@ -90,6 +109,25 @@
       "venueName": "GORILLA HALL OSAKA",
       "venueId": "venue_gorilla_hall_osaka",
       "type": "oneman",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "liveUuid": "01a1afd0-12e0-7914-ad96-9c2725a2f1ec",
+      "liveItemUuid": "01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
+      "title": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+      "date": "2026-11-20",
+      "venueName": "横浜アリーナ",
+      "venueId": "venue_横浜アリ_ナ",
+      "type": "event",
       "songCount": 0,
       "playablePolicySummary": {
         "required": 0,

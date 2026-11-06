@@ -4231,18 +4231,24 @@
       "liveItemCount": 166,
       "performanceCount": 2229,
       "latestRelease": {
-        "title": "COCOON",
-        "slug": "cocoon",
-        "releaseDate": "2026-07-11"
+        "title": "天井の街 - CEILING YOU",
+        "slug": "ceiling-you",
+        "releaseDate": "2026-08-26"
       },
       "nextLive": {
-        "title": "Reol Secret Live #極秘LEGIT #2",
-        "itemName": "大阪",
-        "date": "2026-11-29",
-        "place": "GORILLA HALL OSAKA",
-        "liveSlug": "reol-secret-live-legit-2"
+        "title": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+        "itemName": null,
+        "date": "2026-11-20",
+        "place": "横浜アリーナ",
+        "liveSlug": "presents-animax-musix-2026-supported-by-lemino"
       },
-      "releases": [],
+      "releases": [
+        {
+          "title": "天井の街 - CEILING YOU",
+          "slug": "ceiling-you",
+          "releaseDate": "2026-08-26"
+        }
+      ],
       "lives": [
         {
           "title": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2026-",
@@ -4261,19 +4267,27 @@
       "liveItemCount": 166,
       "performanceCount": 2229,
       "latestRelease": {
-        "title": "COCOON",
-        "slug": "cocoon",
-        "releaseDate": "2026-07-11"
+        "title": "天井の街 - CEILING YOU",
+        "slug": "ceiling-you",
+        "releaseDate": "2026-08-26"
       },
       "nextLive": {
-        "title": "Reol Secret Live #極秘LEGIT #2",
-        "itemName": "大阪",
-        "date": "2026-11-29",
-        "place": "GORILLA HALL OSAKA",
-        "liveSlug": "reol-secret-live-legit-2"
+        "title": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+        "itemName": null,
+        "date": "2026-11-20",
+        "place": "横浜アリーナ",
+        "liveSlug": "presents-animax-musix-2026-supported-by-lemino"
       },
       "releases": [],
       "lives": [
+        {
+          "title": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+          "itemName": null,
+          "date": "2026-11-20",
+          "place": "横浜アリーナ",
+          "liveSlug": "presents-animax-musix-2026-supported-by-lemino",
+          "liveItemSlug": "item-172"
+        },
         {
           "title": "Reol Secret Live #極秘LEGIT #2",
           "itemName": "大阪",

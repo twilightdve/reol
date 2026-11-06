@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "setlistId": "live_item_01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
-  "tourName": "COUNTDOWN JAPAN 26/27",
-  "liveTitle": "COUNTDOWN JAPAN 26/27",
-  "date": "2026-12-26",
-  "venueName": "幕張メッセ",
-  "venueId": "venue_幕張メッセ",
+  "tourName": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+  "liveTitle": "東武鉄道 presents ANIMAX MUSIX 2026 supported by Lemino",
+  "date": "2026-11-20",
+  "venueName": "横浜アリーナ",
+  "venueId": "venue_横浜アリ_ナ",
   "source": {
     "type": "site_db",
-    "liveUuid": "01a15a41-73e9-73ed-b56e-bd87bc966a76",
+    "liveUuid": "01a1afd0-12e0-7914-ad96-9c2725a2f1ec",
     "liveItemUuid": "01a15a41-f40c-70ed-b9d3-f7be6fed8c07",
     "sourceId": "live_item_01a15a41-f40c-70ed-b9d3-f7be6fed8c07"
   },

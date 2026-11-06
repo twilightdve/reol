@@ -1,5 +1,40 @@
 [
   {
+    "discographyUuid": "01a1afd0-02af-7a6e-9d30-05bb7e8049f7",
+    "slug": "ceiling-you",
+    "title": "天井の街 - CEILING YOU",
+    "releaseDate": "2026-08-26",
+    "name": "Reol",
+    "format": "配信SG",
+    "siteUrl": "",
+    "xfdUrl": null,
+    "themeColorPrimary": "#D90B1C",
+    "themeColorSecondary": "#45718C",
+    "reports": [],
+    "posts": [],
+    "songs": [
+      {
+        "songUuid": "01a1afd0-081a-73eb-870a-8a3345f706ba",
+        "slug": "ceiling-you",
+        "discographyUuid": "01a1afd0-02af-7a6e-9d30-05bb7e8049f7",
+        "discographyTitle": "天井の街 - CEILING YOU",
+        "songNo": 1,
+        "songName": "天井の街 - CEILING YOU",
+        "tieupDescription": "映画『GROTESQQQUE-グロテスク-』\n第2部「夜露死駆★少女」",
+        "downloadUrl": "https://kmu.lnk.to/CEILINGYOU",
+        "musicVideoUrl": null,
+        "lyricVideoUrl": null,
+        "liveVideoUrl": null,
+        "lyricUrl": null,
+        "spotifyTrackId": "5dAaTzAuPiXL3i8kCt904j",
+        "lyricMember": "Reol, 水槽",
+        "musicMember": "橘亮祐",
+        "produceMember": "橘亮祐",
+        "etcMember": null
+      }
+    ]
+  },
+  {
     "discographyUuid": "019f545f-7df0-7f3d-9e1b-c5524f33fe6c",
     "slug": "cocoon",
     "title": "COCOON",

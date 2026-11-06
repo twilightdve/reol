@@ -55,7 +55,7 @@ venue_フェニ_チェ堺,フェニーチェ堺,hall,,,,needs_web_verification,,
 venue_まつもと市民芸術館,まつもと市民芸術館,hall,,,,needs_web_verification,,,https://www.mpac.jp/,〒390-0815 長野県松本市深志３丁目１０−１,019e8284-7c76-7696-a0b5-ce0f4f776156
 venue_みちのく公園_北地区,みちのく公園 北地区,outdoor_festival,,,,needs_web_verification,,,,〒989-1503 宮城県柴田郡川崎町川内藤折,019e8284-7ce5-76df-ae95-dd262899a483
 venue_旭川casino_drive,旭川CASINO DRIVE,live_house,300,standing,,verified,2026-05-17,https://www.casinodrive.info/,https://www.casinodrive.info/,〒070-0034 北海道旭川市4条通8丁目1703-5 アピスホール4階,019e8284-9148-7f4e-b33a-0a731e8b057e
-venue_横浜アリ_ナ,横浜アリーナ,arena,17000,max,,verified,2026-05-17,https://www.yokohama-arena.co.jp/organizer/equipment/,https://www.yokohama-arena.co.jp/,〒222-0033 神奈川県横浜市港北区新横浜3丁目10番地,019e8284-7bab-79d4-ac3d-b6ec794328db|019e8284-9004-71cd-8d29-3e1b6cb843be
+venue_横浜アリ_ナ,横浜アリーナ,arena,17000,max,,verified,2026-05-17,https://www.yokohama-arena.co.jp/organizer/equipment/,https://www.yokohama-arena.co.jp/,〒222-0033 神奈川県横浜市港北区新横浜3丁目10番地,019e8284-7bab-79d4-ac3d-b6ec794328db|019e8284-9004-71cd-8d29-3e1b6cb843be|01a1afd0-12e0-7914-ad96-9c2725a2f1ec
 venue_岡山_crazymama_kingdom,岡山 CRAZYMAMA KINGDOM,live_house,,,,needs_web_verification,,,http://banquetunion.com/kingdom/,〒700-0836 岡山県岡山市北区中央町６−２２ 中央町ヒルズ 4F,019e8284-8137-72c8-a205-53a93aee8b1c
 venue_岡谷鋼機名古屋公会堂,岡谷鋼機名古屋公会堂,hall,,,,needs_web_verification,,,https://nagoyashi-kokaido.hall-info.jp/access/,愛知県名古屋市昭和区鶴舞1-1-3,019e8284-9148-7f4e-b33a-0a731e8b057e
 venue_海とのふれあい広場,海とのふれあい広場,outdoor_festival,,,,needs_web_verification,,,http://www.city.sakai.lg.jp/shisei/toshi/rinkai/umifureai/,〒590-0908 大阪府堺市堺区匠町６−１,019e8284-7daa-7cff-bf0a-c5af3c54630a
@@ -102,6 +102,7 @@ venue_中杭州太子湾公園_中国,中杭州太子湾公園（中国）,outdo
 venue_中国上海_森蘭緑地_sen_lan_green_park,中国上海・森蘭緑地（Sen Lan Green Park),outdoor_festival,,,,needs_web_verification,,,,"中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",019e8284-80c6-756b-8ed3-a4241a1c7978
 venue_中野サンプラザ,中野サンプラザ,hall,,,,needs_web_verification,,,,〒164-8512 東京都中野区中野４丁目１−１,019e8284-7d4e-7b3e-8757-9fb2c90aaf78
 venue_東京_ニッショ_ホ_ル,東京 ニッショーホール,hall,,,,needs_web_verification,,,http://nissho-hall.jp/accesmap.html,〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル,019e8284-6cd6-7138-99cc-22a335d06b80
+venue_東京ガ_デンシアタ,東京ガーデンシアター,unknown,,,,needs_web_verification,,,https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/,〒135-0063 東京都江東区有明2丁目1-6 東京ガーデンシアター,01a1afd0-1339-7779-b46d-6a9c119a4798
 venue_徳島club_grindhouse,徳島club GRINDHOUSE,live_house,,,,needs_web_verification,,,https://c-gh.jp/,徳島県徳島市秋田町2-23 ジョイフルビル3F,019e8284-9148-7f4e-b33a-0a731e8b057e
 venue_日本武道館,日本武道館,arena,14471,max,,verified,2026-05-17,https://www.nipponbudokan.or.jp/pdf/201704.pdf,https://www.nipponbudokan.or.jp/,〒102-8321 東京都千代田区北の丸公園2番3号,019e8284-8535-7303-acd8-712a29fea774
 venue_梅田バナナホ_ル,梅田バナナホール,hall,,,,needs_web_verification,,,http://www.banana-hall.com/,〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1,019e8284-72c7-775a-99b2-f53a45b873a3

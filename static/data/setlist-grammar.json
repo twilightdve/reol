@@ -1981,6 +1981,18 @@
       "firstPlayedDate": null,
       "lastPlayedDate": null,
       "coverageRate": 0
+    },
+    {
+      "discographyUuid": "01a1afd0-02af-7a6e-9d30-05bb7e8049f7",
+      "discographyTitle": "天井の街 - CEILING YOU",
+      "discographySlug": "ceiling-you",
+      "releaseDate": "2026-08-26",
+      "songCount": 1,
+      "playedSongCount": 0,
+      "totalPlays": 0,
+      "firstPlayedDate": null,
+      "lastPlayedDate": null,
+      "coverageRate": 0
     }
   ]
 }

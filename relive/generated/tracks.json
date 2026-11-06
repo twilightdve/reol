@@ -7438,6 +7438,25 @@
         "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
         "spotifyTrackId": "0zfTJreY2lVJ98Dv3KDXUc"
       }
+    },
+    {
+      "schemaVersion": 1,
+      "trackId": "song_01a1afd0-081a-73eb-870a-8a3345f706ba",
+      "canonicalTitle": "天井の街 - CEILING YOU",
+      "aliases": [],
+      "artistNames": [
+        "Reol"
+      ],
+      "kind": "original",
+      "matchHints": [
+        "天井の街ceilingyou"
+      ],
+      "source": {
+        "type": "fansite-discography-json",
+        "discographyUuid": "01a1afd0-02af-7a6e-9d30-05bb7e8049f7",
+        "songUuid": "01a1afd0-081a-73eb-870a-8a3345f706ba",
+        "spotifyTrackId": "5dAaTzAuPiXL3i8kCt904j"
+      }
     }
   ]
 }
