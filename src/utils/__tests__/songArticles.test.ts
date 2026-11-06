@@ -73,6 +73,21 @@ describe("extractPublicationArtifact", () => {
       }
     }
   });
+  it("markdown キー: revision を元版に、Drive の URL からファイルIDを取る", () => {
+    const r = extractPublicationArtifact({
+      markdown: { drive_url: "https://drive.google.com/file/d/F_1-x/view?usp=drivesdk", library_file_id: "L", revision: 3 },
+    });
+    expect(r.ok).toBe(true);
+    if (r.ok) {
+      expect(r.artifact.sourceKey).toBe("markdown");
+      expect(r.artifact.fileId).toBe("F_1-x");
+      expect(r.artifact.sourceRevision).toBe(3);
+    }
+  });
+  it("revision を元版とみなすのは markdown キーだけ", () => {
+    const r = extractPublicationArtifact({ publication_markdown: { file_id: "F1", revision: 3 } });
+    expect(r.ok && r.artifact.sourceRevision).toBeNull();
+  });
   it("同じ意味のキーで値が違えば先勝ちにせず保留", () => {
     const r = extractPublicationArtifact({
       publication_markdown: { file_id: "F1", drive_file_id: "F2", source_revision: 1 },

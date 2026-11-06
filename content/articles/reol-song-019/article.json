@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-019",
+  "kind": "song",
+  "songTitle": "mede:mede",
+  "bodyRevision": 3,
+  "formatRevision": null,
+  "bodySha256": "9a05f8f99900f0f1fbf1429894026868907dcfa174012b25b28e6c31c95c512d",
+  "songRefs": [
+    "019e8282-8ba5-7d40-902b-e994975bf05a"
+  ],
+  "media": [],
+  "slug": "medemede",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-02T01:02:01.172Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

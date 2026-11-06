@@ -102,10 +102,21 @@ export const PUBLICATION_KEYS = [
   "markdown_publication",
   "markdown_export",
   "publication_format",
+  // 2026-11-06 の 019(mede:mede)から。{ drive_url, library_file_id, revision } の形(revision は元の本文版)
+  "markdown",
 ] as const;
 
+/** キーごとの追加の別名。markdown の revision は元の本文版(source_revision と同じ意味) */
+const KEY_ALIASES: Record<string, Partial<Record<keyof typeof FIELD_ALIASES_BASE, string[]>>> = {
+  markdown: { sourceRevision: ["revision"] },
+};
+
+/** Drive のファイルURL(/file/d/<ID>/)からファイルIDを取る */
+const driveFileIdFromUrl = (url: string | null): string | null =>
+  url?.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1] ?? null;
+
 /** 正規化先 → 入力で見つかっているキーの候補 */
-const FIELD_ALIASES: Record<Exclude<keyof PublicationArtifact, "sourceKey">, string[]> = {
+const FIELD_ALIASES_BASE: Record<Exclude<keyof PublicationArtifact, "sourceKey">, string[]> = {
   fileId: ["file_id", "drive_file_id", "markdown_file_id"],
   url: ["url", "file_url", "drive_url", "markdown_url"],
   fileName: ["file_name"],
@@ -134,7 +145,9 @@ export const normalizePublicationArtifact = (
   raw: Record<string, unknown>
 ): NormalizeResult => {
   const out: Record<string, unknown> = { sourceKey };
-  for (const [field, aliases] of Object.entries(FIELD_ALIASES)) {
+  const extra = KEY_ALIASES[sourceKey] ?? {};
+  for (const [field, base] of Object.entries(FIELD_ALIASES_BASE)) {
+    const aliases = [...base, ...(extra[field as keyof typeof FIELD_ALIASES_BASE] ?? [])];
     const present = aliases.filter((k) => raw[k] !== undefined && raw[k] !== null && raw[k] !== "");
     const values = [...new Set(present.map((k) => String(raw[k])))];
     if (values.length > 1) {
@@ -154,6 +167,8 @@ export const normalizePublicationArtifact = (
       out[field] = v === null ? null : String(v);
     }
   }
+  // ファイルIDの記録が無く、Drive のファイルURLだけがある時は URL から取る
+  if (out.fileId === null) out.fileId = driveFileIdFromUrl(out.url as string | null);
   return { ok: true, artifact: out as PublicationArtifact };
 };
 

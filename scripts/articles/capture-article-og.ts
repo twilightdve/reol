@@ -113,6 +113,10 @@ const PER_ARTICLE_CSS: Record<string, string> = {
     .a017-title__song { font-size: 100px !important; }
   `,
   // -orderly-: 白い地なので、サイト名を黒に
+  // mede:mede: 白い地と淡い光なので、サイト名を焦げ茶に
+  "reol-song-019": `
+    .og-brand { color: #3b342c !important; text-shadow: none !important; }
+  `,
   "reol-song-018": `
     .og-brand { color: #121212 !important; text-shadow: none !important; }
   `,
