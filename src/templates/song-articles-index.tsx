@@ -14,6 +14,7 @@
  * - 記事ごとのいいね数を表示し、「新着順」「いいねが多い順」で並べ替えられる(2026-10-12 ユーザー指定)。
  *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
  *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
+ * - 「新着順」のボタンはもう一度押すと「古い順」になる(2026-11-06 ユーザー「新着順をトグルにして、古い順にもなるようにして」)。?sort=old。
  * - 記事ごとの表示回数(GA4)を出し、「よく読まれている順」でも並べ替えられる(2026-10-18 ユーザー指定。plan/46)。
  *   数はデプロイの前に GA から取ってページ情報に入れる(静的HTMLにも出る)。変わるのはデプロイの時だけ。?sort=views。
  */
@@ -86,8 +87,8 @@ interface SongArticlesIndexContext {
   pageViewsAt?: string | null;
 }
 
-type SortKey = "new" | "likes" | "views";
-const SORT_KEYS: readonly SortKey[] = ["new", "likes", "views"];
+type SortKey = "new" | "old" | "likes" | "views";
+const SORT_KEYS: readonly SortKey[] = ["new", "old", "likes", "views"];
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
@@ -266,7 +267,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
   };
   const hasViews = articles.some((a) => a.pageViews != null);
-  const sortable: Record<SortKey, boolean> = { new: true, likes: likeCounts !== null, views: hasViews };
+  const sortable: Record<SortKey, boolean> = { new: true, old: true, likes: likeCounts !== null, views: hasViews };
   const activeSort: SortKey = sortable[sort] ? sort : "new";
 
   // アルバム(まとめる作品)の一覧。発売日の古い順。記事の数も添える
@@ -304,6 +305,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
         ? [...filtered].sort((x, y) => (likeCounts.get(y.id) ?? 0) - (likeCounts.get(x.id) ?? 0))
         : activeSort === "views"
         ? [...filtered].sort((x, y) => (y.pageViews ?? 0) - (x.pageViews ?? 0))
+        : activeSort === "old"
+        ? [...filtered].reverse()
         : filtered;
     // まだ公開していない記事(限定公開・予約公開・プレビュー)は、どの並べ替えでも一番上に(2026-11-05 ユーザー指定)。
     // 出るのは運営のログイン時だけ(上の articles の絞り込みはそのまま)
@@ -422,19 +425,28 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
             ] as const
           ).map(([key, label]) => {
             if (key === "views" && !hasViews) return null;
-            const active = key === activeSort;
+            // 日付のボタンは 新着順 ⇄ 古い順 のトグル(選ばれている時にもう一度押すと逆になる)
+            const isDate = key === "new";
+            const active = isDate ? activeSort === "new" || activeSort === "old" : key === activeSort;
+            const text = isDate && activeSort === "old" ? "古い順" : label;
             return (
               <button
                 key={key}
                 type="button"
                 aria-pressed={active}
                 disabled={!sortable[key]}
-                onClick={() => chooseSort(key)}
+                onClick={() => chooseSort(isDate ? (activeSort === "new" ? "old" : "new") : key)}
+                title={isDate && active ? (activeSort === "new" ? "押すと古い順" : "押すと新着順") : undefined}
                 className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
                   active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
                 }`}
               >
-                {label}
+                {text}
+                {isDate && active && (
+                  <span aria-hidden="true" className="ml-1">
+                    {activeSort === "old" ? "↑" : "↓"}
+                  </span>
+                )}
               </button>
             );
           })}
