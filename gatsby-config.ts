@@ -56,7 +56,8 @@ const config: GatsbyConfig = {
         pluginConfig: {
           head: true,
           // プロフィールカードを見るページは、URL の # の後ろにカードの内容がある。ページ表示(page_path に # を含む)を送らない(plan/48)
-          exclude: ["/card/view/", "/card/view/**"],
+          // 手紙企画の修正画面(URL の # に編集鍵)と運営画面も送らない(plan/64)
+          exclude: ["/card/view/", "/card/view/**", "/letters/edit/", "/letters/edit/**", "/letters/admin/", "/letters/admin/**"],
         },
       },
     },
@@ -66,7 +67,7 @@ const config: GatsbyConfig = {
         // noindex のページはサイトマップにも載せない。
         // /relive/ は私的再生室、/cgraph/(各言語版を含む)と /quiz/bbq2025 系はページ側で noindex。
         // /card/ はプロフィールカードの試験中(運営だけ)だけ noindex(constants/profileCard.ts)。
-        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/card/view/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
+        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/card/view/", "/letters/edit/", "/letters/admin/", "/letters/card/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
         // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する。
         // 予約公開で公開日時がビルド時点でまだ来ていない記事(pageContext.scheduled)も載せない(plan/43)
         query: `

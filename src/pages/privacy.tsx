@@ -19,7 +19,7 @@ const containerCls = "rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-
 const linkCls = "text-bx-blue underline underline-offset-2 hover:text-bx-blueLight";
 
 const TITLE = "プライバシーポリシー";
-const UPDATED = "2026年10月29日";
+const UPDATED = "2026年11月7日";
 
 const Ext: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" className={linkCls}>
@@ -103,6 +103,29 @@ const PrivacyPage: React.FC = () => (
       </p>
     </Section>
 
+    <Section id="privacy-letters" title="誕生日の手紙企画(Legitの件名のない郵便やさん)">
+      <p>
+        <Link to="/letters/" className={linkCls}>
+          手紙企画
+        </Link>
+        に投函すると、次のものをサイトのデータベース(Supabase)に保存します。ログインしなくても投函できます。
+      </p>
+      <ul className={listCls}>
+        <li>選んだ宛先、宛名、差出人の名前、SNS の種類と ID(任意)、カードの絵柄、本文、本文の公開範囲、投函・修正した日時</li>
+        <li>修正のたびの内容(どの内容を印刷したかを後から確かめるため)</li>
+        <li>修正用の鍵を、元に戻せない形に変換したもの(鍵そのものは、投函したブラウザと修正用の URL にだけあります)</li>
+      </ul>
+      <p>
+        運営者が内容を確認してから、宛名・差出人・SNS ID・絵柄をサイトに公開します。本文は「Webでも公開する」を選んだ時だけ公開し、「贈る本だけに掲載する」を選んだ本文は公開しません。どちらの本文も運営者が読み、カードに印刷してファンレターブックとして Reol さん宛てに送ります(受け取った側のスタッフの方も確認します)。
+      </p>
+      <p>
+        修正用の URL は、URL の「#」の後ろに鍵を入れています。この部分はサーバーにもアクセス解析にも送られません。修正のページと運営のページは、Google アナリティクスにページの表示を送らないようにしています。投函したブラウザには、書きかけの手紙と、送った手紙の ID と鍵を保存します(localStorage)。
+      </p>
+      <p>
+        取り下げた手紙は、Web にも本にも載せません。印刷済みのカードを本から抜き取るまでの間は、データベースに残します。
+      </p>
+    </Section>
+
     <Section id="privacy-local" title="ブラウザに保存するもの">
       <p>
         表示する言語、診断・クイズの回答や結果、地図で選んだ会場、ログインの状態などを、ブラウザ(localStorage)に保存することがあります。これらは次に開いた時に同じ状態から使えるようにするためのもので、上に書いたもの以外はサイトの外に送りません。ブラウザのサイトデータを消すと消えます。
@@ -119,6 +142,7 @@ const PrivacyPage: React.FC = () => (
         <li>Spotify: 曲のページなどの再生プレーヤーは、表示した時に読み込まれ、Spotify の Cookie が保存されることがあります。</li>
         <li>X(旧Twitter): トップページの投稿の表示は、表示した時に読み込まれ、X の Cookie が保存されることがあります。</li>
         <li>OpenStreetMap: 地図のページでは、地図の画像を OpenStreetMap から読み込みます。</li>
+        <li>Google Fonts: 手紙企画のページでは、書体を Google Fonts から読み込みます。</li>
       </ul>
       <p>これらのサービスでの情報の扱いは、各サービスのプライバシーポリシーに従います。</p>
     </Section>

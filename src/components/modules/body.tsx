@@ -90,6 +90,15 @@ const isDesignPreviewPath = (pathname: string): boolean => {
   );
 };
 
+/**
+ * 誕生日の手紙企画 (/letters 配下。plan/64) は紙色の独自のページで、
+ * 自前の見出し・足元・スマホの下部ナビを持つため、ファンサイト側のテーマを被せない。
+ */
+const isLettersPath = (pathname: string): boolean => {
+  if (!pathname) return false;
+  return pathname === "/letters" || pathname.startsWith("/letters/");
+};
+
 const getInitialPathname = (): string => {
   if (typeof window !== "undefined" && window.location) {
     return window.location.pathname;
@@ -132,6 +141,7 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
   const isLiveHeatmap = isLiveHeatmapPath(basePath);
   const isRelive = isRelivePath(basePath);
   const isDesignPreview = isDesignPreviewPath(basePath);
+  const isLetters = isLettersPath(basePath);
 
   if (isBijigakuNavi) {
     // 美辞学ナビは独自のテーマ・ヘッダーを ReolMapLayout 側で持っているので
@@ -151,8 +161,8 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     );
   }
 
-  if (isReolTypeQuiz || isRelive || isDesignPreview) {
-    // ファンタイプ診断 / Relive Player / デザインプレビューはページ内で独自の背景・レイアウトを持つため
+  if (isReolTypeQuiz || isRelive || isDesignPreview || isLetters) {
+    // ファンタイプ診断 / Relive Player / デザインプレビュー / 手紙企画はページ内で独自の背景・レイアウトを持つため
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
     return (
       <SiteLangProvider lang={lang}>
