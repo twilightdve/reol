@@ -6,7 +6,7 @@
  * - /articles/ はシリーズごとに分けて並べる。/articles/series/<slug>/ はそのシリーズだけ(同じテンプレート)。
  * - タグは ?tag=<タグ> で絞り込む(記事のタグのリンクから)。静的HTMLは全件で、JSが動いた後に絞り込む(JSなしでも全件を読める)。
  *   一覧の上の「タグで絞り込む」ボタン群は置かない(2026-10-11 ユーザー指定)。
- * - アルバム(初出の作品)で絞り込める(2026-10-13 ユーザー指定)。?album=<作品名>。静的HTMLは全件で、JSが動いた後に絞り込む。
+ * - アルバムで絞り込める(2026-10-13 ユーザー指定。2026-11-06 から、初出の作品ではなくシングルよりアルバム・EP を優先した作品。series.ts の groupingRelease)。?album=<作品名>。静的HTMLは全件で、JSが動いた後に絞り込む。
  * - 絞り込んでいない時は、アルバムごとにまとめて横一列に並べる(2026-11-06 ユーザー「縦にどんどん長くなって下の方の記事は
  *   読まれづらくなるためアルバム単位でグループ表示したい」)。アルバムの順は並べ替えの順で先に出てくる記事の順。
  *   広い画面では記事の少ないアルバムを隣に詰める。
@@ -45,7 +45,7 @@ type IndexEntry = {
   publishedAt: string | null;
   seriesSlug: string;
   tags: string[];
-  /** 初出の作品(アルバムの絞り込みに使う) */
+  /** まとめる作品(シングルよりアルバム・EP を優先。アルバムの絞り込みにも使う) */
   album: { title: string; releaseDate: string | null } | null;
   /** カードの表紙の画像(記事の表紙を撮ったもの。npm run articles:og)。無ければ null */
   cover?: string | null;
@@ -269,7 +269,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const sortable: Record<SortKey, boolean> = { new: true, likes: likeCounts !== null, views: hasViews };
   const activeSort: SortKey = sortable[sort] ? sort : "new";
 
-  // アルバム(初出の作品)の一覧。発売日の古い順。記事の数も添える
+  // アルバム(まとめる作品)の一覧。発売日の古い順。記事の数も添える
   const albums = useMemo(() => {
     const m = new Map<string, { title: string; releaseDate: string | null; count: number }>();
     for (const a of articles) {
@@ -314,7 +314,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const groups = (current ? [current] : series)
     .map((s) => ({ s, items: visible.filter((a) => a.seriesSlug === s.slug) }))
     .filter((g) => g.items.length > 0);
-  // アルバムごとのまとまり(アルバムで絞り込んでいない時)。並べ替えの順で先に出てくる記事の順に並べる。初出の作品が無い記事は最後に
+  // アルバムごとのまとまり(アルバムで絞り込んでいない時)。並べ替えの順で先に出てくる記事の順に並べる。作品が無い記事は最後に
   const byAlbum = (items: IndexEntry[]) => {
     const m = new Map<string, { title: string | null; releaseDate: string | null; items: IndexEntry[] }>();
     for (const a of items) {
@@ -383,7 +383,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           </p>
         )}
 
-        {/* アルバムで絞り込む(初出の作品。発売日の古い順) */}
+        {/* アルバムで絞り込む(まとめる作品。発売日の古い順) */}
         {albums.length > 1 && (
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[12px]">
             <label htmlFor="article-album" className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">

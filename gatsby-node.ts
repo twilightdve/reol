@@ -42,7 +42,7 @@ import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { isReleased } from "./src/utils/songArticles/schedule";
 import { ARTICLES_FEED_PATH, buildArticlesFeed } from "./src/utils/songArticles/feed";
 import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
-import { ARTICLE_SERIES, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags } from "./src/utils/songArticles/series";
+import { ARTICLE_SERIES, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags, groupingRelease } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 
 // 楽曲記事の予約公開(plan/43)の判定に使うビルド時刻。公開日時が未来の記事は、静的HTMLの一覧等に出さず、
@@ -1949,7 +1949,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         publishedAt: string | null;
         seriesSlug: string;
         tags: string[];
-        /** 初出の作品(一覧のアルバム絞り込みに使う)。無ければ null */
+        /** 一覧でまとめる作品(シングルよりアルバム・EP を優先。アルバムの絞り込みにも使う)。無ければ null */
         album: { title: string; releaseDate: string | null } | null;
         /** カードの表紙の画像。無ければ null */
         cover: string | null;
@@ -2131,7 +2131,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           publishedAt: article.publishedAt,
           seriesSlug: series.slug,
           tags,
-          album: songFacts.releases[0] ? { title: songFacts.releases[0].title, releaseDate: songFacts.releases[0].releaseDate } : null,
+          // 一覧でまとめる作品(シングルよりアルバム・EP を優先。タグは初出の作品のまま)
+          album: ((r) => (r ? { title: r.title, releaseDate: r.releaseDate } : null))(groupingRelease(songFacts.releases)),
           cover: articleCoverPath(slug),
           preview,
           unlisted,

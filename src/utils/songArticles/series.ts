@@ -56,6 +56,20 @@ export const songArticleTags = (input: {
   return [...new Set(tags)];
 };
 
+/**
+ * 読みもの一覧でまとめる作品(?album= の絞り込みも同じ)。シングルよりアルバム・EP など曲数の多いまとまりを優先する
+ * (2026-11-06 ユーザー「平面鏡は虚構集に入れて。グルーピングはシングルよりアルバムやEPなどより曲数の多いまとまりが優先」)。
+ * 形式の順: アルバム・ミニアルバム・EP → アナログ盤 → シングル → 配信シングルなど → ライヴ映像。同じ順なら発売の早い方。
+ * 曲数だけで選ぶと、武道館のライヴ盤(fullAL・12曲)が『No title-』(11曲)より先に来てしまうので形式で比べる。
+ */
+const GROUPING_FORMAT_RANK: Record<string, number> = { fullAL: 0, miniAL: 0, EP: 0, LP: 1, SG: 2, "DVD/BD": 4 };
+export const groupingRelease = <T extends { title: string; format?: string | null; releaseDate: string | null }>(releases: T[]): T | null => {
+  const rank = (r: T) => GROUPING_FORMAT_RANK[r.format ?? ""] ?? 3;
+  return (
+    [...releases].sort((a, b) => rank(a) - rank(b) || (a.releaseDate ?? "9999").localeCompare(b.releaseDate ?? "9999"))[0] ?? null
+  );
+};
+
 /** 一覧の絞り込み URL(タグは日本語を含むのでエンコードする) */
 export const tagFilterPath = (tag: string): string => `/articles/?tag=${encodeURIComponent(tag)}`;
 export const seriesPath = (slug: string): string => `/articles/series/${slug}/`;

@@ -1,4 +1,4 @@
-import { songArticleTags, tagFilterPath, seriesBySlug, SONG_ARTICLE_SERIES } from "../songArticles/series";
+import { songArticleTags, tagFilterPath, seriesBySlug, SONG_ARTICLE_SERIES, groupingRelease } from "../songArticles/series";
 
 describe("読みものの分類(plan/33)", () => {
   it("楽曲記事のシリーズは「曲を読む」", () => {
@@ -113,5 +113,36 @@ describe("splitTitleBySong", () => {
   });
   it("曲名が無ければ null", () => {
     expect(splitTitleBySong("雨の歌", "drop pop candy")).toBeNull();
+  });
+
+  it("一覧でまとめる作品は、シングルよりアルバム・EP。ライヴ映像は最後、同じ形式なら発売の早い方", () => {
+    const pick = (rs: { title: string; format: string; releaseDate: string }[]) => groupingRelease(rs)?.title;
+    // 平面鏡: 配信シングル → 虚構集(miniAL)
+    expect(
+      pick([
+        { title: "平面鏡", format: "配信SG", releaseDate: "2018-01-09" },
+        { title: "虚構集", format: "miniAL", releaseDate: "2018-03-14" },
+        { title: "美辞学 YOKOHAMA ARENA", format: "DVD/BD", releaseDate: "2026-06-03" },
+      ])
+    ).toBe("虚構集");
+    // No title: 曲数の多い武道館のライヴ盤(fullAL)より、早く出たアルバム
+    expect(
+      pick([
+        { title: "No title' in NIPPON BUDOKAN", format: "fullAL", releaseDate: "2025-08-27" },
+        { title: "No title-(アナログ盤)", format: "LP", releaseDate: "2024-08-17" },
+        { title: "No title-", format: "fullAL", releaseDate: "2014-08-17" },
+      ])
+    ).toBe("No title-");
+    // SCORPION: 配信シングル・シングルより BLACK BOX
+    expect(
+      pick([
+        { title: "SCORPION", format: "配信SG", releaseDate: "2022-10-28" },
+        { title: "COLORED DISC", format: "SG", releaseDate: "2022-11-16" },
+        { title: "BLACK BOX", format: "fullAL", releaseDate: "2023-10-18" },
+      ])
+    ).toBe("BLACK BOX");
+    // シングルにしか入っていない曲はそのシングル
+    expect(pick([{ title: "天井の街 - CEILING YOU", format: "配信SG", releaseDate: "2026-08-26" }])).toBe("天井の街 - CEILING YOU");
+    expect(groupingRelease([])).toBeNull();
   });
 });
