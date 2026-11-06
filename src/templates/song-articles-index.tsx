@@ -15,10 +15,12 @@
  *   いいね数は JS が動いた後に Supabase からまとめて読む(静的HTMLは新着順・数なし)。読めない時は数を出さず、いいね順は選べない。
  *   並べ替えは ?sort=likes で共有できる(?tag= と併用可)。
  * - 「新着順」のボタンはもう一度押すと「古い順」になる(2026-11-06 ユーザー「新着順をトグルにして、古い順にもなるようにして」)。?sort=old。
+ * - 「曲順」でも並べ替えられる(2026-11-06 ユーザー「ソート条件に曲順も追加して」)。?sort=track。
+ *   まとめる作品の発売の古い順に、作品の中は曲順。作品の無い記事は最後に。
  * - 記事ごとの表示回数(GA4)を出し、「よく読まれている順」でも並べ替えられる(2026-10-18 ユーザー指定。plan/46)。
  *   数はデプロイの前に GA から取ってページ情報に入れる(静的HTMLにも出る)。変わるのはデプロイの時だけ。?sort=views。
  */
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
@@ -47,7 +49,7 @@ type IndexEntry = {
   seriesSlug: string;
   tags: string[];
   /** まとめる作品(シングルよりアルバム・EP を優先。アルバムの絞り込みにも使う) */
-  album: { title: string; releaseDate: string | null } | null;
+  album: { title: string; releaseDate: string | null; trackNo?: number | null } | null;
   /** カードの表紙の画像(記事の表紙を撮ったもの。npm run articles:og)。無ければ null */
   cover?: string | null;
   preview: boolean;
@@ -55,6 +57,16 @@ type IndexEntry = {
   unlisted?: boolean;
   /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・限定公開は null */
   pageViews?: number | null;
+};
+
+/** 曲順: まとめる作品の発売の古い順(同じ日は作品名)、作品の中は曲順。作品の無い記事は最後 */
+const byTrack = (x: IndexEntry, y: IndexEntry): number => {
+  if (!x.album || !y.album) return x.album ? -1 : y.album ? 1 : 0;
+  return (
+    (x.album.releaseDate ?? "9999").localeCompare(y.album.releaseDate ?? "9999") ||
+    x.album.title.localeCompare(y.album.title) ||
+    (x.album.trackNo ?? 999) - (y.album.trackNo ?? 999)
+  );
 };
 
 /** 運営向けの公開状態の札(2026-10-13 ユーザー指定: 運営者にのみ、一覧に公開ステータスを表示) */
@@ -87,8 +99,8 @@ interface SongArticlesIndexContext {
   pageViewsAt?: string | null;
 }
 
-type SortKey = "new" | "old" | "likes" | "views";
-const SORT_KEYS: readonly SortKey[] = ["new", "old", "likes", "views"];
+type SortKey = "new" | "old" | "track" | "likes" | "views";
+const SORT_KEYS: readonly SortKey[] = ["new", "old", "track", "likes", "views"];
 
 const DESCRIPTION = "Reolの曲やライヴについての読みもの。";
 const NOTE =
@@ -215,6 +227,70 @@ const ArticleItem: React.FC<{
   );
 };
 
+/**
+ * アルバムごとの横一列。はみ出す分は横にスクロールする。
+ * 広い画面(sm 以上)では左右に矢印を出し、続きがあると分かるようにする(2026-11-06 ユーザー「PCで続きがあると分かるように左右の矢印を付けて」)。
+ * 矢印はその向きにまだ続きがある時だけ出す。狭い画面は次のカードが少し見えるので出さない(指で横にスクロールする)。
+ */
+const AlbumRow: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => {
+  const ref = useRef<HTMLUListElement>(null);
+  const [edge, setEdge] = useState({ prev: false, next: false, top: 0 });
+  useEffect(() => {
+    const ul = ref.current;
+    if (!ul) return;
+    const update = () => {
+      // 矢印の高さは表紙の画像の真ん中
+      const cover = ul.querySelector<HTMLElement>("li a > div");
+      setEdge({
+        prev: ul.scrollLeft > 1,
+        next: ul.scrollLeft + ul.clientWidth < ul.scrollWidth - 1,
+        top: cover ? cover.offsetHeight / 2 : 0,
+      });
+    };
+    update();
+    ul.addEventListener("scroll", update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(ul);
+    return () => {
+      ul.removeEventListener("scroll", update);
+      ro.disconnect();
+    };
+  }, []);
+  const go = (dir: 1 | -1) => {
+    const ul = ref.current;
+    if (!ul) return;
+    ul.scrollBy({ left: dir * ul.clientWidth, behavior: "smooth" });
+    trackEvent("article_list_album_scroll", { category: "navigation", label });
+  };
+  const arrow = (dir: 1 | -1) => (
+    <button
+      type="button"
+      onClick={() => go(dir)}
+      aria-label={`${label}の${dir === 1 ? "続き" : "前"}の記事`}
+      style={{ top: edge.top }}
+      className={`absolute z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bx-line bg-bx-bg/90 text-bx-ink shadow-lg transition-colors hover:border-bx-blue hover:text-bx-blue sm:flex ${
+        dir === 1 ? "-right-5" : "-left-5"
+      }`}
+    >
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path d={dir === 1 ? "M9 5l7 7-7 7" : "M15 5l-7 7 7 7"} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+  return (
+    <div className="relative">
+      {edge.prev && arrow(-1)}
+      <ul
+        ref={ref}
+        className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-3 sm:mx-0 sm:gap-5 sm:scroll-px-0 sm:px-0"
+      >
+        {children}
+      </ul>
+      {edge.next && arrow(1)}
+    </div>
+  );
+};
+
 const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext>> = ({
   pageContext,
   location,
@@ -267,7 +343,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
   };
   const hasViews = articles.some((a) => a.pageViews != null);
-  const sortable: Record<SortKey, boolean> = { new: true, old: true, likes: likeCounts !== null, views: hasViews };
+  const sortable: Record<SortKey, boolean> = { new: true, old: true, track: true, likes: likeCounts !== null, views: hasViews };
   const activeSort: SortKey = sortable[sort] ? sort : "new";
 
   // アルバム(まとめる作品)の一覧。発売日の古い順。記事の数も添える
@@ -307,6 +383,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
         ? [...filtered].sort((x, y) => (y.pageViews ?? 0) - (x.pageViews ?? 0))
         : activeSort === "old"
         ? [...filtered].reverse()
+        : activeSort === "track"
+        ? [...filtered].sort(byTrack)
         : filtered;
     // まだ公開していない記事(限定公開・予約公開・プレビュー)は、どの並べ替えでも一番上に(2026-11-05 ユーザー指定)。
     // 出るのは運営のログイン時だけ(上の articles の絞り込みはそのまま)
@@ -420,6 +498,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           {(
             [
               ["new", "新着順"],
+              ["track", "曲順"],
               ["likes", "いいねが多い順"],
               ["views", "よく読まれている順"],
             ] as const
@@ -507,12 +586,12 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                           </button>
                         )}
                       </header>
-                      {/* はみ出す分は横にスクロール。狭い画面は次のカードが少し見えるようにして、続きがあると分かるようにする */}
-                      <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-3 sm:mx-0 sm:gap-5 sm:scroll-px-0 sm:px-0">
+                      {/* はみ出す分は横にスクロール。狭い画面は次のカードが少し見え、広い画面は左右の矢印で続きがあると分かるようにする */}
+                      <AlbumRow label={g.title ?? "その他"}>
                         {g.items.map((a) => (
                           <ArticleItem key={a.slug} {...itemProps(a)} className={`w-[78%] max-w-[300px] shrink-0 snap-start sm:max-w-none ${card}`} />
                         ))}
-                      </ul>
+                      </AlbumRow>
                     </section>
                   );
                 })}

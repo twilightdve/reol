@@ -1950,7 +1950,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         seriesSlug: string;
         tags: string[];
         /** 一覧でまとめる作品(シングルよりアルバム・EP を優先。アルバムの絞り込みにも使う)。無ければ null */
-        album: { title: string; releaseDate: string | null } | null;
+        album: { title: string; releaseDate: string | null; trackNo: number | null } | null;
         /** カードの表紙の画像。無ければ null */
         cover: string | null;
         preview: boolean;
@@ -2024,7 +2024,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
 
         // 締めのクレジット等に使う、サイトの確認済みデータ(収録作・発売日・作詞作曲)。収録uuidから引く
-        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null; artist: string | null }>();
+        // trackNo: その作品での曲順(読みもの一覧の「曲順」の並べ替えに使う)
+        const releases = new Map<string, { title: string; format: string | null; releaseDate: string | null; artist: string | null; trackNo: number | null }>();
         let lyricMember: string | null = null;
         let musicMember: string | null = null;
         let tieup: string | null = null;
@@ -2036,7 +2037,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             tieup = tieup ?? (s.tieupDescription?.trim() || null);
             const title = disc.title ?? s.discographyTitle;
             if (title && !releases.has(disc.discographyUuid)) {
-              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate, artist: disc.name });
+              releases.set(disc.discographyUuid, { title, format: disc.format, releaseDate: disc.releaseDate, artist: disc.name, trackNo: s.songNo ?? null });
             }
           }
         }
@@ -2132,7 +2133,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           seriesSlug: series.slug,
           tags,
           // 一覧でまとめる作品(シングルよりアルバム・EP を優先。タグは初出の作品のまま)
-          album: ((r) => (r ? { title: r.title, releaseDate: r.releaseDate } : null))(groupingRelease(songFacts.releases)),
+          album: ((r) => (r ? { title: r.title, releaseDate: r.releaseDate, trackNo: r.trackNo } : null))(groupingRelease(songFacts.releases)),
           cover: articleCoverPath(slug),
           preview,
           unlisted,
