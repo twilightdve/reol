@@ -77,12 +77,64 @@ const HEADER_HEIGHT_PX = 64;
 // 枠がこの割合以上見えている間は枠の上に重ねる
 const DOCK_RATIO = 0.4;
 
+/**
+ * boxes の key の箱を、el(枠)の上にぴったり重ねる。el が無ければ置いた位置を外す。
+ * 枠の大きさ・ページの高さが変わった時(カードの開閉など)に置き直す
+ */
+const usePlaceOver = (
+  boxes: React.MutableRefObject<Map<string, HTMLDivElement>>,
+  key: string | null,
+  el: HTMLElement | null
+) => {
+  useLayoutEffect(() => {
+    const box = key ? boxes.current.get(key) : undefined;
+    if (!box) return;
+    if (!el) {
+      box.style.top = box.style.left = box.style.width = box.style.height = box.style.borderRadius = box.style.transform = "";
+      return;
+    }
+    const place = () => {
+      const r = el.getBoundingClientRect();
+      // 記事のデザインで枠が傾けてある時(ハルシアンの写真など)は、同じだけ傾けて重ねる。
+      // 傾いた枠の getBoundingClientRect は外接する四角なので、大きさは傾ける前の幅・高さ、位置は中心で合わせる
+      const angle = rotationOf(el);
+      const cs = angle ? getComputedStyle(el) : null;
+      const w = cs ? parseFloat(cs.width) : r.width;
+      const h = cs ? parseFloat(cs.height) : r.height;
+      box.style.top = `${r.top + r.height / 2 - h / 2 + window.scrollY}px`;
+      box.style.left = `${r.left + r.width / 2 - w / 2 + window.scrollX}px`;
+      box.style.width = `${w}px`;
+      box.style.height = `${h}px`;
+      box.style.transform = angle ? `rotate(${angle}rad)` : "";
+      // 枠の角丸に合わせる(記事ごとのデザインの角丸も写す)
+      box.style.borderRadius = getComputedStyle(el).borderRadius;
+    };
+    place();
+    let raf = 0;
+    // ふつうはスクロールしてもずれない。枠が横スクロールの中にある時などのために、スクロールでも測り直す
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(place);
+    };
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(place) : null;
+    ro?.observe(el);
+    ro?.observe(document.body);
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      ro?.disconnect();
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", onScroll, { capture: true });
+    };
+  }, [boxes, key, el]);
+};
+
 const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   const dispatch = useAppDispatch();
   const dict = useDict();
   const reducedMotion = useReducedMotion();
   const current = useAppSelector((state) => state.player.current);
-  const boxRef = useRef<HTMLDivElement>(null);
   const markerRef = useRef<HTMLSpanElement>(null);
   // Gatsby は Head API の描画でも wrapRootElement(= Body)を、文書に付いていない別の div にもう一度描く。
   // そちらのプレイヤーまで document.body に出ると2つ重なるので、本体(#___gatsby の中)にいる時だけ出す
@@ -94,33 +146,40 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
 
   useEffect(() => setMounted(markerRef.current?.closest("#___gatsby") != null), []);
 
-  // 押す前にプレイヤーを用意する枠(iPhone など。上の needsArmedPlayer)
-  const [armEnabled, setArmEnabled] = useState(false);
-  const [armed, setArmed] = useState<Armed | null>(null);
-  // 押す前に作った iframe の鍵。これと同じ鍵の再生は、その iframe のまま流す(autoplay を付け直すと作り直しになるため)
-  const [armedKey, setArmedKey] = useState<string | null>(null);
   // 再生を止めるたびに増やす。止めた後に用意するプレイヤーを、流れていたものとは別に作り直すため
   const [gen, setGen] = useState(0);
-  const playerRef = useRef<YTTarget | null>(null);
+  const currentKey = current ? `${mediaKey(current)}|${gen}` : null;
+  const currentMediaKey = current ? mediaKey(current) : null;
+
+  // 押す前にプレイヤーを用意する枠(iPhone など。上の needsArmedPlayer)。
+  // 別の動画が流れている間(小窓)も、その動画以外の枠に用意する(2026-11-06 ユーザー「mede:mede の記事で再生
+  // → orderly の記事を開いて再生すると2回目で再生された」)
+  const [armEnabled, setArmEnabled] = useState(false);
+  const [armed, setArmed] = useState<Armed | null>(null);
+  const [armedKey, setArmedKey] = useState<string | null>(null);
   // 用意したプレイヤーが読み込めた鍵。読み込める前は押しても何も起きないので、押した指は下の枠に通す
   const [armedReadyKey, setArmedReadyKey] = useState<string | null>(null);
-  const playerKeyRef = useRef<string | null>(null);
-  const currentRef = useRef(current);
-  currentRef.current = current;
+  // 押す前に用意して作ったプレイヤーの鍵。autoplay を付けずに作ったので、流れ始めた後も付けない(付け直すと作り直しになる)
+  const armedKeys = useRef(new Set<string>());
+  const players = useRef(new Map<string, YTTarget>());
+  const boxes = useRef(new Map<string, HTMLDivElement>());
   useEffect(() => setArmEnabled(needsArmedPlayer()), []);
 
-  const idle = !current;
+  const playingSlotId = current?.slotId;
   useEffect(() => {
-    if (!mounted || !armEnabled || !idle || isRelivePath(path) || typeof IntersectionObserver === "undefined") {
+    if (!mounted || !armEnabled || isRelivePath(path) || typeof IntersectionObserver === "undefined") {
       setArmed(null);
       return;
     }
     const ratios = new Map<Element, number>();
     let timer = 0;
+    // 用意してよい枠(流れている動画の枠・同じ動画の枠は除く。同じ動画の枠には流れている方が付き直す)
+    const candidates = () =>
+      listSlots().filter((x) => x.slotId !== playingSlotId && mediaKey(x.media) !== currentMediaKey);
     // 見えている割合が一番大きい枠を選ぶ。スクロールの途中で何度も作り直さないよう、少し待ってから選ぶ
     const choose = () =>
       setArmed((prev) => {
-        const slots = listSlots();
+        const slots = candidates();
         const kept = prev ? slots.find((x) => x.slotId === prev.slotId && x.el === prev.el) : undefined;
         if (kept && (ratios.get(kept.el) ?? 0) >= ARM_RATIO / 2) return prev;
         let best: Armed | null = null;
@@ -159,7 +218,7 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
       io.disconnect();
       unsubscribe();
     };
-  }, [mounted, armEnabled, idle, path]);
+  }, [mounted, armEnabled, path, playingSlotId, currentMediaKey]);
 
   // 再生を止めたら、次に用意するプレイヤーは作り直す(描く前に。止めた iframe を見えないまま残さない)
   const hadCurrent = useRef(false);
@@ -172,9 +231,11 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   }, [current]);
 
   const armedMediaKey = armed ? `${mediaKey(armed.media)}|${gen}` : null;
-  useEffect(() => {
-    if (!current) setArmedKey(armedMediaKey);
-  }, [armedMediaKey, current]);
+  useEffect(() => setArmedKey(armedMediaKey), [armedMediaKey]);
+  // 用意したプレイヤーを出すか。鍵が揃ってから出す(揃う前に出すと autoplay 付きで作ってしまう)
+  const showArmed = !!armed && armedKey !== null && armedKey === armedMediaKey && armedKey !== currentKey;
+  if (showArmed) armedKeys.current.add(armedKey);
+  const armedReady = showArmed && armedReadyKey === armedKey;
 
   useEffect(() => {
     if (mounted && current && isRelivePath(path)) dispatch(stopMedia());
@@ -203,58 +264,11 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   }, [slotEl]);
 
   const docked = !!current && !!slotEl && slotVisible;
-  // 押す前に用意したプレイヤーを出すか。鍵が揃ってから出す(揃う前に出すと autoplay 付きで作ってしまう)
-  const showArmed = !current && !!armed && armedKey !== null && armedKey === armedMediaKey;
-  const playerKey = current ? `${mediaKey(current)}|${gen}` : showArmed ? armedKey : null;
-  const fromArmed = playerKey !== null && playerKey === armedKey;
-  playerKeyRef.current = playerKey;
-  const armedReady = showArmed && armedReadyKey === playerKey;
-  // プレイヤーを重ねる枠
-  const placeEl = docked ? slotEl : showArmed ? armed.el : null;
 
-  // 枠の上に重ねる。枠の大きさ・ページの高さが変わった時(カードの開閉など)に置き直す
-  useLayoutEffect(() => {
-    const box = boxRef.current;
-    if (!box) return;
-    if (!placeEl) {
-      box.style.top = box.style.left = box.style.width = box.style.height = box.style.borderRadius = box.style.transform = "";
-      return;
-    }
-    const place = () => {
-      const r = placeEl.getBoundingClientRect();
-      // 記事のデザインで枠が傾けてある時(ハルシアンの写真など)は、同じだけ傾けて重ねる。
-      // 傾いた枠の getBoundingClientRect は外接する四角なので、大きさは傾ける前の幅・高さ、位置は中心で合わせる
-      const angle = rotationOf(placeEl);
-      const cs = angle ? getComputedStyle(placeEl) : null;
-      const w = cs ? parseFloat(cs.width) : r.width;
-      const h = cs ? parseFloat(cs.height) : r.height;
-      box.style.top = `${r.top + r.height / 2 - h / 2 + window.scrollY}px`;
-      box.style.left = `${r.left + r.width / 2 - w / 2 + window.scrollX}px`;
-      box.style.width = `${w}px`;
-      box.style.height = `${h}px`;
-      box.style.transform = angle ? `rotate(${angle}rad)` : "";
-      // 枠の角丸に合わせる(記事ごとのデザインの角丸も写す)
-      box.style.borderRadius = getComputedStyle(placeEl).borderRadius;
-    };
-    place();
-    let raf = 0;
-    // ふつうはスクロールしてもずれない。枠が横スクロールの中にある時などのために、スクロールでも測り直す
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(place);
-    };
-    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(place) : null;
-    ro?.observe(placeEl);
-    ro?.observe(document.body);
-    window.addEventListener("resize", place);
-    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      ro?.disconnect();
-      window.removeEventListener("resize", place);
-      window.removeEventListener("scroll", onScroll, { capture: true });
-    };
-  }, [placeEl]);
+  // 用意したプレイヤーは用意した枠の上に、流れているプレイヤーは枠が見えている間だけ枠の上に重ねる。
+  // 用意したプレイヤーが流れ始めると同じ箱が後者に移るので、この順(後の方が置き直す)
+  usePlaceOver(boxes, showArmed ? armedKey : null, showArmed ? armed.el : null);
+  usePlaceOver(boxes, currentKey, docked ? slotEl : null);
 
   // 小窓の時だけ、ヘッダーが画面に残っているかを見る
   useEffect(() => {
@@ -278,138 +292,140 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
     slotEl?.scrollIntoView({ block: "center", behavior: reducedMotion ? "auto" : "smooth" });
   }, [slotEl, reducedMotion]);
 
-  const playing = current ?? armed?.media;
-  const label = playing?.videoId ?? playing?.list ?? "";
-  const handlePlay = useCallback(() => {
-    UtilityService.gtag({ category: "youtube", action: "play", label });
-  }, [label]);
-  const handleEnd = useCallback(() => {
-    UtilityService.gtag({ category: "youtube", action: "end", label });
-  }, [label]);
-  const handleReady = useCallback((e: { target: YTTarget }) => {
-    playerRef.current = e.target;
-    if (currentRef.current) {
-      // 押した後に作ったプレイヤーは、読み込めた時点で API からも再生を指示する(autoplay が通らないブラウザ向け)
-      e.target.playVideo();
-    } else {
-      setArmedReadyKey(playerKeyRef.current);
-      // 押す前に用意したプレイヤーは見えないので、Tab で入らず読み上げもしない(操作は下の枠のボタンで)
-      void Promise.resolve(e.target.getIframe()).then((f) => {
-        f?.setAttribute("tabindex", "-1");
-        f?.setAttribute("aria-hidden", "true");
-      });
-    }
-  }, []);
-  // 用意したプレイヤーが押されて流れ始めたら(読み込み中も含む)、その枠で再生を始めたことにする(枠の start。計測も)
-  const handleStateChange = useCallback(
-    (e: { data: number }) => {
-      if ((e.data !== PLAYING && e.data !== BUFFERING) || currentRef.current || !armed) return;
-      setSlotEl(armed.el);
-      setSlotVisible(true);
-      armed.start();
-    },
-    [armed]
-  );
   // 用意したプレイヤーのまま再生に移った時。見えるようにして、まだ流れていなければ(枠のボタンをキーボードで押した時など)流す
   useEffect(() => {
-    const player = playerRef.current;
-    if (!current || !fromArmed || !player) return;
+    if (!currentKey || !armedKeys.current.has(currentKey)) return;
+    const player = players.current.get(currentKey);
+    if (!player) return;
     void Promise.resolve(player.getIframe()).then((f) => {
       f?.removeAttribute("tabindex");
       f?.removeAttribute("aria-hidden");
     });
     void Promise.resolve(player.getPlayerState()).then((state) => {
-      if (state !== PLAYING) player.playVideo();
+      if (state !== PLAYING && state !== BUFFERING) player.playVideo();
     });
-  }, [current, fromArmed]);
+  }, [currentKey]);
+
+  // 描かなくなったプレイヤーは忘れる
+  useEffect(() => {
+    for (const key of [...players.current.keys()]) {
+      if (key !== currentKey && key !== armedKey) players.current.delete(key);
+    }
+  }, [currentKey, armedKey]);
 
   const marker = <span ref={markerRef} hidden />;
-  const media = current ?? (showArmed ? armed.media : null);
-  if (!mounted || !media || playerKey === null) return marker;
-
-  const opts = {
-    width: "100%",
-    height: "100%",
-    // プライバシーポリシーの記載どおり youtube-nocookie.com から読み込む
-    host: "https://www.youtube-nocookie.com",
-    playerVars: {
-      // 押す前に用意したプレイヤーは、押されるまで流さない(流れ始めた後も同じ値のまま。変えると作り直しになる)
-      autoplay: fromArmed ? 0 : 1,
-      playsinline: 1,
-      rel: 0,
-      ...(media.start ? { start: Math.floor(media.start) } : {}),
-      ...(media.list ? { listType: "playlist", list: media.list } : {}),
-    },
-  } as unknown as Options;
+  if (!mounted || (!current && !showArmed)) return marker;
 
   const miniTop = isFullscreenVizPath(path) ? "top-[7.5rem]" : nearTop ? "top-[4.25rem]" : "top-2";
 
-  const panel = (
-    <div
-      ref={boxRef}
-      id="GlobalPlayer"
-      data-mode={docked ? "docked" : showArmed ? "armed" : "mini"}
-      role={showArmed ? undefined : "region"}
-      aria-label={showArmed ? undefined : dict.video.region}
-      aria-hidden={showArmed || undefined}
-      className={
-        docked
-          ? "absolute z-10 overflow-hidden bg-black"
-          : showArmed
-          ? // 押す前に用意したプレイヤー。見えないまま枠の上に重ね、押せる範囲だけ切り抜く
-            "absolute z-10 overflow-hidden opacity-0"
-          : `fixed right-2 ${miniTop} z-30 w-[min(46vw,20rem)] overflow-hidden rounded-lg border border-bx-line bg-bx-bg shadow-2xl shadow-black/60`
-      }
-      style={showArmed ? { clipPath: ARMED_HIT_AREA, pointerEvents: armedReady ? undefined : "none" } : undefined}
-    >
+  // 流れているプレイヤーと、押す前に用意したプレイヤー(最大2つ)。どちらも鍵で区別し、用意した方が流れ始めると
+  // 同じ箱のまま流れている方に移る(箱・iframe は作り直さない)
+  const items: { key: string; media: SlotMedia; isArmed: boolean }[] = [];
+  if (current && currentKey) items.push({ key: currentKey, media: current, isArmed: false });
+  if (showArmed && armedKey) items.push({ key: armedKey, media: armed.media, isArmed: true });
+
+  const panels = items.map(({ key, media, isArmed }) => {
+    const label = media.videoId ?? media.list ?? "";
+    const opts = {
+      width: "100%",
+      height: "100%",
+      // プライバシーポリシーの記載どおり youtube-nocookie.com から読み込む
+      host: "https://www.youtube-nocookie.com",
+      playerVars: {
+        // 押す前に用意したプレイヤーは、押されるまで流さない(流れ始めた後も同じ値のまま。変えると作り直しになる)
+        autoplay: armedKeys.current.has(key) ? 0 : 1,
+        playsinline: 1,
+        rel: 0,
+        ...(media.start ? { start: Math.floor(media.start) } : {}),
+        ...(media.list ? { listType: "playlist", list: media.list } : {}),
+      },
+    } as unknown as Options;
+    const overSlot = isArmed || docked;
+    return (
       <div
-        className={docked || showArmed ? "h-full w-full" : "relative w-full"}
-        style={docked || showArmed ? undefined : { aspectRatio: "16 / 9" }}
+        key={key}
+        ref={(el) => {
+          if (el) boxes.current.set(key, el);
+          else boxes.current.delete(key);
+        }}
+        id={isArmed ? undefined : "GlobalPlayer"}
+        data-mode={isArmed ? "armed" : docked ? "docked" : "mini"}
+        role={isArmed ? undefined : "region"}
+        aria-label={isArmed ? undefined : dict.video.region}
+        aria-hidden={isArmed || undefined}
+        className={
+          isArmed
+            ? // 押す前に用意したプレイヤー。見えないまま枠の上に重ね、押せる範囲だけ切り抜く
+              "absolute z-10 overflow-hidden opacity-0"
+            : docked
+            ? "absolute z-10 overflow-hidden bg-black"
+            : `fixed right-2 ${miniTop} z-30 w-[min(46vw,20rem)] overflow-hidden rounded-lg border border-bx-line bg-bx-bg shadow-2xl shadow-black/60`
+        }
+        style={isArmed ? { clipPath: ARMED_HIT_AREA, pointerEvents: armedReady ? undefined : "none" } : undefined}
       >
-        <YouTube
-          // 別の動画を選んだ時は iframe を作り直す(押した直後に作るので、そのまま再生が始まる)。
-          // 同じ動画のまま重ねる枠だけ替わった時や、用意したプレイヤーが押されて流れ始めた時は作り直さない(流れ続ける)
-          key={playerKey}
-          videoId={media.videoId}
-          opts={opts}
-          className="h-full w-full"
-          iframeClassName="h-full w-full"
-          title={media.title}
-          onReady={handleReady}
-          onStateChange={handleStateChange}
-          onPlay={handlePlay}
-          onEnd={handleEnd}
-        />
-      </div>
-      {!docked && !showArmed && current && (
-        <div className="flex items-center gap-1 py-1 pl-2 pr-1">
-          <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-bx-ink2">{media.title}</span>
-          {slotEl && (
+        <div className={overSlot ? "h-full w-full" : "relative w-full"} style={overSlot ? undefined : { aspectRatio: "16 / 9" }}>
+          <YouTube
+            videoId={media.videoId}
+            opts={opts}
+            className="h-full w-full"
+            iframeClassName="h-full w-full"
+            title={media.title}
+            onReady={(e: { target: YTTarget }) => {
+              players.current.set(key, e.target);
+              if (key === currentKey) {
+                // 押した後に作ったプレイヤーは、読み込めた時点で API からも再生を指示する(autoplay が通らないブラウザ向け)
+                e.target.playVideo();
+                return;
+              }
+              setArmedReadyKey(key);
+              // 押す前に用意したプレイヤーは見えないので、Tab で入らず読み上げもしない(操作は下の枠のボタンで)
+              void Promise.resolve(e.target.getIframe()).then((f) => {
+                f?.setAttribute("tabindex", "-1");
+                f?.setAttribute("aria-hidden", "true");
+              });
+            }}
+            onStateChange={(e: { data: number }) => {
+              // 用意したプレイヤーが押されて流れ始めたら(読み込み中も含む)、その枠で再生を始めたことにする(枠の start。計測も)
+              if (!isArmed || key === currentKey || !armed) return;
+              if (e.data !== PLAYING && e.data !== BUFFERING) return;
+              setSlotEl(armed.el);
+              setSlotVisible(true);
+              armed.start();
+            }}
+            onPlay={() => UtilityService.gtag({ category: "youtube", action: "play", label })}
+            onEnd={() => UtilityService.gtag({ category: "youtube", action: "end", label })}
+          />
+        </div>
+        {!isArmed && !docked && (
+          <div className="flex items-center gap-1 py-1 pl-2 pr-1">
+            <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-bx-ink2">{media.title}</span>
+            {slotEl && (
+              <button
+                type="button"
+                onClick={handleBack}
+                className="flex-shrink-0 rounded-full px-2 py-1 text-[10px] font-bold text-bx-ink2 transition-colors hover:text-bx-yellow"
+              >
+                {dict.video.back}
+              </button>
+            )}
             <button
               type="button"
-              onClick={handleBack}
-              className="flex-shrink-0 rounded-full px-2 py-1 text-[10px] font-bold text-bx-ink2 transition-colors hover:text-bx-yellow"
+              onClick={handleClose}
+              aria-label={dict.video.close}
+              className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-bx-ink2 transition-colors hover:bg-bx-line/60 hover:text-bx-ink"
             >
-              {dict.video.back}
+              <IoClose className="text-lg" aria-hidden="true" />
             </button>
-          )}
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label={dict.video.close}
-            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-bx-ink2 transition-colors hover:bg-bx-line/60 hover:text-bx-ink"
-          >
-            <IoClose className="text-lg" aria-hidden="true" />
-          </button>
-        </div>
-      )}
-    </div>
-  );
+          </div>
+        )}
+      </div>
+    );
+  });
 
   return (
     <>
       {marker}
-      {createPortal(panel, document.body)}
+      {createPortal(<>{panels}</>, document.body)}
     </>
   );
 };
