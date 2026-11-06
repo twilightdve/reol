@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { trackEvent, trackOfficialLinkClick } from "../../utils/analytics";
 import { usePlayerSlot } from "../player/PlayerSlot";
 
@@ -44,7 +44,12 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
   preferHighRes = false,
   start,
 }) => {
-  const slot = usePlayerSlot({ videoId, start, title: text });
+  // 計測は onStart で(iPhone などで、押す前に用意したプレイヤーを直接押して流れ始めた時も数える)
+  const onStart = useCallback(
+    () => trackEvent("article_media_open", { category: "engagement", label: articleId }),
+    [articleId]
+  );
+  const slot = usePlayerSlot({ videoId, start, title: text, onStart });
   const playing = slot.active;
   // 高解像度のサムネイル(maxresdefault)が無い動画もあるため、失敗したら hqdefault、それも失敗したら画像なし
   const [thumb, setThumb] = useState<"maxresdefault" | "hqdefault" | null>(
@@ -74,7 +79,6 @@ const OfficialMedia: React.FC<OfficialMediaProps> = ({
               // JSが動いている時だけページ内で再生する。修飾キー付きは通常のリンクとして開く
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
               e.preventDefault();
-              trackEvent("article_media_open", { category: "engagement", label: articleId });
               slot.start();
             }}
             // 枠が overflow-hidden で、サムネイルが全面を覆うため、フォーカス表示は ::after で画像の上に重ねる

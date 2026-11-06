@@ -54,20 +54,23 @@ export const usePlayerSlot = ({
   const active = useAppSelector((state) => state.player.current?.slotId === slotId);
   const current = useAppSelector((state) => state.player.current);
 
+  const startPlayback = useCallback(() => {
+    onStart?.();
+    dispatch(playMedia({ videoId, list, start, title, slotId }));
+  }, [dispatch, onStart, videoId, list, start, title, slotId]);
+  // 登録する start は描画のたびに替えない(onStart が描画ごとに作られても、登録し直さない)
+  const startRef = useRef(startPlayback);
+  startRef.current = startPlayback;
+
   // 再生前と再生中で付く要素が入れ替わっても登録し直せるよう、callback ref にする
   const unregister = useRef<(() => void) | null>(null);
   const ref = useCallback(
     (el: HTMLElement | null) => {
       unregister.current?.();
-      unregister.current = el ? registerSlot(slotId, el, { videoId, list, start, title }) : null;
+      unregister.current = el ? registerSlot(slotId, el, { videoId, list, start, title }, () => startRef.current()) : null;
     },
     [slotId, videoId, list, start, title]
   );
-
-  const startPlayback = useCallback(() => {
-    onStart?.();
-    dispatch(playMedia({ videoId, list, start, title, slotId }));
-  }, [dispatch, onStart, videoId, list, start, title, slotId]);
 
   useEffect(() => {
     if (autoStart && !active) startPlayback();

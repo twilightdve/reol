@@ -4,7 +4,7 @@ import YouTube from "react-youtube";
 import type { Options } from "youtube-player/dist/types";
 import { IoClose } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { playMedia, stopMedia } from "../../redux/slices/playerSlice";
+import { stopMedia } from "../../redux/slices/playerSlice";
 import { useDict } from "../../i18n/site/SiteLangContext";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { stripLangPrefix } from "../../utils/i18nRoutes";
@@ -61,10 +61,11 @@ const needsArmedPlayer = () => {
 const ARMED_HIT_AREA = "inset(56px 12% 44px 12%)";
 // 枠がこの割合以上見えたら、その枠に用意する。用意した枠は、この半分を下回るまで替えない
 const ARM_RATIO = 0.6;
-type Armed = { slotId: string; el: HTMLElement; media: SlotMedia };
+type Armed = { slotId: string; el: HTMLElement; media: SlotMedia; start: () => void };
 const mediaKey = (m: SlotMedia) => `${m.videoId ?? m.list ?? ""}|${m.start ?? 0}`;
-// YouTube の PlayerState.PLAYING
+// YouTube の PlayerState
 const PLAYING = 1;
+const BUFFERING = 3;
 type YTTarget = {
   playVideo: () => unknown;
   getPlayerState: () => number | Promise<number>;
@@ -101,6 +102,9 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   // 再生を止めるたびに増やす。止めた後に用意するプレイヤーを、流れていたものとは別に作り直すため
   const [gen, setGen] = useState(0);
   const playerRef = useRef<YTTarget | null>(null);
+  // 用意したプレイヤーが読み込めた鍵。読み込める前は押しても何も起きないので、押した指は下の枠に通す
+  const [armedReadyKey, setArmedReadyKey] = useState<string | null>(null);
+  const playerKeyRef = useRef<string | null>(null);
   const currentRef = useRef(current);
   currentRef.current = current;
   useEffect(() => setArmEnabled(needsArmedPlayer()), []);
@@ -203,6 +207,8 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
   const showArmed = !current && !!armed && armedKey !== null && armedKey === armedMediaKey;
   const playerKey = current ? `${mediaKey(current)}|${gen}` : showArmed ? armedKey : null;
   const fromArmed = playerKey !== null && playerKey === armedKey;
+  playerKeyRef.current = playerKey;
+  const armedReady = showArmed && armedReadyKey === playerKey;
   // プレイヤーを重ねる枠
   const placeEl = docked ? slotEl : showArmed ? armed.el : null;
 
@@ -286,6 +292,7 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
       // 押した後に作ったプレイヤーは、読み込めた時点で API からも再生を指示する(autoplay が通らないブラウザ向け)
       e.target.playVideo();
     } else {
+      setArmedReadyKey(playerKeyRef.current);
       // 押す前に用意したプレイヤーは見えないので、Tab で入らず読み上げもしない(操作は下の枠のボタンで)
       void Promise.resolve(e.target.getIframe()).then((f) => {
         f?.setAttribute("tabindex", "-1");
@@ -293,15 +300,15 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
       });
     }
   }, []);
-  // 用意したプレイヤーが押されて流れ始めたら、その枠で再生を始めたことにする
+  // 用意したプレイヤーが押されて流れ始めたら(読み込み中も含む)、その枠で再生を始めたことにする(枠の start。計測も)
   const handleStateChange = useCallback(
     (e: { data: number }) => {
-      if (e.data !== PLAYING || currentRef.current || !armed) return;
+      if ((e.data !== PLAYING && e.data !== BUFFERING) || currentRef.current || !armed) return;
       setSlotEl(armed.el);
       setSlotVisible(true);
-      dispatch(playMedia({ ...armed.media, slotId: armed.slotId }));
+      armed.start();
     },
-    [armed, dispatch]
+    [armed]
   );
   // 用意したプレイヤーのまま再生に移った時。見えるようにして、まだ流れていなければ(枠のボタンをキーボードで押した時など)流す
   useEffect(() => {
@@ -353,7 +360,7 @@ const GlobalPlayer: React.FC<{ pathname: string }> = ({ pathname }) => {
             "absolute z-10 overflow-hidden opacity-0"
           : `fixed right-2 ${miniTop} z-30 w-[min(46vw,20rem)] overflow-hidden rounded-lg border border-bx-line bg-bx-bg shadow-2xl shadow-black/60`
       }
-      style={showArmed ? { clipPath: ARMED_HIT_AREA } : undefined}
+      style={showArmed ? { clipPath: ARMED_HIT_AREA, pointerEvents: armedReady ? undefined : "none" } : undefined}
     >
       <div
         className={docked || showArmed ? "h-full w-full" : "relative w-full"}
