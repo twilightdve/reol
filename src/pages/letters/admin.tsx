@@ -7,7 +7,7 @@
  * - 刷った後に直された手紙は「再印刷が必要」、刷った後に取り下げた手紙は「抜き取りが必要」に出る。
  * GA のページ表示は送らない(gatsby-config)。検索にも出さない。
  */
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HeadFC } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { CardBack, CardFront, ScaledCard } from "../../components/letters/Postcard";
@@ -378,16 +378,24 @@ const AdminPage: React.FC = () => {
     window.history.replaceState(null, "", id ? `/letters/admin/?batch=${id}` : "/letters/admin/");
   };
 
+  // 二度押しで束が 2 つできないように、作っている間はボタンを止める(DB 側でも同じ版は重ねない)
+  const [creating, setCreating] = useState(false);
+  const creatingRef = useRef(false);
   const createBatch = async () => {
     const ids = shown.filter((l) => selected.has(l.id)).map((l) => l.id);
-    if (!ids.length) return;
-    const r = await adminCreateBatch(ids, LETTERS_PRINT_TEMPLATE);
+    if (!ids.length || creatingRef.current) return;
+    creatingRef.current = true;
+    setCreating(true);
+    const r = await adminCreateBatch(ids, LETTERS_PRINT_TEMPLATE).finally(() => {
+      creatingRef.current = false;
+      setCreating(false);
+    });
     if (!r.ok) {
-      setMsg(`束を作れませんでした(${r.error})`);
+      setMsg(r.error === "empty" ? "束に入れられる手紙がありませんでした(今の版が確認済みでないか、印刷していない別の束に入っています)。" : `束を作れませんでした(${r.error})`);
       return;
     }
     setSelected(new Set());
-    setMsg(r.skipped ? `${r.skipped}枚は確認済みの版が今の版でないため入れませんでした。` : "");
+    setMsg(r.skipped ? `${r.skipped}枚は、今の版が確認済みでないか、印刷していない別の束に入っているため入れませんでした。` : "");
     await reload();
     openBatch(r.batchId);
   };
@@ -467,7 +475,7 @@ const AdminPage: React.FC = () => {
                       <button type="button" className="lp-chip" onClick={() => setSelected(new Set(shown.map((l) => l.id)))}>
                         すべて選ぶ
                       </button>
-                      <button type="button" className="lp-primary" disabled={!selected.size} onClick={createBatch}>
+                      <button type="button" className="lp-primary" disabled={!selected.size || creating} onClick={createBatch}>
                         選んだ {selected.size} 枚で印刷の束を作る
                       </button>
                     </div>

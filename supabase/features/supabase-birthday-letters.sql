@@ -627,7 +627,8 @@ BEGIN
 END;
 $$;
 
--- 印刷の束を作る。確認済みの版 = 今の版で、取り下げていない手紙だけを、その版で固定する
+-- 印刷の束を作る。確認済みの版 = 今の版で、取り下げていない手紙だけを、その版で固定する。
+-- 同じ版がまだ印刷していない別の束に入っていれば入れない(ボタンの二度押しなどで束が重ならないように)
 CREATE OR REPLACE FUNCTION public.letters_admin_create_batch(p_ids uuid[], p_template text, p_note text DEFAULT NULL)
 RETURNS jsonb
 LANGUAGE plpgsql
@@ -641,12 +642,19 @@ BEGIN
   IF NOT public._letters_is_admin() THEN RAISE EXCEPTION 'forbidden'; END IF;
   IF p_template IS NULL OR p_template !~ '^[a-z0-9.-]{1,64}$' THEN RETURN jsonb_build_object('ok', false, 'error', 'invalid'); END IF;
 
+  -- 同時に 2 回届いた時は、後の方が先の束を見てから入れるように、対象の手紙を押さえる
+  PERFORM 1 FROM public.birthday_letters l WHERE l.id = ANY (p_ids) ORDER BY l.id FOR UPDATE;
   INSERT INTO public.birthday_letter_print_batches (template, note) VALUES (p_template, left(p_note, 200)) RETURNING id INTO v_batch;
   INSERT INTO public.birthday_letter_print_items (batch_id, position, letter_id, version)
   SELECT v_batch, row_number() OVER (ORDER BY x.ord), l.id, l.current_version
   FROM unnest(p_ids) WITH ORDINALITY AS x(id, ord)
   JOIN public.birthday_letters l ON l.id = x.id
   WHERE l.withdrawn_at IS NULL AND l.reviewed_version = l.current_version
+    AND NOT EXISTS (
+      SELECT 1 FROM public.birthday_letter_print_items i2
+      JOIN public.birthday_letter_print_batches b2 ON b2.id = i2.batch_id
+      WHERE i2.letter_id = l.id AND i2.version = l.current_version
+        AND b2.id <> v_batch AND b2.printed_at IS NULL AND b2.cancelled_at IS NULL)
   ON CONFLICT DO NOTHING;
   GET DIAGNOSTICS v_count = ROW_COUNT;
 
