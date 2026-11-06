@@ -399,7 +399,7 @@
     animation: a019-focus 7s ease-in-out infinite alternate;
   }
   .a019-loop__turn {
-    animation: a019-turn 80s linear infinite;
+    animation: a019-turn 45s linear infinite;
   }
   .a019-end {
     animation: a019-warm 5s ease-in-out infinite alternate;
