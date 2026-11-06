@@ -8,7 +8,7 @@
  *   その下(広い画面では右下)に、『極彩色』XFD と Spotify で聴くリンク。本文に聴くリンクの段落が無いので、サイトの曲データの Spotify から置く。
  * - 段落2の後: 横一本の軸(同じフレーズの繰り返し)に、形の違う音が上下から寄って、軸の上で受け止められる。
  *   (はじめは段落3の後。段落2の後のループの見取り図と置き換えた。2026-11-06 ユーザー指定)
- * - 段落4の後: 『極彩色』の6〜8曲目。ロジックエージェント(記事へ)→ -orderly- → mede:mede。
+ * - 段落4の後: 『極彩色』の6〜8曲目。ロジックエージェント(記事へ)→ -orderly- → mede:mede(記事へ)。
  * - 結び(段落5)の後: 軸の段が一周し、その先に空の升が続いていく。カーソルが次の升で待つ。
  * - 升の並び(どの升で鳴るか)は図としての抽象で、曲の譜面ではない(音源は未聴。本文の記述だけを使う)。図の言葉は本文の地の文から。
  *
@@ -162,7 +162,12 @@ const TrackFig: React.FC<{ articleId: string }> = ({ articleId }) => (
       </li>
       <li className="is-next">
         <span className="a018-tracks__no">08</span>
-        <span>mede:mede</span>
+        <Link
+          to="/articles/medemede/"
+          onClick={() => trackEvent("article_related_click", { category: "navigation", label: `${articleId}->reol-song-019` })}
+        >
+          mede:mede
+        </Link>
       </li>
     </ol>
   </nav>
