@@ -8,6 +8,7 @@ import { SiteLangProvider } from "./src/i18n/site/SiteLangContext";
 import { isSiteLang, DEFAULT_LANG, HTML_LANG } from "./src/i18n/site/langs";
 import { stripLangPrefix } from "./src/utils/i18nRoutes";
 import { OWNER_USER_ID } from "./src/constants/owner";
+import { GA_NO_TRACK_PATH_RE } from "./src/utils/letters/constants";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element, pathname }) => {
   return (
@@ -31,11 +32,12 @@ export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element, props }
 // 運営のログイン中は GA に送らない(2026-10-23 ユーザー指定。自分の確認で記事の表示回数が増えないように)。
 // 自動操作のブラウザ(navigator.webdriver。Claude が Playwright で開く確認)も送らない(2026-10-30 ユーザー指定)。
 // 保存済みのセッションが運営なら、gtag の設定より前に ga-disable-<測定ID> を立てる(gtag の公式の止め方)。
-// そのため <head> の先頭に置く。ログイン・ログアウトの後は AuthContext が切り替える
+// そのため <head> の先頭に置く。ログイン・ログアウトの後は AuthContext が切り替える。
+// 手紙企画の修正画面(URL の # に編集鍵)と運営画面は、誰が開いても送らない(plan/64。履歴の変化で送る計測が # 付きの URL を拾わないように)
 const gaOwnerOptOut = (): React.ReactNode => {
   const gaId = process.env.GA_MEASUREMENT_ID;
   if (!gaId) return null;
-  const js = `(function(){var k=${JSON.stringify(`ga-disable-${gaId}`)};window.__gaDisableKey=k;if(navigator.webdriver===true){window[k]=true;}try{var s=JSON.parse(localStorage.getItem("reol_user_session")||"null");if(s&&s.id===${JSON.stringify(OWNER_USER_ID)}){window[k]=true;}}catch(e){}})();`;
+  const js = `(function(){var k=${JSON.stringify(`ga-disable-${gaId}`)};window.__gaDisableKey=k;if(navigator.webdriver===true||${GA_NO_TRACK_PATH_RE}.test(location.pathname)){window[k]=true;}try{var s=JSON.parse(localStorage.getItem("reol_user_session")||"null");if(s&&s.id===${JSON.stringify(OWNER_USER_ID)}){window[k]=true;}}catch(e){}})();`;
   return <script key="ga-owner-optout" dangerouslySetInnerHTML={{ __html: js }} />;
 };
 

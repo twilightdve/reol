@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import toast from 'react-hot-toast'
 import { OWNER_USER_ID } from '../constants/owner'
+import { GA_NO_TRACK_PATH_RE } from '../utils/letters/constants'
 
 type CollectionNamespace = 'owned' | 'attended' | 'visited'
 const COLLECTION_NAMESPACES: CollectionNamespace[] = ['owned', 'attended', 'visited']
@@ -180,13 +181,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // 運営のログイン中は GA に送らない(2026-10-23 ユーザー指定。自分の確認で記事の表示回数が増えないように)。
   // ページを開いた直後は gatsby-ssr の先頭のスクリプトが保存済みのセッションから判定し、ここではログイン・ログアウトに追従する
   // セッションを復元する前(user がまだ null)に解除しないよう、ログアウトの判定は保存済みのセッションが消えたかで見る
-  // 自動操作のブラウザ(Claude の Playwright での確認)はログインの状態にかかわらず止めたままにする
+  // 自動操作のブラウザ(Claude の Playwright での確認)と、手紙企画の修正画面・運営画面(plan/64)は、ログインの状態にかかわらず止めたままにする
   useEffect(() => {
     if (typeof window === 'undefined') return
     const key = (window as unknown as { __gaDisableKey?: string }).__gaDisableKey
     if (!key) return
     const flags = window as unknown as Record<string, unknown>
-    if (navigator.webdriver === true) flags[key] = true
+    if (navigator.webdriver === true || GA_NO_TRACK_PATH_RE.test(window.location.pathname)) flags[key] = true
     else if (user) flags[key] = user.id === OWNER_USER_ID
     else if (!localStorage.getItem('reol_user_session')) flags[key] = false
   }, [user])

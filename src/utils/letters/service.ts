@@ -23,7 +23,8 @@ export type LetterContent = {
 };
 
 /** 一般向け(body は「Webでも公開」の時だけ。一覧では常に null) */
-export type PublicLetter = Omit<LetterContent, "body"> & { id: string; createdAt: string; body: LetterBody | null };
+/** bodyPending: 本人が本文を直して、運営の再確認を待っている(その間は前の本文も出さない) */
+export type PublicLetter = Omit<LetterContent, "body"> & { id: string; createdAt: string; body: LetterBody | null; bodyPending?: boolean };
 
 export type OwnLetter = {
   id: string;
@@ -143,7 +144,9 @@ export const adminListBatches = () => rpc<PrintBatchSummary[]>("letters_admin_ba
 
 export const adminGetBatch = (id: string) => rpc<PrintBatch | null>("letters_admin_batch", { p_batch: id });
 
-export const adminMarkPrinted = (id: string) => rpc<{ ok: boolean }>("letters_admin_mark_printed", { p_batch: id });
+/** printed は印刷画面に出したカードの ID。それ以外は束から外して、印刷済みの記録に残さない */
+export const adminMarkPrinted = (id: string, printed: string[]) =>
+  rpc<{ ok: boolean }>("letters_admin_mark_printed", { p_batch: id, p_printed: printed });
 
 export const adminCancelBatch = (id: string) => rpc<{ ok: boolean }>("letters_admin_cancel_batch", { p_batch: id });
 

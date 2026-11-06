@@ -14,6 +14,9 @@ export const LETTERS_SHIPPING_NOTE =
   "届いたメッセージから順に内容を確認・印刷し、締切後に一冊にまとめて、年内の発送を目指します。";
 
 /** 印刷テンプレートの版。用紙が決まって寸法や配置を変えたら上げる(印刷記録に残る) */
+/** GA に一切送らないページ(修正画面は URL の # に編集鍵がある。運営画面は非公開の本文を出す)。gatsby-ssr と AuthContext が使う */
+export const GA_NO_TRACK_PATH_RE = /^\/letters\/(edit|admin)(\/|$)/;
+
 export const LETTERS_PRINT_TEMPLATE = "postcard-100x148-v1";
 
 export type Motif = "color" | "water" | "stars";

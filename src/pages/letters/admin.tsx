@@ -210,7 +210,10 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
   }, [batch]);
   if (err) return <p className="lp-alert">{err}</p>;
   if (!batch) return <p className="lp-note">読み込んでいます…</p>;
-  const stale = batch.items.filter((i) => i.withdrawn || i.currentVersion !== i.version);
+  // 取り下げられた手紙は刷らない(印刷画面に出さず、「印刷した」の記録にも入れない)
+  const printable = batch.items.filter((i) => !i.withdrawn);
+  const withdrawnCount = batch.items.length - printable.length;
+  const stale = printable.filter((i) => i.currentVersion !== i.version);
   return (
     <>
       <div className="lp-noprint">
@@ -231,9 +234,14 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
             {over.size}枚の裏面で、本文が枠からはみ出しています(表の「はみ出し」)。このまま刷ると切れます。束から外すか、書いた人に直してもらってください。
           </p>
         )}
+        {withdrawnCount > 0 && (
+          <p className="lp-alert">
+            束を作った後に{withdrawnCount}枚が取り下げられました。印刷画面には出さず、「印刷した」と押しても記録に入れません。
+          </p>
+        )}
         {stale.length > 0 && (
           <p className="lp-alert">
-            束を作った後に、{stale.length}枚が直されたか取り下げられています(表の「今の版」を確認)。この束で刷っても記録は刷った版で残り、直された手紙は「再印刷が必要」に出ます。
+            束を作った後に、{stale.length}枚が直されています(表の「今の版」を確認)。この束で刷っても記録は刷った版で残り、直された手紙は「再印刷が必要」に出ます。
           </p>
         )}
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", margin: "14px 0 20px" }}>
@@ -248,7 +256,10 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
                 onClick={async () => {
                   if (over.size && !window.confirm(`${over.size}枚の本文がはみ出しています。それでも記録しますか。`)) return;
                   if (!window.confirm("この束を実際に印刷し終えましたか。印刷済みとして記録します。")) return;
-                  await adminMarkPrinted(batch.id);
+                  await adminMarkPrinted(
+                    batch.id,
+                    printable.map((i) => i.id),
+                  );
                   load();
                   onChanged();
                 }}
@@ -298,7 +309,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
         </table>
       </div>
       <div className="lp-print-pages">
-        {batch.items.map((i) => (
+        {printable.map((i) => (
           <React.Fragment key={i.id}>
             <div className="lp-print-page">
               <CardFront face={i.content} />
@@ -322,6 +333,15 @@ const AdminPage: React.FC = () => {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [batchId, setBatchId] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
+  // 他のサイトの枠(iframe)の中では開かない(見えない枠で運営の操作を押させる手口を防ぐ。GitHub Pages ではヘッダーで止められない)
+  const [framed, setFramed] = useState(false);
+  useEffect(() => {
+    try {
+      setFramed(window.top !== window.self);
+    } catch {
+      setFramed(true);
+    }
+  }, []);
 
   const reload = useCallback(async () => {
     setState((s) => (s === "ok" ? s : "loading"));
@@ -340,8 +360,8 @@ const AdminPage: React.FC = () => {
     if (b) setBatchId(b);
   }, []);
   useEffect(() => {
-    if (!loading && user) reload();
-  }, [loading, user, reload]);
+    if (!loading && user && !framed) reload();
+  }, [loading, user, reload, framed]);
 
   const shown = useMemo(() => (letters ?? []).filter((l) => inTab(l, tab)).reverse(), [letters, tab]);
   const counts = useMemo(() => Object.fromEntries(TABS.map((t) => [t.id, (letters ?? []).filter((l) => inTab(l, t.id)).length])), [letters]);
@@ -374,6 +394,7 @@ const AdminPage: React.FC = () => {
 
   const selectable = tab === "printable" || tab === "reprint";
 
+  if (framed) return null;
   return (
     <LettersShell current="admin">
       <section className="lp-section" style={{ paddingTop: 32 }}>

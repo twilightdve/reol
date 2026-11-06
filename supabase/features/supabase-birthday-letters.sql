@@ -61,14 +61,27 @@ CREATE TABLE IF NOT EXISTS public.birthday_letter_print_items (
   FOREIGN KEY (letter_id, version) REFERENCES public.birthday_letter_versions(letter_id, version)
 );
 
+-- 運営のアカウント。この SQL を実行した時点の twilightplc を、作成日時ごと覚える。
+-- ID は名前なので、運営が ID を変えたり退会したりした後に他人が同じ ID を取ると、名前だけの判定では運営になれてしまう。
+-- 作成日時も合う時だけ運営とする(ID を変えたら、この表を直すまで運営の関数は使えない = 安全な側に倒れる)
+CREATE TABLE IF NOT EXISTS public.birthday_letter_admins (
+  user_id text PRIMARY KEY,
+  profile_created_at timestamptz NOT NULL
+);
+INSERT INTO public.birthday_letter_admins (user_id, profile_created_at)
+SELECT p.id, p.created_at FROM public.profiles p WHERE p.id = 'twilightplc' AND p.created_at IS NOT NULL
+ON CONFLICT (user_id) DO NOTHING;
+
 ALTER TABLE public.birthday_letters ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_versions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_batches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.birthday_letter_admins ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON public.birthday_letters FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_versions FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_batches FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_items FROM anon, authenticated;
+REVOKE ALL ON public.birthday_letter_admins FROM anon, authenticated;
 
 -- ============================================================
 -- 2. 内部用(anon からは呼べない)
@@ -89,7 +102,11 @@ LANGUAGE sql
 STABLE
 SET search_path = ''
 AS $$
-  SELECT coalesce(public.request_session_user_id() = 'twilightplc', false);
+  SELECT EXISTS (
+    SELECT 1 FROM public.birthday_letter_admins a
+    JOIN public.profiles p ON p.id = a.user_id AND p.created_at = a.profile_created_at
+    WHERE a.user_id = public.request_session_user_id()
+  );
 $$;
 
 CREATE OR REPLACE FUNCTION public._letters_key_hash(p_key text)
@@ -120,7 +137,7 @@ LANGUAGE sql
 IMMUTABLE
 SET search_path = ''
 AS $$
-  SELECT p ~ '[[:cntrl:]]' OR p ~ '[\u00AD\u061C\u180E\u200B\u200C\u200E\u200F\u202A-\u202E\u2060-\u2069\uFEFF]';
+  SELECT p ~ '[[:cntrl:]]' OR p ~ '[\u00AD\u061C\u180E\u200B\u200C\u200E\u200F\u202A-\u202E\u2028\u2029\u2060-\u2069\uFEFF]';
 $$;
 
 -- 本文: [{ "a": "l"|"c", "r": [{ "t": 文字, "b": true, "c": 色, "s": "s"|"l" }] }]
@@ -214,8 +231,9 @@ END;
 $$;
 
 -- 一般向けに出してよい項目だけ。p_content は確認済みの版、p_current は今の版。
--- 本人が後から公開を狭めた変更(本文を「贈る本だけ」に、SNS を外す・変える)は、再確認を待たずにすぐ効かせる。
--- 本文は「Webでも公開」が両方の版で選ばれていて、p_with_body の時だけ
+-- 本人が後から直した所は、再確認を待たずに古い内容を下げる(本名を消した、などの修正がすぐ効くように):
+--   本文を「贈る本だけ」に変えた・本文を直した → 本文を出さない(直した時は bodyPending)/ SNS を外す・変えた → SNS を出さない。
+-- 本文は「Webでも公開」が両方の版で選ばれていて、本文が同じで、p_with_body の時だけ
 CREATE OR REPLACE FUNCTION public._letters_public_card(p_id uuid, p_content jsonb, p_current jsonb, p_created timestamptz, p_with_body boolean)
 RETURNS jsonb
 LANGUAGE sql
@@ -235,11 +253,13 @@ AS $$
     'motif', p_content -> 'motif',
     'visibility', CASE WHEN x.is_public THEN 'public' ELSE 'book' END,
     'createdAt', p_created,
-    'body', CASE WHEN p_with_body AND x.is_public THEN p_content -> 'body' END
+    'body', CASE WHEN p_with_body AND x.is_public AND x.body_same THEN p_content -> 'body' END,
+    'bodyPending', x.is_public AND NOT x.body_same
   )
   FROM (SELECT
     coalesce(p_content ->> 'visibility' = 'public' AND p_current ->> 'visibility' = 'public', false) AS is_public,
-    coalesce(p_content -> 'snsType' = p_current -> 'snsType' AND p_content -> 'snsId' = p_current -> 'snsId', false) AS sns_same
+    coalesce(p_content -> 'snsType' = p_current -> 'snsType' AND p_content -> 'snsId' = p_current -> 'snsId', false) AS sns_same,
+    coalesce(p_content -> 'body' = p_current -> 'body', false) AS body_same
   ) x;
 $$;
 
@@ -335,7 +355,7 @@ BEGIN
 END;
 $$;
 
--- 一般向けの 3 つの関数は確認済みの版を出す。ただし本人が後から差出人の名前を変えたら、再確認まで出さない
+-- 一般向けの 3 つの関数は確認済みの版を出す。ただし本人が後から差出人の名前か宛名を変えたら、再確認までカードごと出さない
 -- 届いた手紙の一覧(宛名面だけ。本文は返さない)
 -- p_order: 'new'(届いた順の新しい順)/ 'timeline'(宛先の日付の新しい順)
 CREATE OR REPLACE FUNCTION public.letters_public_list(
@@ -362,7 +382,7 @@ AS $$
     JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
     JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL
-      AND v.content -> 'sender' = c.content -> 'sender'
+      AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
       AND NOT l.web_hidden
       AND l.reviewed_version IS NOT NULL
       AND (p_event_key IS NULL OR v.content ->> 'eventKey' = p_event_key)
@@ -386,7 +406,7 @@ AS $$
   JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
   JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
   WHERE l.id = p_id
-    AND v.content -> 'sender' = c.content -> 'sender'
+    AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
     AND l.withdrawn_at IS NULL
     AND NOT l.web_hidden
     AND l.reviewed_version IS NOT NULL;
@@ -407,7 +427,7 @@ AS $$
     JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
     JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL AND NOT l.web_hidden AND l.reviewed_version IS NOT NULL
-      AND v.content -> 'sender' = c.content -> 'sender'
+      AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
     GROUP BY 1
   ) x;
 $$;
@@ -689,8 +709,10 @@ BEGIN
 END;
 $$;
 
--- 実際に印刷した後に、運営が押す(印刷画面を開いただけでは記録しない)
-CREATE OR REPLACE FUNCTION public.letters_admin_mark_printed(p_batch uuid)
+-- 実際に印刷した後に、運営が押す(印刷画面を開いただけでは記録しない)。
+-- p_printed は印刷画面に出したカード(画面を開いた時点で取り下げられていたものは刷らない)。
+-- それ以外は束から外し、印刷済みの記録に残さない。開いた後に取り下げられたものは刷った記録が残り、「抜き取りが必要」に出る
+CREATE OR REPLACE FUNCTION public.letters_admin_mark_printed(p_batch uuid, p_printed uuid[])
 RETURNS jsonb
 LANGUAGE plpgsql
 SECURITY DEFINER
@@ -698,9 +720,13 @@ SET search_path = ''
 AS $$
 BEGIN
   IF NOT public._letters_is_admin() THEN RAISE EXCEPTION 'forbidden'; END IF;
-  UPDATE public.birthday_letter_print_batches SET printed_at = now()
-   WHERE id = p_batch AND printed_at IS NULL AND cancelled_at IS NULL;
-  RETURN jsonb_build_object('ok', FOUND);
+  IF p_printed IS NULL THEN RETURN jsonb_build_object('ok', false, 'error', 'invalid'); END IF;
+  PERFORM 1 FROM public.birthday_letter_print_batches b
+   WHERE b.id = p_batch AND b.printed_at IS NULL AND b.cancelled_at IS NULL FOR UPDATE;
+  IF NOT FOUND THEN RETURN jsonb_build_object('ok', false); END IF;
+  DELETE FROM public.birthday_letter_print_items i WHERE i.batch_id = p_batch AND NOT (i.letter_id = ANY (p_printed));
+  UPDATE public.birthday_letter_print_batches SET printed_at = now() WHERE id = p_batch;
+  RETURN jsonb_build_object('ok', true);
 END;
 $$;
 
@@ -734,7 +760,7 @@ REVOKE ALL ON FUNCTION public.letters_admin_act(uuid, text, integer) FROM PUBLIC
 REVOKE ALL ON FUNCTION public.letters_admin_create_batch(uuid[], text, text) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_admin_batches() FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_admin_batch(uuid) FROM PUBLIC;
-REVOKE ALL ON FUNCTION public.letters_admin_mark_printed(uuid) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.letters_admin_mark_printed(uuid, uuid[]) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_admin_cancel_batch(uuid) FROM PUBLIC;
 
 GRANT EXECUTE ON FUNCTION public.letters_status() TO anon, authenticated;
@@ -751,7 +777,7 @@ GRANT EXECUTE ON FUNCTION public.letters_admin_act(uuid, text, integer) TO anon,
 GRANT EXECUTE ON FUNCTION public.letters_admin_create_batch(uuid[], text, text) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_batches() TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_batch(uuid) TO anon, authenticated;
-GRANT EXECUTE ON FUNCTION public.letters_admin_mark_printed(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.letters_admin_mark_printed(uuid, uuid[]) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_cancel_batch(uuid) TO anon, authenticated;
 
 COMMIT;

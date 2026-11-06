@@ -46,6 +46,7 @@ const CardPage: React.FC = () => {
               <p className="lp-intro">
                 {state.letter.sender}より
                 {state.letter.visibility === "book" && <> · 本文は贈る本だけに載せています</>}
+                {state.letter.bodyPending && <> · 本文は修正の確認中です</>}
               </p>
             </div>
             <div className="lp-sides" role="group" aria-label="カードの表裏">
@@ -64,7 +65,12 @@ const CardPage: React.FC = () => {
               </div>
               <div data-side="back">
                 <ScaledCard maxWidth={340} label="カードの裏">
-                  <CardBack motif={state.letter.motif} sender={state.letter.sender} body={state.letter.body} />
+                  <CardBack
+                    motif={state.letter.motif}
+                    sender={state.letter.sender}
+                    body={state.letter.body}
+                    hiddenNote={state.letter.bodyPending ? "この手紙の本文は、\n修正の確認中です。" : undefined}
+                  />
                 </ScaledCard>
               </div>
             </div>

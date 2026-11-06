@@ -173,6 +173,11 @@ const EditPage: React.FC = () => {
                   className="lp-text-link"
                   onClick={() => {
                     forgetMyLetter(cred.id);
+                    try {
+                      window.sessionStorage.removeItem(SESSION_KEY);
+                    } catch {
+                      // 消せなくても続ける
+                    }
                     setMine(loadMyLetters());
                     setState("list");
                   }}

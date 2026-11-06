@@ -25,7 +25,7 @@ export const bodyHasText = (body: LetterBody): boolean => /\S/.test(bodyText(bod
  * ゼロ幅接合子(U+200D)は絵文字の組み合わせに使うので残す
  */
 // eslint-disable-next-line no-control-regex
-const INVISIBLE_RE = /[\u0000-\u0009\u000b-\u001f\u007f-\u009f\u00ad\u061c\u180e\u200b\u200c\u200e\u200f\u202a-\u202e\u2060-\u2069\ufeff]/;
+const INVISIBLE_RE = /[\u0000-\u0009\u000b-\u001f\u007f-\u009f\u00ad\u061c\u180e\u200b\u200c\u200e\u200f\u202a-\u202e\u2028\u2029\u2060-\u2069\ufeff]/;
 const INVISIBLE_RE_G = new RegExp(INVISIBLE_RE.source, "g");
 
 /** 貼り付けなどで入った見えない文字を落とす(宛名・差出人・本文) */
