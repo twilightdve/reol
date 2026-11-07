@@ -1,12 +1,12 @@
 /**
- * 手紙をつくる(plan/64)。表面(宛名・差出人・SNS・絵柄)→ 本文 → 公開範囲と完成形の確認 → 投函。
+ * 手紙をつくる(plan/64)。宛名 → 差出人 → 絵柄 → 本文 → 公開範囲 → 確認して投函、を一画面ずつ。
  * 絵柄や表裏を切り替えても、書いた文章は消えない(状態は 1 か所で持つ)。
  * 本文がカードの枠に入らない時は投函できない(縮めたり切ったりしない)。
  */
-import React, { Suspense, useEffect, useId, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useId, useMemo, useRef, useState } from "react";
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
-import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, SnsType, Visibility } from "../../utils/letters/constants";
+import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
 
 const BodyEditor = React.lazy(() => import("./BodyEditor"));
@@ -52,34 +52,95 @@ type Props = {
   bodyResetKey?: string | number;
 };
 
+
+/** 一画面に一つずつ。宛先は年表で選ぶ(このコンポーネントの外) */
+const STEPS = [
+  { id: "address", label: "宛名", title: "カードの表に書く、宛名" },
+  { id: "sender", label: "差出人", title: "あなたの名前" },
+  { id: "motif", label: "絵柄", title: "カードの絵柄を選ぶ" },
+  { id: "body", label: "本文", title: "お祝いの言葉を書く" },
+  { id: "visibility", label: "公開", title: "本文を、どこまで見せる？" },
+  { id: "confirm", label: "確認", title: "この内容で送ります" },
+] as const;
+type StepId = (typeof STEPS)[number]["id"];
+type StepError = { step: StepId; message: string };
+
 export const Composer: React.FC<Props> = ({ mode, event, value, onChange, availability, submitState, onSubmit, onChooseAgain, bodyResetKey = 0 }) => {
+  const [step, setStep] = useState(0);
   const [side, setSide] = useState<"front" | "back">("front");
   const [consent, setConsent] = useState(false);
+  /** 「次へ」「投函する」を押したあとだけ、その画面のエラーを出す */
   const [showErrors, setShowErrors] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
   const editorLabel = useId();
+  const topRef = useRef<HTMLDivElement>(null);
+  const headRef = useRef<HTMLHeadingElement>(null);
+  const moved = useRef(false);
   const set = (patch: Partial<ComposerValue>) => onChange({ ...value, ...patch });
 
   const { fits, measureNode } = useBodyFits(value.body, value.motif);
   const length = bodyLength(value.body);
 
   const errors = useMemo(() => {
-    const e: string[] = [];
-    if (!event) e.push("宛先を年表から選んでください。");
-    if (!value.address.trim()) e.push("宛名を入れてください。");
-    if (value.address.trim().length > LIMITS.address) e.push(`宛名は${LIMITS.address}字までです。`);
-    if (!value.sender.trim()) e.push("差出人の名前を入れてください(ペンネームでかまいません)。");
-    if (value.sender.trim().length > LIMITS.sender) e.push(`差出人は${LIMITS.sender}字までです。`);
+    const e: StepError[] = [];
+    const add = (step: StepId, message: string) => e.push({ step, message });
+    if (!event) add("address", "宛先を年表から選んでください。");
+    if (!value.address.trim()) add("address", "宛名を入れてください。");
+    if (value.address.trim().length > LIMITS.address) add("address", `宛名は${LIMITS.address}字までです。`);
+    if (!value.sender.trim()) add("sender", "差出人の名前を入れてください(ペンネームでかまいません)。");
+    if (value.sender.trim().length > LIMITS.sender) add("sender", `差出人は${LIMITS.sender}字までです。`);
     if (value.snsType && !/^[A-Za-z0-9_.-]{1,40}$/.test(value.snsId.replace(/^@/, "").trim()))
-      e.push("SNS ID は英数字と _ . - の40字までで入れてください(載せない時は「載せない」に)。");
-    if (!bodyHasText(value.body)) e.push("本文を書いてください。");
-    if (length > LIMITS.bodyChars) e.push(`本文は${LIMITS.bodyChars.toLocaleString()}字までです。`);
-    if (!fits) e.push("本文がカードに入りきりません。文を短くするか、文字を小さくしてください。");
-    if (!value.visibility) e.push("本文をWebでも公開するか、贈る本だけに載せるかを選んでください。");
-    if (!consent) e.push("運営による確認・印刷への同意にチェックを入れてください。");
+      add("sender", "SNS ID は英数字と _ . - の40字までで入れてください(載せない時は「載せない」に)。");
+    if (!bodyHasText(value.body)) add("body", "本文を書いてください。");
+    if (length > LIMITS.bodyChars) add("body", `本文は${LIMITS.bodyChars.toLocaleString()}字までです。`);
+    if (!fits) add("body", "本文がカードに入りきりません。文を短くするか、文字を小さくしてください。");
+    if (!value.visibility) add("visibility", "本文をWebでも公開するか、贈る本だけに載せるかを選んでください。");
+    if (!consent) add("confirm", "運営による確認・印刷への同意にチェックを入れてください。");
     return e;
   }, [event, value, length, fits, consent]);
+
+  const current = STEPS[step];
+  const stepErrors = current.id === "confirm" ? errors : errors.filter((e) => e.step === current.id);
+  /** その画面より前が全部埋まっていれば、上の段から飛べる */
+  const firstInvalid = STEPS.findIndex((s) => s.id !== "confirm" && errors.some((e) => e.step === s.id));
+  const reachable = (i: number) => firstInvalid === -1 || i <= firstInvalid;
+
+  // 宛先を選び直したら、宛名(選んだ宛先から入れ直される)の画面に戻す
+  useEffect(() => {
+    if (mode === "new") setStep(0);
+  }, [mode, event?.key]);
+
+  // 画面を替えたら、その画面の頭から。読み上げにも見出しを伝える
+  useEffect(() => {
+    if (!moved.current) return;
+    moved.current = false;
+    setSide(STEPS[step].id === "body" ? "back" : "front");
+    const top = topRef.current;
+    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: "start" });
+    headRef.current?.focus({ preventScroll: true });
+  }, [step]);
+
+  const goTo = (i: number) => {
+    if (i === step || i < 0 || i >= STEPS.length) return;
+    moved.current = true;
+    setShowErrors(false);
+    setStep(i);
+  };
+
+  const next = () => {
+    if (stepErrors.length) {
+      setShowErrors(true);
+      return;
+    }
+    goTo(step + 1);
+  };
+
+  /** 入力欄で Enter を押したら次へ(変換の確定の Enter は除く) */
+  const enterToNext = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.nativeEvent.isComposing && e.keyCode !== 229) {
+      e.preventDefault();
+      next();
+    }
+  };
 
   const canSend = availability === "open" && submitState.kind !== "sending";
 
@@ -108,9 +169,203 @@ export const Composer: React.FC<Props> = ({ mode, event, value, onChange, availa
   };
 
   const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif };
+  const stepIndex = (id: StepId) => STEPS.findIndex((s) => s.id === id);
+  const fix = (id: StepId) => (
+    <button type="button" className="lp-text-link" onClick={() => goTo(stepIndex(id))}>
+      直す
+    </button>
+  );
+
+  const fields = (() => {
+    switch (current.id) {
+      case "address":
+        return (
+          <div>
+            <label className="lp-label" htmlFor="lp-address">
+              宛名 <small>{value.address.length}/{LIMITS.address}</small>
+            </label>
+            <input
+              id="lp-address"
+              className="lp-input"
+              value={value.address}
+              maxLength={LIMITS.address}
+              onChange={(e) => set({ address: e.target.value })}
+              onKeyDown={enterToNext}
+              placeholder="極彩色のれをる様へ"
+              autoComplete="off"
+              enterKeyHint="next"
+            />
+            <div className="lp-name-chips" role="group" aria-label="呼びかけを変える">
+              {NAME_SUFFIXES.map((s) => (
+                <button key={s} type="button" className="lp-chip" onClick={() => switchName(s)}>
+                  …{s}
+                </button>
+              ))}
+            </div>
+            <p className="lp-note" style={{ marginTop: 10 }}>
+              選んだ宛先から入れてあります。このままでも、書き換えてもかまいません。
+            </p>
+          </div>
+        );
+      case "sender":
+        return (
+          <>
+            <div>
+              <label className="lp-label" htmlFor="lp-sender">
+                差出人(表に載ります) <small>{value.sender.length}/{LIMITS.sender}</small>
+              </label>
+              <input
+                id="lp-sender"
+                className="lp-input"
+                value={value.sender}
+                maxLength={LIMITS.sender}
+                onChange={(e) => set({ sender: e.target.value })}
+                onKeyDown={enterToNext}
+                placeholder="ペンネームでかまいません"
+                autoComplete="nickname"
+                enterKeyHint="next"
+              />
+            </div>
+            <div>
+              <span className="lp-label" id="lp-sns-label">
+                SNS(任意・表に載ります)
+              </span>
+              <div className="lp-sns">
+                <select
+                  className="lp-select"
+                  aria-labelledby="lp-sns-label"
+                  value={value.snsType}
+                  onChange={(e) => set({ snsType: e.target.value as SnsType | "", ...(e.target.value ? {} : { snsId: "" }) })}
+                >
+                  <option value="">載せない</option>
+                  {SNS_TYPES.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.label}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  className="lp-input"
+                  aria-label="SNS ID"
+                  value={value.snsId}
+                  maxLength={LIMITS.snsId + 1}
+                  disabled={!value.snsType}
+                  onChange={(e) => set({ snsId: e.target.value })}
+                  onKeyDown={enterToNext}
+                  placeholder="@ID"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  inputMode="email"
+                  enterKeyHint="next"
+                />
+              </div>
+            </div>
+          </>
+        );
+      case "motif":
+        return (
+          <div>
+            <div className="lp-motifs" role="group" aria-label="カードの絵柄">
+              {MOTIFS.map((m) => (
+                <button key={m.id} type="button" aria-pressed={value.motif === m.id} onClick={() => set({ motif: m.id })}>
+                  <span className={`lp-swatch ${m.id}`} aria-hidden />
+                  {m.label}
+                </button>
+              ))}
+            </div>
+            <p className="lp-note" style={{ marginTop: 10 }}>
+              表と裏の両方に使います。あとから変えても、書いた文章は消えません。
+            </p>
+          </div>
+        );
+      case "body":
+        return (
+          <div>
+            <span className="lp-label" id={editorLabel}>
+              手紙の本文(裏に載ります)
+            </span>
+            <Suspense fallback={<div className="lp-editor" style={{ minHeight: 280 }} />}>
+              <BodyEditor value={value.body} resetKey={bodyResetKey} onChange={(body) => set({ body })} length={length} fits={fits} labelId={editorLabel} />
+            </Suspense>
+            <p className="lp-note" style={{ marginTop: 8 }}>
+              装飾は太字・文字の色・大きさ・中央寄せだけです。カードは実寸(100×148mm)で組んでいて、入りきらない時は投函できません。
+            </p>
+          </div>
+        );
+      case "visibility":
+        return (
+          <div>
+            <p className="lp-note" style={{ marginBottom: 12 }}>
+              どちらも、贈る本には全文を載せます。
+            </p>
+            <div className="lp-privacy single" role="group" aria-label="本文の公開範囲">
+              <button type="button" aria-pressed={value.visibility === "public"} onClick={() => set({ visibility: "public" })}>
+                Webでも公開する<small>運営が確認したあと、だれでも表裏を読めます。</small>
+              </button>
+              <button type="button" aria-pressed={value.visibility === "book"} onClick={() => set({ visibility: "book" })}>
+                贈る本だけに掲載する<small>Webには宛名面だけを出します。本文は運営が確認し、本に印刷します。</small>
+              </button>
+            </div>
+            <p className="lp-note" style={{ marginTop: 12 }} aria-live="polite">
+              {value.visibility === "book"
+                ? "Webに出るのは宛名面(宛名・差出人・SNS ID・絵柄)だけです。本文は運営が読み、贈る本に印刷します。"
+                : value.visibility === "public"
+                  ? "Webに出る内容：宛名・差出人・SNS ID・絵柄・本文。"
+                  : "本文をどちらにしても、表面の宛名・差出人・SNS ID・絵柄はWebに公開されます。"}
+            </p>
+          </div>
+        );
+      case "confirm":
+        return (
+          <>
+            <dl className="lp-summary">
+              <div>
+                <dt>宛名</dt>
+                <dd>{value.address}</dd>
+                {fix("address")}
+              </div>
+              <div>
+                <dt>差出人</dt>
+                <dd>
+                  {value.sender}
+                  {value.snsType && value.snsId && (
+                    <small>
+                      {snsLabel(value.snsType)} @{value.snsId.replace(/^@/, "")}
+                    </small>
+                  )}
+                </dd>
+                {fix("sender")}
+              </div>
+              <div>
+                <dt>絵柄</dt>
+                <dd>{MOTIFS.find((m) => m.id === value.motif)?.label}</dd>
+                {fix("motif")}
+              </div>
+              <div>
+                <dt>本文</dt>
+                <dd>{length.toLocaleString()}字</dd>
+                {fix("body")}
+              </div>
+              <div>
+                <dt>公開</dt>
+                <dd>{value.visibility === "public" ? "Webでも公開する" : value.visibility === "book" ? "贈る本だけに掲載する" : "まだ選んでいません"}</dd>
+                {fix("visibility")}
+              </div>
+            </dl>
+            <label className="lp-consent">
+              <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
+              <span>
+                運営(!Legit)が内容を確認し、カードに印刷してファンレターブックにまとめ、Reolさん宛てに贈ることに同意します。
+                本文を「贈る本だけ」にしても、運営は本文を読みます。届いた本は、先方のスタッフの方も確認します。
+              </span>
+            </label>
+          </>
+        );
+    }
+  })();
 
   return (
-    <>
+    <div ref={topRef} className={`lp-composer${current.id === "confirm" ? " is-confirm" : ""}`}>
       <div className="lp-chosen">
         {event ? (
           <>
@@ -135,101 +390,54 @@ export const Composer: React.FC<Props> = ({ mode, event, value, onChange, availa
         )}
       </div>
 
+      {availability === "unavailable" && <p className="lp-alert">いまは受付の準備中です。書いた手紙はこの端末に残しておけます。</p>}
+      {availability === "closed" && (
+        <p className="lp-alert">{mode === "new" ? "受付は終了しました(2026年12月20日 23:59まで)。" : "修正の受付は終了しました。直したい時は運営の X(@twilightplc)までご連絡ください。"}</p>
+      )}
+
+      <ol className="lp-steps" aria-label="手紙をつくる手順">
+        {STEPS.map((s, i) => (
+          <li key={s.id}>
+            <button
+              type="button"
+              aria-current={i === step ? "step" : undefined}
+              className={i < step ? "is-done" : undefined}
+              disabled={!reachable(i)}
+              onClick={() => goTo(i)}
+            >
+              <span aria-hidden>{i + 1}</span>
+              {s.label}
+            </button>
+          </li>
+        ))}
+      </ol>
+
       <div className="lp-atelier">
         <div className="lp-fields">
-          <div>
-            <label className="lp-label" htmlFor="lp-address">
-              宛名 <small>{value.address.length}/{LIMITS.address}</small>
-            </label>
-            <input
-              id="lp-address"
-              className="lp-input"
-              value={value.address}
-              maxLength={LIMITS.address}
-              onChange={(e) => set({ address: e.target.value })}
-              placeholder="極彩色のれをる様へ"
-              autoComplete="off"
-            />
-            <div className="lp-name-chips" role="group" aria-label="呼びかけを変える">
-              {NAME_SUFFIXES.map((s) => (
-                <button key={s} type="button" className="lp-chip" onClick={() => switchName(s)}>
-                  …{s}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <label className="lp-label" htmlFor="lp-sender">
-              差出人(表に載ります) <small>{value.sender.length}/{LIMITS.sender}</small>
-            </label>
-            <input
-              id="lp-sender"
-              className="lp-input"
-              value={value.sender}
-              maxLength={LIMITS.sender}
-              onChange={(e) => set({ sender: e.target.value })}
-              placeholder="ペンネームでかまいません"
-              autoComplete="nickname"
-            />
-          </div>
-          <div>
-            <span className="lp-label" id="lp-sns-label">
-              SNS(任意・表に載ります)
+          <div className="lp-step-head">
+            <span className="lp-eyebrow">
+              STEP {step + 1} / {STEPS.length}
             </span>
-            <div className="lp-sns">
-              <select
-                className="lp-select"
-                aria-labelledby="lp-sns-label"
-                value={value.snsType}
-                onChange={(e) => set({ snsType: e.target.value as SnsType | "", ...(e.target.value ? {} : { snsId: "" }) })}
-              >
-                <option value="">載せない</option>
-                {SNS_TYPES.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.label}
-                  </option>
-                ))}
-              </select>
-              <input
-                className="lp-input"
-                aria-label="SNS ID"
-                value={value.snsId}
-                maxLength={LIMITS.snsId + 1}
-                disabled={!value.snsType}
-                onChange={(e) => set({ snsId: e.target.value })}
-                placeholder="@ID"
-                autoCapitalize="none"
-                autoCorrect="off"
-                inputMode="email"
-              />
-            </div>
+            <h3 ref={headRef} tabIndex={-1}>
+              {current.id === "confirm" && mode === "edit" ? "この内容に直します" : current.title}
+            </h3>
           </div>
-          <div>
-            <span className="lp-label">カードの絵柄</span>
-            <div className="lp-motifs" role="group" aria-label="カードの絵柄">
-              {MOTIFS.map((m) => (
-                <button key={m.id} type="button" aria-pressed={value.motif === m.id} onClick={() => set({ motif: m.id })}>
-                  <span className={`lp-swatch ${m.id}`} aria-hidden />
-                  {m.label}
-                </button>
+          {fields}
+          {showErrors && stepErrors.length > 0 && (
+            <ul className="lp-errors" role="alert">
+              {stepErrors.map((e) => (
+                <li key={e.message}>
+                  {e.message}
+                  {current.id === "confirm" && e.step !== "confirm" && <> {fix(e.step)}</>}
+                </li>
               ))}
-            </div>
-          </div>
-          <div>
-            <span className="lp-label" id={editorLabel}>
-              手紙の本文(裏に載ります)
-            </span>
-            {hydrated ? (
-              <Suspense fallback={<div className="lp-editor" style={{ minHeight: 280 }} />}>
-                <BodyEditor value={value.body} resetKey={bodyResetKey} onChange={(body) => set({ body })} length={length} fits={fits} labelId={editorLabel} />
-              </Suspense>
-            ) : (
-              <div className="lp-editor" style={{ minHeight: 280 }} />
-            )}
-            <p className="lp-note" style={{ marginTop: 8 }}>
-              装飾は太字・文字の色・大きさ・中央寄せだけです。カードは実寸(100×148mm)で組んでいて、入りきらない時は投函できません。
+            </ul>
+          )}
+          {current.id === "confirm" && submitState.kind === "error" && (
+            <p className="lp-alert" role="alert">
+              {submitState.message}
             </p>
-          </div>
+          )}
         </div>
 
         <div className="lp-preview">
@@ -266,64 +474,31 @@ export const Composer: React.FC<Props> = ({ mode, event, value, onChange, availa
         </div>
       </div>
 
-      <div className="lp-section" style={{ paddingBottom: 0 }}>
-        <p className="lp-label" style={{ fontSize: 15 }}>
-          手紙の本文を、どこまで見せる？
-        </p>
-        <p className="lp-note" style={{ marginBottom: 12 }}>
-          どちらも、贈る本には全文を載せます。
-        </p>
-        <div className="lp-privacy" role="group" aria-label="本文の公開範囲">
-          <button type="button" aria-pressed={value.visibility === "public"} onClick={() => set({ visibility: "public" })}>
-            Webでも公開する<small>運営が確認したあと、だれでも表裏を読めます。</small>
+      <div className="lp-step-nav">
+        {step > 0 ? (
+          <button type="button" className="lp-secondary" onClick={() => goTo(step - 1)}>
+            <span aria-hidden>←</span> 戻る
           </button>
-          <button type="button" aria-pressed={value.visibility === "book"} onClick={() => set({ visibility: "book" })}>
-            贈る本だけに掲載する<small>Webには宛名面だけを出します。本文は運営が確認し、本に印刷します。</small>
-          </button>
-        </div>
-        <p className="lp-note" style={{ marginTop: 12 }} aria-live="polite">
-          {value.visibility === "book"
-            ? "Webに出るのは宛名面(宛名・差出人・SNS ID・絵柄)だけです。本文は運営が読み、贈る本に印刷します。"
-            : value.visibility === "public"
-              ? "Webに出る内容：宛名・差出人・SNS ID・絵柄・本文。"
-              : "本文をどちらにしても、表面の宛名・差出人・SNS ID・絵柄はWebに公開されます。"}
-        </p>
-      </div>
-
-      <div className="lp-submit">
-        <label className="lp-consent">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-          <span>
-            運営(!Legit)が内容を確認し、カードに印刷してファンレターブックにまとめ、Reolさん宛てに贈ることに同意します。
-            本文を「贈る本だけ」にしても、運営は本文を読みます。届いた本は、先方のスタッフの方も確認します。
-          </span>
-        </label>
-        {showErrors && errors.length > 0 && (
-          <ul className="lp-errors" role="alert">
-            {errors.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ul>
+        ) : (
+          <span />
         )}
-        {submitState.kind === "error" && (
-          <p className="lp-alert" role="alert">
-            {submitState.message}
-          </p>
-        )}
-        {availability === "unavailable" && <p className="lp-alert">いまは受付の準備中です。書いた手紙はこの端末に残しておけます。</p>}
-        {availability === "closed" && (
-          <p className="lp-alert">{mode === "new" ? "受付は終了しました(2026年12月20日 23:59まで)。" : "修正の受付は終了しました。直したい時は運営の X(@twilightplc)までご連絡ください。"}</p>
-        )}
-        <div>
+        {current.id === "confirm" ? (
           <button type="button" className="lp-primary" onClick={handleSubmit} disabled={!canSend}>
             {submitState.kind === "sending" ? "送っています…" : mode === "new" ? "この手紙を投函する" : "この内容に直す"}
             <span aria-hidden>↗</span>
           </button>
-        </div>
-        <p className="lp-note">
+        ) : (
+          <button type="button" className="lp-primary" onClick={next}>
+            次へ · {STEPS[step + 1].label}
+            <span aria-hidden>→</span>
+          </button>
+        )}
+      </div>
+      {current.id === "confirm" && (
+        <p className="lp-note lp-step-after" style={{ marginTop: 12 }}>
           運営が確認してから、Webの「届いた手紙」に載ります。{mode === "new" ? "投函したあと、この手紙を直すためのURLをお渡しします。" : ""}
         </p>
-      </div>
-    </>
+      )}
+    </div>
   );
 };

@@ -38,13 +38,40 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
     const isField = (t: EventTarget | null) =>
       t instanceof HTMLElement &&
       (t.isContentEditable || t.tagName === "TEXTAREA" || (t instanceof HTMLInputElement && !["checkbox", "radio", "button", "submit"].includes(t.type)));
-    const onIn = (e: FocusEvent) => setTyping(isField(e.target));
-    const onOut = () => setTyping(false);
+    // 入力欄の下のボタン(「次へ」など)を押した時は、指やマウスを離すまで下部ナビを戻さない
+    // (押した瞬間に戻すと、ナビがボタンに重なって押せない)
+    let pointerDown = false;
+    let pendingOut = false;
+    const onIn = (e: FocusEvent) => {
+      if (isField(e.target)) {
+        pendingOut = false;
+        setTyping(true);
+      } else onOut();
+    };
+    const onOut = () => {
+      if (pointerDown) pendingOut = true;
+      else setTyping(false);
+    };
+    const onDown = () => {
+      pointerDown = true;
+    };
+    const onUp = () => {
+      pointerDown = false;
+      if (!pendingOut) return;
+      pendingOut = false;
+      window.setTimeout(() => setTyping(isField(document.activeElement)), 0);
+    };
     document.addEventListener("focusin", onIn);
     document.addEventListener("focusout", onOut);
+    document.addEventListener("pointerdown", onDown, true);
+    document.addEventListener("pointerup", onUp, true);
+    document.addEventListener("pointercancel", onUp, true);
     return () => {
       document.removeEventListener("focusin", onIn);
       document.removeEventListener("focusout", onOut);
+      document.removeEventListener("pointerdown", onDown, true);
+      document.removeEventListener("pointerup", onUp, true);
+      document.removeEventListener("pointercancel", onUp, true);
     };
   }, []);
 

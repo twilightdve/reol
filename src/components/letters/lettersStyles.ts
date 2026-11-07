@@ -179,6 +179,22 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-consent input{width:22px;height:22px;margin-top:4px;flex-shrink:0;accent-color:var(--accent)}
 .lp-submit{display:flex;flex-direction:column;gap:14px;margin-top:28px;border-top:1px solid var(--line);padding-top:24px}
 .lp-errors{margin:0;padding-left:1.2em;color:var(--accent);font-size:13px;line-height:1.9}
+.lp-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;list-style:none;margin:0 0 26px;padding:0}
+.lp-steps button{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;min-height:52px;padding:6px 0 8px;background:transparent;border:0;border-bottom:2px solid var(--line);font-size:12px;color:var(--muted)}
+.lp-steps button span{font:11px/1.4 Arial,sans-serif;letter-spacing:.08em}
+.lp-steps button.is-done{border-bottom-color:var(--gold);color:var(--ink)}
+.lp-steps button[aria-current=step]{border-bottom-color:var(--ink);color:var(--ink);font-weight:600}
+.lp-steps button[disabled]{cursor:default;opacity:.55}
+.lp-step-head .lp-eyebrow{display:block;margin-bottom:4px}
+.lp-step-head h3{margin:0;font:500 20px/1.6 var(--serif);outline:none}
+.lp-step-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
+.lp-step-nav .lp-primary{gap:18px}
+.lp-privacy.single{grid-template-columns:1fr}
+.lp-summary{margin:0;border-top:1px solid var(--line)}
+.lp-summary>div{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.lp-summary dt{font-size:12px;color:var(--muted)}
+.lp-summary dd{margin:0;font-size:14px;overflow-wrap:anywhere}
+.lp-summary dd small{display:block;color:var(--muted);font-size:12px}
 .lp-done{border:1px solid var(--accent);background:#fff;padding:22px}
 .lp-done h3{font:500 22px/1.6 var(--serif);color:var(--accent)}
 .lp-copy{display:flex;gap:8px;align-items:stretch;margin:10px 0}
@@ -265,6 +281,8 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 
 @media(max-width:1100px){.lp-wrap{padding:0 32px}.lp-art{transform:scale(.82);transform-origin:center right;margin-left:-35px}.lp-birthday .wish{font-size:36px}.lp-birthday .artist{font-size:105px}.lp-bridge{grid-template-columns:170px 1fr}.lp-route{display:none}.lp-atelier{grid-template-columns:1fr 1fr;gap:26px}}
 @media(max-width:860px){.lp-atelier{display:flex;flex-direction:column;gap:30px}.lp-preview{position:static;width:100%}.lp-fields{width:100%}}
+/* スマホでは「次へ」を入力のすぐ下に(カードの見本はその下)。確認の画面だけ、カードを見てから送る */
+@media(max-width:860px){.lp-composer{display:flex;flex-direction:column}.lp-composer>.lp-atelier{display:contents}.lp-composer .lp-preview{order:2;margin-top:34px}.lp-composer .lp-step-nav{order:1}.lp-composer .lp-step-after{order:3}.lp-composer.is-confirm .lp-preview{order:1}}
 @media(max-width:780px){
 .lp{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
 .lp-wrap{padding:0 20px}
