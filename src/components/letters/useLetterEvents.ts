@@ -15,6 +15,7 @@ export const useLetterEvents = (): { events: LetterEvent[]; byKey: Map<string, L
           name
           format
           songs {
+            songUuid
             songName
           }
         }

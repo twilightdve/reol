@@ -114,12 +114,12 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
       </div>
       {dock && (
         <nav className="lp-dock lp-noprint" aria-label="手紙づくり">
-          <a href="#timeline">
-            <small>01</small>宛先を選ぶ
-          </a>
           <a href="#letter">
-            <small>02</small>お祝いを書く
+            <small>01</small>お祝いを書く
           </a>
+          <Link to="/letters/read/">
+            <small>02</small>届いた手紙を読む
+          </Link>
         </nav>
       )}
     </div>

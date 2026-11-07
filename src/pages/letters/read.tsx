@@ -103,7 +103,7 @@ const ReadPage: React.FC = () => {
         {state === "error" && <p className="lp-alert">読み込めませんでした。通信を確かめて、ページを読み込み直してください。</p>}
         {state === "ok" && items.length === 0 && (
           <p className="lp-note">
-            まだ載せている手紙はありません。<Link to="/letters/">最初の一通を書く</Link>
+            まだ載せている手紙はありません。届いた手紙は、運営が内容を確認してから、ここに載せます。<Link to="/letters/">手紙を書く</Link>
           </p>
         )}
         <div className="lp-grid">

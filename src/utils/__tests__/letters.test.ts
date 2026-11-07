@@ -93,4 +93,28 @@ describe("宛先の年表(plan/64)", () => {
     expect(events[0].sub).toBe("れをる / ワンマンライヴ / 2公演");
     expect(events[0].href).toBe("/live/s1/");
   });
+
+  test("曲は時代ごとに、いちばん早く出た 1 つにまとめる。3 つの名義以外は近い日付の時代へ", () => {
+    const events = buildLetterEvents(
+      [
+        { discographyUuid: "a", slug: "a", title: "極彩色", releaseDate: "2015-07-29", name: "れをる", format: "fullAL", songs: [{ songUuid: "s-a1", songName: "ハーメルン" }, { songUuid: "s-a2", songName: "極彩色" }] },
+        { discographyUuid: "b", slug: "b", title: "ハーメルン", releaseDate: "2015-05-01", name: "れをる", format: "SG", songs: [{ songUuid: "s-b1", songName: "ハーメルン" }] },
+        { discographyUuid: "c", slug: "c", title: "ゆめ", releaseDate: "2015-06-01", name: "あにょすぺにょすゃゃ", format: "SG", songs: [{ songUuid: "s-c1", songName: "ゆめ" }] },
+        { discographyUuid: "d", slug: "d", title: "歌", releaseDate: "2014-01-01", name: "れをる", format: "歌ってみた", songs: [{ songUuid: "s-d1", songName: "歌" }] },
+        { discographyUuid: "e", slug: "e", title: "金字塔", releaseDate: "2020-01-01", name: "Reol", format: "fullAL", songs: [{ songUuid: "s-e1", songName: "ハーメルン" }] },
+      ],
+      []
+    );
+    const songs = events.filter((e) => e.kind === "song");
+    expect(songs.map((e) => e.key).sort()).toEqual(["song:s-a2", "song:s-b1", "song:s-c1", "song:s-e1"]);
+    const hameln = songs.find((e) => e.key === "song:s-b1")!;
+    expect(hameln.defaultAddress).toBe("ハーメルンのれをる様へ");
+    expect(hameln.sub).toBe("シングル");
+    expect(songs.find((e) => e.key === "song:s-a2")!.sub).toBe("フルアルバム");
+    expect(songs.find((e) => e.key === "song:s-e1")!.defaultAddress).toBe("ハーメルンのReolへ");
+    const other = events.find((e) => e.key === "song:s-c1")!;
+    expect(other.era).toBe("reoru");
+    expect(other.defaultAddress).toBe("ゆめのれをる様へ");
+    expect(events.some((e) => e.key === "song:s-d1")).toBe(false);
+  });
 });

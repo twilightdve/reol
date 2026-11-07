@@ -1,12 +1,12 @@
 /**
  * 手紙の宛先にする年表(plan/64)。サイトの DISCOGRAPHY / LIVE のシート(公開情報)から作る。
- * 宛先のキーは release:<discographyUuid> / live:<liveUuid> / era:<時代> で、表記が変わっても同じ宛先を指す。
- * 既定の宛名は、その作品・ライヴの名義から作る(れをる → 様へ、REOL / Reol → へ)。
- * 3 つの名義以外(あにょすぺにょすゃゃ など)は名義を当てはめず「〜のあなたへ」にする(本人が書き換える)。
+ * 宛先のキーは song:<songUuid> / release:<discographyUuid> / live:<liveUuid> / era:<時代> で、表記が変わっても同じ宛先を指す。
+ * 既定の宛名は、その曲・作品・ライヴの名義から作る(れをる → 様へ、REOL / Reol → へ)。
+ * 3 つの名義以外(あにょすぺにょすゃゃ など)は、日付のいちばん近い出来事の時代に入れる(手紙は時代を選んでから書くため)。
  */
 import { Era, LIMITS } from "./constants";
 
-export type LetterEventKind = "release" | "cover" | "live" | "era";
+export type LetterEventKind = "song" | "release" | "cover" | "live" | "era";
 
 export type LetterEvent = {
   key: string;
@@ -31,7 +31,7 @@ type DiscInput = {
   releaseDate: string | null;
   name: string | null;
   format: string | null;
-  songs?: ({ songName: string | null } | null)[] | null;
+  songs?: ({ songUuid?: string | null; songName: string | null } | null)[] | null;
 };
 
 type LiveInput = {
@@ -121,6 +121,43 @@ export const buildLetterEvents = (discs: DiscInput[], lives: LiveInput[]): Lette
       searchText: [l.title, l.name, ...places].join(" ").toLowerCase(),
       href: first?.slug ? `/live/${first.slug}/` : null,
     });
+  }
+
+  // 曲(歌ってみた・映像作品以外の収録曲)。同じ時代の同じ曲名は、いちばん早く出た 1 つにまとめる
+  const songs = new Map<string, LetterEvent>();
+  for (const d of discs) {
+    const date = (d.releaseDate ?? "").slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date > LAST_DATE || d.format === "歌ってみた" || d.format === "DVD/BD") continue;
+    const era = eraOfName(d.name);
+    for (const s of d.songs ?? []) {
+      const name = (s?.songName ?? "").trim();
+      if (!s?.songUuid || !name) continue;
+      const id = `${era}:${name.normalize("NFKC").toLowerCase()}`;
+      const prev = songs.get(id);
+      if (prev && prev.date <= date) continue;
+      songs.set(id, {
+        key: `song:${s.songUuid}`,
+        kind: "song",
+        date,
+        title: name,
+        sub: [d.title !== name ? `『${d.title}』` : "", FORMAT_LABELS[d.format ?? ""] ?? d.format].filter(Boolean).join(" / "),
+        era,
+        defaultAddress: buildAddress(name, era),
+        searchText: [name, d.title, d.name].join(" ").toLowerCase(),
+        href: `/discography/#disc-${d.slug}`,
+      });
+    }
+  }
+  events.push(...songs.values());
+
+  // 3 つの名義以外は、日付のいちばん近い出来事の時代へ(宛名もその時代の呼び方に)
+  const known = events.filter((e) => e.era !== "other");
+  const dayOf = (d: string) => Date.parse(`${d}T00:00:00Z`);
+  for (const e of events) {
+    if (e.era !== "other" || !known.length) continue;
+    const near = known.reduce((a, b) => (Math.abs(dayOf(b.date) - dayOf(e.date)) < Math.abs(dayOf(a.date) - dayOf(e.date)) ? b : a));
+    e.era = near.era;
+    e.defaultAddress = buildAddress(e.title, near.era, e.kind === "live" ? "あのライヴの" : "あの日の");
   }
 
   // 新しい順(同じ日は作品 → ライヴ)

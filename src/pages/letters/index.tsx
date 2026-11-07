@@ -1,12 +1,11 @@
 /**
  * /letters/ — Legitの件名のない郵便やさん(Reol 誕生日の手紙企画。plan/64)。
- * 入口(Happy Birthday, Reol)→ 年表で宛先を選ぶ → 手紙をつくる → 投函。
+ * 入口(Happy Birthday, Reol)→ 手紙をつくる(時期 → 曲 → 宛名 … → 投函を一画面ずつ。Composer)。
  * 手紙はビルドに入れない。投函は Supabase の関数(letters_submit)へ。保存が確かめられてから「受け付けました」と出す。
  */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
-import { LetterTimeline } from "../../components/letters/LetterTimeline";
 import { ChosenEvent, Composer, ComposerValue, emptyComposer, SubmitState } from "../../components/letters/Composer";
 import { useLetterEvents } from "../../components/letters/useLetterEvents";
 import {
@@ -86,7 +85,6 @@ const LettersPage: React.FC = () => {
   const choose = useCallback((e: LetterEvent) => {
     setEvent(toChosen(e));
     setValue((v) => ({ ...v, address: e.defaultAddress }));
-    window.requestAnimationFrame(() => document.getElementById("letter")?.scrollIntoView({ block: "start" }));
   }, []);
 
   const send = async (content: LetterContent & { consent: true }) => {
@@ -138,7 +136,7 @@ const LettersPage: React.FC = () => {
     setEvent(null);
     setValue(emptyComposer());
     setBodyResetKey((k) => k + 1);
-    document.getElementById("timeline")?.scrollIntoView({ block: "start" });
+    window.requestAnimationFrame(() => document.getElementById("letter")?.scrollIntoView({ block: "start" }));
   };
 
   return (
@@ -227,7 +225,7 @@ const LettersPage: React.FC = () => {
             </strong>
             <small>日本時間</small>
           </p>
-          <a className="lp-primary" href="#timeline">
+          <a className="lp-primary" href="#letter">
             お祝いの手紙を書く <span aria-hidden>↗</span>
           </a>
           <Link className="lp-text-link" to="/letters/read/">
@@ -236,7 +234,7 @@ const LettersPage: React.FC = () => {
         </div>
         <p className="lp-hero-intro">
           <span>好きな曲、忘れられないライヴ。</span>
-          <span>あの頃のあなたへ、今日の「おめでとう」を。</span>
+          <span>あの頃のれをるへ、今日の「おめでとう」を。</span>
         </p>
       </section>
 
@@ -254,25 +252,10 @@ const LettersPage: React.FC = () => {
         </div>
       </div>
 
-      <section className="lp-section" id="timeline">
-        <div className="lp-section-head">
-          <div>
-            <div className="lp-eyebrow">01 / FIND YOUR MOMENT</div>
-            <h2>どの頃のあなたへ、書こう。</h2>
-          </div>
-          <p className="lp-intro">
-            出会った日も、あとから好きになった曲も。
-            <br />
-            あなたの思いが向かう場所を、宛先に。
-          </p>
-        </div>
-        <LetterTimeline events={events} selectedKey={event?.key ?? null} counts={counts} onChoose={choose} />
-      </section>
-
       <section className="lp-section" id="letter" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="lp-section-head">
           <div>
-            <div className="lp-eyebrow">02 / MAKE YOUR LETTER</div>
+            <div className="lp-eyebrow">01 / MAKE YOUR LETTER</div>
             <h2>
               <span style={{ display: "inline-block" }}>好きな一枚に、</span>
               <span style={{ display: "inline-block" }}>あなたの言葉を。</span>
@@ -329,7 +312,9 @@ const LettersPage: React.FC = () => {
             submitState={submitState}
             onSubmit={send}
             bodyResetKey={bodyResetKey}
-            onChooseAgain={() => document.getElementById("timeline")?.scrollIntoView({ block: "start" })}
+            events={events}
+            counts={counts}
+            onChoose={choose}
           />
         )}
       </section>
@@ -352,7 +337,7 @@ const LettersPage: React.FC = () => {
           </div>
         </div>
         <div>
-          <div className="lp-eyebrow">03 / FROM US, TO YOU</div>
+          <div className="lp-eyebrow">02 / FROM US, TO YOU</div>
           <h2>おめでとうを、一冊に。</h2>
           <p>
             11月9日のお祝いに、いろんな時代へ宛てた言葉を。一枚ずつ印刷して、ファンレターブックとしてReolへ贈ります。

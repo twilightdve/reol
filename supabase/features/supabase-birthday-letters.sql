@@ -200,7 +200,7 @@ DECLARE
   v_visibility text := public._letters_str(p, 'visibility');
 BEGIN
   IF p IS NULL OR jsonb_typeof(p) <> 'object' THEN RAISE EXCEPTION 'invalid:letter'; END IF;
-  IF v_event_key IS NULL OR v_event_key !~ '^(release|live|era):[A-Za-z0-9-]{1,64}$' THEN RAISE EXCEPTION 'invalid:eventKey'; END IF;
+  IF v_event_key IS NULL OR v_event_key !~ '^(song|release|live|era):[A-Za-z0-9-]{1,64}$' THEN RAISE EXCEPTION 'invalid:eventKey'; END IF;
   IF v_event_label IS NULL OR length(v_event_label) NOT BETWEEN 1 AND 80 OR public._letters_bad_chars(v_event_label) THEN RAISE EXCEPTION 'invalid:eventLabel'; END IF;
   IF v_event_date IS NOT NULL AND v_event_date !~ '^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$' THEN RAISE EXCEPTION 'invalid:eventDate'; END IF;
   IF v_era IS NULL OR v_era NOT IN ('reoru', 'unit', 'reol', 'other') THEN RAISE EXCEPTION 'invalid:era'; END IF;

@@ -179,7 +179,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-consent input{width:22px;height:22px;margin-top:4px;flex-shrink:0;accent-color:var(--accent)}
 .lp-submit{display:flex;flex-direction:column;gap:14px;margin-top:28px;border-top:1px solid var(--line);padding-top:24px}
 .lp-errors{margin:0;padding-left:1.2em;color:var(--accent);font-size:13px;line-height:1.9}
-.lp-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;list-style:none;margin:0 0 26px;padding:0}
+.lp-steps{display:grid;gap:4px;list-style:none;margin:0 0 26px;padding:0}
 .lp-steps button{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;min-height:52px;padding:6px 0 8px;background:transparent;border:0;border-bottom:2px solid var(--line);font-size:12px;color:var(--muted)}
 .lp-steps button span{font:11px/1.4 Arial,sans-serif;letter-spacing:.08em}
 .lp-steps button.is-done{border-bottom-color:var(--gold);color:var(--ink)}
@@ -190,6 +190,13 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-step-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
 .lp-step-nav .lp-primary{gap:18px}
 .lp-privacy.single{grid-template-columns:1fr}
+.lp-atelier.is-picking{display:block}
+.lp-atelier.is-picking .lp-preview{display:none}
+.lp-eras.is-steps{grid-template-columns:repeat(3,1fr);margin:0}
+.lp-eras.is-steps .lp-era{min-height:96px}
+.lp-song-skip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px}
+.lp-song-skip .lp-note{flex:1 1 280px}
+.lp-song-skip .lp-secondary[aria-pressed=true]{border-color:var(--accent);background:var(--soft)}
 .lp-summary{margin:0;border-top:1px solid var(--line)}
 .lp-summary>div{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
 .lp-summary dt{font-size:12px;color:var(--muted)}
@@ -330,6 +337,8 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-section-head h2{font-size:24px;line-height:1.75}
 .lp-section-head .lp-intro{margin-top:12px}
 .lp-eras{grid-template-columns:1fr;gap:8px}
+.lp-eras.is-steps{grid-template-columns:1fr}
+.lp-eras.is-steps .lp-era{min-height:72px}
 .lp-era{min-height:60px;padding:10px 14px}
 .lp-tl-layout{display:block}
 .lp-years{position:sticky;top:0;z-index:3;flex-direction:row;overflow-x:auto;max-height:none;background:var(--paper);border-top:0;border-bottom:1px solid var(--line);padding:6px 0;margin:0 -20px 0;padding-left:20px;gap:14px;scrollbar-width:none}
