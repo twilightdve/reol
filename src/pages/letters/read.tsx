@@ -27,9 +27,12 @@ const fetchAllPublic = async (): Promise<PublicLetter[]> => {
 };
 
 /** 運営の一覧を、年表に置く形に(取り下げた手紙は出さない) */
+/** 宛先がこの一年の出来事の手紙だけを出す(前の宛先はボツになった案のテスト用。DB には残す) */
+const isThisYear = (l: { eventKey: string }) => YEAR_EVENT_BY_KEY.has(l.eventKey);
+
 const fromAdmin = (ls: AdminLetter[]): ChronoLetter[] =>
   ls
-    .filter((l) => !l.withdrawnAt)
+    .filter((l) => !l.withdrawnAt && isThisYear(l.content))
     .map((l) => ({
       ...l.content,
       id: l.id,
@@ -60,7 +63,7 @@ const ReadPage: React.FC = () => {
   const load = async (offset: number) => {
     try {
       const list = await fetchPublicLetters({ eventKey, order, limit: PAGE, offset });
-      setItems((prev) => (offset === 0 ? list : [...prev, ...list]));
+      setItems((prev) => (offset === 0 ? list : [...prev, ...list]).filter(isThisYear));
       setHasMore(list.length === PAGE);
       setState("ok");
     } catch (e) {
@@ -80,7 +83,7 @@ const ReadPage: React.FC = () => {
     setState("loading");
     fetchAllPublic()
       .then((ls) => {
-        setChrono(ls);
+        setChrono(ls.filter(isThisYear));
         setState("ok");
       })
       .catch((e) => setState(e instanceof LettersError && e.code === "unavailable" ? "unavailable" : "error"));
