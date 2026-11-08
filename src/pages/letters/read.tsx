@@ -114,7 +114,8 @@ const ReadPage: React.FC = () => {
       : items;
 
   // 宛先の名前: この一年の出来事から。前の宛先なら、届いた手紙に残っている名前
-  const ev = eventKey ? YEAR_EVENT_BY_KEY.get(eventKey) ?? (items[0] ? { title: items[0].eventLabel } : null) : null;
+  // 思い出の名前はサイトの一覧から(手紙に記録された名前は、DB を直接呼べば書き換えられるので出さない)
+  const ev = eventKey ? YEAR_EVENT_BY_KEY.get(eventKey) ?? null : null;
   const canWrite = !!eventKey && YEAR_EVENT_BY_KEY.has(eventKey);
 
   return (
@@ -213,7 +214,7 @@ const ReadPage: React.FC = () => {
               </ScaledCard>
               <div className="meta">
                 {l.status && <span className="lp-status">{STATUS_LABELS[l.status]}</span>}
-                {l.eventLabel}
+                {YEAR_EVENT_BY_KEY.get(l.eventKey)?.title ?? l.eventLabel}
                 {l.visibility === "book" ? " · 本文は贈る本だけ" : ""}
               </div>
             </Link>

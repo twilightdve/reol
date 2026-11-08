@@ -41,7 +41,7 @@ const CardPage: React.FC = () => {
           <>
             <div className="lp-section-head">
               <div>
-                <div className="lp-eyebrow">A LETTER TO {state.letter.eventLabel}</div>
+                <div className="lp-eyebrow">A LETTER TO {YEAR_EVENT_BY_KEY.get(state.letter.eventKey)?.title ?? "Reol"}</div>
                 <h2>{state.letter.address}</h2>
               </div>
               <p className="lp-intro">
