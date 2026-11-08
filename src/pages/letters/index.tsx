@@ -141,7 +141,7 @@ const LettersPage: React.FC = () => (
         <div className="lp-eyebrow">FROM US, TO YOU</div>
         <h2>おめでとうを、一冊に。</h2>
         <p>
-          11月9日のお祝いに、いろんな時代へ宛てた言葉を。一枚ずつ印刷して、ファンレターブックとしてReolへ贈ります。
+          11月9日のお祝いに、いろんな時代のれをるへ宛てた言葉を。一枚ずつ印刷して、ファンレターブックとしてReolへ贈ります。
           Webでのお祝いの先にも、手に取れるかたちで残せるように。
         </p>
         <p className="ship">
