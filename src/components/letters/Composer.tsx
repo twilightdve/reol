@@ -8,7 +8,7 @@ import React, { Suspense, useEffect, useId, useMemo, useRef, useState } from "re
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
 import { YearPicker } from "./YearPicker";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
-import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
+import { Era, LETTER_FONTS, LetterFont, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
 import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
 
@@ -22,6 +22,7 @@ export type ComposerValue = {
   snsType: SnsType | "";
   snsId: string;
   motif: Motif;
+  font: LetterFont;
   visibility: Visibility | null;
   body: LetterBody;
 };
@@ -32,6 +33,7 @@ export const emptyComposer = (): ComposerValue => ({
   snsType: "",
   snsId: "",
   motif: "color",
+  font: "sans",
   visibility: null,
   body: emptyBody(),
 });
@@ -98,7 +100,7 @@ export const Composer: React.FC<Props> = ({
   const moved = useRef(false);
   const set = (patch: Partial<ComposerValue>) => onChange({ ...value, ...patch });
 
-  const { fits, measureNode } = useBodyFits(value.body, value.motif);
+  const { fits, measureNode } = useBodyFits(value.body, value.motif, value.font);
   const length = bodyLength(value.body);
 
   const errors = useMemo(() => {
@@ -177,6 +179,7 @@ export const Composer: React.FC<Props> = ({
       snsType: value.snsType || null,
       snsId: value.snsType ? value.snsId.replace(/^@/, "").trim() : null,
       motif: value.motif,
+      font: value.font,
       visibility: value.visibility,
       body: trimBody(value.body),
       consent: true,
@@ -204,7 +207,7 @@ export const Composer: React.FC<Props> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event, value.address]);
 
-  const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif };
+  const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif, font: value.font };
   const stepIndex = (id: StepId) => STEPS.findIndex((s) => s.id === id);
   const fix = (id: StepId) => (
     <button type="button" className="lp-text-link" onClick={() => goTo(stepIndex(id))}>
@@ -371,7 +374,16 @@ export const Composer: React.FC<Props> = ({
         );
       case "body":
         return (
-          <div>
+          <div className={`lp-body-step f-${value.font}`}>
+            <div className="lp-fonts" role="group" aria-label="手紙の書体">
+              <span className="lp-label">書体</span>
+              {LETTER_FONTS.map((f) => (
+                <button key={f.id} type="button" className="lp-font" aria-pressed={value.font === f.id} onClick={() => set({ font: f.id })}>
+                  <span style={{ fontFamily: f.family }}>{f.sample}</span>
+                  <small>{f.label}</small>
+                </button>
+              ))}
+            </div>
             <span className="lp-label" id={editorLabel}>
               手紙の本文(裏に載ります)
             </span>
@@ -559,7 +571,7 @@ export const Composer: React.FC<Props> = ({
             </div>
             <div data-side="back" hidden={frontOnly}>
               <ScaledCard label="カードの裏(本文)のプレビュー">
-                <CardBack motif={value.motif} sender={value.sender} body={value.body} over={!fits} />
+                <CardBack motif={value.motif} font={value.font} sender={value.sender} body={value.body} over={!fits} />
               </ScaledCard>
               <p className="lp-caption">
                 <span>BACK</span>あなたからのメッセージ

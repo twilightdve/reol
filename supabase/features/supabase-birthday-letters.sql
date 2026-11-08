@@ -199,6 +199,7 @@ DECLARE
   v_sns_id text := nullif(ltrim(coalesce(public._letters_str(p, 'snsId'), ''), '@'), '');
   v_motif text := public._letters_str(p, 'motif');
   v_visibility text := public._letters_str(p, 'visibility');
+  v_font text := coalesce(public._letters_str(p, 'font'), 'sans');
 BEGIN
   IF p IS NULL OR jsonb_typeof(p) <> 'object' THEN RAISE EXCEPTION 'invalid:letter'; END IF;
   IF v_event_key IS NULL OR v_event_key !~ '^(song|release|live|era):[A-Za-z0-9-]{1,64}$' THEN RAISE EXCEPTION 'invalid:eventKey'; END IF;
@@ -212,6 +213,7 @@ BEGIN
   IF v_sns_id IS NOT NULL AND v_sns_id !~ '^[A-Za-z0-9_.-]{1,40}$' THEN RAISE EXCEPTION 'invalid:snsId'; END IF;
   IF v_motif IS NULL OR v_motif NOT IN ('color', 'water', 'stars', 'mirror', 'moon', 'candy', 'petals', 'glitter', 'film', 'edge', 'brush', 'monitor', 'lantern', 'rings', 'pulse', 'sky', 'moss', 'key', 'butterfly', 'fan', 'clock', 'cubes', 'door', 'goldfish', 'fireworks', 'envelope', 'glitch', 'hydrangea', 'tunnel', 'cage', 'balloon', 'curtain', 'rose', 'spider') THEN RAISE EXCEPTION 'invalid:motif'; END IF;
   IF v_visibility IS NULL OR v_visibility NOT IN ('public', 'book') THEN RAISE EXCEPTION 'invalid:visibility'; END IF;
+  IF v_font NOT IN ('sans', 'serif', 'hand') THEN RAISE EXCEPTION 'invalid:font'; END IF;
   IF (p -> 'consent') IS DISTINCT FROM 'true'::jsonb THEN RAISE EXCEPTION 'invalid:consent'; END IF;
   IF NOT public._letters_body_ok(p -> 'body') THEN RAISE EXCEPTION 'invalid:body'; END IF;
 
@@ -225,6 +227,7 @@ BEGIN
     'snsType', v_sns_type,
     'snsId', v_sns_id,
     'motif', v_motif,
+    'font', v_font,
     'visibility', v_visibility,
     'body', p -> 'body'
   );
@@ -252,6 +255,7 @@ AS $$
     'snsType', CASE WHEN x.sns_same THEN p_content -> 'snsType' END,
     'snsId', CASE WHEN x.sns_same THEN p_content -> 'snsId' END,
     'motif', p_content -> 'motif',
+    'font', coalesce(p_content -> 'font', '"sans"'::jsonb),
     'visibility', CASE WHEN x.is_public THEN 'public' ELSE 'book' END,
     'createdAt', p_created,
     'body', CASE WHEN p_with_body AND x.is_public AND x.body_same THEN p_content -> 'body' END,

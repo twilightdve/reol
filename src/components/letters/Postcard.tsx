@@ -4,7 +4,7 @@
  */
 import React, { useLayoutEffect, useRef, useState } from "react";
 import type { LetterBody } from "../../utils/letters/body";
-import { Motif, snsLabel, textColorValue } from "../../utils/letters/constants";
+import { Motif, snsLabel, textColorValue, LetterFont, fontOf } from "../../utils/letters/constants";
 import { splitAddress } from "../../utils/letters/timeline";
 
 /** 100mm / 148mm を CSS の px に(1mm = 96/25.4px) */
@@ -52,6 +52,7 @@ export type CardFace = {
   snsType?: string | null;
   snsId?: string | null;
   motif: Motif;
+  font?: LetterFont;
 };
 
 const addressClass = (address: string) => (address.length > 22 ? " is-longer" : address.length > 14 ? " is-long" : "");
@@ -59,7 +60,7 @@ const addressClass = (address: string) => (address.length > 22 ? " is-longer" : 
 export const CardFront: React.FC<{ face: CardFace }> = ({ face }) => {
   const lines = splitAddress(face.address || "宛名");
   return (
-    <div className={`lp-card ${face.motif}`}>
+    <div className={`lp-card ${face.motif} f-${fontOf(face.font)}`}>
       <div className="motif" />
       {face.motif === "color" && <div className="line" />}
       <div className="top">
@@ -116,6 +117,7 @@ export const LetterBodyView: React.FC<{ body: LetterBody }> = ({ body }) => (
  */
 export const CardBack: React.FC<{
   motif: Motif;
+  font?: LetterFont;
   sender: string;
   body: LetterBody | null;
   hiddenNote?: string;
@@ -123,8 +125,8 @@ export const CardBack: React.FC<{
   msgRef?: React.Ref<HTMLDivElement>;
   /** 運営の印刷画面で、どのカードかを測るための番号 */
   position?: number;
-}> = ({ motif, sender, body, hiddenNote, over, msgRef, position }) => (
-  <div className={`lp-card ${motif} is-back`}>
+}> = ({ motif, font, sender, body, hiddenNote, over, msgRef, position }) => (
+  <div className={`lp-card ${motif} f-${fontOf(font)} is-back`}>
     <div className="motif" />
     <div className="back-label">
       <span>DEAR YOU,</span>
@@ -144,7 +146,7 @@ export const CardBack: React.FC<{
 );
 
 /** 本文がカードの枠に入るか(実際の書体で組んで測る)。書体の読み込みを待ってから測る */
-export const useBodyFits = (body: LetterBody, motif: Motif): { fits: boolean; measureNode: React.ReactNode } => {
+export const useBodyFits = (body: LetterBody, motif: Motif, font?: LetterFont): { fits: boolean; measureNode: React.ReactNode } => {
   const ref = useRef<HTMLDivElement>(null);
   const [fits, setFits] = useState(true);
   const key = JSON.stringify(body);
@@ -161,10 +163,10 @@ export const useBodyFits = (body: LetterBody, motif: Motif): { fits: boolean; me
     return () => {
       cancelled = true;
     };
-  }, [key, motif]);
+  }, [key, motif, font]);
   const measureNode = (
     <div className="lp-measure" aria-hidden>
-      <CardBack motif={motif} sender="" body={body} msgRef={ref} />
+      <CardBack motif={motif} font={font} sender="" body={body} msgRef={ref} />
     </div>
   );
   return { fits, measureNode };

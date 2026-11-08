@@ -103,6 +103,15 @@ export const MOTIFS: { id: Motif; label: string; songs: string }[] = [
 
 export type Visibility = "public" | "book";
 
+/** 手紙の書体(本文・差出人。明朝体と手書き風は宛名も)。前からの手紙(書体なし)はゴシック */
+export type LetterFont = "sans" | "serif" | "hand";
+export const LETTER_FONTS: { id: LetterFont; label: string; family: string; sample: string }[] = [
+  { id: "sans", label: "ゴシック", family: "'Noto Sans JP',sans-serif", sample: "おめでとう" },
+  { id: "serif", label: "明朝体", family: "'Noto Serif JP',serif", sample: "おめでとう" },
+  { id: "hand", label: "手書き風", family: "'Klee One',cursive", sample: "おめでとう" },
+];
+export const fontOf = (f: string | null | undefined): LetterFont => (f === "serif" || f === "hand" ? f : "sans");
+
 export type SnsType = "x" | "instagram" | "tiktok" | "bluesky" | "threads";
 export const SNS_TYPES: { id: SnsType; label: string }[] = [
   { id: "x", label: "X" },

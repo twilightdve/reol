@@ -115,7 +115,7 @@ const LetterRow: React.FC<{
       </div>
       <div>
         <ScaledCard maxWidth={150}>
-          <CardBack motif={c.motif} sender={c.sender} body={c.body} />
+          <CardBack motif={c.motif} font={c.font} sender={c.sender} body={c.body} />
         </ScaledCard>
       </div>
       <div>
@@ -316,7 +316,7 @@ const BatchView: React.FC<{ id: string; onBack: () => void; onChanged: () => voi
               <CardFront face={i.content} />
             </div>
             <div className="lp-print-page">
-              <CardBack motif={i.content.motif} sender={i.content.sender} body={i.content.body} position={i.position} over={over.has(i.position)} />
+              <CardBack motif={i.content.motif} font={i.content.font} sender={i.content.sender} body={i.content.body} position={i.position} over={over.has(i.position)} />
             </div>
           </React.Fragment>
         ))}

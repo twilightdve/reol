@@ -8,7 +8,7 @@ import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { Composer, ComposerValue, SubmitState } from "../../components/letters/Composer";
 import { CardFront, ScaledCard } from "../../components/letters/Postcard";
-import { LETTERS_DEADLINE_LABEL } from "../../utils/letters/constants";
+import { LETTERS_DEADLINE_LABEL, fontOf } from "../../utils/letters/constants";
 import { errorMessage, fetchOwnLetter, LetterContent, LettersError, OwnLetter, updateOwnLetter, withdrawOwnLetter } from "../../utils/letters/service";
 import { forgetMyLetter, loadMyLetters, MyLetter, rememberMyLetter } from "../../utils/letters/local";
 
@@ -21,6 +21,7 @@ const toValue = (c: LetterContent): ComposerValue => ({
   snsType: c.snsType ?? "",
   snsId: c.snsId ?? "",
   motif: c.motif,
+  font: fontOf(c.font),
   visibility: c.visibility,
   body: c.body,
 });

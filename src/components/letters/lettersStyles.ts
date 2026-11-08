@@ -185,6 +185,15 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-privacy button[aria-pressed=true]{border-color:var(--ink);background:var(--soft)}
 .lp-privacy button[aria-pressed=true]:before{content:'●'}
 .lp-privacy small{display:block;color:var(--muted);font-size:12px;line-height:1.8;margin-top:5px;margin-left:21px}
+.lp-fonts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 18px}
+.lp-fonts .lp-label{margin:0 6px 0 0}
+.lp-font{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:96px;padding:8px 14px;border:1px solid var(--line);background:#fffdf8}
+.lp-font span{font-size:18px;line-height:1.5}
+.lp-font small{font:500 10px/1.4 var(--sans);color:var(--muted);letter-spacing:.06em}
+.lp-font[aria-pressed=true]{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 1px var(--accent) inset}
+.lp-body-step.f-sans .ProseMirror{font-family:var(--sans)}
+.lp-body-step.f-serif .ProseMirror{font-family:var(--serif)}
+.lp-body-step.f-hand .ProseMirror{font-family:'Klee One',var(--serif)}
 .lp-consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.9;cursor:pointer}
 .lp-consent+.lp-consent{margin-top:12px}
 .lp-rules{border:1px solid var(--accent);background:#fff;padding:16px 18px 14px;margin:20px 0 16px}
@@ -366,6 +375,9 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-card .back-label{position:absolute;top:9mm;left:9.3mm;right:9.3mm;border-bottom:.3mm solid #ced2c4;padding-bottom:4mm;display:flex;justify-content:space-between;font:2.7mm/1.5 var(--sans);letter-spacing:.13em}
 .lp-card .msg{position:absolute;top:24mm;left:9.7mm;right:9.7mm;bottom:21mm;font:3.6mm/1.95 var(--sans);z-index:1;overflow:hidden;overflow-wrap:anywhere;white-space:pre-wrap}
 .lp-card .msg p{margin:0;min-height:1.95em}
+.lp-card.f-serif .msg,.lp-card.f-serif .sign,.lp-card.f-serif .from{font-family:var(--serif)}
+.lp-card.f-hand .msg,.lp-card.f-hand .sign,.lp-card.f-hand .from,.lp-card.f-hand .to{font-family:'Klee One',var(--serif)}
+.lp-card.f-hand .msg{line-height:1.9}
 .lp-card .msg .c{text-align:center}
 .lp-card .msg .r{text-align:right}
 .lp-card .msg .rs{font-size:3mm}

@@ -68,6 +68,7 @@ const CardPage: React.FC = () => {
                 <ScaledCard maxWidth={340} label="カードの裏">
                   <CardBack
                     motif={state.letter.motif}
+                    font={state.letter.font}
                     sender={state.letter.sender}
                     body={state.letter.body}
                     hiddenNote={state.letter.bodyPending ? "この手紙の本文は、\n修正の確認中です。" : undefined}

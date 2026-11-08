@@ -6,7 +6,7 @@
  * 呼び出しは POST なので、Service Worker のキャッシュには残らない。
  */
 import type { LetterBody } from "./body";
-import type { Era, Motif, SnsType, Visibility } from "./constants";
+import type { Era, LetterFont, Motif, SnsType, Visibility } from "./constants";
 
 export type LetterContent = {
   eventKey: string;
@@ -18,6 +18,8 @@ export type LetterContent = {
   snsType: SnsType | null;
   snsId: string | null;
   motif: Motif;
+  /** 書体(前からの手紙には無い → ゴシック) */
+  font?: LetterFont;
   visibility: Visibility;
   body: LetterBody;
 };
@@ -170,6 +172,7 @@ export const ERROR_MESSAGES: Record<string, string> = {
   "invalid:snsId": "SNS ID を確かめてください(英数字と _ . - の40字まで。載せない時は種類も「載せない」に)。",
   "invalid:motif": "カードの絵柄を選び直してください。",
   "invalid:visibility": "本文の公開範囲を選んでください。",
+  "invalid:font": "書体を選び直してください。",
   "invalid:consent": "投函の前の確認と、印刷への同意の両方にチェックを入れてください。",
   "invalid:body": "本文を確かめてください(空の本文、1,200字を超える本文、装飾を細かく切り替えすぎた本文は送れません)。",
 };

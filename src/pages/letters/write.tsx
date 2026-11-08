@@ -41,6 +41,7 @@ const LettersWritePage: React.FC = () => {
         snsType: (d.snsType as ComposerValue["snsType"]) ?? "",
         snsId: d.snsId ?? "",
         motif: d.motif ?? v.motif,
+        font: d.font ?? v.font,
         visibility: d.visibility ?? null,
         body: Array.isArray(d.body) && d.body.length ? d.body : v.body,
       }));
@@ -63,6 +64,7 @@ const LettersWritePage: React.FC = () => {
       snsType: value.snsType || null,
       snsId: value.snsId,
       motif: value.motif,
+      font: value.font,
       visibility: value.visibility ?? undefined,
       body: value.body,
       pending: pending.current,
