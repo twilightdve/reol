@@ -9,6 +9,7 @@ import { Link } from "gatsby";
 import liveYear from "../../utils/letters/live-year.json";
 import yearReleases from "../../utils/letters/year-releases.json";
 import { BIRTHDAY_ICON_DEFS, BIRTHDAY_ICONS } from "./birthdayIcons";
+import { ScrollTopButton } from "./ScrollTopButton";
 import { LETTERS_COPY, LETTERS_DEADLINE_ISO, LETTERS_MEMORY_PERIOD_LABEL, LETTERS_TITLE } from "../../utils/letters/constants";
 
 type LivePost = { id: string; url: string; author: string; posted_at: string; posted_date: string; kind: string };
@@ -412,6 +413,7 @@ export const BirthdayLanding: React.FC = () => {
           </p>
         </footer>
       </div>
+      <ScrollTopButton className="bd-totop" />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import { CardFront, ScaledCard } from "../../components/letters/Postcard";
 import { useLetterEvents } from "../../components/letters/useLetterEvents";
 import { ChronoLetter, LetterChrono, STATUS_LABELS } from "../../components/letters/LetterChrono";
 import { useAuth } from "../../contexts/AuthContext";
+import { ScrollTopButton } from "../../components/letters/ScrollTopButton";
 import { Era, ERA_LABELS } from "../../utils/letters/constants";
 import { adminListLetters, AdminLetter, fetchPublicLetters, LettersError, PublicLetter } from "../../utils/letters/service";
 
@@ -233,6 +234,7 @@ const ReadPage: React.FC = () => {
           </>
         )}
       </section>
+      <ScrollTopButton className="lp-totop" />
     </LettersShell>
   );
 };
