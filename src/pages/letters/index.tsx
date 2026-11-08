@@ -8,7 +8,7 @@ import { LettersHead, LettersShell } from "../../components/letters/LettersShell
 import { LETTERS_COPY, LETTERS_ORGANIZER, LETTERS_SHIPPING_NOTE } from "../../utils/letters/constants";
 
 const LettersPage: React.FC = () => (
-  <LettersShell current="about" dock>
+  <LettersShell current="about">
     <section className="lp-hero">
       <div className="lp-greeting">
         <p className="lp-kicker">

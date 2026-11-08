@@ -21,7 +21,7 @@ export const LETTERS_PRINT_TEMPLATE = "postcard-100x148-v1";
 
 /**
  * カードの絵柄。曲のモチーフ(MV・ジャケット・曲名・テーマ)から起こした図形(ジャケットの絵そのものは写さない)。
- * songs は選ぶ画面に添える「ゆかりの曲」。並びは DB の letters の決まり(_letters_clean)と揃える
+ * songs は、その絵柄の元にした曲(根拠のある曲だけ。画面には出さない)。並びは DB の letters の決まり(_letters_clean)と揃える
  */
 export const MOTIF_IDS = [
   "color",

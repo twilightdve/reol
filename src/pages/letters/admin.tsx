@@ -1,8 +1,9 @@
 /**
  * /letters/admin/ — 手紙企画の運営画面(plan/64)。
  * 中身を返すかどうかは DB が決める(ログイン中のセッションが運営の ID の時だけ)。この画面の表示の出し分けは見た目だけ。
- * - 確認: 今の版を確認済みにすると、その版が Web に出る(本だけの手紙は宛名面だけ)。
- * - 印刷: 確認済みの手紙を選んで「束」を作る(その時の版で固定)。束の印刷画面で刷り、刷り終えたら「印刷した」を押す。
+ * - Web には投函・修正のたびに今の版がすぐ出る(運営の確認は待たない。2026-11-08)。運営は「未チェック」を定期的に読み、
+ *   ふさわしくない手紙は「取り下げ」(Web にも本にも出さない)か「Webに出さない」(本には載せる)にする。読んだら「チェック済み」に。
+ * - 印刷: チェック済みの手紙を選んで「束」を作る(その時の版で固定)。束の印刷画面で刷り、刷り終えたら「印刷した」を押す。
  *   画面を開いただけ・PDF にしただけでは印刷済みにしない。
  * - 刷った後に直された手紙は「再印刷が必要」、刷った後に取り下げた手紙は「抜き取りが必要」に出る。
  * GA のページ表示は送らない(gatsby-config)。検索にも出さない。
@@ -32,7 +33,7 @@ import {
 
 type Tab = "review" | "printable" | "reprint" | "pull" | "all" | "batches";
 const TABS: { id: Tab; label: string }[] = [
-  { id: "review", label: "確認待ち" },
+  { id: "review", label: "未チェック" },
   { id: "printable", label: "印刷できる" },
   { id: "reprint", label: "再印刷が必要" },
   { id: "pull", label: "抜き取りが必要" },
@@ -142,7 +143,7 @@ const LetterRow: React.FC<{
           </dd>
           <dt>版</dt>
           <dd>
-            今の版 {l.currentVersion} / 確認済み {l.reviewedVersion ?? "—"}
+            今の版 {l.currentVersion} / チェック済み {l.reviewedVersion ?? "—"}
             {l.webHidden ? " · Web非掲載" : ""}
           </dd>
           <dt>印刷</dt>
@@ -158,10 +159,10 @@ const LetterRow: React.FC<{
         <div className="acts">
           {!l.withdrawnAt && !reviewedNow && (
             <button type="button" className="is-primary" onClick={() => onAct("approve", l.currentVersion)}>
-              版{l.currentVersion}を確認済みにする
+              版{l.currentVersion}を読んだ(チェック済みにする)
             </button>
           )}
-          {l.reviewedVersion && <button onClick={() => onAct("unapprove")}>確認を外す(Webから下げる)</button>}
+          {l.reviewedVersion && <button onClick={() => onAct("unapprove")}>チェックを外す</button>}
           {l.webHidden ? <button onClick={() => onAct("show")}>Webに出す</button> : <button onClick={() => onAct("hide")}>Webに出さない(本には載せる)</button>}
           {l.withdrawnAt ? (
             l.withdrawnBy !== "author" && <button onClick={() => onAct("restore")}>取り下げを戻す</button>
@@ -368,7 +369,7 @@ const AdminPage: React.FC = () => {
 
   const act = async (id: string, a: AdminAction, version?: number) => {
     const r = await adminAct(id, a, version);
-    if (!r.ok) setMsg(r.error === "stale" ? "確認している間に投稿者が直しました。読み込み直して、今の版を確かめてください。" : `できませんでした(${r.error})`);
+    if (!r.ok) setMsg(r.error === "stale" ? "読んでいる間に投稿者が直しました。読み込み直して、今の版を確かめてください。" : `できませんでした(${r.error})`);
     else setMsg("");
     reload();
   };
@@ -391,11 +392,11 @@ const AdminPage: React.FC = () => {
       setCreating(false);
     });
     if (!r.ok) {
-      setMsg(r.error === "empty" ? "束に入れられる手紙がありませんでした(今の版が確認済みでないか、印刷していない別の束に入っています)。" : `束を作れませんでした(${r.error})`);
+      setMsg(r.error === "empty" ? "束に入れられる手紙がありませんでした(今の版がチェック済みでないか、印刷していない別の束に入っています)。" : `束を作れませんでした(${r.error})`);
       return;
     }
     setSelected(new Set());
-    setMsg(r.skipped ? `${r.skipped}枚は、今の版が確認済みでないか、印刷していない別の束に入っているため入れませんでした。` : "");
+    setMsg(r.skipped ? `${r.skipped}枚は、今の版がチェック済みでないか、印刷していない別の束に入っているため入れませんでした。` : "");
     await reload();
     openBatch(r.batchId);
   };
@@ -419,7 +420,7 @@ const AdminPage: React.FC = () => {
             <>
               <h2>手紙の運営</h2>
               <p className="lp-note" style={{ marginBottom: 16 }}>
-                全 {letters.length} 通(取り下げを含む)。確認済みにした版だけが Web に出ます。
+                全 {letters.length} 通(取り下げを含む)。投函された手紙はすぐ Web に出ています。「未チェック」を読み、ふさわしくないものは取り下げてください。印刷できるのはチェック済みの版だけです。
               </p>
               {msg && <p className="lp-alert">{msg}</p>}
               <div className="lp-tabs" role="tablist">

@@ -1,14 +1,14 @@
 /**
- * /letters/read/ — 届いた手紙(plan/64)。運営が確認したカードの宛名面を、年表の上に並べる(手紙のある所だけ光らせる)。
+ * /letters/read/ — 届いた手紙(plan/64)。カードの宛名面を、年表の上に並べる(手紙のある所だけ光らせる)。運営の確認は待たずに載せ、運営があとから取り下げる。
  * 本文は 1 枚のページで(公開を選んだ手紙だけ)。「届いた順」の一覧にも切り替えられる。人気順やランキングは出さない。
- * 運営がログインしている時は、確認前の手紙も出せる(中身を返すかどうかは DB が決める)。
+ * 運営がログインしている時は、Web に出さないことにした手紙も出し、まだ読んでいない手紙に印をつける(中身を返すかどうかは DB が決める)。
  */
 import React, { useEffect, useState } from "react";
 import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { CardFront, ScaledCard } from "../../components/letters/Postcard";
 import { useLetterEvents } from "../../components/letters/useLetterEvents";
-import { ChronoLetter, LetterChrono } from "../../components/letters/LetterChrono";
+import { ChronoLetter, LetterChrono, STATUS_LABELS } from "../../components/letters/LetterChrono";
 import { useAuth } from "../../contexts/AuthContext";
 import { Era, ERA_LABELS } from "../../utils/letters/constants";
 import { adminListLetters, AdminLetter, fetchPublicLetters, LettersError, PublicLetter } from "../../utils/letters/service";
@@ -36,7 +36,7 @@ const fromAdmin = (ls: AdminLetter[]): ChronoLetter[] =>
       id: l.id,
       createdAt: l.createdAt,
       body: null,
-      status: l.reviewedVersion !== l.currentVersion ? ("pending" as const) : l.webHidden ? ("hidden" as const) : undefined,
+      status: l.webHidden ? ("hidden" as const) : l.reviewedVersion !== l.currentVersion ? ("unchecked" as const) : undefined,
     }));
 
 const ReadPage: React.FC = () => {
@@ -100,8 +100,18 @@ const ReadPage: React.FC = () => {
       .catch(() => setAdminLetters(null));
   }, [user]);
 
-  const chronoLetters: ChronoLetter[] = adminLetters && showPending ? adminLetters : chrono ?? [];
-  const pendingCount = adminLetters?.filter((l) => l.status === "pending").length ?? 0;
+  const adminView = !!adminLetters && showPending;
+  const chronoLetters: ChronoLetter[] = adminView && adminLetters ? adminLetters : chrono ?? [];
+  const uncheckedCount = adminLetters?.filter((l) => l.status === "unchecked").length ?? 0;
+  // 一覧で見る: 運営は運営の一覧から(絞り込み・並びはこの画面で)
+  const listItems: ChronoLetter[] =
+    adminView && adminLetters
+      ? adminLetters
+          .filter((l) => (!eventKey || l.eventKey === eventKey) && (!era || l.era === era))
+          .sort((a, b) =>
+            order === "timeline" ? (b.eventDate ?? "").localeCompare(a.eventDate ?? "") || b.createdAt.localeCompare(a.createdAt) : b.createdAt.localeCompare(a.createdAt)
+          )
+      : items;
 
   const ev = eventKey ? byKey.get(eventKey) : null;
 
@@ -114,7 +124,7 @@ const ReadPage: React.FC = () => {
             <h2>{ev ? `${ev.title}へ届いた手紙` : "届いた手紙"}</h2>
           </div>
           <p className="lp-intro">
-            運営が確認した手紙から載せています。本文を「贈る本だけ」にした手紙は、宛名面だけを載せています。
+            投函された手紙を、そのまま載せています(運営があとから読み、ふさわしくないものは取り下げます)。本文を「贈る本だけ」にした手紙は、宛名面だけを載せています。
           </p>
         </div>
         {!eventKey && (
@@ -130,7 +140,7 @@ const ReadPage: React.FC = () => {
             {adminLetters && (
               <label className="lp-admin-toggle">
                 <input type="checkbox" checked={showPending} onChange={(e) => setShowPending(e.target.checked)} />
-                確認前の手紙も表示する(運営だけ{pendingCount ? `・確認待ち ${pendingCount}通` : ""})
+                運営の表示にする(Webに出さない手紙も出し、まだ読んでいない手紙に印{uncheckedCount ? `・未チェック ${uncheckedCount}通` : ""})
               </label>
             )}
           </div>
@@ -142,7 +152,7 @@ const ReadPage: React.FC = () => {
             {state === "error" && <p className="lp-alert">読み込めませんでした。通信を確かめて、ページを読み込み直してください。</p>}
             {state === "ok" && chronoLetters.length === 0 && (
               <p className="lp-note">
-                まだ載せている手紙はありません。届いた手紙は、運営が内容を確認してから、ここに載せます。<Link to="/letters/write/">手紙を書く</Link>
+                まだ届いた手紙はありません。投函された手紙は、すぐここに載ります。<Link to="/letters/write/">手紙を書く</Link>
               </p>
             )}
             {(state === "ok" || adminLetters) && <LetterChrono events={events} byKey={byKey} letters={chronoLetters} />}
@@ -189,25 +199,31 @@ const ReadPage: React.FC = () => {
         {state === "loading" && <p className="lp-note">読み込んでいます…</p>}
         {state === "unavailable" && <p className="lp-alert">届いた手紙は、受付の準備が整ってから載せます。</p>}
         {state === "error" && <p className="lp-alert">読み込めませんでした。通信を確かめて、ページを読み込み直してください。</p>}
-        {state === "ok" && items.length === 0 && (
+        {state === "ok" && listItems.length === 0 && (
           <p className="lp-note">
-            まだ載せている手紙はありません。届いた手紙は、運営が内容を確認してから、ここに載せます。<Link to="/letters/write/">手紙を書く</Link>
+            まだ届いた手紙はありません。投函された手紙は、すぐここに載ります。<Link to="/letters/write/">手紙を書く</Link>
           </p>
         )}
         <div className="lp-grid">
-          {items.map((l) => (
-            <Link key={l.id} to={`/letters/card/?id=${l.id}`} aria-label={`${l.address}(${l.sender}より)`}>
+          {listItems.map((l) => (
+            <Link
+              key={l.id}
+              to={l.status === "hidden" ? "/letters/admin/" : `/letters/card/?id=${l.id}`}
+              className={l.status ? `is-${l.status}` : undefined}
+              aria-label={`${l.address}(${l.sender}より)${l.status ? `・${STATUS_LABELS[l.status]}` : ""}`}
+            >
               <ScaledCard maxWidth={260}>
                 <CardFront face={l} />
               </ScaledCard>
               <div className="meta">
+                {l.status && <span className="lp-status">{STATUS_LABELS[l.status]}</span>}
                 {l.eventLabel}
                 {l.visibility === "book" ? " · 本文は贈る本だけ" : ""}
               </div>
             </Link>
           ))}
         </div>
-        {state === "ok" && hasMore && (
+        {state === "ok" && hasMore && !adminView && (
           <div className="lp-more">
             <button type="button" className="lp-secondary" onClick={() => load(items.length)}>
               もっと見る

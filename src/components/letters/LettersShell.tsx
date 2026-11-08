@@ -3,7 +3,7 @@
  * 見本どおりの紙色のページに、自前の見出し・足元・スマホの下部ナビを置く。
  * 書体(Noto Sans JP / Noto Serif JP)と CSS は、このページの Head だけで読む。
  */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import SEO from "../SEO";
 import { LETTERS_CSS } from "./lettersStyles";
@@ -30,53 +30,9 @@ export const LettersHead: React.FC<{ title?: string; description: string; path: 
 
 type Current = "about" | "write" | "read" | "edit" | "admin";
 
-export const LettersShell: React.FC<{ current: Current; children: React.ReactNode; dock?: boolean }> = ({ current, children, dock = false }) => {
-  // スマホで文字を入力している間は、下部ナビを隠す(キーボードと入力欄を妨げない)。
-  // ページの下の余白は変えない(変えると、押した瞬間にボタンの位置がずれる)
-  const [typing, setTyping] = useState(false);
-  useEffect(() => {
-    const isField = (t: EventTarget | null) =>
-      t instanceof HTMLElement &&
-      (t.isContentEditable || t.tagName === "TEXTAREA" || (t instanceof HTMLInputElement && !["checkbox", "radio", "button", "submit"].includes(t.type)));
-    // 入力欄の下のボタン(「次へ」など)を押した時は、指やマウスを離すまで下部ナビを戻さない
-    // (押した瞬間に戻すと、ナビがボタンに重なって押せない)
-    let pointerDown = false;
-    let pendingOut = false;
-    const onIn = (e: FocusEvent) => {
-      if (isField(e.target)) {
-        pendingOut = false;
-        setTyping(true);
-      } else onOut();
-    };
-    const onOut = () => {
-      if (pointerDown) pendingOut = true;
-      else setTyping(false);
-    };
-    const onDown = () => {
-      pointerDown = true;
-    };
-    const onUp = () => {
-      pointerDown = false;
-      if (!pendingOut) return;
-      pendingOut = false;
-      window.setTimeout(() => setTyping(isField(document.activeElement)), 0);
-    };
-    document.addEventListener("focusin", onIn);
-    document.addEventListener("focusout", onOut);
-    document.addEventListener("pointerdown", onDown, true);
-    document.addEventListener("pointerup", onUp, true);
-    document.addEventListener("pointercancel", onUp, true);
-    return () => {
-      document.removeEventListener("focusin", onIn);
-      document.removeEventListener("focusout", onOut);
-      document.removeEventListener("pointerdown", onDown, true);
-      document.removeEventListener("pointerup", onUp, true);
-      document.removeEventListener("pointercancel", onUp, true);
-    };
-  }, []);
-
+export const LettersShell: React.FC<{ current: Current; children: React.ReactNode }> = ({ current, children }) => {
   return (
-    <div className={`lp${typing ? " is-typing" : ""}`} lang="ja">
+    <div className="lp" lang="ja">
       <div className="lp-wrap">
         <header className="lp-header lp-noprint">
           <Link className="lp-brand" to="/">
@@ -111,22 +67,6 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
           </p>
         </footer>
       </div>
-      {dock && (
-        <nav className="lp-dock lp-noprint" aria-label="手紙づくり">
-          {current === "write" ? (
-            <Link to="/letters/">
-              <small>01</small>企画について
-            </Link>
-          ) : (
-            <Link to="/letters/write/">
-              <small>01</small>お祝いを書く
-            </Link>
-          )}
-          <Link to="/letters/read/">
-            <small>02</small>届いた手紙を読む
-          </Link>
-        </nav>
-      )}
     </div>
   );
 };

@@ -5,12 +5,13 @@
 import React, { useMemo } from "react";
 import { Link } from "gatsby";
 import { CardFront, ScaledCard } from "./Postcard";
-import { Era } from "../../utils/letters/constants";
+import { Era, ERA_LABELS } from "../../utils/letters/constants";
 import { ERA_EVENTS, LetterEvent } from "../../utils/letters/timeline";
 import { PublicLetter } from "../../utils/letters/service";
 
-/** 運営だけに見える状態(確認待ちなど)。一般の手紙は undefined */
-export type ChronoLetter = PublicLetter & { status?: "pending" | "hidden" };
+/** 運営だけに見える状態(まだ読んでいない・Web に出さない)。一般の手紙は undefined */
+export type ChronoLetter = PublicLetter & { status?: "unchecked" | "hidden" };
+export const STATUS_LABELS = { unchecked: "未チェック", hidden: "Webに出さない" } as const;
 
 const KIND_LABELS: Record<string, string> = { song: "曲", live: "ライヴ", release: "作品", cover: "歌ってみた", era: "時代" };
 const ERA_COLORS: Record<Era, string> = {
@@ -61,7 +62,7 @@ export const LetterChrono: React.FC<{ events: LetterEvent[]; byKey: Map<string, 
           return { year, yearEvents, yearClusters, orphan };
         });
       const total = clusters.reduce((n, c) => n + c.letters.length, 0);
-      return { eraEv, era, eraCluster, years, total };
+      return { era, eraCluster, years, total };
     });
   }, [events, byKey, letters]);
 
@@ -70,21 +71,21 @@ export const LetterChrono: React.FC<{ events: LetterEvent[]; byKey: Map<string, 
   return (
     <div className="lp-chrono">
       <nav className="lp-chrono-nav" aria-label="時代へ移動">
-        {eras.map(({ eraEv, era, total }) => (
+        {eras.map(({ era, total }) => (
           <a key={era} href={`#lp-era-${era}`} className={total ? "has" : undefined} style={{ ["--era" as string]: ERA_COLORS[era] }}>
-            {eraEv.sub.replace("(ユニット)", "")}
+            {ERA_LABELS[era]}
             {total > 0 && <b>{total}</b>}
           </a>
         ))}
       </nav>
-      {eras.map(({ eraEv, era, eraCluster, years, total }, i) => (
+      {eras.map(({ era, eraCluster, years, total }, i) => (
         <section key={era} id={`lp-era-${era}`} className={`lp-chrono-era${total ? " has" : ""}`} style={{ ["--era" as string]: ERA_COLORS[era] }}>
           <header className="lp-chrono-era-head">
             <span className="num">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{eraEv.title}</h3>
+            <h3>{ERA_LABELS[era]}</h3>
             <span className="count">{total ? `${total}通` : "まだ手紙はありません"}</span>
           </header>
-          {eraCluster && <ClusterView cluster={{ ...eraCluster, title: `${eraEv.title}へ` }} />}
+          {eraCluster && <ClusterView cluster={{ ...eraCluster, title: `${ERA_LABELS[era]}へ` }} />}
           {years.length > 0 ? (
             <ol className="lp-chrono-years">
               {years.map(({ year, yearEvents, yearClusters, orphan }) => (
@@ -141,14 +142,14 @@ const ClusterView: React.FC<{ cluster: Cluster }> = ({ cluster }) => (
       {cluster.letters.map((l) => (
         <Link
           key={l.id}
-          to={l.status ? "/letters/admin/" : `/letters/card/?id=${l.id}`}
+          to={l.status === "hidden" ? "/letters/admin/" : `/letters/card/?id=${l.id}`}
           className={l.status ? `is-${l.status}` : undefined}
-          aria-label={`${l.address}(${l.sender}より)${l.status === "pending" ? "・確認待ち" : l.status === "hidden" ? "・Webに出さない" : ""}`}
+          aria-label={`${l.address}(${l.sender}より)${l.status ? `・${STATUS_LABELS[l.status]}` : ""}`}
         >
           <ScaledCard maxWidth={200}>
             <CardFront face={l} />
           </ScaledCard>
-          {l.status && <span className="status">{l.status === "pending" ? "確認待ち" : "Webに出さない"}</span>}
+          {l.status && <span className="status">{STATUS_LABELS[l.status]}</span>}
           {!l.status && l.visibility === "book" && <span className="meta">本文は贈る本だけ</span>}
         </Link>
       ))}

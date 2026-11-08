@@ -8,7 +8,7 @@ import React, { Suspense, useEffect, useId, useMemo, useRef, useState } from "re
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
 import { LetterTimeline } from "./LetterTimeline";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
-import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
+import { Era, ERA_LABELS, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
 import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, ERA_EVENTS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
 
@@ -79,6 +79,8 @@ const ERA_NOTES: Record<string, string> = {
   "era:reol": "いまの活動と、これから",
 };
 type StepError = { step: StepId; message: string };
+/** 前につける言葉の「その他」 */
+const OTHER_PREFIX = "__other__";
 
 export const Composer: React.FC<Props> = ({
   mode,
@@ -97,6 +99,8 @@ export const Composer: React.FC<Props> = ({
   const [step, setStep] = useState(0);
   const [side, setSide] = useState<"front" | "back">("front");
   const [consent, setConsent] = useState(false);
+  /** すぐに公開され、運営があとから取り下げることがあると承知した */
+  const [consentPublic, setConsentPublic] = useState(false);
   /** 「次へ」「投函する」を押したあとだけ、その画面のエラーを出す */
   const [showErrors, setShowErrors] = useState(false);
   const editorLabel = useId();
@@ -122,9 +126,9 @@ export const Composer: React.FC<Props> = ({
     if (length > LIMITS.bodyChars) add("body", `本文は${LIMITS.bodyChars.toLocaleString()}字までです。`);
     if (!fits) add("body", "本文がカードに入りきりません。文を短くするか、文字を小さくしてください。");
     if (!value.visibility) add("visibility", "本文をWebでも公開するか、贈る本だけに載せるかを選んでください。");
-    if (!consent) add("confirm", "運営による確認・印刷への同意にチェックを入れてください。");
+    if (!consent || !consentPublic) add("confirm", "投函の前の確認と、印刷への同意の両方にチェックを入れてください。");
     return e;
-  }, [mode, event, value, length, fits, consent]);
+  }, [mode, event, value, length, fits, consent, consentPublic]);
 
   const current = STEPS[step];
   /** 時期と曲の画面は、カードの見本を出さずに一覧を広く */
@@ -134,7 +138,10 @@ export const Composer: React.FC<Props> = ({
   const stepErrors = current.id === "confirm" ? errors : errors.filter((e) => e.step === current.id);
   /** その画面より前が全部埋まっていれば、上の段から飛べる */
   const firstInvalid = STEPS.findIndex((s) => s.id !== "confirm" && errors.some((e) => e.step === s.id));
-  const reachable = (i: number) => firstInvalid === -1 || i <= firstInvalid;
+  /** 曲・作品の記録がない時期(しぇりー)は、曲の画面を通らない(上の手順からも、戻るでも) */
+  const noSongs = mode === "new" && !!event && !events.some((x) => x.era === event.era);
+  const skipped = (i: number) => noSongs && STEPS[i]?.id === "song";
+  const reachable = (i: number) => !skipped(i) && (firstInvalid === -1 || i <= firstInvalid);
 
   // 画面を替えたら、その画面の頭から。読み上げにも見出しを伝える
   useEffect(() => {
@@ -198,7 +205,11 @@ export const Composer: React.FC<Props> = ({
     name: ERA_ADDRESS[event?.era ?? "reol"].name,
     honorific: ERA_ADDRESS[event?.era ?? "reol"].honorific,
   };
-  const prefixOptions = Array.from(new Set([eventPrefix, "あの頃の", "あの日の", addressParts.prefix, ""].filter((x): x is string => x !== undefined)));
+  const prefixOptions = Array.from(new Set([eventPrefix, "あの頃の", "あの日の", ""].filter((x): x is string => x !== undefined)));
+  // 「その他」を選ぶと、前につける言葉を自由に書ける(前に書いた言葉が選択肢に無い時も)
+  const [otherPrefix, setOtherPrefix] = useState(false);
+  const isOtherPrefix = otherPrefix || !prefixOptions.includes(addressParts.prefix);
+  const prefixRoom = LIMITS.address - composeAddress({ ...addressParts, prefix: "" }).length;
   const setAddressPart = (patch: Partial<AddressParts>) => set({ address: composeAddress({ ...addressParts, ...patch }) });
   const fitsAddress = (patch: Partial<AddressParts>) => composeAddress({ ...addressParts, ...patch }).length <= LIMITS.address;
   // 宛名が空のまま(書きかけの復元など)なら、選んだ宛先の既定で埋める
@@ -235,7 +246,7 @@ export const Composer: React.FC<Props> = ({
           <div className="lp-eras is-steps" role="group" aria-label="時期">
             {ERA_EVENTS.map((e) => (
               <button key={e.key} type="button" className="lp-era" aria-pressed={event?.era === e.era} onClick={() => chooseEra(e)}>
-                <b>{e.title}へ</b>
+                <b>{ERA_LABELS[e.era]}</b>
                 <small>{ERA_NOTES[e.key]}</small>
               </button>
             ))}
@@ -247,7 +258,7 @@ export const Composer: React.FC<Props> = ({
             <div className="lp-song-skip">
               <p className="lp-note">選ばなくても書けます。選ぶと、宛名がその曲の名前から入ります。ライヴや作品にも宛てられます。</p>
               <button type="button" className="lp-secondary" aria-pressed={event.key === eraEvent?.key} onClick={() => chooseSong(null)}>
-                選ばずに「{eraEvent?.title}」へ <span aria-hidden>→</span>
+                選ばずに「{event ? ERA_LABELS[event.era] : ""}」へ <span aria-hidden>→</span>
               </button>
             </div>
             {events.some((x) => x.era === event.era) ? (
@@ -263,14 +274,40 @@ export const Composer: React.FC<Props> = ({
             <div className="lp-address-parts">
               <label>
                 <span className="lp-label">前につける言葉</span>
-                <select className="lp-select" value={addressParts.prefix} onChange={(e) => setAddressPart({ prefix: e.target.value })}>
+                <select
+                  className="lp-select"
+                  value={isOtherPrefix ? OTHER_PREFIX : addressParts.prefix}
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    setOtherPrefix(v === OTHER_PREFIX);
+                    if (v !== OTHER_PREFIX) setAddressPart({ prefix: v });
+                  }}
+                >
                   {prefixOptions.map((p) => (
                     <option key={p || "none"} value={p} disabled={!fitsAddress({ prefix: p })}>
                       {p || "(つけない)"}
                     </option>
                   ))}
+                  <option value={OTHER_PREFIX}>その他(自由に書く)</option>
                 </select>
               </label>
+              {isOtherPrefix && (
+                <label className="lp-address-other">
+                  <span className="lp-label">
+                    前につける言葉(自由に) <small>{addressParts.prefix.length}/{prefixRoom}</small>
+                  </span>
+                  <input
+                    className="lp-input"
+                    value={addressParts.prefix}
+                    maxLength={prefixRoom}
+                    onChange={(e) => setAddressPart({ prefix: e.target.value.replace(/[\r\n]/g, "") })}
+                    onKeyDown={enterToNext}
+                    placeholder="例: 初めて聴いた日の"
+                    autoComplete="off"
+                    enterKeyHint="next"
+                  />
+                </label>
+              )}
               <label>
                 <span className="lp-label">名義</span>
                 <select className="lp-select" value={addressParts.name} onChange={(e) => setAddressPart({ name: e.target.value })}>
@@ -371,7 +408,6 @@ export const Composer: React.FC<Props> = ({
                     </span>
                   </span>
                   <b>{m.label}</b>
-                  <small>{m.songs}</small>
                 </button>
               ))}
             </div>
@@ -402,10 +438,10 @@ export const Composer: React.FC<Props> = ({
             </p>
             <div className="lp-privacy single" role="group" aria-label="本文の公開範囲">
               <button type="button" aria-pressed={value.visibility === "public"} onClick={() => set({ visibility: "public" })}>
-                Webでも公開する<small>運営が確認したあと、だれでも表裏を読めます。</small>
+                Webでも公開する<small>投函するとすぐ、だれでも表裏を読めます。</small>
               </button>
               <button type="button" aria-pressed={value.visibility === "book"} onClick={() => set({ visibility: "book" })}>
-                贈る本だけに掲載する<small>Webには宛名面だけを出します。本文は運営が確認し、本に印刷します。</small>
+                贈る本だけに掲載する<small>Webには宛名面だけを出します。本文は運営が読み、本に印刷します。</small>
               </button>
             </div>
             <p className="lp-note" style={{ marginTop: 12 }} aria-live="polite">
@@ -454,10 +490,29 @@ export const Composer: React.FC<Props> = ({
                 {fix("visibility")}
               </div>
             </dl>
+            <div className="lp-rules" role="note" aria-labelledby="lp-rules-title">
+              <h4 id="lp-rules-title">投函する前に、確かめてください</h4>
+              <ul>
+                <li>
+                  <b>投函すると、すぐに「届いた手紙」に載ります。</b>運営の確認は待ちません。載るのは宛名・差出人・SNS ID・絵柄と、「Webでも公開」を選んだ時の本文です。
+                </li>
+                <li>
+                  運営が届いた手紙を定期的に読み、ふさわしくないと判断した手紙は、<b>予告なく取り下げます</b>(Webからも贈る本からも外します)。
+                </li>
+                <li>
+                  書かないでください: 人を傷つける言葉・差別、本名・住所・連絡先などの個人情報、宣伝・勧誘、Reolさんや関係者・ほかのファンへの悪口、なりすまし、歌詞などの長い書き写し。
+                </li>
+                <li>投函したあとに渡すURLから、締切まで何度でも直したり取り下げたりできます。</li>
+              </ul>
+            </div>
+            <label className="lp-consent">
+              <input type="checkbox" checked={consentPublic} onChange={(e) => setConsentPublic(e.target.checked)} />
+              <span>上のことを読みました。投函するとすぐに公開され、運営が取り下げることがあると承知しています。</span>
+            </label>
             <label className="lp-consent">
               <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
               <span>
-                運営(!Legit)が内容を確認し、カードに印刷してファンレターブックにまとめ、Reolさん宛てに贈ることに同意します。
+                運営(!Legit)が内容を読み、カードに印刷してファンレターブックにまとめ、Reolさん宛てに贈ることに同意します。
                 本文を「贈る本だけ」にしても、運営は本文を読みます。届いた本は、先方のスタッフの方も確認します。
               </span>
             </label>
@@ -471,7 +526,7 @@ export const Composer: React.FC<Props> = ({
       {!picking && event && (
         <div className="lp-chosen">
           <span className="lp-note">宛先</span>
-          <b>{event.label}</b>
+          <b>{event.key.startsWith("era:") ? ERA_LABELS[event.era] : event.label}</b>
           {event.date && <span className="lp-note">{event.date.replace(/-/g, ".")}</span>}
           {mode === "new" && (
             <button type="button" className="lp-text-link" onClick={() => goTo(0)}>
@@ -567,7 +622,7 @@ export const Composer: React.FC<Props> = ({
 
       <div className="lp-step-nav">
         {step > 0 ? (
-          <button type="button" className="lp-secondary" onClick={() => goTo(step - 1)}>
+          <button type="button" className="lp-secondary" onClick={() => goTo(skipped(step - 1) ? step - 2 : step - 1)}>
             <span aria-hidden>←</span> 戻る
           </button>
         ) : (
@@ -587,7 +642,7 @@ export const Composer: React.FC<Props> = ({
       </div>
       {current.id === "confirm" && (
         <p className="lp-note lp-step-after" style={{ marginTop: 12 }}>
-          運営が確認してから、Webの「届いた手紙」に載ります。{mode === "new" ? "投函したあと、この手紙を直すためのURLをお渡しします。" : ""}
+          {mode === "new" ? "投函するとすぐ、Webの「届いた手紙」に載ります。投函したあと、この手紙を直すためのURLをお渡しします。" : "直した内容は、すぐWebの「届いた手紙」に反映します。"}
         </p>
       )}
     </div>

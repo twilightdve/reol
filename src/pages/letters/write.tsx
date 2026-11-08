@@ -135,7 +135,7 @@ const LettersWritePage: React.FC = () => {
   };
 
   return (
-    <LettersShell current="write" dock>
+    <LettersShell current="write">
       <section className="lp-section" id="letter">
         <div className="lp-section-head">
           <div>
@@ -153,7 +153,7 @@ const LettersWritePage: React.FC = () => {
           <div className="lp-done" role="status">
             <h3>お手紙を受け付けました</h3>
             <p className="lp-note" style={{ marginTop: 8 }}>
-              ありがとうございます。運営が内容を確認してから、Webの「届いた手紙」に載ります(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。
+              ありがとうございます。Webの「届いた手紙」に載りました(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。運営が読んで、ふさわしくないと判断した時は取り下げます。
             </p>
             {!done.synced && (
               <p className="lp-alert">

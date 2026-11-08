@@ -3,7 +3,8 @@
 -- - テーブルは RLS 有効・ポリシーなし・anon / authenticated から REVOKE(user_sessions と同じ)。
 --   読み書きはすべて下の SECURITY DEFINER の関数だけで行う。
 -- - 投稿・修正のたびに版(birthday_letter_versions)を 1 つ足す。印刷は版を指して記録する。
--- - 一般向けの関数は「運営が確認した版」だけを返し、「贈る本だけ」の本文は返さない。
+-- - 一般向けの関数は、取り下げ・Web に出さない手紙を除いた「今の版」を返す(運営の確認を待たない。運営があとから見て、不適切なものは取り下げる。2026-11-08)。
+--   「贈る本だけ」の本文は返さない。印刷は運営がチェックした版だけ。
 -- - 本人の関数は、投稿時にブラウザーが作った編集鍵(64 桁の 16 進)のハッシュが合う時だけ使える。
 -- - 運営の関数は、ログイン中のセッションが運営の ID(twilightplc)の時だけ使える。
 -- - 受付は 2026-12-21 00:00(日本時間)= 2026-12-20 15:00 UTC で締める。サーバーの時計で判定する。
@@ -23,7 +24,7 @@ CREATE TABLE IF NOT EXISTS public.birthday_letters (
   request_id uuid NOT NULL UNIQUE,          -- 送信の重複防止(再送しても 1 通)
   edit_key_hash text NOT NULL,              -- 編集鍵の sha256(鍵そのものは持たない)
   current_version integer NOT NULL DEFAULT 1,
-  reviewed_version integer,                 -- 運営が確認した版(Web にはこの版を出す)
+  reviewed_version integer,                 -- 運営がチェックした版(Web には確認を待たずに今の版を出す。印刷はチェック済みの版だけ)
   reviewed_at timestamptz,
   web_hidden boolean NOT NULL DEFAULT false, -- 運営の判断で Web に出さない(本には載せる)
   withdrawn_at timestamptz,                 -- 取り下げ(Web にも本にも出さない。行は消さない)
@@ -230,8 +231,8 @@ BEGIN
 END;
 $$;
 
--- 一般向けに出してよい項目だけ。p_content は確認済みの版、p_current は今の版。
--- 本人が後から直した所は、再確認を待たずに古い内容を下げる(本名を消した、などの修正がすぐ効くように):
+-- 一般向けに出してよい項目だけ。p_content は出す版、p_current は今の版(いまは両方とも今の版を渡す)。
+-- 2 つの版が違う時は、後から直した所の古い内容を下げる:
 --   本文を「贈る本だけ」に変えた・本文を直した → 本文を出さない(直した時は bodyPending)/ SNS を外す・変えた → SNS を出さない。
 -- 本文は「Webでも公開」が両方の版で選ばれていて、本文が同じで、p_with_body の時だけ
 CREATE OR REPLACE FUNCTION public._letters_public_card(p_id uuid, p_content jsonb, p_current jsonb, p_created timestamptz, p_with_body boolean)
@@ -379,12 +380,10 @@ AS $$
                       l.created_at DESC
            ) AS ord
     FROM public.birthday_letters l
-    JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
+    JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.current_version
     JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL
-      AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
       AND NOT l.web_hidden
-      AND l.reviewed_version IS NOT NULL
       AND (p_event_key IS NULL OR v.content ->> 'eventKey' = p_event_key)
       AND (p_era IS NULL OR v.content ->> 'era' = p_era)
     ORDER BY ord
@@ -403,13 +402,11 @@ SET search_path = ''
 AS $$
   SELECT public._letters_public_card(l.id, v.content, c.content, l.created_at, true)
   FROM public.birthday_letters l
-  JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
+  JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.current_version
   JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
   WHERE l.id = p_id
-    AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
     AND l.withdrawn_at IS NULL
-    AND NOT l.web_hidden
-    AND l.reviewed_version IS NOT NULL;
+    AND NOT l.web_hidden;
 $$;
 
 -- 宛先ごとの通数(年表の表示用)
@@ -424,10 +421,8 @@ AS $$
   FROM (
     SELECT v.content ->> 'eventKey' AS k, count(*) AS n
     FROM public.birthday_letters l
-    JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.reviewed_version
-    JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
-    WHERE l.withdrawn_at IS NULL AND NOT l.web_hidden AND l.reviewed_version IS NOT NULL
-      AND v.content -> 'sender' = c.content -> 'sender' AND v.content -> 'address' = c.content -> 'address'
+    JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.current_version
+    WHERE l.withdrawn_at IS NULL AND NOT l.web_hidden
     GROUP BY 1
   ) x;
 $$;
@@ -449,7 +444,7 @@ AS $$
       'version', l.current_version,
       'content', v.content,
       'reviewed', l.reviewed_version IS NOT NULL AND l.reviewed_version = l.current_version,
-      'onWeb', l.reviewed_version IS NOT NULL AND NOT l.web_hidden AND l.withdrawn_at IS NULL,
+      'onWeb', NOT l.web_hidden AND l.withdrawn_at IS NULL,
       'withdrawn', l.withdrawn_at IS NOT NULL,
       'editable', l.withdrawn_at IS NULL AND public._letters_is_open(now()),
       'createdAt', l.created_at,

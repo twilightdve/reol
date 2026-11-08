@@ -121,7 +121,7 @@ const EditPage: React.FC = () => {
             <div className="lp-eyebrow">EDIT YOUR LETTER</div>
             <h2>書いた手紙を直す</h2>
           </div>
-          <p className="lp-intro">直したり取り下げたりできるのは {LETTERS_DEADLINE_LABEL} です。直した手紙は、運営がもう一度確認してからWebに反映します。</p>
+          <p className="lp-intro">直したり取り下げたりできるのは {LETTERS_DEADLINE_LABEL} です。直した内容は、すぐWebに反映します。</p>
         </div>
 
         {state === "list" && (
@@ -198,9 +198,7 @@ const EditPage: React.FC = () => {
                 <b>この手紙は取り下げ済みです。Webにも贈る本にも載りません。</b>
               ) : (
                 <>
-                  <b>{letter.reviewed ? "運営が確認しました。" : "運営の確認を待っています。"}</b>{" "}
-                  {letter.onWeb ? "Webの「届いた手紙」に載っています" : "まだWebには載っていません"}
-                  {letter.onWeb && !letter.reviewed && "(直した内容は、確認が済むまで前の内容で載っています)"}。
+                  {letter.onWeb ? "Webの「届いた手紙」に載っています" : "運営の判断で、Webには載せていません(贈る本には載ります)"}。
                   {letter.onWeb && (
                     <>
                       {" "}
