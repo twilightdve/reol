@@ -28,7 +28,7 @@ export const LettersHead: React.FC<{ title?: string; description: string; path: 
   </>
 );
 
-type Current = "write" | "read" | "edit" | "admin";
+type Current = "about" | "write" | "read" | "edit" | "admin";
 
 export const LettersShell: React.FC<{ current: Current; children: React.ReactNode; dock?: boolean }> = ({ current, children, dock = false }) => {
   // スマホで文字を入力している間は、下部ナビを隠す(キーボードと入力欄を妨げない)。
@@ -83,7 +83,10 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
             <b>!</b>Legit<span>Reol UNOFFICIAL FAN SITE</span>
           </Link>
           <nav className="lp-header-nav" aria-label={LETTERS_TITLE}>
-            <Link to="/letters/" aria-current={current === "write" ? "page" : undefined}>
+            <Link to="/letters/" aria-current={current === "about" ? "page" : undefined}>
+              企画について
+            </Link>
+            <Link to="/letters/write/" aria-current={current === "write" ? "page" : undefined}>
               手紙を書く
             </Link>
             <Link to="/letters/read/" aria-current={current === "read" ? "page" : undefined}>
@@ -100,11 +103,7 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
           <p>
             {LETTERS_ORGANIZER}。Reol さんご本人・所属事務所とは関係ありません。
             <br />
-            着想元：
-            <a href="https://reol.jp/feature/anyo_no_title_post" target="_blank" rel="noopener noreferrer">
-              あにょの件名のない郵便やさん
-            </a>{" "}
-            ／ 年表参照：
+            年表参照：
             <a href="https://reol.jp/feature/history_of_reol" target="_blank" rel="noopener noreferrer">
               HISTORY OF Reol
             </a>{" "}
@@ -114,9 +113,15 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
       </div>
       {dock && (
         <nav className="lp-dock lp-noprint" aria-label="手紙づくり">
-          <a href="#letter">
-            <small>01</small>お祝いを書く
-          </a>
+          {current === "write" ? (
+            <Link to="/letters/">
+              <small>01</small>企画について
+            </Link>
+          ) : (
+            <Link to="/letters/write/">
+              <small>01</small>お祝いを書く
+            </Link>
+          )}
           <Link to="/letters/read/">
             <small>02</small>届いた手紙を読む
           </Link>

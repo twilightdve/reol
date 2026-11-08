@@ -269,6 +269,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-book p{font-size:13px;color:var(--muted);line-height:2.1;max-width:34em}
 .lp-book .ship{border-top:1px solid var(--line);padding-top:16px;margin-top:18px}
 .lp-book .ship strong{font-weight:500;color:var(--accent)}
+.lp-book-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:24px}
 .lp-footer{border-top:1px solid var(--line);padding:29px 0 40px;display:flex;justify-content:space-between;align-items:center;gap:30px}
 .lp-footer p{font-size:11px;color:var(--muted);line-height:2;margin:0;max-width:60em}
 .lp-dock{display:none}

@@ -90,7 +90,7 @@ const CardPage: React.FC = () => {
               <Link className="lp-secondary" to={`/letters/read/?event=${encodeURIComponent(state.letter.eventKey)}`}>
                 同じ宛先の手紙
               </Link>
-              <Link className="lp-primary" to={`/letters/?event=${encodeURIComponent(state.letter.eventKey)}#letter`}>
+              <Link className="lp-primary" to={`/letters/write/?event=${encodeURIComponent(state.letter.eventKey)}`}>
                 あなたも書く <span aria-hidden>↗</span>
               </Link>
             </div>
