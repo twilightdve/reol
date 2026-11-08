@@ -7,7 +7,7 @@ import React from "react";
 import { Link } from "gatsby";
 import SEO from "../SEO";
 import { LETTERS_CSS } from "./lettersStyles";
-import { LETTERS_ORGANIZER, LETTERS_TITLE } from "../../utils/letters/constants";
+import { LETTERS_OG_IMAGE, LETTERS_ORGANIZER, LETTERS_TITLE } from "../../utils/letters/constants";
 
 export const LettersHead: React.FC<{ title?: string; description: string; path: string; noindex?: boolean }> = ({
   title,
@@ -16,7 +16,7 @@ export const LettersHead: React.FC<{ title?: string; description: string; path: 
   noindex,
 }) => (
   <>
-    <SEO title={title ? `${title}｜${LETTERS_TITLE}` : LETTERS_TITLE} description={description} path={path} />
+    <SEO title={title ? `${title}｜${LETTERS_TITLE}` : LETTERS_TITLE} description={description} path={path} image={LETTERS_OG_IMAGE} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

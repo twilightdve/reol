@@ -7,7 +7,7 @@ import { HeadFC } from "gatsby";
 import SEO from "../../components/SEO";
 import { BirthdayLanding } from "../../components/letters/BirthdayLanding";
 import { BIRTHDAY_CSS } from "../../components/letters/birthdayStyles";
-import { LETTERS_SHIPPING_NOTE } from "../../utils/letters/constants";
+import { LETTERS_OG_IMAGE, LETTERS_SHIPPING_NOTE } from "../../utils/letters/constants";
 
 const LettersPage: React.FC = () => <BirthdayLanding />;
 
@@ -19,6 +19,7 @@ export const Head: HeadFC = () => (
       title="Happy Birthday, Reol｜2026"
       description={`Reol、お誕生日おめでとう。この一年のライヴと当時のポストを振り返りながら、この一年の思い出とお祝いの言葉を手紙に。${LETTERS_SHIPPING_NOTE}`}
       path="/letters/"
+      image={LETTERS_OG_IMAGE}
     />
     <meta name="color-scheme" content="light" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
