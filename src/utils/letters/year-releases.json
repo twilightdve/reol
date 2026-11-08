@@ -170,7 +170,12 @@
       "title": "天井の街 - CEILING YOU",
       "format": "配信シングル",
       "link": "https://reol.jp/news/detail/585",
-      "videos": [],
+      "videos": [
+        {
+          "videoId": "kAuCs-6CPVY",
+          "caption": "YouTube の音源"
+        }
+      ],
       "posts": []
     }
   ],

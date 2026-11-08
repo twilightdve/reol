@@ -3,6 +3,7 @@
  * 作品: サイトの作品データ(static/data/discography.json)のうち、発売日が 2025-11-09〜2026-11-08 のもの(歌ってみたは除く)。
  *   当時のポストは、その作品にひも付いたポストのうち、同じ期間に投稿されたもの(ID の Snowflake から日時を求める)。
  *   公式サイトで発売日が違うと分かった作品は EXCLUDE で外す。
+ * 作品の映像: RELEASE_VIDEOS に書いたもの。無ければ、シングル・配信シングルの曲の YouTube(作品データの musicVideoUrl)で、MV として出していないもの。
  * MV: 期間内に公開された Reol の MV。公開日はサイトのデータに無いため、YouTube の公開日(2026-11-08 に確かめた)を下の MVS に書く。
  *   作品の音源だけの動画(Topic)やタイアップ先の動画は MV に入れない。タイアップ先の公式の映像は、作品の行に出す(RELEASE_VIDEOS)。
  *
@@ -25,6 +26,14 @@ const RELEASE_VIDEOS: Record<string, { videoId: string; caption: string }[]> = {
     { videoId: "f8cKoq5TRFk", caption: "発売直前鼎談(Reol Official)" },
   ],
 };
+/** シングルの曲の YouTube(作品データの URL から。MV として出すものは除く) */
+const singleVideos = (d: any): { videoId: string; caption: string }[] =>
+  d.format === "配信SG" || d.format === "SG"
+    ? (d.songs ?? [])
+        .map((so: any) => String(so.musicVideoUrl ?? "").match(/(?:youtu\.be\/|v=)([A-Za-z0-9_-]{11})/)?.[1])
+        .filter((id: string | undefined): id is string => !!id && !MVS.some((m) => m.videoId === id))
+        .map((videoId: string) => ({ videoId, caption: "YouTube の音源" }))
+    : [];
 const MVS = [
   { videoId: "SUX1bRWZ7W4", song: "おとめの肖像 (Portrait of Her)", date: "2025-12-12" },
   { videoId: "YibWxud5fRs", song: "DEAD CENTER feat. LiSA", date: "2026-01-21" },
@@ -60,7 +69,7 @@ const releases = disc
       title: d.title.trim(),
       format: FORMAT[d.format] ?? d.format,
       link: d.siteUrl || LINKS[d.title.trim()] || null,
-      videos: RELEASE_VIDEOS[d.title.trim()] ?? [],
+      videos: RELEASE_VIDEOS[d.title.trim()] ?? singleVideos(d),
       posts,
     };
   })
