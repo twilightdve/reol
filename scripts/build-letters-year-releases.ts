@@ -18,8 +18,12 @@ const EXCLUDE = new Set(["オオエドランヴ feat. nqrse -十年物 Edition-"
 /** 公式サイトの作品ページが無い作品の参照先 */
 const LINKS: Record<string, string> = { "天井の街 - CEILING YOU": "https://reol.jp/news/detail/585" };
 /** 作品の行に出す公式の映像(MV ではないもの)。YouTube の正規の埋め込みで、押した時に読み込む */
-const RELEASE_VIDEOS: Record<string, { videoId: string; caption: string }> = {
-  "Play On！": { videoId: "Slk45QZsn0M", caption: "NTE 公式・テーマソング スタジオ版" },
+const RELEASE_VIDEOS: Record<string, { videoId: string; caption: string }[]> = {
+  "Play On！": [{ videoId: "Slk45QZsn0M", caption: "NTE 公式・テーマソング スタジオ版" }],
+  "Reol Oneman Live '美辞学' in YOKOHAMA ARENA": [
+    { videoId: "vRWF4XaBKIs", caption: "XFDMovie(Reol Official)" },
+    { videoId: "f8cKoq5TRFk", caption: "発売直前鼎談(Reol Official)" },
+  ],
 };
 const MVS = [
   { videoId: "SUX1bRWZ7W4", song: "おとめの肖像 (Portrait of Her)", date: "2025-12-12" },
@@ -56,7 +60,7 @@ const releases = disc
       title: d.title.trim(),
       format: FORMAT[d.format] ?? d.format,
       link: d.siteUrl || LINKS[d.title.trim()] || null,
-      video: RELEASE_VIDEOS[d.title.trim()] ?? null,
+      videos: RELEASE_VIDEOS[d.title.trim()] ?? [],
       posts,
     };
   })

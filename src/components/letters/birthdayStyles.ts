@@ -191,4 +191,8 @@ body{margin:0;background:#dde0d6;color:#2d3932;font-family:'Noto Serif JP','Hira
 .bd .live-month{scroll-margin-top:72px}
 .bd .project h2{position:relative}
 .bd .bd-owl{display:inline-block;width:1.25em;height:1.35em;margin-left:.3em;vertical-align:-.28em;filter:drop-shadow(0 3px 6px #2d39321f)}
+.bd .bd-videos{display:grid;gap:22px}
+.bd .bd-videos figure{margin:0}
+.bd .bd-videos figcaption{margin-top:8px}
+.bd .live-entry.is-release .live-entry-source,.bd .live-entry.is-mv .live-entry-source{display:flex;width:fit-content}
 `;

@@ -6,7 +6,7 @@
       "title": "美辞学 (Rhetoric)",
       "format": "フルアルバム",
       "link": "https://reol.jp/discography/detail/50/",
-      "video": null,
+      "videos": [],
       "posts": [
         {
           "id": "1987484962208301177",
@@ -44,10 +44,12 @@
       "title": "Play On！",
       "format": "歌唱曲",
       "link": null,
-      "video": {
-        "videoId": "Slk45QZsn0M",
-        "caption": "NTE 公式・テーマソング スタジオ版"
-      },
+      "videos": [
+        {
+          "videoId": "Slk45QZsn0M",
+          "caption": "NTE 公式・テーマソング スタジオ版"
+        }
+      ],
       "posts": []
     },
     {
@@ -56,7 +58,16 @@
       "title": "Reol Oneman Live '美辞学' in YOKOHAMA ARENA",
       "format": "映像作品",
       "link": "https://reol.jp/discography/detail/51/",
-      "video": null,
+      "videos": [
+        {
+          "videoId": "vRWF4XaBKIs",
+          "caption": "XFDMovie(Reol Official)"
+        },
+        {
+          "videoId": "f8cKoq5TRFk",
+          "caption": "発売直前鼎談(Reol Official)"
+        }
+      ],
       "posts": []
     },
     {
@@ -65,7 +76,7 @@
       "title": "COCOON",
       "format": "配信シングル",
       "link": "https://reol.jp/discography/detail/52/",
-      "video": null,
+      "videos": [],
       "posts": [
         {
           "id": "2071161529580564700",
@@ -159,7 +170,7 @@
       "title": "天井の街 - CEILING YOU",
       "format": "配信シングル",
       "link": "https://reol.jp/news/detail/585",
-      "video": null,
+      "videos": [],
       "posts": []
     }
   ],
