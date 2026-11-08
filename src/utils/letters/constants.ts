@@ -19,11 +19,50 @@ export const GA_NO_TRACK_PATH_RE = /^\/letters\/(edit|admin)(\/|$)/;
 
 export const LETTERS_PRINT_TEMPLATE = "postcard-100x148-v1";
 
-export type Motif = "color" | "water" | "stars";
-export const MOTIFS: { id: Motif; label: string }[] = [
-  { id: "color", label: "色が重なる" },
-  { id: "water", label: "水底の手紙" },
-  { id: "stars", label: "星と軌道" },
+/**
+ * カードの絵柄。曲のモチーフ(MV・ジャケット・曲名・テーマ)から起こした図形(ジャケットの絵そのものは写さない)。
+ * songs は選ぶ画面に添える「ゆかりの曲」。並びは DB の letters の決まり(_letters_clean)と揃える
+ */
+export const MOTIF_IDS = [
+  "color",
+  "water",
+  "stars",
+  "mirror",
+  "moon",
+  "candy",
+  "petals",
+  "glitter",
+  "film",
+  "edge",
+  "brush",
+  "monitor",
+  "lantern",
+  "rings",
+  "pulse",
+  "sky",
+  "moss",
+  "key",
+] as const;
+export type Motif = (typeof MOTIF_IDS)[number];
+export const MOTIFS: { id: Motif; label: string; songs: string }[] = [
+  { id: "color", label: "色が重なる", songs: "極彩色・染" },
+  { id: "water", label: "水底の手紙", songs: "水底游歩道・No title" },
+  { id: "stars", label: "星と軌道", songs: "二等星・BBBang" },
+  { id: "mirror", label: "割れた鏡", songs: "平面鏡・カルト・ミッシング" },
+  { id: "moon", label: "三日月と結晶", songs: "No title・Behind The Night" },
+  { id: "candy", label: "雨と飴玉", songs: "drop pop candy・Syrup" },
+  { id: "petals", label: "舞う花びら", songs: "ディア・あ可よろし・ちるちる" },
+  { id: "glitter", label: "きらめき", songs: "綺羅綺羅・赤裸裸" },
+  { id: "film", label: "虹色のフィルム", songs: "ウテナ・たい・シンカロン" },
+  { id: "edge", label: "切っ先と花", songs: "切っ先" },
+  { id: "brush", label: "筆の走り書き", songs: "Danger Danger・感情御中・RE RESCUE" },
+  { id: "monitor", label: "古いモニター", songs: "ヒビカセ・Neo Nostalgia・DEAD CENTER" },
+  { id: "lantern", label: "行灯と祭り", songs: "煽げや尊し・ギガンティックO.T.N" },
+  { id: "rings", label: "輪と曼荼羅", songs: "-MANDARA FACT-・幽居のワルツ・コノヨLoading..." },
+  { id: "pulse", label: "鼓動の線", songs: "-nil-・生命線" },
+  { id: "sky", label: "雲の浮かぶ空", songs: "TAKE OFF・ロジックエージェント" },
+  { id: "moss", label: "苔と丸い鏡", songs: "うつくしじごく・美辞目録" },
+  { id: "key", label: "鍵と額縁", songs: "RE:・失楽園" },
 ];
 
 export type Visibility = "public" | "book";

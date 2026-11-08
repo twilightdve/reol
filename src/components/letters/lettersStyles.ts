@@ -143,13 +143,14 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-address-result span{font-size:11px;color:var(--muted);flex-shrink:0}
 .lp-address-result b{font:500 18px/1.6 var(--serif);word-break:break-all}
 .lp-sns{display:grid;grid-template-columns:130px 1fr;gap:12px}
-.lp-motifs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.lp-motifs button{display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;padding:12px 5px;font-size:12px;min-height:88px;justify-content:center}
+.lp-motifs{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.lp-motifs button{display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid var(--line);background:transparent;padding:12px 6px 10px;font-size:12px;justify-content:flex-start;text-align:center}
+.lp-motifs button b{font-weight:500;line-height:1.4}
+.lp-motifs button small{font-size:10px;line-height:1.5;color:var(--muted)}
 .lp-motifs button[aria-pressed=true]{border-color:var(--ink);background:var(--soft)}
-.lp-swatch{width:28px;height:37px;background:#f9f4df;border:1px solid #bfc3b3;flex-shrink:0}
-.lp-swatch.color{background:linear-gradient(115deg,#faf5e8 40%,#c2694d 40% 68%,#658f99 68%);border-top:3px solid #cf6045}
-.lp-swatch.water{background:radial-gradient(circle at 100% 90%,#b9d3d0 40%,#eef4e8 42% 54%,#93bfbe 56% 57%,#f6f6ec 59%);border-top:3px solid #62949c}
-.lp-swatch.stars{background:radial-gradient(circle at 70% 60%,#c6b67b 0 6%,#f4f2e2 8% 40%,#aab899 43% 45%,#f4f2e2 47%);border-top:3px solid #a69b62}
+.lp-swatch{display:block;width:54px;height:80px;position:relative;overflow:hidden;flex-shrink:0;box-shadow:0 2px 6px #273b3b1f}
+.lp-swatch .lp-card{display:block;position:absolute;left:0;top:0;transform:scale(.1429);transform-origin:0 0}
+.lp-swatch .motif{display:block}
 .lp-editor{border:1px solid var(--line);background:#fff}
 .lp-toolbar{display:flex;flex-wrap:wrap;gap:4px;padding:6px;border-bottom:1px solid var(--line);background:#fffaf2;position:sticky;top:0;z-index:2}
 .lp-toolbar button{min-width:40px;min-height:40px;border:1px solid transparent;background:transparent;font-size:13px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;gap:4px}
@@ -231,6 +232,64 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-card.stars .motif{background:radial-gradient(ellipse at 100% 100%,#d8dccaad,transparent 62%)}
 .lp-card.stars .motif:before{width:87mm;height:53mm;border:.3mm solid #b5ad7f;border-radius:50%;bottom:-5mm;right:-28mm;transform:rotate(-35deg);box-shadow:0 0 0 8mm #aab39c12,0 0 0 8.3mm #aab39c77}
 .lp-card.stars .motif:after{content:'✧';font:30mm/1 Georgia,serif;bottom:13mm;right:6.7mm;color:#ac9d63}
+.lp-card.mirror{border-top:2mm solid #7f8b98}
+.lp-card.mirror .motif{background:linear-gradient(135deg,transparent 58%,#c9d0d833 58% 72%,transparent 72%)}
+.lp-card.mirror .motif:before{width:74mm;height:74mm;right:-14mm;bottom:-12mm;background:conic-gradient(from 20deg at 42% 46%,#e3e7ec 0 40deg,#b7c0ca 40deg 95deg,#eef1f4 95deg 160deg,#a7b1bd 160deg 230deg,#d2d8df 230deg 300deg,#c1c9d2 300deg);clip-path:polygon(12% 30%,46% 4%,88% 14%,100% 52%,84% 92%,40% 100%,4% 74%);opacity:.6}
+.lp-card.mirror .motif:after{width:74mm;height:74mm;right:-14mm;bottom:-12mm;clip-path:polygon(12% 30%,46% 4%,88% 14%,100% 52%,84% 92%,40% 100%,4% 74%);background:linear-gradient(28deg,transparent 49.5%,#6f7b88 49.5% 50.5%,transparent 50.5%),linear-gradient(-62deg,transparent 49.6%,#6f7b88 49.6% 50.4%,transparent 50.4%),linear-gradient(98deg,transparent 49.6%,#6f7b88aa 49.6% 50.4%,transparent 50.4%),linear-gradient(155deg,transparent 49.6%,#6f7b8899 49.6% 50.4%,transparent 50.4%);opacity:.7}
+.lp-card.moon{border-top:2mm solid #4f6a9a}
+.lp-card.moon .motif{background:radial-gradient(ellipse at 100% 100%,#c9d6ec88,transparent 60%)}
+.lp-card.moon .motif:before{width:44mm;height:44mm;border-radius:50%;right:-6mm;bottom:16mm;box-shadow:inset -8mm 5mm 0 0 #d8c37f;opacity:.85}
+.lp-card.moon .motif:after{width:13mm;height:15mm;right:44mm;bottom:12mm;background:#9fb4d8;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);opacity:.55;box-shadow:none}
+.lp-card.candy{border-top:2mm solid #d7739a}
+.lp-card.candy .motif{background:radial-gradient(circle at 82% 82%,#f2a7c4 0 4.4mm,transparent 4.6mm),radial-gradient(circle at 66% 90%,#9fd3e0 0 3.2mm,transparent 3.4mm),radial-gradient(circle at 92% 66%,#f6cf72 0 2.8mm,transparent 3mm),radial-gradient(circle at 56% 78%,#b7e0b0 0 2.2mm,transparent 2.4mm),radial-gradient(circle at 76% 70%,#c7b3ea 0 1.8mm,transparent 2mm)}
+.lp-card.candy .motif:before{width:56mm;height:90mm;right:-4mm;top:22mm;background:repeating-linear-gradient(104deg,transparent 0 5.5mm,#86bfd466 5.5mm 5.8mm);-webkit-mask-image:linear-gradient(transparent,#000 35%,#000 60%,transparent);mask-image:linear-gradient(transparent,#000 35%,#000 60%,transparent)}
+.lp-card.candy .motif:after{width:6mm;height:6mm;right:30mm;bottom:40mm;border-radius:0 50% 50% 50%;transform:rotate(45deg);background:#86bfd4;opacity:.7;box-shadow:-14mm 10mm 0 -1mm #86bfd4aa,10mm -18mm 0 -1.5mm #86bfd499}
+.lp-card.petals{border-top:2mm solid #c9768a}
+.lp-card.petals .motif{background:radial-gradient(ellipse at 100% 100%,#f3d3d977,transparent 60%)}
+.lp-card.petals .motif:before{width:11mm;height:16mm;right:14mm;bottom:16mm;border-radius:100% 0;background:#eeb3c0;transform:rotate(28deg);box-shadow:-22mm 8mm 0 -2mm #f3c8d1,-8mm -26mm 0 -3mm #eaa9b8,8mm -48mm 0 -4mm #f5d2d9,-34mm -16mm 0 -4mm #efbfca,-2mm -70mm 0 -5mm #f3cdd5;opacity:.85}
+.lp-card.petals .motif:after{width:52mm;height:52mm;border-radius:50%;right:-20mm;bottom:-20mm;border:.3mm solid #d595a4;box-shadow:0 0 0 4mm #f3d3d933,0 0 0 4.3mm #d595a466}
+.lp-card.glitter{border-top:2mm solid #c9a23f}
+.lp-card.glitter .motif{background:radial-gradient(circle at 84% 84%,#f3dd9a99,transparent 34%),radial-gradient(circle at 18% 86%,#d9b55a 0 .5mm,transparent .6mm),radial-gradient(circle at 70% 60%,#d9b55a 0 .45mm,transparent .55mm),radial-gradient(circle at 90% 40%,#d9b55a 0 .5mm,transparent .6mm),radial-gradient(circle at 40% 92%,#d9b55a 0 .4mm,transparent .5mm),radial-gradient(circle at 60% 76%,#d9b55a 0 .35mm,transparent .45mm)}
+.lp-card.glitter .motif:before{content:'✦';font:16mm/1 Georgia,serif;color:#c9a23f;right:9mm;bottom:14mm;text-shadow:-15mm -10mm 0 #d8b968,-4mm -26mm 0 #e3c983}
+.lp-card.glitter .motif:after{content:'✧';font:9mm/1 Georgia,serif;color:#c9a23f;right:28mm;bottom:28mm;opacity:.8}
+.lp-card.film{border-top:2mm solid #8e7cc3}
+.lp-card.film .motif:before,.lp-card.film .motif:after{width:30mm;height:190mm;right:6mm;top:-20mm;transform:rotate(16deg)}
+.lp-card.film .motif:before{background:linear-gradient(180deg,#f7b5c6,#f9d99a,#bfe3c0,#a9d3ea,#c7b3ea,#f7b5c6,#f9d99a);opacity:.45}
+.lp-card.film .motif:after{background:repeating-linear-gradient(180deg,#faf8ef 0 2mm,transparent 2mm 4.5mm) left/2.6mm 100% no-repeat,repeating-linear-gradient(180deg,#faf8ef 0 2mm,transparent 2mm 4.5mm) right/2.6mm 100% no-repeat}
+.lp-card.edge{border-top:2mm solid #b8343f}
+.lp-card.edge .motif{background:linear-gradient(200deg,transparent 60%,#f1d5d566)}
+.lp-card.edge .motif:before{width:3.2mm;height:130mm;right:34mm;bottom:-34mm;transform:rotate(34deg);background:linear-gradient(90deg,#b3bac2,#f4f6f8 50%,#8e98a3);clip-path:polygon(0 7%,50% 0,100% 7%,100% 100%,0 100%);opacity:.85}
+.lp-card.edge .motif:after{width:6.4mm;height:6.4mm;border-radius:50%;right:12mm;bottom:18mm;background:#efc65c;box-shadow:0 -4.2mm 0 .4mm #c94450,4mm -1.3mm 0 .4mm #c94450,2.5mm 3.5mm 0 .4mm #c94450,-2.5mm 3.5mm 0 .4mm #c94450,-4mm -1.3mm 0 .4mm #c94450,-16mm 12mm 0 -1.2mm #d7656f,-12mm 8.6mm 0 -1.6mm #d7656f}
+.lp-card.brush{border-top:2mm solid #c8323a}
+.lp-card.brush .motif{background:radial-gradient(ellipse at 100% 100%,#e0474d33,transparent 55%)}
+.lp-card.brush .motif:before{width:13mm;height:132mm;left:-6.5mm;top:8mm;background:#1d1d1f;border-radius:40% 60% 50% 40%/8% 6% 10% 6%;transform:rotate(2deg);-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 78%,transparent);opacity:.85}
+.lp-card.brush .motif:after{width:46mm;height:16mm;right:-6mm;bottom:22mm;border-top:.9mm solid #d03a41;border-radius:50%;transform:rotate(-12deg);box-shadow:0 -4mm 0 -3mm #d03a41;opacity:.75}
+.lp-card.monitor{border-top:2mm solid #2f6f73}
+.lp-card.monitor .motif{background:repeating-linear-gradient(0deg,transparent 0 1.2mm,#2f6f730d 1.2mm 1.5mm)}
+.lp-card.monitor .motif:before{width:52mm;height:40mm;right:-8mm;bottom:12mm;border:2.4mm solid #2f6f7399;border-radius:6mm/8mm;background:radial-gradient(ellipse,#c6ebe6aa,#7fb9b855);opacity:.75}
+.lp-card.monitor .motif:after{width:3mm;height:3mm;right:28mm;bottom:58mm;background:#e2574c;box-shadow:4mm 0 #f2b33d,8mm 0 #57a773;opacity:.75}
+.lp-card.lantern{border-top:2mm solid #b5452f}
+.lp-card.lantern .motif{background:radial-gradient(circle at 18% 14%,#d8553f 0 1.5mm,transparent 1.6mm),radial-gradient(circle at 42% 18%,#e6a24a 0 1.5mm,transparent 1.6mm),radial-gradient(circle at 66% 19%,#d8553f 0 1.5mm,transparent 1.6mm),radial-gradient(circle at 90% 15%,#e6a24a 0 1.5mm,transparent 1.6mm),radial-gradient(ellipse at 90% 92%,#f2b56b55,transparent 45%)}
+.lp-card.lantern .motif:before{width:22mm;height:30mm;right:11mm;bottom:12mm;border-radius:45%/40%;background:repeating-linear-gradient(0deg,transparent 0 4mm,#b5452f44 4mm 4.4mm),radial-gradient(ellipse,#f8dd94,#e98a5b 72%);box-shadow:0 0 12mm #f2b56b88;opacity:.85}
+.lp-card.lantern .motif:after{width:96mm;height:16mm;left:2mm;top:9mm;border-bottom:.3mm solid #b5452f66;border-radius:0 0 50% 50%}
+.lp-card.rings{border-top:2mm solid #6d4d8a}
+.lp-card.rings .motif:before{width:76mm;height:76mm;right:-26mm;bottom:-22mm;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 3mm,#8b6fb055 3mm 3.3mm);opacity:.85}
+.lp-card.rings .motif:after{width:76mm;height:76mm;right:-26mm;bottom:-22mm;border-radius:50%;background:repeating-conic-gradient(from 0deg,#8b6fb02e 0 3deg,transparent 3deg 15deg);-webkit-mask-image:radial-gradient(circle,transparent 30%,#000 32%);mask-image:radial-gradient(circle,transparent 30%,#000 32%)}
+.lp-card.pulse{border-top:2mm solid #a8323e}
+.lp-card.pulse .motif{background:radial-gradient(ellipse at 100% 100%,#f0cfd255,transparent 55%)}
+.lp-card.pulse .motif:before{left:0;right:0;height:16mm;bottom:22mm;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'%3E%3Cpath d='M0 22H58L66 8L74 36L82 4L90 30L96 22H200' fill='none' stroke='%23b0404d' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% 100% no-repeat;opacity:.7}
+.lp-card.pulse .motif:after{width:8mm;height:7mm;right:12mm;bottom:40mm;background:#c94a57;clip-path:path('M4 7 C1 4.6 0 3.4 0 2 C0 .8 .9 0 2 0 C2.9 0 3.6 .6 4 1.3 C4.4 .6 5.1 0 6 0 C7.1 0 8 .8 8 2 C8 3.4 7 4.6 4 7Z');transform:scale(2.2);transform-origin:100% 100%;opacity:.55}
+.lp-card.sky{border-top:2mm solid #6aa6c8}
+.lp-card.sky .motif{background:linear-gradient(185deg,#bfdcee 0,#e2eff5 34%,transparent 62%)}
+.lp-card.sky .motif:before{width:34mm;height:11mm;border-radius:11mm;right:8mm;bottom:20mm;background:#f4f9fc;box-shadow:7mm -5mm 0 1.4mm #f4f9fc,-9mm -2.6mm 0 -.6mm #f4f9fc,7mm -5mm 0 1.8mm #8fbad4aa,-9mm -2.6mm 0 -.2mm #8fbad4aa,0 0 0 .4mm #8fbad4aa}
+.lp-card.sky .motif:after{width:20mm;height:7mm;border-radius:7mm;right:46mm;bottom:46mm;background:#f4f9fc;box-shadow:5mm -3.4mm 0 1mm #f4f9fc,5mm -3.4mm 0 1.4mm #8fbad499,0 0 0 .4mm #8fbad499}
+.lp-card.moss{border-top:2mm solid #5d7a4a}
+.lp-card.moss .motif{background:radial-gradient(ellipse at 100% 100%,#7d9a5e55,transparent 55%)}
+.lp-card.moss .motif:before{width:64mm;height:40mm;right:-12mm;bottom:-8mm;border-radius:60% 45% 0 0/75% 65% 0 0;background:radial-gradient(circle at 18% 30%,#9db785 0 2mm,transparent 2.2mm),radial-gradient(circle at 46% 20%,#8aa671 0 1.6mm,transparent 1.8mm),radial-gradient(circle at 70% 36%,#9db785 0 2.2mm,transparent 2.4mm),radial-gradient(circle at 30% 30%,#7f9a68,#566f45 72%);opacity:.6}
+.lp-card.moss .motif:after{width:24mm;height:24mm;border-radius:50%;right:14mm;bottom:30mm;border:.6mm solid #b49c62;background:radial-gradient(circle at 35% 30%,#ffffffdd,#dfe4d6 62%);box-shadow:0 0 0 1.4mm #faf6ea,0 0 0 1.7mm #b49c6288}
+.lp-card.key{border-top:2mm solid #9a7b3c}
+.lp-card.key .motif:before{width:54mm;height:70mm;right:-10mm;bottom:-12mm;border:2.6mm double #b89a5a;outline:.3mm solid #b89a5a66;outline-offset:2mm;background:radial-gradient(ellipse at 60% 40%,#efe3c455,transparent 70%);opacity:.75}
+.lp-card.key .motif:after{width:36mm;height:13mm;right:10mm;bottom:28mm;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 44'%3E%3Cg fill='none' stroke='%23a07f3c' stroke-width='2.2'%3E%3Ccircle cx='20' cy='22' r='14'/%3E%3Ccircle cx='20' cy='22' r='6'/%3E%3Cpath d='M34 22H112M96 22v12M106 22v9M84 22v7'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-28deg);opacity:.8}
 .lp-card.is-back .motif{opacity:.22}
 .lp-card .top{position:absolute;top:8.3mm;left:8.7mm;right:8.7mm;display:flex;justify-content:space-between;align-items:flex-start}
 .lp-card .tiny{font:3mm/1.5 var(--sans);letter-spacing:.14em}

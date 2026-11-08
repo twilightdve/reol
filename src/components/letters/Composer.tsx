@@ -365,13 +365,18 @@ export const Composer: React.FC<Props> = ({
             <div className="lp-motifs" role="group" aria-label="カードの絵柄">
               {MOTIFS.map((m) => (
                 <button key={m.id} type="button" aria-pressed={value.motif === m.id} onClick={() => set({ motif: m.id })}>
-                  <span className={`lp-swatch ${m.id}`} aria-hidden />
-                  {m.label}
+                  <span className="lp-swatch" aria-hidden>
+                    <span className={`lp-card ${m.id}`}>
+                      <span className="motif" />
+                    </span>
+                  </span>
+                  <b>{m.label}</b>
+                  <small>{m.songs}</small>
                 </button>
               ))}
             </div>
             <p className="lp-note" style={{ marginTop: 10 }}>
-              表と裏の両方に使います。あとから変えても、書いた文章は消えません。
+              曲のモチーフから起こした絵柄です。表と裏の両方に使います。あとから変えても、書いた文章は消えません。
             </p>
           </div>
         );
@@ -385,7 +390,7 @@ export const Composer: React.FC<Props> = ({
               <BodyEditor value={value.body} resetKey={bodyResetKey} onChange={(body) => set({ body })} length={length} fits={fits} labelId={editorLabel} />
             </Suspense>
             <p className="lp-note" style={{ marginTop: 8 }}>
-              装飾は太字・文字の色・大きさ・中央寄せだけです。カードは実寸(100×148mm)で組んでいて、入りきらない時は投函できません。
+              装飾は太字・文字の色・大きさ・寄せ(左・中央・右)だけです。カードは実寸(100×148mm)で組んでいて、入りきらない時は投函できません。
             </p>
           </div>
         );

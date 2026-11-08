@@ -1,4 +1,5 @@
 import { bodyLength, fromEditorJson, isValidBody, stripInvisible, toEditorJson, trimBody } from "../letters/body";
+import { MOTIF_IDS, MOTIFS } from "../letters/constants";
 import { buildAddress, buildLetterEvents, composeAddress, eraOfName, parseAddress, splitAddress } from "../letters/timeline";
 
 describe("手紙の本文(plan/64)", () => {
@@ -132,5 +133,16 @@ describe("宛先の年表(plan/64)", () => {
     expect(other.era).toBe("reoru");
     expect(other.defaultAddress).toBe("ゆめのれをる氏へ");
     expect(events.some((e) => e.key === "song:s-d1")).toBe(false);
+  });
+});
+
+describe("カードの絵柄(plan/64)", () => {
+  test("画面の絵柄と DB が受け付ける絵柄が同じ", () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const sql: string = require("fs").readFileSync(require("path").join(__dirname, "../../../supabase/features/supabase-birthday-letters.sql"), "utf8");
+    const m = sql.match(/v_motif NOT IN \(([^)]*)\)/);
+    const inDb = (m?.[1] ?? "").split(",").map((x) => x.trim().replace(/'/g, ""));
+    expect(inDb).toEqual([...MOTIF_IDS]);
+    expect(MOTIFS.map((x) => x.id)).toEqual([...MOTIF_IDS]);
   });
 });
