@@ -219,7 +219,14 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-atelier.is-picking .lp-preview{display:none}
 .lp-eras.is-steps{grid-template-columns:repeat(3,1fr);margin:0}
 .lp-eras.is-steps .lp-era{min-height:96px}
-.lp-song-skip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px}
+.lp-song-skip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px}
+.lp-year-picker .lp-song-skip{margin:0 0 30px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.lp-year-picker .lp-song-skip .lp-secondary{min-height:52px;padding:12px 20px}
+.lp-year-tabs{margin:0 0 22px}
+.lp-draft-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border:1px solid var(--line);background:#fffdf8;padding:12px 16px;margin:0 0 22px;font-size:13px}
+.lp-step-nav .lp-draft{margin-left:auto;margin-right:12px}
+@media(max-width:600px){.lp-step-nav{flex-wrap:wrap}.lp-step-nav .lp-draft{order:3;margin:0;flex:1 1 100%}}
+.lp-saved{font:500 12px/1.6 var(--sans);color:var(--green);margin:10px 0 0;text-align:right}
 .lp-song-skip .lp-note{flex:1 1 280px}
 .lp-song-skip .lp-secondary[aria-pressed=true]{border-color:var(--accent);background:var(--soft)}
 .lp-summary{margin:0;border-top:1px solid var(--line)}
@@ -363,7 +370,7 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-card.is-back .motif{opacity:.22}
 .lp-card .top{position:absolute;top:8.3mm;left:8.7mm;right:8.7mm;display:flex;justify-content:space-between;align-items:flex-start}
 .lp-card .tiny{font:3mm/1.5 var(--sans);letter-spacing:.14em}
-.lp-card .mark{height:21mm;width:21mm;border:.3mm solid #aa513d;border-radius:50%;color:#aa513d;transform:rotate(-13deg);display:flex;flex-direction:column;justify-content:center;text-align:center;font:2.3mm/1.6 Arial,sans-serif;outline:.3mm solid #aa513d;outline-offset:-1.7mm;letter-spacing:.05em}
+.lp-card .mark{height:21mm;width:21mm;border:.3mm solid #aa513d;border-radius:50%;color:#aa513d;transform:rotate(13deg);display:flex;flex-direction:column;justify-content:center;text-align:center;font:2.3mm/1.6 Arial,sans-serif;outline:.3mm solid #aa513d;outline-offset:-1.7mm;letter-spacing:.05em}
 .lp-card .mark strong{font-size:5.3mm;font-weight:500;letter-spacing:.03em;line-height:1.3}
 .lp-card .to{position:absolute;left:10mm;top:46mm;right:7mm;font:500 9mm/1.75 var(--serif);letter-spacing:.03em;z-index:1;overflow-wrap:anywhere}
 .lp-card .to.is-long{font-size:7mm}

@@ -10,6 +10,8 @@ const MINE_KEY = "legit-letters-mine";
 
 export type Draft = Partial<Omit<LetterContent, "eventKey">> & {
   eventKey?: string | null;
+  /** 「下書き保存」を押した日時(自動で残す書きかけと見分ける) */
+  savedAt?: string | null;
   /** 送信中・結果が分からなかった時に、同じ 1 通として送り直すための値 */
   pending?: { requestId: string; editKey: string } | null;
 };

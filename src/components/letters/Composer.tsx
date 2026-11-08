@@ -50,6 +50,8 @@ type Props = {
   availability: "loading" | "open" | "closed" | "unavailable";
   submitState: SubmitState;
   onSubmit: (content: LetterContent & { consent: true }) => void;
+  /** 下書き保存(この端末に)。新しく書く時だけ */
+  onSaveDraft?: () => void;
   /** 宛先の候補(新しく書く時だけ。時期と曲の画面で使う) */
   counts?: Record<string, number>;
   onChoose?: (e: LetterEvent) => void;
@@ -61,9 +63,9 @@ type Props = {
 /** 一画面に一つずつ */
 const ALL_STEPS = [
   { id: "memory", label: "思い出", title: "この一年の、どの思い出を書く？" },
+  { id: "motif", label: "絵柄", title: "カードの絵柄を選ぶ" },
   { id: "address", label: "宛名", title: "カードの表に書く、宛名" },
   { id: "sender", label: "差出人", title: "あなたの名前" },
-  { id: "motif", label: "絵柄", title: "カードの絵柄を選ぶ" },
   { id: "body", label: "本文", title: "お祝いの言葉を書く" },
   { id: "visibility", label: "公開", title: "本文を、どこまで見せる？" },
   { id: "confirm", label: "確認", title: "この内容で送ります" },
@@ -85,7 +87,14 @@ export const Composer: React.FC<Props> = ({
   counts = {},
   onChoose,
   bodyResetKey = 0,
+  onSaveDraft,
 }) => {
+  const [savedNote, setSavedNote] = useState<string | null>(null);
+  const saveNow = () => {
+    onSaveDraft?.();
+    const t = new Date();
+    setSavedNote(`下書きを保存しました(${t.getHours()}:${String(t.getMinutes()).padStart(2, "0")}・この端末に)。あとで「手紙を書く」を開くと続きから書けます。`);
+  };
   const STEPS = mode === "new" ? ALL_STEPS : EDIT_STEPS;
   const [step, setStep] = useState(0);
   const [side, setSide] = useState<"front" | "back">("front");
@@ -593,6 +602,11 @@ export const Composer: React.FC<Props> = ({
         ) : (
           <span />
         )}
+        {mode === "new" && onSaveDraft && (
+          <button type="button" className="lp-secondary lp-draft" onClick={saveNow}>
+            下書き保存
+          </button>
+        )}
         {current.id === "confirm" ? (
           <button type="button" className="lp-primary" onClick={handleSubmit} disabled={!canSend}>
             {submitState.kind === "sending" ? "送っています…" : mode === "new" ? "この手紙を投函する" : "この内容に直す"}
@@ -605,6 +619,11 @@ export const Composer: React.FC<Props> = ({
           </button>
         )}
       </div>
+      {savedNote && (
+        <p className="lp-saved lp-step-after" role="status">
+          {savedNote}
+        </p>
+      )}
       {current.id === "confirm" && (
         <p className="lp-note lp-step-after" style={{ marginTop: 12 }}>
           {mode === "new" ? "投函するとすぐ、Webの「届いた手紙」に載ります。投函したあと、この手紙を直すためのURLをお渡しします。" : "直した内容は、すぐWebの「届いた手紙」に反映します。"}

@@ -27,6 +27,11 @@ const LettersWritePage: React.FC = () => {
   const [bodyResetKey, setBodyResetKey] = useState(0);
   const pending = useRef<{ requestId: string; editKey: string } | null>(null);
   const loaded = useRef(false);
+  /** 前回の書きかけを開いた時の知らせ(下書き保存した日時があれば添える) */
+  const [restored, setRestored] = useState<{ savedAt: string | null } | null>(null);
+  /** 「新しく書き始める」で手順を最初から(Composer を作り直す) */
+  const [round, setRound] = useState(0);
+  const savedAt = useRef<string | null>(null);
 
   // 書きかけを戻す。?event= があればその宛先に
   useEffect(() => {
@@ -46,7 +51,10 @@ const LettersWritePage: React.FC = () => {
         body: Array.isArray(d.body) && d.body.length ? d.body : v.body,
       }));
       pending.current = d.pending ?? null;
+      savedAt.current = d.savedAt ?? null;
       setBodyResetKey((k) => k + 1);
+      const hasText = !!(d.sender || (Array.isArray(d.body) && JSON.stringify(d.body).includes('"t":"')));
+      if (hasText || d.savedAt) setRestored({ savedAt: d.savedAt ?? null });
     }
     if (ev) {
       setEvent(toChosen(ev));
@@ -67,9 +75,27 @@ const LettersWritePage: React.FC = () => {
       font: value.font,
       visibility: value.visibility ?? undefined,
       body: value.body,
+      savedAt: savedAt.current,
       pending: pending.current,
     });
   }, [event, value, done]);
+
+  /** 下書き保存(この端末に。自動で残す書きかけに、保存した日時を添える) */
+  const saveNow = () => {
+    savedAt.current = new Date().toISOString();
+    saveDraft({ ...(loadDraft() ?? {}), eventKey: event?.key ?? null, ...value, snsType: value.snsType || null, visibility: value.visibility ?? undefined, savedAt: savedAt.current, pending: pending.current });
+  };
+
+  const startOver = () => {
+    saveDraft(null);
+    savedAt.current = null;
+    pending.current = null;
+    setRestored(null);
+    setEvent(null);
+    setValue(emptyComposer());
+    setBodyResetKey((k) => k + 1);
+    setRound((r) => r + 1);
+  };
 
   useEffect(() => {
     fetchLettersStatus()
@@ -149,7 +175,7 @@ const LettersWritePage: React.FC = () => {
             </h2>
           </div>
           <p className="lp-intro">
-            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。
+            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日の前日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。
             <br />
             お祝いメッセージは <strong>{LETTERS_DEADLINE_LABEL}</strong>受け付けます(日本時間)。
           </p>
@@ -192,7 +218,24 @@ const LettersWritePage: React.FC = () => {
             </div>
           </div>
         ) : (
+          <>
+          {restored && (
+            <div className="lp-draft-note" role="status">
+              <span>
+                前回の書きかけを開きました
+                {restored.savedAt
+                  ? `(${new Date(restored.savedAt).toLocaleString("ja-JP", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })} に下書き保存)`
+                  : ""}
+                。
+              </span>
+              <button type="button" className="lp-text-link" onClick={startOver}>
+                消して新しく書き始める
+              </button>
+            </div>
+          )}
           <Composer
+            key={round}
+            onSaveDraft={saveNow}
             mode="new"
             event={event}
             value={value}
@@ -204,6 +247,7 @@ const LettersWritePage: React.FC = () => {
             counts={counts}
             onChoose={choose}
           />
+          </>
         )}
       </section>
     </LettersShell>

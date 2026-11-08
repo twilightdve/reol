@@ -4,6 +4,7 @@
  */
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import { LETTERS_MEMORY_PERIOD_LABEL } from "../../utils/letters/constants";
 import { MONTH_NAMES, YEAR_ERA_EVENT, YEAR_EVENTS, YearEvent, YearTab, yearMonths } from "../../utils/letters/yearEvents";
 
 const TABS: { id: YearTab; label: string; act: string }[] = [
@@ -26,7 +27,7 @@ export const YearPicker: React.FC<{ selectedKey: string | null; counts: Record<s
     <div className="lp-year-picker">
       <div className="lp-song-skip">
         <p className="lp-note">
-          去年の誕生日から今年の誕生日まで(2025.11.09 — 2026.11.09)の、ライヴ・作品・MV から選べます。昔の曲など、ここに無い思い出は「選ばずに書く」で。
+          去年の誕生日から今年の誕生日の前日まで({LETTERS_MEMORY_PERIOD_LABEL})の、ライヴ・作品・MV から選べます。昔の曲など、ここに無い思い出は「選ばずに書く」で。
         </p>
         <button type="button" className="lp-secondary" aria-pressed={selectedKey === YEAR_ERA_EVENT.key} onClick={() => onChoose(YEAR_ERA_EVENT)}>
           選ばずに書く(この一年のReolへ) <span aria-hidden>→</span>

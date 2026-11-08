@@ -64,6 +64,36 @@ const embedSrc = (post: LivePost, id: string) =>
 
 export const BirthdayLanding: React.FC = () => {
   const livesRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  /** いま読んでいる月(上に付いてくる月のリンクで印をつける) */
+  const [currentMonth, setCurrentMonth] = useState<string | null>(null);
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(".bd .live-month"));
+    if (!sections.length || !("IntersectionObserver" in window)) return;
+    const visible = new Set<string>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const key = (e.target as HTMLElement).id.replace("live-month-", "");
+          if (e.isIntersecting) visible.add(key);
+          else visible.delete(key);
+        }
+        const first = sections.map((el) => el.id.replace("live-month-", "")).find((k) => visible.has(k)) ?? null;
+        setCurrentMonth(first);
+      },
+      { rootMargin: "-80px 0px -55% 0px" }
+    );
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  // スマホでは、いまの月のリンクが見えるところまで横に送る
+  useEffect(() => {
+    const nav = navRef.current;
+    const a = currentMonth && nav?.querySelector<HTMLElement>(`a[href="#live-month-${currentMonth}"]`);
+    if (!nav || !a) return;
+    const left = a.offsetLeft - nav.clientWidth / 2 + a.clientWidth / 2;
+    nav.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+  }, [currentMonth]);
 
   // X 公式の埋め込みが送ってくる高さに合わせる(送り元・枠・embedId・高さの範囲を確かめる)
   useEffect(() => {
@@ -113,7 +143,6 @@ export const BirthdayLanding: React.FC = () => {
               <span className="date">NOVEMBER 09</span>
             </div>
             <div className="hero-title">
-              <div className="eyebrow">HAPPY BIRTHDAY</div>
               <h1 id="birthday-title">
                 <span>
                   <em>Happy</em>
@@ -205,6 +234,17 @@ export const BirthdayLanding: React.FC = () => {
               件名のない
               <br />
               ふくろう便
+              <svg className="bd-owl" viewBox="0 0 48 52" aria-hidden focusable="false">
+                <path d="M12 9 15 3 19 10C21 9 27 9 29 10L33 3 36 9C41 14 42 22 41 30 40 41 33 48 24 48 15 48 8 41 7 30 6 22 7 14 12 9Z" fill="#fffdf8" stroke="#576047" strokeWidth="1.4" strokeLinejoin="round" />
+                <circle cx="17.5" cy="20" r="6" fill="#fff" stroke="#576047" strokeWidth="1.2" />
+                <circle cx="30.5" cy="20" r="6" fill="#fff" stroke="#576047" strokeWidth="1.2" />
+                <circle cx="18" cy="20.5" r="2.4" fill="#2d3932" />
+                <circle cx="30" cy="20.5" r="2.4" fill="#2d3932" />
+                <path d="M22 25.5 24 29 26 25.5Z" fill="#c9a55a" />
+                <path d="M14 31C17 34 19 37 19 42M34 31C31 34 29 37 29 42" fill="none" stroke="#919b89" strokeWidth="1.1" strokeLinecap="round" />
+                <path d="M21 35.5c1 .8 2 .8 3 0 1 .8 2 .8 3 0M20 39.5c1.2.8 2.6.8 4 0 1.4.8 2.8.8 4 0" fill="none" stroke="#c9ccbd" strokeWidth="1" strokeLinecap="round" />
+                <path d="M19 48v2.5M22 48v2.5M26 48v2.5M29 48v2.5" stroke="#95753e" strokeWidth="1.3" strokeLinecap="round" />
+              </svg>
             </h2>
             <div className="project-body">
               <p className="copy">
@@ -224,7 +264,7 @@ export const BirthdayLanding: React.FC = () => {
                 <b>{LETTERS_MEMORY_PERIOD_LABEL}</b>
               </div>
               <p className="detail">
-                去年の誕生日から、今年の誕生日まで。
+                去年の誕生日から、今年の誕生日の前日まで。
                 <br />
                 この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉。それぞれの思い出と一緒に、Reolへお祝いの手紙を書こう。
                 <br />
@@ -240,10 +280,10 @@ export const BirthdayLanding: React.FC = () => {
               </span>
             </div>
             <div className="actions">
-              <Link className="action primary" to="/letters/write/">
+              <a className="action primary" href="/letters/write/" target="_blank" rel="noopener" aria-label="お祝いの手紙を書く(別のタブで開きます)">
                 <span>お祝いの手紙を書く</span>
                 <span aria-hidden>↗</span>
-              </Link>
+              </a>
               <Link className="action" to="/letters/read/">
                 <span>届いた手紙を読む</span>
                 <span aria-hidden>↗</span>
@@ -268,14 +308,14 @@ export const BirthdayLanding: React.FC = () => {
                 <span>
                   {LIVES.length}公演 <span aria-hidden>／</span> {RELEASES.length}作品 <span aria-hidden>／</span> MV {MVS.length}本 <span aria-hidden>／</span> {POST_COUNT}ポスト
                 </span>
-                <Link to="/letters/write/">
+                <a href="/letters/write/" target="_blank" rel="noopener">
                   お祝いの手紙を書く <span aria-hidden>↗</span>
-                </Link>
+                </a>
               </div>
             </header>
-            <nav className="live-month-nav" aria-label="月から探す">
+            <nav className="live-month-nav" aria-label="月から探す" ref={navRef}>
               {MONTHS.map((m) => (
-                <a key={m.key} href={`#live-month-${m.key}`}>
+                <a key={m.key} href={`#live-month-${m.key}`} className={currentMonth === m.key ? "is-current" : undefined} aria-current={currentMonth === m.key ? "true" : undefined}>
                   {m.key.replace("-", ".")}
                 </a>
               ))}
@@ -375,9 +415,9 @@ export const BirthdayLanding: React.FC = () => {
               <a href="#year-lives">
                 一年のはじめへ <span aria-hidden>↑</span>
               </a>
-              <Link to="/letters/write/">
+              <a href="/letters/write/" target="_blank" rel="noopener">
                 お祝いの手紙を書く <span aria-hidden>↗</span>
-              </Link>
+              </a>
             </div>
           </section>
 

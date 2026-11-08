@@ -1,7 +1,7 @@
 /**
  * 届いた手紙を「この一年」の年表の上に並べる(plan/64)。入口の年表と同じ出来事(ライヴ・作品の発売・MV の公開)を月ごとに。
  * 手紙のある出来事だけを金色で光らせ、その下にカードの束を出す。手紙の無い出来事は控えめな 1 行。
- * 選ばずに書いた手紙(この一年の Reol へ)は最初に、前の宛先(時代・昔の曲)で届いた手紙は最後の「そのほかの宛先」に。
+ * 選ばずに書いた手紙(この一年の Reol へ)は最初に。前の宛先(時代・昔の曲。ボツになった案のテスト用の手紙)は年表に出さない。
  */
 import React, { useMemo } from "react";
 import { Link } from "gatsby";
@@ -18,19 +18,10 @@ const fmt = (d: string) => (d ? d.replace(/-/g, ".") : "");
 const MONTHS = yearMonths(YEAR_EVENTS);
 
 export const LetterChrono: React.FC<{ letters: ChronoLetter[] }> = ({ letters }) => {
-  const { byKey, others } = useMemo(() => {
-    const byKey = new Map<string, ChronoLetter[]>();
-    const others = new Map<string, { label: string; date: string; letters: ChronoLetter[] }>();
-    for (const l of letters) {
-      if (YEAR_EVENT_BY_KEY.has(l.eventKey)) {
-        byKey.set(l.eventKey, [...(byKey.get(l.eventKey) ?? []), l]);
-      } else {
-        const o = others.get(l.eventKey) ?? { label: l.eventLabel, date: l.eventDate ?? "", letters: [] };
-        o.letters.push(l);
-        others.set(l.eventKey, o);
-      }
-    }
-    return { byKey, others: Array.from(others.entries()) };
+  const byKey = useMemo(() => {
+    const m = new Map<string, ChronoLetter[]>();
+    for (const l of letters) if (YEAR_EVENT_BY_KEY.has(l.eventKey)) m.set(l.eventKey, [...(m.get(l.eventKey) ?? []), l]);
+    return m;
   }, [letters]);
 
   const eraLetters = byKey.get(YEAR_ERA_EVENT.key) ?? [];
@@ -48,7 +39,6 @@ export const LetterChrono: React.FC<{ letters: ChronoLetter[] }> = ({ letters })
             </a>
           );
         })}
-        {others.length > 0 && <a href="#lp-month-others">そのほか</a>}
       </nav>
 
       {eraLetters.length > 0 && (
@@ -90,23 +80,6 @@ export const LetterChrono: React.FC<{ letters: ChronoLetter[] }> = ({ letters })
         );
       })}
 
-      {others.length > 0 && (
-        <section id="lp-month-others" className="lp-chrono-month has">
-          <header className="lp-chrono-month-head">
-            <span className="yr">BEFORE</span>
-            <h3>そのほかの宛先</h3>
-            <span className="count">{others.reduce((n, [, o]) => n + o.letters.length, 0)}通</span>
-          </header>
-          <p className="lp-chrono-empty">宛先を「この一年」に絞る前に届いた手紙です。</p>
-          <ul className="lp-chrono-rows">
-            {others.map(([key, o]) => (
-              <li key={key}>
-                <ClusterView title={o.label} kind="" date={o.date} eventKey={null} letters={o.letters} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </div>
   );
 };

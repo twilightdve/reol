@@ -9,7 +9,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#dde0d6;color:#2d3932;font-family:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;-webkit-font-smoothing:antialiased}
 .bd a{color:inherit}
 .bd a:focus-visible{outline:3px solid var(--rust);outline-offset:5px}
-.bd .page{max-width:1440px;margin:auto;background:var(--paper);overflow:hidden}
+.bd .page{max-width:1440px;margin:auto;background:var(--paper);overflow:hidden;overflow:clip}
 .bd .header{height:70px;padding:0 clamp(22px,5.5vw,76px);display:flex;align-items:center;justify-content:space-between;gap:14px}
 .bd .brand{font:500 25px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.01em}
 .bd .brand b{font-weight:400;color:var(--rust)}
@@ -186,4 +186,9 @@ body{margin:0;background:#dde0d6;color:#2d3932;font-family:'Noto Serif JP','Hira
 .bd .bd-totop small{font:600 8px/1 'Noto Sans JP',sans-serif;letter-spacing:.14em;color:#95753e}
 .bd .bd-totop:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.bd .bd-totop{transition:none}}
+.bd .live-month-nav{position:sticky;top:0;z-index:5;background:rgba(244,244,237,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.bd .live-month-nav a.is-current{color:#326b45;font-weight:600;text-decoration:underline;text-underline-offset:6px}
+.bd .live-month{scroll-margin-top:72px}
+.bd .project h2{position:relative}
+.bd .bd-owl{display:inline-block;width:1.25em;height:1.35em;margin-left:.3em;vertical-align:-.28em;filter:drop-shadow(0 3px 6px #2d39321f)}
 `;
