@@ -266,14 +266,14 @@ export const BirthdayLanding: React.FC = () => {
               <p className="detail">
                 去年の誕生日から、今年の誕生日の前日まで。
                 <br />
-                この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉。それぞれの思い出と一緒に、Reolへお祝いの手紙を書こう。
+                この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉。それぞれの思い出と一緒に、Reolへお祝いの手紙を書こう。思い出ごとに、何通書いてもいいよ。
                 <br />
                 <br />
                 集まった手紙は一冊のファンレターブックにまとめて、年内の発送を目指すよ。
               </p>
             </div>
             <div className="deadline">
-              <span className="deadline-label">メッセージ受付締切</span>
+              <span className="deadline-label">手紙の受付締切</span>
               <span className="deadline-value">
                 {deadlineJst.date}
                 <small>{deadlineJst.time}まで ／ 日本時間</small>

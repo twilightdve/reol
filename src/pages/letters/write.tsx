@@ -175,16 +175,16 @@ const LettersWritePage: React.FC = () => {
             </h2>
           </div>
           <p className="lp-intro">
-            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日の前日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。
+            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日の前日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。思い出ごとに、何通書いてもかまいません。
             <br />
-            お祝いメッセージは <strong>{LETTERS_DEADLINE_LABEL}</strong>受け付けます(日本時間)。
+            お祝いの手紙は <strong>{LETTERS_DEADLINE_LABEL}</strong>受け付けます(日本時間)。
           </p>
         </div>
         {done ? (
           <div className="lp-done" role="status">
             <h3>お手紙を受け付けました</h3>
             <p className="lp-note" style={{ marginTop: 8 }}>
-              ありがとうございます。Webの「届いた手紙」に載りました(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。運営が読んで、ふさわしくないと判断した時は取り下げます。
+              ありがとうございます。Webの「届いた手紙」に載りました(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。運営が読んで、ふさわしくないと判断した時は取り下げます。ほかの思い出も、何通でも書けます。
             </p>
             {!done.synced && (
               <p className="lp-alert">

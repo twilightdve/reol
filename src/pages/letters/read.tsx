@@ -123,7 +123,7 @@ const ReadPage: React.FC = () => {
         <div className="lp-section-head is-stone">
           <div>
             <div className="lp-eyebrow">LETTERS / 届いた手紙</div>
-            <h2>{ev ? `${ev.title}へ届いた手紙` : "届いた手紙"}</h2>
+            <h2>{ev ? `${ev.title}の思い出の手紙` : "届いた手紙"}</h2>
           </div>
           <p className="lp-intro">
             投函された手紙を、そのまま載せています(運営があとから読み、ふさわしくないものは取り下げます)。本文を「贈る本だけ」にした手紙は、宛名面だけを載せています。
@@ -164,7 +164,7 @@ const ReadPage: React.FC = () => {
         <div className="lp-filter">
           {eventKey ? (
             <>
-              <span className="lp-badge is-ink">宛先: {ev?.title ?? "選んだ宛先"}</span>
+              <span className="lp-badge is-ink">思い出: {ev?.title ?? "選んだ思い出"}</span>
               <button
                 type="button"
                 className="lp-text-link"
@@ -173,11 +173,11 @@ const ReadPage: React.FC = () => {
                   window.history.replaceState(null, "", "/letters/read/");
                 }}
               >
-                すべての宛先に戻す
+                すべての手紙に戻す
               </button>
               {canWrite && (
                 <Link className="lp-text-link" to={`/letters/write/?event=${encodeURIComponent(eventKey)}`}>
-                  この宛先に手紙を書く
+                  この思い出の手紙を書く
                 </Link>
               )}
             </>
@@ -187,7 +187,7 @@ const ReadPage: React.FC = () => {
               届いた順
             </button>
             <button type="button" className="lp-chip" aria-pressed={order === "timeline"} onClick={() => setOrder("timeline")}>
-              宛先の年代順
+              思い出の日付順
             </button>
           </div>
         </div>

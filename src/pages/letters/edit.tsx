@@ -130,7 +130,7 @@ const EditPage: React.FC = () => {
             {mine.length ? (
               <>
                 <p className="lp-note" style={{ marginBottom: 14 }}>
-                  この端末から送った手紙
+                  この端末から投函した手紙
                 </p>
                 <div className="lp-grid">
                   {mine.map((m) => (
@@ -150,14 +150,14 @@ const EditPage: React.FC = () => {
                     >
                       <b style={{ fontFamily: "var(--serif)", fontWeight: 500 }}>{m.address}</b>
                       <br />
-                      <small className="lp-note">{new Date(m.createdAt).toLocaleDateString("ja-JP")} に送った手紙</small>
+                      <small className="lp-note">{new Date(m.createdAt).toLocaleDateString("ja-JP")} に投函した手紙</small>
                     </button>
                   ))}
                 </div>
               </>
             ) : (
               <p className="lp-note">
-                この端末から送った手紙は見つかりませんでした。投函したあとにお渡しした「修正用のURL」を開いてください。URLをなくした時は、運営の X(@twilightplc)までご連絡ください。
+                この端末から投函した手紙は見つかりませんでした。投函したあとにお渡しした「修正用のURL」を開いてください。URLをなくした時は、運営の X(@twilightplc)までご連絡ください。
               </p>
             )}
           </>

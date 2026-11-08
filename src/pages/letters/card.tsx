@@ -33,7 +33,7 @@ const CardPage: React.FC = () => {
         {state.s === "loading" && <p className="lp-note">読み込んでいます…</p>}
         {state.s === "missing" && (
           <p className="lp-alert">
-            この手紙は見つかりませんでした(確認中か、取り下げられた手紙かもしれません)。<Link to="/letters/read/">届いた手紙の一覧へ</Link>
+            この手紙は見つかりませんでした(取り下げられたか、Webに出さないことになった手紙かもしれません)。<Link to="/letters/read/">届いた手紙の一覧へ</Link>
           </p>
         )}
         {state.s === "error" && <p className="lp-alert">読み込めませんでした。通信を確かめて、ページを読み込み直してください。</p>}
@@ -90,7 +90,7 @@ const CardPage: React.FC = () => {
                 {copied ? "リンクをコピーしました" : "このカードのリンクをコピー"}
               </button>
               <Link className="lp-secondary" to={`/letters/read/?event=${encodeURIComponent(state.letter.eventKey)}`}>
-                同じ宛先の手紙
+                同じ思い出の手紙
               </Link>
               <Link
                 className="lp-primary"

@@ -144,7 +144,7 @@ const LetterRow: React.FC<{
           <dt>版</dt>
           <dd>
             今の版 {l.currentVersion} / チェック済み {l.reviewedVersion ?? "—"}
-            {l.webHidden ? " · Web非掲載" : ""}
+            {l.webHidden ? " · Webに出さない" : ""}
           </dd>
           <dt>印刷</dt>
           <dd>{printStatus(l)}</dd>
@@ -420,7 +420,7 @@ const AdminPage: React.FC = () => {
             <>
               <h2>手紙の運営</h2>
               <p className="lp-note" style={{ marginBottom: 16 }}>
-                全 {letters.length} 通(取り下げを含む)。投函された手紙はすぐ Web に出ています。「未チェック」を読み、ふさわしくないものは取り下げてください。印刷できるのはチェック済みの版だけです。
+                全 {letters.length} 通(取り下げを含む)。投函された手紙はすぐWebに出ています。「未チェック」を読み、ふさわしくないものは取り下げてください。印刷できるのはチェック済みの版だけです。
               </p>
               {msg && <p className="lp-alert">{msg}</p>}
               <div className="lp-tabs" role="tablist">

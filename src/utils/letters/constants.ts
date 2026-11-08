@@ -15,7 +15,7 @@ export const LETTERS_OG_IMAGE = "https://reol.twilightea.com/og/letters.jpg";
 export const LETTERS_DEADLINE_ISO = "2026-12-20T15:00:00Z";
 export const LETTERS_DEADLINE_LABEL = "2026年12月20日（日）23:59まで";
 export const LETTERS_SHIPPING_NOTE =
-  "届いたメッセージから順に内容を確認・印刷し、締切後に一冊にまとめて、年内の発送を目指します。";
+  "届いた手紙から順に内容を確認・印刷し、締切後に一冊にまとめて、年内の発送を目指します。";
 
 /** 印刷テンプレートの版。用紙が決まって寸法や配置を変えたら上げる(印刷記録に残る) */
 /** GA に一切送らないページ(修正画面は URL の # に編集鍵がある。運営画面は非公開の本文を出す)。gatsby-ssr と AuthContext が使う */

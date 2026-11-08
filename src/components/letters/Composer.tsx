@@ -8,7 +8,7 @@ import React, { Suspense, useEffect, useId, useMemo, useRef, useState } from "re
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
 import { YearPicker } from "./YearPicker";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
-import { Era, LETTER_FONTS, LetterFont, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
+import { Era, LETTER_FONTS, LetterFont, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility, LETTERS_DEADLINE_LABEL } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
 import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
 
@@ -68,7 +68,7 @@ const ALL_STEPS = [
   { id: "sender", label: "差出人", title: "あなたの名前" },
   { id: "body", label: "本文", title: "お祝いの言葉を書く" },
   { id: "visibility", label: "公開", title: "本文を、どこまで見せる？" },
-  { id: "confirm", label: "確認", title: "この内容で送ります" },
+  { id: "confirm", label: "確認", title: "この内容で投函します" },
 ] as const;
 type StepId = (typeof ALL_STEPS)[number]["id"];
 const EDIT_STEPS = ALL_STEPS.filter((s) => s.id !== "memory");
@@ -311,7 +311,7 @@ export const Composer: React.FC<Props> = ({
               <p className="lp-note">前に書いた宛名「{value.address}」のままです。選び直すと、上の宛名に置き換わります。</p>
             )}
             <p className="lp-note" style={{ marginTop: 10 }}>
-              選んだ宛先から入れてあります。
+              選んだ思い出から入れてあります。
             </p>
           </div>
         );
@@ -508,12 +508,12 @@ export const Composer: React.FC<Props> = ({
     <div ref={topRef} className={`lp-composer${current.id === "confirm" ? " is-confirm" : ""}`}>
       {!picking && event && (
         <div className="lp-chosen">
-          <span className="lp-note">宛先</span>
+          <span className="lp-note">思い出</span>
           <b>{event.label}</b>
           {event.date && <span className="lp-note">{event.date.replace(/-/g, ".")}</span>}
           {mode === "new" && (
             <button type="button" className="lp-text-link" onClick={() => goTo(0)}>
-              宛先を選び直す
+              思い出を選び直す
             </button>
           )}
         </div>
@@ -521,7 +521,7 @@ export const Composer: React.FC<Props> = ({
 
       {availability === "unavailable" && <p className="lp-alert">いまは受付の準備中です。書いた手紙はこの端末に残しておけます。</p>}
       {availability === "closed" && (
-        <p className="lp-alert">{mode === "new" ? "受付は終了しました(2026年12月20日 23:59まで)。" : "修正の受付は終了しました。直したい時は運営の X(@twilightplc)までご連絡ください。"}</p>
+        <p className="lp-alert">{mode === "new" ? `受付は終了しました(${LETTERS_DEADLINE_LABEL}でした)。` : "修正の受付は終了しました。直したい時は運営の X(@twilightplc)までご連絡ください。"}</p>
       )}
 
       <ol className="lp-steps" aria-label="手紙をつくる手順" style={{ gridTemplateColumns: `repeat(${STEPS.length},minmax(0,1fr))` }}>

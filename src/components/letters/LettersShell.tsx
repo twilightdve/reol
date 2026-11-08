@@ -57,7 +57,7 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
             <b>!</b>Legit
           </Link>
           <p>
-            {LETTERS_ORGANIZER}。Reol さんご本人・所属事務所とは関係ありません。
+            {LETTERS_ORGANIZER}。Reol本人および所属事務所とは関係ありません。
             <br />
             Oya stone:{" "}
             <a href="https://commons.wikimedia.org/wiki/File:Tuff_ohyaishi01.jpg" target="_blank" rel="noopener noreferrer">
