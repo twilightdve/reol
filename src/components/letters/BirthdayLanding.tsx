@@ -1,34 +1,50 @@
 /**
  * 誕生日企画の入口(/letters/。plan/64)。2026-11-08 に承認された birthday-h.html(handoff)を移したもの。
- * Happy Birthday, Reol → 今年の音楽 → この一年のライヴ 29 公演と当時のポスト(X 公式の埋め込み)→ 手紙企画の案内。
+ * Happy Birthday, Reol → 今年の音楽 → この一年の年表(ライヴ 29 公演・作品の発売・MV の公開と、当時のポスト(X 公式の埋め込み))→ 手紙企画の案内。
+ * 作品と MV は scripts/build-letters-year-releases.ts、ライヴの関連ポストは scripts/merge-letters-live-posts.ts で作る。
  * ポストは要約せず、X 公式の埋め込み(iframe)をそのまま HTML に出す(親の JS は高さの追従だけ)。
  */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import liveYear from "../../utils/letters/live-year.json";
+import yearReleases from "../../utils/letters/year-releases.json";
 import { BIRTHDAY_ICON_DEFS, BIRTHDAY_ICONS } from "./birthdayIcons";
 import { LETTERS_COPY, LETTERS_DEADLINE_ISO, LETTERS_MEMORY_PERIOD_LABEL, LETTERS_TITLE } from "../../utils/letters/constants";
 
 type LivePost = { id: string; url: string; author: string; posted_at: string; posted_date: string; kind: string };
 type Live = { id: string; date: string; city: string; venue: string; title: string; kind: string; sources: string[]; posts: LivePost[] };
 
+type Release = { id: string; date: string; title: string; format: string; link: string | null; posts: LivePost[] };
+type Mv = { id: string; videoId: string; song: string; date: string };
+
 const LIVES = liveYear as Live[];
-const POST_COUNT = LIVES.reduce((n, l) => n + l.posts.length, 0);
+const RELEASES = (yearReleases as { releases: Release[] }).releases;
+const MVS = (yearReleases as { mvs: Mv[] }).mvs;
+const POST_COUNT = LIVES.reduce((n, l) => n + l.posts.length, 0) + RELEASES.reduce((n, r) => n + r.posts.length, 0);
+
+/** 年表の 1 行。同じ日は 作品 → MV → ライヴ の順 */
+type Entry = { kind: "release"; date: string; release: Release } | { kind: "mv"; date: string; mv: Mv } | { kind: "live"; date: string; live: Live; index: number };
+const KIND_ORDER = { release: 0, mv: 1, live: 2 } as const;
+const ENTRIES: Entry[] = [
+  ...RELEASES.map((release) => ({ kind: "release" as const, date: release.date, release })),
+  ...MVS.map((mv) => ({ kind: "mv" as const, date: mv.date, mv })),
+  ...LIVES.map((live, index) => ({ kind: "live" as const, date: live.date, live, index })),
+].sort((a, b) => a.date.localeCompare(b.date) || KIND_ORDER[a.kind] - KIND_ORDER[b.kind]);
 const MONTH_NAMES = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 const pad2 = (n: number) => String(n).padStart(2, "0");
 
-/** 月ごとにまとめる(日付の順。番号は通し) */
+/** 月ごとにまとめる(日付の順。ライヴの番号は通し) */
 const MONTHS = (() => {
-  const out: { key: string; year: string; month: number; lives: { live: Live; index: number }[] }[] = [];
-  LIVES.forEach((live, index) => {
-    const key = live.date.slice(0, 7);
+  const out: { key: string; year: string; month: number; entries: Entry[] }[] = [];
+  for (const e of ENTRIES) {
+    const key = e.date.slice(0, 7);
     let m = out.find((x) => x.key === key);
     if (!m) {
-      m = { key, year: key.slice(0, 4), month: Number(key.slice(5, 7)), lives: [] };
+      m = { key, year: key.slice(0, 4), month: Number(key.slice(5, 7)), entries: [] };
       out.push(m);
     }
-    m.lives.push({ live, index });
-  });
+    m.entries.push(e);
+  }
   return out;
 })();
 
@@ -41,7 +57,7 @@ const deadlineJst = (() => {
 /** 公演情報のリンクは公式サイトのものだけ(このサイトの page-data などは出さない) */
 const officialSource = (l: Live) => l.sources.find((u) => u.startsWith("https://reol.jp/")) ?? null;
 
-const embedId = (post: LivePost, liveIndex: number, postIndex: number) => `live-tweet-${post.id}-${pad2(liveIndex + 1)}-${pad2(postIndex + 1)}`;
+const embedId = (post: LivePost, rowKey: string, postIndex: number) => `live-tweet-${post.id}-${rowKey}-${pad2(postIndex + 1)}`;
 const embedSrc = (post: LivePost, id: string) =>
   `https://platform.twitter.com/embed/Tweet.html?id=${post.id}&dnt=true&lang=ja&theme=light&hideThread=true&embedId=${encodeURIComponent(id)}`;
 
@@ -133,7 +149,7 @@ export const BirthdayLanding: React.FC = () => {
               <a className="memories-link" href="#year-lives">
                 <span>{LIVES.length} LIVE DATES</span>
                 <span>
-                  この一年のライヴを振り返る <b aria-hidden>↘</b>
+                  この一年を振り返る <b aria-hidden>↘</b>
                 </span>
               </a>
             </div>
@@ -186,25 +202,25 @@ export const BirthdayLanding: React.FC = () => {
             <header className="live-section-header">
               <p className="live-section-eyebrow">2025.11.09 — 2026.11.08</p>
               <h2 id="year-lives-title">
-                あの日のライヴ、
+                あの日の音楽、
                 <br />
                 その日の言葉。
               </h2>
               <p className="live-section-copy">
                 去年の誕生日から、今年の誕生日へ。
                 <br />
-                あの日のポストと一緒に、ライヴの記憶をたどろう。
+                あの日のポストと一緒に、ライヴと新しい音楽の記憶をたどろう。
               </p>
               <div className="live-section-meta">
                 <span>
-                  {LIVES.length}公演 <span aria-hidden>／</span> {POST_COUNT}ポスト
+                  {LIVES.length}公演 <span aria-hidden>／</span> {RELEASES.length}作品 <span aria-hidden>／</span> MV {MVS.length}本 <span aria-hidden>／</span> {POST_COUNT}ポスト
                 </span>
                 <a href="#project">
                   お祝いの手紙を書く <span aria-hidden>↗</span>
                 </a>
               </div>
             </header>
-            <nav className="live-month-nav" aria-label="ライヴを月から探す">
+            <nav className="live-month-nav" aria-label="月から探す">
               {MONTHS.map((m) => (
                 <a key={m.key} href={`#live-month-${m.key}`}>
                   {m.key.replace("-", ".")}
@@ -217,8 +233,51 @@ export const BirthdayLanding: React.FC = () => {
                   <h3 id={`live-month-title-${m.key}`}>
                     <span>{m.year}</span> {MONTH_NAMES[m.month - 1]}
                   </h3>
-                  <ol className="live-event-list" start={m.lives[0].index + 1}>
-                    {m.lives.map(({ live, index }) => {
+                  <ol className="live-event-list">
+                    {m.entries.map((e) => {
+                      if (e.kind === "release") {
+                        const r = e.release;
+                        return (
+                          <li key={r.id} className="live-entry is-release" id={r.id}>
+                            <div className="live-entry-heading">
+                              <div className="live-entry-number">RELEASE</div>
+                              <time className="live-entry-date" dateTime={r.date}>
+                                {r.date.slice(5).replace("-", ".")}
+                              </time>
+                              <h4>{r.title}</h4>
+                              <p className="live-entry-title">{r.format}</p>
+                              {r.link && (
+                                <a className="live-entry-source" href={r.link} target="_blank" rel="noopener noreferrer">
+                                  作品情報 <span aria-hidden>↗</span>
+                                </a>
+                              )}
+                            </div>
+                            {r.posts.length > 0 && <PostsRow posts={r.posts} rowKey={r.id.slice(-8)} label={`${r.title}の関連ポスト`} />}
+                          </li>
+                        );
+                      }
+                      if (e.kind === "mv") {
+                        const mv = e.mv;
+                        return (
+                          <li key={mv.id} className="live-entry is-mv" id={mv.id}>
+                            <div className="live-entry-heading">
+                              <div className="live-entry-number">MUSIC VIDEO</div>
+                              <time className="live-entry-date" dateTime={mv.date}>
+                                {mv.date.slice(5).replace("-", ".")}
+                              </time>
+                              <h4>{mv.song}</h4>
+                              <p className="live-entry-title">MV公開</p>
+                              <a className="live-entry-source" href={`https://www.youtube.com/watch?v=${mv.videoId}`} target="_blank" rel="noopener noreferrer">
+                                YouTubeで見る <span aria-hidden>↗</span>
+                              </a>
+                            </div>
+                            <div className="live-posts-block">
+                              <MvPlayer videoId={mv.videoId} title={mv.song} />
+                            </div>
+                          </li>
+                        );
+                      }
+                      const { live, index } = e;
                       const source = officialSource(live);
                       return (
                         <li key={live.id} className="live-entry" id={`live-${live.date}-${pad2(index + 1)}`}>
@@ -238,37 +297,7 @@ export const BirthdayLanding: React.FC = () => {
                               </a>
                             )}
                           </div>
-                          <div className="live-posts-block">
-                            <p className="live-posts-count">
-                              この日の関連ポスト <span>{live.posts.length}</span>
-                            </p>
-                            <div className="live-posts" role="list" aria-label={`${live.date} ${live.city}の関連ポスト`} tabIndex={0}>
-                              {live.posts.map((post, pi) => {
-                                const id = embedId(post, index, pi);
-                                return (
-                                  <article key={post.id} className="live-post-card" role="listitem" data-tweet-id={post.id} data-post-url={post.url}>
-                                    <iframe
-                                      className="live-tweet-frame"
-                                      id={id}
-                                      data-embed-id={id}
-                                      src={embedSrc(post, id)}
-                                      title={`Xのポスト（${post.author} ${post.posted_date}）`}
-                                      width={330}
-                                      height={560}
-                                      loading="lazy"
-                                      scrolling="auto"
-                                      frameBorder={0}
-                                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                                      allowFullScreen
-                                    />
-                                    <a className="live-post-link" href={post.url} target="_blank" rel="noopener noreferrer">
-                                      Xで開く <span aria-hidden>↗</span>
-                                    </a>
-                                  </article>
-                                );
-                              })}
-                            </div>
-                          </div>
+                          <PostsRow posts={live.posts} rowKey={pad2(index + 1)} label={`${live.date} ${live.city}の関連ポスト`} />
                         </li>
                       );
                     })}
@@ -278,7 +307,7 @@ export const BirthdayLanding: React.FC = () => {
             </div>
             <div className="live-section-end">
               <a href="#year-lives">
-                ライヴ一覧のはじめへ <span aria-hidden>↑</span>
+                一年のはじめへ <span aria-hidden>↑</span>
               </a>
               <a href="#project">
                 お祝いの手紙を書く <span aria-hidden>↗</span>
@@ -383,6 +412,64 @@ export const BirthdayLanding: React.FC = () => {
           </p>
         </footer>
       </div>
+    </div>
+  );
+};
+
+/** 当時のポストの横並び(X 公式の埋め込み。要約に置き換えない) */
+const PostsRow: React.FC<{ posts: LivePost[]; rowKey: string; label: string }> = ({ posts, rowKey, label }) => (
+  <div className="live-posts-block">
+    <p className="live-posts-count">
+      この日の関連ポスト <span>{posts.length}</span>
+    </p>
+    <div className="live-posts" role="list" aria-label={label} tabIndex={0}>
+      {posts.map((post, pi) => {
+        const id = embedId(post, rowKey, pi);
+        return (
+          <article key={post.id} className="live-post-card" role="listitem" data-tweet-id={post.id} data-post-url={post.url}>
+            <iframe
+              className="live-tweet-frame"
+              id={id}
+              data-embed-id={id}
+              src={embedSrc(post, id)}
+              title={`Xのポスト（${post.author} ${post.posted_date}）`}
+              width={330}
+              height={560}
+              loading="lazy"
+              scrolling="auto"
+              frameBorder={0}
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+            />
+            <a className="live-post-link" href={post.url} target="_blank" rel="noopener noreferrer">
+              Xで開く <span aria-hidden>↗</span>
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+);
+
+/** MV は押した時に YouTube を読み込む(サイトのほかの所と同じ。それまでは YouTube のサムネイルだけ) */
+const MvPlayer: React.FC<{ videoId: string; title: string }> = ({ videoId, title }) => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="bd-mv">
+      {playing ? (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
+          title={`${title}(YouTube)`}
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowFullScreen
+          frameBorder={0}
+        />
+      ) : (
+        <button type="button" onClick={() => setPlaying(true)} aria-label={`${title}のMVを再生する(YouTubeを読み込みます)`}>
+          <img src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+          <span className="bd-mv-play" aria-hidden />
+        </button>
+      )}
     </div>
   );
 };
