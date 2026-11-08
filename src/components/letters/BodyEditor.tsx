@@ -92,7 +92,7 @@ export const BodyEditor: React.FC<Props> = ({ value, resetKey, onChange, length,
       LetterColor,
       LetterSize,
       TextAlign.configure({ types: ["paragraph"], alignments: ["left", "center", "right"], defaultAlignment: "left" }),
-      Placeholder.configure({ placeholder: "ここにお祝いの言葉を。改行もそのままカードに載ります。" }),
+      Placeholder.configure({ placeholder: "この一年の思い出と、お祝いの言葉を。改行もそのままカードに載ります。" }),
     ],
     content: toEditorJson(value),
     editorProps: {

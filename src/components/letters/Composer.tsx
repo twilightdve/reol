@@ -59,8 +59,8 @@ type Props = {
 
 /** 一画面に一つずつ */
 const ALL_STEPS = [
-  { id: "era", label: "時期", title: "いつのれをるへ、書く？" },
-  { id: "song", label: "曲", title: "どの曲へ、書く？" },
+  { id: "era", label: "名前", title: "どの名前へ、書く？" },
+  { id: "song", label: "思い出", title: "どの思い出を、書く？" },
   { id: "address", label: "宛名", title: "カードの表に書く、宛名" },
   { id: "sender", label: "差出人", title: "あなたの名前" },
   { id: "motif", label: "絵柄", title: "カードの絵柄を選ぶ" },
@@ -115,7 +115,7 @@ export const Composer: React.FC<Props> = ({
   const errors = useMemo(() => {
     const e: StepError[] = [];
     const add = (step: StepId, message: string) => e.push({ step, message });
-    if (!event) add(mode === "new" ? "era" : "address", "どの頃のれをるへ書くかを選んでください。");
+    if (!event) add(mode === "new" ? "era" : "address", "宛てる名前を選んでください。");
     if (!value.address.trim()) add("address", "宛名を選んでください。");
     if (value.address.trim().length > LIMITS.address) add("address", `宛名は${LIMITS.address}字までです。`);
     if (!value.sender.trim()) add("sender", "差出人の名前を入れてください(ペンネームでかまいません)。");
@@ -256,7 +256,9 @@ export const Composer: React.FC<Props> = ({
         return event ? (
           <>
             <div className="lp-song-skip">
-              <p className="lp-note">選ばなくても書けます。選ぶと、宛名がその曲の名前から入ります。ライヴや作品にも宛てられます。</p>
+              <p className="lp-note">
+                この一年に聴いた曲や、心に残ったライヴを選べます。昔の曲でも、この一年の思い出なら大歓迎。選ばなくても書けます(選ぶと、宛名がその名前から入ります)。
+              </p>
               <button type="button" className="lp-secondary" aria-pressed={event.key === eraEvent?.key} onClick={() => chooseSong(null)}>
                 選ばずに「{event ? ERA_LABELS[event.era] : ""}」へ <span aria-hidden>→</span>
               </button>

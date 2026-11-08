@@ -4,7 +4,9 @@
  */
 
 export const LETTERS_TITLE = "件名のないふくろう便";
-export const LETTERS_COPY = "あの日の思いに、ふくろうが運ぶ返信";
+export const LETTERS_COPY = "この一年の思い出と、お祝いの言葉を。";
+/** 手紙のテーマにする思い出の期間(去年の誕生日から今年の誕生日まで)。受付の締切とは別。2026-11-08 の handoff で確定 */
+export const LETTERS_MEMORY_PERIOD_LABEL = "2025.11.09 — 2026.11.09";
 export const LETTERS_ORGANIZER = "!Legitによる非公式バースデー企画";
 
 /** 受付の境界(これ以降は新規投稿・本人の修正を DB が拒否する)。表示用。判定は DB の時計で行う */

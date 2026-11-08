@@ -8,7 +8,7 @@ import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { ChosenEvent, Composer, ComposerValue, emptyComposer, SubmitState } from "../../components/letters/Composer";
 import { useLetterEvents } from "../../components/letters/useLetterEvents";
-import { LETTERS_DEADLINE_LABEL } from "../../utils/letters/constants";
+import { LETTERS_DEADLINE_LABEL, LETTERS_MEMORY_PERIOD_LABEL } from "../../utils/letters/constants";
 import { LetterEvent } from "../../utils/letters/timeline";
 import { errorMessage, fetchLettersStatus, fetchPublicCounts, LetterContent, LettersError, submitLetter, updateOwnLetter } from "../../utils/letters/service";
 import { editUrl, loadDraft, newEditKey, newRequestId, rememberMyLetter, saveDraft } from "../../utils/letters/local";
@@ -141,11 +141,13 @@ const LettersWritePage: React.FC = () => {
           <div>
             <div className="lp-eyebrow">01 / MAKE YOUR LETTER</div>
             <h2>
-              <span style={{ display: "inline-block" }}>好きな一枚に、</span>
-              <span style={{ display: "inline-block" }}>あなたの言葉を。</span>
+              <span style={{ display: "inline-block" }}>この一年の思い出と、</span>
+              <span style={{ display: "inline-block" }}>お祝いの言葉を。</span>
             </h2>
           </div>
           <p className="lp-intro">
+            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。
+            <br />
             お祝いメッセージは <strong>{LETTERS_DEADLINE_LABEL}</strong>受け付けます(日本時間)。
           </p>
         </div>
@@ -211,7 +213,7 @@ export default LettersWritePage;
 export const Head: HeadFC = () => (
   <LettersHead
     title="手紙を書く"
-    description="Reolの誕生日に、好きな時期・曲・ライヴへ宛てて手紙を。カードを一冊にまとめて贈ります。"
+    description="Reolの誕生日に、この一年の思い出とお祝いの言葉を手紙に。カードを一冊にまとめて贈ります。"
     path="/letters/write/"
   />
 );

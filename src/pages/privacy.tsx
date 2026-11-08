@@ -140,7 +140,7 @@ const PrivacyPage: React.FC = () => (
           iPhone・iPad・Mac の Safari では、1回押すだけで再生できるよう、動画の枠が画面に入った時点でプレイヤーを読み込みます(押すまでは再生しません)。
         </li>
         <li>Spotify: 曲のページなどの再生プレーヤーは、表示した時に読み込まれ、Spotify の Cookie が保存されることがあります。</li>
-        <li>X(旧Twitter): トップページの投稿の表示は、表示した時に読み込まれ、X の Cookie が保存されることがあります。</li>
+        <li>X(旧Twitter): トップページと誕生日企画(/letters/)の投稿の表示は、表示した時に読み込まれ、X の Cookie が保存されることがあります(誕生日企画の埋め込みは、X に追跡しないよう求める設定 dnt=true で読み込みます)。</li>
         <li>OpenStreetMap: 地図のページでは、地図の画像を OpenStreetMap から読み込みます。</li>
         <li>Google Fonts: 手紙企画のページでは、書体を Google Fonts から読み込みます。</li>
       </ul>
