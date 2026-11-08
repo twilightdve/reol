@@ -4,7 +4,7 @@
  *   当時のポストは、その作品にひも付いたポストのうち、同じ期間に投稿されたもの(ID の Snowflake から日時を求める)。
  *   公式サイトで発売日が違うと分かった作品は EXCLUDE で外す。
  * MV: 期間内に公開された Reol の MV。公開日はサイトのデータに無いため、YouTube の公開日(2026-11-08 に確かめた)を下の MVS に書く。
- *   作品の音源だけの動画(Topic)やタイアップ先の動画は MV に入れない。
+ *   作品の音源だけの動画(Topic)やタイアップ先の動画は MV に入れない。タイアップ先の公式の映像は、作品の行に出す(RELEASE_VIDEOS)。
  *
  * 実行: npx ts-node --compiler-options '{"module":"commonjs","target":"es2020"}' scripts/build-letters-year-releases.ts
  */
@@ -17,6 +17,10 @@ const TO = "2026-11-08";
 const EXCLUDE = new Set(["オオエドランヴ feat. nqrse -十年物 Edition-"]);
 /** 公式サイトの作品ページが無い作品の参照先 */
 const LINKS: Record<string, string> = { "天井の街 - CEILING YOU": "https://reol.jp/news/detail/585" };
+/** 作品の行に出す公式の映像(MV ではないもの)。YouTube の正規の埋め込みで、押した時に読み込む */
+const RELEASE_VIDEOS: Record<string, { videoId: string; caption: string }> = {
+  "Play On！": { videoId: "Slk45QZsn0M", caption: "NTE 公式・テーマソング スタジオ版" },
+};
 const MVS = [
   { videoId: "SUX1bRWZ7W4", song: "おとめの肖像 (Portrait of Her)", date: "2025-12-12" },
   { videoId: "YibWxud5fRs", song: "DEAD CENTER feat. LiSA", date: "2026-01-21" },
@@ -52,6 +56,7 @@ const releases = disc
       title: d.title.trim(),
       format: FORMAT[d.format] ?? d.format,
       link: d.siteUrl || LINKS[d.title.trim()] || null,
+      video: RELEASE_VIDEOS[d.title.trim()] ?? null,
       posts,
     };
   })

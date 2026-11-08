@@ -15,7 +15,7 @@ import { LETTERS_COPY, LETTERS_DEADLINE_ISO, LETTERS_MEMORY_PERIOD_LABEL, LETTER
 type LivePost = { id: string; url: string; author: string; posted_at: string; posted_date: string; kind: string };
 type Live = { id: string; date: string; city: string; venue: string; title: string; kind: string; sources: string[]; posts: LivePost[] };
 
-type Release = { id: string; date: string; title: string; format: string; link: string | null; posts: LivePost[] };
+type Release = { id: string; date: string; title: string; format: string; link: string | null; video: { videoId: string; caption: string } | null; posts: LivePost[] };
 type Mv = { id: string; videoId: string; song: string; date: string };
 
 const LIVES = liveYear as Live[];
@@ -304,7 +304,20 @@ export const BirthdayLanding: React.FC = () => {
                                   作品情報 <span aria-hidden>↗</span>
                                 </a>
                               )}
+                              {r.video && (
+                                <a className="live-entry-source" href={`https://www.youtube.com/watch?v=${r.video.videoId}`} target="_blank" rel="noopener noreferrer">
+                                  YouTubeで見る <span aria-hidden>↗</span>
+                                </a>
+                              )}
                             </div>
+                            {r.video && (
+                              <div className="live-posts-block">
+                                <MvPlayer videoId={r.video.videoId} title={r.title} />
+                                <p className="live-posts-count" style={{ marginTop: 8 }}>
+                                  {r.video.caption}
+                                </p>
+                              </div>
+                            )}
                             {r.posts.length > 0 && <PostsRow posts={r.posts} rowKey={r.id.slice(-8)} label={`${r.title}の関連ポスト`} />}
                           </li>
                         );
@@ -468,7 +481,7 @@ const MvPlayer: React.FC<{ videoId: string; title: string }> = ({ videoId, title
           frameBorder={0}
         />
       ) : (
-        <button type="button" onClick={() => setPlaying(true)} aria-label={`${title}のMVを再生する(YouTubeを読み込みます)`}>
+        <button type="button" onClick={() => setPlaying(true)} aria-label={`${title}の映像を再生する(YouTubeを読み込みます)`}>
           <img src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
           <span className="bd-mv-play" aria-hidden />
         </button>
