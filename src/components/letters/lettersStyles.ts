@@ -224,7 +224,10 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-year-picker .lp-song-skip .lp-secondary{min-height:52px;padding:12px 20px}
 .lp-year-tabs{margin:0 0 22px}
 .lp-draft-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border:1px solid var(--line);background:#fffdf8;padding:12px 16px;margin:0 0 22px;font-size:13px}
+.lp-step-nav{flex-wrap:wrap}
 .lp-step-nav .lp-draft{margin-left:auto;margin-right:12px}
+.lp-step-nav .lp-draft.is-saved{border-color:var(--green);color:var(--green);background:#eef3ea}
+.lp-step-nav .lp-saved{order:5;flex:1 1 100%;margin:4px 0 0}
 @media(max-width:600px){.lp-step-nav{flex-wrap:wrap}.lp-step-nav .lp-draft{order:3;margin:0;flex:1 1 100%}}
 .lp-saved{font:500 12px/1.6 var(--sans);color:var(--green);margin:10px 0 0;text-align:right}
 .lp-song-skip .lp-note{flex:1 1 280px}

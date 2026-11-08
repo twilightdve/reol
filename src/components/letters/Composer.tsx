@@ -90,10 +90,19 @@ export const Composer: React.FC<Props> = ({
   onSaveDraft,
 }) => {
   const [savedNote, setSavedNote] = useState<string | null>(null);
+  /** 押した直後だけ、ボタンの文字を「保存しました」に(押したことがその場で分かるように) */
+  const [justSaved, setJustSaved] = useState(false);
+  const savedTimer = useRef<number | null>(null);
+  useEffect(() => () => {
+    if (savedTimer.current) window.clearTimeout(savedTimer.current);
+  }, []);
   const saveNow = () => {
     onSaveDraft?.();
     const t = new Date();
     setSavedNote(`下書きを保存しました(${t.getHours()}:${String(t.getMinutes()).padStart(2, "0")}・この端末に)。あとで「手紙を書く」を開くと続きから書けます。`);
+    setJustSaved(true);
+    if (savedTimer.current) window.clearTimeout(savedTimer.current);
+    savedTimer.current = window.setTimeout(() => setJustSaved(false), 2500);
   };
   const STEPS = mode === "new" ? ALL_STEPS : EDIT_STEPS;
   const [step, setStep] = useState(0);
@@ -603,8 +612,8 @@ export const Composer: React.FC<Props> = ({
           <span />
         )}
         {mode === "new" && onSaveDraft && (
-          <button type="button" className="lp-secondary lp-draft" onClick={saveNow}>
-            下書き保存
+          <button type="button" className={`lp-secondary lp-draft${justSaved ? " is-saved" : ""}`} onClick={saveNow} aria-live="polite">
+            {justSaved ? "✓ 保存しました" : "下書き保存"}
           </button>
         )}
         {current.id === "confirm" ? (
@@ -618,12 +627,12 @@ export const Composer: React.FC<Props> = ({
             <span aria-hidden>→</span>
           </button>
         )}
+        {savedNote && (
+          <p className="lp-saved" role="status">
+            {savedNote}
+          </p>
+        )}
       </div>
-      {savedNote && (
-        <p className="lp-saved lp-step-after" role="status">
-          {savedNote}
-        </p>
-      )}
       {current.id === "confirm" && (
         <p className="lp-note lp-step-after" style={{ marginTop: 12 }}>
           {mode === "new" ? "投函するとすぐ、Webの「届いた手紙」に載ります。投函したあと、この手紙を直すためのURLをお渡しします。" : "直した内容は、すぐWebの「届いた手紙」に反映します。"}
