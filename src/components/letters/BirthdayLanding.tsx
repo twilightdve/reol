@@ -1,6 +1,6 @@
 /**
  * 誕生日企画の入口(/letters/。plan/64)。2026-11-08 に承認された birthday-h.html(handoff)を移したもの。
- * Happy Birthday, Reol → 今年の音楽 → この一年の年表(ライヴ 29 公演・作品の発売・MV の公開と、当時のポスト(X 公式の埋め込み))→ 手紙企画の案内。
+ * Happy Birthday, Reol → 今年の音楽 → 手紙企画の案内(2026-11-08、年表より前へ)→ この一年の年表(ライヴ 29 公演・作品の発売・MV の公開と、当時のポスト(X 公式の埋め込み))。
  * 作品と MV は scripts/build-letters-year-releases.ts、ライヴの関連ポストは scripts/merge-letters-live-posts.ts で作る。
  * ポストは要約せず、X 公式の埋め込み(iframe)をそのまま HTML に出す(親の JS は高さの追従だけ)。
  */
@@ -125,9 +125,9 @@ export const BirthdayLanding: React.FC = () => {
                 2026
               </span>
               <p className="hero-message">
-                Reol、お誕生日おめでとう。
+                Reol、お誕生日おめでとう
                 <br />
-                これからの音楽も楽しみにしてる。
+                愛と感謝を込めて
               </p>
             </div>
             <div className="memories" aria-label="2026年の音楽とライヴ">
@@ -199,6 +199,58 @@ export const BirthdayLanding: React.FC = () => {
             <p className="listener">Reolの誕生日を、リスナーのみんなで。</p>
           </section>
 
+          <section className="project" id="project">
+            <div className="project-label">BIRTHDAY PROJECT</div>
+            <h2 aria-label={LETTERS_TITLE}>
+              件名のない
+              <br />
+              ふくろう便
+            </h2>
+            <div className="project-body">
+              <p className="copy">
+                {LETTERS_COPY.split("、").map((part, i, arr) => (
+                  <React.Fragment key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <>
+                        、<br />
+                      </>
+                    )}
+                  </React.Fragment>
+                ))}
+              </p>
+              <div className="letter-period">
+                <span>思い出の期間</span>
+                <b>{LETTERS_MEMORY_PERIOD_LABEL}</b>
+              </div>
+              <p className="detail">
+                去年の誕生日から、今年の誕生日まで。
+                <br />
+                この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉。それぞれの思い出と一緒に、Reolへお祝いの手紙を書こう。
+                <br />
+                <br />
+                集まった手紙は一冊のファンレターブックにまとめて、年内の発送を目指すよ。
+              </p>
+            </div>
+            <div className="deadline">
+              <span className="deadline-label">メッセージ受付締切</span>
+              <span className="deadline-value">
+                {deadlineJst.date}
+                <small>{deadlineJst.time}まで ／ 日本時間</small>
+              </span>
+            </div>
+            <div className="actions">
+              <Link className="action primary" to="/letters/write/">
+                <span>お祝いの手紙を書く</span>
+                <span aria-hidden>↗</span>
+              </Link>
+              <Link className="action" to="/letters/read/">
+                <span>届いた手紙を読む</span>
+                <span aria-hidden>↗</span>
+              </Link>
+            </div>
+          </section>
+
           <section className="year-lives" id="year-lives" aria-labelledby="year-lives-title" ref={livesRef}>
             <header className="live-section-header">
               <p className="live-section-eyebrow">2025.11.09 — 2026.11.08</p>
@@ -216,9 +268,9 @@ export const BirthdayLanding: React.FC = () => {
                 <span>
                   {LIVES.length}公演 <span aria-hidden>／</span> {RELEASES.length}作品 <span aria-hidden>／</span> MV {MVS.length}本 <span aria-hidden>／</span> {POST_COUNT}ポスト
                 </span>
-                <a href="#project">
+                <Link to="/letters/write/">
                   お祝いの手紙を書く <span aria-hidden>↗</span>
-                </a>
+                </Link>
               </div>
             </header>
             <nav className="live-month-nav" aria-label="月から探す">
@@ -310,63 +362,12 @@ export const BirthdayLanding: React.FC = () => {
               <a href="#year-lives">
                 一年のはじめへ <span aria-hidden>↑</span>
               </a>
-              <a href="#project">
+              <Link to="/letters/write/">
                 お祝いの手紙を書く <span aria-hidden>↗</span>
-              </a>
+              </Link>
             </div>
           </section>
 
-          <section className="project" id="project">
-            <div className="project-label">BIRTHDAY PROJECT</div>
-            <h2 aria-label={LETTERS_TITLE}>
-              件名のない
-              <br />
-              ふくろう便
-            </h2>
-            <div className="project-body">
-              <p className="copy">
-                {LETTERS_COPY.split("、").map((part, i, arr) => (
-                  <React.Fragment key={i}>
-                    {part}
-                    {i < arr.length - 1 && (
-                      <>
-                        、<br />
-                      </>
-                    )}
-                  </React.Fragment>
-                ))}
-              </p>
-              <div className="letter-period">
-                <span>思い出の期間</span>
-                <b>{LETTERS_MEMORY_PERIOD_LABEL}</b>
-              </div>
-              <p className="detail">
-                去年の誕生日から、今年の誕生日まで。
-                <br />
-                この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉。それぞれの思い出と一緒に、Reolへお祝いの手紙を書こう。
-                <br />
-                <br />
-                集まった手紙は一冊のファンレターブックにまとめて、年内の発送を目指すよ。
-              </p>
-            </div>
-            <div className="deadline">
-              <span className="deadline-label">メッセージ受付締切</span>
-              <span className="deadline-value">
-                {deadlineJst.date}
-                <small>{deadlineJst.time}まで ／ 日本時間</small>
-              </span>
-            </div>
-            <div className="actions">
-              <Link className="action primary" to="/letters/write/">
-                <span>お祝いの手紙を書く</span>
-                <span aria-hidden>↗</span>
-              </Link>
-              <Link className="action" to="/letters/read/">
-                <span>届いた手紙を読む</span>
-                <span aria-hidden>↗</span>
-              </Link>
-            </div>
-          </section>
         </main>
         <footer className="foot">
           <p>
@@ -413,7 +414,7 @@ export const BirthdayLanding: React.FC = () => {
           </p>
         </footer>
       </div>
-      <ScrollTopButton className="bd-totop" />
+      <ScrollTopButton className="bd-totop" hideWhileVisible="#project .actions" />
     </div>
   );
 };
