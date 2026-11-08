@@ -210,7 +210,7 @@ BEGIN
   IF v_sns_type IS NOT NULL AND v_sns_type NOT IN ('x', 'instagram', 'tiktok', 'bluesky', 'threads') THEN RAISE EXCEPTION 'invalid:snsType'; END IF;
   IF (v_sns_type IS NULL) <> (v_sns_id IS NULL) THEN RAISE EXCEPTION 'invalid:snsId'; END IF;
   IF v_sns_id IS NOT NULL AND v_sns_id !~ '^[A-Za-z0-9_.-]{1,40}$' THEN RAISE EXCEPTION 'invalid:snsId'; END IF;
-  IF v_motif IS NULL OR v_motif NOT IN ('color', 'water', 'stars', 'mirror', 'moon', 'candy', 'petals', 'glitter', 'film', 'edge', 'brush', 'monitor', 'lantern', 'rings', 'pulse', 'sky', 'moss', 'key') THEN RAISE EXCEPTION 'invalid:motif'; END IF;
+  IF v_motif IS NULL OR v_motif NOT IN ('color', 'water', 'stars', 'mirror', 'moon', 'candy', 'petals', 'glitter', 'film', 'edge', 'brush', 'monitor', 'lantern', 'rings', 'pulse', 'sky', 'moss', 'key', 'butterfly', 'fan', 'clock', 'cubes', 'door', 'goldfish', 'fireworks', 'envelope', 'glitch', 'hydrangea', 'tunnel', 'cage', 'balloon', 'curtain', 'rose', 'spider') THEN RAISE EXCEPTION 'invalid:motif'; END IF;
   IF v_visibility IS NULL OR v_visibility NOT IN ('public', 'book') THEN RAISE EXCEPTION 'invalid:visibility'; END IF;
   IF (p -> 'consent') IS DISTINCT FROM 'true'::jsonb THEN RAISE EXCEPTION 'invalid:consent'; END IF;
   IF NOT public._letters_body_ok(p -> 'body') THEN RAISE EXCEPTION 'invalid:body'; END IF;
