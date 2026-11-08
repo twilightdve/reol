@@ -25,7 +25,14 @@ export const LetterTimeline: React.FC<{
   onChoose: (e: LetterEvent) => void;
 }> = ({ events, era, selectedKey, counts, onChoose }) => {
   const [query, setQuery] = useState("");
-  const [kind, setKind] = useState<Kind>(() => (events.find((e) => e.key === selectedKey)?.kind as Kind | undefined) ?? "song");
+  // 最初は選んである宛先の種類。無ければ曲(その時期に曲が無ければ、ある種類)
+  const [kind, setKind] = useState<Kind>(
+    () =>
+      (events.find((e) => e.key === selectedKey)?.kind as Kind | undefined) ??
+      KINDS.find((k) => k.id === "song" && events.some((e) => e.era === era && e.kind === "song"))?.id ??
+      KINDS.find((k) => events.some((e) => e.era === era && e.kind === k.id))?.id ??
+      "song"
+  );
   const [limit, setLimit] = useState(PAGE);
 
   const inEra = useMemo(() => events.filter((e) => e.era === era), [events, era]);

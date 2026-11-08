@@ -1,8 +1,9 @@
 /**
  * 手紙の宛先にする年表(plan/64)。サイトの DISCOGRAPHY / LIVE のシート(公開情報)から作る。
  * 宛先のキーは song:<songUuid> / release:<discographyUuid> / live:<liveUuid> / era:<時代> で、表記が変わっても同じ宛先を指す。
- * 既定の宛名は、その曲・作品・ライヴの名義から作る(れをる → 様へ、REOL / Reol → へ)。
- * 3 つの名義以外(あにょすぺにょすゃゃ など)は、日付のいちばん近い出来事の時代に入れる(手紙は時代を選んでから書くため)。
+ * 既定の宛名は、その曲・作品・ライヴの名義から作る(れをる → 氏へ、ほかは名義 + へ)。宛名は「前につける言葉 + 名義 + 呼び方 + へ」を選んで作る(自由入力はしない)。
+ * 時代は しぇりー(れをる以前の名前。作品の記録はない)→ れをる → あにょすぺにょすゃゃ → REOL → Reol。
+ * それ以外の名義(Reol & nqrse など)は、日付のいちばん近い出来事の時代(れをる / REOL / Reol)に入れる(手紙は時代を選んでから書くため)。
  */
 import { Era, LIMITS } from "./constants";
 
@@ -44,14 +45,41 @@ type LiveInput = {
 };
 
 export const eraOfName = (name: string | null | undefined): Era =>
-  name === "れをる" ? "reoru" : name === "REOL" ? "unit" : name === "Reol" ? "reol" : "other";
+  name === "れをる" ? "reoru" : name === "あにょすぺにょすゃゃ" ? "anyo" : name === "REOL" ? "unit" : name === "Reol" ? "reol" : "other";
 
-const ADDRESS_SUFFIX: Record<Era, string> = {
-  reoru: "れをる様へ",
+/** 宛名に使える名義(手順の時期と同じ、新しい順)と呼び方 */
+export const ADDRESS_NAMES = ["Reol", "REOL", "あにょすぺにょすゃゃ", "れをる", "しぇりー"] as const;
+export const ADDRESS_HONORIFICS = ["様", "氏", "さん", ""] as const;
+export type AddressParts = { prefix: string; name: string; honorific: string };
+
+/** 時代ごとの既定の名義と呼び方(れをるは「れをる氏」) */
+export const ERA_ADDRESS: Record<Era, { name: string; honorific: string }> = {
+  sherry: { name: "しぇりー", honorific: "" },
+  reoru: { name: "れをる", honorific: "氏" },
+  anyo: { name: "あにょすぺにょすゃゃ", honorific: "" },
+  unit: { name: "REOL", honorific: "" },
+  reol: { name: "Reol", honorific: "" },
+  other: { name: "Reol", honorific: "" },
+};
+
+export const ADDRESS_SUFFIX: Record<Era, string> = {
+  sherry: "しぇりーへ",
+  reoru: "れをる氏へ",
+  anyo: "あにょすぺにょすゃゃへ",
   unit: "REOLへ",
   reol: "Reolへ",
   other: "あなたへ",
 };
+
+const ADDRESS_RE = /^(.*?)(Reol|REOL|あにょすぺにょすゃゃ|れをる|しぇりー)(様|氏|さん)?へ$/;
+
+/** 宛名を「前につける言葉 / 名義 / 呼び方」に分ける。形に合わない(前に自由に書いた)宛名は null */
+export const parseAddress = (address: string): AddressParts | null => {
+  const m = address.match(ADDRESS_RE);
+  return m ? { prefix: m[1], name: m[2], honorific: m[3] ?? "" } : null;
+};
+
+export const composeAddress = (p: AddressParts): string => `${p.prefix}${p.name}${p.honorific}へ`;
 
 const FORMAT_LABELS: Record<string, string> = {
   fullAL: "フルアルバム",
@@ -68,7 +96,7 @@ const LIVE_TYPE_LABELS: Record<string, string> = {
   event: "イベント出演",
 };
 
-/** 「〜の」+ 名義。長すぎるときは「あの日の」にする(宛名は 30 字まで) */
+/** 「〜の」+ 名義 + 呼び方。長すぎるときは「あの日の」にする(宛名は 30 字まで) */
 export const buildAddress = (title: string, era: Era, fallbackPrefix = "あの日の"): string => {
   const suffix = ADDRESS_SUFFIX[era];
   const full = `${title}の${suffix}`;
@@ -150,8 +178,8 @@ export const buildLetterEvents = (discs: DiscInput[], lives: LiveInput[]): Lette
   }
   events.push(...songs.values());
 
-  // 3 つの名義以外は、日付のいちばん近い出来事の時代へ(宛名もその時代の呼び方に)
-  const known = events.filter((e) => e.era !== "other");
+  // それ以外の名義は、日付のいちばん近い れをる / REOL / Reol の出来事の時代へ(宛名もその時代の呼び方に)
+  const known = events.filter((e) => e.era === "reoru" || e.era === "unit" || e.era === "reol");
   const dayOf = (d: string) => Date.parse(`${d}T00:00:00Z`);
   for (const e of events) {
     if (e.era !== "other" || !known.length) continue;
@@ -164,15 +192,17 @@ export const buildLetterEvents = (discs: DiscInput[], lives: LiveInput[]): Lette
   return events.sort((a, b) => b.date.localeCompare(a.date) || a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title));
 };
 
-/** 時代そのものへ宛てる */
+/** 時代そのものへ宛てる(手順の 1 画面目に、この順で並ぶ) */
 export const ERA_EVENTS: LetterEvent[] = [
   { key: "era:reol", kind: "era", date: "", title: "今のReol", sub: "Reol", era: "reol", defaultAddress: "今のReolへ", searchText: "", href: null },
   { key: "era:unit", kind: "era", date: "", title: "REOLの頃", sub: "REOL(ユニット)", era: "unit", defaultAddress: "あの頃のREOLへ", searchText: "", href: null },
-  { key: "era:reoru", kind: "era", date: "", title: "れをるの頃", sub: "れをる", era: "reoru", defaultAddress: "あの頃のれをる様へ", searchText: "", href: null },
+  { key: "era:anyo", kind: "era", date: "", title: "あにょすぺにょすゃゃの頃", sub: "あにょすぺにょすゃゃ", era: "anyo", defaultAddress: "あの頃のあにょすぺにょすゃゃへ", searchText: "", href: null },
+  { key: "era:reoru", kind: "era", date: "", title: "れをるの頃", sub: "れをる", era: "reoru", defaultAddress: "あの頃のれをる氏へ", searchText: "", href: null },
+  { key: "era:sherry", kind: "era", date: "", title: "しぇりーの頃", sub: "しぇりー", era: "sherry", defaultAddress: "あの頃のしぇりーへ", searchText: "", href: null },
 ];
 
-/** 宛名をカードの上で 2 行に分ける(「極彩色の / れをる様へ」)。分けられない時は 1 つ */
+/** 宛名をカードの上で 2 行に分ける(「極彩色の / れをる氏へ」)。分けられない時は 1 つ */
 export const splitAddress = (address: string): [string, string] | [string] => {
-  const m = address.match(/^(.+の)((?:れをる|REOL|Reol|あなた)(?:様|さん|ちゃん)?へ)$/);
+  const m = address.match(/^(.+の)((?:れをる|REOL|Reol|あにょすぺにょすゃゃ|しぇりー|あなた)(?:様|氏|さん|ちゃん)?へ)$/);
   return m ? [m[1], m[2]] : [address];
 };

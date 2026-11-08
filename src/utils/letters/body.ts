@@ -6,7 +6,7 @@
 import { LIMITS, TEXT_COLORS, TextColor, TextSize } from "./constants";
 
 export type LetterRun = { t: string; b?: true; c?: TextColor; s?: TextSize };
-export type LetterParagraph = { a?: "l" | "c"; r: LetterRun[] };
+export type LetterParagraph = { a?: "l" | "c" | "r"; r: LetterRun[] };
 export type LetterBody = LetterParagraph[];
 
 const COLOR_IDS = new Set<string>(TEXT_COLORS.map((c) => c.id));
@@ -37,7 +37,7 @@ export const isValidBody = (body: unknown): body is LetterBody => {
   for (const p of body) {
     if (!p || typeof p !== "object" || Array.isArray(p)) return false;
     if (Object.keys(p).some((k) => k !== "a" && k !== "r")) return false;
-    if ("a" in p && p.a !== "l" && p.a !== "c") return false;
+    if ("a" in p && p.a !== "l" && p.a !== "c" && p.a !== "r") return false;
     if (!Array.isArray(p.r) || p.r.length > 80) return false;
     for (const r of p.r) {
       if (!r || typeof r !== "object" || Array.isArray(r)) return false;
@@ -88,6 +88,7 @@ export const fromEditorJson = (doc: PMNode): LetterBody => {
     }
     const para: LetterParagraph = { r: runs };
     if (node.attrs?.textAlign === "center") para.a = "c";
+    else if (node.attrs?.textAlign === "right") para.a = "r";
     paras.push(para);
   }
   return paras.length ? paras : emptyBody();
@@ -108,7 +109,7 @@ export const toEditorJson = (body: LetterBody): PMNode => ({
         if (part) content.push({ type: "text", text: part, ...(marks.length ? { marks } : {}) });
       });
     }
-    return { type: "paragraph", attrs: { textAlign: p.a === "c" ? "center" : "left" }, ...(content.length ? { content } : {}) };
+    return { type: "paragraph", attrs: { textAlign: p.a === "c" ? "center" : p.a === "r" ? "right" : "left" }, ...(content.length ? { content } : {}) };
   }),
 });
 

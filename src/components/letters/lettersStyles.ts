@@ -138,7 +138,10 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-label small{color:var(--muted);font-size:11px}
 .lp-input,.lp-select{display:block;width:100%;background:transparent;padding:9px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:16px;min-height:48px}
 .lp-input:focus,.lp-select:focus{outline:none;border-bottom-color:var(--ink)}
-.lp-name-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.lp-address-parts{display:grid;grid-template-columns:1.3fr 1.3fr 1fr;gap:14px}
+.lp-address-result{display:flex;align-items:baseline;gap:14px;margin:18px 0 0;padding:14px 16px;background:#fffdf8;border:1px solid var(--line)}
+.lp-address-result span{font-size:11px;color:var(--muted);flex-shrink:0}
+.lp-address-result b{font:500 18px/1.6 var(--serif);word-break:break-all}
 .lp-sns{display:grid;grid-template-columns:130px 1fr;gap:12px}
 .lp-motifs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .lp-motifs button{display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;padding:12px 5px;font-size:12px;min-height:88px;justify-content:center}
@@ -165,6 +168,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-sides{display:none;justify-content:center;margin:0 auto 14px;max-width:340px;border-bottom:1px solid var(--line)}
 .lp-sides button{border:0;background:transparent;flex:1;min-height:48px;font-size:13px;border-bottom:2px solid transparent}
 .lp-sides button[aria-pressed=true]{border-bottom-color:var(--ink);font-weight:600}
+.lp-sides[hidden],.lp-pair>[hidden]{display:none!important}
 .lp-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .lp-pair.single{grid-template-columns:1fr;max-width:340px;margin:0 auto}
 .lp-caption{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin:10px 0 0}
@@ -243,6 +247,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 .lp-card .msg{position:absolute;top:24mm;left:9.7mm;right:9.7mm;bottom:21mm;font:3.6mm/1.95 var(--sans);z-index:1;overflow:hidden;overflow-wrap:anywhere;white-space:pre-wrap}
 .lp-card .msg p{margin:0;min-height:1.95em}
 .lp-card .msg .c{text-align:center}
+.lp-card .msg .r{text-align:right}
 .lp-card .msg .rs{font-size:3mm}
 .lp-card .msg .rl{font-size:4.8mm;line-height:1.7}
 .lp-card .msg b{font-weight:700}
@@ -291,6 +296,7 @@ background:var(--paper);color:var(--ink);font:14px/1.85 var(--sans);min-height:1
 @media(max-width:860px){.lp-atelier{display:flex;flex-direction:column;gap:30px}.lp-preview{position:static;width:100%}.lp-fields{width:100%}}
 /* スマホでは「次へ」を入力のすぐ下に(カードの見本はその下)。確認の画面だけ、カードを見てから送る */
 @media(max-width:860px){.lp-composer{display:flex;flex-direction:column}.lp-composer>.lp-atelier{display:contents}.lp-composer .lp-preview{order:2;margin-top:34px}.lp-composer .lp-step-nav{order:1}.lp-composer .lp-step-after{order:3}.lp-composer.is-confirm .lp-preview{order:1}}
+@media(max-width:600px){.lp-address-parts{grid-template-columns:1fr 1fr}.lp-address-parts>label:first-child{grid-column:1/-1}}
 @media(max-width:780px){
 .lp{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
 .lp-wrap{padding:0 20px}

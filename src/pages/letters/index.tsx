@@ -67,7 +67,7 @@ const LettersPage: React.FC = () => (
           <div className="ga">
             <small>あの日のあなたへ</small>極彩色の
             <br />
-            れをる様へ
+            れをる氏へ
           </div>
           <span className="gf">DESIGN SAMPLE</span>
         </div>

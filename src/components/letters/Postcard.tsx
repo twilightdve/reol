@@ -69,7 +69,7 @@ export const CardFront: React.FC<{ face: CardFace }> = ({ face }) => {
           FOR YOUR BIRTHDAY
         </span>
         <div className="mark" aria-hidden>
-          LEGIT POST<strong>11.09</strong>2026
+          UNTITLED POST<strong>11.09</strong>2026
         </div>
       </div>
       <div className={`to${addressClass(face.address)}`}>
@@ -94,7 +94,7 @@ export const CardFront: React.FC<{ face: CardFace }> = ({ face }) => {
 export const LetterBodyView: React.FC<{ body: LetterBody }> = ({ body }) => (
   <>
     {body.map((p, i) => (
-      <p key={i} className={p.a === "c" ? "c" : undefined}>
+      <p key={i} className={p.a === "c" || p.a === "r" ? p.a : undefined}>
         {p.r.map((r, j) => {
           const style = r.c ? { color: textColorValue(r.c) } : undefined;
           const cls = r.s === "s" ? "rs" : r.s === "l" ? "rl" : undefined;

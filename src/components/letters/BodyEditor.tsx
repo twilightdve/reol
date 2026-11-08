@@ -91,7 +91,7 @@ export const BodyEditor: React.FC<Props> = ({ value, resetKey, onChange, length,
       History,
       LetterColor,
       LetterSize,
-      TextAlign.configure({ types: ["paragraph"], alignments: ["left", "center"], defaultAlignment: "left" }),
+      TextAlign.configure({ types: ["paragraph"], alignments: ["left", "center", "right"], defaultAlignment: "left" }),
       Placeholder.configure({ placeholder: "ここにお祝いの言葉を。改行もそのままカードに載ります。" }),
     ],
     content: toEditorJson(value),
@@ -123,7 +123,7 @@ export const BodyEditor: React.FC<Props> = ({ value, resetKey, onChange, length,
 
   const colorNow = (editor?.getAttributes("letterColor").color as TextColor | undefined) ?? null;
   const sizeNow = (editor?.getAttributes("letterSize").size as TextSize | undefined) ?? null;
-  const centered = editor?.isActive({ textAlign: "center" }) ?? false;
+  const align = editor?.isActive({ textAlign: "center" }) ? "center" : editor?.isActive({ textAlign: "right" }) ? "right" : "left";
 
   const setColor = (c: TextColor | null) => {
     if (!editor) return;
@@ -172,7 +172,7 @@ export const BodyEditor: React.FC<Props> = ({ value, resetKey, onChange, length,
         <span className="sep" aria-hidden />
         <button
           type="button"
-          aria-pressed={!centered}
+          aria-pressed={align === "left"}
           onClick={() => editor?.chain().focus().setTextAlign("left").run()}
           aria-label="左寄せ"
         >
@@ -180,11 +180,19 @@ export const BodyEditor: React.FC<Props> = ({ value, resetKey, onChange, length,
         </button>
         <button
           type="button"
-          aria-pressed={centered}
+          aria-pressed={align === "center"}
           onClick={() => editor?.chain().focus().setTextAlign("center").run()}
           aria-label="中央寄せ"
         >
           中央
+        </button>
+        <button
+          type="button"
+          aria-pressed={align === "right"}
+          onClick={() => editor?.chain().focus().setTextAlign("right").run()}
+          aria-label="右寄せ"
+        >
+          右寄せ
         </button>
       </div>
       <div className="lp-editor-area">

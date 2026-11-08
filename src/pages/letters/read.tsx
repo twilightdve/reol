@@ -11,7 +11,7 @@ import { Era, ERA_LABELS } from "../../utils/letters/constants";
 import { fetchPublicLetters, LettersError, PublicLetter } from "../../utils/letters/service";
 
 const PAGE = 48;
-const ERAS: (Era | null)[] = [null, "reol", "unit", "reoru", "other"];
+const ERAS: (Era | null)[] = [null, "reol", "unit", "anyo", "reoru", "sherry", "other"];
 
 const ReadPage: React.FC = () => {
   const { byKey } = useLetterEvents();

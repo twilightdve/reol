@@ -38,9 +38,11 @@ export const SNS_TYPES: { id: SnsType; label: string }[] = [
 ];
 export const snsLabel = (t: string | null | undefined) => SNS_TYPES.find((s) => s.id === t)?.label ?? "";
 
-export type Era = "reoru" | "unit" | "reol" | "other";
+export type Era = "sherry" | "reoru" | "anyo" | "unit" | "reol" | "other";
 export const ERA_LABELS: Record<Era, string> = {
+  sherry: "しぇりー",
   reoru: "れをる",
+  anyo: "あにょすぺにょすゃゃ",
   unit: "REOL",
   reol: "Reol",
   other: "ほかの名義",

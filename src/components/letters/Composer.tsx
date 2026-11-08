@@ -10,7 +10,7 @@ import { LetterTimeline } from "./LetterTimeline";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
 import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
-import { ERA_EVENTS, LetterEvent } from "../../utils/letters/timeline";
+import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, ERA_EVENTS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
 
 const BodyEditor = React.lazy(() => import("./BodyEditor"));
 
@@ -36,8 +36,6 @@ export const emptyComposer = (): ComposerValue => ({
   body: emptyBody(),
 });
 
-const NAME_SUFFIXES = ["れをる様へ", "REOLへ", "Reolへ"];
-const SUFFIX_RE = /(れをる様へ|れをるへ|REOLへ|Reolへ|あなたへ)$/;
 
 export type SubmitState = { kind: "idle" } | { kind: "sending" } | { kind: "error"; message: string };
 
@@ -74,7 +72,9 @@ type StepId = (typeof ALL_STEPS)[number]["id"];
 const EDIT_STEPS = ALL_STEPS.filter((s) => s.id !== "era" && s.id !== "song");
 
 const ERA_NOTES: Record<string, string> = {
+  "era:anyo": "あにょすぺにょすゃゃとして『No title-』を出した頃",
   "era:reoru": "れをるとして歌っていた頃",
+  "era:sherry": "れをるより前、しぇりーと名乗っていた頃",
   "era:unit": "ユニット REOL の日々",
   "era:reol": "いまの活動と、これから",
 };
@@ -112,7 +112,7 @@ export const Composer: React.FC<Props> = ({
     const e: StepError[] = [];
     const add = (step: StepId, message: string) => e.push({ step, message });
     if (!event) add(mode === "new" ? "era" : "address", "どの頃のれをるへ書くかを選んでください。");
-    if (!value.address.trim()) add("address", "宛名を入れてください。");
+    if (!value.address.trim()) add("address", "宛名を選んでください。");
     if (value.address.trim().length > LIMITS.address) add("address", `宛名は${LIMITS.address}字までです。`);
     if (!value.sender.trim()) add("sender", "差出人の名前を入れてください(ペンネームでかまいません)。");
     if (value.sender.trim().length > LIMITS.sender) add("sender", `差出人は${LIMITS.sender}字までです。`);
@@ -129,6 +129,8 @@ export const Composer: React.FC<Props> = ({
   const current = STEPS[step];
   /** 時期と曲の画面は、カードの見本を出さずに一覧を広く */
   const picking = current.id === "era" || current.id === "song";
+  /** 宛名・差出人の画面は、カードの表だけを見せる(裏の本文はまだ関係ない) */
+  const frontOnly = current.id === "address" || current.id === "sender";
   const stepErrors = current.id === "confirm" ? errors : errors.filter((e) => e.step === current.id);
   /** その画面より前が全部埋まっていれば、上の段から飛べる */
   const firstInvalid = STEPS.findIndex((s) => s.id !== "confirm" && errors.some((e) => e.step === s.id));
@@ -188,10 +190,22 @@ export const Composer: React.FC<Props> = ({
     });
   };
 
-  const switchName = (suffix: string) => {
-    const base = value.address.replace(SUFFIX_RE, "");
-    set({ address: `${base}${suffix}`.slice(0, LIMITS.address) });
+  // 宛名は選んで作る(前につける言葉 / 名義 / 呼び方)。前に自由に書いた宛名は、選び直すまでそのまま
+  const parsedAddress = parseAddress(value.address);
+  const eventPrefix = event ? parseAddress(event.defaultAddress)?.prefix : undefined;
+  const addressParts: AddressParts = parsedAddress ?? {
+    prefix: eventPrefix ?? "",
+    name: ERA_ADDRESS[event?.era ?? "reol"].name,
+    honorific: ERA_ADDRESS[event?.era ?? "reol"].honorific,
   };
+  const prefixOptions = Array.from(new Set([eventPrefix, "あの頃の", "あの日の", addressParts.prefix, ""].filter((x): x is string => x !== undefined)));
+  const setAddressPart = (patch: Partial<AddressParts>) => set({ address: composeAddress({ ...addressParts, ...patch }) });
+  const fitsAddress = (patch: Partial<AddressParts>) => composeAddress({ ...addressParts, ...patch }).length <= LIMITS.address;
+  // 宛名が空のまま(書きかけの復元など)なら、選んだ宛先の既定で埋める
+  useEffect(() => {
+    if (event && !value.address) set({ address: composeAddress(addressParts) });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [event, value.address]);
 
   const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif };
   const stepIndex = (id: StepId) => STEPS.findIndex((s) => s.id === id);
@@ -205,7 +219,8 @@ export const Composer: React.FC<Props> = ({
   const chooseEra = (e: LetterEvent) => {
     // 同じ時期を選び直した時は、選んであった曲をそのままにする
     if (!event || event.era !== e.era) onChoose?.(e);
-    goTo(step + 1);
+    // 曲・作品の記録がない時期(しぇりー)は、曲の画面を飛ばす
+    goTo(events.some((x) => x.era === e.era) ? step + 1 : step + 2);
   };
   const chooseSong = (e: LetterEvent | null) => {
     const target = e ?? eraEvent;
@@ -235,35 +250,57 @@ export const Composer: React.FC<Props> = ({
                 選ばずに「{eraEvent?.title}」へ <span aria-hidden>→</span>
               </button>
             </div>
-            <LetterTimeline key={event.era} events={events} era={event.era} selectedKey={event.key} counts={counts} onChoose={chooseSong} />
+            {events.some((x) => x.era === event.era) ? (
+              <LetterTimeline key={event.era} events={events} era={event.era} selectedKey={event.key} counts={counts} onChoose={chooseSong} />
+            ) : (
+              <p className="lp-note">この頃の曲・作品・ライヴは、このサイトの記録にありません。時期そのものへ宛てて書けます。</p>
+            )}
           </>
         ) : null;
       case "address":
         return (
           <div>
-            <label className="lp-label" htmlFor="lp-address">
-              宛名 <small>{value.address.length}/{LIMITS.address}</small>
-            </label>
-            <input
-              id="lp-address"
-              className="lp-input"
-              value={value.address}
-              maxLength={LIMITS.address}
-              onChange={(e) => set({ address: e.target.value })}
-              onKeyDown={enterToNext}
-              placeholder="極彩色のれをる様へ"
-              autoComplete="off"
-              enterKeyHint="next"
-            />
-            <div className="lp-name-chips" role="group" aria-label="呼びかけを変える">
-              {NAME_SUFFIXES.map((s) => (
-                <button key={s} type="button" className="lp-chip" onClick={() => switchName(s)}>
-                  …{s}
-                </button>
-              ))}
+            <div className="lp-address-parts">
+              <label>
+                <span className="lp-label">前につける言葉</span>
+                <select className="lp-select" value={addressParts.prefix} onChange={(e) => setAddressPart({ prefix: e.target.value })}>
+                  {prefixOptions.map((p) => (
+                    <option key={p || "none"} value={p} disabled={!fitsAddress({ prefix: p })}>
+                      {p || "(つけない)"}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span className="lp-label">名義</span>
+                <select className="lp-select" value={addressParts.name} onChange={(e) => setAddressPart({ name: e.target.value })}>
+                  {ADDRESS_NAMES.map((n) => (
+                    <option key={n} value={n} disabled={!fitsAddress({ name: n })}>
+                      {n}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span className="lp-label">呼び方</span>
+                <select className="lp-select" value={addressParts.honorific} onChange={(e) => setAddressPart({ honorific: e.target.value })}>
+                  {ADDRESS_HONORIFICS.map((h) => (
+                    <option key={h || "none"} value={h} disabled={!fitsAddress({ honorific: h })}>
+                      {h || "呼称なし"}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
+            <p className="lp-address-result" aria-live="polite">
+              <span>宛名</span>
+              <b>{value.address}</b>
+            </p>
+            {!parsedAddress && value.address && (
+              <p className="lp-note">前に書いた宛名「{value.address}」のままです。選び直すと、上の宛名に置き換わります。</p>
+            )}
             <p className="lp-note" style={{ marginTop: 10 }}>
-              選んだ宛先から入れてあります。このままでも、書き換えてもかまいません。
+              選んだ宛先から入れてあります。
             </p>
           </div>
         );
@@ -490,7 +527,7 @@ export const Composer: React.FC<Props> = ({
         </div>
 
         <div className="lp-preview">
-          <div className="lp-sides" role="group" aria-label="カードの表裏">
+          <div className="lp-sides" role="group" aria-label="カードの表裏" hidden={frontOnly}>
             <button type="button" aria-pressed={side === "front"} onClick={() => setSide("front")}>
               表 · 宛名
             </button>
@@ -498,7 +535,7 @@ export const Composer: React.FC<Props> = ({
               裏 · メッセージ
             </button>
           </div>
-          <div className={`lp-pair${side === "back" ? " show-back" : ""}`}>
+          <div className={`lp-pair${frontOnly ? " single" : side === "back" ? " show-back" : ""}`}>
             <div data-side="front">
               <ScaledCard label="カードの表(宛名面)のプレビュー">
                 <CardFront face={face} />
@@ -507,7 +544,7 @@ export const Composer: React.FC<Props> = ({
                 <span>FRONT</span>宛名と差出人
               </p>
             </div>
-            <div data-side="back">
+            <div data-side="back" hidden={frontOnly}>
               <ScaledCard label="カードの裏(本文)のプレビュー">
                 <CardBack motif={value.motif} sender={value.sender} body={value.body} over={!fits} />
               </ScaledCard>

@@ -140,7 +140,7 @@ AS $$
   SELECT p ~ '[[:cntrl:]]' OR p ~ '[\u00AD\u061C\u180E\u200B\u200C\u200E\u200F\u202A-\u202E\u2028\u2029\u2060-\u2069\uFEFF]';
 $$;
 
--- 本文: [{ "a": "l"|"c", "r": [{ "t": 文字, "b": true, "c": 色, "s": "s"|"l" }] }]
+-- 本文: [{ "a": "l"|"c"|"r", "r": [{ "t": 文字, "b": true, "c": 色, "s": "s"|"l" }] }]
 CREATE OR REPLACE FUNCTION public._letters_body_ok(b jsonb)
 RETURNS boolean
 LANGUAGE plpgsql
@@ -161,7 +161,7 @@ BEGIN
   FOR para IN SELECT value FROM jsonb_array_elements(b) LOOP
     IF jsonb_typeof(para) <> 'object' THEN RETURN false; END IF;
     IF EXISTS (SELECT 1 FROM jsonb_object_keys(para) k WHERE k NOT IN ('a', 'r')) THEN RETURN false; END IF;
-    IF para ? 'a' AND (para -> 'a') NOT IN ('"l"'::jsonb, '"c"'::jsonb) THEN RETURN false; END IF;
+    IF para ? 'a' AND (para -> 'a') NOT IN ('"l"'::jsonb, '"c"'::jsonb, '"r"'::jsonb) THEN RETURN false; END IF;
     IF jsonb_typeof(para -> 'r') IS DISTINCT FROM 'array' OR jsonb_array_length(para -> 'r') > 80 THEN RETURN false; END IF;
     FOR run IN SELECT value FROM jsonb_array_elements(para -> 'r') LOOP
       IF jsonb_typeof(run) <> 'object' THEN RETURN false; END IF;
@@ -203,7 +203,7 @@ BEGIN
   IF v_event_key IS NULL OR v_event_key !~ '^(song|release|live|era):[A-Za-z0-9-]{1,64}$' THEN RAISE EXCEPTION 'invalid:eventKey'; END IF;
   IF v_event_label IS NULL OR length(v_event_label) NOT BETWEEN 1 AND 80 OR public._letters_bad_chars(v_event_label) THEN RAISE EXCEPTION 'invalid:eventLabel'; END IF;
   IF v_event_date IS NOT NULL AND v_event_date !~ '^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$' THEN RAISE EXCEPTION 'invalid:eventDate'; END IF;
-  IF v_era IS NULL OR v_era NOT IN ('reoru', 'unit', 'reol', 'other') THEN RAISE EXCEPTION 'invalid:era'; END IF;
+  IF v_era IS NULL OR v_era NOT IN ('sherry', 'reoru', 'anyo', 'unit', 'reol', 'other') THEN RAISE EXCEPTION 'invalid:era'; END IF;
   IF v_address IS NULL OR length(v_address) NOT BETWEEN 1 AND 30 OR public._letters_bad_chars(v_address) THEN RAISE EXCEPTION 'invalid:address'; END IF;
   IF v_sender IS NULL OR length(v_sender) NOT BETWEEN 1 AND 20 OR public._letters_bad_chars(v_sender) THEN RAISE EXCEPTION 'invalid:sender'; END IF;
   IF v_sns_type IS NOT NULL AND v_sns_type NOT IN ('x', 'instagram', 'tiktok', 'bluesky', 'threads') THEN RAISE EXCEPTION 'invalid:snsType'; END IF;

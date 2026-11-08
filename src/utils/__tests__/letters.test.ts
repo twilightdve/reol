@@ -1,5 +1,5 @@
 import { bodyLength, fromEditorJson, isValidBody, stripInvisible, toEditorJson, trimBody } from "../letters/body";
-import { buildAddress, buildLetterEvents, eraOfName, splitAddress } from "../letters/timeline";
+import { buildAddress, buildLetterEvents, composeAddress, eraOfName, parseAddress, splitAddress } from "../letters/timeline";
 
 describe("手紙の本文(plan/64)", () => {
   const doc = {
@@ -15,6 +15,7 @@ describe("手紙の本文(plan/64)", () => {
           { type: "text", text: "聴いています", marks: [{ type: "link", attrs: { href: "javascript:alert(1)" } }, { type: "letterColor", attrs: { color: "red" } }] },
         ],
       },
+      { type: "paragraph", attrs: { textAlign: "right" }, content: [{ type: "text", text: "より" }] },
       { type: "heading", content: [{ type: "text", text: "見出しは通さない" }] },
       { type: "paragraph" },
     ],
@@ -25,6 +26,7 @@ describe("手紙の本文(plan/64)", () => {
     expect(body).toEqual([
       { r: [{ t: "お誕生日おめでとう", b: true }] },
       { a: "c", r: [{ t: "ずっと", c: "rose", s: "l" }, { t: "\n聴いています" }] },
+      { a: "r", r: [{ t: "より" }] },
       { r: [] },
     ]);
     expect(isValidBody(trimBody(body))).toBe(true);
@@ -51,7 +53,8 @@ describe("手紙の本文(plan/64)", () => {
     expect(isValidBody([{ r: [{ t: "   " }] }])).toBe(false);
     expect(isValidBody([{ r: [{ t: "a", c: "red" }] }])).toBe(false);
     expect(isValidBody([{ r: [{ t: "a", x: 1 }] }])).toBe(false);
-    expect(isValidBody([{ a: "r", r: [{ t: "a" }] }])).toBe(false);
+    expect(isValidBody([{ a: "r", r: [{ t: "a" }] }])).toBe(true);
+    expect(isValidBody([{ a: "j", r: [{ t: "a" }] }] as never)).toBe(false);
     expect(isValidBody([{ r: [{ t: "あ".repeat(1201) }] }])).toBe(false);
     expect(isValidBody([{ r: [{ t: "あ".repeat(1200) }] }])).toBe(true);
     expect(bodyLength([{ r: [{ t: "ab" }, { t: "c" }] }, { r: [{ t: "d" }] }])).toBe(4);
@@ -59,22 +62,33 @@ describe("手紙の本文(plan/64)", () => {
 });
 
 describe("宛先の年表(plan/64)", () => {
-  test("名義から宛名を作る(3 つの名義以外は当てはめない)", () => {
+  test("名義から宛名を作る(時代の名義以外は当てはめない)", () => {
     expect(eraOfName("れをる")).toBe("reoru");
     expect(eraOfName("REOL")).toBe("unit");
     expect(eraOfName("Reol")).toBe("reol");
-    expect(eraOfName("あにょすぺにょすゃゃ")).toBe("other");
-    expect(buildAddress("極彩色", "reoru")).toBe("極彩色のれをる様へ");
+    expect(eraOfName("あにょすぺにょすゃゃ")).toBe("anyo");
+    expect(eraOfName("FZMZ(icy)")).toBe("other");
+    expect(buildAddress("No title-", "anyo")).toBe("No title-のあにょすぺにょすゃゃへ");
+    expect(buildAddress("極彩色", "reoru")).toBe("極彩色のれをる氏へ");
     expect(buildAddress("エンドレスライン", "unit")).toBe("エンドレスラインのREOLへ");
     expect(buildAddress("白夜", "reol")).toBe("白夜のReolへ");
-    expect(buildAddress("No title-", "other")).toBe("No title-のあなたへ");
+    expect(buildAddress("Danger Danger", "other")).toBe("Danger Dangerのあなたへ");
     expect(buildAddress("とても長いライヴの名前とても長いライヴの名前とても長い", "reol", "あのライヴの")).toBe("あのライヴのReolへ");
   });
 
+  test("宛名を前につける言葉・名義・呼び方に分けて、組み直す", () => {
+    expect(parseAddress("極彩色のれをる氏へ")).toEqual({ prefix: "極彩色の", name: "れをる", honorific: "氏" });
+    expect(parseAddress("今のReolへ")).toEqual({ prefix: "今の", name: "Reol", honorific: "" });
+    expect(parseAddress("Reolさんへ")).toEqual({ prefix: "", name: "Reol", honorific: "さん" });
+    expect(parseAddress("大好きな人へ")).toBeNull();
+    expect(composeAddress({ prefix: "あの頃の", name: "しぇりー", honorific: "様" })).toBe("あの頃のしぇりー様へ");
+  });
+
   test("宛名をカードで 2 行に分ける", () => {
-    expect(splitAddress("極彩色のれをる様へ")).toEqual(["極彩色の", "れをる様へ"]);
+    expect(splitAddress("極彩色のれをる氏へ")).toEqual(["極彩色の", "れをる氏へ"]);
     expect(splitAddress("白夜のReolへ")).toEqual(["白夜の", "Reolへ"]);
     expect(splitAddress("Reolさんへ")).toEqual(["Reolさんへ"]);
+    expect(splitAddress("あの頃のしぇりーへ")).toEqual(["あの頃の", "しぇりーへ"]);
   });
 
   test("作品とライヴを新しい順に並べ、締切後の出来事は入れない", () => {
@@ -94,27 +108,29 @@ describe("宛先の年表(plan/64)", () => {
     expect(events[0].href).toBe("/live/s1/");
   });
 
-  test("曲は時代ごとに、いちばん早く出た 1 つにまとめる。3 つの名義以外は近い日付の時代へ", () => {
+  test("曲は時代ごとに、いちばん早く出た 1 つにまとめる。時代の名義以外は近い日付の れをる / REOL / Reol へ", () => {
     const events = buildLetterEvents(
       [
         { discographyUuid: "a", slug: "a", title: "極彩色", releaseDate: "2015-07-29", name: "れをる", format: "fullAL", songs: [{ songUuid: "s-a1", songName: "ハーメルン" }, { songUuid: "s-a2", songName: "極彩色" }] },
         { discographyUuid: "b", slug: "b", title: "ハーメルン", releaseDate: "2015-05-01", name: "れをる", format: "SG", songs: [{ songUuid: "s-b1", songName: "ハーメルン" }] },
-        { discographyUuid: "c", slug: "c", title: "ゆめ", releaseDate: "2015-06-01", name: "あにょすぺにょすゃゃ", format: "SG", songs: [{ songUuid: "s-c1", songName: "ゆめ" }] },
+        { discographyUuid: "c", slug: "c", title: "ゆめ", releaseDate: "2015-06-01", name: "FZMZ(icy)", format: "SG", songs: [{ songUuid: "s-c1", songName: "ゆめ" }] },
+        { discographyUuid: "f", slug: "f", title: "No title-", releaseDate: "2015-06-02", name: "あにょすぺにょすゃゃ", format: "fullAL", songs: [{ songUuid: "s-f1", songName: "ないものねだり" }] },
         { discographyUuid: "d", slug: "d", title: "歌", releaseDate: "2014-01-01", name: "れをる", format: "歌ってみた", songs: [{ songUuid: "s-d1", songName: "歌" }] },
         { discographyUuid: "e", slug: "e", title: "金字塔", releaseDate: "2020-01-01", name: "Reol", format: "fullAL", songs: [{ songUuid: "s-e1", songName: "ハーメルン" }] },
       ],
       []
     );
     const songs = events.filter((e) => e.kind === "song");
-    expect(songs.map((e) => e.key).sort()).toEqual(["song:s-a2", "song:s-b1", "song:s-c1", "song:s-e1"]);
+    expect(songs.map((e) => e.key).sort()).toEqual(["song:s-a2", "song:s-b1", "song:s-c1", "song:s-e1", "song:s-f1"]);
+    expect(songs.find((e) => e.key === "song:s-f1")!.era).toBe("anyo");
     const hameln = songs.find((e) => e.key === "song:s-b1")!;
-    expect(hameln.defaultAddress).toBe("ハーメルンのれをる様へ");
+    expect(hameln.defaultAddress).toBe("ハーメルンのれをる氏へ");
     expect(hameln.sub).toBe("シングル");
     expect(songs.find((e) => e.key === "song:s-a2")!.sub).toBe("フルアルバム");
     expect(songs.find((e) => e.key === "song:s-e1")!.defaultAddress).toBe("ハーメルンのReolへ");
     const other = events.find((e) => e.key === "song:s-c1")!;
     expect(other.era).toBe("reoru");
-    expect(other.defaultAddress).toBe("ゆめのれをる様へ");
+    expect(other.defaultAddress).toBe("ゆめのれをる氏へ");
     expect(events.some((e) => e.key === "song:s-d1")).toBe(false);
   });
 });
