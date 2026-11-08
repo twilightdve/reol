@@ -1,4 +1,4 @@
--- Legitの件名のない郵便やさん(Reol 誕生日の手紙企画。plan/64)2026-11-07
+-- 件名のないふくろう便(Reol 誕生日の手紙企画。plan/64)2026-11-07
 --
 -- - テーブルは RLS 有効・ポリシーなし・anon / authenticated から REVOKE(user_sessions と同じ)。
 --   読み書きはすべて下の SECURITY DEFINER の関数だけで行う。

@@ -1,5 +1,5 @@
 /**
- * /letters/ — Legitの件名のない郵便やさん(Reol 誕生日の手紙企画。plan/64)の説明。
+ * /letters/ — 件名のないふくろう便(Reol 誕生日の手紙企画。plan/64)の説明。
  * 入口(Happy Birthday, Reol)→ 企画のこと → 一冊にして贈ること。手紙を書くのは /letters/write/(「お祝いの手紙を書く」から)。
  */
 import React from "react";
@@ -80,8 +80,8 @@ const LettersPage: React.FC = () => (
       </div>
       <div className="lp-project">
         <h2>
-          <span className="small">Legitの</span>
-          <span>件名のない郵便やさん</span>
+          <span className="small">件名のない</span>
+          <span>ふくろう便</span>
         </h2>
         <p className="lp-tagline">{LETTERS_COPY}</p>
       </div>

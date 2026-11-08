@@ -1,10 +1,10 @@
 /**
- * Legitの件名のない郵便やさん(Reol 誕生日の手紙企画。plan/64)の決まりごと。
+ * 件名のないふくろう便(Reol 誕生日の手紙企画。plan/64)の決まりごと。
  * 締切・選べる値は DB 側(supabase/features/supabase-birthday-letters.sql)と同じにする。
  */
 
-export const LETTERS_TITLE = "Legitの件名のない郵便やさん";
-export const LETTERS_COPY = "あの日の思いに、Legitからの返信";
+export const LETTERS_TITLE = "件名のないふくろう便";
+export const LETTERS_COPY = "あの日の思いに、ふくろうが運ぶ返信";
 export const LETTERS_ORGANIZER = "!Legitによる非公式バースデー企画";
 
 /** 受付の境界(これ以降は新規投稿・本人の修正を DB が拒否する)。表示用。判定は DB の時計で行う */

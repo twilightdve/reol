@@ -1,5 +1,5 @@
 /**
- * /letters/write/ — 手紙を書く(Legitの件名のない郵便やさん。plan/64)。
+ * /letters/write/ — 手紙を書く(件名のないふくろう便。plan/64)。
  * /letters/ の「お祝いの手紙を書く」から来る。時期 → 曲 → 宛名 … → 投函を一画面ずつ(Composer)。
  * 手紙はビルドに入れない。投函は Supabase の関数(letters_submit)へ。保存が確かめられてから「受け付けました」と出す。
  */

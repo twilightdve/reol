@@ -103,7 +103,7 @@ const PrivacyPage: React.FC = () => (
       </p>
     </Section>
 
-    <Section id="privacy-letters" title="誕生日の手紙企画(Legitの件名のない郵便やさん)">
+    <Section id="privacy-letters" title="誕生日の手紙企画(件名のないふくろう便)">
       <p>
         <Link to="/letters/" className={linkCls}>
           手紙企画
