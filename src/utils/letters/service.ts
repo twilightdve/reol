@@ -103,7 +103,8 @@ const rpc = async <T>(fn: string, args?: Record<string, unknown>): Promise<T> =>
 
 export type Result<T = Record<string, never>> = ({ ok: true } & T) | { ok: false; error: string };
 
-export const fetchLettersStatus = () => rpc<{ open: boolean; deadline: string; now: string }>("letters_status");
+/** accepting: 運営が投函を止めていなければ true(緊急の切り替え。SQL が古い時は undefined → 受け付け扱い) */
+export const fetchLettersStatus = () => rpc<{ open: boolean; accepting?: boolean; deadline: string; now: string }>("letters_status");
 
 export const submitLetter = (requestId: string, editKey: string, letter: LetterContent & { consent: true }) =>
   rpc<Result<{ id: string; version: number }>>("letters_submit", { p_request_id: requestId, p_edit_key: editKey, p_letter: letter });
@@ -152,9 +153,18 @@ export const adminMarkPrinted = (id: string, printed: string[]) =>
 
 export const adminCancelBatch = (id: string) => rpc<{ ok: boolean }>("letters_admin_cancel_batch", { p_batch: id });
 
+/** 緊急の切り替え(運営だけ)。publicMode: all = 投函してすぐ公開 / checked = チェック済みの今の版だけ。accepting: false で投函を止める */
+export type LettersSettings = { publicMode: "all" | "checked"; accepting: boolean; updatedAt: string };
+export const adminSettings = (patch: { publicMode?: "all" | "checked"; accepting?: boolean } = {}) =>
+  rpc<({ ok: true } & LettersSettings) | { ok: false; error: string }>("letters_admin_settings", {
+    p_public_mode: patch.publicMode ?? null,
+    p_accepting: patch.accepting ?? null,
+  });
+
 /** 入力の誤りを、画面の言葉に */
 export const ERROR_MESSAGES: Record<string, string> = {
   closed: "受付は終了しました(2026年12月20日（日）23:59まででした)。",
+  paused: "いま投函を一時的に止めています。書いた手紙は下書き保存しておいて、時間をおいてもう一度お試しください。",
   busy: "いま投函が混み合っています。少し時間をおいて、もう一度お試しください。",
   conflict: "別の画面で先に修正されています。ページを読み込み直してから直してください。",
   withdrawn: "この手紙は取り下げ済みです。",

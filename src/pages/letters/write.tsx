@@ -20,7 +20,7 @@ const LettersWritePage: React.FC = () => {
   const byKey = YEAR_EVENT_BY_KEY;
   const [event, setEvent] = useState<ChosenEvent | null>(null);
   const [value, setValue] = useState<ComposerValue>(emptyComposer);
-  const [availability, setAvailability] = useState<"loading" | "open" | "closed" | "unavailable">("loading");
+  const [availability, setAvailability] = useState<"loading" | "open" | "closed" | "unavailable" | "paused">("loading");
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [submitState, setSubmitState] = useState<SubmitState>({ kind: "idle" });
   const [done, setDone] = useState<{ id: string; url: string; synced: boolean } | null>(null);
@@ -99,7 +99,7 @@ const LettersWritePage: React.FC = () => {
 
   useEffect(() => {
     fetchLettersStatus()
-      .then((s) => setAvailability(s.open ? "open" : "closed"))
+      .then((s) => setAvailability(!s.open ? "closed" : s.accepting === false ? "paused" : "open"))
       .catch((e) => setAvailability(e instanceof LettersError && e.code === "unavailable" ? "unavailable" : "open"));
     fetchPublicCounts()
       .then(setCounts)
@@ -123,6 +123,7 @@ const LettersWritePage: React.FC = () => {
       if (!r.ok) {
         setSubmitState({ kind: "error", message: errorMessage(r.error) });
         if (r.error === "closed") setAvailability("closed");
+        if (r.error === "paused") setAvailability("paused");
         return;
       }
       // 受け付けられた(ここから先で失敗しても、受付は取り消さない)

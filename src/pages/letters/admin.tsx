@@ -26,6 +26,8 @@ import {
   adminListLetters,
   AdminLetter,
   adminMarkPrinted,
+  adminSettings,
+  LettersSettings,
   LettersError,
   PrintBatch,
   PrintBatchSummary,
@@ -100,9 +102,11 @@ const LetterRow: React.FC<{
   l: AdminLetter;
   selectable: boolean;
   selected: boolean;
+  /** 選ぶ欄の言葉(印刷の束 / まとめて取り下げる) */
+  selectLabel?: string;
   onSelect: (v: boolean) => void;
   onAct: (a: AdminAction, version?: number) => void;
-}> = ({ l, selectable, selected, onSelect, onAct }) => {
+}> = ({ l, selectable, selected, selectLabel = "印刷の束に入れる", onSelect, onAct }) => {
   const c = l.content;
   const reviewedNow = l.reviewedVersion === l.currentVersion;
   const chars = bodyText(c.body).length;
@@ -122,7 +126,7 @@ const LetterRow: React.FC<{
         {selectable && (
           <label className="lp-consent" style={{ fontSize: 13 }}>
             <input type="checkbox" checked={selected} onChange={(e) => onSelect(e.target.checked)} />
-            <span>印刷の束に入れる</span>
+            <span>{selectLabel}</span>
           </label>
         )}
         <b style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: 16 }}>{c.address}</b>
@@ -374,6 +378,39 @@ const AdminPage: React.FC = () => {
     reload();
   };
 
+  // 緊急の切り替え(荒らされた時に、公開をチェック済みだけにする・投函を止める)
+  const [settings, setSettings] = useState<LettersSettings | null>(null);
+  useEffect(() => {
+    if (state !== "ok") return;
+    adminSettings()
+      .then((r) => r.ok && setSettings(r))
+      .catch(() => setSettings(null));
+  }, [state]);
+  const changeSettings = async (patch: { publicMode?: "all" | "checked"; accepting?: boolean }, question: string) => {
+    if (!window.confirm(question)) return;
+    const r = await adminSettings(patch).catch(() => null);
+    if (r && r.ok) setSettings(r);
+    else setMsg("切り替えられませんでした。SQL が最新か確かめてください。");
+  };
+
+  // 荒らしの手紙などを、まとめて取り下げる
+  const [withdrawing, setWithdrawing] = useState(false);
+  const withdrawSelected = async () => {
+    const ids = shown.filter((l) => selected.has(l.id) && !l.withdrawnAt).map((l) => l.id);
+    if (!ids.length || withdrawing) return;
+    if (!window.confirm(`選んだ ${ids.length} 通を取り下げにしますか(Webにも本にも載せない)`)) return;
+    setWithdrawing(true);
+    let failed = 0;
+    for (const id of ids) {
+      const r = await adminAct(id, "withdraw").catch(() => ({ ok: false }));
+      if (!r.ok) failed++;
+    }
+    setWithdrawing(false);
+    setSelected(new Set());
+    setMsg(failed ? `${failed} 通は取り下げられませんでした。読み込み直して確かめてください。` : `${ids.length} 通を取り下げにしました。`);
+    reload();
+  };
+
   const openBatch = (id: string | null) => {
     setBatchId(id);
     window.history.replaceState(null, "", id ? `/letters/admin/?batch=${id}` : "/letters/admin/");
@@ -402,6 +439,8 @@ const AdminPage: React.FC = () => {
   };
 
   const selectable = tab === "printable" || tab === "reprint";
+  /** 未チェック・すべての欄では、まとめて取り下げる手紙を選べる */
+  const withdrawable = tab === "review" || tab === "all";
 
   if (framed) return null;
   return (
@@ -423,6 +462,38 @@ const AdminPage: React.FC = () => {
                 全 {letters.length} 通(取り下げを含む)。投函された手紙はすぐWebに出ています。「未チェック」を読み、ふさわしくないものは取り下げてください。印刷できるのはチェック済みの版だけです。
               </p>
               {msg && <p className="lp-alert">{msg}</p>}
+              <div className="lp-panel lp-emergency" style={{ marginBottom: 18 }}>
+                <b>緊急の切り替え</b>
+                {settings ? (
+                  <>
+                    <p className="lp-note" style={{ margin: "4px 0 10px" }}>
+                      いまの状態: 公開は{settings.publicMode === "all" ? "「投函してすぐ」" : "「チェック済みの手紙だけ」"}、投函は{settings.accepting ? "「受け付けている」" : "「止めている」"}。荒らされた時に使ってください。
+                    </p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                      {settings.publicMode === "all" ? (
+                        <button type="button" className="lp-secondary" onClick={() => changeSettings({ publicMode: "checked" }, "公開を「チェック済みの手紙だけ」にしますか(未チェックの手紙はWebから見えなくなります)")}>
+                          公開をチェック済みだけにする
+                        </button>
+                      ) : (
+                        <button type="button" className="lp-secondary" onClick={() => changeSettings({ publicMode: "all" }, "公開を「投函してすぐ」に戻しますか")}>
+                          公開を投函してすぐに戻す
+                        </button>
+                      )}
+                      {settings.accepting ? (
+                        <button type="button" className="lp-secondary" onClick={() => changeSettings({ accepting: false }, "投函を止めますか(修正・取り下げはできます)")}>
+                          投函を止める
+                        </button>
+                      ) : (
+                        <button type="button" className="lp-secondary" onClick={() => changeSettings({ accepting: true }, "投函の受付を再開しますか")}>
+                          投函を再開する
+                        </button>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <p className="lp-note" style={{ margin: "4px 0 0" }}>読み込めませんでした(SQL が最新でないかもしれません)。</p>
+                )}
+              </div>
               <div className="lp-tabs" role="tablist">
                 {TABS.map((t) => (
                   <button
@@ -481,12 +552,28 @@ const AdminPage: React.FC = () => {
                       </button>
                     </div>
                   )}
+                  {withdrawable && shown.length > 0 && (
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center", marginBottom: 8 }}>
+                      <button type="button" className="lp-chip" onClick={() => setSelected(new Set(shown.filter((l) => !l.withdrawnAt).map((l) => l.id)))}>
+                        すべて選ぶ
+                      </button>
+                      {selected.size > 0 && (
+                        <button type="button" className="lp-chip" onClick={() => setSelected(new Set())}>
+                          選ぶのをやめる
+                        </button>
+                      )}
+                      <button type="button" className="lp-secondary" disabled={!selected.size || withdrawing} onClick={withdrawSelected}>
+                        {withdrawing ? "取り下げています…" : `選んだ ${selected.size} 通をまとめて取り下げる`}
+                      </button>
+                    </div>
+                  )}
                   {shown.length === 0 && <p className="lp-note">ありません。</p>}
                   {shown.map((l) => (
                     <LetterRow
                       key={l.id}
                       l={l}
-                      selectable={selectable && !l.withdrawnAt && l.reviewedVersion === l.currentVersion}
+                      selectable={(selectable && !l.withdrawnAt && l.reviewedVersion === l.currentVersion) || (withdrawable && !l.withdrawnAt)}
+                      selectLabel={withdrawable ? "まとめて取り下げる手紙に選ぶ" : undefined}
                       selected={selected.has(l.id)}
                       onSelect={(v) =>
                         setSelected((s) => {

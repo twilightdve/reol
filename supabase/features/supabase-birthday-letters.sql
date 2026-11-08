@@ -73,16 +73,27 @@ INSERT INTO public.birthday_letter_admins (user_id, profile_created_at)
 SELECT p.id, p.created_at FROM public.profiles p WHERE p.id = 'twilightplc' AND p.created_at IS NOT NULL
 ON CONFLICT (user_id) DO NOTHING;
 
+-- 緊急の切り替え(2026-11-09)。運営だけが変える。荒らされた時に、公開をチェック済みの手紙だけにする・投函を止める
+CREATE TABLE IF NOT EXISTS public.birthday_letter_settings (
+  id integer PRIMARY KEY DEFAULT 1 CHECK (id = 1),
+  public_mode text NOT NULL DEFAULT 'all' CHECK (public_mode IN ('all', 'checked')), -- all: 投函してすぐ公開 / checked: 運営がチェックした今の版だけ
+  accepting boolean NOT NULL DEFAULT true,                                         -- false: 投函を止める(修正・取り下げはできる)
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+INSERT INTO public.birthday_letter_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
+
 ALTER TABLE public.birthday_letters ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_versions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_batches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_admins ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.birthday_letter_settings ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON public.birthday_letters FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_versions FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_batches FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_items FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_admins FROM anon, authenticated;
+REVOKE ALL ON public.birthday_letter_settings FROM anon, authenticated;
 
 -- ============================================================
 -- 2. 内部用(anon からは呼べない)
@@ -108,6 +119,25 @@ AS $$
     JOIN public.profiles p ON p.id = a.user_id AND p.created_at = a.profile_created_at
     WHERE a.user_id = public.request_session_user_id()
   );
+$$;
+
+-- 緊急の切り替えの今の値(行が無ければ、ふだんどおり)
+CREATE OR REPLACE FUNCTION public._letters_checked_only()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SET search_path = ''
+AS $$
+  SELECT coalesce((SELECT s.public_mode = 'checked' FROM public.birthday_letter_settings s WHERE s.id = 1), false);
+$$;
+
+CREATE OR REPLACE FUNCTION public._letters_accepting()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SET search_path = ''
+AS $$
+  SELECT coalesce((SELECT s.accepting FROM public.birthday_letter_settings s WHERE s.id = 1), true);
 $$;
 
 CREATE OR REPLACE FUNCTION public._letters_key_hash(p_key text)
@@ -270,6 +300,8 @@ $$;
 
 REVOKE ALL ON FUNCTION public._letters_is_open(timestamptz) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_is_admin() FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_checked_only() FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public._letters_accepting() FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_key_hash(text) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_str(jsonb, text) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public._letters_bad_chars(text) FROM PUBLIC, anon, authenticated;
@@ -288,7 +320,7 @@ STABLE
 SECURITY DEFINER
 SET search_path = ''
 AS $$
-  SELECT jsonb_build_object('open', public._letters_is_open(now()), 'deadline', '2026-12-20T15:00:00Z', 'now', now());
+  SELECT jsonb_build_object('open', public._letters_is_open(now()), 'accepting', public._letters_accepting(), 'deadline', '2026-12-20T15:00:00Z', 'now', now());
 $$;
 
 -- 投函。戻り値 { ok, id, version } / { ok: false, error: 'closed' | 'busy' | 'invalid:<項目>' | 'invalid' }
@@ -321,6 +353,9 @@ BEGIN
 
   IF NOT public._letters_is_open(now()) THEN
     RETURN jsonb_build_object('ok', false, 'error', 'closed');
+  END IF;
+  IF NOT public._letters_accepting() THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'paused');
   END IF;
 
   BEGIN
@@ -388,6 +423,7 @@ AS $$
     JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
     WHERE l.withdrawn_at IS NULL
       AND NOT l.web_hidden
+      AND (NOT public._letters_checked_only() OR coalesce(l.reviewed_version = l.current_version, false))
       AND (p_event_key IS NULL OR v.content ->> 'eventKey' = p_event_key)
       AND (p_era IS NULL OR v.content ->> 'era' = p_era)
     ORDER BY ord
@@ -410,7 +446,8 @@ AS $$
   JOIN public.birthday_letter_versions c ON c.letter_id = l.id AND c.version = l.current_version
   WHERE l.id = p_id
     AND l.withdrawn_at IS NULL
-    AND NOT l.web_hidden;
+    AND NOT l.web_hidden
+    AND (NOT public._letters_checked_only() OR coalesce(l.reviewed_version = l.current_version, false));
 $$;
 
 -- 宛先ごとの通数(年表の表示用)
@@ -427,6 +464,7 @@ AS $$
     FROM public.birthday_letters l
     JOIN public.birthday_letter_versions v ON v.letter_id = l.id AND v.version = l.current_version
     WHERE l.withdrawn_at IS NULL AND NOT l.web_hidden
+      AND (NOT public._letters_checked_only() OR coalesce(l.reviewed_version = l.current_version, false))
     GROUP BY 1
   ) x;
 $$;
@@ -448,7 +486,7 @@ AS $$
       'version', l.current_version,
       'content', v.content,
       'reviewed', l.reviewed_version IS NOT NULL AND l.reviewed_version = l.current_version,
-      'onWeb', NOT l.web_hidden AND l.withdrawn_at IS NULL,
+      'onWeb', NOT l.web_hidden AND l.withdrawn_at IS NULL AND (NOT public._letters_checked_only() OR coalesce(l.reviewed_version = l.current_version, false)),
       'withdrawn', l.withdrawn_at IS NOT NULL,
       'editable', l.withdrawn_at IS NULL AND public._letters_is_open(now()),
       'createdAt', l.created_at,
@@ -754,7 +792,35 @@ $$;
 -- ============================================================
 -- 6. 実行権限
 -- ============================================================
+-- 緊急の切り替え(運営だけ)。引数を渡した項目だけ変える。今の値を返す
+CREATE OR REPLACE FUNCTION public.letters_admin_settings(p_public_mode text DEFAULT NULL, p_accepting boolean DEFAULT NULL)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+DECLARE
+  v_row record;
+BEGIN
+  IF NOT public._letters_is_admin() THEN RAISE EXCEPTION 'forbidden'; END IF;
+  IF p_public_mode IS NOT NULL AND p_public_mode NOT IN ('all', 'checked') THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'invalid');
+  END IF;
+  INSERT INTO public.birthday_letter_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
+  IF p_public_mode IS NOT NULL OR p_accepting IS NOT NULL THEN
+    UPDATE public.birthday_letter_settings
+       SET public_mode = coalesce(p_public_mode, public_mode),
+           accepting = coalesce(p_accepting, accepting),
+           updated_at = now()
+     WHERE id = 1;
+  END IF;
+  SELECT s.public_mode, s.accepting, s.updated_at INTO v_row FROM public.birthday_letter_settings s WHERE s.id = 1;
+  RETURN jsonb_build_object('ok', true, 'publicMode', v_row.public_mode, 'accepting', v_row.accepting, 'updatedAt', v_row.updated_at);
+END;
+$$;
+
 REVOKE ALL ON FUNCTION public.letters_status() FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.letters_admin_settings(text, boolean) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_submit(uuid, text, jsonb) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_public_list(text, text, text, integer, integer) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_public_get(uuid) FROM PUBLIC;
@@ -786,6 +852,7 @@ GRANT EXECUTE ON FUNCTION public.letters_admin_batches() TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_batch(uuid) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_mark_printed(uuid, uuid[]) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_cancel_batch(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.letters_admin_settings(text, boolean) TO anon, authenticated;
 
 COMMIT;
 

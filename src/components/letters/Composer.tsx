@@ -47,7 +47,7 @@ type Props = {
   value: ComposerValue;
   onChange: (v: ComposerValue) => void;
   /** 受付の状態(DB の時計で判定したもの) */
-  availability: "loading" | "open" | "closed" | "unavailable";
+  availability: "loading" | "open" | "closed" | "unavailable" | "paused";
   submitState: SubmitState;
   onSubmit: (content: LetterContent & { consent: true }) => void;
   /** 下書き保存(この端末に)。新しく書く時だけ */
@@ -182,7 +182,8 @@ export const Composer: React.FC<Props> = ({
     }
   };
 
-  const canSend = availability === "open" && submitState.kind !== "sending";
+  // 投函を止めている時も、本人の修正はできる(DB と同じ)
+  const canSend = (availability === "open" || (availability === "paused" && mode === "edit")) && submitState.kind !== "sending";
 
   const handleSubmit = () => {
     setShowErrors(true);
@@ -520,6 +521,9 @@ export const Composer: React.FC<Props> = ({
       )}
 
       {availability === "unavailable" && <p className="lp-alert">いまは受付の準備中です。書いた手紙はこの端末に残しておけます。</p>}
+      {availability === "paused" && mode === "new" && (
+        <p className="lp-alert">いま投函を一時的に止めています。書いた手紙は「下書き保存」しておいて、時間をおいてもう一度お試しください。</p>
+      )}
       {availability === "closed" && (
         <p className="lp-alert">{mode === "new" ? `受付は終了しました(${LETTERS_DEADLINE_LABEL}でした)。` : "修正の受付は終了しました。直したい時は運営の X(@twilightplc)までご連絡ください。"}</p>
       )}
