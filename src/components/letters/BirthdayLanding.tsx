@@ -15,8 +15,8 @@ import { LETTERS_COPY, LETTERS_DEADLINE_ISO, LETTERS_MEMORY_PERIOD_LABEL, LETTER
 type LivePost = { id: string; url: string; author: string; posted_at: string; posted_date: string; kind: string };
 type Live = { id: string; date: string; city: string; venue: string; title: string; kind: string; sources: string[]; posts: LivePost[] };
 
-type Release = { id: string; date: string; title: string; format: string; link: string | null; videos: { videoId: string; caption: string }[]; posts: LivePost[] };
-type Mv = { id: string; videoId: string; song: string; date: string };
+type Release = { id: string; date: string; title: string; format: string; link: string | null; videos: { videoId: string; caption: string }[]; spotifyTrackId: string | null; posts: LivePost[] };
+type Mv = { id: string; videoId: string; song: string; date: string; spotifyTrackId: string | null };
 
 const LIVES = liveYear as Live[];
 const RELEASES = (yearReleases as { releases: Release[] }).releases;
@@ -350,17 +350,22 @@ export const BirthdayLanding: React.FC = () => {
                                 </a>
                               ))}
                             </div>
-                            {r.videos.length > 0 && (
-                              <div className="live-posts-block bd-videos">
-                                {r.videos.map((v) => (
-                                  <figure key={v.videoId}>
-                                    <MvPlayer videoId={v.videoId} title={`${r.title} ${v.caption}`} />
-                                    <figcaption className="live-posts-count">{v.caption}</figcaption>
-                                  </figure>
-                                ))}
+                            {(r.videos.length > 0 || r.spotifyTrackId || r.posts.length > 0) && (
+                              <div className="bd-media">
+                                {r.videos.length > 0 && (
+                                  <div className="bd-videos">
+                                    {r.videos.map((v) => (
+                                      <figure key={v.videoId}>
+                                        <MvPlayer videoId={v.videoId} title={`${r.title} ${v.caption}`} />
+                                        <figcaption className="live-posts-count">{v.caption}</figcaption>
+                                      </figure>
+                                    ))}
+                                  </div>
+                                )}
+                                {r.spotifyTrackId && <SpotifyPlayer trackId={r.spotifyTrackId} title={r.title} />}
+                                {r.posts.length > 0 && <PostsRow posts={r.posts} rowKey={r.id.slice(-8)} label={`${r.title}の関連ポスト`} />}
                               </div>
                             )}
-                            {r.posts.length > 0 && <PostsRow posts={r.posts} rowKey={r.id.slice(-8)} label={`${r.title}の関連ポスト`} />}
                           </li>
                         );
                       }
@@ -379,8 +384,9 @@ export const BirthdayLanding: React.FC = () => {
                                 YouTubeで見る <span aria-hidden>↗</span>
                               </a>
                             </div>
-                            <div className="live-posts-block">
+                            <div className="live-posts-block bd-media">
                               <MvPlayer videoId={mv.videoId} title={mv.song} />
+                              {mv.spotifyTrackId && <SpotifyPlayer trackId={mv.spotifyTrackId} title={mv.song} />}
                             </div>
                           </li>
                         );
@@ -526,6 +532,36 @@ const MvPlayer: React.FC<{ videoId: string; title: string }> = ({ videoId, title
         <button type="button" onClick={() => setPlaying(true)} aria-label={`${title}の映像を再生する(YouTubeを読み込みます)`}>
           <img src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
           <span className="bd-mv-play" aria-hidden />
+        </button>
+      )}
+    </div>
+  );
+};
+
+/** Spotify も押した時に読み込む(サイトのほかの所と同じく、それまでは何も読まない) */
+const SpotifyPlayer: React.FC<{ trackId: string; title: string }> = ({ trackId, title }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="bd-spotify">
+      {open ? (
+        <iframe
+          src={`https://open.spotify.com/embed/track/${trackId}`}
+          title={`${title}(Spotify)`}
+          height={152}
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          frameBorder={0}
+        />
+      ) : (
+        <button type="button" onClick={() => setOpen(true)} aria-label={`${title}を Spotify で聴く(Spotify を読み込みます)`}>
+          <span className="bd-spotify-mark" aria-hidden />
+          <span>
+            <b>Spotify で聴く</b>
+            <small>{title}</small>
+          </span>
+          <span className="bd-spotify-play" aria-hidden>
+            ▶
+          </span>
         </button>
       )}
     </div>

@@ -4,6 +4,8 @@
  *   当時のポストは、その作品にひも付いたポストのうち、同じ期間に投稿されたもの(ID の Snowflake から日時を求める)。
  *   公式サイトで発売日が違うと分かった作品は EXCLUDE で外す。
  * 作品の映像: RELEASE_VIDEOS に書いたもの。無ければ、シングル・配信シングルの曲の YouTube(作品データの musicVideoUrl)で、MV として出していないもの。
+ * Spotify: シングル・配信シングル・歌唱曲は、その曲の spotifyTrackId(作品データ)。アルバムは作品データに ID が無いので出さない。
+ *   MV は曲の spotifyTrackId。ただし同じ日に同じ曲の作品の行があれば(COCOON)、作品の行だけに出す。
  * MV: 期間内に公開された Reol の MV。公開日はサイトのデータに無いため、YouTube の公開日(2026-11-08 に確かめた)を下の MVS に書く。
  *   作品の音源だけの動画(Topic)やタイアップ先の動画は MV に入れない。タイアップ先の公式の映像は、作品の行に出す(RELEASE_VIDEOS)。
  *
@@ -70,23 +72,26 @@ const releases = disc
       format: FORMAT[d.format] ?? d.format,
       link: d.siteUrl || LINKS[d.title.trim()] || null,
       videos: RELEASE_VIDEOS[d.title.trim()] ?? singleVideos(d),
+      spotifyTrackId: ["配信SG", "SG", "歌唱"].includes(d.format) ? (d.songs ?? []).find((so: any) => so.spotifyTrackId)?.spotifyTrackId ?? null : null,
       posts,
     };
   })
   .sort((a, b) => a.date.localeCompare(b.date));
 
 // MV の曲は、作品データの musicVideoUrl の動画 ID で引く(曲名では引かない)
-const songOfVideo = new Map<string, string>();
+const songOfVideo = new Map<string, { songUuid: string; spotifyTrackId: string | null }>();
 for (const d of disc) for (const so of d.songs ?? []) {
   const m = String(so.musicVideoUrl ?? "").match(/(?:youtu\.be\/|v=)([A-Za-z0-9_-]{11})/);
-  if (m && so.songUuid && !songOfVideo.has(m[1])) songOfVideo.set(m[1], so.songUuid);
+  if (m && so.songUuid && !songOfVideo.has(m[1])) songOfVideo.set(m[1], { songUuid: so.songUuid, spotifyTrackId: so.spotifyTrackId ?? null });
 }
+const releaseTracks = new Set(releases.map((r: any) => `${r.date}:${r.spotifyTrackId}`));
 const out = {
   releases,
   mvs: MVS.map((m) => {
-    const songUuid = songOfVideo.get(m.videoId);
-    if (!songUuid) throw new Error(`MV の曲が作品データに見つからない: ${m.videoId}`);
-    return { id: `mv-${m.videoId}`, ...m, songUuid };
+    const song = songOfVideo.get(m.videoId);
+    if (!song) throw new Error(`MV の曲が作品データに見つからない: ${m.videoId}`);
+    const spotifyTrackId = song.spotifyTrackId && !releaseTracks.has(`${m.date}:${song.spotifyTrackId}`) ? song.spotifyTrackId : null;
+    return { id: `mv-${m.videoId}`, ...m, songUuid: song.songUuid, spotifyTrackId };
   }),
 };
 fs.writeFileSync(path.join(root, "src/utils/letters/year-releases.json"), JSON.stringify(out, null, 2) + "\n");

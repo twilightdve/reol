@@ -7,6 +7,7 @@
       "format": "フルアルバム",
       "link": "https://reol.jp/discography/detail/50/",
       "videos": [],
+      "spotifyTrackId": null,
       "posts": [
         {
           "id": "1987484962208301177",
@@ -50,6 +51,7 @@
           "caption": "NTE 公式・テーマソング スタジオ版"
         }
       ],
+      "spotifyTrackId": "5gLSc8hDi3IRA4UbzvJKgw",
       "posts": []
     },
     {
@@ -68,6 +70,7 @@
           "caption": "発売直前鼎談(Reol Official)"
         }
       ],
+      "spotifyTrackId": null,
       "posts": []
     },
     {
@@ -77,6 +80,7 @@
       "format": "配信シングル",
       "link": "https://reol.jp/discography/detail/52/",
       "videos": [],
+      "spotifyTrackId": "0zfTJreY2lVJ98Dv3KDXUc",
       "posts": [
         {
           "id": "2071161529580564700",
@@ -176,6 +180,7 @@
           "caption": "YouTube の音源"
         }
       ],
+      "spotifyTrackId": "5dAaTzAuPiXL3i8kCt904j",
       "posts": []
     }
   ],
@@ -185,21 +190,24 @@
       "videoId": "SUX1bRWZ7W4",
       "song": "おとめの肖像 (Portrait of Her)",
       "date": "2025-12-12",
-      "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22"
+      "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22",
+      "spotifyTrackId": "2cpQtKvfgzNQE8MGhOuM7v"
     },
     {
       "id": "mv-YibWxud5fRs",
       "videoId": "YibWxud5fRs",
       "song": "DEAD CENTER feat. LiSA",
       "date": "2026-01-21",
-      "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c"
+      "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c",
+      "spotifyTrackId": "26mR5pRpqRqgSBZ6ZTR1ix"
     },
     {
       "id": "mv-Vds8Iz6ZEUc",
       "videoId": "Vds8Iz6ZEUc",
       "song": "COCOON",
       "date": "2026-07-11",
-      "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee"
+      "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee",
+      "spotifyTrackId": null
     }
   ]
 }

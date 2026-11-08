@@ -195,4 +195,16 @@ body{margin:0;background:#dde0d6;color:#2d3932;font-family:'Noto Serif JP','Hira
 .bd .bd-videos figure{margin:0}
 .bd .bd-videos figcaption{margin-top:8px}
 .bd .live-entry.is-release .live-entry-source,.bd .live-entry.is-mv .live-entry-source{display:flex;width:fit-content}
+.bd .bd-media{display:grid;gap:22px;min-width:0;align-content:start}
+.bd .bd-media>.live-posts-block{margin-top:0}
+.bd .bd-spotify{width:min(100%,560px)}
+.bd .bd-spotify button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:12px 16px;background:#1f2a23;color:#f4f4ed;border-radius:12px;cursor:pointer}
+.bd .bd-spotify button:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
+.bd .bd-spotify-mark{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:#1ed760;position:relative}
+.bd .bd-spotify-mark:before,.bd .bd-spotify-mark:after{content:'';position:absolute;left:8px;right:8px;height:3px;border-radius:3px;background:#1f2a23}
+.bd .bd-spotify-mark:before{top:11px}.bd .bd-spotify-mark:after{top:18px;left:10px;right:10px}
+.bd .bd-spotify b{display:block;font:600 13px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.04em}
+.bd .bd-spotify small{display:block;font:400 11px/1.5 'Noto Sans JP',sans-serif;color:#c9ccbd;overflow-wrap:anywhere}
+.bd .bd-spotify-play{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#f4f4ed;color:#1f2a23;display:flex;align-items:center;justify-content:center;font-size:13px}
+.bd .bd-spotify iframe{display:block;width:100%;height:152px;border:0;border-radius:12px}
 `;
