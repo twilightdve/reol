@@ -1,145 +1,139 @@
 /**
- * 届いた手紙を年表の上に並べる(plan/64)。時代 → 年 → 出来事(曲・ライヴ・作品)。
- * 出来事はすべて点で置き、手紙のある所だけを光らせて、その下にカードの束を出す。
+ * 届いた手紙を「この一年」の年表の上に並べる(plan/64)。入口の年表と同じ出来事(ライヴ・作品の発売・MV の公開)を月ごとに。
+ * 手紙のある出来事だけを金色で光らせ、その下にカードの束を出す。手紙の無い出来事は控えめな 1 行。
+ * 選ばずに書いた手紙(この一年の Reol へ)は最初に、前の宛先(時代・昔の曲)で届いた手紙は最後の「そのほかの宛先」に。
  */
 import React, { useMemo } from "react";
 import { Link } from "gatsby";
 import { CardFront, ScaledCard } from "./Postcard";
-import { Era, ERA_LABELS } from "../../utils/letters/constants";
-import { ERA_EVENTS, LetterEvent } from "../../utils/letters/timeline";
+import { MONTH_NAMES, YEAR_ERA_EVENT, YEAR_EVENT_BY_KEY, YEAR_EVENTS, YearEvent, yearMonths } from "../../utils/letters/yearEvents";
 import { PublicLetter } from "../../utils/letters/service";
 
 /** 運営だけに見える状態(まだ読んでいない・Web に出さない)。一般の手紙は undefined */
 export type ChronoLetter = PublicLetter & { status?: "unchecked" | "hidden" };
 export const STATUS_LABELS = { unchecked: "未チェック", hidden: "Webに出さない" } as const;
 
-const KIND_LABELS: Record<string, string> = { song: "曲", live: "ライヴ", release: "作品", cover: "歌ってみた", era: "時代" };
-const ERA_COLORS: Record<Era, string> = {
-  reol: "#e8869a",
-  unit: "#6fb7bb",
-  anyo: "#d9b45a",
-  reoru: "#94a2e6",
-  sherry: "#c7a6e3",
-  other: "#e8869a",
-};
+const TAB_LABELS = { live: "LIVE", release: "RELEASE", mv: "MUSIC VIDEO" } as const;
+const fmt = (d: string) => (d ? d.replace(/-/g, ".") : "");
+const MONTHS = yearMonths(YEAR_EVENTS);
 
-type Cluster = { key: string; title: string; kind: string; date: string; letters: ChronoLetter[] };
-
-const fmtDate = (d: string) => (d ? d.replace(/-/g, ".") : "");
-
-export const LetterChrono: React.FC<{ events: LetterEvent[]; byKey: Map<string, LetterEvent>; letters: ChronoLetter[] }> = ({ events, byKey, letters }) => {
-  const eras = useMemo(() => {
-    // 宛先ごとに束ねる(宛先が年表から消えていても、手紙に残る名前と日付で置く)
-    const byEvent = new Map<string, Cluster & { era: Era }>();
+export const LetterChrono: React.FC<{ letters: ChronoLetter[] }> = ({ letters }) => {
+  const { byKey, others } = useMemo(() => {
+    const byKey = new Map<string, ChronoLetter[]>();
+    const others = new Map<string, { label: string; date: string; letters: ChronoLetter[] }>();
     for (const l of letters) {
-      const ev = byKey.get(l.eventKey);
-      const c = byEvent.get(l.eventKey) ?? {
-        key: l.eventKey,
-        title: ev?.title ?? l.eventLabel,
-        kind: ev?.kind ?? (l.eventKey.startsWith("era:") ? "era" : "release"),
-        date: ev?.date ?? l.eventDate ?? "",
-        era: ev?.era ?? l.era,
-        letters: [],
-      };
-      c.letters.push(l);
-      byEvent.set(l.eventKey, c);
+      if (YEAR_EVENT_BY_KEY.has(l.eventKey)) {
+        byKey.set(l.eventKey, [...(byKey.get(l.eventKey) ?? []), l]);
+      } else {
+        const o = others.get(l.eventKey) ?? { label: l.eventLabel, date: l.eventDate ?? "", letters: [] };
+        o.letters.push(l);
+        others.set(l.eventKey, o);
+      }
     }
-    return ERA_EVENTS.map((eraEv) => {
-      const era = eraEv.era;
-      const inEra = events.filter((e) => e.era === era);
-      const clusters = Array.from(byEvent.values()).filter((c) => c.era === era);
-      const eraCluster = clusters.find((c) => c.kind === "era") ?? null;
-      const years = Array.from(new Set([...inEra.map((e) => e.date.slice(0, 4)), ...clusters.filter((c) => c.date).map((c) => c.date.slice(0, 4))]))
-        .filter(Boolean)
-        .sort((a, b) => b.localeCompare(a))
-        .map((year) => {
-          const yearEvents = inEra.filter((e) => e.date.startsWith(year));
-          const yearClusters = clusters
-            .filter((c) => c.kind !== "era" && c.date.startsWith(year))
-            .sort((a, b) => b.date.localeCompare(a.date) || b.letters.length - a.letters.length);
-          // 年表から消えた宛先の手紙も点として置く
-          const orphan = yearClusters.filter((c) => !yearEvents.some((e) => e.key === c.key));
-          return { year, yearEvents, yearClusters, orphan };
-        });
-      const total = clusters.reduce((n, c) => n + c.letters.length, 0);
-      return { era, eraCluster, years, total };
-    });
-  }, [events, byKey, letters]);
+    return { byKey, others: Array.from(others.entries()) };
+  }, [letters]);
 
-  const jump = (key: string) => document.getElementById(`lp-ev-${key}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+  const eraLetters = byKey.get(YEAR_ERA_EVENT.key) ?? [];
+  const countIn = (items: YearEvent[]) => items.reduce((n, e) => n + (byKey.get(e.key)?.length ?? 0), 0);
 
   return (
     <div className="lp-chrono">
-      <nav className="lp-chrono-nav" aria-label="時代へ移動">
-        {eras.map(({ era, total }) => (
-          <a key={era} href={`#lp-era-${era}`} className={total ? "has" : undefined} style={{ ["--era" as string]: ERA_COLORS[era] }}>
-            {ERA_LABELS[era]}
-            {total > 0 && <b>{total}</b>}
-          </a>
-        ))}
+      <nav className="lp-chrono-nav" aria-label="月へ移動">
+        {MONTHS.map((m) => {
+          const n = countIn(m.items);
+          return (
+            <a key={m.key} href={`#lp-month-${m.key}`} className={n ? "has" : undefined}>
+              {m.key.replace("-", ".")}
+              {n > 0 && <b>{n}</b>}
+            </a>
+          );
+        })}
+        {others.length > 0 && <a href="#lp-month-others">そのほか</a>}
       </nav>
-      {eras.map(({ era, eraCluster, years, total }, i) => (
-        <section key={era} id={`lp-era-${era}`} className={`lp-chrono-era${total ? " has" : ""}`} style={{ ["--era" as string]: ERA_COLORS[era] }}>
-          <header className="lp-chrono-era-head">
-            <span className="num">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{ERA_LABELS[era]}</h3>
-            <span className="count">{total ? `${total}通` : "まだ手紙はありません"}</span>
-          </header>
-          {eraCluster && <ClusterView cluster={{ ...eraCluster, title: `${ERA_LABELS[era]}へ` }} />}
-          {years.length > 0 ? (
-            <ol className="lp-chrono-years">
-              {years.map(({ year, yearEvents, yearClusters, orphan }) => (
-                <li key={year} className={yearClusters.length ? "has" : undefined}>
-                  <div className="yr">{year}</div>
-                  <div className="yr-body">
-                    <ul className="lp-beads" aria-label={`${year}年の出来事`}>
-                      {[...yearEvents, ...orphan.map((c) => ({ key: c.key, title: c.title, kind: c.kind, date: c.date }))].map((e) => {
-                        const c = yearClusters.find((x) => x.key === e.key);
-                        return c ? (
-                          <li key={e.key}>
-                            <button type="button" className="lp-bead has" onClick={() => jump(e.key)}>
-                              {e.title}
-                              <b>{c.letters.length}</b>
-                            </button>
-                          </li>
-                        ) : (
-                          <li key={e.key}>
-                            <span className="lp-bead" title={`${e.title}(${KIND_LABELS[e.kind] ?? ""})`}>
-                              <span className="sr-only">{e.title}</span>
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    {yearClusters.map((c) => (
-                      <ClusterView key={c.key} cluster={c} />
-                    ))}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            !eraCluster && <p className="lp-chrono-empty">この頃の曲・作品・ライヴは、このサイトの記録にありません。</p>
-          )}
+
+      {eraLetters.length > 0 && (
+        <section className="lp-chrono-month has">
+          <ClusterView title="この一年のReolへ" kind="THIS YEAR" date="" eventKey={YEAR_ERA_EVENT.key} letters={eraLetters} />
         </section>
-      ))}
+      )}
+
+      {MONTHS.map((m) => {
+        const n = countIn(m.items);
+        return (
+          <section key={m.key} id={`lp-month-${m.key}`} className={`lp-chrono-month${n ? " has" : ""}`}>
+            <header className="lp-chrono-month-head">
+              <span className="yr">{m.year}</span>
+              <h3>{MONTH_NAMES[m.month - 1]}</h3>
+              <span className="count">{n ? `${n}通` : ""}</span>
+            </header>
+            <ul className="lp-chrono-rows">
+              {m.items.map((e) => {
+                const ls = byKey.get(e.key) ?? [];
+                const kind = e.tab ? TAB_LABELS[e.tab] : "";
+                return ls.length ? (
+                  <li key={e.key}>
+                    <ClusterView title={e.title} sub={e.sub} kind={kind} date={e.date} eventKey={e.key} letters={ls} />
+                  </li>
+                ) : (
+                  <li key={e.key} className="lp-chrono-row">
+                    <time dateTime={e.date}>{e.date.slice(5).replace("-", ".")}</time>
+                    <span className="kind">{kind}</span>
+                    <span className="title">{e.title}</span>
+                    <Link className="write" to={`/letters/write/?event=${encodeURIComponent(e.key)}`} aria-label={`${e.title}の思い出を書く`}>
+                      書く
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        );
+      })}
+
+      {others.length > 0 && (
+        <section id="lp-month-others" className="lp-chrono-month has">
+          <header className="lp-chrono-month-head">
+            <span className="yr">BEFORE</span>
+            <h3>そのほかの宛先</h3>
+            <span className="count">{others.reduce((n, [, o]) => n + o.letters.length, 0)}通</span>
+          </header>
+          <p className="lp-chrono-empty">宛先を「この一年」に絞る前に届いた手紙です。</p>
+          <ul className="lp-chrono-rows">
+            {others.map(([key, o]) => (
+              <li key={key}>
+                <ClusterView title={o.label} kind="" date={o.date} eventKey={null} letters={o.letters} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 };
 
-const ClusterView: React.FC<{ cluster: Cluster }> = ({ cluster }) => (
-  <div className="lp-cluster" id={`lp-ev-${cluster.key}`}>
+const ClusterView: React.FC<{ title: string; sub?: string; kind: string; date: string; eventKey: string | null; letters: ChronoLetter[] }> = ({
+  title,
+  sub,
+  kind,
+  date,
+  eventKey,
+  letters,
+}) => (
+  <div className="lp-cluster" id={eventKey ? `lp-ev-${eventKey}` : undefined}>
     <div className="lp-cluster-head">
-      <span className="kind">{KIND_LABELS[cluster.kind] ?? ""}</span>
-      <h4>{cluster.title}</h4>
-      {cluster.date && <time dateTime={cluster.date}>{fmtDate(cluster.date)}</time>}
-      <span className="n">{cluster.letters.length}通</span>
-      <Link className="write" to={`/letters/write/?event=${encodeURIComponent(cluster.key)}`}>
-        ここへ書く
-      </Link>
+      {kind && <span className="kind">{kind}</span>}
+      {date && <time dateTime={date}>{fmt(date)}</time>}
+      <h4>{title}</h4>
+      <span className="n">{letters.length}通</span>
+      {eventKey && (
+        <Link className="write" to={`/letters/write/?event=${encodeURIComponent(eventKey)}`}>
+          ここへ書く
+        </Link>
+      )}
     </div>
+    {sub && <p className="lp-cluster-sub">{sub}</p>}
     <div className="lp-cluster-cards">
-      {cluster.letters.map((l) => (
+      {letters.map((l) => (
         <Link
           key={l.id}
           to={l.status === "hidden" ? "/letters/admin/" : `/letters/card/?id=${l.id}`}

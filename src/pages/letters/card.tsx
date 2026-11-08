@@ -7,6 +7,7 @@ import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { CardBack, CardFront, ScaledCard } from "../../components/letters/Postcard";
 import { fetchPublicLetter, LettersError, PublicLetter } from "../../utils/letters/service";
+import { YEAR_EVENT_BY_KEY } from "../../utils/letters/yearEvents";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -90,7 +91,10 @@ const CardPage: React.FC = () => {
               <Link className="lp-secondary" to={`/letters/read/?event=${encodeURIComponent(state.letter.eventKey)}`}>
                 同じ宛先の手紙
               </Link>
-              <Link className="lp-primary" to={`/letters/write/?event=${encodeURIComponent(state.letter.eventKey)}`}>
+              <Link
+                className="lp-primary"
+                to={YEAR_EVENT_BY_KEY.has(state.letter.eventKey) ? `/letters/write/?event=${encodeURIComponent(state.letter.eventKey)}` : "/letters/write/"}
+              >
                 あなたも書く <span aria-hidden>↗</span>
               </Link>
             </div>

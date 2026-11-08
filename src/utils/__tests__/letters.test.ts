@@ -146,3 +146,28 @@ describe("カードの絵柄(plan/64)", () => {
     expect(MOTIFS.map((x) => x.id)).toEqual([...MOTIF_IDS]);
   });
 });
+
+describe("この一年の宛先(plan/64)", () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const { YEAR_EVENTS, YEAR_ERA_EVENT, shortTitle } = require("../letters/yearEvents");
+  test("キーは DB の決まりに合い、重ならず、日付は期間の中", () => {
+    const all = [YEAR_ERA_EVENT, ...YEAR_EVENTS];
+    for (const e of all) expect(e.key).toMatch(/^(song|release|live|era):[A-Za-z0-9-]{1,64}$/);
+    expect(new Set(all.map((e: { key: string }) => e.key)).size).toBe(all.length);
+    for (const e of YEAR_EVENTS) {
+      expect(e.date >= "2025-11-09" && e.date <= "2026-11-08").toBe(true);
+      expect(e.era).toBe("reol");
+      expect(e.defaultAddress.length).toBeLessThanOrEqual(30);
+    }
+    expect(YEAR_EVENTS.filter((e: { tab: string }) => e.tab === "live")).toHaveLength(29);
+    expect(YEAR_EVENTS.filter((e: { tab: string }) => e.tab === "release")).toHaveLength(5);
+    expect(YEAR_EVENTS.filter((e: { tab: string }) => e.tab === "mv")).toHaveLength(3);
+  });
+  test("宛名は短い名前から", () => {
+    expect(shortTitle("美辞学 (Rhetoric)")).toBe("美辞学");
+    expect(shortTitle("天井の街 - CEILING YOU")).toBe("天井の街");
+    expect(shortTitle("DEAD CENTER feat. LiSA")).toBe("DEAD CENTER");
+    const live = YEAR_EVENTS.find((e: { key: string }) => e.key === "live:live-20260314");
+    expect(live.defaultAddress).toBe("宇都宮のReolへ");
+  });
+});

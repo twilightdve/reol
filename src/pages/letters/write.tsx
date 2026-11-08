@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { ChosenEvent, Composer, ComposerValue, emptyComposer, SubmitState } from "../../components/letters/Composer";
-import { useLetterEvents } from "../../components/letters/useLetterEvents";
+import { YEAR_EVENT_BY_KEY } from "../../utils/letters/yearEvents";
 import { LETTERS_DEADLINE_LABEL, LETTERS_MEMORY_PERIOD_LABEL } from "../../utils/letters/constants";
 import { LetterEvent } from "../../utils/letters/timeline";
 import { errorMessage, fetchLettersStatus, fetchPublicCounts, LetterContent, LettersError, submitLetter, updateOwnLetter } from "../../utils/letters/service";
@@ -16,7 +16,8 @@ import { editUrl, loadDraft, newEditKey, newRequestId, rememberMyLetter, saveDra
 const toChosen = (e: LetterEvent): ChosenEvent => ({ key: e.key, label: e.title, date: e.date || null, era: e.era, defaultAddress: e.defaultAddress });
 
 const LettersWritePage: React.FC = () => {
-  const { events, byKey } = useLetterEvents();
+  // 宛先はこの一年の出来事だけ(前の宛先の書きかけ・?event= は、選び直してもらう)
+  const byKey = YEAR_EVENT_BY_KEY;
   const [event, setEvent] = useState<ChosenEvent | null>(null);
   const [value, setValue] = useState<ComposerValue>(emptyComposer);
   const [availability, setAvailability] = useState<"loading" | "open" | "closed" | "unavailable">("loading");
@@ -137,7 +138,7 @@ const LettersWritePage: React.FC = () => {
   return (
     <LettersShell current="write">
       <section className="lp-section" id="letter">
-        <div className="lp-section-head">
+        <div className="lp-section-head is-stone">
           <div>
             <div className="lp-eyebrow">01 / MAKE YOUR LETTER</div>
             <h2>
@@ -198,7 +199,6 @@ const LettersWritePage: React.FC = () => {
             submitState={submitState}
             onSubmit={send}
             bodyResetKey={bodyResetKey}
-            events={events}
             counts={counts}
             onChoose={choose}
           />

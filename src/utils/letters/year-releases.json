@@ -160,19 +160,22 @@
       "id": "mv-SUX1bRWZ7W4",
       "videoId": "SUX1bRWZ7W4",
       "song": "おとめの肖像 (Portrait of Her)",
-      "date": "2025-12-12"
+      "date": "2025-12-12",
+      "songUuid": "019e8282-ee94-77a8-b274-270d4d301d22"
     },
     {
       "id": "mv-YibWxud5fRs",
       "videoId": "YibWxud5fRs",
       "song": "DEAD CENTER feat. LiSA",
-      "date": "2026-01-21"
+      "date": "2026-01-21",
+      "songUuid": "019e8282-ef5c-7711-bf91-eddf15d1cc2c"
     },
     {
       "id": "mv-Vds8Iz6ZEUc",
       "videoId": "Vds8Iz6ZEUc",
       "song": "COCOON",
-      "date": "2026-07-11"
+      "date": "2026-07-11",
+      "songUuid": "019f545f-7ffa-748f-b2bd-bf0b4d4b68ee"
     }
   ]
 }

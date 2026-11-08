@@ -57,7 +57,20 @@ const releases = disc
   })
   .sort((a, b) => a.date.localeCompare(b.date));
 
-const out = { releases, mvs: MVS.map((m) => ({ id: `mv-${m.videoId}`, ...m })) };
+// MV の曲は、作品データの musicVideoUrl の動画 ID で引く(曲名では引かない)
+const songOfVideo = new Map<string, string>();
+for (const d of disc) for (const so of d.songs ?? []) {
+  const m = String(so.musicVideoUrl ?? "").match(/(?:youtu\.be\/|v=)([A-Za-z0-9_-]{11})/);
+  if (m && so.songUuid && !songOfVideo.has(m[1])) songOfVideo.set(m[1], so.songUuid);
+}
+const out = {
+  releases,
+  mvs: MVS.map((m) => {
+    const songUuid = songOfVideo.get(m.videoId);
+    if (!songUuid) throw new Error(`MV の曲が作品データに見つからない: ${m.videoId}`);
+    return { id: `mv-${m.videoId}`, ...m, songUuid };
+  }),
+};
 fs.writeFileSync(path.join(root, "src/utils/letters/year-releases.json"), JSON.stringify(out, null, 2) + "\n");
 for (const r of releases) console.log(r.date, r.title, r.format, r.link, `posts ${r.posts.length}`);
 for (const m of MVS) console.log(m.date, "MV", m.song);

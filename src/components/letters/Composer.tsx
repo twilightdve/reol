@@ -6,11 +6,11 @@
  */
 import React, { Suspense, useEffect, useId, useMemo, useRef, useState } from "react";
 import { CardBack, CardFront, ScaledCard, useBodyFits } from "./Postcard";
-import { LetterTimeline } from "./LetterTimeline";
+import { YearPicker } from "./YearPicker";
 import { bodyHasText, bodyLength, emptyBody, LetterBody, stripInvisible, trimBody } from "../../utils/letters/body";
-import { Era, ERA_LABELS, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
+import { Era, LIMITS, Motif, MOTIFS, SNS_TYPES, snsLabel, SnsType, Visibility } from "../../utils/letters/constants";
 import type { LetterContent } from "../../utils/letters/service";
-import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, ERA_EVENTS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
+import { ADDRESS_HONORIFICS, ADDRESS_NAMES, AddressParts, composeAddress, ERA_ADDRESS, LetterEvent, parseAddress } from "../../utils/letters/timeline";
 
 const BodyEditor = React.lazy(() => import("./BodyEditor"));
 
@@ -49,7 +49,6 @@ type Props = {
   submitState: SubmitState;
   onSubmit: (content: LetterContent & { consent: true }) => void;
   /** 宛先の候補(新しく書く時だけ。時期と曲の画面で使う) */
-  events?: LetterEvent[];
   counts?: Record<string, number>;
   onChoose?: (e: LetterEvent) => void;
   /** 本文を外から差し替えた時に変える(BodyEditor の resetKey) */
@@ -59,8 +58,7 @@ type Props = {
 
 /** 一画面に一つずつ */
 const ALL_STEPS = [
-  { id: "era", label: "名前", title: "どの名前へ、書く？" },
-  { id: "song", label: "思い出", title: "どの思い出を、書く？" },
+  { id: "memory", label: "思い出", title: "この一年の、どの思い出を書く？" },
   { id: "address", label: "宛名", title: "カードの表に書く、宛名" },
   { id: "sender", label: "差出人", title: "あなたの名前" },
   { id: "motif", label: "絵柄", title: "カードの絵柄を選ぶ" },
@@ -69,15 +67,7 @@ const ALL_STEPS = [
   { id: "confirm", label: "確認", title: "この内容で送ります" },
 ] as const;
 type StepId = (typeof ALL_STEPS)[number]["id"];
-const EDIT_STEPS = ALL_STEPS.filter((s) => s.id !== "era" && s.id !== "song");
-
-const ERA_NOTES: Record<string, string> = {
-  "era:anyo": "あにょすぺにょすゃゃとして『No title-』を出した頃",
-  "era:reoru": "れをるとして歌っていた頃",
-  "era:sherry": "れをるより前、しぇりーと名乗っていた頃",
-  "era:unit": "ユニット REOL の日々",
-  "era:reol": "いまの活動と、これから",
-};
+const EDIT_STEPS = ALL_STEPS.filter((s) => s.id !== "memory");
 type StepError = { step: StepId; message: string };
 /** 前につける言葉の「その他」 */
 const OTHER_PREFIX = "__other__";
@@ -90,7 +80,6 @@ export const Composer: React.FC<Props> = ({
   availability,
   submitState,
   onSubmit,
-  events = [],
   counts = {},
   onChoose,
   bodyResetKey = 0,
@@ -115,7 +104,7 @@ export const Composer: React.FC<Props> = ({
   const errors = useMemo(() => {
     const e: StepError[] = [];
     const add = (step: StepId, message: string) => e.push({ step, message });
-    if (!event) add(mode === "new" ? "era" : "address", "宛てる名前を選んでください。");
+    if (!event) add(mode === "new" ? "memory" : "address", "どの思い出を書くか選んでください(選ばずにも書けます)。");
     if (!value.address.trim()) add("address", "宛名を選んでください。");
     if (value.address.trim().length > LIMITS.address) add("address", `宛名は${LIMITS.address}字までです。`);
     if (!value.sender.trim()) add("sender", "差出人の名前を入れてください(ペンネームでかまいません)。");
@@ -132,16 +121,13 @@ export const Composer: React.FC<Props> = ({
 
   const current = STEPS[step];
   /** 時期と曲の画面は、カードの見本を出さずに一覧を広く */
-  const picking = current.id === "era" || current.id === "song";
+  const picking = current.id === "memory";
   /** 宛名・差出人の画面は、カードの表だけを見せる(裏の本文はまだ関係ない) */
   const frontOnly = current.id === "address" || current.id === "sender";
   const stepErrors = current.id === "confirm" ? errors : errors.filter((e) => e.step === current.id);
   /** その画面より前が全部埋まっていれば、上の段から飛べる */
   const firstInvalid = STEPS.findIndex((s) => s.id !== "confirm" && errors.some((e) => e.step === s.id));
-  /** 曲・作品の記録がない時期(しぇりー)は、曲の画面を通らない(上の手順からも、戻るでも) */
-  const noSongs = mode === "new" && !!event && !events.some((x) => x.era === event.era);
-  const skipped = (i: number) => noSongs && STEPS[i]?.id === "song";
-  const reachable = (i: number) => !skipped(i) && (firstInvalid === -1 || i <= firstInvalid);
+  const reachable = (i: number) => firstInvalid === -1 || i <= firstInvalid;
 
   // 画面を替えたら、その画面の頭から。読み上げにも見出しを伝える
   useEffect(() => {
@@ -226,50 +212,15 @@ export const Composer: React.FC<Props> = ({
     </button>
   );
 
-  const eraEvent = event ? ERA_EVENTS.find((e) => e.era === event.era) ?? null : null;
-  const chooseEra = (e: LetterEvent) => {
-    // 同じ時期を選び直した時は、選んであった曲をそのままにする
-    if (!event || event.era !== e.era) onChoose?.(e);
-    // 曲・作品の記録がない時期(しぇりー)は、曲の画面を飛ばす
-    goTo(events.some((x) => x.era === e.era) ? step + 1 : step + 2);
-  };
-  const chooseSong = (e: LetterEvent | null) => {
-    const target = e ?? eraEvent;
-    if (target && target.key !== event?.key) onChoose?.(target);
+  const chooseMemory = (e: LetterEvent) => {
+    if (e.key !== event?.key) onChoose?.(e);
     goTo(step + 1);
   };
 
   const fields = (() => {
     switch (current.id) {
-      case "era":
-        return (
-          <div className="lp-eras is-steps" role="group" aria-label="時期">
-            {ERA_EVENTS.map((e) => (
-              <button key={e.key} type="button" className="lp-era" aria-pressed={event?.era === e.era} onClick={() => chooseEra(e)}>
-                <b>{ERA_LABELS[e.era]}</b>
-                <small>{ERA_NOTES[e.key]}</small>
-              </button>
-            ))}
-          </div>
-        );
-      case "song":
-        return event ? (
-          <>
-            <div className="lp-song-skip">
-              <p className="lp-note">
-                この一年に聴いた曲や、心に残ったライヴを選べます。昔の曲でも、この一年の思い出なら大歓迎。選ばなくても書けます(選ぶと、宛名がその名前から入ります)。
-              </p>
-              <button type="button" className="lp-secondary" aria-pressed={event.key === eraEvent?.key} onClick={() => chooseSong(null)}>
-                選ばずに「{event ? ERA_LABELS[event.era] : ""}」へ <span aria-hidden>→</span>
-              </button>
-            </div>
-            {events.some((x) => x.era === event.era) ? (
-              <LetterTimeline key={event.era} events={events} era={event.era} selectedKey={event.key} counts={counts} onChoose={chooseSong} />
-            ) : (
-              <p className="lp-note">この頃の曲・作品・ライヴは、このサイトの記録にありません。時期そのものへ宛てて書けます。</p>
-            )}
-          </>
-        ) : null;
+      case "memory":
+        return <YearPicker selectedKey={event?.key ?? null} counts={counts} onChoose={chooseMemory} />;
       case "address":
         return (
           <div>
@@ -528,7 +479,7 @@ export const Composer: React.FC<Props> = ({
       {!picking && event && (
         <div className="lp-chosen">
           <span className="lp-note">宛先</span>
-          <b>{event.key.startsWith("era:") ? ERA_LABELS[event.era] : event.label}</b>
+          <b>{event.label}</b>
           {event.date && <span className="lp-note">{event.date.replace(/-/g, ".")}</span>}
           {mode === "new" && (
             <button type="button" className="lp-text-link" onClick={() => goTo(0)}>
@@ -624,7 +575,7 @@ export const Composer: React.FC<Props> = ({
 
       <div className="lp-step-nav">
         {step > 0 ? (
-          <button type="button" className="lp-secondary" onClick={() => goTo(skipped(step - 1) ? step - 2 : step - 1)}>
+          <button type="button" className="lp-secondary" onClick={() => goTo(step - 1)}>
             <span aria-hidden>←</span> 戻る
           </button>
         ) : (

@@ -7,15 +7,13 @@ import React, { useEffect, useState } from "react";
 import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { CardFront, ScaledCard } from "../../components/letters/Postcard";
-import { useLetterEvents } from "../../components/letters/useLetterEvents";
+import { YEAR_EVENT_BY_KEY } from "../../utils/letters/yearEvents";
 import { ChronoLetter, LetterChrono, STATUS_LABELS } from "../../components/letters/LetterChrono";
 import { useAuth } from "../../contexts/AuthContext";
 import { ScrollTopButton } from "../../components/letters/ScrollTopButton";
-import { Era, ERA_LABELS } from "../../utils/letters/constants";
 import { adminListLetters, AdminLetter, fetchPublicLetters, LettersError, PublicLetter } from "../../utils/letters/service";
 
 const PAGE = 48;
-const ERAS: (Era | null)[] = [null, "reol", "unit", "anyo", "reoru", "sherry", "other"];
 
 /** 年表に置くため、公開の手紙は全部読む(1 回 100 通まで) */
 const fetchAllPublic = async (): Promise<PublicLetter[]> => {
@@ -41,14 +39,12 @@ const fromAdmin = (ls: AdminLetter[]): ChronoLetter[] =>
     }));
 
 const ReadPage: React.FC = () => {
-  const { events, byKey } = useLetterEvents();
   const { user } = useAuth();
   const [view, setView] = useState<"chrono" | "list">("chrono");
   const [chrono, setChrono] = useState<PublicLetter[] | null>(null);
   const [adminLetters, setAdminLetters] = useState<ChronoLetter[] | null>(null);
   const [showPending, setShowPending] = useState(true);
   const [eventKey, setEventKey] = useState<string | null>(null);
-  const [era, setEra] = useState<Era | null>(null);
   const [order, setOrder] = useState<"new" | "timeline">("new");
   const [items, setItems] = useState<PublicLetter[]>([]);
   const [state, setState] = useState<"loading" | "ok" | "unavailable" | "error">("loading");
@@ -63,7 +59,7 @@ const ReadPage: React.FC = () => {
 
   const load = async (offset: number) => {
     try {
-      const list = await fetchPublicLetters({ eventKey, era, order, limit: PAGE, offset });
+      const list = await fetchPublicLetters({ eventKey, order, limit: PAGE, offset });
       setItems((prev) => (offset === 0 ? list : [...prev, ...list]));
       setHasMore(list.length === PAGE);
       setState("ok");
@@ -77,7 +73,7 @@ const ReadPage: React.FC = () => {
     setState("loading");
     load(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, eventKey, era, order, view]);
+  }, [ready, eventKey, order, view]);
 
   useEffect(() => {
     if (!ready || view !== "chrono" || eventKey || chrono) return;
@@ -108,18 +104,20 @@ const ReadPage: React.FC = () => {
   const listItems: ChronoLetter[] =
     adminView && adminLetters
       ? adminLetters
-          .filter((l) => (!eventKey || l.eventKey === eventKey) && (!era || l.era === era))
+          .filter((l) => !eventKey || l.eventKey === eventKey)
           .sort((a, b) =>
             order === "timeline" ? (b.eventDate ?? "").localeCompare(a.eventDate ?? "") || b.createdAt.localeCompare(a.createdAt) : b.createdAt.localeCompare(a.createdAt)
           )
       : items;
 
-  const ev = eventKey ? byKey.get(eventKey) : null;
+  // 宛先の名前: この一年の出来事から。前の宛先なら、届いた手紙に残っている名前
+  const ev = eventKey ? YEAR_EVENT_BY_KEY.get(eventKey) ?? (items[0] ? { title: items[0].eventLabel } : null) : null;
+  const canWrite = !!eventKey && YEAR_EVENT_BY_KEY.has(eventKey);
 
   return (
     <LettersShell current="read">
       <section className="lp-section">
-        <div className="lp-section-head">
+        <div className="lp-section-head is-stone">
           <div>
             <div className="lp-eyebrow">LETTERS / 届いた手紙</div>
             <h2>{ev ? `${ev.title}へ届いた手紙` : "届いた手紙"}</h2>
@@ -156,7 +154,7 @@ const ReadPage: React.FC = () => {
                 まだ届いた手紙はありません。投函された手紙は、すぐここに載ります。<Link to="/letters/write/">手紙を書く</Link>
               </p>
             )}
-            {(state === "ok" || adminLetters) && <LetterChrono events={events} byKey={byKey} letters={chronoLetters} />}
+            {(state === "ok" || adminLetters) && <LetterChrono letters={chronoLetters} />}
           </>
         ) : (
           <>
@@ -174,19 +172,13 @@ const ReadPage: React.FC = () => {
               >
                 すべての宛先に戻す
               </button>
-              <Link className="lp-text-link" to={`/letters/write/?event=${encodeURIComponent(eventKey)}`}>
-                この宛先に手紙を書く
-              </Link>
+              {canWrite && (
+                <Link className="lp-text-link" to={`/letters/write/?event=${encodeURIComponent(eventKey)}`}>
+                  この宛先に手紙を書く
+                </Link>
+              )}
             </>
-          ) : (
-            <div className="lp-chips" role="group" aria-label="時代で絞り込む">
-              {ERAS.map((e) => (
-                <button key={e ?? "all"} type="button" className="lp-chip" aria-pressed={era === e} onClick={() => setEra(e)}>
-                  {e ? ERA_LABELS[e] : "すべての時代"}
-                </button>
-              ))}
-            </div>
-          )}
+          ) : null}
           <div className="lp-chips" role="group" aria-label="並び順">
             <button type="button" className="lp-chip" aria-pressed={order === "new"} onClick={() => setOrder("new")}>
               届いた順

@@ -22,7 +22,7 @@ export const LettersHead: React.FC<{ title?: string; description: string; path: 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap"
     />
     <style>{LETTERS_CSS}</style>
   </>
@@ -59,11 +59,15 @@ export const LettersShell: React.FC<{ current: Current; children: React.ReactNod
           <p>
             {LETTERS_ORGANIZER}。Reol さんご本人・所属事務所とは関係ありません。
             <br />
-            年表参照：
-            <a href="https://reol.jp/feature/history_of_reol" target="_blank" rel="noopener noreferrer">
-              HISTORY OF Reol
+            Oya stone:{" "}
+            <a href="https://commons.wikimedia.org/wiki/File:Tuff_ohyaishi01.jpg" target="_blank" rel="noopener noreferrer">
+              Miya.m / Wikimedia Commons
             </a>{" "}
-            ／ <Link to="/privacy/">プライバシーポリシー</Link>
+            ／{" "}
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">
+              CC BY-SA 3.0
+            </a>
+            (大谷石の写真。表示時にトリミング・色調調整) ／ <Link to="/privacy/">プライバシーポリシー</Link>
           </p>
         </footer>
       </div>
