@@ -12,6 +12,8 @@ export const LETTERS_ORGANIZER = "!Legitによる非公式バースデー企画"
 export const LETTERS_OG_IMAGE = "https://reol.twilightea.com/og/letters.jpg";
 
 /** 受付の境界(これ以降は新規投稿・本人の修正を DB が拒否する)。表示用。判定は DB の時計で行う */
+/** 1 人が投函できる手紙の数(取り下げていないもの)。DB の letters_submit と揃える */
+export const LETTERS_MAX_PER_PERSON = 10;
 export const LETTERS_DEADLINE_ISO = "2026-12-20T15:00:00Z";
 export const LETTERS_DEADLINE_LABEL = "2026年12月20日（日）23:59まで";
 export const LETTERS_SHIPPING_NOTE =

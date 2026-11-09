@@ -7,6 +7,7 @@ import type { LetterContent } from "./service";
 
 const DRAFT_KEY = "legit-letters-draft";
 const MINE_KEY = "legit-letters-mine";
+const WRITER_KEY = "legit-letters-writer";
 
 export type Draft = Partial<Omit<LetterContent, "eventKey">> & {
   eventKey?: string | null;
@@ -38,6 +39,21 @@ const write = (key: string, value: unknown) => {
 
 export const loadDraft = () => read<Draft>(DRAFT_KEY);
 export const saveDraft = (d: Draft | null) => write(DRAFT_KEY, d);
+
+/**
+ * 書き手の印(この端末の 64 桁の乱数)。投函の時に送り、DB はハッシュだけを持って 1 人 10 通までを数える。
+ * 保存できない環境では、開いている間だけの印になる
+ */
+let writerFallback: string | null = null;
+export const writerKey = (): string => {
+  const saved = read<string>(WRITER_KEY);
+  if (saved && /^[0-9a-f]{64}$/.test(saved)) return saved;
+  const k = newEditKey();
+  write(WRITER_KEY, k);
+  if (read<string>(WRITER_KEY) === k) return k;
+  writerFallback = writerFallback ?? k;
+  return writerFallback;
+};
 
 export const loadMyLetters = (): MyLetter[] => {
   const list = read<MyLetter[]>(MINE_KEY);

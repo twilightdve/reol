@@ -8,10 +8,10 @@ import { HeadFC, Link } from "gatsby";
 import { LettersHead, LettersShell } from "../../components/letters/LettersShell";
 import { ChosenEvent, Composer, ComposerValue, emptyComposer, SubmitState } from "../../components/letters/Composer";
 import { YEAR_EVENT_BY_KEY } from "../../utils/letters/yearEvents";
-import { LETTERS_DEADLINE_LABEL, LETTERS_MEMORY_PERIOD_LABEL } from "../../utils/letters/constants";
+import { LETTERS_DEADLINE_LABEL, LETTERS_MAX_PER_PERSON, LETTERS_MEMORY_PERIOD_LABEL } from "../../utils/letters/constants";
 import { LetterEvent } from "../../utils/letters/timeline";
 import { errorMessage, fetchLettersStatus, fetchPublicCounts, LetterContent, LettersError, submitLetter, updateOwnLetter } from "../../utils/letters/service";
-import { editUrl, loadDraft, newEditKey, newRequestId, rememberMyLetter, saveDraft } from "../../utils/letters/local";
+import { editUrl, loadDraft, loadMyLetters, newEditKey, newRequestId, rememberMyLetter, saveDraft, writerKey } from "../../utils/letters/local";
 
 const toChosen = (e: LetterEvent): ChosenEvent => ({ key: e.key, label: e.title, date: e.date || null, era: e.era, defaultAddress: e.defaultAddress });
 
@@ -29,6 +29,9 @@ const LettersWritePage: React.FC = () => {
   const loaded = useRef(false);
   /** 前回の書きかけを開いた時の知らせ(下書き保存した日時があれば添える) */
   const [restored, setRestored] = useState<{ savedAt: string | null } | null>(null);
+  /** この端末から投函した手紙の数(上限の目安を先に伝える。数えるのは DB) */
+  const [sentHere, setSentHere] = useState(0);
+  useEffect(() => setSentHere(loadMyLetters().length), [done]);
   /** 「新しく書き始める」で手順を最初から(Composer を作り直す) */
   const [round, setRound] = useState(0);
   const savedAt = useRef<string | null>(null);
@@ -119,7 +122,7 @@ const LettersWritePage: React.FC = () => {
     // 送る前に、同じ 1 通として送り直すための値を残す(通信が切れても二重にならない)
     saveDraft({ ...(loadDraft() ?? {}), pending: p });
     try {
-      const r = await submitLetter(p.requestId, p.editKey, content);
+      const r = await submitLetter(p.requestId, p.editKey, { ...content, writer: writerKey() });
       if (!r.ok) {
         setSubmitState({ kind: "error", message: errorMessage(r.error) });
         if (r.error === "closed") setAvailability("closed");
@@ -176,7 +179,7 @@ const LettersWritePage: React.FC = () => {
             </h2>
           </div>
           <p className="lp-intro">
-            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日の前日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。思い出ごとに、何通書いてもかまいません。
+            思い出の期間は <strong>{LETTERS_MEMORY_PERIOD_LABEL}</strong>(去年の誕生日から今年の誕生日の前日まで)。この一年に聴いた音楽、心に残ったライヴ、忘れられない言葉を、お祝いと一緒に。昔の曲でも、この一年の思い出なら大歓迎です。思い出ごとに書けて、お一人{LETTERS_MAX_PER_PERSON}通までです。
             <br />
             お祝いの手紙は <strong>{LETTERS_DEADLINE_LABEL}</strong>受け付けます(日本時間)。
           </p>
@@ -185,7 +188,7 @@ const LettersWritePage: React.FC = () => {
           <div className="lp-done" role="status">
             <h3>お手紙を受け付けました</h3>
             <p className="lp-note" style={{ marginTop: 8 }}>
-              ありがとうございます。Webの「届いた手紙」に載りました(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。運営が読んで、ふさわしくないと判断した時は取り下げます。ほかの思い出も、何通でも書けます。
+              ありがとうございます。Webの「届いた手紙」に載りました(本文を「贈る本だけ」にした手紙は、宛名面だけが載ります)。運営が読んで、ふさわしくないと判断した時は取り下げます。ほかの思い出も書けます(お一人{LETTERS_MAX_PER_PERSON}通まで)。
             </p>
             {!done.synced && (
               <p className="lp-alert">
@@ -220,6 +223,12 @@ const LettersWritePage: React.FC = () => {
           </div>
         ) : (
           <>
+          {sentHere >= LETTERS_MAX_PER_PERSON && (
+            <p className="lp-draft-note" role="status">
+              この端末から{sentHere}通投函しています。お一人{LETTERS_MAX_PER_PERSON}通までなので、取り下げた分だけ新しく書けます(
+              <Link to="/letters/edit/">書いた手紙を直す・取り下げる</Link>)。
+            </p>
+          )}
           {restored && (
             <div className="lp-draft-note" role="status">
               <span>

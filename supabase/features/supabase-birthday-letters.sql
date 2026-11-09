@@ -34,6 +34,10 @@ CREATE TABLE IF NOT EXISTS public.birthday_letters (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS birthday_letters_created_idx ON public.birthday_letters (created_at);
+-- 書き手の印(ブラウザが作った乱数)のハッシュ。1 人 10 通まで(取り下げていない手紙)を数える。2026-11-09
+-- ログイン無しの企画なので、ブラウザを変える・保存を消すと別の人になる(目安としての上限)。前からの手紙は空
+ALTER TABLE public.birthday_letters ADD COLUMN IF NOT EXISTS writer_hash text;
+CREATE INDEX IF NOT EXISTS birthday_letters_writer_idx ON public.birthday_letters (writer_hash) WHERE writer_hash IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS public.birthday_letter_versions (
   letter_id uuid NOT NULL REFERENCES public.birthday_letters(id) ON DELETE CASCADE,
@@ -332,6 +336,8 @@ SET search_path = ''
 AS $$
 DECLARE
   v_hash text := public._letters_key_hash(p_edit_key);
+  -- 書き手の印は手紙の中の writer で受け取る(関数の形を変えない。古い画面からは無い = 数えない)
+  v_writer text := public._letters_key_hash(p_letter ->> 'writer');
   v_row record;
   v_content jsonb;
   v_recent integer;
@@ -357,6 +363,10 @@ BEGIN
   IF NOT public._letters_accepting() THEN
     RETURN jsonb_build_object('ok', false, 'error', 'paused');
   END IF;
+  -- 1 人 10 通まで(同じ書き手の印で、取り下げていない手紙)
+  IF v_writer IS NOT NULL AND (SELECT count(*) FROM public.birthday_letters l WHERE l.writer_hash = v_writer AND l.withdrawn_at IS NULL) >= 10 THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'limit');
+  END IF;
 
   BEGIN
     v_content := public._letters_clean(p_letter);
@@ -375,8 +385,8 @@ BEGIN
     RETURN jsonb_build_object('ok', false, 'error', 'busy');
   END IF;
 
-  INSERT INTO public.birthday_letters (request_id, edit_key_hash)
-  VALUES (p_request_id, v_hash)
+  INSERT INTO public.birthday_letters (request_id, edit_key_hash, writer_hash)
+  VALUES (p_request_id, v_hash, v_writer)
   ON CONFLICT (request_id) DO NOTHING
   RETURNING id INTO v_id;
 

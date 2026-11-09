@@ -106,7 +106,8 @@ export type Result<T = Record<string, never>> = ({ ok: true } & T) | { ok: false
 /** accepting: 運営が投函を止めていなければ true(緊急の切り替え。SQL が古い時は undefined → 受け付け扱い) */
 export const fetchLettersStatus = () => rpc<{ open: boolean; accepting?: boolean; deadline: string; now: string }>("letters_status");
 
-export const submitLetter = (requestId: string, editKey: string, letter: LetterContent & { consent: true }) =>
+/** writer: 書き手の印(1 人 10 通までを数える。DB はハッシュだけを持つ) */
+export const submitLetter = (requestId: string, editKey: string, letter: LetterContent & { consent: true; writer?: string }) =>
   rpc<Result<{ id: string; version: number }>>("letters_submit", { p_request_id: requestId, p_edit_key: editKey, p_letter: letter });
 
 export const fetchPublicLetters = (opts: { eventKey?: string | null; era?: Era | null; order?: "new" | "timeline"; limit?: number; offset?: number }) =>
@@ -164,6 +165,7 @@ export const adminSettings = (patch: { publicMode?: "all" | "checked"; accepting
 /** 入力の誤りを、画面の言葉に */
 export const ERROR_MESSAGES: Record<string, string> = {
   closed: "受付は終了しました(2026年12月20日（日）23:59まででした)。",
+  limit: "お一人10通までです。これまでの手紙を直すか、取り下げてから書いてください(取り下げた分だけ、また書けます)。",
   paused: "いま投函を一時的に止めています。書いた手紙は下書き保存しておいて、時間をおいてもう一度お試しください。",
   busy: "いま投函が混み合っています。少し時間をおいて、もう一度お試しください。",
   conflict: "別の画面で先に修正されています。ページを読み込み直してから直してください。",
