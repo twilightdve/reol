@@ -86,18 +86,28 @@ CREATE TABLE IF NOT EXISTS public.birthday_letter_settings (
 );
 INSERT INTO public.birthday_letter_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
 
+-- バックアップ専用の鍵(2026-11-09)。運営の Mac の launchd が 6 時間ごとに letters_backup_export を呼んで手紙を保存する。
+-- 鍵そのものは Mac にだけ置き、ここにはハッシュだけ。この鍵でできるのは読み出しだけ(書き換えはできない)
+CREATE TABLE IF NOT EXISTS public.birthday_letter_backup_keys (
+  key_hash text PRIMARY KEY,
+  note text,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
 ALTER TABLE public.birthday_letters ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_versions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_batches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_print_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_admins ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.birthday_letter_settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.birthday_letter_backup_keys ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON public.birthday_letters FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_versions FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_batches FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_print_items FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_admins FROM anon, authenticated;
 REVOKE ALL ON public.birthday_letter_settings FROM anon, authenticated;
+REVOKE ALL ON public.birthday_letter_backup_keys FROM anon, authenticated;
 
 -- ============================================================
 -- 2. 内部用(anon からは呼べない)
@@ -829,7 +839,34 @@ BEGIN
 END;
 $$;
 
+-- バックアップ(読み出しだけ)。バックアップ専用の鍵が合う時だけ、手紙の表を丸ごと返す(本文・修正の鍵のハッシュも含む。戻す時に要るため)
+CREATE OR REPLACE FUNCTION public.letters_backup_export(p_key text)
+RETURNS jsonb
+LANGUAGE plpgsql
+STABLE
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+DECLARE
+  v_hash text := public._letters_key_hash(p_key);
+BEGIN
+  IF v_hash IS NULL OR NOT EXISTS (SELECT 1 FROM public.birthday_letter_backup_keys k WHERE k.key_hash = v_hash) THEN
+    RAISE EXCEPTION 'forbidden';
+  END IF;
+  RETURN jsonb_build_object(
+    'format', 'reol-letters-backup-v1',
+    'exportedAt', now(),
+    'letters', coalesce((SELECT jsonb_agg(to_jsonb(l) ORDER BY l.created_at) FROM public.birthday_letters l), '[]'::jsonb),
+    'versions', coalesce((SELECT jsonb_agg(to_jsonb(v) ORDER BY v.letter_id, v.version) FROM public.birthday_letter_versions v), '[]'::jsonb),
+    'printBatches', coalesce((SELECT jsonb_agg(to_jsonb(b) ORDER BY b.created_at) FROM public.birthday_letter_print_batches b), '[]'::jsonb),
+    'printItems', coalesce((SELECT jsonb_agg(to_jsonb(i) ORDER BY i.batch_id, i.position) FROM public.birthday_letter_print_items i), '[]'::jsonb),
+    'settings', (SELECT to_jsonb(s) FROM public.birthday_letter_settings s WHERE s.id = 1)
+  );
+END;
+$$;
+
 REVOKE ALL ON FUNCTION public.letters_status() FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.letters_backup_export(text) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_admin_settings(text, boolean) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_submit(uuid, text, jsonb) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.letters_public_list(text, text, text, integer, integer) FROM PUBLIC;
@@ -863,6 +900,8 @@ GRANT EXECUTE ON FUNCTION public.letters_admin_batch(uuid) TO anon, authenticate
 GRANT EXECUTE ON FUNCTION public.letters_admin_mark_printed(uuid, uuid[]) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_cancel_batch(uuid) TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.letters_admin_settings(text, boolean) TO anon, authenticated;
+-- バックアップの関数も呼ぶこと自体は anon に許す(中でバックアップ専用の鍵を確かめる。違えば forbidden)
+GRANT EXECUTE ON FUNCTION public.letters_backup_export(text) TO anon, authenticated;
 
 COMMIT;
 
