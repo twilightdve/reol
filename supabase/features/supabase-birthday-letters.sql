@@ -761,6 +761,7 @@ BEGIN
         SELECT jsonb_agg(jsonb_build_object(
           'position', i.position, 'id', i.letter_id, 'version', i.version,
           'currentVersion', l.current_version, 'withdrawn', l.withdrawn_at IS NOT NULL,
+          'createdAt', l.created_at, -- 消印の日付(投函した日)
           'content', v.content
         ) ORDER BY i.position)
         FROM public.birthday_letter_print_items i

@@ -373,6 +373,7 @@ background:var(--paper);color:var(--ink);font:14px/1.9 var(--serif);min-height:1
 .lp-card.is-back .motif{opacity:.22}
 .lp-card .top{position:absolute;top:8.3mm;left:8.7mm;right:8.7mm;display:flex;justify-content:space-between;align-items:flex-start}
 .lp-card .tiny{font:3mm/1.5 var(--sans);letter-spacing:.14em}
+.lp-card .tiny .bday{font-weight:600;letter-spacing:.1em}
 .lp-card .mark{height:21mm;width:21mm;border:.3mm solid #aa513d;border-radius:50%;color:#aa513d;transform:rotate(13deg);display:flex;flex-direction:column;justify-content:center;text-align:center;font:2.3mm/1.6 Arial,sans-serif;outline:.3mm solid #aa513d;outline-offset:-1.7mm;letter-spacing:.05em}
 .lp-card .mark strong{font-size:5.3mm;font-weight:500;letter-spacing:.03em;line-height:1.3}
 .lp-card .to{position:absolute;left:10mm;top:46mm;right:7mm;font:500 9mm/1.75 var(--serif);letter-spacing:.03em;z-index:1;overflow-wrap:anywhere}

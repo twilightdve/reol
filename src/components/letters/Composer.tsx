@@ -57,6 +57,8 @@ type Props = {
   onChoose?: (e: LetterEvent) => void;
   /** 本文を外から差し替えた時に変える(BodyEditor の resetKey) */
   bodyResetKey?: string | number;
+  /** 直す時: 投函した日時(カードの消印は投函した日のまま) */
+  postedAt?: string;
 };
 
 
@@ -79,6 +81,7 @@ const OTHER_PREFIX = "__other__";
 export const Composer: React.FC<Props> = ({
   mode,
   event,
+  postedAt,
   value,
   onChange,
   availability,
@@ -226,7 +229,7 @@ export const Composer: React.FC<Props> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event, value.address]);
 
-  const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif, font: value.font };
+  const face = { address: value.address, sender: value.sender, snsType: value.snsType || null, snsId: value.snsId.replace(/^@/, ""), motif: value.motif, font: value.font, createdAt: postedAt };
   const stepIndex = (id: StepId) => STEPS.findIndex((s) => s.id === id);
   const fix = (id: StepId) => (
     <button type="button" className="lp-text-link" onClick={() => goTo(stepIndex(id))}>

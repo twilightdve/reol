@@ -68,7 +68,7 @@ export type PrintBatchSummary = {
 };
 
 export type PrintBatch = Omit<PrintBatchSummary, "count"> & {
-  items: { position: number; id: string; version: number; currentVersion: number; withdrawn: boolean; content: LetterContent }[];
+  items: { position: number; id: string; version: number; currentVersion: number; withdrawn: boolean; createdAt?: string; content: LetterContent }[];
 };
 
 /** 呼べなかった理由。'unavailable' は SQL がまだ流れていない(関数が無い)か、Supabase の設定が無い */

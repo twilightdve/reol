@@ -2,7 +2,7 @@
  * 手紙のカード(plan/64)。実寸 100×148mm で組み、画面では ScaledCard で縮めて見せる。
  * 本文・宛名・名前は文字としてだけ出す(HTML として解釈しない)。
  */
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { LetterBody } from "../../utils/letters/body";
 import { Motif, snsLabel, textColorValue, LetterFont, fontOf } from "../../utils/letters/constants";
 import { splitAddress } from "../../utils/letters/timeline";
@@ -53,12 +53,32 @@ export type CardFace = {
   snsId?: string | null;
   motif: Motif;
   font?: LetterFont;
+  /** 投函した日時。消印の日付にする(まだ投函していない見本は今日) */
+  createdAt?: string;
+};
+
+/** 消印の日付(日本時間)。"2026-11-10" → { md: "11.10", y: "2026" } */
+export const postmarkDate = (iso: string) => {
+  const ymd = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(iso));
+  const [y, m, d] = ymd.split("-");
+  return { md: `${m}.${d}`, y };
+};
+
+/** 投函前の見本は今日の日付。ビルド時の日付が HTML に残らないよう、表示してから決める */
+const usePostmark = (createdAt?: string) => {
+  const [today, setToday] = useState<string | null>(null);
+  useEffect(() => {
+    if (!createdAt) setToday(new Date().toISOString());
+  }, [createdAt]);
+  const iso = createdAt ?? today;
+  return iso ? postmarkDate(iso) : { md: "\u00a0", y: "\u00a0" };
 };
 
 const addressClass = (address: string) => (address.length > 22 ? " is-longer" : address.length > 14 ? " is-long" : "");
 
 export const CardFront: React.FC<{ face: CardFace }> = ({ face }) => {
   const lines = splitAddress(face.address || "宛名");
+  const mark = usePostmark(face.createdAt);
   return (
     <div className={`lp-card ${face.motif} f-${fontOf(face.font)}`}>
       <div className="motif" />
@@ -68,9 +88,12 @@ export const CardFront: React.FC<{ face: CardFace }> = ({ face }) => {
           FAN LETTER
           <br />
           FOR YOUR BIRTHDAY
+          <br />
+          <b className="bday">2026.11.09</b>
         </span>
         <div className="mark" aria-hidden>
-          UNTITLED POST<strong>11.09</strong>2026
+          UNTITLED POST<strong>{mark.md}</strong>
+          {mark.y}
         </div>
       </div>
       <div className={`to${addressClass(face.address)}`}>

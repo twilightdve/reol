@@ -214,13 +214,14 @@ const EditPage: React.FC = () => {
             {letter.withdrawn ? (
               <div style={{ maxWidth: 300 }}>
                 <ScaledCard maxWidth={300}>
-                  <CardFront face={letter.content} />
+                  <CardFront face={{ ...letter.content, createdAt: letter.createdAt }} />
                 </ScaledCard>
               </div>
             ) : (
               <>
                 <Composer
                   mode="edit"
+                  postedAt={letter.createdAt}
                   event={{
                     key: letter.content.eventKey,
                     label: letter.content.eventLabel,

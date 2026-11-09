@@ -156,3 +156,4 @@
   - 登録: `scripts/letters-backup.sh install`(外す時は uninstall)。Mac が寝ている間は動かず、起きた時に 1 回動く。1 回だけ取る時は `scripts/letters-backup.sh`
   - 戻す: `scripts/letters-backup.sh restore-sql ~/Backups/reol-letters/letters-….json.gz` で隣に .restore.sql ができる。SQL Editor で実行すると、今ある行はそのまま、無くなった行だけを足す(上書きはしない。直したい行があれば先に消してから)。PGlite で、全部消えた時・一部だけ消えた時・本文に $$ や引用符がある時に元どおり戻ることを確かめた
   - バックアップには本文と SNS ID が入るので、人に渡さない(保存先とファイルは自分だけが読める)
+- 消印は投函した日に(2026-11-09、ユーザーの指摘「消印だから書いた日のほうが良い。誕生日は別の場所に」): カードの表の消印を 11.09 固定から、手紙を初めて投函した日(日本時間。直しても変わらない)に。投函前の見本は今日の日付(ビルド時の日付が HTML に残らないよう、表示してから決める)。誕生日は左上の「FAN LETTER / FOR YOUR BIRTHDAY」の下に「2026.11.09」として出す。印刷の束にも投函日を足した → **SQL の再実行が必要**(letters_admin_print_batch。再実行前でも画面は動き、印刷の消印だけ今日の日付になる)

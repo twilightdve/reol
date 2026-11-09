@@ -171,3 +171,12 @@ describe("この一年の宛先(plan/64)", () => {
     expect(live.defaultAddress).toBe("宇都宮のReolへ");
   });
 });
+
+describe("消印の日付", () => {
+  const { postmarkDate } = require("../../components/letters/Postcard");
+  it("投函した日を日本時間で出す", () => {
+    expect(postmarkDate("2026-11-09T14:59:59Z")).toEqual({ md: "11.09", y: "2026" });
+    expect(postmarkDate("2026-11-09T15:00:00Z")).toEqual({ md: "11.10", y: "2026" });
+    expect(postmarkDate("2026-12-31T15:00:00Z")).toEqual({ md: "01.01", y: "2027" });
+  });
+});
