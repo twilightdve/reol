@@ -25,10 +25,10 @@ export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
   // Syrup(plan/65)。聴くリンク(0)・冒頭(1)・本文の始まり(2)・見出し(3, 6, 10)・澄んでいく層の後(9)・結び(12)
   "reol-song-020": {
     bodyRevision: 2,
-    bodySha256: "498b237212cc4dd7e806b45d7aab95fde23068b10cffdc15d5e151b6488ef23c",
+    bodySha256: "879c4a264bbabcc653dfb0a1ef89b99a9a7b6f69de89be1f2d6e24d49e5f4714",
     blockCount: 13,
     anchors: [
-      { block: 0, textHash: "b5a415f4801a7457" },
+      { block: 0, textHash: "3909280f866713b6" },
       { block: 1, textHash: "171f77b04489faf5" },
       { block: 2, textHash: "5c935f8c64d8c06b" },
       { block: 3, textHash: "c88c245e8fb1d832" },

@@ -24,7 +24,7 @@ import type { SongArticleDesign } from "../types";
 import "./syrup.css";
 
 // 本文の段落位置(blocks の添字)
-const LISTEN = 0; // 「Syrup」を聴く(AWA)
+const LISTEN = 0; // 「Syrup」をSpotifyで聴く
 const OPENING = 1; // 深夜のいちばん眠りが深いところ。「水底游歩道」との比較
 const INTRO = 2; // 『極彩色』の9曲目
 const S_DREAM = 3; // 見出し「夢の中を泳ぐ翅」

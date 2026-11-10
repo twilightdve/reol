@@ -1,6 +1,6 @@
 # Syrup　言葉を煮込む夜
 
-[「Syrup」を聴く（AWA）](https://s.awa.fm/track/366de61dcfce24131547)
+[「Syrup」をSpotifyで聴く](https://open.spotify.com/track/3fqUAfyGlVGFxTprWorbvu)
 
 「Syrup」を聴いていると、深夜のいちばん眠りが深いところにいるような気がする。「水底游歩道」が、夢の中に朝の気配が差し込んでくる曲だとしたら、こちらはまだ、夢の景色にすっかり入り込んでいる。その幻想的な雰囲気が好きだ。
 
