@@ -122,7 +122,8 @@
   position: absolute;
   inset: 0;
   color: var(--pink);
-  clip-path: inset(var(--cut) 0 0 0);
+  /* 下と横は箱の外へ広げる(y・p の下や、斜めにずれた字の端が切れないように) */
+  clip-path: inset(var(--cut) -0.2em -0.35em -0.2em);
   filter: blur(1.4px);
   opacity: 0.85;
   /* 面の下では、少しずれて見える */
@@ -458,7 +459,7 @@
   position: absolute;
   inset: 0;
   color: var(--pink);
-  clip-path: inset(var(--cut) 0 0 0);
+  clip-path: inset(var(--cut) -0.2em -0.35em -0.2em);
   filter: blur(1.6px);
   opacity: 0.8;
   transform: translate(0.03em, 0.04em) skewX(-5deg);

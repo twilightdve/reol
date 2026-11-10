@@ -63,3 +63,8 @@
 ## 5. XFD の開始位置(2026-11-11)
 
 - ユーザー: 「3:56~」。`gokusaishikiXfd.ts` に 236 秒を登録。表紙の XFD は 3:56 から流れ、下の文言は「『極彩色』XFD の「Syrup」(3:56〜)を観る」になる。
+
+## 6. OGP と題名の字の下(2026-11-11)
+
+- デプロイの前の確かめ(公開中の記事に OGP 画像が要る)で止まったので、表紙を撮った(`static/articles-og/syrup.jpg`・`static/articles-cover/syrup.jpg`)。XFD を外すと右が大きく空くので、撮影の時だけ題名を大きく(`capture-article-og.ts` の reol-song-020)。
+- 撮った画像で、沈んだ下半分の y・p の下が切れていた(clip-path が字の箱で切っていた)。下と横を箱の外へ広げた(記事の表紙・二つの「半分」の図とも)。

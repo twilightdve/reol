@@ -120,6 +120,12 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   "reol-song-018": `
     .og-brand { color: #121212 !important; text-shadow: none !important; }
   `,
+  // Syrup: XFD を外して空いた右側まで使い、半分沈んだ題名を大きく
+  "reol-song-020": `
+    .a020-cover__body { grid-template-columns: minmax(0, 1fr) !important; align-content: center !important; padding: 0 0 48px !important; }
+    .a020-title__song { font-size: 230px !important; }
+    .a020-title__sub { font-size: 30px !important; }
+  `,
   // 水底游歩道: 水面近くの明るい地なので、サイト名を深い青に
   "reol-song-015": `
     .og-brand { color: #2f64a8 !important; text-shadow: none !important; }
