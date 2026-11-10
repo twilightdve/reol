@@ -71,6 +71,7 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [62-orderly-article-design.md](./62-orderly-article-design.md) | 楽曲記事「-orderly-」の記事別デザイン(白と黒、ループに加わっていく音) |
 | [63-mede-mede-article-design.md](./63-mede-mede-article-design.md) | 楽曲記事「mede:mede」の記事別デザイン(白と光、回り続ける問い、1K と 1LDK)。取込の `markdown` キー対応 |
 | [64-birthday-letters.md](./64-birthday-letters.md) | Reol 誕生日の手紙企画「件名のないふくろう便」(投稿・閲覧・本人修正・運営確認・印刷の版管理。本文非公開は DB 側で守る) |
+| [65-syrup-article-design.md](./65-syrup-article-design.md) | 楽曲記事「Syrup」の記事別デザイン(深い夜の地に薄紅と虹、半分沈む題名、澄んでいく三つの層、二つの「半分」、朝に混ざる結び) |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |

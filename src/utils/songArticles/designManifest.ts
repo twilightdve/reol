@@ -22,6 +22,22 @@ export type DesignManifestEntry = {
 };
 
 export const DESIGN_MANIFEST: Record<string, DesignManifestEntry> = {
+  // Syrup(plan/65)。聴くリンク(0)・冒頭(1)・本文の始まり(2)・見出し(3, 6, 10)・澄んでいく層の後(9)・結び(12)
+  "reol-song-020": {
+    bodyRevision: 2,
+    bodySha256: "498b237212cc4dd7e806b45d7aab95fde23068b10cffdc15d5e151b6488ef23c",
+    blockCount: 13,
+    anchors: [
+      { block: 0, textHash: "b5a415f4801a7457" },
+      { block: 1, textHash: "171f77b04489faf5" },
+      { block: 2, textHash: "5c935f8c64d8c06b" },
+      { block: 3, textHash: "c88c245e8fb1d832" },
+      { block: 6, textHash: "13e2a4f8f65e3dec" },
+      { block: 9, textHash: "1197d9e8231ec99e" },
+      { block: 10, textHash: "0b99966ca4f1f9b3" },
+      { block: 12, textHash: "5735b5fac7dd870a" },
+    ],
+  },
   // mede:mede(plan/63)。聴くリンク(0)・冒頭の一文(1)・本文の始まり(2)・見出し(4, 15, 21)・No title の注記の後(11)・間取りの後(28)・結び(32)
   "reol-song-019": {
     bodyRevision: 4,

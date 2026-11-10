@@ -1,0 +1,591 @@
+/*
+ * 楽曲記事「Syrup」(reol-song-020)の記事別デザイン(見本 v1)。根拠は plan/65。
+ * すべて .a020 の内側に閉じる。サイトのライト/ダークテーマに関わらず、この記事の配色で組む。
+ *
+ * 色の役割:
+ *   --night 深い夜の地(いちばん眠りが深いところ) / --ink 夜の上の文字(薄紅を少し含んだ白) / --ink-2 補足
+ *   --pink 『-nil-／極彩色』の輪で Syrup に当てた薄紅 #f2b8c4(シロップの層・リンク・見出しの印)
+ *   --rainbow 同じく虹(012 の RAINBOW)。シロップの面の細い照りにだけ使う
+ *   --morning 結びの後に混ざる朝の色。奥付はこの上で、文字は --dusk(夜の色を薄めた墨)
+ */
+
+.a020 {
+  --night: #221a2c;
+  --night-2: #2c2238;
+  --ink: #f5ebee;
+  --ink-2: #bba9b8;
+  --pink: #f2b8c4;
+  --pink-deep: #c77d93;
+  --syrup: rgb(242 184 196 / 0.16);
+  --morning: #fbf3ec;
+  --dusk: #3b2e3d;
+  --dusk-2: #7a6a78;
+  --rainbow: linear-gradient(90deg, #e9566a, #f2a541, #f4dc5a, #5cc08a, #4f9fd8, #8d6cc9);
+  --column: min(640px, calc(100% - 40px));
+  --serif-latin: "Iowan Old Style", "Palatino", "Palatino Linotype", Georgia, serif;
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+
+  font-family: var(--gothic);
+  color: var(--ink);
+  background: var(--night);
+  overflow-wrap: anywhere;
+  overflow-x: clip;
+}
+
+/* ---------- 表紙: 半分沈んだ題名 ---------- */
+.a020-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(84svh, 760px);
+  overflow: hidden;
+  /* 上ほど深い夜 */
+  background: linear-gradient(180deg, #1a1422 0%, var(--night) 70%);
+}
+.a020-cover__top {
+  position: relative;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.a020-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.a020-crumbs a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.a020-crumbs a:hover,
+.a020-crumbs a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.a020-cover__body {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: end;
+  gap: clamp(28px, 5vw, 48px);
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(72px, 14vw, 120px) 0 clamp(40px, 7vw, 72px);
+}
+.a020-title {
+  margin: 0;
+  font-weight: 400;
+}
+/*
+ * 曲名: 同じ文字を2枚重ね、面(--cut。x ハイトの中ほど)より上は夜の上に、下は薄紅のシロップの層に沈める。
+ * シロップの層は題名の行だけを横切る帯(表紙の端まで)。
+ */
+.a020-title__song {
+  --cut: 58%;
+  position: relative;
+  display: block;
+  width: fit-content;
+  font-family: var(--serif-latin);
+  font-style: italic;
+  /* 360px 幅でも1行に収まる大きさ */
+  font-size: clamp(64px, 21vw, 168px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.a020-title__song::before {
+  content: "";
+  position: absolute;
+  top: var(--cut);
+  bottom: -0.2em;
+  left: -100vw;
+  right: -0.6em;
+  /* 右へ向かって薄れ、下の縁はぼかす(XFD の手前で消える) */
+  background: linear-gradient(90deg, var(--syrup) calc(100% - 1.4em), transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  mask-image: linear-gradient(180deg, #000 60%, transparent);
+  pointer-events: none;
+}
+.a020-title__above {
+  position: relative;
+  display: block;
+  color: var(--ink);
+  clip-path: inset(0 0 calc(100% - var(--cut)) 0);
+}
+.a020-title__below {
+  position: absolute;
+  inset: 0;
+  color: var(--pink);
+  clip-path: inset(var(--cut) 0 0 0);
+  filter: blur(1.4px);
+  opacity: 0.85;
+  /* 面の下では、少しずれて見える */
+  transform: translate(0.02em, 0.03em) skewX(-4deg);
+}
+/* シロップの面の細い虹の照り */
+.a020-title__sheen {
+  position: absolute;
+  top: var(--cut);
+  left: -100vw;
+  right: -0.6em;
+  height: 1px;
+  background: var(--rainbow);
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.4em), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 1.4em), transparent);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.a020-title__sub {
+  display: block;
+  margin-top: 0.9em;
+  font-family: var(--mincho);
+  font-size: clamp(17px, 2.3vw, 23px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+.a020-date {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+}
+
+/* 表紙の XFD と聴くリンク */
+.a020-cover__media {
+  width: 100%;
+  max-width: 520px;
+}
+.a020-cover__media .sa-media {
+  margin: 0;
+}
+.a020-cover__media .sa-media__thumb {
+  opacity: 1;
+}
+.a020-cover__media .sa-media__play {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.a020-cover__media .sa-media__button {
+  width: 48px;
+  height: 48px;
+  background: var(--pink);
+  color: var(--night);
+}
+.a020-cover__media .sa-media__caption {
+  padding: 8px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.a020-cover__media .sa-media__caption a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.a020-cover__media .sa-media__caption a:hover {
+  text-decoration: underline;
+}
+.a020-text.a020-listen {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.a020 .a020-listen a {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  color: var(--night);
+  background: var(--pink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.a020 .a020-listen a:hover {
+  background: var(--ink);
+}
+
+/* 広い画面: 左に題名、右下に XFD */
+@media (min-width: 1000px) {
+  .a020-cover__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+    column-gap: clamp(40px, 5vw, 72px);
+    align-items: end;
+  }
+  .a020-title__song {
+    font-size: clamp(112px, 11vw, 156px);
+  }
+}
+
+/* ---------- 本文 ---------- */
+.a020-ground {
+  padding: clamp(40px, 6vw, 64px) 0 clamp(56px, 8vw, 88px);
+}
+.a020-column {
+  width: var(--column);
+  margin: 0 auto;
+}
+.a020-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+}
+.a020-text p {
+  margin: 0;
+}
+.a020-text p + p,
+.a020-text + .a020-text {
+  margin-top: 1.3em;
+}
+.a020-text a {
+  color: var(--pink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+.a020-text a:hover {
+  color: var(--ink);
+}
+.a020-text h2 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.4em;
+  padding: 0.2em 0 0.25em;
+  font-family: var(--mincho);
+  font-size: clamp(21px, 2.6vw, 25px);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+/* 見出しの下半分に、薄いシロップの層 */
+.a020-text h2::after {
+  content: "";
+  position: absolute;
+  left: -0.4em;
+  right: -0.8em;
+  top: 55%;
+  bottom: 0;
+  background: var(--syrup);
+  border-top: 1px solid rgb(242 184 196 / 0.45);
+  z-index: -1;
+}
+.a020-section {
+  position: relative;
+  z-index: 0;
+  margin-top: clamp(56px, 8vw, 80px);
+}
+.a020-text.a020-opening {
+  margin: 0 0 1.4em;
+  font-family: var(--mincho);
+  font-size: clamp(19px, 2.6vw, 23px);
+  font-weight: 600;
+  line-height: 1.85;
+}
+.a020-note {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.a020-note.is-inline {
+  margin: 1.6em 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--pink);
+}
+.a020-note p {
+  margin: 0;
+}
+.a020-note a {
+  color: var(--pink);
+  font-weight: 700;
+}
+.a020-note__label {
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.a020-note__strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.a020-text.a020-last {
+  font-family: var(--mincho);
+  font-size: clamp(18px, 2.4vw, 21px);
+  font-weight: 600;
+  line-height: 2;
+  margin-top: 1.6em;
+}
+
+/* ---------- 段落8の後: 澄んでいく三つの層 ---------- */
+.a020-clear {
+  margin: clamp(40px, 6vw, 56px) auto;
+  max-width: 420px;
+}
+.a020-clear__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 4vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a020-clear__step {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+/* 器は描かず、液の柱だけ(上の縁に面の線) */
+.a020-clear__glass {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 96px;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px 4px 22px 22px;
+  overflow: hidden;
+  background: rgb(245 235 238 / 0.04);
+  box-shadow: inset 0 0 0 1px rgb(245 235 238 / 0.18);
+}
+.a020-clear__liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72%;
+  border-top: 1px solid rgb(242 184 196 / 0.7);
+}
+.a020-clear__grain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72%;
+  /* 大きさと間隔の違う粒を重ね、規則的な模様に見えないように */
+  background-image: radial-gradient(circle at 30% 40%, rgb(110 62 74 / 0.85) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgb(140 84 96 / 0.7) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 80%, rgb(96 54 66 / 0.8) 0 2px, transparent 2.6px),
+    radial-gradient(circle at 20% 60%, rgb(160 100 112 / 0.6) 0 0.8px, transparent 1.2px);
+  background-size: 17px 23px, 11px 13px, 31px 29px, 7px 11px;
+  background-position: 0 0, 5px 7px, 13px 3px, 2px 9px;
+}
+/* 感じたばかり: 濁った濃い色に、アクが一面に */
+.is-raw .a020-clear__liquid {
+  background: rgb(199 125 147 / 0.75);
+}
+/* 時間を置いて: アクは底に沈み、上が澄みはじめる */
+.is-rest .a020-clear__liquid {
+  background: linear-gradient(180deg, rgb(242 184 196 / 0.42), rgb(199 125 147 / 0.7));
+}
+.is-rest .a020-clear__grain {
+  height: 22%;
+  opacity: 0.8;
+}
+/* 澄んだ後味: 透きとおった薄紅だけ */
+.is-clear .a020-clear__liquid {
+  background: linear-gradient(100deg, rgb(255 238 242 / 0.62), rgb(248 205 214 / 0.5) 45%, rgb(255 238 242 / 0.56));
+}
+.is-clear .a020-clear__grain {
+  display: none;
+}
+.a020-clear__label {
+  font-family: var(--mincho);
+  font-size: clamp(13px, 3.4vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+/* ---------- 段落11の後: 二つの「半分」 ---------- */
+.a020-half {
+  margin: clamp(40px, 6vw, 56px) auto;
+  max-width: 440px;
+}
+.a020-half__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 5vw, 40px);
+}
+.a020-half__item {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+.a020-half__word {
+  position: relative;
+  display: block;
+  font-family: var(--mincho);
+  font-size: clamp(44px, 13vw, 64px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+/* 夜に隠す: 右の半分が夜の地に溶けて見えなくなる */
+.a020-half__word.is-hide .a020-half__whole {
+  display: block;
+  -webkit-mask-image: linear-gradient(90deg, #000 45%, rgb(0 0 0 / 0.08) 85%);
+  mask-image: linear-gradient(90deg, #000 45%, rgb(0 0 0 / 0.08) 85%);
+}
+/* 声に溶かす: 表紙の題名と同じ形。下の半分は薄紅のシロップの層の中 */
+.a020-half__word.is-melt {
+  --cut: 55%;
+}
+.a020-half__word.is-melt::before {
+  content: "";
+  position: absolute;
+  top: var(--cut);
+  bottom: -0.2em;
+  left: -0.3em;
+  right: -0.3em;
+  background: var(--syrup);
+  border-top: 1px solid rgb(242 184 196 / 0.55);
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
+  mask-image: linear-gradient(180deg, #000 55%, transparent);
+}
+.a020-half__top {
+  position: relative;
+  display: block;
+  clip-path: inset(0 0 calc(100% - var(--cut)) 0);
+}
+.a020-half__bottom {
+  position: absolute;
+  inset: 0;
+  color: var(--pink);
+  clip-path: inset(var(--cut) 0 0 0);
+  filter: blur(1.6px);
+  opacity: 0.8;
+  transform: translate(0.03em, 0.04em) skewX(-5deg);
+}
+.a020-half__label {
+  font-family: var(--mincho);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+/* ---------- 結びの後: 夜が朝の色に混ざる ---------- */
+.a020-dawn {
+  height: clamp(200px, 32vw, 320px);
+  background: linear-gradient(180deg, var(--night) 0%, #5b3d58 30%, var(--pink) 64%, var(--morning) 100%);
+}
+@supports (background: linear-gradient(in oklab, red, blue)) {
+  .a020-dawn {
+    background: linear-gradient(in oklab 180deg, var(--night) 0%, #5b3d58 30%, var(--pink) 64%, var(--morning) 100%);
+  }
+}
+
+/* ---------- 動き(動きを減らす設定では止まった絵) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* 面の下の文字が、ゆっくり揺れる */
+  .a020-title__below,
+  .a020-half__bottom {
+    animation: a020-sway 6s ease-in-out infinite alternate;
+  }
+  .a020-title__sheen {
+    animation: a020-sheen 9s ease-in-out infinite alternate;
+  }
+  /* 感じたばかりの層では、アクがゆっくり漂う */
+  .is-raw .a020-clear__grain {
+    animation: a020-drift 12s linear infinite;
+  }
+}
+@keyframes a020-sway {
+  from {
+    transform: translate(0.02em, 0.03em) skewX(-4deg);
+  }
+  to {
+    transform: translate(-0.02em, 0.05em) skewX(3deg);
+  }
+}
+@keyframes a020-sheen {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+@keyframes a020-drift {
+  from {
+    background-position: 0 0, 5px 7px, 13px 3px, 2px 9px;
+  }
+  to {
+    background-position: 17px 23px, -6px 20px, 44px 32px, 9px 20px;
+  }
+}
+
+/* ---------- 奥付(朝の色の上) ---------- */
+.a020-colophon {
+  padding: clamp(24px, 4vw, 40px) 0 clamp(48px, 8vw, 88px);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--dusk-2);
+  background: var(--morning);
+}
+.a020-colophon__list,
+.a020-next {
+  width: var(--column);
+  margin-left: auto;
+  margin-right: auto;
+}
+.a020-colophon__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--dusk);
+  display: grid;
+  gap: 10px;
+}
+.a020-colophon__list > div {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 12px;
+}
+.a020-colophon dt {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--dusk);
+}
+.a020-colophon dd {
+  margin: 0;
+}
+.a020-colophon a,
+.a020-next a {
+  color: var(--dusk);
+}
+.a020-next {
+  margin-top: 28px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.a020 a:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.a020-colophon a:focus-visible {
+  outline-color: var(--dusk);
+}
+
+@media (max-width: 640px) {
+  .a020-text {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+@media print {
+  .a020-cover {
+    min-height: 0;
+  }
+}

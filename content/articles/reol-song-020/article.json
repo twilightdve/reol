@@ -1,0 +1,21 @@
+{
+  "id": "reol-song-020",
+  "kind": "song",
+  "songTitle": "Syrup",
+  "bodyRevision": 2,
+  "formatRevision": null,
+  "bodySha256": "498b237212cc4dd7e806b45d7aab95fde23068b10cffdc15d5e151b6488ef23c",
+  "songRefs": [
+    "019e8282-8bff-7dd2-846d-ed1e8b78c431"
+  ],
+  "media": [],
+  "slug": "syrup",
+  "slugProposed": false,
+  "status": "unlisted",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-10-02T02:04:05.683Z",
+  "publishedAt": null,
+  "updatedAt": null,
+  "relatedArticleIds": []
+}

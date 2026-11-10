@@ -23,6 +23,7 @@ import HarushianDesign from "./reol-song-016/HarushianDesign";
 import LogicAgentDesign from "./reol-song-017/LogicAgentDesign";
 import OrderlyDesign from "./reol-song-018/OrderlyDesign";
 import MedeMedeDesign from "./reol-song-019/MedeMedeDesign";
+import SyrupDesign from "./reol-song-020/SyrupDesign";
 
 export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-080": BoyDesign,
@@ -45,4 +46,5 @@ export const SONG_ARTICLE_DESIGNS: Record<string, SongArticleDesign> = {
   "reol-song-017": LogicAgentDesign,
   "reol-song-018": OrderlyDesign,
   "reol-song-019": MedeMedeDesign,
+  "reol-song-020": SyrupDesign,
 };
