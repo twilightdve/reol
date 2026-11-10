@@ -11,6 +11,7 @@ const START: Record<string, number | null> = {
   ハルシアン: 131, // 2:11
   "-orderly-": 184, // 3:04(2026-11-05 ユーザー指定)
   "mede:mede": 204, // 3:24(2026-11-06 ユーザー指定。3:23 から直し)
+  Syrup: 236, // 3:56(2026-11-11 ユーザー指定)
 };
 
 const mmss = (sec: number) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}`;
