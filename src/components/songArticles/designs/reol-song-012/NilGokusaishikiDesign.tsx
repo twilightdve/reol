@@ -86,7 +86,7 @@ const TRACKS: { name: string; article?: string; colors: string[]; lines?: string
   { name: "ロジックエージェント", article: "rojikkuejento", colors: [C.light, C.shade], lines: ["ロジック", "エージェント"] },
   { name: "-orderly-", article: "orderly", colors: [] },
   { name: "mede:mede", article: "medemede", colors: [C.white, C.light] },
-  { name: "Syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]] },
+  { name: "Syrup", article: "syrup", colors: [C.pink, C.pink, C.pink, RAINBOW[0], RAINBOW[2], RAINBOW[4]] },
   { name: "ラ・タタン", colors: [C.white, C.black, ...TWILIGHT] },
   { name: "ミッドナイトストロウラ", colors: [C.light, C.dark, C.shade], lines: ["ミッドナイト", "ストロウラ"] },
   { name: "Behind The Night", colors: [C.light, C.dark, C.shade], lines: ["Behind", "The Night"] },

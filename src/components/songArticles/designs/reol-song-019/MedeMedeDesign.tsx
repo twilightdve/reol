@@ -251,6 +251,18 @@ const MedeMedeDesign: SongArticleDesign = (ctx) => {
                   (『極彩色』7曲目)
                 </dd>
               </div>
+              <div>
+                <dt>次の曲</dt>
+                <dd>
+                  <Link
+                    to="/articles/syrup/"
+                    onClick={() => trackEvent("article_related_click", { category: "navigation", label: `${id}->reol-song-020` })}
+                  >
+                    「Syrup」
+                  </Link>
+                  (『極彩色』9曲目)
+                </dd>
+              </div>
               {songFacts.stats && songFacts.stats.totalPlays > 0 && (
                 <div>
                   <dt>ライヴ</dt>

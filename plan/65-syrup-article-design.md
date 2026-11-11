@@ -74,3 +74,11 @@
 - ユーザー「なぜかAWAで聴くになってるがいつも通りSpotifyで聴くリンクにして」。段落0を「「Syrup」をSpotifyで聴く」(曲データの spotifyTrackId `3fqUAfyGlVGFxTprWorbvu`)に。ほかの記事と同じ書き方。
 - No title・1LDK と同じく、このリポジトリ側(staging)だけの修正。承認版の原文は `.articles-local/tmp/reol-song-020.body.v2-approved.md` に控え、record.json に localEdits を記録した。**Drive の原稿・掲載用Markdown・管理シートは未反映**(取込し直すとこの修正は消え、デザインの照合が食い違いを出す)。
 - デザイン登録の本文 sha256 を `879c4a26…4714`、段落0のハッシュを付け直した。
+
+## 8. 全体公開(2026-11-11)
+
+- ユーザー「公開して」。本文版2を全体公開(status published、publishedAt 2026-11-11T01:02:59.373Z。日付の欄は「2026年11月11日 公開」)。
+- 『-nil-／極彩色』(012)の16曲の輪の「Syrup」を、この記事(`/articles/syrup/`)へのリンクにした。
+- 「mede:mede」(019)の奥付に「次の曲 「Syrup」(『極彩色』9曲目)」を足した(018 → 019 → 020 と曲順でたどれるように)。
+- OGP・表紙の画像を撮り直した(「公開前」→ 公開日)。
+- 確認: 開発サーバーの Chromium 390・1280px、WebKit 390px。記事は noindex なし・記事別デザイン・横はみ出しなし・聴くリンクは Spotify。ログインなしの読みもの一覧に Syrup が出る。012 の輪と 019 の奥付から Syrup へのリンクあり。typecheck 通過。
