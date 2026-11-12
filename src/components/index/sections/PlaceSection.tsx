@@ -13,7 +13,7 @@ import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
 import { Kicker } from "../../redesign";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
-import { usePageDict } from "../../../i18n/site/SiteLangContext";
+import { LangLink, usePageDict } from "../../../i18n/site/SiteLangContext";
 import { placeDict } from "../../../i18n/site/pages/place";
 import { checkCircleClass } from "../../collection/checkCircle";
 
@@ -364,6 +364,15 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           <br />
           {t.intro2}
         </div>
+        {/* 地域ごとのガイド(日本語だけのページ。各言語からも同じ URL へ) */}
+        <LangLink
+          to="/place/shibuya/"
+          onClick={() => trackEvent("place_guide_click", { category: "navigation", label: "shibuya" })}
+          className="mt-3 inline-flex items-center min-h-[36px] text-sm font-bold text-bx-blue underline underline-offset-2 hover:text-bx-blueLight"
+        >
+          {t.shibuyaGuide}
+          <span className="ml-1" aria-hidden="true">→</span>
+        </LangLink>
 
         <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
           <button
