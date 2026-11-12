@@ -262,6 +262,12 @@ const zhHans: SiteDict = {
     toSearchTitle: "前往横向搜索",
     toSearchDesc: "横跨歌曲、演唱会、取景地的关键词搜索。",
     backToTop: "返回首页",
+    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
+    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
+      const kind = hasSetlist ? "歌单" : "演出信息";
+      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
+      return detail ? `${head}（${detail}）` : head;
+    },
     metaLead: (name: string) => `Reol「${name}」的演出信息。`,
     metaVenue: (place: string) => `会场：${place}。`,
     metaSetlist: (n: number) => `收录 ${n} 首歌单。`,

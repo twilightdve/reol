@@ -264,6 +264,12 @@ const ja = {
     toSearchTitle: "横断検索へ",
     toSearchDesc: "楽曲・ライブ・ロケ地を横断してキーワード検索。",
     backToTop: "トップに戻る",
+    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
+    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
+      const kind = hasSetlist ? "セットリスト" : "公演情報";
+      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
+      return detail ? `${head}(${detail})` : head;
+    },
     metaLead: (name: string) => `Reol「${name}」の公演情報。`,
     metaVenue: (place: string) => `会場: ${place}。`,
     metaSetlist: (n: number) => `セットリスト${n}曲を掲載。`,

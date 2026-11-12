@@ -522,6 +522,19 @@ const buildDescription = (ctx: LiveItemPageContext, t: SiteDict["show"]): string
   return parts.join("");
 };
 
+/**
+ * <title>(og:title も同じ)。題名だけで「どの公演の、何のページか」が分かるようにする。
+ * セットリストが未登録の公演(開催前を含む)は「公演情報」とし、セットリストがあるようには見せない。
+ */
+const buildTitle = (ctx: LiveItemPageContext, t: SiteDict["show"]): string => {
+  const name = ctx.liveItemName ? `${ctx.liveTitle} ${ctx.liveItemName}` : ctx.liveTitle;
+  const hasSetlist = ctx.setList.some((s) => !isNonSongItem(s));
+  // 日付は "YYYY-MM-DD" のほか、複数日にまたがる表記("YYYY-MM-DD〜YYYY-MM-DD" 等)がある
+  const days = (ctx.date?.match(/\d{4}-\d{2}-\d{2}/g) ?? []).map((d) => d.replaceAll("-", "/"));
+  const detail = [days.join("〜"), ctx.place].filter(Boolean).join(" ");
+  return t.metaTitle(name.trim(), hasSetlist, detail);
+};
+
 export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
   const { liveTitle, liveItemName, place, date, slug, setList } = pageContext;
   const heading = liveItemName || liveTitle;
@@ -551,7 +564,7 @@ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
   }
   return (
     <SEO
-      title={`${heading}(Reol)`}
+      title={buildTitle(pageContext, dict.show)}
       description={buildDescription(pageContext, dict.show)}
       path={`/live/${slug}/`}
       lang={lang}

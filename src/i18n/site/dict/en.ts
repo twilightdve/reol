@@ -268,6 +268,12 @@ const en: SiteDict = {
     toSearchTitle: "Search",
     toSearchDesc: "Search songs, live shows and filming locations by keyword.",
     backToTop: "Back to top",
+    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
+    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
+      const kind = hasSetlist ? "Setlist" : "Show Info";
+      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}: ${name}`;
+      return detail ? `${head} (${detail})` : head;
+    },
     metaLead: (name: string) => `Reol live show: ${name}.`,
     metaVenue: (place: string) => ` Venue: ${place}.`,
     metaSetlist: (n: number) => ` Full setlist (${n} ${n === 1 ? "song" : "songs"}).`,

@@ -263,6 +263,12 @@ const ko: SiteDict = {
     toSearchTitle: "통합 검색으로",
     toSearchDesc: "곡·라이브·촬영지를 가로질러 키워드로 검색.",
     backToTop: "홈으로 돌아가기",
+    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
+    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
+      const kind = hasSetlist ? "세트리스트" : "공연 정보";
+      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}: ${name}`;
+      return detail ? `${head} (${detail})` : head;
+    },
     metaLead: (name: string) => `Reol 「${name}」의 공연 정보.`,
     metaVenue: (place: string) => ` 공연장: ${place}.`,
     metaSetlist: (n: number) => ` 세트리스트 ${n}곡 수록.`,

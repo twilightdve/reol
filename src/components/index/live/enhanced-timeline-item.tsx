@@ -568,82 +568,84 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
           </div>
 
           {/* 展開コンテンツ */}
-          {isExpand && (
-            <>
-              {youtubeVideoId && (
-                <PlayerSlot
-                  {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
-                  title={live.title}
-                  className="mt-4 rounded-lg border border-bx-line"
-                />
-              )}
-              {live.items && live.items.length > 0 && (
+          {isExpand && youtubeVideoId && (
+            <PlayerSlot
+              {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
+              title={live.title}
+              className="mt-4 rounded-lg border border-bx-line"
+            />
+          )}
+          {/* 公演の一覧は、折りたたみ中も HTML に出しておく(hidden で畳むだけ)。
+              個別の公演ページ(/live/<slug>/)へのリンクが、開く操作をしなくても HTML にあるようにするため(plan/68)。
+              セットリストの中身は、各公演を開いた時にだけ描く(SetCard)。 */}
+          {live.items && live.items.length > 0 && (
+            <div
+              className="mt-4 transition-all duration-300 w-full"
+              hidden={!isExpand}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {isOngoingTour && !spoilerAck && (
                 <div
-                className="mt-4 transition-all duration-300 w-full"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {isOngoingTour && !spoilerAck ? (
-                  <div
-                    className="rounded-lg p-4 text-center"
+                  className="rounded-lg p-4 text-center"
+                  style={{
+                    backgroundColor: "rgba(254, 243, 199, 0.95)",
+                    border: "1px solid #F59E0B",
+                    color: "#7C2D12",
+                  }}
+                >
+                  <p className="text-sm font-bold mb-1">{t.spoilerNoticeTitle}</p>
+                  <p className="text-xs leading-relaxed mb-3">
+                    {t.spoilerNotice1}<br />
+                    {t.spoilerNotice2}<br />
+                    {t.spoilerNotice3}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={acceptSpoiler}
+                    className="px-4 py-2 text-xs font-bold rounded-md transition-colors"
                     style={{
-                      backgroundColor: "rgba(254, 243, 199, 0.95)",
-                      border: "1px solid #F59E0B",
-                      color: "#7C2D12",
+                      backgroundColor: "#92400E",
+                      color: "#FFFBEB",
                     }}
                   >
-                    <p className="text-sm font-bold mb-1">{t.spoilerNoticeTitle}</p>
-                    <p className="text-xs leading-relaxed mb-3">
-                      {t.spoilerNotice1}<br />
-                      {t.spoilerNotice2}<br />
-                      {t.spoilerNotice3}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={acceptSpoiler}
-                      className="px-4 py-2 text-xs font-bold rounded-md transition-colors"
-                      style={{
-                        backgroundColor: "#92400E",
-                        color: "#FFFBEB",
-                      }}
-                    >
-                      {t.showSpoiler}
-                    </button>
-                  </div>
-                ) : (
-                  <ul className="space-y-3">
-                    {live.items
-                      .map((setlist, originalIndex) => ({ setlist, originalIndex }))
-                      .sort((a, b) => a.setlist.date.localeCompare(b.setlist.date))
-                      .map(({ setlist, originalIndex }, sortedIndex) => {
-                        const isSetExpanded = expandedSets.has(originalIndex);
-                        return (
-                          <SetCard
-                            key={originalIndex}
-                            setlist={setlist}
-                            liveTitle={live.title}
-                            index={sortedIndex}
-                            isSetExpanded={isSetExpanded}
-                            songSlugByUuid={songSlugByUuid}
-                            onToggleExpand={(e) => {
-                              e.stopPropagation();
-                              setExpandedSets((prev) => {
-                                const newSet = new Set(prev);
-                                if (newSet.has(originalIndex)) {
-                                  newSet.delete(originalIndex);
-                                } else {
-                                  newSet.add(originalIndex);
-                                }
-                                return newSet;
-                              });
-                            }}
-                          />
-                        );
-                      })}
-                  </ul>
-                )}
-              </div>
-            )}
-
+                    {t.showSpoiler}
+                  </button>
+                </div>
+              )}
+              <ul className="space-y-3" hidden={isOngoingTour && !spoilerAck}>
+                {live.items
+                  .map((setlist, originalIndex) => ({ setlist, originalIndex }))
+                  .sort((a, b) => a.setlist.date.localeCompare(b.setlist.date))
+                  .map(({ setlist, originalIndex }, sortedIndex) => {
+                    const isSetExpanded = expandedSets.has(originalIndex);
+                    return (
+                      <SetCard
+                        key={originalIndex}
+                        setlist={setlist}
+                        liveTitle={live.title}
+                        index={sortedIndex}
+                        isSetExpanded={isSetExpanded}
+                        songSlugByUuid={songSlugByUuid}
+                        onToggleExpand={(e) => {
+                          e.stopPropagation();
+                          setExpandedSets((prev) => {
+                            const newSet = new Set(prev);
+                            if (newSet.has(originalIndex)) {
+                              newSet.delete(originalIndex);
+                            } else {
+                              newSet.add(originalIndex);
+                            }
+                            return newSet;
+                          });
+                        }}
+                      />
+                    );
+                  })}
+              </ul>
+            </div>
+          )}
+          {isExpand && (
+            <>
             {/* LIVEレポート */}
             {live.reports && live.reports.length > 0 && (
               <div className="mt-4 transition-all duration-300">

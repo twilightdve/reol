@@ -445,7 +445,7 @@ const SongPage: React.FC<PageProps<object, SongPageContext>> = ({ pageContext })
                       className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-bx-yellow"
                     />
                     <LangLink
-                      to={`/live/#live-item-${p.liveItemSlug}`}
+                      to={`/live/${p.liveItemSlug}/`}
                       className="group block"
                     >
                       <div className="flex flex-wrap items-baseline gap-x-3">

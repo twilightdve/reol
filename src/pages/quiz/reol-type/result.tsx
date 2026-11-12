@@ -643,15 +643,19 @@ const ResultPage = () => {
 export default ResultPage;
 
 // 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
+// 回答(localStorage)が無いと診断トップへ移る画面で、URL だけでは中身が無いため noindex(サイトマップからも除外)
 export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
   const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
   const t = quizT(lang);
   return (
-    <SEO
-      title={t("reolType.seoResultTitle")}
-      description={t("reolType.seoResultDesc")}
-      path="/quiz/reol-type/result/"
-      lang={lang}
-    />
+    <>
+      <SEO
+        title={t("reolType.seoResultTitle")}
+        description={t("reolType.seoResultDesc")}
+        path="/quiz/reol-type/result/"
+        lang={lang}
+      />
+      <meta name="robots" content="noindex" />
+    </>
   );
 };
