@@ -21,10 +21,18 @@ export const ARTICLE_SERIES: ArticleSeries[] = [
     name: "曲を読む",
     description: "Reolの曲を一曲ずつ、聴きどころやライヴでの体験とあわせて読む短い記事。",
   },
+  {
+    slug: "seichi-wo-aruku",
+    name: "聖地を歩く",
+    description: "ReolのMVのロケ地やライヴの会場、ゆかりの店を、地図と一緒に歩いて回るためのガイド。",
+  },
 ];
 
 /** 楽曲記事(kind: song)のシリーズ */
 export const SONG_ARTICLE_SERIES = "kyoku-wo-yomu";
+
+/** 手で書いたガイド(guides.ts)のシリーズ */
+export const GUIDE_ARTICLE_SERIES = "seichi-wo-aruku";
 
 export const seriesBySlug = (slug: string): ArticleSeries | undefined =>
   ARTICLE_SERIES.find((s) => s.slug === slug);

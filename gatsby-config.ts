@@ -68,7 +68,7 @@ const config: GatsbyConfig = {
         // /relive/ は私的再生室、/cgraph/(各言語版を含む)と /quiz/bbq2025 系はページ側で noindex。
         // /quiz/reol-type/result/(各言語版を含む)は、回答がブラウザに無いと診断トップへ移る画面なので載せない(ページ側も noindex)。
         // /card/ はプロフィールカードの試験中(運営だけ)だけ noindex(constants/profileCard.ts)。
-        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/quiz/reol-type/result/", "/*/quiz/reol-type/result/", "/card/view/", "/letters/edit/", "/letters/admin/", "/letters/card/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
+        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/quiz/reol-type/result/", "/*/quiz/reol-type/result/", "/card/view/", "/letters/edit/", "/letters/admin/", "/letters/card/", "/place/shibuya/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
         // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する。
         // 予約公開で公開日時がビルド時点でまだ来ていない記事(pageContext.scheduled)も載せない(plan/43)
         query: `

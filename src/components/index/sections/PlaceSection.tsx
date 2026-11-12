@@ -1,7 +1,17 @@
 import React, { useState, useCallback, useMemo, useEffect, useRef } from "react";
-import { TbMapPinHeart, TbMapPin, TbRoute, TbSearch } from "react-icons/tb";
+import {
+  TbArrowRight,
+  TbCheck,
+  TbMapPinHeart,
+  TbMapPin,
+  TbMapPinOff,
+  TbRoute,
+  TbSearch,
+  TbSearchOff,
+} from "react-icons/tb";
 import { GoLinkExternal, GoChevronDown } from "react-icons/go";
 import PlayerSlot from "../../player/PlayerSlot";
+import MapEmbed from "../../common/MapEmbed";
 import UtilityService from "../../../services/UtilityService";
 import { Place, PlaceItem } from "../../../types/places";
 import type { PlaceMarker } from "./PlaceMap";
@@ -14,6 +24,7 @@ import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { LangLink, usePageDict } from "../../../i18n/site/SiteLangContext";
 import { placeDict } from "../../../i18n/site/pages/place";
 import { checkCircleClass } from "../../collection/checkCircle";
+import { SHIBUYA_GUIDE, guidePath } from "../../../utils/songArticles/guides";
 
 // Leaflet はビルド時(Node)には動かないので、ブラウザで動的に読み込む
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
@@ -54,24 +65,12 @@ const matchesType = (place: Place, filter: TypeFilter): boolean => {
   return place.type === filter;
 };
 
-// 作品の種類の札。色はサイトの青・黄の中で分ける(flowbite の Badge の色は使わない)
-const TYPE_TAG_CLASS: Record<string, string> = {
-  MV: "border-bx-yellow/60 text-bx-yellow",
-  TV: "border-bx-blue/70 text-bx-blue",
-  CM: "border-bx-blueLight/70 text-bx-blueLight",
-  XFD: "border-bx-ink3/70 text-bx-ink3",
-};
+// 小さな札(作品の種類・要費用など)。色は付けない。黄は「選んでいるもの」、青は「巡礼済み」だけに使う
+const tagCls =
+  "inline-flex flex-shrink-0 items-center rounded border border-bx-line px-1.5 text-[11px] leading-5 text-bx-ink3";
 
 const TypeTag: React.FC<{ type: string }> = ({ type }) =>
-  type ? (
-    <span
-      className={`inline-flex flex-shrink-0 items-center rounded border px-1.5 text-[10px] font-extrabold leading-[18px] tracking-[0.14em] ${
-        TYPE_TAG_CLASS[type] ?? "border-bx-ink3/70 text-bx-ink3"
-      }`}
-    >
-      {type}
-    </span>
-  ) : null;
+  type ? <span className={tagCls}>{type}</span> : null;
 
 // 都道府県の並び順（北から南へ）
 const PREFECTURE_ORDER = [
@@ -339,10 +338,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
     [viewMode]
   );
 
-  const pillCls =
-    "inline-flex min-h-[36px] items-center gap-1 rounded-full border px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow";
+  // 行の中のボタン・リンク。3つとも同じ静かな形(色が付くのは、選んでいる行と、絞り込みで選んでいる札だけ)
+  const actionCls =
+    "inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-bx-line px-3 text-xs font-bold text-bx-ink transition-colors hover:border-bx-ink3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow";
 
-  // スポット1件。タイプ別(作品の中)と都道府県別で同じ形を使う
+  // スポット1件。タイプ別(作品の中)と都道府県別で同じ形を使う。
+  // 枠で囲まず罫線で区切る行にして、選んでいる行だけ左端に黄の線を引く
   const renderSpot = (
     place: Place,
     item: PlaceItem,
@@ -354,92 +355,76 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
       <li
         key={`spot-${place.placeUuid}-${item.placeItemUuid}`}
         id={`spot-${item.placeItemUuid}`}
-        className={`scroll-mt-20 rounded-lg border p-3 transition-colors motion-reduce:transition-none ${
-          isSelected
-            ? "border-bx-yellow bg-bx-yellow/[0.07]"
-            : "border-bx-line bg-bx-bg/40"
+        data-selected={isSelected ? "true" : undefined}
+        className={`scroll-mt-20 border-t border-bx-line px-3 py-4 transition-colors first:border-t-0 motion-reduce:transition-none sm:px-4 ${
+          isSelected ? "bg-bx-yellow/[0.07] shadow-[inset_2px_0_0_rgb(var(--bx-yellow))]" : ""
         }`}
       >
-        <div className="flex items-start gap-2.5">
-          {opts.index !== undefined ? (
-            <span
-              className="mt-px inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-bx-yellow text-xs font-extrabold tabular-nums text-bx-bg"
-              aria-hidden="true"
-            >
-              {opts.index + 1}
-            </span>
-          ) : (
-            <TbMapPin className="mt-1 flex-shrink-0 text-base text-bx-yellow" aria-hidden="true" />
-          )}
+        <div className="flex items-start gap-2">
+          <span
+            className="flex h-5 w-5 flex-shrink-0 items-center justify-center text-xs tabular-nums text-bx-ink3"
+            aria-hidden="true"
+          >
+            {opts.index !== undefined ? opts.index + 1 : <TbMapPin className="text-base" />}
+          </span>
           <div className="min-w-0 flex-1">
             {opts.showWork && (
-              <p className="mb-1 flex items-center gap-1.5 text-[11px] text-bx-ink3">
+              <p className="mb-1 flex items-center gap-2 text-xs text-bx-ink3">
                 <TypeTag type={place.type} />
                 <span className="truncate">{place.title}</span>
               </p>
             )}
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <h4 className="text-sm font-bold leading-snug tracking-wide text-bx-ink">
-                {item.name}
-              </h4>
-              {item.needsCost && (
-                <span className="rounded border border-bx-yellow/50 bg-bx-yellow/10 px-1.5 py-px text-[10px] text-bx-yellow">
-                  {t.needsCost}
-                </span>
-              )}
-              {item.needsPermission && (
-                <span className="rounded border border-bx-ink3/50 bg-bx-ink/10 px-1.5 py-px text-[10px] text-bx-ink">
-                  {t.needsPermission}
-                </span>
-              )}
+              <h4 className="text-sm font-bold leading-5 text-bx-ink">{item.name}</h4>
+              {item.needsCost && <span className={tagCls}>{t.needsCost}</span>}
+              {item.needsPermission && <span className={tagCls}>{t.needsPermission}</span>}
             </div>
             {item.address && (
-              <p className="mt-1 text-xs leading-snug text-bx-ink3">{item.address}</p>
+              <p className="mt-1 text-xs leading-5 text-bx-ink3">{item.address}</p>
             )}
             {item.memo && (
               <p
-                className="mt-1.5 break-words text-[13px] leading-relaxed text-bx-ink [&_a]:break-all [&_a]:text-bx-blue [&_a]:underline"
+                className="mt-2 break-words text-[13px] leading-relaxed text-bx-ink [&_a]:break-all [&_a]:text-bx-blue [&_a]:underline"
                 dangerouslySetInnerHTML={{
                   __html: UtilityService.sanitizeHTMLWithAllowedTags(item.memo),
                 }}
               />
             )}
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {hasLatLng(item) && (
-                <button
-                  type="button"
-                  onClick={() => showOnMap(place, item)}
-                  className={`${pillCls} border-bx-yellow/60 text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg`}
-                >
-                  <TbMapPin aria-hidden="true" />
-                  {t.showOnMap}
-                </button>
-              )}
-              {mapsHref && (
-                <a
-                  href={mapsHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${item.name} ${t.openInGoogleMaps}`}
-                  className={`${pillCls} border-bx-line text-bx-ink hover:border-bx-blue hover:text-bx-blue`}
-                >
-                  Google Maps
-                  <GoLinkExternal className="text-[10px]" aria-hidden="true" />
-                </a>
-              )}
-              {item.placeUrl && (
-                <a
-                  href={item.placeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${pillCls} border-bx-line text-bx-ink hover:border-bx-blue hover:text-bx-blue`}
-                >
-                  {t.website}
-                  <GoLinkExternal className="text-[10px]" aria-hidden="true" />
-                </a>
-              )}
-            </div>
           </div>
+        </div>
+        {/* その場所の Google マップ。上の大きな地図は全体の位置、こちらは建物や通りが読める近さ */}
+        {item.mapsEmbedUrl && (
+          <MapEmbed
+            src={item.mapsEmbedUrl}
+            title={t.mapOf(item.name)}
+            className="mt-3 h-44 sm:h-52"
+          />
+        )}
+        <div className="mt-3 flex flex-wrap gap-2">
+          {hasLatLng(item) && (
+            <button type="button" onClick={() => showOnMap(place, item)} className={actionCls}>
+              <TbMapPin className="text-sm text-bx-ink3" aria-hidden="true" />
+              {t.showOnMap}
+            </button>
+          )}
+          {mapsHref && (
+            <a
+              href={mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${item.name} ${t.openInGoogleMaps}`}
+              className={actionCls}
+            >
+              Google Maps
+              <GoLinkExternal className="text-xs text-bx-ink3" aria-hidden="true" />
+            </a>
+          )}
+          {item.placeUrl && (
+            <a href={item.placeUrl} target="_blank" rel="noopener noreferrer" className={actionCls}>
+              {t.website}
+              <GoLinkExternal className="text-xs text-bx-ink3" aria-hidden="true" />
+            </a>
+          )}
         </div>
       </li>
     );
@@ -472,10 +457,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                   i > 0 ? "border-l border-bx-line pl-5 sm:pl-7" : ""
                 }`}
               >
-                <dt className="mt-1.5 text-[10px] font-extrabold tracking-[0.2em] text-bx-ink3">
-                  {stat.label}
-                </dt>
-                <dd className="text-2xl sm:text-4xl font-extrabold leading-none tabular-nums text-bx-ink">
+                <dt className="mt-2 text-xs leading-4 text-bx-ink3">{stat.label}</dt>
+                <dd className="text-2xl sm:text-4xl font-bold leading-none tabular-nums text-bx-ink">
                   <StatCounter value={stat.value} />
                 </dd>
               </div>
@@ -484,32 +467,27 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         </div>
 
         <div className="mt-4 space-y-2 lg:mt-0">
-          {/* 地域ごとのガイド(日本語だけのページ。各言語からも同じ URL へ) */}
+          {/* 地域ごとのガイド(読みもののシリーズ「聖地を歩く」。日本語だけのページで、各言語からも同じ URL へ) */}
           <LangLink
-            to="/place/shibuya/"
+            to={guidePath(SHIBUYA_GUIDE)}
             onClick={() => trackEvent("place_guide_click", { category: "navigation", label: "shibuya" })}
-            className="group flex items-center gap-3 rounded-xl border border-bx-yellow/40 bg-bx-yellow/[0.06] p-3 transition-colors hover:border-bx-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+            className="group flex items-center gap-3 rounded-xl border border-bx-line bg-bx-bg/40 p-3 transition-colors hover:border-bx-ink3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
           >
-            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-bx-yellow text-xl text-bx-bg">
+            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-bx-surface/10 text-xl text-bx-ink">
               <TbRoute aria-hidden="true" />
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block text-[10px] font-extrabold tracking-[0.3em] text-bx-yellow">
-                GUIDE
-              </span>
-              <span className="mt-0.5 block text-sm font-bold leading-snug text-bx-ink">
+              <span className="block text-sm font-bold leading-5 text-bx-ink">
                 {t.shibuyaGuide}
               </span>
-              <span className="mt-0.5 block text-[11px] leading-snug text-bx-ink3">
+              <span className="mt-1 block text-xs leading-4 text-bx-ink3">
                 {t.shibuyaGuideDesc}
               </span>
             </span>
-            <span
-              className="flex-shrink-0 text-bx-yellow transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+            <TbArrowRight
+              className="flex-shrink-0 text-lg text-bx-yellow transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
               aria-hidden="true"
-            >
-              →
-            </span>
+            />
           </LangLink>
 
           <div className="rounded-xl border border-bx-line bg-bx-bg/40 p-3">
@@ -527,10 +505,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     {visitedCount} / {totalPlaceCount}
                   </span>
                 </span>
-                <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-bx-line">
+                <span className="mt-2 block h-1 overflow-hidden rounded-full bg-bx-line">
                   <span
-                    className="block h-full rounded-full bg-bx-blue transition-[width] duration-300 motion-reduce:transition-none"
-                    style={{ width: `${visitedRate}%` }}
+                    className="block h-full origin-left bg-bx-blue transition-transform duration-300 motion-reduce:transition-none"
+                    style={{ transform: `scaleX(${visitedRate / 100})` }}
                   />
                 </span>
               </span>
@@ -578,12 +556,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                           )}
                         </span>
                         {isVisited && (
-                          <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-bx-blue text-[9px] font-bold text-bx-bg">
-                            ✓
+                          <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-bx-blue text-xs text-bx-bg">
+                            <TbCheck aria-hidden="true" />
                           </span>
                         )}
                       </span>
-                      <span className="w-full text-[9px] leading-tight text-bx-ink3 line-clamp-2">
+                      <span className="w-full text-[11px] leading-4 text-bx-ink3 line-clamp-2">
                         {p.title}
                       </span>
                     </div>
@@ -592,13 +570,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               </div>
             )}
             {visitedRate >= 100 && totalPlaceCount > 0 && (
-              <p className="mt-3 text-center text-[11px] font-bold text-bx-yellow">
+              <p className="mt-3 text-xs font-bold leading-4 text-bx-blue">
                 {t.allComplete(totalPlaceCount)}
               </p>
             )}
-            <p className="mt-2 text-[10px] leading-snug text-bx-ink3">
-              {t.stampHint}
-            </p>
+            <p className="mt-2 text-xs leading-4 text-bx-ink3">{t.stampHint}</p>
           </div>
         </div>
       </div>
@@ -613,7 +589,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
         >
           {markers.length === 0 ? (
             <EmptyState
-              icon="📍"
+              icon={<TbMapPinOff className="inline text-bx-ink3" aria-hidden="true" />}
               title={t.noMarkersTitle}
               description={t.noMarkersDesc}
               actionLabel={t.clear}
@@ -632,7 +608,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               role="status"
               aria-live="polite"
               aria-busy="true"
-              className={`animate-pulse rounded-xl border border-bx-line bg-bx-surface/5 motion-reduce:animate-none ${mapHeightCls}`}
+              className={`rounded-xl border border-bx-line bg-bx-surface/5 ${mapHeightCls}`}
             >
               <span className="sr-only">{t.mapLoading}</span>
             </div>
@@ -648,7 +624,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             />
           )}
           {visitedCount > 0 && (
-            <p className="mt-1.5 flex items-center justify-end gap-1.5 text-[10px] text-bx-ink3">
+            <p className="mt-2 flex items-center justify-end gap-2 text-xs leading-4 text-bx-ink3">
               <span className="inline-block h-2 w-2 rounded-full bg-bx-blue" aria-hidden="true" />
               {t.visited}
             </p>
@@ -661,7 +637,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             <label className="relative block min-w-0 flex-1 basis-full sm:basis-0">
               <span className="sr-only">{t.searchLabel}</span>
               <TbSearch
-                className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-bx-ink3"
+                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-bx-ink3"
                 aria-hidden="true"
               />
               <input
@@ -670,11 +646,11 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
                 style={NO_ZOOM_STYLE}
-                className="block w-full min-h-[44px] rounded-full border border-bx-line bg-bx-bg/40 py-2 pl-10 pr-4 text-bx-ink placeholder:text-bx-ink3/70 focus:border-bx-blue focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                className="block w-full min-h-[44px] rounded-lg border border-bx-line bg-bx-bg/40 py-2 pl-9 pr-3 text-bx-ink placeholder:text-bx-ink3/70 focus:border-bx-ink3 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-bx-yellow"
               />
             </label>
             <div
-              className="inline-flex flex-shrink-0 rounded-full border border-bx-line bg-bx-bg/40 p-0.5"
+              className="inline-flex flex-shrink-0 rounded-lg border border-bx-line bg-bx-bg/40 p-1"
               role="radiogroup"
               aria-label={t.viewModeAria}
             >
@@ -687,8 +663,8 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     role="radio"
                     aria-checked={active}
                     onClick={() => setViewMode(mode)}
-                    className={`min-h-[38px] rounded-full px-3.5 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow ${
-                      active ? "bg-bx-blue text-bx-bg" : "text-bx-ink3 hover:text-bx-ink"
+                    className={`min-h-[36px] rounded px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow ${
+                      active ? "bg-bx-surface/10 text-bx-ink" : "text-bx-ink3 hover:text-bx-ink"
                     }`}
                   >
                     {mode === "type" ? t.viewType : t.viewPrefecture}
@@ -696,7 +672,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 );
               })}
             </div>
-            <span className="ml-auto text-[11px] tabular-nums text-bx-ink3">
+            <span className="ml-auto text-xs tabular-nums text-bx-ink3">
               {t.count(filteredPlaces.length, places.length)}
             </span>
           </div>
@@ -705,10 +681,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           <div
             role="region"
             aria-label={t.filterAria}
-            className="sticky top-0 z-20 -mx-3 mt-2 flex items-center gap-2 border-b border-bx-line bg-bx-bg/95 px-3 py-2 backdrop-blur sm:-mx-5 sm:px-5 lg:mx-0 lg:rounded-lg lg:border lg:px-2"
+            className="sticky top-0 z-20 -mx-3 mt-2 flex items-center gap-2 border-b border-bx-line bg-bx-bg px-3 py-2 sm:-mx-5 sm:px-5 lg:mx-0 lg:rounded-xl lg:border lg:px-2"
           >
             <div
-              className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex min-w-0 flex-1 gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               role="radiogroup"
               aria-label={t.typeFilterAria}
             >
@@ -722,15 +698,15 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                     role="radio"
                     aria-checked={active}
                     onClick={() => setTypeFilter(f.key)}
-                    className={`inline-flex min-h-[40px] flex-shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-bx-yellow ${
+                    className={`inline-flex min-h-[40px] flex-shrink-0 items-center gap-2 rounded-lg border px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-bx-yellow ${
                       active
                         ? "border-bx-yellow bg-bx-yellow text-bx-bg"
-                        : "border-bx-line bg-bx-surface/5 text-bx-ink hover:border-bx-blue"
+                        : "border-bx-line text-bx-ink hover:border-bx-ink3"
                     }`}
                   >
                     {f.key === "OTHER" ? t.typeOther : f.label}
                     <span
-                      className={`text-[10px] font-normal tabular-nums ${
+                      className={`text-xs font-normal tabular-nums ${
                         active ? "text-bx-bg/80" : "text-bx-ink3"
                       }`}
                     >
@@ -744,7 +720,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="min-h-[36px] flex-shrink-0 rounded-full border border-bx-line px-3 text-[11px] text-bx-ink transition-colors hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                className="min-h-[40px] flex-shrink-0 rounded-lg px-2 text-xs text-bx-ink3 transition-colors hover:text-bx-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
               >
                 {t.clear}
               </button>
@@ -757,6 +733,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               <div className="space-y-2">
                 {filteredPlaces.length === 0 ? (
                   <EmptyState
+                    icon={<TbSearchOff className="inline text-bx-ink3" aria-hidden="true" />}
                     title={t.noMatchTitle}
                     description={t.noMatchDesc}
                     actionLabel={t.clear}
@@ -781,11 +758,13 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                       <div
                         key={`place-${place.placeUuid}`}
                         id={`place-${place.slug}`}
-                        className={`scroll-mt-20 rounded-xl border bg-bx-surface/[0.035] transition-colors motion-reduce:transition-none ${
-                          isExpanded ? "border-bx-blue/70" : "border-bx-line hover:border-bx-blue"
+                        className={`scroll-mt-20 overflow-hidden rounded-xl border transition-colors motion-reduce:transition-none ${
+                          isExpanded
+                            ? "border-bx-ink3/60 bg-bx-surface/[0.06]"
+                            : "border-bx-line bg-bx-surface/[0.03] hover:border-bx-ink3/60"
                         }`}
                       >
-                        <div className="flex items-center gap-1 p-2 sm:p-2.5">
+                        <div className="flex items-center gap-1 p-2 sm:p-3">
                           <button
                             type="button"
                             onClick={() => toggleVisited(place.placeUuid)}
@@ -815,24 +794,24 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                                   src={thumb}
                                   alt=""
                                   width={96}
-                                  height={54}
+                                  height={56}
                                   loading="lazy"
-                                  className="h-[54px] w-24 flex-shrink-0 rounded-md bg-bx-surface/5 object-cover sm:h-[63px] sm:w-28"
+                                  className="h-14 w-24 flex-shrink-0 rounded-md bg-bx-surface/5 object-cover sm:h-[72px] sm:w-32"
                                 />
                               ) : (
-                                <span className="flex h-[54px] w-24 flex-shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-bx-blueDeep/50 to-bx-surface/5 text-bx-ink3 sm:h-[63px] sm:w-28">
+                                <span className="flex h-14 w-24 flex-shrink-0 items-center justify-center rounded-md bg-bx-surface/10 text-bx-ink3 sm:h-[72px] sm:w-32">
                                   <TbMapPinHeart className="text-xl" aria-hidden="true" />
                                 </span>
                               )}
                               <span className="min-w-0 flex-1">
                                 <span
-                                  className={`block text-[15px] font-bold leading-snug tracking-wide text-bx-ink ${
+                                  className={`block text-[15px] font-bold leading-snug text-bx-ink ${
                                     isExpanded ? "" : "line-clamp-2"
                                   }`}
                                 >
                                   {place.title}
                                 </span>
-                                <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] font-normal text-bx-ink3">
+                                <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-normal text-bx-ink3">
                                   <TypeTag type={place.type} />
                                   <span>{t.spots(itemCount)}</span>
                                   {prefectures.length > 0 && (
@@ -856,16 +835,18 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                         {isExpanded && (
                           <div
                             id={`place-panel-${place.slug}`}
-                            className="space-y-3 border-t border-bx-line p-3 sm:p-4"
+                            className="border-t border-bx-line"
                           >
                             {place.url && place.url.indexOf("youtu.be") !== -1 && (
-                              <PlayerSlot
-                                videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
-                                title={place.title}
-                                className="rounded-lg"
-                              />
+                              <div className="border-b border-bx-line p-3 sm:p-4">
+                                <PlayerSlot
+                                  videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
+                                  title={place.title}
+                                  className="rounded-lg"
+                                />
+                              </div>
                             )}
-                            <ol className="space-y-2">
+                            <ol>
                               {place.items?.map((item, itemIdx) =>
                                 renderSpot(place, item, { index: itemIdx })
                               )}
@@ -881,9 +862,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
 
             {/* ===== 都道府県別ビュー ===== */}
             {viewMode === "prefecture" && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {prefectureGroups.length === 0 ? (
                   <EmptyState
+                    icon={<TbSearchOff className="inline text-bx-ink3" aria-hidden="true" />}
                     title={t.noMatchTitle}
                     description={t.noMatchDesc}
                     actionLabel={t.clear}
@@ -893,13 +875,13 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 ) : (
                   prefectureGroups.map(([pref, list]) => (
                     <div key={`pref-${pref}`}>
-                      <h3 className="flex items-baseline gap-2 border-b border-bx-line pb-1.5 text-sm font-extrabold tracking-wider text-bx-ink">
+                      <h3 className="flex items-baseline gap-2 px-1 text-sm font-bold text-bx-ink">
                         <span>{pref}</span>
-                        <span className="text-[11px] font-bold tabular-nums text-bx-blue">
+                        <span className="text-xs font-normal tabular-nums text-bx-ink3">
                           {list.length}
                         </span>
                       </h3>
-                      <ul className="mt-2 space-y-2">
+                      <ul className="mt-2 overflow-hidden rounded-xl border border-bx-line bg-bx-surface/[0.03]">
                         {list.map(({ place, item }) =>
                           renderSpot(place, item, { showWork: true })
                         )}

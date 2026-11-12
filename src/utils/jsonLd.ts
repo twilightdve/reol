@@ -185,8 +185,8 @@ type ArticleInput = {
   dateCreated?: string | null;
   /** タグ(画面に出しているものと同じ) */
   keywords?: string[];
-  /** 記事が扱う曲名(about に MusicRecording として出す) */
-  songName: string;
+  /** 記事が扱う曲名(about に MusicRecording として出す)。曲に付かない記事(ガイド)では渡さない */
+  songName?: string;
 };
 
 /**
@@ -214,10 +214,14 @@ export const buildArticle = ({
   ...(dateModified ? { dateModified } : {}),
   ...(dateCreated ? { dateCreated } : {}),
   ...(keywords && keywords.length > 0 ? { keywords: keywords.join(", ") } : {}),
-  about: {
-    "@type": "MusicRecording",
-    name: songName,
-    byArtist: REOL_PERFORMER,
-  },
+  ...(songName
+    ? {
+        about: {
+          "@type": "MusicRecording",
+          name: songName,
+          byArtist: REOL_PERFORMER,
+        },
+      }
+    : {}),
   isPartOf: { "@type": "WebSite", name: "!Legit｜Reol Unofficial Fansite", url: `${SITE_URL}/` },
 });

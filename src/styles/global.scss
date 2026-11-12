@@ -315,6 +315,33 @@ body.is-ios {
   }
 }
 
+/* 聖地巡礼ガイド(渋谷編)の番号つきのピンと、順番の目安の線 */
+.route-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: rgb(var(--bx-yellow));
+  border: 2px solid rgb(var(--bx-bg));
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  color: rgb(var(--bx-bg));
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.place-pin-wrap:focus-visible .route-pin {
+  box-shadow: 0 0 0 2px rgb(var(--bx-ink)), 0 1px 4px rgb(0 0 0 / 0.5);
+}
+
+.route-line {
+  stroke: rgb(var(--bx-ink));
+  stroke-opacity: 0.7;
+}
+
 .place-map .leaflet-container {
   background: rgb(var(--bx-bg));
   font-family: inherit;
@@ -345,7 +372,7 @@ body.is-ios {
 .place-map .leaflet-container .leaflet-control-attribution {
   background: rgb(var(--bx-bg) / 0.8);
   color: rgb(var(--bx-ink3));
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .place-map .leaflet-container .leaflet-control-attribution a {

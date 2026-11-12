@@ -140,7 +140,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({
   }, [onSelect, fitAll]);
 
   const controlButtonCls =
-    "inline-flex items-center gap-1 min-h-[36px] rounded-lg border border-bx-line bg-bx-bg/90 px-2.5 text-[11px] font-bold text-bx-ink backdrop-blur transition-colors hover:border-bx-blue hover:text-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow";
+    "inline-flex items-center gap-1.5 min-h-[36px] rounded-lg border border-bx-line bg-bx-bg px-3 text-xs font-bold text-bx-ink transition-colors hover:border-bx-ink3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow";
 
   return (
     <div
@@ -201,19 +201,19 @@ const PlaceMap: React.FC<PlaceMapProps> = ({
         <div
           role="region"
           aria-label={t.selectedSpotAria}
-          className="absolute inset-x-2 bottom-6 z-[1000] rounded-xl border border-bx-line bg-bx-bg/95 p-3 shadow-lg backdrop-blur sm:left-auto sm:w-[340px]"
+          className="absolute inset-x-2 bottom-6 z-[1000] rounded-xl border border-bx-line bg-bx-bg p-3 shadow-[0_8px_24px_rgb(0_0_0/0.35)] sm:left-auto sm:w-[340px]"
         >
           <div className="flex items-start gap-2">
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[11px] text-bx-ink3">
+              <p className="truncate text-xs leading-4 text-bx-ink3">
                 {selected.place.type ? `${selected.place.type}・` : ""}
                 {selected.place.title}
               </p>
-              <p className="mt-0.5 text-sm font-bold leading-snug text-bx-ink">
+              <p className="mt-1 text-sm font-bold leading-5 text-bx-ink">
                 {selected.item.name}
               </p>
               {selected.item.address && (
-                <p className="mt-0.5 text-[11px] leading-snug text-bx-ink3">
+                <p className="mt-1 text-xs leading-4 text-bx-ink3">
                   {selected.item.address}
                 </p>
               )}
@@ -222,16 +222,16 @@ const PlaceMap: React.FC<PlaceMapProps> = ({
               type="button"
               onClick={() => onSelect(null)}
               aria-label={t.close}
-              className="-mr-1 -mt-1 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-bx-ink3 transition-colors hover:text-bx-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+              className="-mr-1 -mt-1 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg text-bx-ink3 transition-colors hover:text-bx-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
             >
               <TbX aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => onShowInList(selected)}
-              className="inline-flex min-h-[36px] items-center gap-1 rounded-full bg-bx-yellow px-3 text-xs font-bold text-bx-bg transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-bx-bg"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg bg-bx-yellow px-3 text-xs font-bold text-bx-bg transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-bx-bg"
             >
               <TbList aria-hidden="true" />
               {t.showInList}
@@ -242,10 +242,10 @@ const PlaceMap: React.FC<PlaceMapProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.openInGoogleMaps}
-                className="inline-flex min-h-[36px] items-center gap-1 rounded-full border border-bx-line px-3 text-xs font-bold text-bx-ink transition-colors hover:border-bx-blue hover:text-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-bx-line px-3 text-xs font-bold text-bx-ink transition-colors hover:border-bx-ink3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
               >
                 Google Maps
-                <GoLinkExternal className="text-[10px]" aria-hidden="true" />
+                <GoLinkExternal className="text-xs text-bx-ink3" aria-hidden="true" />
               </a>
             )}
           </div>
@@ -253,7 +253,7 @@ const PlaceMap: React.FC<PlaceMapProps> = ({
       )}
 
       {coarsePointer && !selected && (
-        <p className="pointer-events-none absolute bottom-6 left-2 z-[1000] rounded-full border border-bx-line bg-bx-bg/85 px-2.5 py-1 text-[10px] text-bx-ink3 backdrop-blur">
+        <p className="pointer-events-none absolute bottom-6 left-2 z-[1000] rounded-md border border-bx-line bg-bx-bg px-2 py-1 text-xs leading-4 text-bx-ink3">
           {t.twoFingerHint}
         </p>
       )}

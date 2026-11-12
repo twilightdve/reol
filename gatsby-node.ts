@@ -42,6 +42,7 @@ import { DESIGN_MANIFEST } from "./src/utils/songArticles/designManifest";
 import { isReleased } from "./src/utils/songArticles/schedule";
 import { ARTICLES_FEED_PATH, buildArticlesFeed } from "./src/utils/songArticles/feed";
 import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
+import { GUIDE_ARTICLES } from "./src/utils/songArticles/guides";
 import { ARTICLE_SERIES, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags, groupingRelease } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 
@@ -1603,19 +1604,25 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
     let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null; ogImage: string | null }[] = [];
     try {
-      const listed = loadSongArticles(process.cwd())
-        .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt)
-        .sort((x, y) => String(y.article.publishedAt).localeCompare(String(x.article.publishedAt)));
-      const scheduledCount = listed.filter((a) => !isReleased(a.article.publishedAt, BUILT_AT)).length;
+      // 手で書いたガイド(guides.ts。曲に付かないので songTitle は空)も、楽曲記事と同じ並びに入れる
+      const listed = [
+        ...loadSongArticles(process.cwd())
+          .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt)
+          .map((a) => ({
+            slug: a.article.slug as string,
+            title: a.parsed.title,
+            songTitle: a.article.songTitle,
+            createdAt: (a.article.createdAt ?? null) as string | null,
+            publishedAt: (a.article.publishedAt ?? null) as string | null,
+          })),
+        ...GUIDE_ARTICLES.map((g) => ({ slug: g.slug, title: g.title, songTitle: "", createdAt: g.publishedAt, publishedAt: g.publishedAt })),
+      ].sort((x, y) => String(y.publishedAt).localeCompare(String(x.publishedAt)));
+      const scheduledCount = listed.filter((a) => !isReleased(a.publishedAt, BUILT_AT)).length;
       homeArticles = listed.slice(0, 1 + HOME_ARTICLE_COUNT + scheduledCount).map((a) => ({
-        slug: a.article.slug as string,
-        title: a.parsed.title,
-        songTitle: a.article.songTitle,
-        createdAt: a.article.createdAt ?? null,
-        publishedAt: a.article.publishedAt ?? null,
+        ...a,
         // 表紙の画像(plan/59)。大きく出す1本は、より大きい OGP 画像(1200×630)も使う
-        cover: articleCoverPath(a.article.slug as string),
-        ogImage: articleOgImagePath(a.article.slug as string),
+        cover: articleCoverPath(a.slug),
+        ogImage: articleOgImagePath(a.slug),
       }));
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
@@ -1958,6 +1965,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         unlisted: boolean;
         /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・公開日時の無い記事は null */
         pageViews: number | null;
+        /** 手で書いたガイド(guides.ts)。いいねが無いので、一覧でいいね数を出さない */
+        kind?: "guide";
       }[] = [];
       // 表示回数はデプロイ前に scripts/fetch-article-pageviews.ts が書いたファイルから(無ければ数を出さない)
       const pageViewsPath = ".analytics-local/article-pageviews.json";
@@ -2161,6 +2170,32 @@ export const createPages: GatsbyNode["createPages"] = async ({
           })
         );
         createPage({ ...page, context: { ...(page.context as object), related } });
+      }
+
+      // 手で書いたガイド(guides.ts。ページは src/pages/articles/<slug>.tsx)を一覧・シリーズ・RSS に入れる
+      for (const g of GUIDE_ARTICLES) {
+        if (indexEntries.some((a) => a.slug === g.slug)) {
+          throw new Error(`[articles] ガイド「${g.id}」の slug「${g.slug}」が楽曲記事と重なっています`);
+        }
+        indexEntries.push({
+          id: g.id,
+          slug: g.slug,
+          title: g.title,
+          songTitle: "",
+          versionLabel: null,
+          summary: g.summary,
+          createdAt: g.publishedAt,
+          publishedAt: g.publishedAt,
+          seriesSlug: g.seriesSlug,
+          tags: g.tags,
+          album: null,
+          cover: articleCoverPath(g.slug),
+          preview: false,
+          unlisted: false,
+          // 表示回数は出さない(渋谷編は公開した後に URL を移したので、公開日からの数にならない)
+          pageViews: null,
+          kind: "guide",
+        });
       }
 
       if (indexEntries.length > 0) {

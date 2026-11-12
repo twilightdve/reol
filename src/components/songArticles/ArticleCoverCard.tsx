@@ -67,8 +67,11 @@ const ArticleCoverCard: React.FC<ArticleCoverCardProps> = ({ slug, title, songTi
               <strong className={`font-extrabold text-[1.1em] text-bx-ink ${c.text}`}>{parts.song}</strong>
               {parts.after}
             </>
-          ) : (
+          ) : songTitle ? (
             title
+          ) : (
+            // 曲名の無い読みもの(ガイド)は、題名の全体を本文の色で出す
+            <span className={`text-bx-ink ${c.text}`}>{title}</span>
           )}
         </span>
       </span>

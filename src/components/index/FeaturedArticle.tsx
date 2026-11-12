@@ -55,8 +55,11 @@ const FeaturedArticle: React.FC<{ article: HomeArticle }> = ({ article: a }) => 
               {afterLead}
               {afterBody && <span className="inline-block max-w-full">{afterBody}</span>}
             </>
-          ) : (
+          ) : a.songTitle ? (
             a.title
+          ) : (
+            // 曲名の無い読みもの(ガイド)は、題名の全体を本文の色で出す
+            <span className="text-bx-ink">{a.title}</span>
           )}
         </h3>
         {date && (

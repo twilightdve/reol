@@ -57,6 +57,8 @@ type IndexEntry = {
   unlisted?: boolean;
   /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・限定公開は null */
   pageViews?: number | null;
+  /** 手で書いたガイド(utils/songArticles/guides.ts)。曲に付かず(songTitle は空・album は null)、いいねも無い */
+  kind?: "guide";
 };
 
 /** 曲順: まとめる作品の発売の古い順(同じ日は作品名)、作品の中は曲順。作品の無い記事は最後 */
@@ -165,8 +167,11 @@ const ArticleItem: React.FC<{
               <strong className="font-extrabold text-[1.12em] text-bx-ink group-hover:text-bx-blue">{parts.song}</strong>
               {parts.after}
             </>
-          ) : (
+          ) : a.songTitle ? (
             a.title
+          ) : (
+            // 曲名の無い読みもの(ガイド)は、題名の全体を本文の色で出す
+            <span className="text-bx-ink group-hover:text-bx-blue">{a.title}</span>
           )}
         </h3>
         {a.summary && <p className="mt-2 text-[13px] leading-relaxed text-bx-ink2 line-clamp-3">{a.summary}</p>}
@@ -318,7 +323,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const [likeCounts, setLikeCounts] = useState<Map<string, number> | null>(null);
   useEffect(() => {
     let alive = true;
-    fetchArticleLikeCounts(articles.map((a) => a.id))
+    fetchArticleLikeCounts(articles.filter((a) => a.kind !== "guide").map((a) => a.id))
       .then((m) => alive && setLikeCounts(m))
       .catch(() => undefined);
     return () => {
@@ -343,6 +348,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
   };
   const hasViews = articles.some((a) => a.pageViews != null);
+  // 曲の解釈の断り書き・曲順・いいね順は、楽曲記事がある一覧だけ(ガイドだけのシリーズのページには出さない)
+  const hasSongArticles = articles.some((a) => a.kind !== "guide");
   const sortable: Record<SortKey, boolean> = { new: true, old: true, track: true, likes: likeCounts !== null, views: hasViews };
   const activeSort: SortKey = sortable[sort] ? sort : "new";
 
@@ -410,7 +417,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
   const itemProps = (a: IndexEntry) => ({
     a,
     activeTag,
-    likes: likeCounts ? likeCounts.get(a.id) ?? 0 : null,
+    // ガイドにはいいねのボタンが無いので、数も出さない
+    likes: likeCounts && a.kind !== "guide" ? likeCounts.get(a.id) ?? 0 : null,
     badge: isOwner ? ownerBadge(a, now) : null,
     now,
   });
@@ -440,7 +448,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-tight">{current ? current.name : "読みもの"}</h1>
           <p className="mt-3 text-[14px] leading-relaxed text-bx-ink2">{current ? current.description : DESCRIPTION}</p>
           {/* 断り書き(2026-10-13 ユーザー「あくまで個人の解釈であることで、曲をもう一度聴き直す叩き台にしてほしい旨を記載」) */}
-          <p className="mt-4 border-l-2 border-bx-line pl-3 text-[13px] leading-relaxed text-bx-ink3">{NOTE}</p>
+          {hasSongArticles && <p className="mt-4 border-l-2 border-bx-line pl-3 text-[13px] leading-relaxed text-bx-ink3">{NOTE}</p>}
           {/* RSS フィード(2026-10-23 ユーザー「記事のRSSフィードを設定できるようにしたい」)。リーダーに登録する URL */}
           <p className="mt-3 text-[13px] text-bx-ink3">
             <a href={ARTICLES_FEED_PATH} className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-bx-blue">
@@ -492,44 +500,47 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
           </div>
         )}
 
-        {/* 並べ替え。いいね数が読めない時はいいね順を、表示回数が無い時はよく読まれている順を選べない */}
-        <div className="mb-6 flex flex-wrap items-center gap-2 text-[12px]" role="group" aria-label="並べ替え">
-          <span className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">並べ替え</span>
-          {(
-            [
-              ["new", "新着順"],
-              ["track", "曲順"],
-              ["likes", "いいねが多い順"],
-              ["views", "よく読まれている順"],
-            ] as const
-          ).map(([key, label]) => {
-            if (key === "views" && !hasViews) return null;
-            // 日付のボタンは 新着順 ⇄ 古い順 のトグル(選ばれている時にもう一度押すと逆になる)
-            const isDate = key === "new";
-            const active = isDate ? activeSort === "new" || activeSort === "old" : key === activeSort;
-            const text = isDate && activeSort === "old" ? "古い順" : label;
-            return (
-              <button
-                key={key}
-                type="button"
-                aria-pressed={active}
-                disabled={!sortable[key]}
-                onClick={() => chooseSort(isDate ? (activeSort === "new" ? "old" : "new") : key)}
-                title={isDate && active ? (activeSort === "new" ? "押すと古い順" : "押すと新着順") : undefined}
-                className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
-                  active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
-                }`}
-              >
-                {text}
-                {isDate && active && (
-                  <span aria-hidden="true" className="ml-1">
-                    {activeSort === "old" ? "↑" : "↓"}
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
+        {/* 並べ替え。いいね数が読めない時はいいね順を、表示回数が無い時はよく読まれている順を選べない。1本だけの一覧には出さない */}
+        {articles.length > 1 && (
+          <div className="mb-6 flex flex-wrap items-center gap-2 text-[12px]" role="group" aria-label="並べ替え">
+            <span className="mr-1 font-extrabold tracking-[0.16em] text-bx-ink3">並べ替え</span>
+            {(
+              [
+                ["new", "新着順"],
+                ["track", "曲順"],
+                ["likes", "いいねが多い順"],
+                ["views", "よく読まれている順"],
+              ] as const
+            ).map(([key, label]) => {
+              if (key === "views" && !hasViews) return null;
+              if ((key === "track" || key === "likes") && !hasSongArticles) return null;
+              // 日付のボタンは 新着順 ⇄ 古い順 のトグル(選ばれている時にもう一度押すと逆になる)
+              const isDate = key === "new";
+              const active = isDate ? activeSort === "new" || activeSort === "old" : key === activeSort;
+              const text = isDate && activeSort === "old" ? "古い順" : label;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  aria-pressed={active}
+                  disabled={!sortable[key]}
+                  onClick={() => chooseSort(isDate ? (activeSort === "new" ? "old" : "new") : key)}
+                  title={isDate && active ? (activeSort === "new" ? "押すと古い順" : "押すと新着順") : undefined}
+                  className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
+                    active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
+                  }`}
+                >
+                  {text}
+                  {isDate && active && (
+                    <span aria-hidden="true" className="ml-1">
+                      {activeSort === "old" ? "↑" : "↓"}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        )}
         {hasViews && pageViewsAt && (
           <p className="-mt-4 mb-6 text-[11px] text-bx-ink3">
             表示回数は公開日からの数で、{jstDate(pageViewsAt)}時点のものです(計測されない閲覧もあります)。
@@ -559,8 +570,10 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
               // 狭い画面はアルバムごとに横一列。広い画面は記事の数だけ列を使い(3本以上は3列で横スクロール)、
               // 1〜2本のアルバムは隣に詰める(1本のアルバムが1段を使って縦に長くならないように)
               <div className="grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 [grid-auto-flow:dense]">
-                {byAlbum(items).map((g) => {
+                {byAlbum(items).map((g, _, all) => {
                   const n = g.items.length;
+                  // 作品でまとめない記事だけのシリーズ(ガイド)には、「その他」の見出しを出さない
+                  const showHeader = all.some((x) => x.title);
                   const span = n >= 3 ? "sm:col-span-2 lg:col-span-3" : n === 2 ? "sm:col-span-2" : "";
                   const card =
                     n >= 3
@@ -569,7 +582,8 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                       ? "sm:w-[calc((100%-1.25rem)/2)]"
                       : "sm:w-full";
                   return (
-                    <section key={g.title ?? ""} className={`min-w-0 ${span}`} aria-label={g.title ?? "その他"}>
+                    <section key={g.title ?? ""} className={`min-w-0 ${span}`} aria-label={g.title ?? (showHeader ? "その他" : s.name)}>
+                      {showHeader && (
                       <header className="mb-2 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                         <h3 className="text-[15px] font-extrabold text-bx-ink [overflow-wrap:anywhere]">
                           {g.title ? `『${g.title}』` : "その他"}
@@ -586,8 +600,9 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                           </button>
                         )}
                       </header>
+                      )}
                       {/* はみ出す分は横にスクロール。狭い画面は次のカードが少し見え、広い画面は左右の矢印で続きがあると分かるようにする */}
-                      <AlbumRow label={g.title ?? "その他"}>
+                      <AlbumRow label={g.title ?? (showHeader ? "その他" : s.name)}>
                         {g.items.map((a) => (
                           <ArticleItem key={a.slug} {...itemProps(a)} className={`w-[78%] max-w-[300px] shrink-0 snap-start sm:max-w-none ${card}`} />
                         ))}

@@ -16,6 +16,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { webkit, type Page } from "playwright";
 import sharp from "sharp";
+import { GUIDE_ARTICLES } from "../../src/utils/songArticles/guides";
 
 const ROOT = process.cwd();
 const BASE_URL = process.env.ARTICLES_OG_BASE_URL || "http://localhost:8000";
@@ -38,6 +39,8 @@ const loadPublished = async (): Promise<Published[]> => {
     if (!title) throw new Error(`${id}: body.md に題名(# …)がありません`);
     out.push({ id, slug: json.slug, title });
   }
+  // 手で書いたガイド(src/pages/articles/<slug>.tsx)も同じように表紙を撮る
+  for (const g of GUIDE_ARTICLES) out.push({ id: g.id, slug: g.slug, title: g.title });
   return out;
 };
 
@@ -63,6 +66,18 @@ html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !impo
 
 // 記事ごとの調整(公式の画像を外して空いた場所の詰め直しなど)。キーは記事 ID
 const PER_ARTICLE_CSS: Record<string, string> = {
+  // 聖地巡礼ガイド 渋谷編: ページでは小さい表紙を、題名を左・歩いて回る9か所の並びを右にして 1200x630 いっぱいに
+  "guide-shibuya": `
+    .guide-cover { border: 0 !important; border-radius: 0 !important; background: rgb(var(--bx-bg)) !important; }
+    .guide-cover__body { height: ${HEIGHT}px; grid-template-columns: minmax(0, 1fr) 500px !important; }
+    .guide-cover__text { padding: 0 0 0 88px !important; }
+    .guide-cover__text > p:first-child { font-size: 20px !important; }
+    .guide-cover__title { margin-top: 28px !important; font-size: 68px !important; line-height: 1.25 !important; }
+    .guide-cover__title > span { display: block !important; }
+    .guide-cover__lead { margin-top: 28px !important; font-size: 28px !important; }
+    .guide-cover__date { display: none !important; }
+    .guide-cover__art { display: block !important; height: 560px !important; padding: 0 72px 0 0 !important; }
+  `,
   // No title: MVを外すと表紙全体が余白になる。縦書きの題名を大きくして右寄りに置き、波紋の中心を左に残る余白の中心へ
   "reol-song-006": `
     .a006-cover { --title-size: 62px; --cover-wave-x: 420px; --cover-wave-y: 50%; padding-bottom: 0 !important; }
@@ -183,8 +198,11 @@ const capture = async (page: Page, a: Published) => {
   await isolateCover(page);
   await page.evaluate(async () => {
     await document.fonts.ready;
+    // 待つのは表紙の中の画像だけ(隠した本文の遅延読み込みの画像は、いつまでも読み込まれない)
     await Promise.all(
-      Array.from(document.images).map((img) => (img.complete ? null : new Promise((r) => img.addEventListener("load", r, { once: true }))))
+      Array.from(document.querySelectorAll<HTMLImageElement>("[data-og-cover] img")).map((img) =>
+        img.complete ? null : new Promise((r) => img.addEventListener("load", r, { once: true }))
+      )
     );
   });
   await page.waitForTimeout(800);

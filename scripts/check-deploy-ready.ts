@@ -8,6 +8,7 @@
 import { execSync } from "child_process";
 import { existsSync, readdirSync, readFileSync } from "fs";
 import path from "path";
+import { GUIDE_ARTICLES } from "../src/utils/songArticles/guides";
 
 // 楽曲記事のプレビュー(plan/29)は未公開原稿をビルドに含めるため、本番ビルドでは使わない
 if (process.env.ARTICLES_PREVIEW) {
@@ -25,6 +26,10 @@ const missingOg = existsSync(articlesDir)
       return (a.status === "published" || a.status === "unlisted") && a.slug && !existsSync(`static/articles-og/${a.slug}.jpg`) ? [`${id}(${a.slug})`] : [];
     })
   : [];
+// 手で書いたガイド(src/utils/songArticles/guides.ts)も同じ
+for (const g of GUIDE_ARTICLES) {
+  if (!existsSync(`static/articles-og/${g.slug}.jpg`)) missingOg.push(`${g.id}(${g.slug})`);
+}
 if (missingOg.length > 0) {
   console.error("公開中の記事に OGP 画像がないため、デプロイを中止します。");
   console.error("開発サーバーを起動して npm run articles:og を実行し、static/articles-og をコミットしてください。\n");
