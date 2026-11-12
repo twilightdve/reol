@@ -1,28 +1,31 @@
-import React, { useState, useCallback, useMemo, useEffect } from "react";
-import { TbMapPinHeart } from "react-icons/tb";
-import { GoLinkExternal, GoChevronUp, GoChevronDown } from "react-icons/go";
-import { Badge } from "flowbite-react";
+import React, { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { TbMapPinHeart, TbMapPin, TbRoute, TbSearch } from "react-icons/tb";
+import { GoLinkExternal, GoChevronDown } from "react-icons/go";
 import PlayerSlot from "../../player/PlayerSlot";
 import UtilityService from "../../../services/UtilityService";
 import { Place, PlaceItem } from "../../../types/places";
 import type { PlaceMarker } from "./PlaceMap";
-import LoadingSkeleton from "../../common/LoadingSkeleton";
 import ErrorRetry from "../../common/ErrorRetry";
 import EmptyState from "../../common/EmptyState";
 import { useUrlQueryState } from "../../../hooks/useUrlQueryState";
 import { trackFilterChange, trackEvent } from "../../../utils/analytics";
-import { Kicker } from "../../redesign";
+import { Kicker, StatCounter } from "../../redesign";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { LangLink, usePageDict } from "../../../i18n/site/SiteLangContext";
 import { placeDict } from "../../../i18n/site/pages/place";
 import { checkCircleClass } from "../../collection/checkCircle";
 
-// Leaflet は SSR で動かないので動的読み込み
+// Leaflet はビルド時(Node)には動かないので、ブラウザで動的に読み込む
 // React.lazy/Suspense はチャンク読み込み失敗時の再試行が難しいため、
 // import() を手動で行い、失敗時は ErrorRetry から明示的に再試行できるようにする
 type PlaceMapComponent = React.ComponentType<{
   markers: PlaceMarker[];
   heightClassName?: string;
+  selectedKey: string | null;
+  onSelect: (key: string | null) => void;
+  focusNonce: number;
+  onShowInList: (marker: PlaceMarker) => void;
+  visitedPlaceIds: ReadonlySet<string>;
 }>;
 
 interface PlaceSectionProps {
@@ -41,47 +44,34 @@ const TYPE_FILTERS: { key: TypeFilter; label: string }[] = [
   { key: "OTHER", label: "その他" },
 ];
 
-const VIEW_MODES: { key: ViewMode; label: string }[] = [
-  { key: "type", label: "タイプ別" },
-  { key: "prefecture", label: "都道府県別" },
-];
+const VIEW_MODES: ViewMode[] = ["type", "prefecture"];
 
-const getBadgeColor = (type: string) => {
-  if (type === "MV") return "warning";
-  if (type === "CM") return "purple";
-  if (type === "TV") return "pink";
-  if (type === "XFD") return "info";
-  return "gray";
+const NAMED_TYPES = ["MV", "CM", "TV", "XFD"];
+
+const matchesType = (place: Place, filter: TypeFilter): boolean => {
+  if (filter === "ALL") return true;
+  if (filter === "OTHER") return !NAMED_TYPES.includes(place.type);
+  return place.type === filter;
 };
 
-// 住所から都道府県名を抽出
-const extractPrefecture = (address: string): string | null => {
-  if (!address) return null;
-  const stripped = address.replace(/^〒\s*\d{3}-?\d{4}\s*/, "");
-  const m = stripped.match(/^(.+?[都道府県])/);
-  return m ? m[1] : null;
+// 作品の種類の札。色はサイトの青・黄の中で分ける(flowbite の Badge の色は使わない)
+const TYPE_TAG_CLASS: Record<string, string> = {
+  MV: "border-bx-yellow/60 text-bx-yellow",
+  TV: "border-bx-blue/70 text-bx-blue",
+  CM: "border-bx-blueLight/70 text-bx-blueLight",
+  XFD: "border-bx-ink3/70 text-bx-ink3",
 };
 
-// YouTube URL → サムネイル URL
-const getYoutubeThumb = (url: string): string | null => {
-  if (!url) return null;
-  const m = url.match(/youtu\.be\/([\w-]+)/) || url.match(/v=([\w-]+)/);
-  return m ? `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg` : null;
-};
-
-// スポットの静的地図サムネイル用。外部staticmap APIには依存せず、
-// ヒートマップ等でも使っている公式OSMタイルサーバーから該当地点のタイルを1枚だけ取得する
-// (Slippy map tilenamesの標準計算式)。ピン等は乗らないが軽量なプレビューとして十分。
-const OSM_TILE_ZOOM = 15;
-const latLngToTileUrl = (lat: number, lng: number): string => {
-  const n = Math.pow(2, OSM_TILE_ZOOM);
-  const x = Math.floor(((lng + 180) / 360) * n);
-  const latRad = (lat * Math.PI) / 180;
-  const y = Math.floor(
-    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n
-  );
-  return `https://tile.openstreetmap.org/${OSM_TILE_ZOOM}/${x}/${y}.png`;
-};
+const TypeTag: React.FC<{ type: string }> = ({ type }) =>
+  type ? (
+    <span
+      className={`inline-flex flex-shrink-0 items-center rounded border px-1.5 text-[10px] font-extrabold leading-[18px] tracking-[0.14em] ${
+        TYPE_TAG_CLASS[type] ?? "border-bx-ink3/70 text-bx-ink3"
+      }`}
+    >
+      {type}
+    </span>
+  ) : null;
 
 // 都道府県の並び順（北から南へ）
 const PREFECTURE_ORDER = [
@@ -94,6 +84,41 @@ const PREFECTURE_ORDER = [
   "徳島県","香川県","愛媛県","高知県",
   "福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県",
 ];
+
+// 住所から都道府県名を抽出。「都道府県」の1文字で切ると「京都府」が「京都」になるので、
+// 都道府県名の一覧と照らし、いちばん手前に出てくるものを取る
+const extractPrefecture = (address: string): string | null => {
+  if (!address) return null;
+  const stripped = address.replace(/^〒\s*\d{3}-?\d{4}\s*/, "");
+  let best: string | null = null;
+  let bestIndex = Infinity;
+  for (const pref of PREFECTURE_ORDER) {
+    const i = stripped.indexOf(pref);
+    if (i !== -1 && i < bestIndex) {
+      best = pref;
+      bestIndex = i;
+    }
+  }
+  return best;
+};
+
+// YouTube URL → サムネイル URL(mqdefault は 16:9 で、上下の黒帯が入らない)
+const getYoutubeThumb = (url: string): string | null => {
+  if (!url) return null;
+  const m = url.match(/youtu\.be\/([\w-]+)/) || url.match(/v=([\w-]+)/);
+  return m ? `https://i.ytimg.com/vi/${m[1]}/mqdefault.jpg` : null;
+};
+
+const markerKeyOf = (place: Place, item: PlaceItem) =>
+  `${place.placeUuid}:${item.placeItemUuid}`;
+
+const hasLatLng = (item: PlaceItem) =>
+  typeof item.lat === "number" && typeof item.lng === "number";
+
+const scrollBehavior = (): ScrollBehavior =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+const EMPTY_SET: ReadonlySet<string> = new Set();
 
 // iOS フォーカス時の自動ズーム抑制（フォントサイズを 16px に固定）
 const NO_ZOOM_STYLE: React.CSSProperties = { fontSize: 16 };
@@ -118,6 +143,20 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   const visitedRate =
     totalPlaceCount > 0 ? Math.round((visitedCount / totalPlaceCount) * 100) : 0;
   const [showStampBook, setShowStampBook] = useState(false);
+
+  // 見出しの数字(作品・スポット・都道府県)
+  const stats = useMemo(() => {
+    const items = places.flatMap((p) => p.items ?? []);
+    const prefectures = new Set(
+      items.map((it) => extractPrefecture(it.address)).filter((p): p is string => !!p)
+    );
+    return [
+      { value: places.length, label: t.statWorks },
+      { value: items.length, label: t.statSpots },
+      { value: prefectures.size, label: t.statPrefectures },
+    ];
+  }, [places, t]);
+
   // URLクエリと同期: ?type=MV&view=prefecture&q=武道館
   const [typeFilter, setTypeFilterRaw] = useUrlQueryState<TypeFilter>(
     "type",
@@ -157,29 +196,6 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
     setTypeFilter("ALL");
     setQuery("");
   }, [setTypeFilter, setQuery]);
-
-  // スクロール下方向で sticky バーをコンパクト化
-  const [compactBar, setCompactBar] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    let lastY = window.scrollY;
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        const dy = y - lastY;
-        if (y < 80) setCompactBar(false);
-        else if (dy > 6) setCompactBar(true);
-        else if (dy < -6) setCompactBar(false);
-        lastY = y;
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // マップコンポーネントの動的読み込み（失敗時は ErrorRetry から再試行できるよう手動管理）
   const [MapComponent, setMapComponent] = useState<PlaceMapComponent | null>(null);
@@ -221,40 +237,32 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
     });
   }, []);
 
-  const matchTypeAndQuery = useCallback(
-    (place: Place) => {
-      if (typeFilter !== "ALL") {
-        if (typeFilter === "OTHER") {
-          if (
-            place.type === "MV" ||
-            place.type === "CM" ||
-            place.type === "TV" ||
-            place.type === "XFD"
-          )
-            return false;
-        } else if (place.type !== typeFilter) {
-          return false;
-        }
-      }
-      const q = query.trim().toLowerCase();
-      if (q) {
-        const hay = [
-          place.title,
-          ...(place.items ?? []).flatMap((it) => [it.name, it.address, it.memo]),
-        ]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    },
-    [typeFilter, query]
-  );
+  // 検索などからの #place-<slug> で来た時は、その作品を開いておく(スクロールは useDeepLinkScroll)
+  useEffect(() => {
+    const raw = window.location.hash.replace("#", "");
+    if (!raw.startsWith("place-")) return;
+    const target = places.find((p) => `place-${p.slug}` === raw);
+    if (target) setExpandedPlaceIds((prev) => new Set(prev).add(target.placeUuid));
+  }, [places]);
+
+  const queryMatched = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return places;
+    return places.filter((place) =>
+      [
+        place.title,
+        ...(place.items ?? []).flatMap((it) => [it.name, it.address, it.memo]),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+    );
+  }, [places, query]);
 
   const filteredPlaces = useMemo(
-    () => places.filter(matchTypeAndQuery),
-    [places, matchTypeAndQuery]
+    () => queryMatched.filter((place) => matchesType(place, typeFilter)),
+    [queryMatched, typeFilter]
   );
 
   // 都道府県別グルーピング: 各 item を都道府県ごとに集める
@@ -280,164 +288,330 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
       return ai - bi;
     });
     return sorted;
-  }, [filteredPlaces]);
+  }, [filteredPlaces, t]);
 
   // マップ用マーカー（フィルタ適用後の全アイテム）
-  const markers = useMemo(
+  const markers = useMemo<PlaceMarker[]>(
     () =>
       filteredPlaces.flatMap((place) =>
         (place.items ?? [])
-          .filter((it) => typeof it.lat === "number" && typeof it.lng === "number")
-          .map((item) => ({ place, item }))
+          .filter(hasLatLng)
+          .map((item) => ({ key: markerKeyOf(place, item), place, item }))
       ),
     [filteredPlaces]
   );
 
-  // 都道府県別ビューの 1 アイテム
-  const renderPrefectureItem = (place: Place, item: PlaceItem) => (
-    <li
-      key={`pref-item-${place.placeUuid}-${item.placeItemUuid}`}
-      className="bg-bx-surface/5 rounded-md border border-bx-line p-3"
-    >
-      <div className="flex items-center gap-2 mb-1 flex-wrap">
-        {place.type && (
-          <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
-            {place.type}
-          </Badge>
-        )}
-        <span className="text-xs text-bx-ink2">{place.title}</span>
-      </div>
-      <div className="flex items-start justify-between gap-2">
-        {item.placeUrl ? (
-          <a
-            href={item.placeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-bold tracking-wide text-bx-ink hover:text-bx-blue hover:underline inline-flex items-center min-h-[44px]"
-          >
-            {item.name}
-            <GoLinkExternal className="ml-1 text-xs" aria-hidden="true" />
-          </a>
-        ) : (
-          <span className="text-sm font-bold tracking-wide text-bx-ink">{item.name}</span>
-        )}
-        <div className="flex gap-1 flex-shrink-0">
-          {item.needsCost && (
-            <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-              {t.needsCost}
-            </span>
-          )}
-          {item.needsPermission && (
-            <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
-              {t.needsPermission}
-            </span>
-          )}
-        </div>
-      </div>
-      {item.address && (
-        <p className="text-xs text-bx-ink2 mt-1">{item.address}</p>
-      )}
-      {item.mapsUrl && (
-        <a
-          href={item.mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center mt-1 text-xs text-bx-blue hover:underline min-h-[36px]"
-        >
-          {t.openInGoogleMaps}
-          <GoLinkExternal className="ml-1" aria-hidden="true" />
-        </a>
-      )}
-    </li>
+  // 一覧と地図の行き来。選んだスポットは、地図ではピンを大きくし、一覧では枠の色を変える
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [focusNonce, setFocusNonce] = useState(0);
+  const mapWrapRef = useRef<HTMLDivElement | null>(null);
+
+  const showOnMap = useCallback((place: Place, item: PlaceItem) => {
+    setSelectedKey(markerKeyOf(place, item));
+    setFocusNonce((n) => n + 1);
+    trackEvent("place_show_on_map", { category: "navigation", label: item.slug });
+    // 地図が画面にあまり入っていない時(スマホで一覧を読んでいる時)だけ、地図まで戻る
+    const el = mapWrapRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    if (visible < rect.height * 0.6) {
+      el.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
+    }
+  }, []);
+
+  const showInList = useCallback(
+    (marker: PlaceMarker) => {
+      setSelectedKey(marker.key);
+      if (viewMode === "type") {
+        setExpandedPlaceIds((prev) =>
+          prev.has(marker.place.placeUuid) ? prev : new Set(prev).add(marker.place.placeUuid)
+        );
+      }
+      trackEvent("place_show_in_list", { category: "navigation", label: marker.item.slug });
+      // 作品を開いた後の描画を待ってから、そのスポットの行へ
+      window.setTimeout(() => {
+        document
+          .getElementById(`spot-${marker.item.placeItemUuid}`)
+          ?.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+      }, 80);
+    },
+    [viewMode]
   );
 
-  return (
-    <section id="PLACE" style={{ contentVisibility: "auto" }} className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
-      <div className="pt-6 pb-2 px-2 sm:pt-12">
-        <Kicker color="text-bx-blue" className="mb-1">PLACE</Kicker>
-        <h2 className="flex items-center font-bold text-lg text-bx-ink">
-          <TbMapPinHeart className="text-lg mr-2" />
-          <span>{t.heading}</span>
-        </h2>
-        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
-          {t.intro1}
-          <br />
-          {t.intro2}
-        </div>
-        {/* 地域ごとのガイド(日本語だけのページ。各言語からも同じ URL へ) */}
-        <LangLink
-          to="/place/shibuya/"
-          onClick={() => trackEvent("place_guide_click", { category: "navigation", label: "shibuya" })}
-          className="mt-3 inline-flex items-center min-h-[36px] text-sm font-bold text-bx-blue underline underline-offset-2 hover:text-bx-blueLight"
-        >
-          {t.shibuyaGuide}
-          <span className="ml-1" aria-hidden="true">→</span>
-        </LangLink>
+  const pillCls =
+    "inline-flex min-h-[36px] items-center gap-1 rounded-full border px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow";
 
-        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
-          <button
-            type="button"
-            onClick={() => setShowStampBook((v) => !v)}
-            aria-expanded={showStampBook}
-            aria-controls="place-stamp-book-grid"
-            className="w-full flex items-center justify-between"
-          >
-            <span className="text-xs text-bx-ink3">{t.stampBook}</span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-sm font-bold text-bx-blue tabular-nums">
-                {visitedCount} / {totalPlaceCount}
-              </span>
-              {showStampBook ? (
-                <GoChevronUp className="text-bx-ink3" aria-hidden="true" />
-              ) : (
-                <GoChevronDown className="text-bx-ink3" aria-hidden="true" />
-              )}
+  // スポット1件。タイプ別(作品の中)と都道府県別で同じ形を使う
+  const renderSpot = (
+    place: Place,
+    item: PlaceItem,
+    opts: { index?: number; showWork?: boolean }
+  ) => {
+    const isSelected = selectedKey === markerKeyOf(place, item);
+    const mapsHref = item.mapsUrl || item.mapsEmbedUrl;
+    return (
+      <li
+        key={`spot-${place.placeUuid}-${item.placeItemUuid}`}
+        id={`spot-${item.placeItemUuid}`}
+        className={`scroll-mt-20 rounded-lg border p-3 transition-colors motion-reduce:transition-none ${
+          isSelected
+            ? "border-bx-yellow bg-bx-yellow/[0.07]"
+            : "border-bx-line bg-bx-bg/40"
+        }`}
+      >
+        <div className="flex items-start gap-2.5">
+          {opts.index !== undefined ? (
+            <span
+              className="mt-px inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-bx-yellow text-xs font-extrabold tabular-nums text-bx-bg"
+              aria-hidden="true"
+            >
+              {opts.index + 1}
             </span>
-          </button>
-          {showStampBook && (
-            <div id="place-stamp-book-grid" className="grid grid-cols-4 sm:grid-cols-8 gap-2 mt-2">
-              {places.map((p) => {
-                const isVisited = visitedMounted && visited.has(p.placeUuid);
-                return (
-                  <div
-                    key={p.placeUuid}
-                    title={p.title}
-                    className={`flex flex-col items-center gap-1 rounded-lg border p-2 text-center transition-colors ${
-                      isVisited
-                        ? "border-bx-blue bg-bx-blue/10"
-                        : "border-bx-line bg-bx-surface/5"
-                    }`}
-                  >
-                    <span
-                      className={`w-8 h-8 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
-                        checkCircleClass(isVisited)
-                      }`}
-                    >
-                      ✓
-                    </span>
-                    <span className="w-full text-[9px] leading-tight text-bx-ink3 line-clamp-2">
-                      {p.title}
-                    </span>
-                  </div>
-                );
-              })}
+          ) : (
+            <TbMapPin className="mt-1 flex-shrink-0 text-base text-bx-yellow" aria-hidden="true" />
+          )}
+          <div className="min-w-0 flex-1">
+            {opts.showWork && (
+              <p className="mb-1 flex items-center gap-1.5 text-[11px] text-bx-ink3">
+                <TypeTag type={place.type} />
+                <span className="truncate">{place.title}</span>
+              </p>
+            )}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <h4 className="text-sm font-bold leading-snug tracking-wide text-bx-ink">
+                {item.name}
+              </h4>
+              {item.needsCost && (
+                <span className="rounded border border-bx-yellow/50 bg-bx-yellow/10 px-1.5 py-px text-[10px] text-bx-yellow">
+                  {t.needsCost}
+                </span>
+              )}
+              {item.needsPermission && (
+                <span className="rounded border border-bx-ink3/50 bg-bx-ink/10 px-1.5 py-px text-[10px] text-bx-ink">
+                  {t.needsPermission}
+                </span>
+              )}
             </div>
-          )}
-          {visitedRate >= 100 && totalPlaceCount > 0 && (
-            <p className="mt-3 text-center text-[11px] font-bold text-bx-yellow">
-              {t.allComplete(totalPlaceCount)}
-            </p>
-          )}
-          <p className="mt-2 text-[10px] text-bx-ink3">
-            {t.stampHint}
+            {item.address && (
+              <p className="mt-1 text-xs leading-snug text-bx-ink3">{item.address}</p>
+            )}
+            {item.memo && (
+              <p
+                className="mt-1.5 break-words text-[13px] leading-relaxed text-bx-ink [&_a]:break-all [&_a]:text-bx-blue [&_a]:underline"
+                dangerouslySetInnerHTML={{
+                  __html: UtilityService.sanitizeHTMLWithAllowedTags(item.memo),
+                }}
+              />
+            )}
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {hasLatLng(item) && (
+                <button
+                  type="button"
+                  onClick={() => showOnMap(place, item)}
+                  className={`${pillCls} border-bx-yellow/60 text-bx-yellow hover:bg-bx-yellow hover:text-bx-bg`}
+                >
+                  <TbMapPin aria-hidden="true" />
+                  {t.showOnMap}
+                </button>
+              )}
+              {mapsHref && (
+                <a
+                  href={mapsHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.name} ${t.openInGoogleMaps}`}
+                  className={`${pillCls} border-bx-line text-bx-ink hover:border-bx-blue hover:text-bx-blue`}
+                >
+                  Google Maps
+                  <GoLinkExternal className="text-[10px]" aria-hidden="true" />
+                </a>
+              )}
+              {item.placeUrl && (
+                <a
+                  href={item.placeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${pillCls} border-bx-line text-bx-ink hover:border-bx-blue hover:text-bx-blue`}
+                >
+                  {t.website}
+                  <GoLinkExternal className="text-[10px]" aria-hidden="true" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </li>
+    );
+  };
+
+  const mapHeightCls = "h-[46vh] min-h-[320px] lg:h-[min(calc(100vh_-_1.5rem),760px)]";
+
+  return (
+    <section
+      id="PLACE"
+      className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-3 sm:p-5"
+    >
+      <div className="pt-3 sm:pt-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:items-end lg:gap-8">
+        <div>
+          <Kicker color="text-bx-blue" className="mb-2">PLACE</Kicker>
+          <h2 className="flex items-center gap-2 text-2xl sm:text-3xl font-extrabold text-bx-ink">
+            <TbMapPinHeart className="text-bx-yellow" aria-hidden="true" />
+            <span>{t.heading}</span>
+          </h2>
+          <p className="mt-3 max-w-2xl break-words text-[13px] sm:text-sm leading-relaxed text-bx-ink3">
+            {t.intro1}
+            <br />
+            {t.intro2}
           </p>
+          <dl className="mt-4 flex">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`flex flex-col-reverse pr-5 sm:pr-7 ${
+                  i > 0 ? "border-l border-bx-line pl-5 sm:pl-7" : ""
+                }`}
+              >
+                <dt className="mt-1.5 text-[10px] font-extrabold tracking-[0.2em] text-bx-ink3">
+                  {stat.label}
+                </dt>
+                <dd className="text-2xl sm:text-4xl font-extrabold leading-none tabular-nums text-bx-ink">
+                  <StatCounter value={stat.value} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="mt-4 space-y-2 lg:mt-0">
+          {/* 地域ごとのガイド(日本語だけのページ。各言語からも同じ URL へ) */}
+          <LangLink
+            to="/place/shibuya/"
+            onClick={() => trackEvent("place_guide_click", { category: "navigation", label: "shibuya" })}
+            className="group flex items-center gap-3 rounded-xl border border-bx-yellow/40 bg-bx-yellow/[0.06] p-3 transition-colors hover:border-bx-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+          >
+            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-bx-yellow text-xl text-bx-bg">
+              <TbRoute aria-hidden="true" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[10px] font-extrabold tracking-[0.3em] text-bx-yellow">
+                GUIDE
+              </span>
+              <span className="mt-0.5 block text-sm font-bold leading-snug text-bx-ink">
+                {t.shibuyaGuide}
+              </span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-bx-ink3">
+                {t.shibuyaGuideDesc}
+              </span>
+            </span>
+            <span
+              className="flex-shrink-0 text-bx-yellow transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+              aria-hidden="true"
+            >
+              →
+            </span>
+          </LangLink>
+
+          <div className="rounded-xl border border-bx-line bg-bx-bg/40 p-3">
+            <button
+              type="button"
+              onClick={() => setShowStampBook((v) => !v)}
+              aria-expanded={showStampBook}
+              aria-controls="place-stamp-book-grid"
+              className="flex w-full items-center gap-3 rounded text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+            >
+              <span className="min-w-0 flex-1">
+                <span className="flex items-baseline justify-between gap-2">
+                  <span className="text-xs font-bold text-bx-ink">{t.stampBook}</span>
+                  <span className="text-sm font-bold text-bx-blue tabular-nums">
+                    {visitedCount} / {totalPlaceCount}
+                  </span>
+                </span>
+                <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-bx-line">
+                  <span
+                    className="block h-full rounded-full bg-bx-blue transition-[width] duration-300 motion-reduce:transition-none"
+                    style={{ width: `${visitedRate}%` }}
+                  />
+                </span>
+              </span>
+              <GoChevronDown
+                className={`flex-shrink-0 text-bx-ink3 transition-transform motion-reduce:transition-none ${
+                  showStampBook ? "rotate-180" : ""
+                }`}
+                aria-hidden="true"
+              />
+            </button>
+            {showStampBook && (
+              <div
+                id="place-stamp-book-grid"
+                className="mt-3 grid grid-cols-4 gap-x-2 gap-y-3 sm:grid-cols-8 lg:grid-cols-4"
+              >
+                {places.map((p) => {
+                  const isVisited = visitedMounted && visited.has(p.placeUuid);
+                  const thumb = getYoutubeThumb(p.url);
+                  return (
+                    <div
+                      key={p.placeUuid}
+                      title={p.title}
+                      className="flex flex-col items-center gap-1 text-center"
+                    >
+                      <span className="relative">
+                        <span
+                          className={`flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 ${
+                            isVisited ? "border-bx-blue" : "border-bx-line"
+                          }`}
+                        >
+                          {thumb ? (
+                            <img
+                              src={thumb}
+                              alt=""
+                              loading="lazy"
+                              className={`h-full w-full object-cover ${
+                                isVisited ? "" : "opacity-40 grayscale"
+                              }`}
+                            />
+                          ) : (
+                            <TbMapPinHeart
+                              className={`text-xl ${isVisited ? "text-bx-blue" : "text-bx-ink3/60"}`}
+                              aria-hidden="true"
+                            />
+                          )}
+                        </span>
+                        {isVisited && (
+                          <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-bx-blue text-[9px] font-bold text-bx-bg">
+                            ✓
+                          </span>
+                        )}
+                      </span>
+                      <span className="w-full text-[9px] leading-tight text-bx-ink3 line-clamp-2">
+                        {p.title}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            {visitedRate >= 100 && totalPlaceCount > 0 && (
+              <p className="mt-3 text-center text-[11px] font-bold text-bx-yellow">
+                {t.allComplete(totalPlaceCount)}
+              </p>
+            )}
+            <p className="mt-2 text-[10px] leading-snug text-bx-ink3">
+              {t.stampHint}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* マップ: 見出し直下にフルブリードで常時表示(このページの主役のため大きく) */}
-      <div className="pb-3" aria-label={t.mapAria}>
-        {typeof window === "undefined" ? null : markers.length === 0 ? (
-          <div className="px-2">
+      {/* 地図と一覧。スマホは地図→一覧の縦並び、広い画面は左に一覧・右に地図(地図は付いてくる) */}
+      <div className="mt-4 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start lg:gap-4">
+        <div
+          ref={mapWrapRef}
+          role="region"
+          aria-label={t.mapAria}
+          className="scroll-mt-3 lg:sticky lg:top-3 lg:order-2"
+        >
+          {markers.length === 0 ? (
             <EmptyState
               icon="📍"
               title={t.noMarkersTitle}
@@ -446,381 +620,301 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               onAction={clearFilters}
               tone="dark"
             />
-          </div>
-        ) : mapLoadError ? (
-          <div className="px-2">
+          ) : mapLoadError ? (
             <ErrorRetry
               title={t.mapErrorTitle}
               description={t.mapErrorDesc}
               onRetry={retryMapLoad}
               tone="dark"
             />
-          </div>
-        ) : !MapComponent ? (
-          <div
-            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
-          >
-            <LoadingSkeleton
-              rows={1}
-              rowHeightClassName="h-[60vh]"
-              gapClassName=""
-              rowClassName="border-0"
-              label={t.mapLoading}
-            />
-          </div>
-        ) : (
-          <div
-            style={{ width: "100vw", marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)" }}
-          >
-            <MapComponent markers={markers} heightClassName="h-[60vh]" />
-          </div>
-        )}
-        <p className="mt-1 px-2 text-[10px] text-bx-ink3 text-right">
-          © OpenStreetMap contributors
-        </p>
-      </div>
-
-      {/* 絞り込みバー（sticky / 下方向スクロールでコンパクト化） */}
-      <div
-        role="region"
-        aria-label={t.filterAria}
-        className="sticky top-0 z-30 -mx-2 px-2 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line space-y-2 transition-[padding] duration-200 motion-reduce:transition-none"
-      >
-        {/* 1行目: ビューモード（コンパクト時は隠す） */}
-        {!compactBar && (
-          <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.viewModeAria}>
-            {VIEW_MODES.map((m) => {
-              const active = viewMode === m.key;
-              return (
-                <button
-                  key={m.key}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  onClick={() => setViewMode(m.key)}
-                  className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
-                    active
-                      ? "bg-bx-blue text-bx-bg border-bx-blue"
-                      : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
-                  }`}
-                >
-                  {m.key === "type" ? t.viewType : t.viewPrefecture}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* 2行目: タイプフィルタ（常に表示） */}
-        <div className="flex flex-wrap gap-1" role="radiogroup" aria-label={t.typeFilterAria}>
-          {TYPE_FILTERS.map((f) => {
-            const active = typeFilter === f.key;
-            return (
-              <button
-                key={f.key}
-                type="button"
-                role="radio"
-                aria-checked={active}
-                onClick={() => setTypeFilter(f.key)}
-                className={`min-h-[44px] px-4 py-2 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1 ${
-                  active
-                    ? "bg-bx-yellow text-bx-bg border-bx-yellow"
-                    : "bg-bx-surface/5 text-bx-ink border-bx-line hover:border-bx-blue"
-                }`}
-              >
-                {f.key === "OTHER" ? t.typeOther : f.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* 3行目: 検索入力（コンパクト時は隠す） */}
-        {!compactBar && (
-          <label className="block">
-            <span className="sr-only">{t.searchLabel}</span>
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.searchPlaceholder}
-              style={NO_ZOOM_STYLE}
-              className="block w-full min-h-[44px] px-3 py-2 bg-bx-surface/5 border border-bx-line text-bx-ink rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-1"
-            />
-          </label>
-        )}
-
-        <div className="flex items-center justify-between text-[11px] text-bx-ink2">
-          <span>
-            {t.count(filteredPlaces.length, places.length)}
-          </span>
-          {(typeFilter !== "ALL" || query.length > 0) && (
-            <button
-              type="button"
-              onClick={clearFilters}
-              className="min-h-[32px] px-3 py-1 rounded-full text-[11px] border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+          ) : !MapComponent ? (
+            <div
+              role="status"
+              aria-live="polite"
+              aria-busy="true"
+              className={`animate-pulse rounded-xl border border-bx-line bg-bx-surface/5 motion-reduce:animate-none ${mapHeightCls}`}
             >
-              {t.clear}
-            </button>
+              <span className="sr-only">{t.mapLoading}</span>
+            </div>
+          ) : (
+            <MapComponent
+              markers={markers}
+              heightClassName={mapHeightCls}
+              selectedKey={selectedKey}
+              onSelect={setSelectedKey}
+              focusNonce={focusNonce}
+              onShowInList={showInList}
+              visitedPlaceIds={visitedMounted ? visited : EMPTY_SET}
+            />
+          )}
+          {visitedCount > 0 && (
+            <p className="mt-1.5 flex items-center justify-end gap-1.5 text-[10px] text-bx-ink3">
+              <span className="inline-block h-2 w-2 rounded-full bg-bx-blue" aria-hidden="true" />
+              {t.visited}
+            </p>
           )}
         </div>
-      </div>
 
-      <div className="space-y-8 px-2">
-        <div className="pt-2">
-          {/* ===== タイプ別ビュー（既存） ===== */}
-          {viewMode === "type" && (
-            <div className="space-y-2">
-              {filteredPlaces.length === 0 ? (
-                <EmptyState
-                  title={t.noMatchTitle}
-                  description={t.noMatchDesc}
-                  actionLabel={t.clear}
-                  onAction={clearFilters}
-                  tone="dark"
-                />
-              ) : (
-                filteredPlaces.map((place) => {
-                  const isExpanded = expandedPlaceIds.has(place.placeUuid);
-                  const itemCount = place.items?.length ?? 0;
-                  const prefectures = Array.from(
-                    new Set(
-                      (place.items ?? [])
-                        .map((it) => extractPrefecture(it.address))
-                        .filter((p): p is string => !!p)
-                    )
-                  );
-                  const thumb = getYoutubeThumb(place.url);
-                  const isVisited = visitedMounted && visited.has(place.placeUuid);
-                  const handleToggleVisited = (e: React.MouseEvent) => {
-                    e.stopPropagation();
-                    toggleVisited(place.placeUuid);
-                  };
+        <div className="mt-3 min-w-0 lg:order-1 lg:mt-0">
+          {/* 検索と並べ方 */}
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="relative block min-w-0 flex-1 basis-full sm:basis-0">
+              <span className="sr-only">{t.searchLabel}</span>
+              <TbSearch
+                className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-bx-ink3"
+                aria-hidden="true"
+              />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                style={NO_ZOOM_STYLE}
+                className="block w-full min-h-[44px] rounded-full border border-bx-line bg-bx-bg/40 py-2 pl-10 pr-4 text-bx-ink placeholder:text-bx-ink3/70 focus:border-bx-blue focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-bx-yellow"
+              />
+            </label>
+            <div
+              className="inline-flex flex-shrink-0 rounded-full border border-bx-line bg-bx-bg/40 p-0.5"
+              role="radiogroup"
+              aria-label={t.viewModeAria}
+            >
+              {VIEW_MODES.map((mode) => {
+                const active = viewMode === mode;
+                return (
+                  <button
+                    key={mode}
+                    type="button"
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setViewMode(mode)}
+                    className={`min-h-[38px] rounded-full px-3.5 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow ${
+                      active ? "bg-bx-blue text-bx-bg" : "text-bx-ink3 hover:text-bx-ink"
+                    }`}
+                  >
+                    {mode === "type" ? t.viewType : t.viewPrefecture}
+                  </button>
+                );
+              })}
+            </div>
+            <span className="ml-auto text-[11px] tabular-nums text-bx-ink3">
+              {t.count(filteredPlaces.length, places.length)}
+            </span>
+          </div>
 
-                  return (
-                    <div
-                      key={`place-${place.placeUuid}`}
-                      id={`place-${place.slug}`}
-                      className="mb-2 scroll-mt-24"
+          {/* タイプの絞り込み(一覧を読んでいる間も上に残る。1行で、はみ出す分は横に送る) */}
+          <div
+            role="region"
+            aria-label={t.filterAria}
+            className="sticky top-0 z-20 -mx-3 mt-2 flex items-center gap-2 border-b border-bx-line bg-bx-bg/95 px-3 py-2 backdrop-blur sm:-mx-5 sm:px-5 lg:mx-0 lg:rounded-lg lg:border lg:px-2"
+          >
+            <div
+              className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              role="radiogroup"
+              aria-label={t.typeFilterAria}
+            >
+              {TYPE_FILTERS.map((f) => {
+                const active = typeFilter === f.key;
+                const n = queryMatched.filter((p) => matchesType(p, f.key)).length;
+                return (
+                  <button
+                    key={f.key}
+                    type="button"
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setTypeFilter(f.key)}
+                    className={`inline-flex min-h-[40px] flex-shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-bx-yellow ${
+                      active
+                        ? "border-bx-yellow bg-bx-yellow text-bx-bg"
+                        : "border-bx-line bg-bx-surface/5 text-bx-ink hover:border-bx-blue"
+                    }`}
+                  >
+                    {f.key === "OTHER" ? t.typeOther : f.label}
+                    <span
+                      className={`text-[10px] font-normal tabular-nums ${
+                        active ? "text-bx-bg/80" : "text-bx-ink3"
+                      }`}
                     >
+                      {n}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            {(typeFilter !== "ALL" || query.length > 0) && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="min-h-[36px] flex-shrink-0 rounded-full border border-bx-line px-3 text-[11px] text-bx-ink transition-colors hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+              >
+                {t.clear}
+              </button>
+            )}
+          </div>
+
+          <div className="pt-3">
+            {/* ===== タイプ別ビュー ===== */}
+            {viewMode === "type" && (
+              <div className="space-y-2">
+                {filteredPlaces.length === 0 ? (
+                  <EmptyState
+                    title={t.noMatchTitle}
+                    description={t.noMatchDesc}
+                    actionLabel={t.clear}
+                    onAction={clearFilters}
+                    tone="dark"
+                  />
+                ) : (
+                  filteredPlaces.map((place) => {
+                    const isExpanded = expandedPlaceIds.has(place.placeUuid);
+                    const itemCount = place.items?.length ?? 0;
+                    const prefectures = Array.from(
+                      new Set(
+                        (place.items ?? [])
+                          .map((it) => extractPrefecture(it.address))
+                          .filter((p): p is string => !!p)
+                      )
+                    );
+                    const thumb = getYoutubeThumb(place.url);
+                    const isVisited = visitedMounted && visited.has(place.placeUuid);
+
+                    return (
                       <div
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => toggleExpand(place.placeUuid)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            toggleExpand(place.placeUuid);
-                          }
-                        }}
-                        aria-expanded={isExpanded}
-                        aria-controls={`place-panel-${place.slug}`}
-                        className={`relative w-full text-left cursor-pointer rounded-lg transition-colors motion-reduce:transition-none overflow-hidden text-bx-ink bg-bx-surface/5 border border-bx-line hover:border-bx-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow focus-visible:ring-offset-2`}
+                        key={`place-${place.placeUuid}`}
+                        id={`place-${place.slug}`}
+                        className={`scroll-mt-20 rounded-xl border bg-bx-surface/[0.035] transition-colors motion-reduce:transition-none ${
+                          isExpanded ? "border-bx-blue/70" : "border-bx-line hover:border-bx-blue"
+                        }`}
                       >
-                        {!isExpanded && (
-                          <div className="min-h-[64px] p-3 flex items-center gap-3">
-                            <button
-                              type="button"
-                              onClick={handleToggleVisited}
-                              aria-pressed={isVisited}
-                              aria-label={isVisited ? t.unmarkVisited : t.markVisited}
-                              title={isVisited ? t.visited : t.markVisited}
-                              className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
+                        <div className="flex items-center gap-1 p-2 sm:p-2.5">
+                          <button
+                            type="button"
+                            onClick={() => toggleVisited(place.placeUuid)}
+                            aria-pressed={isVisited}
+                            aria-label={`${place.title} ${isVisited ? t.unmarkVisited : t.markVisited}`}
+                            title={isVisited ? t.visited : t.markVisited}
+                            className="group/check flex h-10 w-9 flex-shrink-0 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                          >
+                            <span
+                              className={`flex h-6 w-6 items-center justify-center rounded-full border-2 text-[10px] font-bold transition-colors ${
                                 checkCircleClass(isVisited)
                               }`}
                             >
                               ✓
-                            </button>
-                            {thumb ? (
-                              <img
-                                src={thumb}
-                                alt=""
-                                loading="lazy"
-                                className="w-16 h-12 sm:w-20 sm:h-14 object-cover rounded flex-shrink-0 bg-bx-surface/5"
-                              />
-                            ) : (
-                              <div className="w-16 h-12 sm:w-20 sm:h-14 rounded flex-shrink-0 bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
-                                <TbMapPinHeart className="text-xl" aria-hidden="true" />
-                              </div>
-                            )}
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 mb-1">
-                                {place.type && (
-                                  <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
-                                    {place.type}
-                                  </Badge>
-                                )}
-                                <span className="text-sm font-medium tracking-wide truncate">
-                                  {place.title}
+                            </span>
+                          </button>
+                          <h3 className="min-w-0 flex-1">
+                            <button
+                              type="button"
+                              onClick={() => toggleExpand(place.placeUuid)}
+                              aria-expanded={isExpanded}
+                              aria-controls={`place-panel-${place.slug}`}
+                              className="flex w-full items-center gap-3 rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                            >
+                              {thumb ? (
+                                <img
+                                  src={thumb}
+                                  alt=""
+                                  width={96}
+                                  height={54}
+                                  loading="lazy"
+                                  className="h-[54px] w-24 flex-shrink-0 rounded-md bg-bx-surface/5 object-cover sm:h-[63px] sm:w-28"
+                                />
+                              ) : (
+                                <span className="flex h-[54px] w-24 flex-shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-bx-blueDeep/50 to-bx-surface/5 text-bx-ink3 sm:h-[63px] sm:w-28">
+                                  <TbMapPinHeart className="text-xl" aria-hidden="true" />
                                 </span>
-                              </div>
-                              <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[11px] text-bx-ink2">
-                                <span>{t.spots(itemCount)}</span>
-                                {prefectures.length > 0 && (
-                                  <span className="truncate">
-                                    {prefectures.slice(0, 3).join(t.prefectureSeparator)}
-                                    {prefectures.length > 3 ? t.morePrefectures(prefectures.length - 3) : ""}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                            <GoChevronDown className="flex-shrink-0 ml-1 text-bx-ink3" aria-hidden="true" />
-                          </div>
-                        )}
-
-                        {isExpanded && (
-                          <div id={`place-panel-${place.slug}`} className="p-4">
-                            <div className="flex items-center justify-between mb-4">
-                              <div className="flex items-center gap-2 flex-1 min-w-0">
-                                <button
-                                  type="button"
-                                  onClick={handleToggleVisited}
-                                  aria-pressed={isVisited}
-                                  aria-label={isVisited ? t.unmarkVisited : t.markVisited}
-                                  title={isVisited ? t.visited : t.markVisited}
-                                  className={`w-6 h-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center text-[10px] font-bold transition-colors ${
-                                    checkCircleClass(isVisited)
+                              )}
+                              <span className="min-w-0 flex-1">
+                                <span
+                                  className={`block text-[15px] font-bold leading-snug tracking-wide text-bx-ink ${
+                                    isExpanded ? "" : "line-clamp-2"
                                   }`}
                                 >
-                                  ✓
-                                </button>
-                                {place.type && (
-                                  <Badge color={getBadgeColor(place.type)} className="flex-shrink-0">
-                                    {place.type}
-                                  </Badge>
-                                )}
-                                <span className="text-base font-bold tracking-wide">
                                   {place.title}
                                 </span>
-                                <span className="text-[11px] text-bx-ink2 flex-shrink-0">
-                                  {t.spots(itemCount)}
+                                <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] font-normal text-bx-ink3">
+                                  <TypeTag type={place.type} />
+                                  <span>{t.spots(itemCount)}</span>
+                                  {prefectures.length > 0 && (
+                                    <span className="truncate">
+                                      {prefectures.slice(0, 3).join(t.prefectureSeparator)}
+                                      {prefectures.length > 3 ? t.morePrefectures(prefectures.length - 3) : ""}
+                                    </span>
+                                  )}
                                 </span>
-                              </div>
-                              <GoChevronUp className="flex-shrink-0 ml-2 text-bx-ink3" aria-hidden="true" />
-                            </div>
+                              </span>
+                              <GoChevronDown
+                                className={`mr-1 flex-shrink-0 text-bx-ink3 transition-transform motion-reduce:transition-none ${
+                                  isExpanded ? "rotate-180" : ""
+                                }`}
+                                aria-hidden="true"
+                              />
+                            </button>
+                          </h3>
+                        </div>
 
+                        {isExpanded && (
+                          <div
+                            id={`place-panel-${place.slug}`}
+                            className="space-y-3 border-t border-bx-line p-3 sm:p-4"
+                          >
                             {place.url && place.url.indexOf("youtu.be") !== -1 && (
-                              <div className="mb-4" onClick={(e) => e.stopPropagation()}>
-                                <PlayerSlot
-                                  videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
-                                  title={place.title}
-                                  className="rounded"
-                                />
-                              </div>
+                              <PlayerSlot
+                                videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
+                                title={place.title}
+                                className="rounded-lg"
+                              />
                             )}
-
-                            {place.items?.map((item, itemIdx) => (
-                              <div
-                                key={`place-${place.placeUuid}-${item.placeItemUuid}`}
-                                className="mb-3 last:mb-0 bg-bx-surface/5 border border-bx-line rounded-lg p-4"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <div className="flex items-start justify-between gap-2 mb-2">
-                                  {item.placeUrl ? (
-                                    <a
-                                      href={item.placeUrl}
-                                      className="block min-h-[44px]"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                    >
-                                      <h3 className="flex items-center text-sm font-bold tracking-wide hover:underline">
-                                        {itemIdx + 1}.&nbsp;{item.name}
-                                        <GoLinkExternal className="ml-1 text-xs" aria-hidden="true" />
-                                      </h3>
-                                    </a>
-                                  ) : (
-                                    <h3 className="text-sm font-bold tracking-wide">
-                                      {itemIdx + 1}.&nbsp;{item.name}
-                                    </h3>
-                                  )}
-                                  <div className="flex flex-wrap gap-1 flex-shrink-0">
-                                    {item.needsCost && (
-                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                                        {t.needsCost}
-                                      </span>
-                                    )}
-                                    {item.needsPermission && (
-                                      <span className="px-1.5 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
-                                        {t.needsPermission}
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                                {item.memo && (
-                                  <p
-                                    className="text-sm mb-2"
-                                    dangerouslySetInnerHTML={{
-                                      __html: UtilityService.sanitizeHTMLWithAllowedTags(item.memo),
-                                    }}
-                                  />
-                                )}
-                                <a
-                                  href={item.mapsUrl || item.mapsEmbedUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="group/map relative block w-full h-32 rounded mb-2 overflow-hidden bg-bx-surface/5 border border-bx-line"
-                                >
-                                  {item.lat && item.lng ? (
-                                    <img
-                                      src={latLngToTileUrl(item.lat, item.lng)}
-                                      alt=""
-                                      loading="lazy"
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-bx-ink3 text-xs">
-                                      {t.noMapData}
-                                    </div>
-                                  )}
-                                  <span className="absolute bottom-1 right-1 px-2 py-1 text-[11px] font-bold rounded bg-bx-bg/90 text-bx-yellow border border-bx-line group-hover/map:bg-bx-yellow group-hover/map:text-bx-bg transition-colors">
-                                    {t.openInMap}
-                                  </span>
-                                </a>
-                                <p className="text-xs text-bx-ink2">{item.address}</p>
-                              </div>
-                            ))}
+                            <ol className="space-y-2">
+                              {place.items?.map((item, itemIdx) =>
+                                renderSpot(place, item, { index: itemIdx })
+                              )}
+                            </ol>
                           </div>
                         )}
                       </div>
+                    );
+                  })
+                )}
+              </div>
+            )}
+
+            {/* ===== 都道府県別ビュー ===== */}
+            {viewMode === "prefecture" && (
+              <div className="space-y-5">
+                {prefectureGroups.length === 0 ? (
+                  <EmptyState
+                    title={t.noMatchTitle}
+                    description={t.noMatchDesc}
+                    actionLabel={t.clear}
+                    onAction={clearFilters}
+                    tone="dark"
+                  />
+                ) : (
+                  prefectureGroups.map(([pref, list]) => (
+                    <div key={`pref-${pref}`}>
+                      <h3 className="flex items-baseline gap-2 border-b border-bx-line pb-1.5 text-sm font-extrabold tracking-wider text-bx-ink">
+                        <span>{pref}</span>
+                        <span className="text-[11px] font-bold tabular-nums text-bx-blue">
+                          {list.length}
+                        </span>
+                      </h3>
+                      <ul className="mt-2 space-y-2">
+                        {list.map(({ place, item }) =>
+                          renderSpot(place, item, { showWork: true })
+                        )}
+                      </ul>
                     </div>
-                  );
-                })
-              )}
-            </div>
-          )}
+                  ))
+                )}
+              </div>
+            )}
+          </div>
 
-          {/* ===== 都道府県別ビュー ===== */}
-          {viewMode === "prefecture" && (
-            <div className="space-y-4">
-              {prefectureGroups.length === 0 ? (
-                <EmptyState
-                  title={t.noMatchTitle}
-                  description={t.noMatchDesc}
-                  actionLabel={t.clear}
-                  onAction={clearFilters}
-                  tone="dark"
-                />
-              ) : (
-                prefectureGroups.map(([pref, list]) => (
-                  <div key={`pref-${pref}`} className="space-y-2">
-                    <h3 className="sticky top-[136px] z-10 bg-bx-blue text-bx-bg px-3 py-1 rounded-md font-bold text-sm tracking-wider">
-                      {pref}{" "}
-                      <span className="text-xs font-normal opacity-80">
-                        ({list.length})
-                      </span>
-                    </h3>
-                    <ul className="space-y-2">
-                      {list.map(({ place, item }) => renderPrefectureItem(place, item))}
-                    </ul>
-                  </div>
-                ))
-              )}
-            </div>
-          )}
+          <p className="pt-4 pb-1 text-xs text-bx-ink3">
+            {t.footerNote}
+          </p>
         </div>
-
-        <p className="text-xs py-2 text-bx-ink3">
-          {t.footerNote}
-        </p>
       </div>
     </section>
   );

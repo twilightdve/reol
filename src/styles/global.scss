@@ -258,13 +258,98 @@ body.is-ios {
   background-size: 100% auto !important;
 }
 
-/* ヒートマップ等のOSMタイルをダークテーマに近づける(反転+色調整)。ライトモードでは反転しない。 */
-.relive-map-tiles-dark {
+/* ヒートマップ等のOSMタイルをダークテーマに近づける(反転+色調整)。ライトモードでは反転しない。
+   フィルタは層の箱ではなくタイル1枚ずつに掛ける(WebKit は層に掛けると、地図を動かして新しく見えた部分を描かず、黒い帯が残る)。 */
+.relive-map-tiles-dark .leaflet-tile {
   filter: invert(92%) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
 }
 
-.light .relive-map-tiles-dark {
+.light .relive-map-tiles-dark .leaflet-tile {
   filter: none;
+}
+
+/*
+  PLACE(聖地)の地図。ピンと操作ボタンをサイトの色に合わせる(Leaflet 既定の画像ピン・白いボタンを使わない)。
+  ピン: 黄 = まだ / 青 = 巡礼済み。選んでいるピンは大きくして輪を付ける。
+*/
+.place-pin-wrap {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+}
+
+.place-pin {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: rgb(var(--bx-yellow));
+  border: 2px solid rgb(var(--bx-bg));
+  box-shadow: 0 0 0 1px rgb(var(--bx-yellow) / 0.6), 0 1px 4px rgb(0 0 0 / 0.5);
+  transition: transform 0.15s ease;
+}
+
+.place-pin--visited {
+  background: rgb(var(--bx-blue));
+  box-shadow: 0 0 0 1px rgb(var(--bx-blue) / 0.6), 0 1px 4px rgb(0 0 0 / 0.5);
+}
+
+.place-pin-wrap:hover .place-pin {
+  transform: scale(1.25);
+}
+
+.place-pin--selected,
+.place-pin-wrap:hover .place-pin--selected {
+  transform: scale(1.6);
+  box-shadow: 0 0 0 1.5px rgb(var(--bx-ink)), 0 0 0 6px rgb(var(--bx-yellow) / 0.35);
+}
+
+.place-pin--visited.place-pin--selected {
+  box-shadow: 0 0 0 1.5px rgb(var(--bx-ink)), 0 0 0 6px rgb(var(--bx-blue) / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .place-pin {
+    transition: none;
+  }
+}
+
+.place-map .leaflet-container {
+  background: rgb(var(--bx-bg));
+  font-family: inherit;
+}
+
+.place-map .leaflet-container .leaflet-bar {
+  border: 1px solid rgb(var(--bx-line));
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.place-map .leaflet-container .leaflet-bar a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  background: rgb(var(--bx-bg) / 0.92);
+  color: rgb(var(--bx-ink));
+  border-bottom-color: rgb(var(--bx-line));
+}
+
+.place-map .leaflet-container .leaflet-bar a:hover,
+.place-map .leaflet-container .leaflet-bar a:focus-visible {
+  background: rgb(var(--bx-bg));
+  color: rgb(var(--bx-yellow));
+}
+
+.place-map .leaflet-container .leaflet-control-attribution {
+  background: rgb(var(--bx-bg) / 0.8);
+  color: rgb(var(--bx-ink3));
+  font-size: 10px;
+}
+
+.place-map .leaflet-container .leaflet-control-attribution a {
+  color: rgb(var(--bx-blue));
 }
 
 /*
