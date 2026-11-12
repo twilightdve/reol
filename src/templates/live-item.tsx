@@ -20,7 +20,7 @@ import PlayerSlot from "../components/player/PlayerSlot";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { stopMedia } from "../redux/slices/playerSlice";
 import { FiMusic, FiPlay, FiX, FiCopy, FiCheck } from "react-icons/fi";
-import { GlassCard, Kicker } from "../components/redesign";
+import { Kicker, LinkRows, LinkRow } from "../components/redesign";
 import { trackEvent } from "../utils/analytics";
 import { LangLink, useDict, useSiteLang } from "../i18n/site/SiteLangContext";
 import { getDict, SiteDict } from "../i18n/site/dict";
@@ -472,27 +472,11 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
         )}
 
         {/* ⑥回遊 */}
-        <section className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <GlassCard to="/live/" accent="blueLight" className="p-4">
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              ARCHIVE
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">
-              {t.toArchiveTitle}
-            </h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.toArchiveDesc}
-            </p>
-          </GlassCard>
-          <GlassCard to="/search/" accent="yellow" className="p-4">
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow">
-              SEARCH
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.toSearchTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.toSearchDesc}
-            </p>
-          </GlassCard>
+        <section className="mb-4">
+          <LinkRows>
+            <LinkRow as="h2" to="/live/" kicker="ARCHIVE" title={t.toArchiveTitle} desc={t.toArchiveDesc} />
+            <LinkRow as="h2" to="/search/" kicker="SEARCH" title={t.toSearchTitle} desc={t.toSearchDesc} />
+          </LinkRows>
         </section>
         <p className="text-right">
           <LangLink

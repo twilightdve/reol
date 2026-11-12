@@ -14,7 +14,7 @@ import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent, trackOfficialLinkClick } from "../utils/analytics";
 import { reolTypes } from "../data/reol-type/types";
 import { ACTIVITY_START_YEAR, activityYears } from "../constants/artist";
-import { Kicker } from "../components/redesign";
+import { Kicker, LinkRows, LinkRow } from "../components/redesign";
 import PlayerSlot from "../components/player/PlayerSlot";
 import { LangLink as Link, pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
 import { welcomeDict } from "../i18n/site/pages/welcome";
@@ -123,8 +123,12 @@ const axisSongNames = (axis: "G" | "E"): string[] =>
 
 // ---------- ページ本体 ----------
 
-const containerCls =
-  "bg-bx-surface/5 border border-bx-line rounded-xl p-4 sm:p-6";
+// 読みものと同じく、枠で囲まず罫線と余白で区切る(plan/71)
+const containerCls = "border-t border-bx-line pt-10";
+const headingCls = "text-[21px] sm:text-[23px] font-extrabold leading-snug text-bx-ink mb-2";
+const leadCls = "text-[13px] leading-relaxed text-bx-ink3 mb-6";
+const textLinkCls =
+  "text-bx-blue underline decoration-1 underline-offset-4 hover:text-bx-blueLight transition-colors";
 
 const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
   const t = usePageDict(welcomeDict);
@@ -164,16 +168,16 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
   }, [songs, topSlugs]);
 
   return (
-    <main className="relative container mx-auto w-full max-w-4xl px-3 sm:px-4 py-6 text-bx-ink space-y-8">
+    <main className="relative container mx-auto w-full max-w-[42rem] px-4 sm:px-6 py-8 text-bx-ink space-y-12">
       {/* 1. ヒーロー */}
-      <section className={containerCls}>
-        <Kicker color="text-bx-blue" className="mb-2">
+      <section>
+        <Kicker color="text-bx-ink3" className="mb-3">
           WELCOME
         </Kicker>
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-bx-ink mb-3">
+        <h1 className="text-[28px] sm:text-[36px] font-extrabold leading-[1.35] text-bx-ink mb-4">
           {t.title}
         </h1>
-        <p className="text-sm leading-relaxed text-bx-ink2">
+        <p className="text-[15px] sm:text-[16px] leading-[1.95] text-bx-ink">
           {t.intro(activityYears())}
         </p>
       </section>
@@ -182,26 +186,27 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
       <section className={containerCls} aria-labelledby="welcome-top-songs">
         <h2
           id="welcome-top-songs"
-          className="text-xl font-bold text-bx-ink mb-1"
+          className={headingCls}
         >
           {t.topHeading}
         </h2>
-        <p className="text-xs text-bx-ink3 mb-4">
+        <p className={leadCls}>
           {t.topLead}
         </p>
-        <div className="space-y-6">
+        <div className="space-y-10">
           {topSongs.map((song) => {
             const videoId = youTubeId(song.musicVideoUrl);
             return (
-              <article
-                key={song.songUuid}
-                className="rounded-lg border border-bx-line bg-bx-surface/5 overflow-hidden"
-              >
+              <article key={song.songUuid}>
                 {videoId && (
-                  <PlayerSlot videoId={videoId} title={t.mvTitle(song.songName)} />
+                  <PlayerSlot
+                    videoId={videoId}
+                    title={t.mvTitle(song.songName)}
+                    className="rounded-lg border border-bx-line"
+                  />
                 )}
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-semibold text-bx-ink">
+                <div className="pt-3">
+                  <h3 className="text-[18px] font-bold leading-snug text-bx-ink">
                     {song.songName}
                   </h3>
                   <p className="text-xs text-bx-ink3 mt-1">
@@ -250,33 +255,30 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             );
           })}
         </div>
-        <p className="text-[11px] text-bx-ink3 mt-3">
+        <p className="text-[11px] text-bx-ink3 mt-6">
           {t.playsNote}
         </p>
       </section>
 
       {/* 3. 年代からたどる */}
       <section className={containerCls} aria-labelledby="welcome-era">
-        <h2 id="welcome-era" className="text-xl font-bold text-bx-ink mb-1">
+        <h2 id="welcome-era" className={headingCls}>
           {t.eraHeading}
         </h2>
-        <p className="text-xs text-bx-ink3 mb-4">
+        <p className={leadCls}>
           {t.eraLead}
         </p>
-        <div className="space-y-5">
+        <div className="space-y-8">
           {eraPicks.map(({ era, picks }) => (
             <div key={era.key}>
-              <h3 className="text-sm font-bold mb-2">
-                <span className="text-bx-blue tabular-nums">{era.label}</span>
+              <h3 className="mb-3 text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">
+                <span className="tabular-nums">{era.label}</span>
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6">
                 {picks.map((song) => {
                   const videoId = youTubeId(song.musicVideoUrl);
                   return (
-                    <div
-                      key={song.songUuid}
-                      className="rounded-lg border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors overflow-hidden"
-                    >
+                    <div key={song.songUuid}>
                       <a
                         href={song.musicVideoUrl}
                         target="_blank"
@@ -291,29 +293,29 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
                             loading="lazy"
                             width={320}
                             height={180}
-                            className="w-full aspect-video object-cover"
+                            className="w-full aspect-video object-cover rounded-lg border border-bx-line"
                           />
                         )}
-                        <div className="p-3">
-                          <span className="text-sm font-semibold text-bx-ink group-hover:text-bx-blue transition-colors">
+                        <div className="pt-2.5">
+                          <span className="text-[15px] font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
                             {song.songName}
                           </span>
                           <p className="text-[11px] text-bx-ink3 mt-1">
                             {t.eraMeta(song.releaseDate.slice(0, 4), song.totalPlays)}
                           </p>
-                          <span className="inline-block text-[11px] text-bx-blue mt-1">
+                          <span className="inline-block text-[12px] text-bx-blue underline decoration-1 underline-offset-4 mt-1">
                             {t.watchMv}
                           </span>
                         </div>
                       </a>
                       {song.downloadUrl && (
-                        <div className="px-3 pb-3">
+                        <div className="pt-1">
                           <a
                             href={song.downloadUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackOfficialLinkClick("streaming")}
-                            className="text-[11px] text-bx-ink3 underline hover:text-bx-ink"
+                            className="text-[12px] text-bx-ink3 underline underline-offset-4 hover:text-bx-ink"
                           >
                             {t.listen}
                           </a>
@@ -330,50 +332,44 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
 
       {/* 4. 次に聴くなら */}
       <section className={containerCls} aria-labelledby="welcome-next">
-        <h2 id="welcome-next" className="text-xl font-bold text-bx-ink mb-1">
+        <h2 id="welcome-next" className={headingCls}>
           {t.nextHeading}
         </h2>
-        <p className="text-xs text-bx-ink3 mb-4">
+        <p className={leadCls}>
           {t.nextLead}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-8">
           {(
             [
               {
                 key: "gori",
-                emoji: "🎸",
                 title: t.goriTitle,
                 desc: t.goriDesc,
                 pick: branchPicks.gori,
               },
               {
                 key: "emo",
-                emoji: "🎹",
                 title: t.emoTitle,
                 desc: t.emoDesc,
                 pick: branchPicks.emo,
               },
             ] as const
-          ).map(({ key, emoji, title, desc, pick }) => (
-            <div
-              key={key}
-              className="rounded-lg border border-bx-line bg-bx-surface/5 p-4"
-            >
-              <h3 className="text-sm font-bold text-bx-ink mb-1">
-                <span className="mr-1.5">{emoji}</span>
+          ).map(({ key, title, desc, pick }) => (
+            <div key={key}>
+              <h3 className="text-[16px] font-bold text-bx-ink mb-1">
                 {title}
               </h3>
-              <p className="text-xs text-bx-ink3 mb-3">{desc}</p>
+              <p className="text-[13px] leading-relaxed text-bx-ink3 mb-2">{desc}</p>
               {pick && (
                 <a
                   href={pick.musicVideoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackOfficialLinkClick("youtube_mv")}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-bx-blue hover:underline"
+                  className={`inline-flex flex-wrap items-baseline gap-x-1.5 text-[14px] ${textLinkCls}`}
                 >
                   {t.listenPick(pick.songName)}
-                  <span className="text-[10px] text-bx-ink3 font-normal">
+                  <span className="text-[11px] text-bx-ink3 font-normal">
                     {t.pickPlays(pick.totalPlays)}
                   </span>
                 </a>
@@ -381,54 +377,27 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
             </div>
           ))}
         </div>
-        <Link
-          to="/quiz/reol-type/"
-          onClick={() =>
-            trackEvent("welcome_link_click", { label: "quiz_reol_type" })
-          }
-          className="block group rounded-xl overflow-hidden border border-bx-line hover:border-bx-blue transition-colors"
-        >
-          <div className="relative bg-bx-surface/5 p-4 sm:p-5">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-base font-bold text-bx-ink">
-                    {t.quizTitle}
-                  </span>
-                </div>
-                <p className="text-xs text-bx-ink3">
-                  {t.quizDesc}
-                </p>
-              </div>
-              <div className="flex-shrink-0 ml-3 w-9 h-9 rounded-full border border-bx-line flex items-center justify-center group-hover:border-bx-blue transition-colors">
-                <svg
-                  className="w-4 h-4 text-bx-blue group-hover:translate-x-0.5 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </Link>
+        <LinkRows twoColumns={false}>
+          <LinkRow
+            to="/quiz/reol-type/"
+            title={t.quizTitle}
+            desc={t.quizDesc}
+            onClick={() =>
+              trackEvent("welcome_link_click", { label: "quiz_reol_type" })
+            }
+          />
+        </LinkRows>
       </section>
 
       {/* 5. もっと掘る */}
       <section className={containerCls} aria-labelledby="welcome-more">
-        <h2 id="welcome-more" className="text-xl font-bold text-bx-ink mb-1">
+        <h2 id="welcome-more" className={headingCls}>
           {t.moreHeading}
         </h2>
-        <p className="text-xs text-bx-ink3 mb-4">
+        <p className={leadCls}>
           {t.moreLead}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <LinkRows twoColumns={false}>
           {[
             {
               to: "/songs/stats/",
@@ -449,33 +418,26 @@ const WelcomePage: React.FC<PageProps<WelcomePageData>> = ({ data }) => {
               desc: t.moreSearchDesc,
             },
           ].map((item) => (
-            <Link
+            <LinkRow
               key={item.label}
               to={item.to}
+              title={item.title}
+              desc={item.desc}
               onClick={() =>
                 trackEvent("welcome_link_click", { label: item.label })
               }
-              className="group rounded-lg border border-bx-line bg-bx-surface/5 hover:border-bx-blue transition-colors p-4"
-            >
-              <div className="text-sm font-bold text-bx-ink group-hover:text-bx-blue transition-colors">
-                {item.title} →
-              </div>
-              <p className="text-[11px] text-bx-ink3 mt-1">{item.desc}</p>
-            </Link>
+            />
           ))}
-        </div>
+        </LinkRows>
       </section>
 
       {/* 6. 公式CTA */}
-      <section
-        className="rounded-xl overflow-hidden border border-bx-line"
-        aria-labelledby="welcome-official"
-      >
-        <div className="bg-bx-surface/5 p-5 sm:p-6">
-          <h2 id="welcome-official" className="text-lg font-bold text-bx-ink mb-1">
+      <section className={containerCls} aria-labelledby="welcome-official">
+        <div>
+          <h2 id="welcome-official" className={headingCls}>
             {t.officialHeading}
           </h2>
-          <p className="text-xs text-bx-ink3 mb-4">
+          <p className={leadCls}>
             {t.officialLead}
           </p>
           <div className="flex flex-wrap gap-2">

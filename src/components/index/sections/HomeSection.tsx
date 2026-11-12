@@ -5,7 +5,7 @@ import { featuresDict } from "../../../i18n/site/pages/features";
 import RecommendList from "../recommend-list";
 import { Recommend } from "../../../types/recommend";
 import { trackEvent, trackOfficialLinkClick } from "../../../utils/analytics";
-import { GlassCard, Kicker, StatCounter, ExploreGrid } from "../../redesign";
+import { Kicker, StatCounter, ExploreGrid, LinkRows, LinkRow } from "../../redesign";
 import OnThisDay from "../OnThisDay";
 import HomeListen from "../HomeListen";
 import ArticleCarousel from "../../songArticles/ArticleCarousel";
@@ -133,7 +133,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
   // 「今日は何の日」は「今日」がビルド時に決まらないので、表示はマウント後(それまで NEXT LIVE だけ)
   const today = (
     <section aria-label="TODAY" className="px-2 sm:px-4 pt-8">
-      <div className="grid gap-x-8 gap-y-6 rounded-xl border border-bx-line px-4 py-5 sm:px-6 md:grid-cols-2 empty:hidden">
+      <div className="grid gap-x-8 gap-y-6 border-y border-bx-line py-6 md:grid-cols-2 empty:hidden">
         {nextLive && (
           <div>
             <Kicker color="text-bx-yellow">NEXT LIVE</Kicker>
@@ -214,116 +214,48 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
         <ExploreGrid />
       </div>
 
-      {/* 入口カード：初見の人が最初に触れる導線 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 px-2 sm:px-4 pt-10">
-        {/* はじめてのReol */}
-        <GlassCard
-          to="/welcome/"
-          accent="yellow"
-          className="p-4"
-          onClick={() =>
-            trackEvent("entry_card_click", {
-              category: "navigation",
-              label: "はじめてのReol",
-              card_type: "welcome",
-            })
-          }
-        >
-          <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-yellow">
-            START HERE
-          </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.welcomeTitle}</h2>
-          <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            {t.welcomeDesc}
-          </p>
-        </GlassCard>
-
-        {/* ライブに行く（カード内に初参加ガイドへのサブリンクを併設） */}
-        <GlassCard accent="blue" className="h-full flex flex-col overflow-hidden">
-          <LangLink
-            to="/live/"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "ライブに行く",
-                card_type: "live",
-              })
-            }
-            className="block flex-1 p-4"
-          >
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blue">
-              LIVE & SETLIST
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.liveTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.liveDesc(liveItemCount)}
-            </p>
-          </LangLink>
-          <LangLink
-            to="/live/guide/"
-            onClick={() =>
-              trackEvent("entry_card_click", {
-                category: "navigation",
-                label: "初参加ガイドを読む",
-                card_type: "live_guide",
-              })
-            }
-            className="block text-center text-[10px] sm:text-xs text-bx-ink3 border-t border-bx-line py-1.5 hover:text-bx-blueLight transition-colors"
-          >
-            {t.liveGuideLink}
-          </LangLink>
-        </GlassCard>
-
-        {/* データを掘る */}
-        <GlassCard
-          to="/songs/stats/"
-          accent="blueLight"
-          className="p-4"
-          onClick={() =>
-            trackEvent("entry_card_click", {
-              category: "navigation",
-              label: "データを掘る",
-              card_type: "stats",
-            })
-          }
-        >
-          <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-            DATA
-          </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.dataTitle}</h2>
-          <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            {t.dataDesc(songCount)}
-          </p>
-        </GlassCard>
-
-        {/* タイムマシン */}
-        <GlassCard
-          to="/timemachine/"
-          accent="ink"
-          className="p-4"
-          onClick={() =>
-            trackEvent("entry_card_click", {
-              category: "navigation",
-              label: "タイムマシン",
-              card_type: "timemachine",
-            })
-          }
-        >
-          <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-ink">
-            TIME MACHINE
-          </p>
-          <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.timemachineTitle}</h2>
-          <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-            {t.timemachineDesc}
-          </p>
-        </GlassCard>
+      {/* 入口: 初見の人が最初に触れる導線。カードを並べず、罫線で区切った行にする(plan/71)。
+          ファンタイプ診断とライヴ参戦ガイドも、同じ並びに入れる */}
+      <div className="px-2 sm:px-4 pt-10">
+        <LinkRows>
+          {(
+            [
+              { to: "/welcome/", kicker: "START HERE", title: t.welcomeTitle, desc: t.welcomeDesc, label: "はじめてのReol", cardType: "welcome" },
+              { to: "/live/", kicker: "LIVE & SETLIST", title: t.liveTitle, desc: t.liveDesc(liveItemCount), label: "ライブに行く", cardType: "live" },
+              { to: "/songs/stats/", kicker: "DATA", title: t.dataTitle, desc: t.dataDesc(songCount), label: "データを掘る", cardType: "stats" },
+              { to: "/timemachine/", kicker: "TIME MACHINE", title: t.timemachineTitle, desc: t.timemachineDesc, label: "タイムマシン", cardType: "timemachine" },
+              // Reol検定: 出題内容レビュー中のためHOME導線を一時停止(ページ・コードは残置)
+              { to: "/quiz/reol-type/", kicker: "FAN TYPE QUIZ", title: t.quizTitle, desc: t.quizDesc, label: null, cardType: null },
+              { to: "/live/guide/", kicker: "LIVE GUIDE", title: t.guideTitle, desc: t.guideDesc, label: "ライヴ参戦ガイド", cardType: "live_guide" },
+            ] as const
+          ).map((entry) => (
+            <LinkRow
+              key={entry.to}
+              to={entry.to}
+              kicker={entry.kicker}
+              title={entry.title}
+              desc={entry.desc}
+              as="h2"
+              onClick={
+                entry.label
+                  ? () =>
+                      trackEvent("entry_card_click", {
+                        category: "navigation",
+                        label: entry.label,
+                        card_type: entry.cardType,
+                      })
+                  : undefined
+              }
+            />
+          ))}
+        </LinkRows>
       </div>
 
       {/* 深堀りツール: カードを並べると増えるたびに HOME が長くなるため、簡潔なリストにして
           全体は /features/ にまとめる(plan/27 ステップ5) */}
       <div className="px-2 sm:px-4 pt-8">
         <Kicker color="text-bx-blueLight">MORE TOOLS</Kicker>
-        <ul className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 border-t border-bx-line">
+        <LinkRows className="mt-3.5">
           {(
             [
               { to: "/cgraph/", title: t.cgraphTitle, desc: t.cgraphDesc, label: "相関図", cardType: "cgraph" },
@@ -336,31 +268,21 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               { to: "/posts/", title: t.postsTitle, desc: t.postsDesc, label: "関連ポスト", cardType: "posts" },
             ] as const
           ).map((tool) => (
-            <li key={tool.cardType} className="border-b border-bx-line">
-              <LangLink
-                to={tool.to}
-                onClick={() =>
-                  trackEvent("entry_card_click", {
-                    category: "navigation",
-                    label: tool.label,
-                    card_type: tool.cardType,
-                  })
-                }
-                className="group flex items-center justify-between gap-3 py-2.5"
-              >
-                <span className="min-w-0">
-                  <span className="block text-[14px] font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
-                    {tool.title}
-                  </span>
-                  <span className="mt-0.5 block text-[11.5px] leading-relaxed text-bx-ink3">{tool.desc}</span>
-                </span>
-                <span aria-hidden="true" className="flex-shrink-0 text-bx-blueLight">
-                  →
-                </span>
-              </LangLink>
-            </li>
+            <LinkRow
+              key={tool.cardType}
+              to={tool.to}
+              title={tool.title}
+              desc={tool.desc}
+              onClick={() =>
+                trackEvent("entry_card_click", {
+                  category: "navigation",
+                  label: tool.label,
+                  card_type: tool.cardType,
+                })
+              }
+            />
           ))}
-        </ul>
+        </LinkRows>
         <LangLink
           to="/features/"
           onClick={() =>
@@ -370,54 +292,10 @@ const HomeSection: React.FC<HomeSectionProps> = ({ recommend, siteStats, homeArt
               card_type: "features",
             })
           }
-          className="mt-3 inline-block text-[12px] font-bold text-bx-blueLight hover:text-bx-blue transition-colors"
+          className="mt-4 inline-block text-[13px] font-bold text-bx-ink underline underline-offset-4 hover:text-bx-blueLight transition-colors"
         >
           {features.seeAll}
         </LangLink>
-      </div>
-
-      {/* Reolファンタイプ診断・美辞学ナビへの導線 */}
-      <div className="flex flex-col gap-3 px-2 sm:px-4 pt-6">
-        <GlassCard
-          href="/quiz/reol-type/"
-          className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bx-blueLight"
-        >
-          <div>
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              FAN TYPE QUIZ
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.quizTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.quizDesc}
-            </p>
-          </div>
-          <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
-        </GlassCard>
-
-        {/* Reol検定: 出題内容レビュー中のためHOME導線を一時停止(ページ・コードは残置) */}
-
-        <GlassCard
-          href="/live/guide/"
-          className="flex items-center justify-between gap-3 p-4 sm:p-5 hover:border-bx-blueLight"
-          onClick={() =>
-            trackEvent("entry_card_click", {
-              category: "navigation",
-              label: "ライヴ参戦ガイド",
-              card_type: "live_guide",
-            })
-          }
-        >
-          <div>
-            <p className="text-[9.5px] font-extrabold tracking-[0.26em] text-bx-blueLight">
-              LIVE GUIDE
-            </p>
-            <h2 className="mt-2 text-[15px] font-bold text-bx-ink">{t.guideTitle}</h2>
-            <p className="mt-1 text-[11.5px] leading-relaxed text-bx-ink3">
-              {t.guideDesc}
-            </p>
-          </div>
-          <span className="flex-shrink-0 font-extrabold text-bx-blueLight">→</span>
-        </GlassCard>
       </div>
 
       {/* Pick Up Post */}

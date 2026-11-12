@@ -30,9 +30,13 @@ import PlayerSlot from "../../components/player/PlayerSlot";
 import MapEmbed from "../../components/common/MapEmbed";
 import type { RoutePoint } from "../../components/place/ShibuyaRouteMap";
 
-const containerCls = "rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5";
-const linkCls = "text-bx-blue underline underline-offset-2 hover:text-bx-blueLight";
-const bodyCls = "text-sm sm:text-[15px] leading-relaxed text-bx-ink2 space-y-3";
+// 見た目は楽曲記事(templates/song-article.tsx・ArticleBody)に合わせる。枠で囲まず、一本の段で読ませる
+// (2026-11-13 ユーザー「カードばっかり使ってるデザインあんまり好きじゃない」「今一番しっくりくるのは読みものコンテンツのデザイン」)。
+// 枠が付くのは動画と地図だけ
+const sectionCls = "mt-14 border-t border-bx-line pt-10";
+const linkCls = "text-bx-blue underline decoration-1 underline-offset-4 hover:text-bx-blueLight";
+const bodyCls = "text-[15px] sm:text-[16px] leading-[1.95] text-bx-ink [overflow-wrap:anywhere] space-y-5";
+const labelCls = "text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3";
 
 const TITLE = SHIBUYA_GUIDE.title;
 const PATH = guidePath(SHIBUYA_GUIDE);
@@ -65,6 +69,7 @@ const MAP_PLACES: Record<string, MapPlace> = {
   "ningen-kankei": { ftid: "0x60188ca854f6a1ef:0x7df1c06f6622b079", label: "人間関係 cafe de copain", lat: 35.6611601, lng: 139.6988751 },
   torahebi: { ftid: "0x60188d7c8f81121f:0xad80fa09ed8d600c", label: "虎へび珈琲", lat: 35.6619969, lng: 139.6992611 },
   borracho: { ftid: "0x6018f3557c1b3997:0xc8f0834f34a7135b", label: "ボラーチョ", lat: 35.6552904, lng: 139.6889917 },
+  lilibet: { ftid: "0x6018f4a61b16c469:0x6b1f4914263d0f44", label: "LiLiBET TEA HOUSE", lat: 35.6477044, lng: 139.6805316 },
   "little-tao": { ftid: "0x60188b3d872f886b:0x4283c9843847ac35", label: "Little TAO", lat: 35.6419492, lng: 139.700989 },
   hodoukyou: { ftid: "0x60188b59b5683237:0x9c5b5523bfaf7105", label: "〒150-0002 東京都渋谷区渋谷２丁目", lat: 35.6581761, lng: 139.7026735 },
   modi: { ftid: "0x60188ca80c832a73:0x1d9e522f0d370fb1", label: "渋谷モディ", lat: 35.6614887, lng: 139.7005798 },
@@ -175,8 +180,8 @@ const In: FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => 
 );
 
 const Section: FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
-  <section className={containerCls} aria-labelledby={id}>
-    <h2 id={id} className="text-lg sm:text-xl font-bold text-bx-ink mb-3 scroll-mt-20">
+  <section className={sectionCls} aria-labelledby={id}>
+    <h2 id={id} className="mb-5 text-[21px] sm:text-[23px] font-extrabold leading-snug text-bx-ink scroll-mt-20">
       {title}
     </h2>
     <div className={bodyCls}>{children}</div>
@@ -190,15 +195,15 @@ const numberCls =
 const Spot: FC<{ id: string; title: string; work?: string; children: React.ReactNode }> = ({ id, title, work, children }) => {
   const no = spotNo(id);
   return (
-    <div className="pt-4 border-t border-bx-line first:pt-0 first:border-t-0 space-y-3">
-      <h3 id={id} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-bx-ink scroll-mt-20">
+    <div className="pt-6 first:pt-0 space-y-4">
+      <h3 id={id} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[18px] font-bold leading-snug text-bx-ink scroll-mt-20">
         {no > 0 && (
           <span className={numberCls} aria-label={`地図の${no}番`}>
             {no}
           </span>
         )}
         <span>{title}</span>
-        {work && <span className="text-sm font-normal text-bx-ink3">{work}</span>}
+        {work && <span className="text-[13px] font-normal text-bx-ink3">{work}</span>}
       </h3>
       {children}
     </div>
@@ -207,28 +212,22 @@ const Spot: FC<{ id: string; title: string; work?: string; children: React.React
 
 /**
  * 場所ひとつ分の動画と地図。動画は押すまで読み込まない(サイト共通のプレイヤーで再生)。
- * 両方ある時は横に並べ、狭い画面では縦に積む
+ * 段の幅いっぱいに、動画、地図の順で縦に積む
  */
 const SpotMedia: FC<{ id: string; name: string; video?: { id: string; title: string } }> = ({ id, name, video }) => {
   const place = MAP_PLACES[id];
   if (!place && !video) return null;
-  const both = !!place && !!video;
   return (
-    <div className={both ? "grid gap-3 sm:grid-cols-2" : undefined}>
+    <div className="space-y-3 py-1">
       {video && <PlayerSlot videoId={video.id} title={video.title} className="rounded-lg" />}
-      {place && (
-        <MapEmbed
-          src={mapEmbedSrc(place)}
-          title={`${name}の地図`}
-          className={both ? "h-0 pb-[56.25%]" : "h-48 sm:h-56"}
-        />
-      )}
+      {place && <MapEmbed src={mapEmbedSrc(place)} title={`${name}の地図`} className="h-52 sm:h-64" />}
     </div>
   );
 };
 
-const listCls = "list-disc pl-5 space-y-2";
-const linksCls = "list-none space-y-2 text-[13px] sm:text-sm";
+const listCls = "list-disc pl-6 space-y-2";
+// 住所・地図・出典。本文より一段小さく
+const linksCls = "list-none space-y-1.5 text-[13px] sm:text-[14px] leading-relaxed text-bx-ink2";
 
 type RouteMapComponent = React.ComponentType<{ spots: RoutePoint[]; onPick: (id: string) => void }>;
 
@@ -265,7 +264,7 @@ const ShibuyaGuidePage: FC = () => {
 
   return (
     <>
-      <main className="relative container mx-auto w-full max-w-3xl px-3 sm:px-4 py-6 text-bx-ink space-y-6" lang="ja">
+      <main className="relative container mx-auto w-full max-w-[42rem] px-4 sm:px-6 py-8 text-bx-ink" lang="ja">
         <nav aria-label="パンくず" className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold tracking-wide text-bx-ink3">
           <Link to="/" className="hover:text-bx-blue transition-colors">
             HOME
@@ -279,11 +278,11 @@ const ShibuyaGuidePage: FC = () => {
         </nav>
 
         {/* 表紙。一覧のカードと OGP の画像にもなる(scripts/articles/capture-article-og.ts が guide-cover__* を大きくして撮る) */}
-        <header data-og-cover className="guide-cover overflow-hidden rounded-xl border border-bx-line bg-bx-surface/5">
-          <div className="guide-cover__body grid items-center sm:grid-cols-[minmax(0,1fr)_auto]">
-            <div className="guide-cover__text p-4 sm:p-6">
+        <header data-og-cover className="guide-cover mt-6">
+          <div className="guide-cover__body grid items-center gap-x-6 sm:grid-cols-[minmax(0,1fr)_auto]">
+            <div className="guide-cover__text">
               {SERIES && <Kicker color="text-bx-blue">{SERIES.name}</Kicker>}
-              <h1 className="guide-cover__title mt-3 text-2xl font-bold leading-tight text-bx-ink sm:text-3xl">
+              <h1 className="guide-cover__title mt-3 text-[28px] font-extrabold leading-[1.35] text-bx-ink sm:text-[36px]">
                 {TITLE.split(" ").map((line, i) => (
                   <React.Fragment key={line}>
                     {i > 0 && " "}
@@ -291,19 +290,19 @@ const ShibuyaGuidePage: FC = () => {
                   </React.Fragment>
                 ))}
               </h1>
-              <p className="guide-cover__lead mt-2 text-sm text-bx-ink2">〜渋谷はReolの交差点〜</p>
-              <p className="guide-cover__date mt-4 text-xs text-bx-ink3">
+              <p className="guide-cover__lead mt-2 text-[14px] text-bx-ink2">〜渋谷はReolの交差点〜</p>
+              <p className="guide-cover__date mt-4 text-[12px] text-bx-ink3">
                 <ArticleDate publishedAt={SHIBUYA_GUIDE.publishedAt} updatedAt={SHIBUYA_GUIDE.updatedAt} />
               </p>
             </div>
             {/* 歩いて回る9か所の並び(飾り。番号の意味は下の「歩いて回る」で説明する) */}
-            <div className="guide-cover__art hidden h-48 py-2 pr-4 sm:block" aria-hidden="true">
+            <div className="guide-cover__art hidden h-44 sm:block" aria-hidden="true">
               <ShibuyaSketch decorative />
             </div>
           </div>
         </header>
 
-        <section className={containerCls}>
+        <section className="mt-8">
           <div className={bodyCls}>
             <p>渋谷は、Reol にとっても Reol のリスナーにとっても、特別な場所だと思います。</p>
             <p>
@@ -332,15 +331,15 @@ const ShibuyaGuidePage: FC = () => {
               <br />
               遠征で来る人には、ライヴ前後の歩き方の参考として、使ってもらえたらうれしいです。
             </p>
-            <p className="text-xs text-bx-ink3">※誤りがあれば、お手数ですがご指摘ください。</p>
+            <p className="text-[13px] text-bx-ink3">※誤りがあれば、お手数ですがご指摘ください。</p>
           </div>
         </section>
 
         <Section id="shibuya-list" title="渋谷のスポット一覧">
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
             <div>
-              <p className="font-bold text-bx-ink mb-1">ライヴ会場・公演の場所</p>
-              <ul className={listCls}>
+              <p className={labelCls}>ライヴ会場・公演の場所</p>
+              <ul className="mt-2 list-none space-y-1">
                 <li>
                   <a href="#line-cube" className={linkCls}>
                     LINE CUBE SHIBUYA
@@ -369,8 +368,8 @@ const ShibuyaGuidePage: FC = () => {
               </ul>
             </div>
             <div>
-              <p className="font-bold text-bx-ink mb-1">MV・映像・街頭の場所</p>
-              <ul className={listCls}>
+              <p className={labelCls}>MV・映像・街頭の場所</p>
+              <ul className="mt-2 list-none space-y-1">
                 <li>
                   <a href="#hodoukyou" className={linkCls}>
                     渋谷駅東口の歩道橋
@@ -384,8 +383,8 @@ const ShibuyaGuidePage: FC = () => {
               </ul>
             </div>
             <div>
-              <p className="font-bold text-bx-ink mb-1">歌詞に出てくる地名</p>
-              <ul className={listCls}>
+              <p className={labelCls}>歌詞に出てくる地名</p>
+              <ul className="mt-2 list-none space-y-1">
                 <li>
                   <a href="#omotesando-shoto" className={linkCls}>
                     表参道
@@ -404,8 +403,8 @@ const ShibuyaGuidePage: FC = () => {
               </ul>
             </div>
             <div>
-              <p className="font-bold text-bx-ink mb-1">休憩と食事、器の店</p>
-              <ul className={listCls}>
+              <p className={labelCls}>休憩と食事、器の店</p>
+              <ul className="mt-2 list-none space-y-1">
                 <li>
                   <a href="#ningen-kankei" className={linkCls}>
                     人間関係 cafe de copain
@@ -419,6 +418,11 @@ const ShibuyaGuidePage: FC = () => {
                 <li>
                   <a href="#borracho" className={linkCls}>
                     ボラーチョ(駒場東大前)
+                  </a>
+                </li>
+                <li>
+                  <a href="#lilibet" className={linkCls}>
+                    LiLiBET TEA HOUSE(池尻)
                   </a>
                 </li>
                 <li>
@@ -438,17 +442,17 @@ const ShibuyaGuidePage: FC = () => {
           <figure>
             <div
               data-route-map={RouteMap ? "on" : "off"}
-              className="h-[360px] overflow-hidden rounded-lg border border-bx-line bg-bx-bg/60 sm:h-[440px]"
+              className="h-[360px] overflow-hidden rounded-lg border border-bx-line sm:h-[440px]"
             >
               {RouteMap ? <RouteMap spots={ROUTE_SPOTS} onPick={goToSpot} /> : <ShibuyaSketch />}
             </div>
-            <figcaption className="mt-2 text-xs text-bx-ink3">
+            <figcaption className="mt-3 text-[13px] leading-relaxed text-bx-ink3">
               点線は順番の目安で、道順ではありません。位置はおおよそです。番号を押すと、その場所の説明へ移ります。
             </figcaption>
           </figure>
-          <ol className="grid gap-x-6 gap-y-3 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-5">
+          <ol className="grid gap-x-8 gap-y-3 leading-normal sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-5">
             {ROUTE_SPOTS.map((s, i) => (
-              <li key={s.id} className="flex items-start gap-2">
+              <li key={s.id} className="flex items-start gap-2.5">
                 <span className={numberCls} aria-hidden="true">
                   {i + 1}
                 </span>
@@ -457,7 +461,7 @@ const ShibuyaGuidePage: FC = () => {
                   <a href={`#${s.id}`} className={linkCls}>
                     {s.name}
                   </a>
-                  <span className="block text-xs text-bx-ink3">{s.note}</span>
+                  <span className="block text-[12px] text-bx-ink3">{s.note}</span>
                 </span>
               </li>
             ))}
@@ -467,7 +471,7 @@ const ShibuyaGuidePage: FC = () => {
           </p>
           <p>全部を回るのは大変なので、時間と体力に合わせて、気になる場所だけでも。</p>
           <p>
-            ボラーチョ、Little TAO、表参道から松濤にかけては、この{ROUTE_SPOTS.length}か所から離れています。それぞれの項目に書きました。
+            ボラーチョ、LiLiBET TEA HOUSE、Little TAO、表参道から松濤にかけては、この{ROUTE_SPOTS.length}か所から離れています。それぞれの項目に書きました。
           </p>
         </Section>
 
@@ -587,6 +591,20 @@ const ShibuyaGuidePage: FC = () => {
                 <Ext href="https://www.tv-tokyo.co.jp/kodokunogurume3/story/0821.html">
                   『孤独のグルメ Season3』第7話(テレビ東京)
                 </Ext>
+              </li>
+            </ul>
+          </Spot>
+
+          <Spot id="lilibet" title="LiLiBET TEA HOUSE(池尻)">
+            <p>Reol 本人が Instagram のストーリーに写真を載せていたお店です。</p>
+            <p>
+              渋谷駅のまわりの{ROUTE_SPOTS.length}か所からは離れています(渋谷駅東口の歩道橋から直線で約2.3km)。歩いて回る順番には入れていません。
+            </p>
+            <SpotMedia id="lilibet" name="LiLiBET TEA HOUSE" />
+            <ul className={linksCls}>
+              <li>東京都世田谷区池尻2-36-5</li>
+              <li>
+                <Ext href="https://maps.app.goo.gl/ULX4D1SzWdE8yCNc6">Google マップで開く</Ext>
               </li>
             </ul>
           </Spot>
@@ -832,7 +850,7 @@ const ShibuyaGuidePage: FC = () => {
           </p>
           <p>それだけで、遠征が少し特別なものになるかもしれません。</p>
           <p>渋谷は Reol の交差点。</p>
-          <p className="pt-2">
+          <p className="pt-4 text-[14px]">
             <In to="/place/">聖地の一覧(全国の地図)へ</In>
             {SERIES && (
               <>

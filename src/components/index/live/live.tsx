@@ -53,7 +53,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   root: {
     direction: {
       horizontal: "items-base sm:flex",
-      vertical: "relative border-l border-bx-line",
+      vertical: "relative",
     },
   },
   item: timelineItemTheme,
@@ -169,7 +169,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
   }, [currentList, t.unknownYear]);
 
   return (
-    <div className="w-full pt-2 px-2 sm:px-10">
+    <div className="w-full pt-2">
       <div className="flex flex-wrap gap-1 text-xs font-bold pb-4">
         {tags.name.map((tag) => {
           return (
@@ -229,7 +229,7 @@ const Live: React.FC<LiveProps> = ({ data }) => {
           <div key={`live-year-${year}`}>
             <h2
               id={`live-year-${year}`}
-              className="scroll-mt-24 pt-6 pb-2 text-2xl sm:text-3xl font-bold text-bx-ink"
+              className="scroll-mt-24 border-b border-bx-line pt-10 pb-3 text-2xl sm:text-3xl font-extrabold text-bx-ink"
             >
               {year}
               {/* 公演の数(参戦回数と同じ数え方。ツアー・イベントの数ではない) */}

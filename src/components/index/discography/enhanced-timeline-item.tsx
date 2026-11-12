@@ -5,10 +5,8 @@ import { DiscographyWithSongs, Song } from "../../../types/discography";
 import { FaMusic } from "react-icons/fa6";
 import { GoLinkExternal } from "react-icons/go";
 import { FiCopy, FiCheck } from "react-icons/fi";
-import { useColorPalette } from "../../../hooks/useColorPalette";
 import { useCollectionOwned } from "../../../hooks/useCollectionOwned";
 import { supabase } from "../../../lib/supabase";
-import { addAlpha } from "../../../utils/colorExtractor";
 import PlayerSlot from "../../player/PlayerSlot";
 import PlayButton from "../../player/PlayButton";
 import Tweets from "../../modules/tweets";
@@ -60,15 +58,13 @@ const SongCard: React.FC<SongCardProps> = ({ song, index, songSlugByUuid }) => {
   const mvId = getYouTubeVideoId(song.musicVideoUrl);
   return (
     <li
-      className="rounded-lg overflow-hidden border border-bx-line bg-bx-surface/5"
+      className="border-b border-bx-line"
       onClick={(e) => e.stopPropagation()}
     >
       {/* 曲ヘッダー。クレジット/歌詞/配信リンクは楽曲詳細ページに集約済みなので
           ここではアコーディオン展開はせず「詳細」への導線に徹する */}
-      <div className="flex items-center gap-3 text-sm p-3">
-        <span
-          className="font-bold min-w-[2rem] text-center px-2 py-1 rounded text-bx-ink2 bg-bx-surface/10"
-        >
+      <div className="flex items-center gap-3 py-2.5 text-sm">
+        <span className="min-w-[1.5rem] text-xs font-bold tabular-nums text-bx-ink3">
           {String(index + 1).padStart(2, "0")}
         </span>
         <span className="flex-1 font-medium text-bx-ink">{song.songName}</span>
@@ -182,15 +178,6 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
     };
   }, [item.slug]);
 
-  // カラーパレットフック（左アクセントバー・バッジ色にのみ使用。カード地色は固定のbxトークン）
-  const { colorPalette, isLoading } = useColorPalette({
-    title: item.title,
-    autoApply: true,
-    prefix: `disco-${item.discographyUuid}`,
-    themeColorPrimary: item.themeColorPrimary,
-    themeColorSecondary: item.themeColorSecondary,
-  });
-
   // 動的なテーマ（メモ化）
   const dynamicTimelineItemTheme = React.useMemo(
     () => ({
@@ -240,13 +227,10 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
   );
 
   return (
-    <div className="mb-4">
-      {/* カード本体 */}
+    <div className="border-b border-bx-line">
+      {/* 一件分。枠で囲まず、下の罫線で区切る(plan/71) */}
       <div
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-lg border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
-        style={{
-          borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
-        }}
+        className="group relative w-full cursor-pointer py-4 sm:py-5"
         onClick={handleTitleClick}
       >
           {/* コンテンツ情報 */}
@@ -274,14 +258,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                     </span>
                     <div className="flex gap-1">
                       {item?.format && (
-                        <span
-                          className="px-2 py-0.5 text-xs font-semibold rounded-md border"
-                          style={{
-                            backgroundColor: addAlpha(colorPalette.secondary, 0.15),
-                            color: colorPalette.secondary,
-                            borderColor: addAlpha(colorPalette.secondary, 0.4),
-                          }}
-                        >
+                        <span className="text-[11px] font-bold tracking-[0.08em] text-bx-ink3">
                           {formatLabel(dict, item.format)}
                         </span>
                       )}
@@ -290,7 +267,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
 
                   {/* 2行目：タイトル　所有トグル */}
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="flex-1 min-w-0 text-sm font-bold leading-tight hover:opacity-80 transition-opacity truncate text-bx-ink">
+                    <h3 className="flex-1 min-w-0 truncate text-sm sm:text-[15px] font-bold leading-tight text-bx-ink transition-colors group-hover:text-bx-blueLight">
                       {item.title}
                     </h3>
                     {ownedToggleButton}
@@ -320,28 +297,14 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                   )}
 
                   {/* メタデータ */}
-                  <div className="flex flex-wrap gap-2 text-xs mt-3">
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs mt-2">
                     {item?.name && (
-                      <span
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border"
-                        style={{
-                          backgroundColor: addAlpha(colorPalette.primary, 0.15),
-                          color: colorPalette.primary,
-                          borderColor: addAlpha(colorPalette.primary, 0.4),
-                        }}
-                      >
+                      <span className="text-xs font-bold tracking-[0.08em] text-bx-ink3">
                         {item.name}
                       </span>
                     )}
                     {item?.format && (
-                      <span
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border"
-                        style={{
-                          backgroundColor: addAlpha(colorPalette.secondary, 0.15),
-                          color: colorPalette.secondary,
-                          borderColor: addAlpha(colorPalette.secondary, 0.4),
-                        }}
-                      >
+                      <span className="text-xs font-bold tracking-[0.08em] text-bx-ink3">
                         {item.format}
                       </span>
                     )}
@@ -382,7 +345,7 @@ const EnhancedTimelineItem: React.FC<Props> = React.memo(({ item }) => {
                           )}
                         </button>
                       </div>
-                      <ul className="space-y-2">
+                      <ul className="border-t border-bx-line">
                         {item.songs.map((song, index) => (
                           <SongCard
                             key={song.songUuid}

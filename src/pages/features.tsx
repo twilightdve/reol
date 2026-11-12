@@ -7,10 +7,10 @@
 import React, { useEffect, useState } from "react";
 import { HeadFC } from "gatsby";
 import SEO from "../components/SEO";
-import { Kicker } from "../components/redesign";
+import { Kicker, LinkRows, LinkRow } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
-import { LangLink, pageDictFor, useDict, usePageDict } from "../i18n/site/SiteLangContext";
+import { pageDictFor, useDict, usePageDict } from "../i18n/site/SiteLangContext";
 import { featuresDict } from "../i18n/site/pages/features";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
 import { getDict } from "../i18n/site/dict";
@@ -87,32 +87,22 @@ const FeaturesPage: React.FC = () => {
       <div className="space-y-8">
         {groups.map((group) => (
           <section key={group.key} aria-labelledby={`features-${group.key}`}>
-            <h2 id={`features-${group.key}`} className="mb-2 text-sm font-bold text-bx-blueLight">
+            <h2 id={`features-${group.key}`} className="mb-3 text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">
               {group.heading}
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <LinkRows>
               {group.items.map((item) => (
-                <li key={item.label}>
-                  <LangLink
-                    to={item.to}
-                    onClick={() =>
-                      trackEvent("features_link_click", { category: "navigation", label: item.label })
-                    }
-                    className="group flex h-full items-start justify-between gap-3 rounded-lg border border-bx-line bg-bx-surface/5 p-3 hover:border-bx-blueLight transition-colors"
-                  >
-                    <span className="min-w-0">
-                      <span className="block text-sm font-bold text-bx-ink group-hover:text-bx-blueLight transition-colors">
-                        {item.title}
-                      </span>
-                      <span className="mt-0.5 block text-[11.5px] leading-relaxed text-bx-ink3">{item.desc}</span>
-                    </span>
-                    <span aria-hidden="true" className="flex-shrink-0 text-bx-blueLight">
-                      →
-                    </span>
-                  </LangLink>
-                </li>
+                <LinkRow
+                  key={item.label}
+                  to={item.to}
+                  title={item.title}
+                  desc={item.desc}
+                  onClick={() =>
+                    trackEvent("features_link_click", { category: "navigation", label: item.label })
+                  }
+                />
               ))}
-            </ul>
+            </LinkRows>
           </section>
         ))}
       </div>

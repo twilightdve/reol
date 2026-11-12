@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
 import { stripLangPrefix } from "../../../utils/i18nRoutes";
-import { BsSpeakerFill } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
 import Live from "../live/live";
 import { LiveInfo } from "../../../types/live";
@@ -139,19 +138,17 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
   return (
     <section
       id="LIVE"
-      className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3"
+      className="mx-auto w-full max-w-4xl px-2 sm:px-4 py-8 sm:py-12"
     >
-      <div className="pt-6 pb-2 px-2 sm:pt-12">
-        <h2 className="flex items-center font-bold text-lg text-bx-ink">
-          <BsSpeakerFill className="text-lg mr-2" />
-          <span>LIVE</span>
-        </h2>
-        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
+      {/* 枠で囲まず、見出し・説明・罫線で区切る(plan/71) */}
+      <div className="pb-4">
+        <h2 className="text-[28px] sm:text-[36px] font-extrabold leading-tight tracking-[0.04em] text-bx-ink">LIVE</h2>
+        <div className="mt-3 max-w-2xl break-words text-[14px] sm:text-[15px] leading-[1.9] text-bx-ink2">
           {t.intro1}
           <br />
           {t.intro2}
         </div>
-        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+        <div className="mt-6 border-y border-bx-line py-4">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs text-bx-ink3">{t.attendanceLabel}</span>
             <span className="text-sm font-bold text-bx-blue tabular-nums">
@@ -164,7 +161,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
               style={{ width: `${attendedRate}%` }}
             />
           </div>
-          <p className="mt-1.5 text-[10px] text-bx-ink3">
+          <p className="mt-1.5 text-[11px] text-bx-ink3">
             {t.attendanceHint}
           </p>
           <div className="mt-3 pt-3 border-t border-bx-line">
@@ -177,7 +174,7 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
             <div className="h-1.5 rounded-full bg-bx-line/50 overflow-hidden">
               <div className="h-full bg-bx-yellow transition-all" style={{ width: `${heardRate}%` }} />
             </div>
-            <p className="mt-1.5 text-[10px] text-bx-ink3">{t.heardHint}</p>
+            <p className="mt-1.5 text-[11px] text-bx-ink3">{t.heardHint}</p>
             {mounted && heardSongs.length > 0 && (
               <div className="mt-2 space-y-1.5">
                 <details>
@@ -226,14 +223,14 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
                 );
               }
             }}
-            className="mt-3 flex items-center gap-3 rounded-lg border border-bx-yellow/60 bg-bx-yellow/10 px-4 py-3 hover:border-bx-yellow transition-colors"
+            className="group flex items-center gap-3 border-b border-bx-line py-4"
           >
             <span className="shrink-0 text-[11px] font-extrabold tracking-wide px-2 py-1 rounded-full bg-bx-yellow text-bx-bg">
               {nextLive.isOngoing ? t.ongoing : t.upcoming}
             </span>
-            <span className="min-w-0 text-sm text-bx-ink truncate">
+            <span className="min-w-0 truncate text-sm font-bold text-bx-ink transition-colors group-hover:text-bx-yellow">
               {nextLive.live.title || nextLive.live.name}
-              <span className="ml-2 text-xs text-bx-ink3">
+              <span className="ml-2 text-xs font-normal text-bx-ink3">
                 {formatDate(nextLive.start)}
                 {nextLive.end.getTime() !== nextLive.start.getTime() && ` 〜 ${formatDate(nextLive.end)}`}
               </span>
@@ -242,8 +239,8 @@ const LiveSection: React.FC<LiveSectionProps> = ({ liveInfos }) => {
         )}
       </div>
       <Live data={liveInfos} key="live" />
-      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 border border-bx-line rounded-lg">
-        <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
+      <div className="mt-12 border-t border-bx-line pt-5">
+        <ul className="list-disc space-y-1 pl-5 text-[12px] leading-relaxed text-bx-ink3">
           <li>
             {t.helpFilter}
             <br />

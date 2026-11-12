@@ -15,7 +15,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { HeadFC } from "gatsby";
 import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
-import { GlassCard, Kicker } from "../components/redesign";
+import { Kicker, LinkRows, LinkRow } from "../components/redesign";
 import { trackEvent } from "../utils/analytics";
 import { LangLink as Link, pageDictFor, usePageDict, useSiteLang } from "../i18n/site/SiteLangContext";
 import { timemachineDict } from "../i18n/site/pages/timemachine";
@@ -96,7 +96,7 @@ const YearMonthCalendar: React.FC<{
   );
 
   return (
-    <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-3 sm:p-4 overflow-x-auto">
+    <div className="border-b border-bx-line pb-4 overflow-x-auto">
       <table className="w-full text-center border-collapse">
         <thead>
           <tr>
@@ -215,12 +215,12 @@ const TimeMachinePage: React.FC = () => {
       </section>
 
       {!current ? (
-        <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-6 text-center text-sm text-bx-ink3">
+        <div className="border-y border-bx-line py-6 text-center text-sm text-bx-ink3">
           {t.loading}
         </div>
       ) : (
         <>
-          <section className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5">
+          <section className="border-y border-bx-line py-5">
             <div className="flex items-center justify-center gap-3 sm:gap-5">
               <button
                 type="button"
@@ -283,9 +283,9 @@ const TimeMachinePage: React.FC = () => {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-lg border border-bx-line bg-bx-surface/5 p-3 text-center"
+                className="text-center"
               >
-                <div className="text-xl sm:text-2xl font-extrabold text-bx-yellow tabular-nums">
+                <div className="text-2xl sm:text-3xl font-extrabold text-bx-ink tabular-nums">
                   {stat.value.toLocaleString(INTL_LOCALE[lang])}
                 </div>
                 <div className="mt-1 text-[10px] font-bold tracking-wide text-bx-ink3">
@@ -298,7 +298,7 @@ const TimeMachinePage: React.FC = () => {
           {(current.releases.length > 0 ||
             current.lives.length > 0 ||
             current.newSongs.length > 0) && (
-            <section className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 sm:p-5 space-y-4">
+            <section className="border-t border-bx-line pt-5 space-y-4">
               <h2 className="text-[10px] font-bold tracking-wide text-bx-ink3">
                 {t.eventsHeading}
               </h2>
@@ -377,54 +377,33 @@ const TimeMachinePage: React.FC = () => {
             </section>
           )}
 
-          <section className="space-y-3">
-            {current.latestRelease ? (
-              <GlassCard
-                to={`/discography/#disc-${current.latestRelease.slug}`}
-                accent="blue"
-                className="p-4"
-              >
-                <div className="text-[10px] font-bold tracking-wide text-bx-ink3 mb-1">
-                  {t.latestRelease(formatDate(current.latestRelease.releaseDate))}
-                </div>
-                <div className="text-base font-bold text-bx-ink">
-                  {current.latestRelease.title}
-                </div>
-              </GlassCard>
-            ) : (
-              <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 text-sm text-bx-ink3">
-                {t.noRelease}
-              </div>
-            )}
+          <section>
+            <LinkRows twoColumns={false}>
+              {current.latestRelease ? (
+                <LinkRow
+                  to={`/discography/#disc-${current.latestRelease.slug}`}
+                  kicker={t.latestRelease(formatDate(current.latestRelease.releaseDate))}
+                  title={current.latestRelease.title}
+                />
+              ) : (
+                <li className="border-b border-bx-line py-3 text-sm text-bx-ink3">{t.noRelease}</li>
+              )}
 
-            {current.nextLive ? (
-              <GlassCard
-                to={
-                  current.nextLive.liveSlug
-                    ? `/live/#live-${current.nextLive.liveSlug}`
-                    : "/live/"
-                }
-                accent="yellow"
-                className="p-4"
-              >
-                <div className="text-[10px] font-bold tracking-wide text-bx-ink3 mb-1">
-                  {t.nextLive(formatDate(current.nextLive.date))}
-                </div>
-                <div className="text-base font-bold text-bx-ink">
-                  {current.nextLive.title}
-                  {current.nextLive.itemName ? ` ${current.nextLive.itemName}` : ""}
-                </div>
-                {current.nextLive.place && (
-                  <div className="text-xs text-bx-ink2 mt-0.5">
-                    {current.nextLive.place}
-                  </div>
-                )}
-              </GlassCard>
-            ) : (
-              <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4 text-sm text-bx-ink3">
-                {t.noNextLive}
-              </div>
-            )}
+              {current.nextLive ? (
+                <LinkRow
+                  to={
+                    current.nextLive.liveSlug
+                      ? `/live/#live-${current.nextLive.liveSlug}`
+                      : "/live/"
+                  }
+                  kicker={t.nextLive(formatDate(current.nextLive.date))}
+                  title={`${current.nextLive.title}${current.nextLive.itemName ? ` ${current.nextLive.itemName}` : ""}`}
+                  desc={current.nextLive.place || undefined}
+                />
+              ) : (
+                <li className="border-b border-bx-line py-3 text-sm text-bx-ink3">{t.noNextLive}</li>
+              )}
+            </LinkRows>
           </section>
         </>
       )}

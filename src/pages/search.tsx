@@ -5,7 +5,7 @@ import SEO from "../components/SEO";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { normalizeSongName } from "../utils/songMatcher";
 import { trackEvent } from "../utils/analytics";
-import { GlassCard, Kicker, GlassCardAccent } from "../components/redesign";
+import { Kicker } from "../components/redesign";
 import { LangLink, pageDictFor, usePageDict } from "../i18n/site/SiteLangContext";
 import { searchDict } from "../i18n/site/pages/search";
 import { DEFAULT_LANG, isSiteLang } from "../i18n/site/langs";
@@ -72,13 +72,12 @@ type Hit =
   | { kind: "live"; liveSlug: string; liveItemSlug?: string; name: string; subtitle: string; score: number }
   | { kind: "place"; placeSlug: string; name: string; subtitle: string; score: number };
 
-/** カテゴリごとの見出しラベル・GlassCardのhoverアクセント・バッジ配色(bx-blue/bx-yellow/bx-blueLight系) */
+/** カテゴリごとの見出しラベル・バッジ配色(bx-blue/bx-yellow/bx-blueLight系) */
 const KIND_META: Record<
   Hit["kind"],
   {
     label: string;
     badge: string;
-    accent: GlassCardAccent;
     badgeClass: string;
     kickerClass: string;
   }
@@ -86,28 +85,24 @@ const KIND_META: Record<
   song: {
     label: "楽曲",
     badge: "曲",
-    accent: "blue",
     badgeClass: "border-bx-blue text-bx-blue",
     kickerClass: "text-bx-blue",
   },
   album: {
     label: "アルバム",
     badge: "盤",
-    accent: "blueLight",
     badgeClass: "border-bx-blueLight text-bx-blueLight",
     kickerClass: "text-bx-blueLight",
   },
   live: {
     label: "LIVE",
     badge: "L",
-    accent: "yellow",
     badgeClass: "border-bx-yellow text-bx-yellow",
     kickerClass: "text-bx-yellow",
   },
   place: {
     label: "ロケ地",
     badge: "地",
-    accent: "blueDeep",
     badgeClass: "border-bx-blueDeep text-bx-blueDeep",
     kickerClass: "text-bx-blueDeep",
   },
@@ -400,7 +395,7 @@ const SearchPage: React.FC = () => {
         </nav>
 
         {!isLoaded && !error && (
-          <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-6 text-center">
+          <div className="border-y border-bx-line py-6 text-center">
             <div className="inline-block w-6 h-6 border-2 border-bx-line border-t-bx-yellow rounded-full animate-spin mb-2" />
             <p className="text-bx-ink2 text-sm">{t.loading}</p>
           </div>
@@ -408,7 +403,7 @@ const SearchPage: React.FC = () => {
 
         {/* 空状態: サンプルクエリで検索の使い方を提示する */}
         {isLoaded && !query.trim() && (
-          <div className="rounded-lg border border-bx-line bg-bx-surface/5 p-4">
+          <div className="border-y border-bx-line py-4">
             <p className="text-xs text-bx-ink3 mb-2">
               {t.hint}
             </p>
@@ -433,9 +428,9 @@ const SearchPage: React.FC = () => {
               <Kicker color={KIND_META[kind].kickerClass} className="mb-2">
                 {t.kindLabel[kind]}
               </Kicker>
-              <ul className="space-y-2">
+              <ul className="border-t border-bx-line">
                 {items.map((h, i) => (
-                  <li key={`${h.kind}-${i}`}>
+                  <li key={`${h.kind}-${i}`} className="border-b border-bx-line">
                     <ResultLink hit={h} />
                   </li>
                 ))}
@@ -482,22 +477,21 @@ const KindBadge: React.FC<{ kind: Hit["kind"] }> = ({ kind }) => {
 
 const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
   const inner = (
-    <div className="flex items-center px-2 py-1.5 text-xs">
+    <div className="flex items-center py-2.5 text-[13px]">
       <KindBadge kind={hit.kind} />
       <span className="truncate">
-        <span className="text-bx-ink">{hit.name}</span>
+        <span className="font-bold text-bx-ink transition-colors group-hover:text-bx-blueLight">{hit.name}</span>
         {hit.subtitle && (
           <span className="ml-2 text-bx-ink3">{hit.subtitle}</span>
         )}
       </span>
     </div>
   );
-  const accent = KIND_META[hit.kind].accent;
   if (hit.kind === "song") {
     return (
-      <GlassCard to={`/songs/${hit.songSlug}/`} accent={accent} className="block">
+      <LangLink to={`/songs/${hit.songSlug}/`} className="group block">
         {inner}
-      </GlassCard>
+      </LangLink>
     );
   }
   if (hit.kind === "live") {
@@ -505,23 +499,23 @@ const ResultLink: React.FC<{ hit: Hit }> = ({ hit }) => {
       ? `live-item-${hit.liveItemSlug}`
       : `live-${hit.liveSlug}`;
     return (
-      <GlassCard to={`/live/#${anchor}`} accent={accent} className="block">
+      <LangLink to={`/live/#${anchor}`} className="group block">
         {inner}
-      </GlassCard>
+      </LangLink>
     );
   }
   if (hit.kind === "album") {
     return (
-      <GlassCard to={`/discography/#disc-${hit.albumSlug}`} accent={accent} className="block">
+      <LangLink to={`/discography/#disc-${hit.albumSlug}`} className="group block">
         {inner}
-      </GlassCard>
+      </LangLink>
     );
   }
   // place
   return (
-    <GlassCard to={`/place/#place-${hit.placeSlug}`} accent={accent} className="block">
+    <LangLink to={`/place/#place-${hit.placeSlug}`} className="group block">
       {inner}
-    </GlassCard>
+    </LangLink>
   );
 };
 

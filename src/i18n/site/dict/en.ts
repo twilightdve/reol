@@ -125,7 +125,7 @@ const en: SiteDict = {
     metaDescription:
       "Every Reol release on a timeline, from singles and albums to cover videos, with links for each song.",
     collectionLabel: "Collection (owned / watched)",
-    collectionHint: "Tap ✓ on a card to mark it as owned or watched (saved only in this browser)",
+    collectionHint: "Tap ✓ on a release to mark it as owned or watched (saved only in this browser)",
     count: (n: number) => `${n} ${n === 1 ? "item" : "items"}`,
     unknownYear: "Unknown",
     helpFilter: "Tap a hashtag at the top to filter the list",
@@ -166,7 +166,7 @@ const en: SiteDict = {
     intro2:
       "Each show has its setlist, related posts and reports, so you can get a feel for the shows you couldn't make it to.",
     attendanceLabel: "Shows attended",
-    attendanceHint: "Tap ✓ on a show card to mark it as attended (saved only in this browser)",
+    attendanceHint: "Tap ✓ on a show to mark it as attended (saved only in this browser)",
     heardLabel: "Songs heard live",
     heardHint: "Counted from the setlists of the shows you marked as attended (out of all songs ever performed live)",
     heardList: (n: number) => `Heard (${n})`,

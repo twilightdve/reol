@@ -3,7 +3,7 @@ import { HeadFC, PageProps } from "gatsby";
 import PlayerSlot from "../components/player/PlayerSlot";
 import Layout from "../components/modules/layout";
 import SEO from "../components/SEO";
-import { GlassCard, Kicker } from "../components/redesign";
+import { Kicker } from "../components/redesign";
 import { shiftMonthDay } from "../utils/monthDay";
 import { LangLink as Link, pageDictFor, useDict, usePageDict } from "../i18n/site/SiteLangContext";
 import { onThisDayDict } from "../i18n/site/pages/onThisDay";
@@ -86,7 +86,7 @@ const MonthCalendar: React.FC<{
   ];
 
   return (
-    <div className="mb-6 rounded-lg border border-bx-line p-3">
+    <div className="border-t border-bx-line pt-4 pb-6">
       <div className="flex items-center justify-between mb-2">
         <button
           type="button"
@@ -237,13 +237,9 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
             {nearbyEvents.length > 0 && (
               <section className="mt-6">
                 <h2 className="text-sm font-bold text-bx-ink mb-3">{t.nearbyHeading}</h2>
-                <ul className="space-y-2">
+                <ul className="border-t border-bx-line">
                   {nearbyEvents.map((ev, i) => (
-                    <li key={`nearby-${i}`}>
-                      <GlassCard
-                        accent={ev.kind === "release" ? "blueLight" : "yellow"}
-                        className="p-3"
-                      >
+                    <li key={`nearby-${i}`} className="border-b border-bx-line py-3">
                         <Link
                           to={`/on-this-day/${ev.monthDay}/`}
                           className="text-xs font-bold text-bx-blueLight hover:text-bx-blue"
@@ -255,11 +251,9 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                           to={ev.to}
                           className="block mt-0.5 text-[13px] text-bx-ink hover:text-bx-blue transition-colors truncate"
                         >
-                          {ev.kind === "release" ? "♪ " : "🎤 "}
                           {ev.label}
                           {suffixOf(ev)}
                         </Link>
-                      </GlassCard>
                     </li>
                   ))}
                 </ul>
@@ -267,29 +261,19 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
             )}
           </div>
         ) : (
-          <ul className="space-y-3 border-t border-bx-line pt-6">
+          <ul className="border-t border-bx-line">
             {events.map((ev, i) => (
-              <li key={`otd-${i}`}>
-                <GlassCard
-                  accent={ev.kind === "release" ? "blueLight" : "yellow"}
-                  className="p-3"
-                >
+              <li key={`otd-${i}`} className="border-b border-bx-line py-5">
+                  {/* 枠で囲まず罫線で区切る。種別は小さなラベルで示す(plan/71) */}
                   <Link
                     to={ev.to}
-                    className="group flex items-center gap-3"
+                    className="group block"
                   >
-                    <div
-                      aria-hidden
-                      className={`w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-lg font-extrabold ${
-                        ev.kind === "release"
-                          ? "bg-bx-blueLight/15 text-bx-blueLight"
-                          : "bg-bx-yellow/15 text-bx-yellow"
-                      }`}
-                    >
-                      {ev.kind === "release" ? "♪" : "🎤"}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <span className="text-sm font-extrabold text-bx-yellow tabular-nums whitespace-nowrap">
+                    <div className="min-w-0">
+                      <span className="mb-1 block text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">
+                        {ev.kind === "release" ? "RELEASE" : "LIVE"}
+                      </span>
+                      <span className="text-sm font-extrabold text-bx-ink tabular-nums whitespace-nowrap">
                         {t.year(ev.year)}
                         {currentYear !== null && currentYear > ev.year && (
                           <span className="ml-1 text-bx-ink3 font-medium">
@@ -297,7 +281,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                           </span>
                         )}
                       </span>
-                      <div className="text-[13px] text-bx-ink group-hover:text-bx-blue transition-colors truncate">
+                      <div className="mt-0.5 text-[16px] font-bold leading-snug text-bx-ink group-hover:text-bx-blueLight transition-colors">
                         {ev.label}
                         {suffixOf(ev)}
                       </div>
@@ -310,7 +294,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   </Link>
 
                   {ev.musicVideos.length > 0 && (
-                    <div className="mt-2.5 pt-2.5 border-t border-bx-line space-y-3">
+                    <div className="mt-4 space-y-3">
                       {ev.musicVideos.map((mv) => {
                         const videoId = getYouTubeVideoId(mv.url);
                         if (!videoId) return null;
@@ -332,7 +316,7 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                   )}
 
                   {ev.setlist.length > 0 && (
-                    <div className="mt-2.5 pt-2.5 border-t border-bx-line">
+                    <div className="mt-4">
                       <div className="text-[11px] text-bx-ink3 mb-1.5">
                         {t.setlist(ev.setlist.length)}
                       </div>
@@ -357,19 +341,14 @@ const OnThisDayPage: React.FC<PageProps<object, OnThisDayPageContext>> = ({
                     </div>
                   )}
 
-                  <div className="mt-2.5 pt-2.5 border-t border-bx-line text-right">
+                  <div className="mt-4">
                     <Link
                       to={ev.to}
-                      className={`inline-flex items-center gap-1 text-[11px] font-bold ${
-                        ev.kind === "release"
-                          ? "text-bx-blueLight hover:text-bx-blue"
-                          : "text-bx-yellow hover:text-bx-blue"
-                      } transition-colors`}
+                      className="text-[13px] font-bold text-bx-ink underline underline-offset-4 transition-colors hover:text-bx-blueLight"
                     >
                       {t.details}
                     </Link>
                   </div>
-                </GlassCard>
               </li>
             ))}
           </ul>

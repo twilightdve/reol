@@ -89,19 +89,13 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
   return (
     <li
       id={`live-item-${setlist.slug}`}
-      className="rounded-lg transition-all duration-200 overflow-hidden scroll-mt-24 bg-bx-surface/5 border border-bx-line"
+      className="scroll-mt-24 border-b border-bx-line"
       onClick={(e) => e.stopPropagation()}
     >
       {/* セットリストヘッダー */}
       <div
-        className="flex items-start justify-between gap-3 text-sm p-3 cursor-pointer group"
+        className="group/set flex items-start justify-between gap-3 py-3 text-sm cursor-pointer"
         onClick={onToggleExpand}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = "transparent";
-        }}
       >
         <div className="flex items-center gap-3 min-w-0 flex-1">
           <button
@@ -127,7 +121,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
                   .join("/")
               : `Set ${index + 1}`}
           </span>
-          <span className="text-sm font-semibold text-bx-ink group-hover:text-opacity-90 transition-opacity truncate">
+          <span className="truncate text-sm font-semibold text-bx-ink transition-colors group-hover/set:text-bx-blueLight">
             {setlist.liveItemName || setlist.place || `Set ${index + 1}`}
           </span>
         </div>
@@ -158,7 +152,7 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
       {/* Set 内容（展開時） */}
       {isSetExpanded && (
         <div
-          className="px-4 pb-4 pt-2 bg-bx-surface/5"
+          className="pb-5 pt-1 sm:pl-9"
           onClick={(e) => e.stopPropagation()}
         >
           {setlist.youtubeVideoId && (
@@ -307,8 +301,8 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
     return { byUuid: map, byName };
   }, [songSlugData]);
 
-  // カラーパレットフック（左アクセントバー・バッジ色にのみ使用。カード地色は固定のbxトークン）
-  const { colorPalette, isLoading } = useColorPalette({
+  // カラーパレットフック。行に色は付けなくなった(plan/71)ので、読み込み中かどうかだけ使う
+  const { isLoading } = useColorPalette({
     title: live.title,
     autoApply: true,
     prefix: `live-${live.liveUuid}`,
@@ -455,12 +449,9 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   }
 
   return (
-    <div id={`live-${live.slug}`} className="mb-4 scroll-mt-24">
+    <div id={`live-${live.slug}`} className="scroll-mt-24 border-b border-bx-line">
       <div
-        className="relative overflow-hidden cursor-pointer p-4 sm:p-5 w-full rounded-lg border border-bx-line bg-bx-bg/60 hover:border-bx-blue transition-colors duration-300"
-        style={{
-          borderLeft: `3px solid ${colorPalette.primary || "#6b8ce0"}`,
-        }}
+        className="group relative w-full cursor-pointer py-4 sm:py-5"
           onClick={handleTitleClick}
         >
           <div className="w-full">
@@ -481,11 +472,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   >
                     <GoListUnordered className="text-lg" aria-hidden="true" />
                   </div>
-                ) : (
-                  <div className="w-12 h-12 flex-shrink-0 rounded bg-bx-surface/5 flex items-center justify-center text-bx-ink3">
-                    <FaCalendarAlt className="text-base" aria-hidden="true" />
-                  </div>
-                )}
+                ) : null}
                 <div className="flex-1 min-w-0 flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
@@ -507,7 +494,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                       )}
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink">
+                    <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink transition-colors group-hover:text-bx-blueLight">
                       {live.title}
                     </h3>
                   </div>
@@ -516,7 +503,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   <div className="flex flex-shrink-0 flex-col items-center gap-2">
                     <button
                       onClick={handleTitleClick}
-                      className="flex-shrink-0 p-1.5 rounded-lg hover:scale-110 transition-all duration-200 border border-bx-line bg-bx-surface/5"
+                      className="flex-shrink-0 p-1.5 text-bx-ink3 transition-colors hover:text-bx-ink"
                       aria-label={t.expand}
                     >
                       <GoChevronUp
@@ -612,7 +599,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   </button>
                 </div>
               )}
-              <ul className="space-y-3" hidden={isOngoingTour && !spoilerAck}>
+              <ul className="border-t border-bx-line" hidden={isOngoingTour && !spoilerAck}>
                 {live.items
                   .map((setlist, originalIndex) => ({ setlist, originalIndex }))
                   .sort((a, b) => a.setlist.date.localeCompare(b.setlist.date))

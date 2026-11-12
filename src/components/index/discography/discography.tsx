@@ -63,7 +63,7 @@ const timelineRootTheme: FlowbiteTimelineTheme = {
   root: {
     direction: {
       horizontal: "items-base sm:flex",
-      vertical: "relative border-l border-bx-line",
+      vertical: "relative",
     },
   },
   item: timelineItemTheme,
@@ -163,7 +163,7 @@ class Discography extends Component<Props, State> {
     const list = this.state.currentList;
     const groupedByYear = this.groupByYear(list);
     return (
-      <div className="w-full pt-2 px-2 sm:px-10">
+      <div className="w-full pt-2">
         <div className="flex flex-wrap gap-1 text-xs font-bold">
           {tags.name.map((tag) => {
             return (
@@ -259,7 +259,7 @@ class Discography extends Component<Props, State> {
 
         {/* 年ジャンプ索引(スティッキー) */}
         {groupedByYear.length > 1 && (
-          <div className="sticky top-0 z-20 -mx-2 sm:-mx-10 px-2 sm:px-10 py-2 bg-bx-bg/90 backdrop-blur border-b border-bx-line overflow-x-auto whitespace-nowrap">
+          <div className="sticky top-0 z-20 py-2 bg-bx-bg border-b border-bx-line overflow-x-auto whitespace-nowrap">
             {groupedByYear.map(({ year }) => (
               <a
                 key={`year-jump-${year}`}
@@ -277,7 +277,7 @@ class Discography extends Component<Props, State> {
             <div key={`disco-year-${year}`}>
               <h2
                 id={`disc-year-${year}`}
-                className="scroll-mt-24 pt-6 pb-2 text-2xl sm:text-3xl font-bold text-bx-ink"
+                className="scroll-mt-24 border-b border-bx-line pt-10 pb-3 text-2xl sm:text-3xl font-extrabold text-bx-ink"
               >
                 {year}
                 <span className="ml-2 text-xs sm:text-sm font-normal align-middle text-bx-ink3">

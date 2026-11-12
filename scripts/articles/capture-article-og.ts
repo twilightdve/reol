@@ -69,7 +69,7 @@ const PER_ARTICLE_CSS: Record<string, string> = {
   // 聖地巡礼ガイド 渋谷編: ページでは小さい表紙を、題名を左・歩いて回る9か所の並びを右にして 1200x630 いっぱいに
   "guide-shibuya": `
     .guide-cover { border: 0 !important; border-radius: 0 !important; background: rgb(var(--bx-bg)) !important; }
-    .guide-cover__body { height: ${HEIGHT}px; grid-template-columns: minmax(0, 1fr) 500px !important; }
+    .guide-cover__body { height: ${HEIGHT}px; grid-template-columns: minmax(0, 1fr) 500px !important; column-gap: 0 !important; }
     .guide-cover__text { padding: 0 0 0 88px !important; }
     .guide-cover__text > p:first-child { font-size: 20px !important; }
     .guide-cover__title { margin-top: 28px !important; font-size: 68px !important; line-height: 1.25 !important; }

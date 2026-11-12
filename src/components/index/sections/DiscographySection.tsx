@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCompactDisc, FaCirclePlay } from "react-icons/fa6";
+import { FaCirclePlay } from "react-icons/fa6";
 import { GoListUnordered } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import Discography from "../discography/discography";
@@ -25,18 +25,12 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
   const rate = totalCount > 0 ? Math.round((ownedCount / totalCount) * 100) : 0;
 
   return (
-    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-2 sm:p-3">
-      <div className="pt-6 pb-2 px-2 sm:pt-12">
-        <h2 className="flex items-center font-bold text-lg text-bx-ink">
-          <FaCompactDisc className="text-lg mr-2" />
-          <span className="underline underline-offset-4 decoration-dashed decoration-1">
-            DISCOGRAPHY
-          </span>
-        </h2>
-        <div className="pt-2 text-xs sm:text-base break-words leading-relaxed tracking-widest text-bx-ink2">
-          {t.intro}
-        </div>
-        <div className="mt-3 rounded-lg border border-bx-line bg-bx-bg/40 p-3">
+    <section id="DISCOGRAPHY" style={{ contentVisibility: "auto" }} className="mx-auto w-full max-w-4xl px-2 sm:px-4 py-8 sm:py-12">
+      {/* 枠で囲まず、見出し・説明・罫線で区切る(plan/71) */}
+      <div className="pb-4">
+        <h2 className="text-[28px] sm:text-[36px] font-extrabold leading-tight tracking-[0.04em] text-bx-ink">DISCOGRAPHY</h2>
+        <div className="mt-3 max-w-2xl break-words text-[14px] sm:text-[15px] leading-[1.9] text-bx-ink2">{t.intro}</div>
+        <div className="mt-6 border-y border-bx-line py-4">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs text-bx-ink3">
               {t.collectionLabel}
@@ -51,14 +45,14 @@ const DiscographySection: React.FC<DiscographySectionProps> = ({
               style={{ width: `${rate}%` }}
             />
           </div>
-          <p className="mt-1.5 text-[10px] text-bx-ink3">
+          <p className="mt-1.5 text-[11px] text-bx-ink3">
             {t.collectionHint}
           </p>
         </div>
       </div>
       <Discography data={discographies} />
-      <div className="pt-1 pb-4 px-1 mx-2 my-2 bg-bx-surface/5 rounded-lg border border-bx-line">
-        <ul className="pl-2 pt-1 list-disc list-inside text-xs leading-loose tracking-wide text-bx-ink2">
+      <div className="mt-12 border-t border-bx-line pt-5">
+        <ul className="list-disc space-y-1 pl-5 text-[12px] leading-relaxed text-bx-ink3">
           <li>
             {t.helpFilter}
             <br />

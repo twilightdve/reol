@@ -5,7 +5,6 @@ import {
   TbMapPinHeart,
   TbMapPin,
   TbMapPinOff,
-  TbRoute,
   TbSearch,
   TbSearchOff,
 } from "react-icons/tb";
@@ -435,21 +434,19 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
   return (
     <section
       id="PLACE"
-      className="bg-bx-surface/5 border border-bx-line rounded-xl mx-2 sm:mx-4 my-4 sm:my-6 p-3 sm:p-5"
+      className="mx-auto w-full max-w-6xl px-2 sm:px-4 py-8 sm:py-12"
     >
-      <div className="pt-3 sm:pt-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:items-end lg:gap-8">
+      {/* 全体を枠で囲まない。区切りは罫線と余白だけ(plan/71) */}
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:items-end lg:gap-8">
         <div>
           <Kicker color="text-bx-blue" className="mb-2">PLACE</Kicker>
-          <h2 className="flex items-center gap-2 text-2xl sm:text-3xl font-extrabold text-bx-ink">
-            <TbMapPinHeart className="text-bx-yellow" aria-hidden="true" />
-            <span>{t.heading}</span>
-          </h2>
-          <p className="mt-3 max-w-2xl break-words text-[13px] sm:text-sm leading-relaxed text-bx-ink3">
+          <h2 className="text-[28px] sm:text-[36px] font-extrabold leading-tight text-bx-ink">{t.heading}</h2>
+          <p className="mt-3 max-w-2xl break-words text-[14px] sm:text-[15px] leading-[1.9] text-bx-ink2">
             {t.intro1}
             <br />
             {t.intro2}
           </p>
-          <dl className="mt-4 flex">
+          <dl className="mt-6 flex">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
@@ -466,18 +463,15 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           </dl>
         </div>
 
-        <div className="mt-4 space-y-2 lg:mt-0">
+        <div className="mt-6 border-t border-bx-line lg:mt-0">
           {/* 地域ごとのガイド(読みもののシリーズ「聖地を歩く」。日本語だけのページで、各言語からも同じ URL へ) */}
           <LangLink
             to={guidePath(SHIBUYA_GUIDE)}
             onClick={() => trackEvent("place_guide_click", { category: "navigation", label: "shibuya" })}
-            className="group flex items-center gap-3 rounded-xl border border-bx-line bg-bx-bg/40 p-3 transition-colors hover:border-bx-ink3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+            className="group flex items-center gap-3 border-b border-bx-line py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
           >
-            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-bx-surface/10 text-xl text-bx-ink">
-              <TbRoute aria-hidden="true" />
-            </span>
             <span className="min-w-0 flex-1">
-              <span className="block text-sm font-bold leading-5 text-bx-ink">
+              <span className="block text-[15px] font-bold leading-5 text-bx-ink transition-colors group-hover:text-bx-blueLight">
                 {t.shibuyaGuide}
               </span>
               <span className="mt-1 block text-xs leading-4 text-bx-ink3">
@@ -485,12 +479,12 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
               </span>
             </span>
             <TbArrowRight
-              className="flex-shrink-0 text-lg text-bx-yellow transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+              className="flex-shrink-0 text-lg text-bx-ink3 transition-colors group-hover:text-bx-blueLight"
               aria-hidden="true"
             />
           </LangLink>
 
-          <div className="rounded-xl border border-bx-line bg-bx-bg/40 p-3">
+          <div className="border-b border-bx-line py-3">
             <button
               type="button"
               onClick={() => setShowStampBook((v) => !v)}
@@ -580,7 +574,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
       </div>
 
       {/* 地図と一覧。スマホは地図→一覧の縦並び、広い画面は左に一覧・右に地図(地図は付いてくる) */}
-      <div className="mt-4 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start lg:gap-4">
+      <div className="mt-8 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start lg:gap-8">
         <div
           ref={mapWrapRef}
           role="region"
@@ -681,7 +675,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
           <div
             role="region"
             aria-label={t.filterAria}
-            className="sticky top-0 z-20 -mx-3 mt-2 flex items-center gap-2 border-b border-bx-line bg-bx-bg px-3 py-2 sm:-mx-5 sm:px-5 lg:mx-0 lg:rounded-xl lg:border lg:px-2"
+            className="sticky top-0 z-20 -mx-2 mt-2 flex items-center gap-2 border-b border-bx-line bg-bx-bg px-2 py-2 sm:-mx-4 sm:px-4 lg:mx-0 lg:px-0"
           >
             <div
               className="flex min-w-0 flex-1 gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -727,10 +721,10 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
             )}
           </div>
 
-          <div className="pt-3">
+          <div>
             {/* ===== タイプ別ビュー ===== */}
             {viewMode === "type" && (
-              <div className="space-y-2">
+              <div>
                 {filteredPlaces.length === 0 ? (
                   <EmptyState
                     icon={<TbSearchOff className="inline text-bx-ink3" aria-hidden="true" />}
@@ -758,13 +752,9 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                       <div
                         key={`place-${place.placeUuid}`}
                         id={`place-${place.slug}`}
-                        className={`scroll-mt-20 overflow-hidden rounded-xl border transition-colors motion-reduce:transition-none ${
-                          isExpanded
-                            ? "border-bx-ink3/60 bg-bx-surface/[0.06]"
-                            : "border-bx-line bg-bx-surface/[0.03] hover:border-bx-ink3/60"
-                        }`}
+                        className="scroll-mt-20 border-b border-bx-line"
                       >
-                        <div className="flex items-center gap-1 p-2 sm:p-3">
+                        <div className="flex items-center gap-1 py-3">
                           <button
                             type="button"
                             onClick={() => toggleVisited(place.placeUuid)}
@@ -787,7 +777,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                               onClick={() => toggleExpand(place.placeUuid)}
                               aria-expanded={isExpanded}
                               aria-controls={`place-panel-${place.slug}`}
-                              className="flex w-full items-center gap-3 rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
+                              className="group/place flex w-full items-center gap-3 rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-bx-yellow"
                             >
                               {thumb ? (
                                 <img
@@ -805,7 +795,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                               )}
                               <span className="min-w-0 flex-1">
                                 <span
-                                  className={`block text-[15px] font-bold leading-snug text-bx-ink ${
+                                  className={`block text-[15px] font-bold leading-snug text-bx-ink transition-colors group-hover/place:text-bx-blueLight ${
                                     isExpanded ? "" : "line-clamp-2"
                                   }`}
                                 >
@@ -838,7 +828,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                             className="border-t border-bx-line"
                           >
                             {place.url && place.url.indexOf("youtu.be") !== -1 && (
-                              <div className="border-b border-bx-line p-3 sm:p-4">
+                              <div className="border-b border-bx-line py-4">
                                 <PlayerSlot
                                   videoId={place.url.replace("https://youtu.be/", "").split("?")[0]}
                                   title={place.title}
@@ -862,7 +852,7 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
 
             {/* ===== 都道府県別ビュー ===== */}
             {viewMode === "prefecture" && (
-              <div className="space-y-6">
+              <div className="space-y-8 pt-6">
                 {prefectureGroups.length === 0 ? (
                   <EmptyState
                     icon={<TbSearchOff className="inline text-bx-ink3" aria-hidden="true" />}
@@ -875,13 +865,13 @@ const PlaceSection: React.FC<PlaceSectionProps> = ({ places }) => {
                 ) : (
                   prefectureGroups.map(([pref, list]) => (
                     <div key={`pref-${pref}`}>
-                      <h3 className="flex items-baseline gap-2 px-1 text-sm font-bold text-bx-ink">
+                      <h3 className="flex items-baseline gap-2 text-sm font-bold text-bx-ink">
                         <span>{pref}</span>
                         <span className="text-xs font-normal tabular-nums text-bx-ink3">
                           {list.length}
                         </span>
                       </h3>
-                      <ul className="mt-2 overflow-hidden rounded-xl border border-bx-line bg-bx-surface/[0.03]">
+                      <ul className="mt-2 border-y border-bx-line">
                         {list.map(({ place, item }) =>
                           renderSpot(place, item, { showWork: true })
                         )}
