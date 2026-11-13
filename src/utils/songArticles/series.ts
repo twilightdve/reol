@@ -26,6 +26,17 @@ export const ARTICLE_SERIES: ArticleSeries[] = [
     name: "聖地を歩く",
     description: "ReolのMVのロケ地やライヴの会場、ゆかりの店を、地図と一緒に歩いて回るためのガイド。",
   },
+  // 記録(kind: "record")のシリーズ(plan/72)。記事が無いシリーズは一覧にもページにも出ない
+  {
+    slug: "live-to-ensei-no-kiroku",
+    name: "ライヴと遠征の記録",
+    description: "Reolのライヴやフェスに出かけた日の、写真と動画の記録。",
+  },
+  {
+    slug: "event-to-seisaku-no-kiroku",
+    name: "イベントと制作の記録",
+    description: "ファンの集まりや企画、ものづくりの写真の記録。",
+  },
 ];
 
 /** 楽曲記事(kind: song)のシリーズ */

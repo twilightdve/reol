@@ -26,7 +26,7 @@ interface ArticleBodyProps {
   className?: string;
 }
 
-const Inline: React.FC<{ nodes: ArticleInline[]; unstyled?: boolean }> = ({ nodes, unstyled }) => (
+export const Inline: React.FC<{ nodes: ArticleInline[]; unstyled?: boolean }> = ({ nodes, unstyled }) => (
   <>
     {nodes.map((n, i) => {
       switch (n.t) {
@@ -77,7 +77,7 @@ const HEADING_CLASS = {
   4: "mt-8 mb-3 text-[16px] font-bold text-bx-ink",
 } as const;
 
-const Block: React.FC<{ block: ArticleBlock; unstyled?: boolean }> = ({ block, unstyled }) => {
+export const Block: React.FC<{ block: ArticleBlock; unstyled?: boolean }> = ({ block, unstyled }) => {
   switch (block.t) {
     case "h": {
       const Tag = `h${block.level}` as "h2" | "h3" | "h4";

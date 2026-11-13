@@ -12,6 +12,24 @@ export const formatArticleDate = (iso: string | null): string | null => {
 };
 
 /**
+ * 出来事の日付(YYYY-MM-DD)を「2025年2月16日」形式にする。日付だけの値なので、時刻やタイムゾーンは通さない。
+ * 最終日があれば「2025年2月15日〜16日」(月や年が違えば、違う所から書く)。読めなければ null
+ */
+export const formatEventDate = (start: string | null | undefined, end?: string | null): string | null => {
+  const parse = (v: string | null | undefined) => {
+    const m = (v ?? "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return m ? { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) } : null;
+  };
+  const a = parse(start);
+  if (!a) return null;
+  const head = `${a.y}年${a.m}月${a.d}日`;
+  const b = parse(end);
+  if (!b || (b.y === a.y && b.m === a.m && b.d === a.d)) return head;
+  const tail = b.y !== a.y ? `${b.y}年${b.m}月${b.d}日` : b.m !== a.m ? `${b.m}月${b.d}日` : `${b.d}日`;
+  return `${head}〜${tail}`;
+};
+
+/**
  * 読点「、」の直後で文字列を区切る(区切った後も連結すれば元の文字列に戻る)。
  * 記事別デザインで、結び等を句ごとにまとめて折り返すのに使う(plan/30)。
  */

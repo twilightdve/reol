@@ -27,7 +27,9 @@ import { generateReolTypeOgImages } from "./scripts/generate-reol-type-og";
 import { generateSiteOgImage } from "./scripts/generate-site-og";
 import { generateSongOgImages } from "./scripts/generate-song-og";
 import { generatePageOgImages, type PageOgInput } from "./scripts/generate-page-og";
-import { isArticlesPreview, loadSongArticles } from "./src/utils/songArticles/load";
+import { isArticlesPreview, loadRecordArticles, loadSongArticles } from "./src/utils/songArticles/load";
+import { buildRecordMedia, recordCoverPaths, resetRecordMediaDir } from "./src/utils/songArticles/recordMedia";
+import { formatEventDate } from "./src/utils/songArticles/format";
 
 /** 楽曲記事の OGP 画像(static/articles-og/<slug>.jpg)のパス。無ければ null(サイト既定の画像になる)。
  *  SNS のキャッシュ対策のビルド時刻(?t=)は SEO 部品が付ける */
@@ -43,7 +45,7 @@ import { isReleased } from "./src/utils/songArticles/schedule";
 import { ARTICLES_FEED_PATH, buildArticlesFeed } from "./src/utils/songArticles/feed";
 import { articlePageViews, type PageViewsFile } from "./src/utils/songArticles/pageviews";
 import { GUIDE_ARTICLES } from "./src/utils/songArticles/guides";
-import { ARTICLE_SERIES, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags, groupingRelease } from "./src/utils/songArticles/series";
+import { ARTICLE_SERIES, type ArticleSeries, HOME_ARTICLE_COUNT, SONG_ARTICLE_SERIES, RelatedCandidate, pickRelatedArticles, seriesBySlug, songArticleTags, groupingRelease } from "./src/utils/songArticles/series";
 import { classifyPostHandle, parsePostEmbedHtml, type PostCategory } from "./src/utils/postMeta";
 
 // 楽曲記事の予約公開(plan/43)の判定に使うビルド時刻。公開日時が未来の記事は、静的HTMLの一覧等に出さず、
@@ -1604,10 +1606,16 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
   if (page.path === "/" && !context.lang && context.homeArticles === undefined) {
     let homeArticles: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; cover: string | null; ogImage: string | null }[] = [];
     try {
-      // 手で書いたガイド(guides.ts。曲に付かないので songTitle は空)も、楽曲記事と同じ並びに入れる
-      const listed = [
-        ...loadSongArticles(process.cwd())
-          .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt)
+      // 手で書いたガイド(guides.ts。曲に付かないので songTitle は空)と記録(plan/72)も、楽曲記事と同じ並びに入れる。
+      // announce が false の記事(PHOTO から移した過去の記録など)は、新着として出さない
+      const songArticles = loadSongArticles(process.cwd());
+      const recordArticles = loadRecordArticles(
+        process.cwd(),
+        new Map([...songArticles.map((a) => [a.article.slug as string, a.article.id] as const), ...GUIDE_ARTICLES.map((g) => [g.slug, g.id] as const)])
+      );
+      const listed: { slug: string; title: string; songTitle: string; createdAt: string | null; publishedAt: string | null; covers?: { cover: string | null; ogImage: string | null } }[] = [
+        ...songArticles
+          .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt && a.article.announce !== false)
           .map((a) => ({
             slug: a.article.slug as string,
             title: a.parsed.title,
@@ -1616,13 +1624,24 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
             publishedAt: (a.article.publishedAt ?? null) as string | null,
           })),
         ...GUIDE_ARTICLES.map((g) => ({ slug: g.slug, title: g.title, songTitle: "", createdAt: g.publishedAt, publishedAt: g.publishedAt })),
+        ...recordArticles
+          .filter((a) => a.article.status !== "unlisted" && a.article.publishedAt && a.article.announce !== false)
+          .map((a) => ({
+            slug: a.article.slug as string,
+            title: a.parsed.title,
+            songTitle: "",
+            createdAt: (a.article.createdAt ?? null) as string | null,
+            publishedAt: (a.article.publishedAt ?? null) as string | null,
+            // 記録の表紙は、ビルドが表紙の写真から作る(createPages の中)
+            covers: recordCoverPaths(a.article.slug as string, a.article.contentSha256, a.media),
+          })),
       ].sort((x, y) => String(y.publishedAt).localeCompare(String(x.publishedAt)));
       const scheduledCount = listed.filter((a) => !isReleased(a.publishedAt, BUILT_AT)).length;
-      homeArticles = listed.slice(0, 1 + HOME_ARTICLE_COUNT + scheduledCount).map((a) => ({
+      homeArticles = listed.slice(0, 1 + HOME_ARTICLE_COUNT + scheduledCount).map(({ covers, ...a }) => ({
         ...a,
         // 表紙の画像(plan/59)。大きく出す1本は、より大きい OGP 画像(1200×630)も使う
-        cover: articleCoverPath(a.slug),
-        ogImage: articleOgImagePath(a.slug),
+        cover: covers ? covers.cover : articleCoverPath(a.slug),
+        ogImage: covers ? covers.ogImage : articleOgImagePath(a.slug),
       }));
     } catch (e) {
       console.warn(`[articles] HOME の読みもの欄を作れませんでした: ${(e as Error).message}`);
@@ -1965,8 +1984,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
         unlisted: boolean;
         /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・公開日時の無い記事は null */
         pageViews: number | null;
-        /** 手で書いたガイド(guides.ts)。いいねが無いので、一覧でいいね数を出さない */
-        kind?: "guide";
+        /** 手で書いたガイド(guides.ts。いいねが無いので、一覧でいいね数を出さない)か、記録(plan/72)。楽曲記事には無い */
+        kind?: "guide" | "record";
+        /** 記録の出来事の日付(YYYY-MM-DD)。一覧のカードに出し、並び順にも使う */
+        eventDate?: string | null;
+        eventDateEnd?: string | null;
+        /** false なら HOME の新着と RSS に出さない(plan/72)。無ければ出す */
+        announce?: boolean;
       }[] = [];
       // 表示回数はデプロイ前に scripts/fetch-article-pageviews.ts が書いたファイルから(無ければ数を出さない)
       const pageViewsPath = ".analytics-local/article-pageviews.json";
@@ -2147,6 +2171,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           preview,
           unlisted,
           pageViews: unlisted ? null : articlePageViews(pageViewsFile, slug, article.publishedAt),
+          ...(article.announce === false ? { announce: false } : {}),
         });
         // 曲ページからの逆引き(通常ビルドでは公開記事だけ。プレビュー時は確認用にプレビュー記事も含む)
         for (const page of unlisted ? [] : songPages.values()) {
@@ -2198,12 +2223,123 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
       }
 
+      // ----- 記録(kind: "record"。ライヴ・遠征・聖地巡礼・イベントの写真と動画の読みもの。plan/72) -----
+      // 楽曲記事と同じ置き場(content/articles、プレビュー時は staging も)から読み、共通のテンプレートで描く。
+      // 写真はここでページ用の大きさに作り直して public/articles-media/ に置く(前のビルドの分は先に消す)。
+      // 曲ページからの逆引き(songRefs)はまだ出していない
+      {
+        resetRecordMediaDir(process.cwd());
+        const recordTemplate = path.resolve("./src/templates/record-article.tsx");
+        // slug は楽曲記事・ガイドとも重ならないこと(重なればここで止まる)
+        const recordArticles = loadRecordArticles(process.cwd(), new Map(indexEntries.map((a) => [a.slug, a.id])));
+        const recordCandidates: RelatedCandidate[] = [];
+        const recordCovers = new Map<string, string | null>();
+        const recordPages: { page: Parameters<typeof createPage>[0]; self: { id: string; seriesSlug: string; tags: string[]; relatedArticleIds: string[] } }[] = [];
+        for (const { article, parsed, media, preview } of recordArticles) {
+          const slug = article.slug as string;
+          const unlisted = article.status === "unlisted";
+          // シリーズが登録表にあることは、読み込みの検査(recordProblems)で確かめてある
+          const series = seriesBySlug(article.seriesSlug) as ArticleSeries;
+          const tags = article.tags ?? [];
+          const built = await buildRecordMedia({ rootDir: process.cwd(), slug, contentSha256: article.contentSha256, media });
+          recordCovers.set(slug, built.cover);
+          // 検索結果などに出す説明。要約が無ければ、題名・出来事の日付・写真と動画の数だけで作る(本文から文を作らない)
+          const photoCount = media.items.filter((m) => m.type === "photo").length;
+          const videoCount = media.items.length - photoCount;
+          const eventLabel = formatEventDate(article.eventDate, article.eventDateEnd);
+          const counts = [photoCount > 0 ? `写真${photoCount}枚` : null, videoCount > 0 ? `動画${videoCount}本` : null].filter(Boolean).join("・");
+          const description = article.summary ?? `${parsed.title}。${eventLabel ? `${eventLabel}の` : ""}${counts}。`;
+          if (!unlisted) {
+            recordCandidates.push({
+              id: article.id,
+              slug,
+              title: parsed.title,
+              songTitle: "",
+              seriesSlug: series.slug,
+              tags,
+              createdAt: article.createdAt ?? null,
+              publishedAt: article.publishedAt ?? null,
+            });
+          }
+          recordPages.push({
+            self: { id: article.id, seriesSlug: series.slug, tags, relatedArticleIds: article.relatedArticleIds ?? [] },
+            page: {
+              path: `/articles/${slug}/`,
+              component: recordTemplate,
+              context: {
+                id: article.id,
+                slug,
+                title: parsed.title,
+                description,
+                series: { slug: series.slug, name: series.name },
+                tags,
+                eventDate: article.eventDate,
+                eventDateEnd: article.eventDateEnd ?? null,
+                createdAt: article.createdAt ?? null,
+                publishedAt: article.publishedAt,
+                // Gatsby は pageContext の updatedAt を消すので、別の名前で渡す
+                modifiedAt: article.updatedAt ?? null,
+                blocks: parsed.blocks,
+                media: built.assets,
+                relatedLinks: article.relatedLinks,
+                ogImage: built.ogImage,
+                preview,
+                noindex: preview || unlisted,
+                unlisted,
+                scheduled: !isReleased(article.publishedAt, BUILT_AT),
+                builtAt: BUILT_AT,
+              },
+            },
+          });
+          indexEntries.push({
+            id: article.id,
+            slug,
+            title: parsed.title,
+            songTitle: "",
+            versionLabel: null,
+            // カードの短い導入は、要約がある時だけ(本文の最初の段落は使わない)
+            summary: article.summary ?? null,
+            createdAt: article.createdAt ?? null,
+            publishedAt: article.publishedAt,
+            seriesSlug: series.slug,
+            tags,
+            album: null,
+            cover: built.cover,
+            preview,
+            unlisted,
+            pageViews: unlisted ? null : articlePageViews(pageViewsFile, slug, article.publishedAt),
+            kind: "record",
+            eventDate: article.eventDate,
+            eventDateEnd: article.eventDateEnd ?? null,
+            ...(article.announce === false ? { announce: false } : {}),
+          });
+        }
+        // その他の記事: ほかの記録から選ぶ。楽曲記事は、編集で指定した時(relatedArticleIds)だけ入る
+        const recordScheduledCount = recordCandidates.filter((c) => !isReleased(c.publishedAt, BUILT_AT)).length;
+        for (const { page, self } of recordPages) {
+          const pool = [...recordCandidates, ...relatedCandidates.filter((c) => self.relatedArticleIds.includes(c.id))];
+          const related = pickRelatedArticles(self, pool, 3 + recordScheduledCount).map(
+            ({ slug: s, title: t, songTitle: st, publishedAt: p }) => ({
+              slug: s,
+              title: t,
+              songTitle: st,
+              publishedAt: p,
+              cover: recordCovers.has(s) ? recordCovers.get(s) ?? null : articleCoverPath(s),
+            })
+          );
+          createPage({ ...page, context: { ...(page.context as object), related } });
+        }
+      }
+
       if (indexEntries.length > 0) {
         // 新着順 = 公開日時の降順(2026-10-13 ユーザー指定。カードの日付も公開日)。
+        // 記録(plan/72)は出来事の日付の降順(過去の記録をまとめて公開しても、出来事の順に並ぶように)。
         // 公開日時の無い記事(限定公開・プレビュー)は末尾で、作成日の降順
+        const orderKey = (a: (typeof indexEntries)[number]): string => (a.publishedAt ? a.eventDate ?? a.publishedAt : "");
         indexEntries.sort(
           (a, b) =>
-            (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") ||
+            orderKey(b).localeCompare(orderKey(a)) ||
+            (b.eventDate ?? "").localeCompare(a.eventDate ?? "") ||
             (b.createdAt ?? "").localeCompare(a.createdAt ?? "")
         );
         // RSS フィード(全体公開の記事だけ)。/articles/feed.xml に書き出す

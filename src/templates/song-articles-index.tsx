@@ -19,6 +19,9 @@
  *   まとめる作品の発売の古い順に、作品の中は曲順。作品の無い記事は最後に。
  * - 記事ごとの表示回数(GA4)を出し、「よく読まれている順」でも並べ替えられる(2026-10-18 ユーザー指定。plan/46)。
  *   数はデプロイの前に GA から取ってページ情報に入れる(静的HTMLにも出る)。変わるのはデプロイの時だけ。?sort=views。
+ * - 記録(kind: "record"。写真と動画の読みもの。plan/72)は、カードに出来事の日付を出し、出来事の新しい順に並ぶ。
+ *   アルバムでまとめないシリーズ(記録・ガイド)は、横一列ではなく格子に並べる。/articles/ では先頭の数本だけを出し、
+ *   残りはシリーズのページへ送る(記録が増えても、ほかのシリーズが下に埋もれないように)。
  */
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
@@ -27,7 +30,7 @@ import SEO from "../components/SEO";
 import { Kicker } from "../components/redesign";
 import { buildBreadcrumbList } from "../utils/jsonLd";
 import { trackEvent } from "../utils/analytics";
-import { formatArticleDate } from "../utils/songArticles/format";
+import { formatArticleDate, formatEventDate } from "../utils/songArticles/format";
 import { ArticleSeries, seriesPath, showSongKicker, splitTitleBySong, tagFilterPath } from "../utils/songArticles/series";
 import { fetchArticleLikeCounts } from "../services/articleLikeService";
 import { isReleased, useNow } from "../utils/songArticles/schedule";
@@ -57,9 +60,18 @@ type IndexEntry = {
   unlisted?: boolean;
   /** 公開日以降の表示回数(GA4。plan/46)。取れていない時・限定公開は null */
   pageViews?: number | null;
-  /** 手で書いたガイド(utils/songArticles/guides.ts)。曲に付かず(songTitle は空・album は null)、いいねも無い */
-  kind?: "guide";
+  /**
+   * 手で書いたガイド(utils/songArticles/guides.ts)か、記録(plan/72)。楽曲記事には無い。
+   * どちらも曲に付かない(songTitle は空・album は null)。ガイドにはいいねも無い
+   */
+  kind?: "guide" | "record";
+  /** 記録の出来事の日付(YYYY-MM-DD)と、複数日にわたる時の最終日 */
+  eventDate?: string | null;
+  eventDateEnd?: string | null;
 };
+
+/** /articles/ で、アルバムでまとめないシリーズ(記録・ガイド)から出す本数。残りはシリーズのページで */
+const PLAIN_SERIES_LIMIT = 6;
 
 /** 曲順: まとめる作品の発売の古い順(同じ日は作品名)、作品の中は曲順。作品の無い記事は最後 */
 const byTrack = (x: IndexEntry, y: IndexEntry): number => {
@@ -121,7 +133,11 @@ const ArticleItem: React.FC<{
   const published = !a.unlisted && a.publishedAt != null && isReleased(a.publishedAt, now);
   const dateIso = published ? a.publishedAt : a.createdAt;
   const date = formatArticleDate(dateIso);
-  const kicker = [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
+  // 記録は、曲名の代わりに出来事の日付を出す
+  const kicker =
+    a.kind === "record"
+      ? formatEventDate(a.eventDate ?? null, a.eventDateEnd) ?? ""
+      : [showSongKicker(a.title, a.songTitle) ? a.songTitle : null, a.versionLabel].filter(Boolean).join(" — ");
   const parts = splitTitleBySong(a.title, a.songTitle);
   // カード型(2026-10-23 ユーザー「記事の表紙デザインを反映させたカード型のアイテムにしたい」)。上に記事の表紙の画像
   return (
@@ -145,7 +161,7 @@ const ArticleItem: React.FC<{
               />
             ) : (
               <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center px-6 text-center text-2xl font-extrabold text-bx-ink3">
-                {a.songTitle}
+                {a.songTitle || a.title}
               </span>
             )}
           </div>
@@ -170,7 +186,7 @@ const ArticleItem: React.FC<{
           ) : a.songTitle ? (
             a.title
           ) : (
-            // 曲名の無い読みもの(ガイド)は、題名の全体を本文の色で出す
+            // 曲名の無い読みもの(ガイド・記録)は、題名の全体を本文の色で出す
             <span className="text-bx-ink group-hover:text-bx-blue">{a.title}</span>
           )}
         </h3>
@@ -348,8 +364,12 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}`);
   };
   const hasViews = articles.some((a) => a.pageViews != null);
-  // 曲の解釈の断り書き・曲順・いいね順は、楽曲記事がある一覧だけ(ガイドだけのシリーズのページには出さない)
-  const hasSongArticles = articles.some((a) => a.kind !== "guide");
+  // 曲の解釈の断り書き・曲順は、楽曲記事がある一覧だけ(ガイド・記録だけのシリーズのページには出さない)。
+  // いいね順は、いいねのある記事(楽曲記事・記録)がある一覧だけ
+  const hasSongArticles = articles.some((a) => !a.kind);
+  const hasLikable = articles.some((a) => a.kind !== "guide");
+  // 記録だけの一覧は出来事の日付の順なので、「新着順」とは呼ばない
+  const recordsOnly = articles.length > 0 && articles.every((a) => a.kind === "record");
   const sortable: Record<SortKey, boolean> = { new: true, old: true, track: true, likes: likeCounts !== null, views: hasViews };
   const activeSort: SortKey = sortable[sort] ? sort : "new";
 
@@ -513,11 +533,12 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
               ] as const
             ).map(([key, label]) => {
               if (key === "views" && !hasViews) return null;
-              if ((key === "track" || key === "likes") && !hasSongArticles) return null;
+              if (key === "track" && !hasSongArticles) return null;
+              if (key === "likes" && !hasLikable) return null;
               // 日付のボタンは 新着順 ⇄ 古い順 のトグル(選ばれている時にもう一度押すと逆になる)
               const isDate = key === "new";
               const active = isDate ? activeSort === "new" || activeSort === "old" : key === activeSort;
-              const text = isDate && activeSort === "old" ? "古い順" : label;
+              const text = isDate ? (activeSort === "old" ? "古い順" : recordsOnly ? "新しい順" : label) : label;
               return (
                 <button
                   key={key}
@@ -525,7 +546,7 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                   aria-pressed={active}
                   disabled={!sortable[key]}
                   onClick={() => chooseSort(isDate ? (activeSort === "new" ? "old" : "new") : key)}
-                  title={isDate && active ? (activeSort === "new" ? "押すと古い順" : "押すと新着順") : undefined}
+                  title={isDate && active ? (activeSort === "new" ? "押すと古い順" : recordsOnly ? "押すと新しい順" : "押すと新着順") : undefined}
                   className={`rounded-full border px-3 py-1 font-bold transition-colors disabled:opacity-50 ${
                     active ? "border-bx-blue bg-bx-blue text-bx-bg" : "border-bx-line text-bx-ink2 hover:border-bx-blue hover:text-bx-blue"
                   }`}
@@ -566,6 +587,27 @@ const SongArticlesIndexPage: React.FC<PageProps<object, SongArticlesIndexContext
                   <ArticleItem key={a.slug} {...itemProps(a)} />
                 ))}
               </ul>
+            ) : items.every((a) => !a.album) ? (
+              // アルバムでまとめないシリーズ(記録・ガイド)は格子に並べる。/articles/ では先頭の数本だけ(タグで絞り込んだ時は全部)
+              (() => {
+                const shown = current || activeTag ? items : items.slice(0, PLAIN_SERIES_LIMIT);
+                return (
+                  <>
+                    <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                      {shown.map((a) => (
+                        <ArticleItem key={a.slug} {...itemProps(a)} />
+                      ))}
+                    </ul>
+                    {shown.length < items.length && (
+                      <p className="mt-4 text-[13px]">
+                        <Link to={seriesPath(s.slug)} className="text-bx-ink2 underline underline-offset-4 hover:text-bx-blue">
+                          「{s.name}」をすべて見る({items.length}本)
+                        </Link>
+                      </p>
+                    )}
+                  </>
+                );
+              })()
             ) : (
               // 狭い画面はアルバムごとに横一列。広い画面は記事の数だけ列を使い(3本以上は3列で横スクロール)、
               // 1〜2本のアルバムは隣に詰める(1本のアルバムが1段を使って縦に長くならないように)

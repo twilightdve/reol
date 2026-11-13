@@ -23,6 +23,8 @@ const missingOg = existsSync(articlesDir)
       const file = path.join(articlesDir, id, "article.json");
       if (!existsSync(file)) return [];
       const a = JSON.parse(readFileSync(file, "utf8"));
+      // 記録(kind: "record"。plan/72)の OGP 画像は、ビルドが表紙の写真から作るので要らない
+      if (a.kind === "record") return [];
       return (a.status === "published" || a.status === "unlisted") && a.slug && !existsSync(`static/articles-og/${a.slug}.jpg`) ? [`${id}(${a.slug})`] : [];
     })
   : [];

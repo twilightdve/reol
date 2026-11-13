@@ -41,6 +41,7 @@ type MdNode = {
   depth?: number;
   url?: string;
   ordered?: boolean;
+  lang?: string | null;
   children?: MdNode[];
 };
 
@@ -150,8 +151,83 @@ export const parseArticleMarkdown = (markdown: string): ParsedArticle => {
   return { title, blocks, lead, problems };
 };
 
+/**
+ * 記録(kind: "record")の本文(plan/72)。楽曲記事の記法に加えて、写真・動画の置き場所を書ける。
+ *
+ * ```media
+ * {"type":"gallery","ids":["yamachan-1","yamachan-2"]}
+ * ```
+ *
+ * - 書けるのは photo(1枚)・gallery(2つ以上を並べる)・youtube(1本)だけ。中身は media.json の ID。
+ * - 生HTMLは書けない(楽曲記事と同じく problems に積む)。引用・リストの中には置けない。
+ * - ArticleBlock には足さない(楽曲記事の記事別デザインが ArticleBlock を前提にしているため)。
+ */
+export type MediaBlock = {
+  t: "media";
+  media: { type: "photo"; id: string } | { type: "gallery"; ids: string[] } | { type: "youtube"; id: string };
+};
+export type RecordBlock = ArticleBlock | MediaBlock;
+
+export type ParsedRecord = {
+  title: string;
+  blocks: RecordBlock[];
+  problems: string[];
+};
+
+const MEDIA_ID = /^[a-z0-9][a-z0-9-]*$/;
+
+const parseMediaBlock = (source: string, problems: string[]): MediaBlock[] => {
+  let value: unknown;
+  try {
+    value = JSON.parse(source);
+  } catch {
+    problems.push(`media ブロックが JSON として読めません: ${source.slice(0, 40)}`);
+    return [];
+  }
+  const v = (value ?? {}) as { type?: unknown; id?: unknown; ids?: unknown };
+  const isId = (x: unknown): x is string => typeof x === "string" && MEDIA_ID.test(x);
+  const keys = Object.keys(v).sort().join(",");
+  if ((v.type === "photo" || v.type === "youtube") && isId(v.id) && keys === "id,type") {
+    return [{ t: "media", media: { type: v.type, id: v.id } }];
+  }
+  if (v.type === "gallery" && Array.isArray(v.ids) && v.ids.length >= 2 && v.ids.every(isId) && keys === "ids,type") {
+    return [{ t: "media", media: { type: "gallery", ids: v.ids as string[] } }];
+  }
+  problems.push(`media ブロックの形が違います: ${source.slice(0, 60)}`);
+  return [];
+};
+
+export const parseRecordMarkdown = (markdown: string): ParsedRecord => {
+  const problems: string[] = [];
+  const tree: MdNode = unified().use(remarkParse).parse(markdown);
+  const children = [...(tree.children ?? [])];
+
+  let title = "";
+  const first = children[0];
+  if (first && first.type === "heading" && first.depth === 1) {
+    title = mdText(first);
+    children.shift();
+  } else {
+    problems.push("先頭がH1ではありません");
+  }
+
+  // media ブロックは最上位だけ。引用・リストの中の code は convertBlocks が未対応として積む
+  const blocks = children.flatMap((n): RecordBlock[] =>
+    n.type === "code" && n.lang === "media" ? parseMediaBlock(n.value ?? "", problems) : convertBlocks([n], problems)
+  );
+  return { title, blocks, problems };
+};
+
+/** 記録の本文から media ブロックを除いた、文章だけの並び(要約・meta description 用) */
+export const recordTextBlocks = (blocks: RecordBlock[]): ArticleBlock[] =>
+  blocks.filter((b): b is ArticleBlock => b.t !== "media");
+
+/** 記録の本文が参照している写真・動画の ID(出てくる順。重複もそのまま) */
+export const recordMediaRefs = (blocks: RecordBlock[]): string[] =>
+  blocks.flatMap((b) => (b.t !== "media" ? [] : b.media.type === "gallery" ? b.media.ids : [b.media.id]));
+
 /** YouTube の動画IDの形(英数字・_・- の11文字)。埋め込み・サムネイルの URL に使うので、それ以外は受け付けない */
-const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
+export const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
 
 /** YouTube の動画IDを取り出す(watch?v= / youtu.be / embed / shorts)。IDの形でなければ null */
 export const youtubeVideoId = (url: string | null | undefined): string | null => {

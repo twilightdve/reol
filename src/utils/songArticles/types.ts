@@ -89,7 +89,107 @@ export type SongArticleEditorial = {
   /** 公開後に本文を差し替えて再公開した日時。公開コマンドが自動で記録する */
   updatedAt: string | null;
   relatedArticleIds: string[];
+  /**
+   * HOME の新着と RSS に出すか(plan/72)。無ければ出す。false にするのは、PHOTO から移した過去の記録のように
+   * 「新しく書いた記事」として知らせないもの。一覧・シリーズ・関連記事・サイトマップには false でも出る。
+   * 公開した後は変えない(公開コマンドが前の値を引き継ぐ)
+   */
+  announce?: boolean;
 };
 
 /** 公開用ファイル(content/articles/<id>/article.json)の中身 */
 export type SongArticleFile = SongArticleData & SongArticleEditorial;
+
+/**
+ * 記録(kind: "record")。ライヴ・遠征・聖地・イベントの写真や動画の記録(plan/72)。
+ * 楽曲記事と違い、記事ごとの React/CSS は持たず、共通のテンプレート(src/templates/record-article.tsx)で描く。
+ */
+
+/** 記事の末尾に出す関連リンク。href が "/" で始まればサイト内、http(s) なら外部 */
+export type RecordRelatedLink = {
+  label: string;
+  href: string;
+  /** リンクの下に小さく添える一言(どの場所の出典か、など) */
+  note?: string | null;
+};
+
+export type RecordPhoto = {
+  /** 記事の中で変えない ID(英小文字・数字・ハイフン)。本文の media ブロックと書き出すファイル名に使う */
+  id: string;
+  type: "photo";
+  /** リポジトリの中の画像(src/images/ 以下)。公開ページにはこのパスを出さない */
+  src: string;
+  /** 画像を実際に見て書いた代替テキスト */
+  alt: string;
+  caption?: string | null;
+  /** 移行元(例: "photo-002:0" = PHOTO の2件目の1つ目)。画面には出さない */
+  from?: string | null;
+};
+
+export type RecordVideo = {
+  id: string;
+  type: "youtube";
+  videoId: string;
+  /** 縦長の動画 */
+  vertical?: boolean;
+  /** 再生ボタンの読み上げと小窓の題 */
+  title: string;
+  caption?: string | null;
+  from?: string | null;
+};
+
+export type RecordMediaItem = RecordPhoto | RecordVideo;
+
+/** media.json。写真・動画の定義と表紙 */
+export type RecordMediaFile = {
+  /** 表紙にする写真の ID。無ければ null(一覧のカードは題名だけ) */
+  cover: string | null;
+  /** 表紙を切り出す縦の位置(0 = 上端 〜 1 = 下端)。無ければ中央 */
+  coverFocusY?: number | null;
+  items: RecordMediaItem[];
+};
+
+/** 取込(npm run articles:record)が毎回作り直す項目 */
+export type RecordArticleData = {
+  id: string;
+  kind: "record";
+  seriesSlug: string;
+  /** 出来事の日付(YYYY-MM-DD)。分からなければ null */
+  eventDate: string | null;
+  /** 複数日にわたる時の最終日 */
+  eventDateEnd?: string | null;
+  bodyRevision: number;
+  bodySha256: string;
+  /** 本文・写真と動画の定義・使っている画像の中身・この型の他の項目をまとめたハッシュ。確認した版と公開する版が同じかを見る */
+  contentSha256: string;
+  songRefs: string[];
+  relatedLinks: RecordRelatedLink[];
+  /** PHOTO に載せた日(分かる時だけ。画面には出さない) */
+  legacyPublishedAt: string | null;
+};
+
+/** 公開用ファイル(content/articles/<id>/article.json)の中身 */
+export type RecordArticleFile = RecordArticleData & SongArticleEditorial;
+
+/** ページに渡す写真(公開用の URL と大きさ) */
+export type RecordPhotoAsset = {
+  type: "photo";
+  id: string;
+  /** いちばん大きい版(拡大表示にも使う) */
+  src: string;
+  srcSet: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string | null;
+};
+/** ページに渡す動画(YouTube。再生するまで埋め込まない) */
+export type RecordVideoAsset = {
+  type: "youtube";
+  id: string;
+  videoId: string;
+  vertical: boolean;
+  title: string;
+  caption: string | null;
+};
+export type RecordMediaAsset = RecordPhotoAsset | RecordVideoAsset;

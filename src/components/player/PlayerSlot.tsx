@@ -9,7 +9,7 @@ import { getSlot, registerSlot } from "./slotRegistry";
  * (GlobalPlayer)で流す。プレイヤーはこの枠が画面に見えている間は枠の上に重なり、外れると右上隅の小窓に移る。
  *
  * - 枠の大きさは padding で比率を作る(@tailwindcss/aspect-ratio 導入済みで aspect-video が使えないため)。
- *   再生中は 16:9 にする。
+ *   再生中は 16:9 にする(縦の動画は activeRatio で縦のままにできる)。
  * - 再生前の見た目を自前で持つ所(記事の公式MV)は、下の usePlayerSlot を直接使う。
  */
 export type PlayerSlotProps = {
@@ -23,6 +23,8 @@ export type PlayerSlotProps = {
   thumbnail?: string;
   /** 再生前の枠の比率(幅に対する高さ)。既定は 16:9 */
   idleRatio?: string;
+  /** 再生中の枠の比率。既定は 16:9。縦の動画(9:16)を縦のまま流す時に指定する */
+  activeRatio?: string;
   /** 枠に付けるクラス(角丸・枠線など) */
   className?: string;
   /** 出した時にすぐ流す(「映像を見る」を押して開く枠など、利用者が押した直後に出るもの) */
@@ -97,6 +99,7 @@ const PlayerSlot: React.FC<PlayerSlotProps> = ({
   title,
   thumbnail,
   idleRatio = VIDEO_RATIO,
+  activeRatio = VIDEO_RATIO,
   className = "",
   autoStart = false,
   onStart,
@@ -110,7 +113,7 @@ const PlayerSlot: React.FC<PlayerSlotProps> = ({
     <div
       data-player-slot={active ? "active" : "idle"}
       className={`relative w-full overflow-hidden bg-black ${className}`}
-      style={{ paddingBottom: active ? VIDEO_RATIO : idleRatio, height: 0 }}
+      style={{ paddingBottom: active ? activeRatio : idleRatio, height: 0 }}
     >
       <span ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[inherit]" />
       {active ? (

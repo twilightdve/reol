@@ -2,6 +2,7 @@
  * 読みもの(楽曲記事)の RSS 2.0 フィード。ビルド時に /articles/feed.xml として書き出す(gatsby-node)。
  *
  * - 載せるのは全体公開の記事だけ。限定公開・プレビュー・予約公開(公開日時がビルド時刻より後)は載せない。
+ *   announce が false の記事(PHOTO から移した過去の記録など。plan/72)も載せない。
  *   予約公開の記事は、公開日時を過ぎた後のビルドで載る(サイトは静的配信のため)。
  * - 新しい順(公開日時の降順)。本文は載せず、一覧と同じ要約を description にする。
  */
@@ -18,6 +19,8 @@ export type FeedArticle = {
   tags: string[];
   preview: boolean;
   unlisted: boolean;
+  /** false なら載せない(PHOTO から移した過去の記録など。plan/72)。無ければ載せる */
+  announce?: boolean;
 };
 
 const escapeXml = (s: string): string =>
@@ -26,7 +29,7 @@ const escapeXml = (s: string): string =>
 /** フィードに載せる記事(全体公開で、公開日時を過ぎたもの)を新しい順に */
 export const feedArticles = (articles: FeedArticle[], builtAt: number): FeedArticle[] =>
   articles
-    .filter((a) => !a.preview && !a.unlisted && a.publishedAt && isReleased(a.publishedAt, builtAt))
+    .filter((a) => !a.preview && !a.unlisted && a.announce !== false && a.publishedAt && isReleased(a.publishedAt, builtAt))
     .sort((a, b) => (b.publishedAt as string).localeCompare(a.publishedAt as string));
 
 export const buildArticlesFeed = (opts: {
