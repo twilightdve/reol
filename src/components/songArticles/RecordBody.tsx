@@ -56,8 +56,10 @@ const MediaItem: React.FC<{ item: RecordMediaAsset; sizes: string; onOpen: (id: 
       <PlayerSlot
         videoId={item.videoId}
         title={item.title}
-        // 縦の動画は、縦のサムネイル(oardefault)を使い、再生中も縦のままにする
-        thumbnail={item.vertical ? `https://i.ytimg.com/vi/${item.videoId}/oardefault.jpg` : undefined}
+        // 縦の動画は再生中も縦のままにする。サムネイルは横長の画像の中央に縦の画が入っているので、大きい方(hq720)を
+        // 縦の枠で切り出す。hq720 の無い動画は sddefault にする
+        thumbnail={item.vertical ? `https://i.ytimg.com/vi/${item.videoId}/hq720.jpg` : undefined}
+        thumbnailFallback={item.vertical ? `https://i.ytimg.com/vi/${item.videoId}/sddefault.jpg` : undefined}
         idleRatio={item.vertical ? VERTICAL_RATIO : undefined}
         activeRatio={item.vertical ? VERTICAL_RATIO : undefined}
         className="rounded-md"

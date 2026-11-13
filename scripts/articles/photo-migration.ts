@@ -54,8 +54,11 @@ type LedgerGroup = {
   /** 移した先の記録の記事ID。まだなら null */
   recordId: string | null;
   status: "unstarted" | "draft" | "published";
-  /** 記録に写さなかった写真・動画・リンク(理由を添える)。例: { ref: "photo-001#link0", reason: "…" } */
-  omitted: { ref: string; reason: string }[];
+  /**
+   * この記録に写さなかった写真・動画・リンク(理由を添える)。例: { ref: "photo-001#link0", reason: "…" }
+   * 別の記録へ移した写真・動画は movedTo に移した先の記事IDを書く(移した先に在るかも検査する)
+   */
+  omitted: { ref: string; reason: string; movedTo?: string }[];
 };
 type Ledger = {
   inventorySourceCommit: string | null;
@@ -321,11 +324,19 @@ const check = () => {
       if (!post) continue;
       for (const [i, item] of post.items.entries()) {
         const ref = `${sourceId}#${i}`;
-        if (omitted.has(ref)) continue;
-        const m = from.get(ref);
-        if (!m) problems.push(`${g.recordId}: ${ref} の写真・動画が記録にありません(media.json の from)`);
+        const movedTo = g.omitted.find((o) => o.ref === ref)?.movedTo;
+        if (omitted.has(ref) && !movedTo) continue;
+        // 別の記録へ移したものは、移した先で確かめる
+        const target = movedTo ? readRecord(movedTo) : record;
+        const where = movedTo ?? g.recordId;
+        if (!target) {
+          problems.push(`${g.recordId}: ${ref} の移した先 ${where} の原稿が見つかりません`);
+          continue;
+        }
+        const m = movedTo ? target.media.items.find((x) => x.from === ref) : from.get(ref);
+        if (!m) problems.push(`${where}: ${ref} の写真・動画が記録にありません(media.json の from)`);
         else if (isPhoto(item) ? m.type !== "photo" || m.src !== item.sourcePath : m.type !== "youtube" || m.videoId !== item.videoId) {
-          problems.push(`${g.recordId}: ${ref} の中身が旧 PHOTO と違います`);
+          problems.push(`${where}: ${ref} の中身が旧 PHOTO と違います`);
         }
       }
       for (const [i, link] of post.links.entries()) {
@@ -337,6 +348,8 @@ const check = () => {
         if (!omitted.has(ref) && !urls.some((u) => u.includes(`/status/${postId}`))) problems.push(`${g.recordId}: ${ref} の関連投稿が記録にありません(${postId})`);
       }
     }
+    // 記録にあるのに「写さなかった」と書いてあるもの(台帳の書き忘れ・消し忘れ)
+    for (const o of g.omitted) if (!o.movedTo && from.has(o.ref)) problems.push(`${g.recordId}: ${o.ref} は「写さなかった」とあるのに記録にあります`);
     // 旧 PHOTO に無い写真・動画が混ざっていないか(足した時は from を付けないので、ここでは数だけ知らせる)
     const added = record.media.items.filter((m) => !m.from).length;
     if (added > 0) console.log(`[articles:photo] ${g.recordId}: 旧 PHOTO に無い写真・動画が ${added} 件あります(${record.where})`);

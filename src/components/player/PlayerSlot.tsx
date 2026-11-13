@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useId, useRef } from "react";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { adoptSlot, playMedia } from "../../redux/slices/playerSlice";
 import { useDict } from "../../i18n/site/SiteLangContext";
@@ -21,6 +21,8 @@ export type PlayerSlotProps = {
   title: string;
   /** 再生前のサムネイル。無ければ hqdefault */
   thumbnail?: string;
+  /** thumbnail が YouTube に無かった時に代わりに出すもの(無い時も 120×90 の灰色の画像が返るので、大きさで見分ける) */
+  thumbnailFallback?: string;
   /** 再生前の枠の比率(幅に対する高さ)。既定は 16:9 */
   idleRatio?: string;
   /** 再生中の枠の比率。既定は 16:9。縦の動画(9:16)を縦のまま流す時に指定する */
@@ -34,6 +36,8 @@ export type PlayerSlotProps = {
 };
 
 const VIDEO_RATIO = "56.25%";
+/** YouTube は、無いサムネイルにも幅 120 の灰色の画像を返す */
+const MISSING_THUMB_WIDTH = 120;
 
 /**
  * 要素を動画の枠として登録する。PlayerSlot の中身。自前の枠の見た目を持つ所(記事の公式MV)は、これを直接使う。
@@ -98,6 +102,7 @@ const PlayerSlot: React.FC<PlayerSlotProps> = ({
   start,
   title,
   thumbnail,
+  thumbnailFallback,
   idleRatio = VIDEO_RATIO,
   activeRatio = VIDEO_RATIO,
   className = "",
@@ -107,7 +112,13 @@ const PlayerSlot: React.FC<PlayerSlotProps> = ({
   const dict = useDict();
   const { ref, active, start: handleStart } = usePlayerSlot({ videoId, list, start, title, autoStart, onStart });
 
-  const thumb = thumbnail ?? (videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : undefined);
+  const [thumbMissing, setThumbMissing] = useState(false);
+  // 画面を組み立てる前に読み終わっている時(ref)と、後から読み終わる時(onLoad)の両方で確かめる
+  const checkThumb = useCallback((img: HTMLImageElement | null) => {
+    if (img && img.complete && img.naturalWidth > 0 && img.naturalWidth <= MISSING_THUMB_WIDTH) setThumbMissing(true);
+  }, []);
+  const useFallback = thumbMissing && !!thumbnailFallback;
+  const thumb = useFallback ? thumbnailFallback : thumbnail ?? (videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : undefined);
 
   return (
     <div
@@ -133,7 +144,15 @@ const PlayerSlot: React.FC<PlayerSlotProps> = ({
           className="group absolute inset-0 h-full w-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-bx-yellow"
         >
           {thumb && (
-            <img src={thumb} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+            <img
+              ref={useFallback ? undefined : checkThumb}
+              onLoad={useFallback ? undefined : (e) => checkThumb(e.currentTarget)}
+              src={thumb}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           )}
           <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-bx-yellow/90 shadow-lg transition-colors group-hover:bg-bx-yellow">

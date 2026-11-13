@@ -42,6 +42,21 @@ describe("PlayerSlot", () => {
     expect(slots[1].getAttribute("data-player-slot")).toBe("active");
   });
 
+  it("サムネイルが YouTube に無かった時(幅 120 の灰色の画像が返る)は、代わりの画像に替える", () => {
+    const store = createStore();
+    const { container } = render(
+      <Provider store={store}>
+        <PlayerSlot videoId="abcdefghijk" title="縦の動画" thumbnail="https://example.com/a.jpg" thumbnailFallback="https://example.com/b.jpg" />
+      </Provider>
+    );
+    const img = container.querySelector("img") as HTMLImageElement;
+    expect(img.getAttribute("src")).toBe("https://example.com/a.jpg");
+    Object.defineProperty(img, "complete", { value: true });
+    Object.defineProperty(img, "naturalWidth", { value: 120 });
+    fireEvent.load(img);
+    expect(container.querySelector("img")?.getAttribute("src")).toBe("https://example.com/b.jpg");
+  });
+
   it("autoStart の枠は出した時に流し始める", () => {
     const store = createStore();
     render(

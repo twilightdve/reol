@@ -22,18 +22,27 @@ const CACHE_DIR = "node_modules/.cache/record-media";
 const sha8 = (value: string): string => value.slice(0, 8);
 const hashFile = (file: string): string => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
-/** 表紙と OGP 画像の URL。ビルドの前でも決まる(HOME の欄を作る時に使う)。表紙が無ければ null */
+/**
+ * 表紙と OGP 画像の URL。ビルドの前でも決まる(HOME の欄を作る時に使う)。
+ * 表紙の写真が無く動画がある記録は、一覧のカードに動画のサムネイル(YouTube)を出す(横の動画を先に選ぶ。OGP 画像は作らない)。
+ * どちらも無ければ null
+ */
 export const recordCoverPaths = (
   slug: string,
   contentSha256: string,
-  media: Pick<RecordMediaFile, "cover">
-): { cover: string | null; ogImage: string | null } =>
-  media.cover
-    ? {
-        cover: `${RECORD_MEDIA_PATH}/${slug}/cover-${sha8(contentSha256)}.jpg`,
-        ogImage: `${RECORD_MEDIA_PATH}/${slug}/og-${sha8(contentSha256)}.jpg`,
-      }
-    : { cover: null, ogImage: null };
+  media: Pick<RecordMediaFile, "cover" | "items">
+): { cover: string | null; ogImage: string | null } => {
+  if (media.cover) {
+    return {
+      cover: `${RECORD_MEDIA_PATH}/${slug}/cover-${sha8(contentSha256)}.jpg`,
+      ogImage: `${RECORD_MEDIA_PATH}/${slug}/og-${sha8(contentSha256)}.jpg`,
+    };
+  }
+  const videos = media.items.filter((m): m is Extract<RecordMediaFile["items"][number], { type: "youtube" }> => m.type === "youtube");
+  const video = videos.find((m) => m.vertical !== true) ?? videos[0];
+  // 縦の動画のサムネイルは、どの動画にもある sddefault にする(中央に縦の画、左右はぼかし)
+  return { cover: video ? `https://i.ytimg.com/vi/${video.videoId}/${video.vertical === true ? "sddefault" : "hqdefault"}.jpg` : null, ogImage: null };
+};
 
 /**
  * 公開先(public/articles-media)を空にする。ビルドのたびに最初に呼ぶ。

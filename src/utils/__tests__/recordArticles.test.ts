@@ -290,11 +290,24 @@ describe("記録の表示まわり", () => {
     expect(list.map((a) => a.slug).sort()).toEqual(["announced", "default"]);
   });
 
-  it("表紙の URL は slug と内容のハッシュから決まり、表紙が無ければ null", () => {
-    expect(recordCoverPaths("one", "0123456789abcdef", { cover: "p1" })).toEqual({
+  it("表紙の URL は slug と内容のハッシュから決まり、表紙も動画も無ければ null", () => {
+    expect(recordCoverPaths("one", "0123456789abcdef", { cover: "p1", items: [] })).toEqual({
       cover: "/articles-media/one/cover-01234567.jpg",
       ogImage: "/articles-media/one/og-01234567.jpg",
     });
-    expect(recordCoverPaths("one", "0123456789abcdef", { cover: null })).toEqual({ cover: null, ogImage: null });
+    expect(recordCoverPaths("one", "0123456789abcdef", { cover: null, items: [] })).toEqual({ cover: null, ogImage: null });
+  });
+
+  it("表紙の写真が無く動画がある記録は、動画のサムネイルを一覧のカードに出す(横の動画を先に選ぶ)", () => {
+    const tate = { id: "v1", type: "youtube" as const, videoId: "aaaaaaaaaaa", vertical: true, title: "縦" };
+    const yoko = { id: "v2", type: "youtube" as const, videoId: "bbbbbbbbbbb", title: "横" };
+    expect(recordCoverPaths("one", "0123456789abcdef", { cover: null, items: [tate, yoko] })).toEqual({
+      cover: "https://i.ytimg.com/vi/bbbbbbbbbbb/hqdefault.jpg",
+      ogImage: null,
+    });
+    expect(recordCoverPaths("one", "0123456789abcdef", { cover: null, items: [tate] })).toEqual({
+      cover: "https://i.ytimg.com/vi/aaaaaaaaaaa/sddefault.jpg",
+      ogImage: null,
+    });
   });
 });

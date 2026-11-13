@@ -46,6 +46,8 @@ const ArticleCoverCard: React.FC<ArticleCoverCardProps> = ({ slug, title, songTi
             height={420}
             loading={eager ? "eager" : "lazy"}
             decoding="async"
+            // 表紙が枠と違う比率の画像(動画のサムネイル)でも、枠の比率で切り出す
+            style={{ aspectRatio: "40 / 21" }}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         ) : (
