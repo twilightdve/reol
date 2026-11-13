@@ -1,0 +1,40 @@
+{
+  "cover": "s057-01",
+  "items": [
+    {
+      "id": "s057-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/nagoya/IMG_1895.webp",
+      "alt": "開演前の会場。スクリーンに「Merry Christmas」「Reol Oneman Live 2023/24 UNBOX black」「#Reol黒箱 OK PHOTO THANK YOU」と映り、客席に人が集まっている",
+      "from": "photo-057#0"
+    },
+    {
+      "id": "s057-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/nagoya/IMG_1890.webp",
+      "alt": "会場の案内板。「ZEPP NAGOYA 2023.12.24 REOL OPEN 16:00 START 17:00」とある",
+      "from": "photo-057#1"
+    },
+    {
+      "id": "s058-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/nagoya/notitle.webp",
+      "alt": "青と白のゼリーとクリームを重ねたグラスのデザート。グラスに「No title」のラベルが付いている",
+      "from": "photo-058#0"
+    },
+    {
+      "id": "s058-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/nagoya/IMG_1879.webp",
+      "alt": "カフェの入口。はかま姿のマネキンと人力車、赤い傘が置かれ、黒板に「月のうさぎ Cafe OPEN 10:00 CLOSE 18:00」とある",
+      "from": "photo-058#1"
+    },
+    {
+      "id": "s058-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/nagoya/IMG_1870.webp",
+      "alt": "喫茶店のカウンター。棚にカップやグラスが並び、花かごが置かれている",
+      "from": "photo-058#2"
+    }
+  ]
+}

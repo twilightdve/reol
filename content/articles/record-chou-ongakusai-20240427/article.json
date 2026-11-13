@@ -1,0 +1,30 @@
+{
+  "id": "record-chou-ongakusai-20240427",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-04-27",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "超音楽祭 in ニコニコ超会議2024",
+      "href": "/live/chou-ongaku-sai/",
+      "note": "2024年4月27日・幕張メッセ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "d056be649f1dcc1f5114b32f377eae15d76072f73661114d83f29a4220958dfe",
+  "contentSha256": "25baaecbf3ebbe5df304b96ee1fcf4983493d9e756ae7ad73c3c273d0597524c",
+  "slug": "chou-ongakusai-20240427",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.255Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:16:59.486Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

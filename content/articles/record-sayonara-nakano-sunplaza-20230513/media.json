@@ -1,0 +1,19 @@
+{
+  "cover": "s084-02",
+  "items": [
+    {
+      "id": "s084-01",
+      "type": "photo",
+      "src": "src/images/live/event/sayonarana/IMG_7956.webp",
+      "alt": "公演一覧のパネルの一枚。「5.13(土)」「Reol×女王蜂」とあり、2組のアーティスト写真が載っている",
+      "from": "photo-084#0"
+    },
+    {
+      "id": "s084-02",
+      "type": "photo",
+      "src": "src/images/live/event/sayonarana/IMG_7952.webp",
+      "alt": "赤いじゅうたんの大階段。手前に案内の立て看板が並んでいる",
+      "from": "photo-084#1"
+    }
+  ]
+}

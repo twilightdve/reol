@@ -1,0 +1,32 @@
+{
+  "id": "record-unbox-hiroshima-20240127",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-01-27",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 広島 #pure",
+      "href": "/live/pure-6/",
+      "note": "2024年1月27日・広島クラブクアトロ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "ad760a8b8d1b55ccc7f398daa536faf713f6479131e9293ae19bd518f582281b",
+  "contentSha256": "6d371871b682be0d3d3aa0bdefdacd50b0e68a6d152ebf1ac6a0d68eb69cfe2a",
+  "slug": "unbox-hiroshima-20240127",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.374Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:16.887Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

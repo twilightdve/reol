@@ -1,0 +1,67 @@
+{
+  "id": "record-unbox-ishikawa-20240320",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-03-20",
+  "eventDateEnd": "2024-03-21",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 石川 #pure",
+      "href": "/live/pure-11/",
+      "note": "2024年3月20日・金沢 エイトホール"
+    },
+    {
+      "label": "白山比咩神社",
+      "href": "https://www.shirayama.or.jp/",
+      "note": "金沢着弾!!"
+    },
+    {
+      "label": "りんどう",
+      "href": "https://maps.app.goo.gl/Wm5ixpLDXRZeTZc9A",
+      "note": "金沢着弾!!"
+    },
+    {
+      "label": "金沢エイトホール",
+      "href": "https://maps.app.goo.gl/TJTB7A4Vjoq5tJxg9",
+      "note": "金沢エイトホール到着!!!"
+    },
+    {
+      "label": "金沢炉端 あっぱれ-片町本店-",
+      "href": "https://maps.app.goo.gl/12pntJZxjQN4bcKz9",
+      "note": "金沢打ち上げ"
+    },
+    {
+      "label": "SWEETS BAR Jam's",
+      "href": "https://maps.app.goo.gl/1triDzpid8vY9NVf6",
+      "note": "金沢打ち上げ"
+    },
+    {
+      "label": "金澤神社",
+      "href": "https://maps.app.goo.gl/Ho39KHHkg6uXRXdj6",
+      "note": "金沢観光 2日目"
+    },
+    {
+      "label": "和風洋食 さか井",
+      "href": "https://maps.app.goo.gl/W6LShZj2CoD5sALz6",
+      "note": "金沢観光 2日目"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "cd819045e65d368b4d4abc4a91fa3f4e6045f5f9483138f54731a6f3965c9911",
+  "contentSha256": "fdd0852a037dad619480b3cfd80a260d4a71ad2d87f3f6016e00186831da50c0",
+  "slug": "unbox-ishikawa-20240320",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.389Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:18.062Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

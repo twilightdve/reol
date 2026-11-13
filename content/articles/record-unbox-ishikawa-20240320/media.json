@@ -1,0 +1,110 @@
+{
+  "cover": "s038-01",
+  "items": [
+    {
+      "id": "s033-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4490.webp",
+      "alt": "紅色の花が咲く木の下の縁台に並べた、ぬいぐるみ5体",
+      "from": "photo-033#0"
+    },
+    {
+      "id": "s033-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4460.webp",
+      "alt": "青空の下の朱塗りの社殿。手前に木の板の参道がのびている",
+      "from": "photo-033#1"
+    },
+    {
+      "id": "s033-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4509.webp",
+      "alt": "オムライスにエビフライなどのフライがのり、ケチャップとタルタルソースがかかった皿。奥にぬいぐるみが置いてある",
+      "from": "photo-033#2"
+    },
+    {
+      "id": "s033-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4510.webp",
+      "alt": "店の看板。「和風 洋食 さか井」とある",
+      "from": "photo-033#3"
+    },
+    {
+      "id": "s034-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_1864.webp",
+      "alt": "座敷で料理を囲む6人。船盛りの刺身があり、「I ♥ 能登」の小さな旗が立っている。顔は絵文字で隠してある",
+      "from": "photo-034#0"
+    },
+    {
+      "id": "s034-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4412.webp",
+      "alt": "鉢に盛られたおでん。大きな麩と巻き貝が入っている",
+      "from": "photo-034#1"
+    },
+    {
+      "id": "s034-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4418.webp",
+      "alt": "木箱に並んだ色とりどりのおちょこ。ガラスや金色、絵柄入りのものがある",
+      "from": "photo-034#2"
+    },
+    {
+      "id": "s034-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4423.webp",
+      "alt": "いちごとアイスクリーム、ケーキののったパフェ",
+      "from": "photo-034#3"
+    },
+    {
+      "id": "s037-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4429.webp",
+      "alt": "ライブハウスの入口。木目の壁にポスターが並び、右に8番のボールのマークの看板がある",
+      "from": "photo-037#0"
+    },
+    {
+      "id": "s038-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4433.webp",
+      "alt": "木を組んだ大きな門(鼓門)と、ガラスと鉄骨の大屋根",
+      "from": "photo-038#0"
+    },
+    {
+      "id": "s038-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4362.webp",
+      "alt": "曇り空の下の神社の拝殿。石畳の参道の両脇に狛犬がある",
+      "from": "photo-038#1"
+    },
+    {
+      "id": "s038-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4374.webp",
+      "alt": "盆に並んだ和食の膳。焼き魚、小鉢、ご飯、汁物などが並ぶ",
+      "from": "photo-038#2"
+    },
+    {
+      "id": "s038-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4365.webp",
+      "alt": "古い造りの店内。炭火のいろりがあり、紺色ののれんが掛かっている",
+      "from": "photo-038#3"
+    },
+    {
+      "id": "s038-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4366.webp",
+      "alt": "いろりの炭火で、串に刺した魚などをあぶっている",
+      "from": "photo-038#4"
+    },
+    {
+      "id": "s038-06",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/ishikawa/IMG_4369.webp",
+      "alt": "障子窓のある座敷。大きなスピーカーとオーディオ機器が置かれている",
+      "from": "photo-038#5"
+    }
+  ]
+}

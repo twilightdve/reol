@@ -1,0 +1,26 @@
+{
+  "cover": "s007-01",
+  "items": [
+    {
+      "id": "s007-01",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0171.webp",
+      "alt": "スクリーンの前での集合写真。10人ほどがピースサインをしている。顔は絵文字で隠してある",
+      "from": "photo-007#0"
+    },
+    {
+      "id": "s007-02",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0170.webp",
+      "alt": "飲み物や食べ物の並んだ低いテーブルを囲む人たち。顔は絵文字で隠してある",
+      "from": "photo-007#1"
+    },
+    {
+      "id": "s007-03",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0154.webp",
+      "alt": "部屋のスクリーンに映るライブ映像を、ソファに座って見ている人たちの後ろ姿",
+      "from": "photo-007#2"
+    }
+  ]
+}

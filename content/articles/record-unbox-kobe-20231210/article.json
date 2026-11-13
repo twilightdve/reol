@@ -1,0 +1,32 @@
+{
+  "id": "record-unbox-kobe-20231210",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-10",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 兵庫 #pure",
+      "href": "/live/pure-3/",
+      "note": "2023年12月10日・神戸ハーバースタジオ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "0d54db9d79c21adcabd87e8d86af15e0c32384a6760a96c4fa5e9237a57be200",
+  "contentSha256": "c4cb88efdd5cb35b19b33eab0dc754dc33a686c57309c276b058a9502e798988",
+  "slug": "unbox-kobe-20231210",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.401Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:19.767Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

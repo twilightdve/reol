@@ -1,0 +1,54 @@
+{
+  "cover": "s020-01",
+  "items": [
+    {
+      "id": "s020-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_7443.webp",
+      "alt": "鉄板の上の、麺の入ったお好み焼き。マヨネーズとかつお節、青のりがかかっている",
+      "from": "photo-020#0"
+    },
+    {
+      "id": "s020-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_7442_Original.webp",
+      "alt": "白い皿にのった、薄焼き卵で具を包んだ料理",
+      "from": "photo-020#1"
+    },
+    {
+      "id": "s020-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_7434_Original.webp",
+      "alt": "皿に盛られたたこ焼き5個。ソースと青のりがかかり、つまようじが刺してある",
+      "from": "photo-020#2"
+    },
+    {
+      "id": "s021-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_1273.webp",
+      "alt": "焼肉店の個室での集合写真。長いテーブルを囲んでピースサインをしている。顔は絵文字で隠してある",
+      "from": "photo-021#0"
+    },
+    {
+      "id": "s021-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_1272.webp",
+      "alt": "夜の道頓堀。グリコの看板の前での集合写真で、顔は絵文字で隠してある",
+      "from": "photo-021#1"
+    },
+    {
+      "id": "s021-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_7425_Original.webp",
+      "alt": "器に盛られたアイスクリームのデザートと、紺色の服を着たぬいぐるみ",
+      "from": "photo-021#2"
+    },
+    {
+      "id": "s022-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/kidou/IMG_7422_Original.webp",
+      "alt": "手に持ったドリンクチケット。「DRINK TICKET (SELF SERVICE)」「'24. 9. 20」「なんば Hatch」と印刷されている",
+      "from": "photo-022#0"
+    }
+  ]
+}

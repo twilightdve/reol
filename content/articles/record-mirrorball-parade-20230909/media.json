@@ -1,0 +1,208 @@
+{
+  "cover": "s078-01",
+  "items": [
+    {
+      "id": "s077-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9965.webp",
+      "alt": "ソースのかかったカツが重なった丼。奥に「とんかつ太郎」の案内が立っている",
+      "from": "photo-077#0"
+    },
+    {
+      "id": "s077-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0024.webp",
+      "alt": "木の壁の「MILK CAFE」の文字の前に掲げた、ソフトクリームとジェラート3つ",
+      "from": "photo-077#1"
+    },
+    {
+      "id": "s077-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9962.webp",
+      "alt": "駐車場に停めた白い軽自動車と、「JAPAN 峠 PROJECT」と書かれた黒いのぼり",
+      "from": "photo-077#2"
+    },
+    {
+      "id": "s077-04",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0015.webp",
+      "alt": "「佐渡弥彦米山国定公園 弥彦山頂 新潟県」と書かれた木の看板。看板の上から顔を出す人がいて、顔は絵文字で隠してある",
+      "from": "photo-077#3"
+    },
+    {
+      "id": "s077-05",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0019.webp",
+      "alt": "石柱。「國幣中社彌彦神社」と刻まれている",
+      "from": "photo-077#4"
+    },
+    {
+      "id": "s077-06",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0022.webp",
+      "alt": "白い壁に描かれた山の絵。「弥彦山 634m」と書き添えてある",
+      "from": "photo-077#5"
+    },
+    {
+      "id": "s077-07",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_1714.webp",
+      "alt": "海岸線を見下ろす山の上で、「Reol」のロゴが入った黒い布を掲げてしゃがむ人。顔は絵文字で隠してある",
+      "from": "photo-077#6"
+    },
+    {
+      "id": "s078-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9920.webp",
+      "alt": "「MIRRORBALL PARADE Vol.3」のパネルを風船とミラーボールで飾ったフォトスポット。色とりどりの照明が当たっている",
+      "from": "photo-078#0"
+    },
+    {
+      "id": "s078-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0027.webp",
+      "alt": "「MIRRORBALL PARADE Vol.3」のポスター。Reol と yama の写真が並び、手前にミラーボールが置かれている",
+      "from": "photo-078#1"
+    },
+    {
+      "id": "s078-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_0026.webp",
+      "alt": "タイルの壁に付いた、金色の「NIIGATA テルサ」の文字",
+      "from": "photo-078#2"
+    },
+    {
+      "id": "s078-04",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_1713.webp",
+      "alt": "「MIRRORBALL PARADE」の青いタオルを広げて並ぶ3人。顔は絵文字で隠してある",
+      "from": "photo-078#3"
+    },
+    {
+      "id": "s079-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9900.webp",
+      "alt": "焼き魚や揚げ物がずらりと並ぶ店先",
+      "from": "photo-079#0"
+    },
+    {
+      "id": "s079-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9909.webp",
+      "alt": "皿にのった、丸ごと一尾の焼き魚。レモンと大根おろしが添えてある",
+      "from": "photo-079#1"
+    },
+    {
+      "id": "s079-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9902.webp",
+      "alt": "手書きの品書きが貼られた食堂で、黒い飲み物のジョッキを合わせて乾杯している",
+      "from": "photo-079#2"
+    },
+    {
+      "id": "s079-04",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9904.webp",
+      "alt": "殻付きの生がき2個。レモンがのっている",
+      "from": "photo-079#3"
+    },
+    {
+      "id": "s079-05",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9907.webp",
+      "alt": "刺身の盛り合わせ。まぐろ、甘えび、たこ、白身魚などが並んでいる",
+      "from": "photo-079#4"
+    },
+    {
+      "id": "s079-06",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9908.webp",
+      "alt": "焼き魚の定食。ご飯、みそ汁、小鉢が並んでいる",
+      "from": "photo-079#5"
+    },
+    {
+      "id": "s079-07",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9888.webp",
+      "alt": "「新潟総鎮守 白山神社」と書かれた御朱印の撮影台。奥に社殿が見える",
+      "from": "photo-079#6"
+    },
+    {
+      "id": "s079-08",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9913.webp",
+      "alt": "「JA新潟市 農産物直売所 キラキラマーケット」の看板がある建物",
+      "from": "photo-079#7"
+    },
+    {
+      "id": "s079-09",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/IMG_9919.webp",
+      "alt": "手に持った、黒いコーンのジェラート3つ",
+      "from": "photo-079#8"
+    },
+    {
+      "id": "s080-01",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9832.webp",
+      "alt": "レンガ造りの喫茶店の入口。上に「ABE」の看板がある",
+      "from": "photo-080#0"
+    },
+    {
+      "id": "s080-02",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9837.webp",
+      "alt": "「まつもと市民・芸術館 Matsumoto Performing Arts Centre」の銘板",
+      "from": "photo-080#1"
+    },
+    {
+      "id": "s080-03",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9842.webp",
+      "alt": "水辺に張り出した、ガラス張りの建物のテラス。白いソファが置かれている",
+      "from": "photo-080#2"
+    },
+    {
+      "id": "s080-04",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9843.webp",
+      "alt": "青空の下の松本城と堀",
+      "from": "photo-080#3"
+    },
+    {
+      "id": "s080-05",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9847.webp",
+      "alt": "ふたを開けたカップ入りのアイス。容器に「TSURUYA」「りんごバター」とある",
+      "from": "photo-080#4"
+    },
+    {
+      "id": "s080-06",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9848.webp",
+      "alt": "窓ガラスに貼られたポスター。「カナディアンロッキー様!」で始まる手書きのメッセージと Reol のサインが入っている",
+      "from": "photo-080#5"
+    },
+    {
+      "id": "s080-07",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9852.webp",
+      "alt": "鉄板にのったハンバーグ2枚。バターがのり、ポテトとミックスベジタブルが添えてある",
+      "from": "photo-080#6"
+    },
+    {
+      "id": "s080-08",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9853.webp",
+      "alt": "りんごジュースなどの瓶がずらりと並んだ売り場の棚",
+      "from": "photo-080#7"
+    },
+    {
+      "id": "s080-09",
+      "type": "photo",
+      "src": "src/images/live/event/yama/mirrorball/matsumoto/IMG_9855.webp",
+      "alt": "手に持った「松本 CIDER」の瓶。ラベルに城の絵が描かれている",
+      "from": "photo-080#8"
+    }
+  ]
+}

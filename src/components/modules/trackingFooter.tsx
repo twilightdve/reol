@@ -5,7 +5,6 @@ import { FaMusic, FaCompactDisc, FaBookOpen } from "react-icons/fa6";
 import { BsSpeakerFill } from "react-icons/bs";
 import { ROUTE_NAMES } from "../../types/common";
 import { TbMapPinHeart } from "react-icons/tb";
-import { FaPhotoVideo } from "react-icons/fa";
 import { useNavigation } from "../../hooks/useNavigation";
 import { useSiteLang } from "../../i18n/site/SiteLangContext";
 import { DEFAULT_LANG } from "../../i18n/site/langs";
@@ -51,7 +50,6 @@ const TrackingFooter: React.FC<Props> = ({ pathname = "" }) => {
       DISCOGRAPHY: <FaCompactDisc {...iconProps} />,
       LIVE: <BsSpeakerFill {...iconProps} />,
       PLACE: <TbMapPinHeart {...iconProps} />,
-      PHOTO: <FaPhotoVideo {...iconProps} />,
     };
     return icons;
   }, []);

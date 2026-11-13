@@ -1,0 +1,40 @@
+{
+  "cover": "s012-01",
+  "items": [
+    {
+      "id": "s012-01",
+      "type": "photo",
+      "src": "src/images/live/culture/osaka/IMG_9479.webp",
+      "alt": "開演前のステージ。岩と植物を模したセットの中央に、縦書きで「カルチュア」の文字が映っている",
+      "from": "photo-012#0"
+    },
+    {
+      "id": "s012-02",
+      "type": "photo",
+      "src": "src/images/live/culture/osaka/IMG_9484.webp",
+      "alt": "夜の「Zepp Osaka Bayside」の青いネオンサイン",
+      "from": "photo-012#1"
+    },
+    {
+      "id": "s013-01",
+      "type": "photo",
+      "src": "src/images/live/culture/goods/IMG_9444.webp",
+      "alt": "猫耳の付いた白いキャラクターのぬいぐるみ。「Reol Oneman Live 2025 CULTURE CURRICULUM」と書かれた鉢巻きを巻いている",
+      "from": "photo-013#0"
+    },
+    {
+      "id": "s013-02",
+      "type": "photo",
+      "src": "src/images/live/culture/goods/IMG_9448.webp",
+      "alt": "ギターピックやピンバッジ、ジャケット柄のチャームを付けた、「Reol」のロゴ入りの黒いキャップ",
+      "from": "photo-013#1"
+    },
+    {
+      "id": "s013-03",
+      "type": "photo",
+      "src": "src/images/live/culture/goods/IMG_9451.webp",
+      "alt": "黒い布の上に置かれた、丸いポーチとネックストラップ、ホイッスル、鍵形のチャームなどのグッズ",
+      "from": "photo-013#2"
+    }
+  ]
+}

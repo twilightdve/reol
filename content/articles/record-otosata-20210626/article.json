@@ -1,0 +1,30 @@
+{
+  "id": "record-otosata-20210626",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2021-06-26",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Installation Concert 2021「音沙汰」 東京",
+      "href": "/live/toukyou-4/",
+      "note": "2021年6月26日・LINE CUBE SHIBUYA"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "7f193a612e39038d9891e42d32a448a393ede33f8c5f5cc9f0ba6b5660a39b13",
+  "contentSha256": "9df3e8acb398fb6ba9ad7b9071bc7f7bc048021a75c873d819e98d53f8010c2d",
+  "slug": "otosata-20210626",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.360Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:14.060Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

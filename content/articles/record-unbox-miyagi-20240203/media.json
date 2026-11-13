@@ -1,0 +1,61 @@
+{
+  "cover": "s050-02",
+  "items": [
+    {
+      "id": "s050-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2873.webp",
+      "alt": "スクリーンに映る「Reol Oneman Live \"No title\" 2024.8.17(SAT) 日本武道館 公演決定」の告知。白い衣装の Reol の写真が使われている",
+      "from": "photo-050#0"
+    },
+    {
+      "id": "s050-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2868.webp",
+      "alt": "「TICKETS」と書かれた窓口。電光表示に「Reol Oneman Live 2023/24 \"UNBOX\" black/pure 2024/02/03(土) black SENDAI GIGS」と出ている",
+      "from": "photo-050#1"
+    },
+    {
+      "id": "s051-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2864.webp",
+      "alt": "木に取り付けられた赤い箱形の飾りと「馬背 UMANOSE」の札。中にキャラクターの人形が置いてある。奥に海が見える",
+      "from": "photo-051#0"
+    },
+    {
+      "id": "s051-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2861.webp",
+      "alt": "海に突き出た細い岬と、松の木。空に雲が広がっている",
+      "from": "photo-051#1"
+    },
+    {
+      "id": "s051-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2851.webp",
+      "alt": "ベリーソースのかかったチーズケーキと、赤い飲み物のグラス",
+      "from": "photo-051#2"
+    },
+    {
+      "id": "s051-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2875.webp",
+      "alt": "牛たん焼きの定食。ご飯、スープ、卵の入った小鉢などが並んでいる",
+      "from": "photo-051#3"
+    },
+    {
+      "id": "s051-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2878.webp",
+      "alt": "夜の通り。「DD DINER」のネオン看板が光っている",
+      "from": "photo-051#4"
+    },
+    {
+      "id": "s051-06",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/sendai/IMG_2675.webp",
+      "alt": "バッグに付けた、ゴーグルを載せたキャラクターのぬいぐるみと、「UNBOX」の文字が入った白いスカーフのリボン",
+      "from": "photo-051#5"
+    }
+  ]
+}

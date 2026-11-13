@@ -1,0 +1,30 @@
+{
+  "id": "record-unbox-osaka-20231118",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-11-18",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 大阪 #black",
+      "href": "/live/black/",
+      "note": "2023年11月18日・フェスティバルホール"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "a6da8ca70d74726a75e2009a8ca251b169139143e0a64593f1a8569f64aaf704",
+  "contentSha256": "4becd75ace58e13ac869ef9215b4c0acd034503658c2e06a6faba2e35826c6fc",
+  "slug": "unbox-osaka-20231118",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.421Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:23.161Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

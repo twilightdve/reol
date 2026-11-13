@@ -1,0 +1,33 @@
+{
+  "cover": "s041-01",
+  "items": [
+    {
+      "id": "s041-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/kanagawa/IMG_3555.webp",
+      "alt": "スクリーン。「Reol Oneman Live 2023/24 UNBOX black」「#Reol黒箱 OK PHOTO THANK YOU」の表示に、手書きの「See you!!」が添えてある",
+      "from": "photo-041#0"
+    },
+    {
+      "id": "s041-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/kanagawa/IMG_3532.webp",
+      "alt": "レンガの壁に「神奈川県立 県民ホール」の銘板がある建物。奥の階段を人が上っている",
+      "from": "photo-041#1"
+    },
+    {
+      "id": "s041-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/kanagawa/IMG_3545.webp",
+      "alt": "祝い花のスタンド2基。札に「祝 御開催 \"UNBOX\" black Reol様 LiSAより」「祝 Reol様 FAKE TYPE.」とある",
+      "from": "photo-041#2"
+    },
+    {
+      "id": "s041-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/kanagawa/IMG_3551.webp",
+      "alt": "「本日の催し」の掲示窓に貼られた、ツアーのポスター3枚",
+      "from": "photo-041#3"
+    }
+  ]
+}

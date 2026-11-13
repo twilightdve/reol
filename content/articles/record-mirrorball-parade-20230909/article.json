@@ -1,0 +1,30 @@
+{
+  "id": "record-mirrorball-parade-20230909",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-09-09",
+  "eventDateEnd": "2023-09-10",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "MIRRORBALL PARADE vol.3",
+      "href": "/live/mirrorball/",
+      "note": "2023年9月10日・新潟テルサ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "346845ae3ebf42f7fb59a1a9eaab20322bdb8dfa2ac0facb5964218d08155b29",
+  "contentSha256": "84a59434e0418a1292eeb2f6b1897b2fa506d0e5df54df347399f93d256700de",
+  "slug": "mirrorball-parade-20230909",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.336Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:08.471Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

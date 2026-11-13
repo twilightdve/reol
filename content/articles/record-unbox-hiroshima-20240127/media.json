@@ -1,0 +1,40 @@
+{
+  "cover": "s053-02",
+  "items": [
+    {
+      "id": "s053-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/hiroshima/IMG_2707.webp",
+      "alt": "居酒屋の座敷で料理を囲む人たち。顔は絵文字で隠してある",
+      "from": "photo-053#0"
+    },
+    {
+      "id": "s053-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/hiroshima/IMG_2699.webp",
+      "alt": "お好み焼き店の外観。丸い看板に「中ちゃん」、のぼりに「広島お好み焼」とある",
+      "from": "photo-053#1"
+    },
+    {
+      "id": "s053-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/hiroshima/IMG_2706.webp",
+      "alt": "白い皿にのったバゲットと、青菜とレモンを添えた料理",
+      "from": "photo-053#2"
+    },
+    {
+      "id": "s055-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/hiroshima/IMG_2679.webp",
+      "alt": "鉄板皿にのった、麺とキャベツの入ったお好み焼き。ソースと青のりがかかっている",
+      "from": "photo-055#0"
+    },
+    {
+      "id": "s055-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/hiroshima/IMG_2678.webp",
+      "alt": "小鉢に盛られたかきと、レモン・もみじおろし・ねぎ・たれの薬味皿",
+      "from": "photo-055#1"
+    }
+  ]
+}

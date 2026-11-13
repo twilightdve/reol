@@ -1,0 +1,32 @@
+{
+  "id": "record-unbox-hokkaido-20240209",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-02-09",
+  "eventDateEnd": "2024-02-11",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 北海道 #pure",
+      "href": "/live/pure-9/",
+      "note": "2024年2月10日・札幌ペニーレーン24"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "ecf28e43141fa15f2fd0d85bd025ded3b6336be984a07963e55ed23c31d14117",
+  "contentSha256": "dab9e91a71acb5a22463e600ebeaeaab542a24207c55adfbb8fcf3beb69d29ce",
+  "slug": "unbox-hokkaido-20240209",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.381Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:17.477Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

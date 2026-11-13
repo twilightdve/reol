@@ -1,0 +1,26 @@
+{
+  "cover": "s087-01",
+  "items": [
+    {
+      "id": "s087-01",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/tokyo/IMG_6956.webp",
+      "alt": "TOKYO DOME CITY HALL の入口。電光掲示に「Oneman Live 2023 新式浪漫 Neo Nostalgia 開場 17:00」と出ている",
+      "from": "photo-087#0"
+    },
+    {
+      "id": "s087-02",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/tokyo/IMG_6961.webp",
+      "alt": "赤い壁に掲げられた、ホールの座席案内図",
+      "from": "photo-087#1"
+    },
+    {
+      "id": "s087-03",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/tokyo/IMG_6965.webp",
+      "alt": "赤い壁の前に並ぶ祝い花のスタンド4基と、キャラクターの等身大パネル",
+      "from": "photo-087#2"
+    }
+  ]
+}

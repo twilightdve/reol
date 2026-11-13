@@ -1,0 +1,33 @@
+{
+  "cover": "s039-02",
+  "items": [
+    {
+      "id": "s039-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/niigata/IMG_4320.webp",
+      "alt": "「NIIGATA LOTS」の入口の扉。ツアーのポスターと、開場時間やドリンク代の案内が貼られている",
+      "from": "photo-039#1"
+    },
+    {
+      "id": "s039-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/niigata/IMG_4334.webp",
+      "alt": "暗い会場のスクリーン。「Reol Oneman Live 2023/24 UNBOX pure」と映っている",
+      "from": "photo-039#2"
+    },
+    {
+      "id": "s040-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/niigata/IMG_4300.webp",
+      "alt": "丼に盛られたカツと、ピンクの頭巾のぬいぐるみ",
+      "from": "photo-040#0"
+    },
+    {
+      "id": "s040-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/niigata/IMG_4295.webp",
+      "alt": "レンガ壁の「太郎」の文字の前に掲げた、ぬいぐるみキーホルダー3つ",
+      "from": "photo-040#1"
+    }
+  ]
+}

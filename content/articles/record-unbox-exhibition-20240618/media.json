@@ -1,0 +1,75 @@
+{
+  "cover": "s027-01",
+  "items": [
+    {
+      "id": "s027-01",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5549.webp",
+      "alt": "ガラスケースに展示された黒い衣装とブーツ。奥にライブ写真のパネルが見える",
+      "from": "photo-027#0"
+    },
+    {
+      "id": "s027-02",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5530.webp",
+      "alt": "タワーレコードの店の外観。赤い「TOWER RECORDS」の文字と「NO MUSIC, NO LIFE.」の丸い看板",
+      "from": "photo-027#1"
+    },
+    {
+      "id": "s027-03",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5543.webp",
+      "alt": "「Reol Oneman Live 2023/24 \"UNBOX\" black リリース記念パネル展」の表示と、ライブ写真のパネル",
+      "from": "photo-027#2"
+    },
+    {
+      "id": "s027-04",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5572.webp",
+      "alt": "売り場の棚。上に「Reol Oneman Live 2023/24 \"UNBOX\" black Blu-ray / DVD」の看板があり、モニターと商品が並んでいる",
+      "from": "photo-027#3"
+    },
+    {
+      "id": "s027-05",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5531.webp",
+      "alt": "ガラスケースの中の黒い衣装。羽根飾りの付いた上半身を斜めから撮っている",
+      "from": "photo-027#4"
+    },
+    {
+      "id": "s027-06",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5550.webp",
+      "alt": "ガラスケースの中の衣装を横から見た様子",
+      "from": "photo-027#5"
+    },
+    {
+      "id": "s027-07",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5552.webp",
+      "alt": "ガラスケースの中の黒い衣装を後ろから見た様子",
+      "from": "photo-027#6"
+    },
+    {
+      "id": "s027-08",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5554.webp",
+      "alt": "ガラスケースの中の黒い衣装を正面から見た様子。胸元に羽根飾りがある",
+      "from": "photo-027#7"
+    },
+    {
+      "id": "s027-09",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5556.webp",
+      "alt": "ガラスケースの中の黒い衣装を斜め横から見た様子",
+      "from": "photo-027#8"
+    },
+    {
+      "id": "s027-10",
+      "type": "photo",
+      "src": "src/images/release/unbox/IMG_5558.webp",
+      "alt": "ガラスケースの中に展示された、ラメの入った黒いロングブーツ",
+      "from": "photo-027#9"
+    }
+  ]
+}

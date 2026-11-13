@@ -1,0 +1,30 @@
+{
+  "id": "record-unbox-miyagi-20240203",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-02-03",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 宮城 #black",
+      "href": "/live/black-5/",
+      "note": "2024年2月3日・仙台 GIGS"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "2f8fe3441b47acd216e4439ac5707287c1d78df0f0659cb664ebda1847495522",
+  "contentSha256": "82ba23ae9d356ece8e9cec3892307422c345623f079e99dc218b83b2322c3437",
+  "slug": "unbox-miyagi-20240203",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.404Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:20.319Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

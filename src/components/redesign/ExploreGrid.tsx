@@ -6,7 +6,7 @@ import { useDict } from "../../i18n/site/SiteLangContext";
 import type { SiteDict } from "../../i18n/site/dict";
 
 /**
- * B案「BLACKBOX / CHRONICLE」の EXPLORE セクション。主要4セクションへの入口。
+ * B案「BLACKBOX / CHRONICLE」の EXPLORE セクション。主要3セクションへの入口(PHOTO は読みものの「記録」へ移したので外した。plan/72)。
  * 2026-11-13 に、大きなタイル(カード)から罫線で区切った行に変えた(plan/71)。
  */
 interface ExploreItem {
@@ -37,12 +37,6 @@ const SECTIONS: ExploreItem[] = [
     desc: (d) => d.explore.place,
     to: "/place/",
   },
-  {
-    label: "PHOTO",
-    jp: "フォトギャラリー",
-    desc: (d) => d.explore.photo,
-    to: "/photos/",
-  },
 ];
 
 const ExploreGrid: React.FC = () => {
@@ -50,7 +44,7 @@ const ExploreGrid: React.FC = () => {
   return (
     <section>
       <Kicker>{dict.explore.kicker}</Kicker>
-      <LinkRows className="mt-3.5">
+      <LinkRows threeColumns className="mt-3.5">
         {SECTIONS.map((section) => (
           <LinkRow
             key={section.label}

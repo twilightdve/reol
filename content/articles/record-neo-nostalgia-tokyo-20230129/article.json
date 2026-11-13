@@ -1,0 +1,30 @@
+{
+  "id": "record-neo-nostalgia-tokyo-20230129",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-01-29",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 東京",
+      "href": "/live/toukyou-7/",
+      "note": "2023年1月29日・TOKYO DOME CITY HALL"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "c3bea24ba68f96600ac17d1080550ae781c43f4e5724372b58b536b41cbf19f1",
+  "contentSha256": "23a9036de66d5601084195c4a6ee253e48b25c60233e634dc7646b8859939454",
+  "slug": "neo-nostalgia-tokyo-20230129",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.345Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:10.158Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

@@ -19,7 +19,6 @@ const ROUTE_PATHS: Record<string, string> = {
   DISCOGRAPHY: "/discography/",
   LIVE: "/live/",
   PLACE: "/place/",
-  PHOTO: "/photos/",
 };
 
 export const useNavigation = (options: NavigationOptions = {}) => {

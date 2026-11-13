@@ -1,0 +1,40 @@
+{
+  "cover": "s056-04",
+  "items": [
+    {
+      "id": "s056-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/tokyo/IMG_1924.webp",
+      "alt": "ホールのスクリーンに映る「Reol Oneman Live \"No title\" 2024.8.17(Sat) 日本武道館 公演決定」の告知。客席の人たちがスマートフォンを向けている",
+      "from": "photo-056#0"
+    },
+    {
+      "id": "s056-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/tokyo/IMG_1918.webp",
+      "alt": "夜の歩道沿いの、青いイルミネーション。トナカイと、そりに乗ったサンタクロースの電飾がある",
+      "from": "photo-056#1"
+    },
+    {
+      "id": "s056-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/tokyo/IMG_1905.webp",
+      "alt": "駅の案内表示。「昭和女子大学 人見記念講堂」と矢印、「田園都市線」の案内がある",
+      "from": "photo-056#2"
+    },
+    {
+      "id": "s056-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/tokyo/IMG_1912.webp",
+      "alt": "青空の下の、白い大きな建物の外観。前の広場に人が集まっている",
+      "from": "photo-056#3"
+    },
+    {
+      "id": "s056-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/tokyo/IMG_1917.webp",
+      "alt": "金髪の人の耳元。「UNBOX」と入った細長い黒いイヤリングを付けている",
+      "from": "photo-056#4"
+    }
+  ]
+}

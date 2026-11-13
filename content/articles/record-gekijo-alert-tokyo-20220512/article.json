@@ -1,0 +1,35 @@
+{
+  "id": "record-gekijo-alert-tokyo-20220512",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2022-05-12",
+  "eventDateEnd": "2022-05-13",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2022「激情アラート」 東京",
+      "href": "/live/toukyou-5/",
+      "note": "2022年5月12日・Zepp Haneda"
+    },
+    {
+      "label": "Reol Oneman Live 2022「激情アラート」 東京",
+      "href": "/live/toukyou-6/",
+      "note": "2022年5月13日・Zepp Haneda"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "96ea2cda3a1e28a99eb3a95bee7d68310ed2604f148b0ff5ae75ac512555a7b4",
+  "contentSha256": "3b18e0da21efd13a6ee8b17ec11da1abb67f13ccf4d21d023411a99c463a68d5",
+  "slug": "gekijo-alert-tokyo-20220512",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.282Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:03.432Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

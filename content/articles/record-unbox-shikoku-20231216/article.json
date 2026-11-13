@@ -1,0 +1,37 @@
+{
+  "id": "record-unbox-shikoku-20231216",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-16",
+  "eventDateEnd": "2023-12-18",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 愛媛 #pure",
+      "href": "/live/pure-4/",
+      "note": "2023年12月16日・松山 Wstudio RED"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 香川 #pure",
+      "href": "/live/pure-5/",
+      "note": "2023年12月17日・高松 DIME"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "ff8acf055d25075d17f069b965aa15133ac8f5f0a04f5e49ed35a2b07be9e199",
+  "contentSha256": "099df5d5ba32c03fb2300e0d27cd9259fb893ed29b7becda406a7c3a02f746f3",
+  "slug": "unbox-shikoku-20231216",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.433Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:24.282Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

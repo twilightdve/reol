@@ -1,0 +1,55 @@
+{
+  "id": "record-coshunie-osaka-20241026",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-10-26",
+  "eventDateEnd": "2024-10-27",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Namba Culture Terminal 2024 -1st Anniversary- 大阪",
+      "href": "/live/ousaka-8/",
+      "note": "2024年10月26日・Yogibo META VALLEY"
+    },
+    {
+      "label": "トリントンティールーム",
+      "href": "https://www.torrington-tearoom.com/",
+      "note": "Cö shu Nie対バンのために大阪へ!!"
+    },
+    {
+      "label": "Reol の投稿(2024年10月26日 21:47)",
+      "href": "https://x.com/RRReol/status/1850157358003163617",
+      "note": "Cö shu Nie対バン参戦!!"
+    },
+    {
+      "label": "チョコレート専門店「エクチュア」",
+      "href": "https://www.ek-chuah.co.jp/",
+      "note": "【Cö shu Nie対バン】大阪観光"
+    },
+    {
+      "label": "スパイスカレー「旧ヤム邸 空堀店」",
+      "href": "https://maps.app.goo.gl/pWpXxf8jKRyiKPfQ8",
+      "note": "【Cö shu Nie対バン】大阪観光"
+    },
+    {
+      "label": "Reol の投稿(2024年10月26日 21:41)",
+      "href": "https://x.com/RRReol/status/1850155775525814464",
+      "note": "【Cö shu Nie対バン】大阪観光"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "c031317d2d4f369b89a559ac78177294f14878415d48451820d9d0c135c970af",
+  "contentSha256": "065bfd9f4cf785cdc7a5dc290211d38c642dba4794dedacb2b10e72194cf0250",
+  "slug": "coshunie-osaka-20241026",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.262Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:00.049Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

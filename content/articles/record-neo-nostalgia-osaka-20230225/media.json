@@ -1,0 +1,26 @@
+{
+  "cover": "s086-02",
+  "items": [
+    {
+      "id": "s086-01",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/osaka/IMG_7190.webp",
+      "alt": "会場の外に立つ案内板。「グッズ販売 待ち列先頭」「グッズ先行販売 15:00〜16:30」とある",
+      "from": "photo-086#0"
+    },
+    {
+      "id": "s086-02",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/osaka/IMG_7192.webp",
+      "alt": "会場の扉。「2023.02.25 REOL OPEN 17:00 START 18:00」の表示と、ドリンク代の案内が貼られている",
+      "from": "photo-086#1"
+    },
+    {
+      "id": "s086-03",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/osaka/IMG_7202.webp",
+      "alt": "ロビーに置かれた、オレンジと黄色の祝い花のスタンド。奥を来場者が歩いている",
+      "from": "photo-086#2"
+    }
+  ]
+}

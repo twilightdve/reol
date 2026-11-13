@@ -1,0 +1,33 @@
+{
+  "cover": "s009-01",
+  "items": [
+    {
+      "id": "s009-01",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/matsumoto/GiIEhLTbsAAqAyv.webp",
+      "alt": "青空の下の松本駅の駅舎。「JR 松本駅 Matsumoto Station」の文字が見える",
+      "from": "photo-009#0"
+    },
+    {
+      "id": "s009-02",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/matsumoto/GiGt5kKaEAAUivi.webp",
+      "alt": "列車の座席でピースサインをする3人。顔は絵文字で隠してある",
+      "from": "photo-009#1"
+    },
+    {
+      "id": "s009-03",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/matsumoto/IMG_9600_Original.webp",
+      "alt": "鉄板にのったハンバーグ2枚。バターがのり、ポテトとミックスベジタブルが添えてある",
+      "from": "photo-009#2"
+    },
+    {
+      "id": "s009-04",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/matsumoto/IMG_9617.webp",
+      "alt": "木の台に並んだグラス入りのコーヒー3種と産地のカード。手前にワッフルとぬいぐるみが置いてある",
+      "from": "photo-009#3"
+    }
+  ]
+}

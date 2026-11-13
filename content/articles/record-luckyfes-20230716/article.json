@@ -1,0 +1,30 @@
+{
+  "id": "record-luckyfes-20230716",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-07-16",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "LuckyFes'23",
+      "href": "/live/luckyfes23/",
+      "note": "2023年7月16日・国営ひたち海浜公園"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "28982e20dbd751996fde053f9acc77776fdafd3d1098054ac9fc9e14fc3d1089",
+  "contentSha256": "9da9ce232c071023f74cc68400bc6ab819d0ebaa4f0a4d954a25a8e6c070fcae",
+  "slug": "luckyfes-20230716",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T01:10:33.221Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:06.782Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

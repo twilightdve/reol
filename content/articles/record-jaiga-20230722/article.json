@@ -1,0 +1,30 @@
+{
+  "id": "record-jaiga-20230722",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-07-22",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "ジャイガ-OSAKA GIGANTIC MUSIC FESTIVAL 2023-",
+      "href": "/live/jaiga-ousaka-2/",
+      "note": "2023年7月22日・舞洲スポーツアイランド"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "4bd02257a14e870f9cd863ee96a681bc866969e297e6c4785771b185a522e1d5",
+  "contentSha256": "9ad463690557a8ff0ff62a19067d8671fd1bd65265f62084fe97d39bb0c6e7bf",
+  "slug": "jaiga-20230722",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.291Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:05.663Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

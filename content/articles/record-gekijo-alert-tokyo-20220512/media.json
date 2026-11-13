@@ -1,0 +1,26 @@
+{
+  "cover": "s088-03",
+  "items": [
+    {
+      "id": "s088-01",
+      "type": "photo",
+      "src": "src/images/live/alert/IMG_5183.webp",
+      "alt": "ピンクと赤の花のスタンド。「Reol Oneman Live 2022」の文字と大きなピンクのリボンが付いている",
+      "from": "photo-088#0"
+    },
+    {
+      "id": "s088-02",
+      "type": "photo",
+      "src": "src/images/live/alert/IMG_5188.webp",
+      "alt": "ピンクと白の風船と花のスタンド。上の札に「御祝 Reol様 激情アラート」とある",
+      "from": "photo-088#1"
+    },
+    {
+      "id": "s088-03",
+      "type": "photo",
+      "src": "src/images/live/alert/IMG_5190.webp",
+      "alt": "会場内の立て看板。黒板に「Reol Oneman Live 2022 激情アラート at Zepp Haneda」「OPEN 17:30 START 18:30」と書かれている",
+      "from": "photo-088#2"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "record-metrock-osaka-20230514",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-05-14",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "OSAKA METROPOLITAN ROCK FESTIVAL 2023",
+      "href": "/live/osaka-3/",
+      "note": "2023年5月14日・海とのふれあい広場"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "6d4a01374d0781af6ba3475546f6bd686dfd023cea3a391e8c59600ea5f9bcac",
+  "contentSha256": "51e7195c5770dfc55f62fd1e61c54484660ca74677336c7eaff93bb4ca58c787",
+  "slug": "metrock-osaka-20230514",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.307Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:07.900Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

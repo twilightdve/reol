@@ -1,0 +1,26 @@
+{
+  "cover": "s074-01",
+  "items": [
+    {
+      "id": "s074-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/fukuoka/IMG_1067.webp",
+      "alt": "会場の案内板。「Zepp Fukuoka TODAY'S SCHEDULE」「Zepp Fukuoka 2023.12.1 Reol OPEN 17:30 START 18:30」とある",
+      "from": "photo-074#0"
+    },
+    {
+      "id": "s074-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/fukuoka/IMG_1068.webp",
+      "alt": "開演前のスクリーン。「Reol Oneman Live 2023/24 UNBOX black」と「#Reol黒箱 OK PHOTO THANK YOU」の表示が映っている。手前に観客の頭が並ぶ",
+      "from": "photo-074#1"
+    },
+    {
+      "id": "s074-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/fukuoka/IMG_1055.webp",
+      "alt": "青い電光表示。「最終案内 FINAL CALL」と出ている",
+      "from": "photo-074#2"
+    }
+  ]
+}

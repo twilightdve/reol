@@ -1,0 +1,45 @@
+{
+  "id": "record-kidou-kyoumei-osaka-20240920",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-09-20",
+  "eventDateEnd": "2024-09-21",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "軌道共鳴2024 大阪",
+      "href": "/live/ousaka-7/",
+      "note": "2024年9月20日・なんばHatch"
+    },
+    {
+      "label": "yama の投稿(2024年9月20日)",
+      "href": "https://x.com/yama_official0/status/1837126824629051666",
+      "note": "yama対バンツアー『軌道共鳴2024』"
+    },
+    {
+      "label": "Reol の投稿(2024年9月20日)",
+      "href": "https://x.com/RRReol/status/1837121823319937132",
+      "note": "【軌道共鳴2024】打ち上げ"
+    },
+    {
+      "label": "Reol OFFICIAL の投稿(2024年9月20日)",
+      "href": "https://x.com/RRReol_official/status/1837115068410122290",
+      "note": "【軌道共鳴2024】打ち上げ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "74239ec3bc441aac14a6547521af5e28b632d8667c7f5db236513dd602c1db08",
+  "contentSha256": "c40722ea14d34655d89ee117b933549c4568a4edbd7dafe6d6b62421b1cf4f8c",
+  "slug": "kidou-kyoumei-osaka-20240920",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.297Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:06.236Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

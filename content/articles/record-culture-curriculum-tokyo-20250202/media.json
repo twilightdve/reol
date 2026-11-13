@@ -1,0 +1,26 @@
+{
+  "cover": "s008-01",
+  "items": [
+    {
+      "id": "s008-01",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0118.webp",
+      "alt": "開演前のステージ。岩を模したセットの幕に「無題」「Reol Oneman Live」「in YOKOHAMA ARENA」「To : All」の文字が映っている",
+      "from": "photo-008#0"
+    },
+    {
+      "id": "s008-02",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0138.webp",
+      "alt": "光る「Zepp DiverCity TOKYO」の看板",
+      "from": "photo-008#1"
+    },
+    {
+      "id": "s008-03",
+      "type": "photo",
+      "src": "src/images/live/culture/tokyo/IMG_0124.webp",
+      "alt": "手に持った紙。「From : Reol」「To : All」「Title : No title」「2025/02/02 Sun 18:45」とあり、中央に大きく「無題」、下に「2025/11/09」と印刷されている",
+      "from": "photo-008#2"
+    }
+  ]
+}

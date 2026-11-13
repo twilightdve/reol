@@ -1,0 +1,19 @@
+{
+  "cover": "s081-01",
+  "items": [
+    {
+      "id": "s081-01",
+      "type": "photo",
+      "src": "src/images/live/event/giga_2023/IMG_8993.webp",
+      "alt": "晴れた屋外の会場。屋台の前に列ができていて、手前に黒いTシャツとバッグの人の後ろ姿がある",
+      "from": "photo-081#0"
+    },
+    {
+      "id": "s081-02",
+      "type": "photo",
+      "src": "src/images/live/event/giga_2023/E98AE16A-8671-4765-8800-7D3D6A0D8CCB.webp",
+      "alt": "額に冷却シートを貼った人の自撮り。顔は絵文字で隠してある",
+      "from": "photo-081#1"
+    }
+  ]
+}

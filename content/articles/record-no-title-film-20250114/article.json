@@ -1,0 +1,35 @@
+{
+  "id": "record-no-title-film-20250114",
+  "kind": "record",
+  "seriesSlug": "event-to-seisaku-no-kiroku",
+  "eventDate": "2025-01-14",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "運営者の投稿(2025年1月14日)",
+      "href": "https://x.com/twilightplc/status/1879062884262781180",
+      "note": "ライヴフィルム・No title劇場上映"
+    },
+    {
+      "label": "Reol の投稿(2025年1月14日)",
+      "href": "https://x.com/RRReol/status/1879053712850829585",
+      "note": "ライヴフィルム・No title劇場上映"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "fdbbea3db9835e008567d5f4e5c9c39ab71d33dbf035342032095bfc966b1ada",
+  "contentSha256": "d2cf9fae726c64f75df8945fa9c8ed4d64d8761a9bd3def840bea25fcceab060",
+  "slug": "no-title-film-20250114",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.353Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:11.839Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

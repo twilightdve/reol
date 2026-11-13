@@ -1,0 +1,47 @@
+{
+  "cover": "s075-01",
+  "items": [
+    {
+      "id": "s075-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0934.webp",
+      "alt": "「本日の催し物」の電子看板。「Reol Oneman Live 2023/24 \"UNBOX\" black 開場 17:00 開演 18:00」とある",
+      "from": "photo-075#0"
+    },
+    {
+      "id": "s075-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0945.webp",
+      "alt": "ホールの舞台の幕に「Reol Oneman Live 2023/24 UNBOX black」「Seeyou!! OK PHOTO THANK YOU」と映っている。手前の客席に人がいる",
+      "from": "photo-075#1"
+    },
+    {
+      "id": "s075-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0932.webp",
+      "alt": "レンガの壁の「festival hall」の立体文字",
+      "from": "photo-075#2"
+    },
+    {
+      "id": "s075-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0935.webp",
+      "alt": "エスカレーターと大階段の前に飾られた、青と金のクリスマスツリー",
+      "from": "photo-075#3"
+    },
+    {
+      "id": "s076-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0943.webp",
+      "alt": "3段のケーキスタンド。上からケーキ、シュークリーム、サンドイッチがのっている。壁に写真の額が並んでいる",
+      "from": "photo-076#0"
+    },
+    {
+      "id": "s076-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/black/osaka/IMG_0941.webp",
+      "alt": "カツサンドの皿と、銅のマグに入った飲み物",
+      "from": "photo-076#1"
+    }
+  ]
+}

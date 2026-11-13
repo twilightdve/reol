@@ -1,0 +1,48 @@
+{
+  "id": "record-fukuoka-place-20250216",
+  "kind": "record",
+  "seriesSlug": "seichi-wo-aruku",
+  "eventDate": "2025-02-16",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
+      "href": "/live/fukuoka-5/",
+      "note": "同じ日(2025年2月16日)の公演"
+    },
+    {
+      "label": "Legit FCコンテンツ <MEMO>",
+      "href": "https://reol.jp/blog/detail/61/",
+      "note": "やまちゃん"
+    },
+    {
+      "label": "Legit FCコンテンツ <DOCUMENT>",
+      "href": "https://reol.jp/blog/detail/94/",
+      "note": "博多ラーメン Shin Shin・QUON RIVER TERRACE"
+    },
+    {
+      "label": "Reol の投稿(2025年2月4日)",
+      "href": "https://x.com/RRReol/status/1886740203202863330",
+      "note": "QUON RIVER TERRACE"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "b69a3e8edcf615c9d5c39a275f4e61685cda6a5bebcaf7d854f3227406c99ced",
+  "contentSha256": "b0ac485b6c1318107b8379ef59f3191460fde31d75ca0725d5813180919ec3a9",
+  "slug": "fukuoka-place-20250216",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T01:10:33.217Z",
+  "tags": [
+    "福岡",
+    "聖地巡礼"
+  ],
+  "publishedAt": "2026-11-13T14:17:02.879Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

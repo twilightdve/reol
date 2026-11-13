@@ -1,0 +1,47 @@
+{
+  "cover": "s018-02",
+  "items": [
+    {
+      "id": "s017-01",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_7998_Original.webp",
+      "alt": "頭巾をかぶったキャラクターのぬいぐるみと、レースの皿にのったチョコレート。「LIT」のスタンプが重ねてある",
+      "from": "photo-017#0"
+    },
+    {
+      "id": "s017-02",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_8001_Original.webp",
+      "alt": "ぬいぐるみと、カレーとご飯が盛られた皿の定食",
+      "from": "photo-017#1"
+    },
+    {
+      "id": "s018-01",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_7977_Original.webp",
+      "alt": "「NAMBA CULTURE TERMINAL 2024 -1st ANNIVERSARY-」のポスター。「Cö shu Nie」「Reol」「10.26 SAT Yogibo META VALLEY」「OPEN 17:00 START 18:00」とある",
+      "from": "photo-018#0"
+    },
+    {
+      "id": "s018-02",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_7975_Original.webp",
+      "alt": "「Yogibo META VALLEY NAMBA, OSAKA」のロゴが描かれた黒い壁",
+      "from": "photo-018#1"
+    },
+    {
+      "id": "s019-01",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_7972.webp",
+      "alt": "窓辺のテーブルに置かれた、絵柄入りのティーカップとティーポット。奥にぬいぐるみが置いてある",
+      "from": "photo-019#0"
+    },
+    {
+      "id": "s019-02",
+      "type": "photo",
+      "src": "src/images/live/event/coshunie/IMG_7973_Original.webp",
+      "alt": "卵料理と肉、サラダが盛られた皿。奥にティーカップとポット、ぬいぐるみが置いてある",
+      "from": "photo-019#1"
+    }
+  ]
+}

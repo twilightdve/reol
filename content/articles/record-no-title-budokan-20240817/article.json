@@ -1,0 +1,35 @@
+{
+  "id": "record-no-title-budokan-20240817",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-08-17",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live「No title」",
+      "href": "/live/no-title/",
+      "note": "2024年8月17日・日本武道館"
+    },
+    {
+      "label": "Reol の投稿(2024年8月16日)",
+      "href": "https://x.com/RRReol/status/1824326102271267092",
+      "note": "Reol Oneman Live「No title」"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "e0eda495d751db6e0419cd3ca9b6d36c4662f8224108f7c982e722ae1a1e506a",
+  "contentSha256": "7ee92357a49f22232f0b0ddc876e5d758b2da8a049f9b1a5d24560445f5c31ba",
+  "slug": "no-title-budokan-20240817",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.350Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:11.290Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

@@ -1,0 +1,124 @@
+{
+  "cover": "s085-16",
+  "items": [
+    {
+      "id": "s085-01",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7302.webp",
+      "alt": "窓に貼られたピンク色のポスター。「REOL COLORED DISC 2022.11.16 Release」とあり、「カナディアンロッキー様!」で始まる手書きのメッセージとサインが入っている",
+      "from": "photo-085#0"
+    },
+    {
+      "id": "s085-02",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7299.webp",
+      "alt": "列車の車内の電光表示。「あずさ」の文字が読める",
+      "from": "photo-085#1"
+    },
+    {
+      "id": "s085-03",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7301.webp",
+      "alt": "駅前のロータリー。手前の石柱に「学都」と刻まれ、奥に駅舎が見える",
+      "from": "photo-085#2"
+    },
+    {
+      "id": "s085-04",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7324.webp",
+      "alt": "鉄板にのったハンバーグ2枚。バターがのり、ポテトとコーンが添えてある",
+      "from": "photo-085#3"
+    },
+    {
+      "id": "s085-05",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7351.webp",
+      "alt": "「史跡 松本城の概要」の説明板。下に「国宝松本城を世界遺産に」とある",
+      "from": "photo-085#4"
+    },
+    {
+      "id": "s085-06",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7352.webp",
+      "alt": "青空の下の松本城と堀。岸のベンチに人が座っている",
+      "from": "photo-085#5"
+    },
+    {
+      "id": "s085-07",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7358.webp",
+      "alt": "開いた御朱印帳。「四柱神社」「令和五年三月六日」と書かれ、鯛を抱えた小さな人形がのっている",
+      "from": "photo-085#6"
+    },
+    {
+      "id": "s085-08",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7360.webp",
+      "alt": "「Neo Nostalgia」「#Reol浪漫」と入った、SNS の投稿画面を模した透明なキーホルダー。猫耳のキャラクターが描かれ、奥に鯛を抱えた人形が置いてある",
+      "from": "photo-085#7"
+    },
+    {
+      "id": "s085-09",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7361.webp",
+      "alt": "青空の下の神社の入口。石の鳥居があり、右の看板に「四柱神社」とある",
+      "from": "photo-085#8"
+    },
+    {
+      "id": "s085-10",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7362.webp",
+      "alt": "店先に置かれた、顔の描かれた白い布をかぶせた綿菓子の機械。「わたがし」とある",
+      "from": "photo-085#9"
+    },
+    {
+      "id": "s085-11",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7363.webp",
+      "alt": "川沿いの広場。右手前に、顔の描かれた布をかぶった綿菓子の機械がある",
+      "from": "photo-085#10"
+    },
+    {
+      "id": "s085-12",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7364.webp",
+      "alt": "白い壁に貼られたピンク色のポスター。手書きのメッセージとサインが入っている。下に木のベンチがある",
+      "from": "photo-085#11"
+    },
+    {
+      "id": "s085-13",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7367.webp",
+      "alt": "ラテアートの入ったカフェラテと、白い皿のチョコレートケーキ",
+      "from": "photo-085#12"
+    },
+    {
+      "id": "s085-14",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7368.webp",
+      "alt": "手に持った「Neo Nostalgia」の透明なキーホルダー越しに見た、カフェラテとケーキ",
+      "from": "photo-085#13"
+    },
+    {
+      "id": "s085-15",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7371.webp",
+      "alt": "「COFFEE」の文字が付いた店の外観。ガラス張りの入口にリースが掛かっている",
+      "from": "photo-085#14"
+    },
+    {
+      "id": "s085-16",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7386.webp",
+      "alt": "「Reol Oneman Live 2023 新式浪漫 Neo Nostalgia」「記念切符 松本 まつもと市民芸術館」「2023.3.5」と書かれた台紙に入った切符と、Reol の写真のカード",
+      "from": "photo-085#15"
+    },
+    {
+      "id": "s085-17",
+      "type": "photo",
+      "src": "src/images/live/neonostalgia/matsumoto/IMG_7387.webp",
+      "alt": "窓辺に置かれたコーヒー豆の袋2つ。ラベルに「Ethiopia」「Guatemala」とある",
+      "from": "photo-085#16"
+    }
+  ]
+}

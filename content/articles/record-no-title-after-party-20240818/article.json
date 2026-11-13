@@ -1,0 +1,53 @@
+{
+  "id": "record-no-title-after-party-20240818",
+  "kind": "record",
+  "seriesSlug": "event-to-seisaku-no-kiroku",
+  "eventDate": "2024-08-18",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol の投稿(2024年8月17日 22:06)",
+      "href": "https://x.com/RRReol/status/1824794898236846300"
+    },
+    {
+      "label": "Reol の投稿(2024年8月18日 18:41)",
+      "href": "https://x.com/RRReol/status/1825105781458690385"
+    },
+    {
+      "label": "Reol の投稿(2024年8月18日 18:46)",
+      "href": "https://x.com/RRReol/status/1825107030266581317"
+    },
+    {
+      "label": "Reol の投稿(2024年8月18日 18:43)",
+      "href": "https://x.com/RRReol/status/1825106224989532630"
+    },
+    {
+      "label": "Reol の投稿(2024年9月2日)",
+      "href": "https://x.com/RRReol/status/1830525688111100196"
+    },
+    {
+      "label": "Reol の投稿(2024年8月17日 23:19)",
+      "href": "https://x.com/RRReol/status/1824813187902140808"
+    },
+    {
+      "label": "Reol の投稿(2024年8月19日)",
+      "href": "https://x.com/RRReol/status/1825478580245344632"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "e58e5c6263e29d02a8be3892b1aaa0bdf9a0f53865769abf459410277a68b7db",
+  "contentSha256": "014183cb432d2f0cf91f1cf7210fdd569bfb451d5022ff926ccda31621fce754",
+  "slug": "no-title-after-party-20240818",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.347Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:10.721Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

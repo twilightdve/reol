@@ -1,0 +1,50 @@
+{
+  "id": "record-culture-curriculum-osaka-20250118",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2025-01-18",
+  "eventDateEnd": "2025-01-19",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2025 カルチュア・カリキュラム 大阪",
+      "href": "/live/ousaka-9/",
+      "note": "2025年1月19日・Zepp Osaka Bayside"
+    },
+    {
+      "label": "Reol OFFICIAL の投稿(2025年1月10日)",
+      "href": "https://x.com/RRReol_official/status/1877641625301832139",
+      "note": "【グッズ】カルチュア・カリキュラムはじまるよ"
+    },
+    {
+      "label": "Reol の投稿(2025年1月16日)",
+      "href": "https://x.com/RRReol/status/1879766902886814002",
+      "note": "【グッズ】カルチュア・カリキュラムはじまるよ"
+    },
+    {
+      "label": "Reol の投稿(2025年1月19日 20:31)",
+      "href": "https://x.com/RRReol/status/1880941252985892976",
+      "note": "カルチュア・カリキュラム大阪"
+    },
+    {
+      "label": "Reol の投稿(2025年1月19日 21:07)",
+      "href": "https://x.com/RRReol/status/1880950169447055546",
+      "note": "カルチュア・カリキュラム大阪"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "37790bca9d324c19baad5e4917132dad3b8fa0c36f7f574dbb61b934c5691a4b",
+  "contentSha256": "e6f5fba20e79381976833056605bba54f5f39cf99ed5b40d842a8e2f8ee69972",
+  "slug": "culture-curriculum-osaka-20250118",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.266Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:01.163Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

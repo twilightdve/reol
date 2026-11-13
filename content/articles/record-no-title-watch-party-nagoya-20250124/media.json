@@ -1,0 +1,19 @@
+{
+  "cover": "s010-01",
+  "items": [
+    {
+      "id": "s010-01",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/IMG_9579.webp",
+      "alt": "大きなスクリーンの前での集合写真。スクリーンには青空の映像が映っている。顔は絵文字で隠してある",
+      "from": "photo-010#0"
+    },
+    {
+      "id": "s010-02",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/IMG_0534.webp",
+      "alt": "部屋の中でくつろぐ人たち。ピースサインをしている。顔は絵文字で隠してある",
+      "from": "photo-010#1"
+    }
+  ]
+}

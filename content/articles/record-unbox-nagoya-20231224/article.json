@@ -1,0 +1,30 @@
+{
+  "id": "record-unbox-nagoya-20231224",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-24",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 愛知 #black",
+      "href": "/live/black-3/",
+      "note": "2023年12月24日・Zepp Nagoya"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "356b3e07ad1b05c1da4ea40c2477ec874e3a902cd5bb2cc86386efa01ae38886",
+  "contentSha256": "b12b3717fff55848ce5df9ae21fd35e7a3e543414713d32464f6b9c4bb3d50d1",
+  "slug": "unbox-nagoya-20231224",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.406Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:20.867Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

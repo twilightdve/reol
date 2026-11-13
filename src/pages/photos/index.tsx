@@ -7,7 +7,6 @@ import BackToTopButton from "../../components/common/BackToTopButton";
 import { PhotosSection } from "../../components/index/sections";
 import { AppDispatch } from "../../redux/store";
 import { setRoute } from "../../redux/slices/routeSlice";
-import { ROUTE_NAMES } from "../../types/common";
 import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
 import { getDict } from "../../i18n/site/dict";
 import { pageDictFor } from "../../i18n/site/SiteLangContext";
@@ -22,7 +21,8 @@ const PhotosPage: FC<PageProps<PhotosPageData>> = ({ data }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(setRoute({ currentRoute: ROUTE_NAMES[5] }));
+    // PHOTO はナビから外した(写真は読みものの「記録」へ移した。plan/72)。下部タブはどれも選択中にしない
+    dispatch(setRoute({ currentRoute: "PHOTO" }));
   }, [dispatch]);
 
   return (

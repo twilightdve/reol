@@ -1,0 +1,33 @@
+{
+  "cover": "s083-01",
+  "items": [
+    {
+      "id": "s083-01",
+      "type": "photo",
+      "src": "src/images/live/event/metrock_2023/IMG_7979.webp",
+      "alt": "曇り空の芝生の会場。黒いブースの前に、雨合羽を着た人たちが並んでいる",
+      "from": "photo-083#0"
+    },
+    {
+      "id": "s083-02",
+      "type": "photo",
+      "src": "src/images/live/event/metrock_2023/IMG_7982.webp",
+      "alt": "手に持った、キャラクターのイラスト入りの透明なキーホルダー。周りに雨合羽の人たちが立っている",
+      "from": "photo-083#1"
+    },
+    {
+      "id": "s083-03",
+      "type": "photo",
+      "src": "src/images/live/event/metrock_2023/IMG_7989.webp",
+      "alt": "喫茶店の店内。赤い大きな車輪の飾りの横に、水のグラスが置かれた黒いテーブルがある",
+      "from": "photo-083#2"
+    },
+    {
+      "id": "s083-04",
+      "type": "photo",
+      "src": "src/images/live/event/metrock_2023/IMG_7990.webp",
+      "alt": "喫茶店のテーブルに置かれたコーヒーとプリン。銀色のポットとミルク入れが添えてある",
+      "from": "photo-083#3"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "record-unbox-iwate-20240204",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-02-04",
+  "eventDateEnd": "2024-02-05",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 岩手 #pure",
+      "href": "/live/pure-8/",
+      "note": "2024年2月4日・盛岡 club change WAVE"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "4e5230207a640e2dafdcac075c0f7c79ea224e3d5824f7f018854132d70f7b1a",
+  "contentSha256": "3e5ef0fecd5ba716d1027bf881d01162d028312555b15a560cdbec3f82ca0b19",
+  "slug": "unbox-iwate-20240204",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.395Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:18.629Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

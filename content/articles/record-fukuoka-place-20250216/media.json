@@ -1,0 +1,61 @@
+{
+  "cover": "s005-02",
+  "items": [
+    {
+      "id": "s002-01",
+      "type": "photo",
+      "src": "src/images/live/event/dios/yamachan/GkAPnGOaAAAEDpJ.webp",
+      "alt": "夜の屋台。看板に「博多長浜 ラーメン やまちゃん おでん・焼とり・牛タン」とあり、席に客が並んでいる",
+      "from": "photo-002#0"
+    },
+    {
+      "id": "s002-02",
+      "type": "photo",
+      "src": "src/images/live/event/dios/yamachan/GkAPnGPacAAeYBB.webp",
+      "alt": "夜の川沿いのビルと、水面に映る灯り",
+      "from": "photo-002#1"
+    },
+    {
+      "id": "s005-01",
+      "type": "photo",
+      "src": "src/images/live/event/dios/shinshin/GkAOhzqaAAM4eeP.webp",
+      "alt": "青い看板の「博多らーめん Shin Shin 本店」の外観",
+      "from": "photo-005#0"
+    },
+    {
+      "id": "s005-02",
+      "type": "photo",
+      "src": "src/images/live/event/dios/shinshin/GkAOhzqaAAISOpO.webp",
+      "alt": "縁に「Shin」と入った丼のラーメン。ねぎ・きくらげ・チャーシューがのっている",
+      "from": "photo-005#1"
+    },
+    {
+      "id": "s005-03",
+      "type": "photo",
+      "src": "src/images/live/event/dios/shinshin/GkAOhzqawAApEm3.webp",
+      "alt": "店内の壁一面に貼られたサイン色紙",
+      "from": "photo-005#2"
+    },
+    {
+      "id": "s005-04",
+      "type": "photo",
+      "src": "src/images/live/event/dios/shinshin/GkAOhzsaAAA9jLF.webp",
+      "alt": "別の壁に並ぶサイン色紙",
+      "from": "photo-005#3"
+    },
+    {
+      "id": "s006-01",
+      "type": "photo",
+      "src": "src/images/live/event/dios/quanted/GkAR62jaAAMO5BI.webp",
+      "alt": "店内の席と、大きな窓越しに見える川とビル",
+      "from": "photo-006#0"
+    },
+    {
+      "id": "s006-02",
+      "type": "photo",
+      "src": "src/images/live/event/dios/quanted/GkAR61laAAExS0E.webp",
+      "alt": "青い皿のモンブランとコーヒー",
+      "from": "photo-006#1"
+    }
+  ]
+}

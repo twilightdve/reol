@@ -1,0 +1,40 @@
+{
+  "cover": "s014-01",
+  "items": [
+    {
+      "id": "s014-01",
+      "type": "photo",
+      "src": "src/images/live/bdk/IMG_9360.webp",
+      "alt": "黒い布の上に並べた、イラストのタペストリーと、ディスク2枚の入ったケース、冊子、キーホルダーなど",
+      "from": "photo-014#0"
+    },
+    {
+      "id": "s015-01",
+      "type": "photo",
+      "src": "src/images/live/bdk/cinema/IMG_9415.webp",
+      "alt": "「2024.08.17 Reol Oneman Live \"No title\" in BUDOKAN」のポスター。サインと、「新宿バルト9へお越しの皆様」で始まる手書きのメッセージが入っている。手前にキャラクターの人形を掲げている",
+      "from": "photo-015#0"
+    },
+    {
+      "id": "s015-02",
+      "type": "photo",
+      "src": "src/images/live/bdk/cinema/IMG_9398.webp",
+      "alt": "映画館のロビーを上の階から見下ろした様子",
+      "from": "photo-015#1"
+    },
+    {
+      "id": "s015-03",
+      "type": "photo",
+      "src": "src/images/live/bdk/cinema/IMG_9390.webp",
+      "alt": "夕暮れの新宿。「Alpen TOKYO」の入ったビルの大型ビジョンと、奥の高層ビル群",
+      "from": "photo-015#2"
+    },
+    {
+      "id": "s015-04",
+      "type": "photo",
+      "src": "src/images/live/bdk/cinema/IMG_1283.webp",
+      "alt": "X の投稿画面のスクリーンショット。「千葉から総武線鈍行に乗って一駅一駅新宿に近づくたびにドキドキが募ります。」で始まる 2025/01/14 の投稿に、Reol が「えーなにその電車楽しすぎわたしも乗りたい(?) たのしんで！」と返信している",
+      "from": "photo-015#3"
+    }
+  ]
+}

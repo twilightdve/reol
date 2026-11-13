@@ -1,0 +1,19 @@
+{
+  "cover": "s028-01",
+  "items": [
+    {
+      "id": "s028-01",
+      "type": "photo",
+      "src": "src/images/event/20240503_BBQ/IMG_1333.webp",
+      "alt": "室内での集合写真。大勢がピースサインをしている。顔は絵文字で隠してある",
+      "from": "photo-028#0"
+    },
+    {
+      "id": "s028-02",
+      "type": "photo",
+      "src": "src/images/event/20240503_BBQ/IMG_1331.webp",
+      "alt": "屋外の通りでの集合写真。10人ほどがピースサインをしている。顔は絵文字で隠してある",
+      "from": "photo-028#1"
+    }
+  ]
+}

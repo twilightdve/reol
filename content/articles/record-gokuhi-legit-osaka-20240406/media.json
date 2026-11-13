@@ -1,0 +1,47 @@
+{
+  "cover": "s031-01",
+  "items": [
+    {
+      "id": "s031-01",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4681.webp",
+      "alt": "ステージのスクリーンに「FC LIMITED Reol SECRET LIVE 極秘 LEGIT」と映っている。手前に観客の頭が並ぶ",
+      "from": "photo-031#0"
+    },
+    {
+      "id": "s031-02",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4692.webp",
+      "alt": "BIGCAT の黒板の立て看板。「2024.4.6(Sat) Reol Secret Live \"極秘LEGIT\" 西の宴 Dance Set OPEN 16:00 START 17:00 Thank you!! Sold Out!!」と書かれている",
+      "from": "photo-031#1"
+    },
+    {
+      "id": "s031-03",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4662.webp",
+      "alt": "レンガの壁の「BIGCAT TICKETS」の立体文字。下に「Reol Secret Live \"極秘LEGIT\" 西の宴 Dance Set SOLD OUT!!」の掲示が2枚貼ってある",
+      "from": "photo-031#2"
+    },
+    {
+      "id": "s032-01",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4652.webp",
+      "alt": "数人の手が持ち寄った、頭巾をかぶったキャラクターのぬいぐるみキーホルダー",
+      "from": "photo-032#0"
+    },
+    {
+      "id": "s032-02",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4644.webp",
+      "alt": "夜の広場に置かれた、緑色に光る大きな輪のオブジェ。輪の中に人が座っている",
+      "from": "photo-032#1"
+    },
+    {
+      "id": "s032-03",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/osaka/IMG_4655.webp",
+      "alt": "白黒の市松模様の床の店内で、ぬいぐるみキーホルダーを3つ掲げている。壁にネオンサインがある",
+      "from": "photo-032#2"
+    }
+  ]
+}

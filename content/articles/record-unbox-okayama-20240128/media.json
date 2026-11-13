@@ -1,0 +1,33 @@
+{
+  "cover": "s052-04",
+  "items": [
+    {
+      "id": "s052-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/okayama/IMG_2718.webp",
+      "alt": "壁に貼られたツアーのポスター。「Reol Oneman Live 2023/24 \"UNBOX\" pure」「2024.1.28 [sun] 岡山CRAZYMAMA KINGDOM」「OPEN 16:15/START 17:00」とある",
+      "from": "photo-052#2"
+    },
+    {
+      "id": "s052-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/okayama/IMG_2717.webp",
+      "alt": "「KINGDOM CRAZY MAMA」の案内板。「Reol」「OPEN 16:15 START 17:00」の掲示と注意書きが貼られている",
+      "from": "photo-052#3"
+    },
+    {
+      "id": "s052-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/okayama/IMG_2721.webp",
+      "alt": "開演前のスクリーン。「Reol Oneman Live 2023/24 UNBOX pure」と映っている",
+      "from": "photo-052#4"
+    },
+    {
+      "id": "s052-06",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/okayama/IMG_2723.webp",
+      "alt": "オレンジ色のタオルを首に掛けた人。猫のようなキャラクターの絵で顔を隠している",
+      "from": "photo-052#5"
+    }
+  ]
+}

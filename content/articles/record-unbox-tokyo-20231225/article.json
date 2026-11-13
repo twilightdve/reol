@@ -1,0 +1,30 @@
+{
+  "id": "record-unbox-tokyo-20231225",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-25",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 東京 #black",
+      "href": "/live/black-4/",
+      "note": "2023年12月25日・昭和女子大学人見記念講堂"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "8a1a95928ec4f3f0e30f8953a66a526c9b25b158699ac862b9af3e4131cfd538",
+  "contentSha256": "6407d22ecc77f7d53951ebff9117765cd87a57bc0973db80d81aead618472708",
+  "slug": "unbox-tokyo-20231225",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.435Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:24.849Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

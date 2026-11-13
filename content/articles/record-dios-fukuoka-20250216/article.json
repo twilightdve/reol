@@ -1,0 +1,38 @@
+{
+  "id": "record-dios-fukuoka-20250216",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2025-02-16",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Dios対バンツアー2025「脱構築β with」福岡UNITEDLAB",
+      "href": "/live/fukuoka-5/",
+      "note": "2025年2月16日・福岡UNITEDLAB"
+    },
+    {
+      "label": "Dios の投稿(2025年2月17日)",
+      "href": "https://x.com/_d_i_o_s_info_/status/1891373798730936736"
+    },
+    {
+      "label": "Reol の投稿(2025年2月16日)",
+      "href": "https://x.com/RRReol/status/1891101612866781292"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "22fefd4f58f0fe4e6cbba806bf41ff21ac3900f2e1eb907dad362191ccf35eb3",
+  "contentSha256": "911b8ffe965f56279f777e3553a7b5cce4ab4ec67ed07c2e9c80be5aeaf253d6",
+  "slug": "dios-fukuoka-20250216",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.269Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:02.295Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

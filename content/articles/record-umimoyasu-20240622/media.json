@@ -1,0 +1,33 @@
+{
+  "cover": "s026-01",
+  "items": [
+    {
+      "id": "s026-01",
+      "type": "photo",
+      "src": "src/images/live/event/frederic/IMG_5668.webp",
+      "alt": "青い照明のステージのスクリーン。「WAVE」のロゴの下に Reol など出演者の名前が並び、「UMIMOYASU」「2024」と映っている",
+      "from": "photo-026#0"
+    },
+    {
+      "id": "s026-02",
+      "type": "photo",
+      "src": "src/images/live/event/frederic/IMG_5663.webp",
+      "alt": "会場入口の電子看板。「WAVE」「2MAN LIVE UMIMOYASU」と表示されている。奥に地下へ下りる階段と「福岡トヨタホール スカラエスパシオ B2F」の看板がある",
+      "from": "photo-026#1"
+    },
+    {
+      "id": "s026-03",
+      "type": "photo",
+      "src": "src/images/live/event/frederic/IMG_5665.webp",
+      "alt": "ガラス扉の前の案内板。「フレデリック UMIMOYASU-WAVE 6月22日 福岡 スカラエスパシオ 開場 17:00 開演 18:00」「グッズ先行販売のお知らせ 15:00〜16:30 予定」とある",
+      "from": "photo-026#2"
+    },
+    {
+      "id": "s026-04",
+      "type": "photo",
+      "src": "src/images/live/event/frederic/IMG_5667.webp",
+      "alt": "焼きさばの定食。ご飯、みそ汁、冷ややっこ、漬物が並んでいる",
+      "from": "photo-026#3"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "record-neo-nostalgia-osaka-20230225",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-02-25",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023「新式浪漫 Neo Nostalgia」 大阪",
+      "href": "/live/ousaka-6/",
+      "note": "2023年2月25日・Zepp Osaka Bayside"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "bb31ec4cebea6bdc5b845b0e5b3424957c1f0af49f23a7feb7ab4fc13bc45299",
+  "contentSha256": "c524cb7c675141e17d031a41a12344a1454aed3545dd9c8127ffb974dc5893b8",
+  "slug": "neo-nostalgia-osaka-20230225",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.344Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:09.603Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

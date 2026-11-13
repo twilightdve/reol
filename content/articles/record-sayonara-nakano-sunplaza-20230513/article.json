@@ -1,0 +1,30 @@
+{
+  "id": "record-sayonara-nakano-sunplaza-20230513",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-05-13",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "さよなら中野サンプラザ音楽祭",
+      "href": "/live/sayonara/",
+      "note": "2023年5月13日・中野サンプラザ"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "18dcd77ed744c54fdd6ed1bf9c3e4a320861e967b43d39add70a07f9327a266a",
+  "contentSha256": "a41bb29ef6c8c29a71085fa3f71e1bf0da64ffe556818e0ef889c5605116d113",
+  "slug": "sayonara-nakano-sunplaza-20230513",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.361Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:14.646Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

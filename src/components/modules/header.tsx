@@ -77,7 +77,6 @@ const NAV_ITEMS = [
   { label: "DISCOGRAPHY", to: "/discography/" },
   { label: "LIVE", to: "/live/" },
   { label: "PLACE", to: "/place/" },
-  { label: "PHOTO", to: "/photos/" },
 ];
 
 // スマホ幅のヘッダーでも収まるよう、ニックネームは8文字を超えたら切って...を付ける

@@ -1,0 +1,33 @@
+{
+  "cover": "s025-01",
+  "items": [
+    {
+      "id": "s024-01",
+      "type": "photo",
+      "src": "src/images/live/bdk/0817/IMG_6769.webp",
+      "alt": "キャラクターのイラストパネルと色とりどりの花で飾った祝い花のスタンド。白い布で包まれている",
+      "from": "photo-024#0"
+    },
+    {
+      "id": "s025-01",
+      "type": "photo",
+      "src": "src/images/live/bdk/0817/IMG_6719.webp",
+      "alt": "青空の下の日本武道館の正面。入口の上に横長の幕が掛かっている",
+      "from": "photo-025#0"
+    },
+    {
+      "id": "s025-02",
+      "type": "photo",
+      "src": "src/images/live/bdk/0817/IMG_6913.webp",
+      "alt": "黒いボードにペンで絵を描き込んでいる人を上から撮った写真",
+      "from": "photo-025#1"
+    },
+    {
+      "id": "s025-03",
+      "type": "photo",
+      "src": "src/images/live/bdk/0817/IMG_6780.webp",
+      "alt": "開演前の武道館の場内。スクリーンに「2024.08.17 Reol Oneman Live \"No title\" in BUDOKAN」のビジュアルと手書きのメッセージが映っている",
+      "from": "photo-025#2"
+    }
+  ]
+}

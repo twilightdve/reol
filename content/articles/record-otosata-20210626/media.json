@@ -1,0 +1,19 @@
+{
+  "cover": "s089-02",
+  "items": [
+    {
+      "id": "s089-01",
+      "type": "photo",
+      "src": "src/images/live/otosata/IMG_3549.webp",
+      "alt": "花の絵柄が入ったグラスの水。白いコースターの上に置かれている",
+      "from": "photo-089#0"
+    },
+    {
+      "id": "s089-02",
+      "type": "photo",
+      "src": "src/images/live/otosata/IMG_3553.webp",
+      "alt": "建物の柱の前に置かれた、青と白のバルーンスタンド。上に白い花とメッセージボードが付いている",
+      "from": "photo-089#1"
+    }
+  ]
+}

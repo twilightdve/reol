@@ -1,0 +1,37 @@
+{
+  "id": "record-unbox-niigata-20240319",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2024-03-19",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 新潟 #pure",
+      "href": "/live/pure-10/",
+      "note": "2024年3月19日・新潟 LOTS"
+    },
+    {
+      "label": "新潟LOTS",
+      "href": "https://maps.app.goo.gl/RZ6w2zUv5nUjw6b69",
+      "note": "UNBOX pure 新潟"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "9eb134115ef3ca9c712e3d81bccac632464aba6df9c318af29d460a34b7f5313",
+  "contentSha256": "8b756067f5d824737bfe2944492ddc6951b3132a5023165b69d9ed4e68cab9bf",
+  "slug": "unbox-niigata-20240319",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.407Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:21.456Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

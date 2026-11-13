@@ -1,0 +1,30 @@
+{
+  "id": "record-vival-20250405",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2025-04-05",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "『CENTRAL MUSIC & ENTERTAINMENT FESTIVAL 2025』VIVAL 横浜",
+      "href": "/live/yokohama/",
+      "note": "2025年4月5日・KT Zepp Yokohama"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "255479182d8ddf23f810aec15bfe89635fe64d729ec727741b1d54aac5f5a46c",
+  "contentSha256": "f0f05569a17096e78767bb538b4f8e866bb28da529a8654da746d3b24296313e",
+  "slug": "vival-20250405",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.441Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:25.411Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

@@ -71,12 +71,18 @@ export const LinkRow: React.FC<LinkRowProps> = ({ to, href, kicker, title, desc,
 interface LinkRowsProps {
   /** 広い画面で2列にする(既定)。false で常に1列 */
   twoColumns?: boolean;
+  /** 広い画面で3列にする(項目が3つで、2列だと1つ余る時) */
+  threeColumns?: boolean;
   className?: string;
   children: React.ReactNode;
 }
 
-const LinkRows: React.FC<LinkRowsProps> = ({ twoColumns = true, className = "", children }) => (
-  <ul className={`grid grid-cols-1 border-t border-bx-line ${twoColumns ? "sm:grid-cols-2 sm:gap-x-8" : ""} ${className}`}>
+const LinkRows: React.FC<LinkRowsProps> = ({ twoColumns = true, threeColumns = false, className = "", children }) => (
+  <ul
+    className={`grid grid-cols-1 border-t border-bx-line ${
+      threeColumns ? "sm:grid-cols-3 sm:gap-x-8" : twoColumns ? "sm:grid-cols-2 sm:gap-x-8" : ""
+    } ${className}`}
+  >
     {children}
   </ul>
 );

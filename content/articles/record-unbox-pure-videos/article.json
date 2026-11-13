@@ -1,0 +1,80 @@
+{
+  "id": "record-unbox-pure-videos",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-02",
+  "eventDateEnd": "2024-03-20",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 大分 #pure",
+      "href": "/live/pure/",
+      "note": "2023年12月2日・T.O.P.S BittsHALL"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 静岡 #pure",
+      "href": "/live/pure-2/",
+      "note": "2023年12月9日・LIVE ROXY SHIZUOKA"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 兵庫 #pure",
+      "href": "/live/pure-3/",
+      "note": "2023年12月10日・神戸ハーバースタジオ"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 愛媛 #pure",
+      "href": "/live/pure-4/",
+      "note": "2023年12月16日・松山 Wstudio RED"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 香川 #pure",
+      "href": "/live/pure-5/",
+      "note": "2023年12月17日・高松 DIME"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 広島 #pure",
+      "href": "/live/pure-6/",
+      "note": "2024年1月27日・広島クラブクアトロ"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 岡山 #pure",
+      "href": "/live/pure-7/",
+      "note": "2024年1月28日・岡山 CRAZYMAMA KINGDOM"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 岩手 #pure",
+      "href": "/live/pure-8/",
+      "note": "2024年2月4日・盛岡 club change WAVE"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 北海道 #pure",
+      "href": "/live/pure-9/",
+      "note": "2024年2月10日・札幌ペニーレーン24"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 新潟 #pure",
+      "href": "/live/pure-10/",
+      "note": "2024年3月19日・新潟 LOTS"
+    },
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 石川 #pure",
+      "href": "/live/pure-11/",
+      "note": "2024年3月20日・金沢 エイトホール"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "d6c1e745c5f8eb9e71288d4682f2f467cc511b9c2e2ce1553ef9d6700e159170",
+  "contentSha256": "f7372407bc6394055588d432409f7113d135529323857959942d884789220a1b",
+  "slug": "unbox-pure-videos",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T12:50:12.537Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:23.715Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

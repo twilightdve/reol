@@ -1,0 +1,26 @@
+{
+  "cover": "s030-01",
+  "items": [
+    {
+      "id": "s030-01",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/tokyo/IMG_4799.webp",
+      "alt": "緑色に光る「Spotify O-EAST」のネオンサイン",
+      "from": "photo-030#0"
+    },
+    {
+      "id": "s030-02",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/tokyo/IMG_4794.webp",
+      "alt": "会場入口のモニター。「2024/04/17/WED Reol Secret Live \"極秘 LEGIT\" 東の宴 Reol SOLD OUT OPEN 17:30 START 18:30 O-EAST」と表示されている",
+      "from": "photo-030#1"
+    },
+    {
+      "id": "s030-03",
+      "type": "photo",
+      "src": "src/images/live/secret_legit/tokyo/IMG_4801.webp",
+      "alt": "手に持った文庫本の裏表紙。あらすじの下に、黒いペンでサインとメッセージが書き込まれている",
+      "from": "photo-030#2"
+    }
+  ]
+}

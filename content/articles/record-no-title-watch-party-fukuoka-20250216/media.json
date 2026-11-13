@@ -1,0 +1,19 @@
+{
+  "cover": "s003-01",
+  "items": [
+    {
+      "id": "s003-01",
+      "type": "photo",
+      "src": "src/images/live/event/dios/watch-party/Gj_rooKbUAAduen.webp",
+      "alt": "いちごやフルーツののったホールケーキ。メッセージ入りのプレートがのり、手前にぬいぐるみを持っている",
+      "from": "photo-003#0"
+    },
+    {
+      "id": "s003-02",
+      "type": "photo",
+      "src": "src/images/live/event/dios/watch-party/Gj_rooHbIAAPfYs.webp",
+      "alt": "スクリーンの前での集合写真。中央の人がケーキを持っている。顔は絵文字で隠してある",
+      "from": "photo-003#1"
+    }
+  ]
+}

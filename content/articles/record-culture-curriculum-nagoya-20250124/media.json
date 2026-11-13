@@ -1,0 +1,12 @@
+{
+  "cover": "s011-01",
+  "items": [
+    {
+      "id": "s011-01",
+      "type": "photo",
+      "src": "src/images/live/culture/nagoya/IMG_9559.webp",
+      "alt": "会場の案内板。「ZEPP NAGOYA 2025.01.24 REOL OPEN 17:30 START 18:30」とある",
+      "from": "photo-011#0"
+    }
+  ]
+}

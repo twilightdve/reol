@@ -1,0 +1,47 @@
+{
+  "cover": "s001-02",
+  "items": [
+    {
+      "id": "s001-01",
+      "type": "photo",
+      "src": "src/images/live/event/vival/GnyqlxzaYAA7hJb.webp",
+      "alt": "壁一面の大きな広告。出演者の写真が並び、「CENTRAL」のロゴと「横浜が音楽で満たされる3日間」の文字がある",
+      "from": "photo-001#0"
+    },
+    {
+      "id": "s001-02",
+      "type": "photo",
+      "src": "src/images/live/event/vival/Gnyqlx0bYAA3QqK.webp",
+      "alt": "「KT Zepp Yokohama」の看板",
+      "from": "photo-001#1"
+    },
+    {
+      "id": "s001-03",
+      "type": "photo",
+      "src": "src/images/live/event/vival/GnyqnSYbEAE9wx4.webp",
+      "alt": "3段のケーキスタンドにケーキやタルト、サンドイッチが並び、紅茶のカップとポットがある。横にぬいぐるみが2体置いてある",
+      "from": "photo-001#2"
+    },
+    {
+      "id": "s001-04",
+      "type": "photo",
+      "src": "src/images/live/event/vival/GnyqnSXbkAASmHo.webp",
+      "alt": "夜の屋外での集合写真。顔は絵文字で隠してある",
+      "from": "photo-001#3"
+    },
+    {
+      "id": "s001-05",
+      "type": "photo",
+      "src": "src/images/live/event/vival/GnyqnScbYAAeRV5.webp",
+      "alt": "大皿に盛られた刺身とカルパッチョ。えびやサーモンが並んでいる",
+      "from": "photo-001#4"
+    },
+    {
+      "id": "s001-06",
+      "type": "photo",
+      "src": "src/images/live/event/vival/GnyqnSabYAEsitx.webp",
+      "alt": "街灯に照らされた夜桜を、下から見上げている",
+      "from": "photo-001#5"
+    }
+  ]
+}

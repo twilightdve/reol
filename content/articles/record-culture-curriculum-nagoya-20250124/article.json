@@ -1,0 +1,38 @@
+{
+  "id": "record-culture-curriculum-nagoya-20250124",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2025-01-24",
+  "eventDateEnd": null,
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2025 カルチュア・カリキュラム 愛知",
+      "href": "/live/aichi-5/",
+      "note": "2025年1月24日・Zepp Nagoya"
+    },
+    {
+      "label": "Reol の投稿(2025年1月24日)",
+      "href": "https://x.com/RRReol/status/1882769053087138278"
+    },
+    {
+      "label": "Reol の投稿(2025年1月29日)",
+      "href": "https://x.com/RRReol/status/1884274103810679064"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 1,
+  "bodySha256": "b6bbe6f4ebda3b3273046474194c4430a13ae43a8dcb8c60ab0eaf44e4530c18",
+  "contentSha256": "ce382a3c530af3db6605de91767e4768315b85ca91da5168b8191abdf68a3ae3",
+  "slug": "culture-curriculum-nagoya-20250124",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.263Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:00.610Z",
+  "updatedAt": null,
+  "relatedArticleIds": [],
+  "announce": false
+}

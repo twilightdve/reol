@@ -5,6 +5,5 @@ export const ROUTE_NAMES = [
   "DISCOGRAPHY",
   "LIVE",
   "PLACE",
-  "PHOTO",
   // "TIMELINE"
 ];

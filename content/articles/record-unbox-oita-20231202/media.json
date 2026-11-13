@@ -1,0 +1,152 @@
+{
+  "cover": "s072-02",
+  "items": [
+    {
+      "id": "s070-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1208.webp",
+      "alt": "「Reol」のロゴ入りの黒いバケットハットをかぶせた、黄色い犬のキャラクターの大きなぬいぐるみ",
+      "from": "photo-070#0"
+    },
+    {
+      "id": "s070-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1192.webp",
+      "alt": "黄色い犬のキャラクターのかぶりもので顔を隠し、黄色い服を着て立つ人",
+      "from": "photo-070#1"
+    },
+    {
+      "id": "s070-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1174.webp",
+      "alt": "青空の下の高台。赤い屋根のあずまやと、とんがり屋根の洋館が建っている",
+      "from": "photo-070#2"
+    },
+    {
+      "id": "s071-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1152.webp",
+      "alt": "開演前のスクリーン。「Reol Oneman Live 2023/24 UNBOX pure」「OK PHOTO THANK YOU」と映っている",
+      "from": "photo-071#2"
+    },
+    {
+      "id": "s071-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1158.webp",
+      "alt": "夜の会場の看板。「T.O.P.S Bitts HALL」とある",
+      "from": "photo-071#3"
+    },
+    {
+      "id": "s071-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1156.webp",
+      "alt": "夜の海辺。対岸に街の明かりが連なっている",
+      "from": "photo-071#4"
+    },
+    {
+      "id": "s072-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1133.webp",
+      "alt": "会場のガラス扉。「12.1 T.O.P.S BittsHALL」と書かれた別の公演のポスターの隣に、裏返しに見える Reol のツアーポスターがあり、右に「Legit 会場限定 モバイルくじ実施中!」の案内が貼られている",
+      "from": "photo-072#0"
+    },
+    {
+      "id": "s072-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1134.webp",
+      "alt": "コンクリートの壁の「T.O.P.S Bitts HALL」のロゴと掲示板。Reol のツアーポスターなどが貼られている",
+      "from": "photo-072#1"
+    },
+    {
+      "id": "s072-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1137.webp",
+      "alt": "黒板の手書きの案内。「Reol Oneman Live 2023/24 \"UNBOX\" pure」「12/2(土) @BittsHALL」「OP/ST 16:15/17:00」とある",
+      "from": "photo-072#2"
+    },
+    {
+      "id": "s072-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1138.webp",
+      "alt": "「BITTS HALL」と書かれた木の立て看板。Reol のポスターと、「OPEN 16:15 START 17:00」「¥5,800」の表示が付いている",
+      "from": "photo-072#3"
+    },
+    {
+      "id": "s072-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1146.webp",
+      "alt": "青い海と、沖の防波堤に立つ白い灯台",
+      "from": "photo-072#4"
+    },
+    {
+      "id": "s073-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1097.webp",
+      "alt": "人が行き交う通り。奥に、頂上に雪をかぶった山が見える",
+      "from": "photo-073#0"
+    },
+    {
+      "id": "s073-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1102.webp",
+      "alt": "レンガ造りの店の外観。「由布院の猫屋敷」の看板があり、店先に猫の像が置かれている",
+      "from": "photo-073#1"
+    },
+    {
+      "id": "s073-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1103.webp",
+      "alt": "抹茶の入った茶碗と、串団子2本",
+      "from": "photo-073#2"
+    },
+    {
+      "id": "s073-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1106.webp",
+      "alt": "真っ赤に色づいたもみじと、店の軒先の看板",
+      "from": "photo-073#3"
+    },
+    {
+      "id": "s073-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1118.webp",
+      "alt": "木立の奥の、瓦屋根の和風の建物。もみじが色づいている",
+      "from": "photo-073#4"
+    },
+    {
+      "id": "s073-06",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1121.webp",
+      "alt": "湯けむりが立ちのぼる柵の向こう。手前に注意書きの看板がある",
+      "from": "photo-073#5"
+    },
+    {
+      "id": "s073-07",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1123.webp",
+      "alt": "石積みの蒸し釜から湯気が上がっている。奥に赤い屋根の建物と自動販売機がある",
+      "from": "photo-073#6"
+    },
+    {
+      "id": "s073-08",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1125.webp",
+      "alt": "格子戸の前の大きな切り文字の看板。「別府特産 湯の花」とある",
+      "from": "photo-073#7"
+    },
+    {
+      "id": "s073-09",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1126.webp",
+      "alt": "赤い器に盛られた、天ぷらののったカレーライス。紅しょうがが添えてある",
+      "from": "photo-073#8"
+    },
+    {
+      "id": "s073-10",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/oita/IMG_1130.webp",
+      "alt": "高台から見下ろした集落。奥の谷にアーチ橋が架かっている",
+      "from": "photo-073#9"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "cover": "s023-01",
+  "items": [
+    {
+      "id": "s023-01",
+      "type": "photo",
+      "src": "src/images/live/bdk/after/IMG_6866.webp",
+      "alt": "色とりどりのペンでキャラクターの似顔絵が描き込まれた黒いボード。中央に「No title」のロゴと「2024.08.17」の文字がある",
+      "from": "photo-023#0"
+    },
+    {
+      "id": "s023-02",
+      "type": "photo",
+      "src": "src/images/live/bdk/after/IMG_1313.webp",
+      "alt": "大勢の人が集まった会場の様子。全体にぼかしがかけてある",
+      "from": "photo-023#1"
+    },
+    {
+      "id": "s023-03",
+      "type": "photo",
+      "src": "src/images/live/bdk/after/IMG_1312.webp",
+      "alt": "テーブルを囲む人たち。全体にぼかしがかけてある",
+      "from": "photo-023#2"
+    }
+  ]
+}

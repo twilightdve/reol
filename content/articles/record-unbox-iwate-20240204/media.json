@@ -1,0 +1,110 @@
+{
+  "cover": "s048-03",
+  "items": [
+    {
+      "id": "s046-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_3045.webp",
+      "alt": "わんこそばの証明書と木札。「わんこそば記録 155杯」「令和6年2月5日」「盛岡そば処 東家」と書かれている",
+      "from": "photo-046#0"
+    },
+    {
+      "id": "s046-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_3002.webp",
+      "alt": "積み重ねられた朱色の椀の山",
+      "from": "photo-046#1"
+    },
+    {
+      "id": "s046-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2986.webp",
+      "alt": "石の鳥居。脇の石柱に「三ツ石神社奉賛会」と刻まれている",
+      "from": "photo-046#2"
+    },
+    {
+      "id": "s046-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2990.webp",
+      "alt": "「三ツ石と鬼の手形」の由来を記した説明板。日本語と英語で書かれている",
+      "from": "photo-046#3"
+    },
+    {
+      "id": "s046-05",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_3009.webp",
+      "alt": "道にうずくまる、白地に黒ぶちの猫",
+      "from": "photo-046#4"
+    },
+    {
+      "id": "s047-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2980.webp",
+      "alt": "白い皿にのったチョコレートケーキ。チョコレートソースがかかり、ホイップクリームが添えてある",
+      "from": "photo-047#0"
+    },
+    {
+      "id": "s047-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2979.webp",
+      "alt": "ホイップクリームののったコーヒー。カップに「Mi Cafeto」とある",
+      "from": "photo-047#1"
+    },
+    {
+      "id": "s047-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2970.webp",
+      "alt": "黄色いイルミネーションの前で手に持った、キャラクターの顔が描かれた白い布のグッズ",
+      "from": "photo-047#2"
+    },
+    {
+      "id": "s047-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2977.webp",
+      "alt": "焼き網の上で焼かれる肉とねぎ、しいたけ",
+      "from": "photo-047#3"
+    },
+    {
+      "id": "s048-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2978.webp",
+      "alt": "ステージで上を向き、マイクを持って歌う Reol。手前に観客の頭の影がある",
+      "from": "photo-048#0"
+    },
+    {
+      "id": "s048-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2954.webp",
+      "alt": "開演前のスクリーン。「Reol Oneman Live 2023/24 UNBOX pure」「OK PHOTO THANK YOU」と映っている",
+      "from": "photo-048#2"
+    },
+    {
+      "id": "s049-01",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2902.webp",
+      "alt": "盛岡駅の駅舎。「JR 盛岡駅 Morioka Station」の文字が見える",
+      "from": "photo-049#0"
+    },
+    {
+      "id": "s049-02",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2898.webp",
+      "alt": "冷麺3杯。赤いスープにゆで卵、きゅうり、果物がのっている。器に「盛楼閣」とある",
+      "from": "photo-049#1"
+    },
+    {
+      "id": "s049-03",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2903.webp",
+      "alt": "川と橋の向こうに、雪をかぶった山が見える街の風景",
+      "from": "photo-049#2"
+    },
+    {
+      "id": "s049-04",
+      "type": "photo",
+      "src": "src/images/live/unbox/pure/morioka/IMG_2910.webp",
+      "alt": "朱色の柱の大きな社殿。前の広場を参拝者が歩いている",
+      "from": "photo-049#3"
+    }
+  ]
+}

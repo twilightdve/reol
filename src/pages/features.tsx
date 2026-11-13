@@ -70,7 +70,6 @@ const FeaturesPage: React.FC = () => {
         { to: `/on-this-day/${monthDay}/`, title: t.onThisDayTitle, desc: t.onThisDayDesc, label: "On This Day" },
         { to: "/posts/", title: home.postsTitle, desc: home.postsDesc, label: "関連ポスト" },
         { to: "/place/", title: t.placeTitle, desc: t.placeDesc, label: "聖地マップ" },
-        { to: "/photos/", title: t.photosTitle, desc: t.photosDesc, label: "PHOTOGRAPHY" },
         { to: "/search/", title: t.searchTitle, desc: t.searchDesc, label: "横断検索" },
       ],
     },

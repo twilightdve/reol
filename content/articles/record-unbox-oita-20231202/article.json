@@ -1,0 +1,32 @@
+{
+  "id": "record-unbox-oita-20231202",
+  "kind": "record",
+  "seriesSlug": "live-to-ensei-no-kiroku",
+  "eventDate": "2023-12-02",
+  "eventDateEnd": "2023-12-03",
+  "songRefs": [],
+  "relatedLinks": [
+    {
+      "label": "Reol Oneman Live 2023/24「UNBOX black/pure」 大分 #pure",
+      "href": "/live/pure/",
+      "note": "2023年12月2日・T.O.P.S BittsHALL"
+    }
+  ],
+  "legacyPublishedAt": null,
+  "bodyRevision": 2,
+  "bodySha256": "058f6ecbbdc64d0b0c45dcd0606aa563557cbe05f874c25e3088fe282f153ba5",
+  "contentSha256": "981c38119518fd4ff2749877bcab25cbe6cab5ab846a583fb6312d2a7cb1a010",
+  "slug": "unbox-oita-20231202",
+  "slugProposed": false,
+  "status": "published",
+  "summary": null,
+  "versionLabel": null,
+  "createdAt": "2026-11-13T08:20:31.416Z",
+  "tags": [],
+  "publishedAt": "2026-11-13T14:17:22.012Z",
+  "updatedAt": null,
+  "relatedArticleIds": [
+    "record-unbox-pure-videos"
+  ],
+  "announce": false
+}

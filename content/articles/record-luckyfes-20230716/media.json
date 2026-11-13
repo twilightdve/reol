@@ -1,0 +1,49 @@
+{
+  "cover": "s082-01",
+  "items": [
+    {
+      "id": "s082-01",
+      "type": "photo",
+      "src": "src/images/live/event/luckyfes_2023/IMG_8865.webp",
+      "alt": "花壇の中に立つ「Lucky Fes'23 国営ひたち海浜公園」の看板",
+      "from": "photo-082#0"
+    },
+    {
+      "id": "s082-02",
+      "type": "youtube",
+      "videoId": "LvA5d5lwQ3c",
+      "vertical": true,
+      "title": "LuchyFes 2023 Reol ②",
+      "from": "photo-082#1"
+    },
+    {
+      "id": "s082-03",
+      "type": "youtube",
+      "videoId": "oGQ4DGfwKwI",
+      "vertical": true,
+      "title": "LuchyFes 2023 Reol ①",
+      "from": "photo-082#2"
+    },
+    {
+      "id": "s082-04",
+      "type": "photo",
+      "src": "src/images/live/event/luckyfes_2023/IMG_8881.webp",
+      "alt": "木立を背にした野外ステージで、マイクを持って立つ出演者とバンド",
+      "from": "photo-082#3"
+    },
+    {
+      "id": "s082-05",
+      "type": "photo",
+      "src": "src/images/live/event/luckyfes_2023/IMG_8871.webp",
+      "alt": "芝生の広場の向こうのステージと、手前の色鮮やかな卵形のオブジェ",
+      "from": "photo-082#4"
+    },
+    {
+      "id": "s082-06",
+      "type": "photo",
+      "src": "src/images/live/event/luckyfes_2023/IMG_8872.webp",
+      "alt": "屋台の並ぶ前で、紙皿の肉料理を箸で持ち上げている手元",
+      "from": "photo-082#5"
+    }
+  ]
+}
