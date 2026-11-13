@@ -72,6 +72,13 @@ Reol非公式ファンサイト「!Legit」(https://reol.twilightea.com/) の UI
 | [63-mede-mede-article-design.md](./63-mede-mede-article-design.md) | 楽曲記事「mede:mede」の記事別デザイン(白と光、回り続ける問い、1K と 1LDK)。取込の `markdown` キー対応 |
 | [64-birthday-letters.md](./64-birthday-letters.md) | Reol 誕生日の手紙企画「件名のないふくろう便」(投稿・閲覧・本人修正・運営確認・印刷の版管理。本文非公開は DB 側で守る) |
 | [65-syrup-article-design.md](./65-syrup-article-design.md) | 楽曲記事「Syrup」の記事別デザイン(深い夜の地に薄紅と虹、半分沈む題名、澄んでいく三つの層、二つの「半分」、朝に混ざる結び) |
+| [66-site-review-and-proposals.md](./66-site-review-and-proposals.md) | サイトの現状調査(本番390px・GA4・データ)と、改善・新コンテンツの提案。最優先は公演ページを「公演の前と後に開くページ」にすること。新シリーズ「ツアーを読む」、年の記録ページ。提案段階(未実装) |
+| [67-inflow-diagnosis-and-plan.md](./67-inflow-diagnosis-and-plan.md) | 流入が少ない原因の切り分け(検索にほぼ載っていない／いちばん届いた X 投稿がサイトに繋がっていない／記事13本が未告知)と、新しく訪れる人を増やす提案。最初の3施策(検索に載せる土台・公演当日のセトリ・聖地ガイド)と4週間の順番、題名と告知文の見本。Search Console は未取得(必要資料を記載)。提案段階(未実装) |
+| [68-inflow-followup-deliverables.md](./68-inflow-followup-deliverables.md) | 報告67の補正(`site:` 件数≠登録数、未登録が最大原因は未検証の仮説、ほか5点)と、採否を決めるための具体物。A: 検索の土台の差分案(LIVE 一覧・曲ページから個別公演への href、公演ページの題名、診断結果画面の noindex。`68-a-changes.patch`、実装・デプロイ済み)。B: 告知が見つからなかった記事2本の告知一式。C: 渋谷の聖地ガイドのサイト掲載用原稿・略図・X 投稿(`/place/shibuya/` として実装・デプロイ済み)。B・C の本文は Git 対象外の `.articles-local/plan68/`。X への投稿はしていない |
+| [69-place-redesign.md](./69-place-redesign.md) | PLACE(聖地)の作り直し。地図と一覧の行き来(ピン→カード→一覧の行、一覧→地図)、サイトの色のピン、スマホは2本指で地図、広い画面は一覧と地図の2段、絞り込みを1行に、作品カードを button に。WebKit で暗い地図に黒い帯が残る不具合の直し(LIVE 開催地マップも同じ指定)。追記: スポットの詳細に Google マップと YouTube の埋め込み、色と文字の見直し(unslop を参考)。実装済み・main に取り込み済み、デプロイは指示待ち |
+| [70-shibuya-guide-to-articles.md](./70-shibuya-guide-to-articles.md) | 聖地巡礼ガイド 渋谷編を読みものへ移す。新しい URL `/articles/shibuya-guide/`、シリーズ「聖地を歩く」、表紙と OGP、読みものの一覧・RSS・HOME への掲載、前の URL `/place/shibuya/` からの転送。実装・main 取り込み済み、デプロイはまだ |
+| [71-less-cards.md](./71-less-cards.md) | カードを減らす。読みものの見た目(枠なしの一本の段・小さいラベル・細い罫線・文字リンク)をサイト全体に広げるルールと、第1段で変えた画面(HOME・DISCOGRAPHY・LIVE・PLACE・PHOTO・曲・公演・今日は何の日・タイムマシン・検索・機能一覧・はじめての Reol・聖地巡礼ガイド)。共通部品 `LinkRows`。ガイドへの LiLiBET TEA HOUSE の追加。残りの画面(第2段)の一覧 |
+| [72-photo-to-articles.md](./72-photo-to-articles.md) | PHOTO を読みものへ移す(第1段: 共通の土台と先行2本のプレビュー)。読みものの2つ目の種類「記録」(写真・動画を本文に置く共通テンプレート、`announce`、出来事の日付順)、旧 PHOTO 89 件の台帳と検査(`npm run articles:photo`)、取込(`npm run articles:record`)、先行2本(福岡の聖地・ラッキーフェス 2023)の対応表、決めたこと、検証、残っている確認。公開・デプロイ・ナビの切り替えはまだ |
 | [40-end-article-design.md](./40-end-article-design.md) | 楽曲記事「エンド」の記事別デザイン: 曇った海の水平線に沈む終止符、エンド●レス、黒枠の葬式、届かない電話、光に包まれた終止符 |
 | [legit-improvement-plan.md](./legit-improvement-plan.md) | 外部観察ベースの改善プラン・実装引き継ぎ資料(2026-07-26)。見送り項目リスト(§6)を含む — 大半実装済み(状況は27で更新) |
 | [issues/](./issues/) | GitHub Issue化できる粒度の個別Issue案(13件) |

@@ -1,0 +1,217 @@
+--- a/src/components/index/live/enhanced-timeline-item.tsx
++++ b/src/components/index/live/enhanced-timeline-item.tsx
+@@ -568,21 +568,23 @@
+           </div>
+ 
+           {/* 展開コンテンツ */}
+-          {isExpand && (
+-            <>
+-              {youtubeVideoId && (
+-                <PlayerSlot
+-                  {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
+-                  title={live.title}
+-                  className="mt-4 rounded-lg border border-bx-line"
+-                />
+-              )}
++          {isExpand && youtubeVideoId && (
++            <PlayerSlot
++              {...(isYoutubePlaylistId(youtubeVideoId) ? { list: youtubeVideoId } : { videoId: youtubeVideoId })}
++              title={live.title}
++              className="mt-4 rounded-lg border border-bx-line"
++            />
++          )}
++          {/* 公演の一覧は、折りたたみ中も HTML に出しておく(hidden で畳むだけ)。
++              個別の公演ページ(/live/<slug>/)へのリンクが、開く操作をしなくても HTML にあるようにするため(plan/68)。
++              セットリストの中身は、各公演を開いた時にだけ描く(SetCard)。 */}
+               {live.items && live.items.length > 0 && (
+                 <div
+                 className="mt-4 transition-all duration-300 w-full"
++                hidden={!isExpand}
+                 onClick={(e) => e.stopPropagation()}
+               >
+-                {isOngoingTour && !spoilerAck ? (
++                {isOngoingTour && !spoilerAck && (
+                   <div
+                     className="rounded-lg p-4 text-center"
+                     style={{
+@@ -609,8 +611,8 @@
+                       {t.showSpoiler}
+                     </button>
+                   </div>
+-                ) : (
+-                  <ul className="space-y-3">
++                )}
++                  <ul className="space-y-3" hidden={isOngoingTour && !spoilerAck}>
+                     {live.items
+                       .map((setlist, originalIndex) => ({ setlist, originalIndex }))
+                       .sort((a, b) => a.setlist.date.localeCompare(b.setlist.date))
+@@ -640,9 +642,10 @@
+                         );
+                       })}
+                   </ul>
+-                )}
+               </div>
+             )}
++          {isExpand && (
++            <>
+ 
+             {/* LIVEレポート */}
+             {live.reports && live.reports.length > 0 && (
+--- a/src/templates/song.tsx
++++ b/src/templates/song.tsx
+@@ -445,7 +445,7 @@
+                       className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-bx-yellow"
+                     />
+                     <LangLink
+-                      to={`/live/#live-item-${p.liveItemSlug}`}
++                      to={`/live/${p.liveItemSlug}/`}
+                       className="group block"
+                     >
+                       <div className="flex flex-wrap items-baseline gap-x-3">
+--- a/src/templates/live-item.tsx
++++ b/src/templates/live-item.tsx
+@@ -522,6 +522,19 @@
+   return parts.join("");
+ };
+ 
++/**
++ * <title>(og:title も同じ)。題名だけで「どの公演の、何のページか」が分かるようにする。
++ * セットリストが未登録の公演(開催前を含む)は「公演情報」とし、セットリストがあるようには見せない。
++ */
++const buildTitle = (ctx: LiveItemPageContext, t: SiteDict["show"]): string => {
++  const name = ctx.liveItemName ? `${ctx.liveTitle} ${ctx.liveItemName}` : ctx.liveTitle;
++  const hasSetlist = ctx.setList.some((s) => !isNonSongItem(s));
++  // 日付は "YYYY-MM-DD" のほか、複数日にまたがる表記("YYYY-MM-DD〜YYYY-MM-DD" 等)がある
++  const days = (ctx.date?.match(/\d{4}-\d{2}-\d{2}/g) ?? []).map((d) => d.replaceAll("-", "/"));
++  const detail = [days.join("〜"), ctx.place].filter(Boolean).join(" ");
++  return t.metaTitle(name.trim(), hasSetlist, detail);
++};
++
+ export const Head: HeadFC<object, LiveItemPageContext> = ({ pageContext }) => {
+   const { liveTitle, liveItemName, place, date, slug, setList } = pageContext;
+   const heading = liveItemName || liveTitle;
+@@ -551,7 +564,7 @@
+   }
+   return (
+     <SEO
+-      title={`${heading}(Reol)`}
++      title={buildTitle(pageContext, dict.show)}
+       description={buildDescription(pageContext, dict.show)}
+       path={`/live/${slug}/`}
+       lang={lang}
+--- a/src/i18n/site/dict/ja.ts
++++ b/src/i18n/site/dict/ja.ts
+@@ -264,6 +264,12 @@
+     toSearchTitle: "横断検索へ",
+     toSearchDesc: "楽曲・ライブ・ロケ地を横断してキーワード検索。",
+     backToTop: "トップに戻る",
++    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
++    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
++      const kind = hasSetlist ? "セットリスト" : "公演情報";
++      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
++      return detail ? `${head}(${detail})` : head;
++    },
+     metaLead: (name: string) => `Reol「${name}」の公演情報。`,
+     metaVenue: (place: string) => `会場: ${place}。`,
+     metaSetlist: (n: number) => `セットリスト${n}曲を掲載。`,
+--- a/src/i18n/site/dict/en.ts
++++ b/src/i18n/site/dict/en.ts
+@@ -268,6 +268,12 @@
+     toSearchTitle: "Search",
+     toSearchDesc: "Search songs, live shows and filming locations by keyword.",
+     backToTop: "Back to top",
++    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
++    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
++      const kind = hasSetlist ? "Setlist" : "Show Info";
++      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}: ${name}`;
++      return detail ? `${head} (${detail})` : head;
++    },
+     metaLead: (name: string) => `Reol live show: ${name}.`,
+     metaVenue: (place: string) => ` Venue: ${place}.`,
+     metaSetlist: (n: number) => ` Full setlist (${n} ${n === 1 ? "song" : "songs"}).`,
+--- a/src/i18n/site/dict/ko.ts
++++ b/src/i18n/site/dict/ko.ts
+@@ -263,6 +263,12 @@
+     toSearchTitle: "통합 검색으로",
+     toSearchDesc: "곡·라이브·촬영지를 가로질러 키워드로 검색.",
+     backToTop: "홈으로 돌아가기",
++    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
++    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
++      const kind = hasSetlist ? "세트리스트" : "공연 정보";
++      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}: ${name}`;
++      return detail ? `${head} (${detail})` : head;
++    },
+     metaLead: (name: string) => `Reol 「${name}」의 공연 정보.`,
+     metaVenue: (place: string) => ` 공연장: ${place}.`,
+     metaSetlist: (n: number) => ` 세트리스트 ${n}곡 수록.`,
+--- a/src/i18n/site/dict/zh-hans.ts
++++ b/src/i18n/site/dict/zh-hans.ts
+@@ -262,6 +262,12 @@
+     toSearchTitle: "前往横向搜索",
+     toSearchDesc: "横跨歌曲、演唱会、取景地的关键词搜索。",
+     backToTop: "返回首页",
++    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
++    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
++      const kind = hasSetlist ? "歌单" : "演出信息";
++      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
++      return detail ? `${head}（${detail}）` : head;
++    },
+     metaLead: (name: string) => `Reol「${name}」的演出信息。`,
+     metaVenue: (place: string) => `会场：${place}。`,
+     metaSetlist: (n: number) => `收录 ${n} 首歌单。`,
+--- a/src/i18n/site/dict/zh-hant.ts
++++ b/src/i18n/site/dict/zh-hant.ts
+@@ -263,6 +263,12 @@
+     toSearchTitle: "前往橫向搜尋",
+     toSearchDesc: "橫跨歌曲、演唱會、取景地的關鍵字搜尋。",
+     backToTop: "回到首頁",
++    // 公演ページの <title>。ツアー名に Reol が入っていない公演(フェス・対バン)は、先頭に Reol を置く
++    metaTitle: (name: string, hasSetlist: boolean, detail: string) => {
++      const kind = hasSetlist ? "歌單" : "演出資訊";
++      const head = /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
++      return detail ? `${head}（${detail}）` : head;
++    },
+     metaLead: (name: string) => `Reol「${name}」的演出資訊。`,
+     metaVenue: (place: string) => `會場：${place}。`,
+     metaSetlist: (n: number) => `收錄 ${n} 首歌單。`,
+--- a/gatsby-config.ts
++++ b/gatsby-config.ts
+@@ -66,8 +66,9 @@
+       options: {
+         // noindex のページはサイトマップにも載せない。
+         // /relive/ は私的再生室、/cgraph/(各言語版を含む)と /quiz/bbq2025 系はページ側で noindex。
++        // /quiz/reol-type/result/(各言語版を含む)は、回答がブラウザに無いと診断トップへ移る画面なので載せない(ページ側も noindex)。
+         // /card/ はプロフィールカードの試験中(運営だけ)だけ noindex(constants/profileCard.ts)。
+-        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/card/view/", "/letters/edit/", "/letters/admin/", "/letters/card/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
++        excludes: ["/relive/", "/relive", "/cgraph/", "/*/cgraph/", "/quiz/bbq2025/", "/quiz/bbq2025/**", "/quiz/reol-type/result/", "/*/quiz/reol-type/result/", "/card/view/", "/letters/edit/", "/letters/admin/", "/letters/card/", ...(PROFILE_CARD_OWNER_ONLY ? ["/card/"] : [])],
+         // pageContext.noindex が true のページ(出来事の無い On This Day の日など)も除外する。
+         // 予約公開で公開日時がビルド時点でまだ来ていない記事(pageContext.scheduled)も載せない(plan/43)
+         query: `
+--- a/src/pages/quiz/reol-type/result.tsx
++++ b/src/pages/quiz/reol-type/result.tsx
+@@ -643,15 +643,19 @@
+ export default ResultPage;
+ 
+ // 言語は pageContext.lang(URL)から決める。i18next を使わないので静的HTMLにキーが露出しない
++// 回答(localStorage)が無いと診断トップへ移る画面で、URL だけでは中身が無いため noindex(サイトマップからも除外)
+ export const Head: HeadFC<object, { lang?: string }> = ({ pageContext }) => {
+   const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
+   const t = quizT(lang);
+   return (
+-    <SEO
+-      title={t("reolType.seoResultTitle")}
+-      description={t("reolType.seoResultDesc")}
+-      path="/quiz/reol-type/result/"
+-      lang={lang}
+-    />
++    <>
++      <SEO
++        title={t("reolType.seoResultTitle")}
++        description={t("reolType.seoResultDesc")}
++        path="/quiz/reol-type/result/"
++        lang={lang}
++      />
++      <meta name="robots" content="noindex" />
++    </>
+   );
+ };
