@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "setlistId": "live_item_01a1d88f-c086-7348-a8e9-a74853e5c609",
+  "tourName": "Reol Installation Concert 2027 「音沙汰」",
+  "liveTitle": "Reol Installation Concert 2027 「音沙汰」 神奈川",
+  "date": "2027-01-13",
+  "venueName": "ビルボードライブ横浜",
+  "venueId": "venue_ビルボ_ドライブ横浜",
+  "source": {
+    "type": "site_db",
+    "liveUuid": "01a1d88f-bca9-7a48-8cf9-c518ed593bdb",
+    "liveItemUuid": "01a1d88f-c086-7348-a8e9-a74853e5c609",
+    "sourceId": "live_item_01a1d88f-c086-7348-a8e9-a74853e5c609"
+  },
+  "entries": []
+}

@@ -1415,10 +1415,52 @@
       "capacity": null,
       "capacityStatus": "needs_web_verification",
       "sourceLiveUuids": [
-        "01a1afd0-1339-7779-b46d-6a9c119a4798"
+        "01a1d88f-bca9-7a48-8cf9-c518ed593bdb"
       ],
       "sourceSetlistIds": [
-        "live_item_01a1afd0-172a-71ea-bc0d-585982729ed6"
+        "live_item_01a1d88f-c086-7348-a8e9-a74853e5c609"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ビルボ_ドライブ大阪",
+      "name": "ビルボードライブ大阪",
+      "aliases": [],
+      "type": "unknown",
+      "typeGuessReason": [
+        "no_type_keyword"
+      ],
+      "siteUrl": "https://www.billboard-live.com/osaka/show?event_id=ev-21788",
+      "address": "〒530-0001 大阪府大阪市北区梅田２丁目２−2番22号 ハービスPLAZA ENT B2F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.223818057408!2d135.4939379!3d34.699534299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e68cdb88f045%3A0xb3c0a5e247440059!2z44OT44Or44Oc44O844OJ44Op44Kk44OW5aSn6Ziq!5e0!3m2!1sja!2sjp!4v1794479145229!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveUuids": [
+        "01a1d88f-bca9-7a48-8cf9-c518ed593bdb"
+      ],
+      "sourceSetlistIds": [
+        "live_item_01a1d88f-c0f5-7db2-9711-285067fc5855"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_ビルボ_ドライブ東京",
+      "name": "ビルボードライブ東京",
+      "aliases": [],
+      "type": "unknown",
+      "typeGuessReason": [
+        "no_type_keyword"
+      ],
+      "siteUrl": "https://www.billboard-live.com/tokyo/show?event_id=ev-21789",
+      "address": "〒107-0052 東京都港区赤坂９丁目７−４ 東京ミッドタウン ガーデンテラス 4F",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4438593163945!2d139.7312142!3d35.6660714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b78c37b2eeb%3A0xe34fcbb1f5548355!2sBillboard%20Live%20TOKYO!5e0!3m2!1sja!2sjp!4v1794479169488!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveUuids": [
+        "01a1d88f-bca9-7a48-8cf9-c518ed593bdb"
+      ],
+      "sourceSetlistIds": [
+        "live_item_01a1d88f-c165-7c78-bc29-d098fa8f90d0"
       ]
     },
     {
@@ -2706,6 +2748,27 @@
       ],
       "sourceSetlistIds": [
         "live_item_019e8284-94b3-73df-bc42-de6fd1bfd63c"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "venueId": "venue_東京ガ_デンシアタ",
+      "name": "東京ガーデンシアター",
+      "aliases": [],
+      "type": "unknown",
+      "typeGuessReason": [
+        "no_type_keyword"
+      ],
+      "siteUrl": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/",
+      "address": "〒135-0063 東京都江東区有明2丁目1-6 東京ガーデンシアター",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.5929861401055!2d139.7920197!3d35.6377592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889da3e5d6cbb%3A0xd5bdadb43d76174b!2z5p2x5Lqs44Ks44O844OH44Oz44K344Ki44K_44O8!5e0!3m2!1sja!2sjp!4v1793953311020!5m2!1sja!2sjp",
+      "capacity": null,
+      "capacityStatus": "needs_web_verification",
+      "sourceLiveUuids": [
+        "01a1afd0-1339-7779-b46d-6a9c119a4798"
+      ],
+      "sourceSetlistIds": [
+        "live_item_01a1afd0-172a-71ea-bc0d-585982729ed6"
       ]
     },
     {

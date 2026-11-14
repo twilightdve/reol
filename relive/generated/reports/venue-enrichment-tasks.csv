@@ -48,7 +48,9 @@ venue_オリックス劇場,オリックス劇場,hall,2400,seated,,verified,202
 venue_ト_クネットホ_ル仙台,トークネットホール仙台,hall,,,,needs_web_verification,,,https://sendai.pia-pit.jp/access/index.html,宮城県仙台市青葉区中央2-7-11,019e8284-9148-7f4e-b33a-0a731e8b057e
 venue_なんばhatch,なんばHatch,live_house,1931,max,,verified,2026-05-17,https://www.oud.co.jp/riverplace/about/namba-hatch.html,https://www.namba-hatch.com/,〒556-0017 大阪府大阪市浪速区湊町1丁目3-1,019e8284-7017-73c9-b0e6-5b6e10dc165d|019e8284-71f9-7490-a34f-5c74c54bd7a9|019e8284-7266-7fd4-94bb-b58bf6cef96b|019e8284-769c-725d-b466-ae659843b954|019e8284-8598-78a5-b9d6-073d38283314
 venue_ぴあアリ_ナmm,ぴあアリーナMM,arena,12141,standing,10057,verified,2026-05-17,https://pia-arena-mm.jp/assets/images/facility_summary.pdf,https://pia-arena-mm.jp/,〒220-0012 神奈川県横浜市西区みなとみらい3-2-2,019e8284-7951-7809-92bc-6a9fadc897fb
-venue_ビルボ_ドライブ横浜,ビルボードライブ横浜,unknown,,,,needs_web_verification,,,https://www.billboard-live.com/yokohama/info,〒231-0003 神奈川県横浜市中区北仲通５丁目５７−２ 1F KITANAKA BRICK&WHITE,01a1afd0-1339-7779-b46d-6a9c119a4798
+venue_ビルボ_ドライブ横浜,ビルボードライブ横浜,unknown,,,,needs_web_verification,,,https://www.billboard-live.com/yokohama/info,〒231-0003 神奈川県横浜市中区北仲通５丁目５７−２ 1F KITANAKA BRICK&WHITE,01a1d88f-bca9-7a48-8cf9-c518ed593bdb
+venue_ビルボ_ドライブ大阪,ビルボードライブ大阪,unknown,,,,needs_web_verification,,,https://www.billboard-live.com/osaka/show?event_id=ev-21788,〒530-0001 大阪府大阪市北区梅田２丁目２−2番22号 ハービスPLAZA ENT B2F,01a1d88f-bca9-7a48-8cf9-c518ed593bdb
+venue_ビルボ_ドライブ東京,ビルボードライブ東京,unknown,,,,needs_web_verification,,,https://www.billboard-live.com/tokyo/show?event_id=ev-21789,〒107-0052 東京都港区赤坂９丁目７−４ 東京ミッドタウン ガーデンテラス 4F,01a1d88f-bca9-7a48-8cf9-c518ed593bdb
 venue_フィラ_バルセロナ_グラン_ビア,フィラ・バルセロナ・グラン・ビア,unknown,,,,needs_web_verification,,,https://www.barcelona-tourist-guide.com/ja/shigoto/fira-barcelona-gran-via-baruserona.html,"Fira Gran Via - Gate 4 / Porta 4
 Carrer de la Botànica, 64 - 08908 L'Hospitalet de Llobregat, Barcelona",019f1dd4-db23-741a-a47d-199e67da41ed
 venue_フェスティバルホ_ル,フェスティバルホール,hall,2700,seated,,verified,2026-05-17,https://www.festivalhall.jp/about/,https://www.festivalhall.jp/,〒530-0005 大阪府大阪市北区中之島2丁目3-18,019e8284-8137-72c8-a205-53a93aee8b1c
@@ -103,6 +105,7 @@ venue_中杭州太子湾公園_中国,中杭州太子湾公園（中国）,outdo
 venue_中国上海_森蘭緑地_sen_lan_green_park,中国上海・森蘭緑地（Sen Lan Green Park),outdoor_festival,,,,needs_web_verification,,,,"中華人民共和国 Shang Hai Shi, Pu Dong Xin Qu, 张杨北路2700号 邮政编码: 200128",019e8284-80c6-756b-8ed3-a4241a1c7978
 venue_中野サンプラザ,中野サンプラザ,hall,,,,needs_web_verification,,,,〒164-8512 東京都中野区中野４丁目１−１,019e8284-7d4e-7b3e-8757-9fb2c90aaf78
 venue_東京_ニッショ_ホ_ル,東京 ニッショーホール,hall,,,,needs_web_verification,,,http://nissho-hall.jp/accesmap.html,〒105-0021 東京都港区東新橋1-1-19 ヤクルト本社ビル,019e8284-6cd6-7138-99cc-22a335d06b80
+venue_東京ガ_デンシアタ,東京ガーデンシアター,unknown,,,,needs_web_verification,,,https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/,〒135-0063 東京都江東区有明2丁目1-6 東京ガーデンシアター,01a1afd0-1339-7779-b46d-6a9c119a4798
 venue_徳島club_grindhouse,徳島club GRINDHOUSE,live_house,,,,needs_web_verification,,,https://c-gh.jp/,徳島県徳島市秋田町2-23 ジョイフルビル3F,019e8284-9148-7f4e-b33a-0a731e8b057e
 venue_日本武道館,日本武道館,arena,14471,max,,verified,2026-05-17,https://www.nipponbudokan.or.jp/pdf/201704.pdf,https://www.nipponbudokan.or.jp/,〒102-8321 東京都千代田区北の丸公園2番3号,019e8284-8535-7303-acd8-712a29fea774
 venue_梅田バナナホ_ル,梅田バナナホール,hall,,,,needs_web_verification,,,http://www.banana-hall.com/,〒530-0027 大阪府大阪市北区堂山町１−２１ モンテビルB 1,019e8284-72c7-775a-99b2-f53a45b873a3

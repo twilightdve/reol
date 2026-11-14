@@ -9,11 +9,68 @@
       "setlistId": "live_item_01a1afd0-172a-71ea-bc0d-585982729ed6",
       "liveUuid": "01a1afd0-1339-7779-b46d-6a9c119a4798",
       "liveItemUuid": "01a1afd0-172a-71ea-bc0d-585982729ed6",
-      "title": "MIKITOP Tribute Live ”MIKIROCK PARTY” 神奈川",
+      "title": "MIKITOP Tribute Live ”MIKIROCK PARTY”",
+      "date": "2027-02-11",
+      "venueName": "東京ガーデンシアター",
+      "venueId": "venue_東京ガ_デンシアタ",
+      "type": "event",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_01a1d88f-c165-7c78-bc29-d098fa8f90d0",
+      "liveUuid": "01a1d88f-bca9-7a48-8cf9-c518ed593bdb",
+      "liveItemUuid": "01a1d88f-c165-7c78-bc29-d098fa8f90d0",
+      "title": "Reol Installation Concert 2027 「音沙汰」 東京",
+      "date": "2027-01-25",
+      "venueName": "ビルボードライブ東京",
+      "venueId": "venue_ビルボ_ドライブ東京",
+      "type": "oneman",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_01a1d88f-c0f5-7db2-9711-285067fc5855",
+      "liveUuid": "01a1d88f-bca9-7a48-8cf9-c518ed593bdb",
+      "liveItemUuid": "01a1d88f-c0f5-7db2-9711-285067fc5855",
+      "title": "Reol Installation Concert 2027 「音沙汰」 大阪",
+      "date": "2027-01-20",
+      "venueName": "ビルボードライブ大阪",
+      "venueId": "venue_ビルボ_ドライブ大阪",
+      "type": "oneman",
+      "songCount": 0,
+      "playablePolicySummary": {
+        "required": 0,
+        "special": 0,
+        "medley": 0,
+        "cover": 0,
+        "se": 0,
+        "unknown": 0
+      }
+    },
+    {
+      "setlistId": "live_item_01a1d88f-c086-7348-a8e9-a74853e5c609",
+      "liveUuid": "01a1d88f-bca9-7a48-8cf9-c518ed593bdb",
+      "liveItemUuid": "01a1d88f-c086-7348-a8e9-a74853e5c609",
+      "title": "Reol Installation Concert 2027 「音沙汰」 神奈川",
       "date": "2027-01-13",
       "venueName": "ビルボードライブ横浜",
       "venueId": "venue_ビルボ_ドライブ横浜",
-      "type": "event",
+      "type": "oneman",
       "songCount": 0,
       "playablePolicySummary": {
         "required": 0,
