@@ -63,11 +63,11 @@ describe("TrackingFooter", () => {
   test("renders all navigation items", () => {
     renderWithStore(<TrackingFooter />);
 
-    // 表示は短い名前(DISCOGRAPHY → DISCO)、読み上げは元の名前
+    // 表示も読み上げも元の名前(短縮表示の DISCO は 2026-11-14 にやめた)
     ROUTE_NAMES.forEach((route) => {
       expect(screen.getByLabelText(`Navigate to ${route} section`)).toBeInTheDocument();
+      expect(screen.getByText(route)).toBeInTheDocument();
     });
-    expect(screen.getByText("DISCO")).toBeInTheDocument();
   });
 
   test("highlights current route", () => {

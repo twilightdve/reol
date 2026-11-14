@@ -103,8 +103,10 @@ const RecordArticlePage: React.FC<PageProps<object, RecordArticlePageContext>> =
                   <LinkRow
                     key={l.href}
                     {...(l.href.startsWith("/") ? { to: l.href } : { href: l.href })}
-                    title={l.label}
-                    desc={l.note ?? undefined}
+                    // 投稿の書き出し(quote)がある時は、それを題に1行で出し、誰のいつの投稿か(と、どの段の出典か)を下に添える
+                    title={l.quote ?? l.label}
+                    desc={l.quote ? [l.label, l.note].filter(Boolean).join("・") : l.note ?? undefined}
+                    oneLine={Boolean(l.quote)}
                     onClick={() => trackEvent("article_related_link_click", { category: "navigation", label: `${id}->${l.href}` })}
                   />
                 ))}

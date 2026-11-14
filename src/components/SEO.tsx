@@ -47,10 +47,6 @@ const SECTION_META: Record<
     title: 'PLACE(聖地)',
     description: 'MV/CM/TV ロケ地などの「聖地」を地図・都道府県・タイプ別で探索。',
   },
-  photos: {
-    title: 'PHOTOS',
-    description: 'ファンが撮影/共有した写真を眺められます。',
-  },
 }
 
 interface SEOProps {

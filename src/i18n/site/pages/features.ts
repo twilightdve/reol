@@ -17,8 +17,6 @@ type FeaturesDict = {
   onThisDayDesc: string;
   placeTitle: string;
   placeDesc: string;
-  photosTitle: string;
-  photosDesc: string;
   searchTitle: string;
   searchDesc: string;
   /** HOME の MORE TOOLS からのリンク */
@@ -41,8 +39,6 @@ const ja: FeaturesDict = {
   onThisDayDesc: "今日と同じ日付に起きたリリース・ライブ。",
   placeTitle: "聖地マップ",
   placeDesc: "MV・ジャケットのロケ地を地図で。",
-  photosTitle: "PHOTOGRAPHY",
-  photosDesc: "ライブや聖地巡礼で撮った写真。",
   searchTitle: "横断検索",
   searchDesc: "曲名・ライブ名・場所をまとめて検索。",
   seeAll: "すべての機能を見る →",
@@ -64,8 +60,6 @@ const en: FeaturesDict = {
   onThisDayDesc: "Releases and live shows that happened on today's date.",
   placeTitle: "Filming Locations",
   placeDesc: "MV and cover-art locations on a map.",
-  photosTitle: "PHOTOGRAPHY",
-  photosDesc: "Photos from live shows and pilgrimages.",
   searchTitle: "Search",
   searchDesc: "Search songs, shows and places at once.",
   seeAll: "See all features →",
@@ -86,8 +80,6 @@ const zhHant: FeaturesDict = {
   onThisDayDesc: "與今天同一天發生的發行與演唱會。",
   placeTitle: "聖地地圖",
   placeDesc: "以地圖呈現 MV 與封面的取景地。",
-  photosTitle: "PHOTOGRAPHY",
-  photosDesc: "在演唱會與聖地巡禮拍攝的照片。",
   searchTitle: "綜合搜尋",
   searchDesc: "一次搜尋歌名、演唱會名稱與地點。",
   seeAll: "查看所有功能 →",
@@ -108,8 +100,6 @@ const zhHans: FeaturesDict = {
   onThisDayDesc: "与今天同一天发生的发行与演唱会。",
   placeTitle: "圣地地图",
   placeDesc: "以地图呈现 MV 与封面的取景地。",
-  photosTitle: "PHOTOGRAPHY",
-  photosDesc: "在演唱会与圣地巡礼拍摄的照片。",
   searchTitle: "综合搜索",
   searchDesc: "一次搜索歌名、演唱会名称与地点。",
   seeAll: "查看所有功能 →",
@@ -131,8 +121,6 @@ const ko: FeaturesDict = {
   onThisDayDesc: "오늘과 같은 날짜에 있었던 발매·라이브.",
   placeTitle: "성지 지도",
   placeDesc: "MV·재킷 촬영지를 지도로.",
-  photosTitle: "PHOTOGRAPHY",
-  photosDesc: "라이브와 성지 순례에서 찍은 사진.",
   searchTitle: "통합 검색",
   searchDesc: "곡명·라이브명·장소를 한 번에 검색.",
   seeAll: "모든 기능 보기 →",

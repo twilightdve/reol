@@ -1,66 +1,47 @@
+/**
+ * /photos/ — 旧 PHOTO(写真の一覧)の置き場所。
+ * 写真は読みものの「記録」48 本へ移し(plan/72)、2026-11-14 に一覧のページ自体をやめた(ユーザー「消して転送」)。
+ * サイトは静的配信(GitHub Pages)で、サーバーの側の転送ができないので、このページからシリーズ「ライヴと遠征の記録」へ送る。
+ * 検索や SNS に残った前の URL のために置いておく(サイトマップには載せない。gatsby-config の excludes)。
+ * 各言語版(/en/photos/ など。i18nRoutes の LOCALIZED_EXACT)も同じページで、日本語のシリーズのページへ送る(読みものは日本語だけ)
+ */
 import React, { FC, useEffect } from "react";
-import { graphql, HeadFC, PageProps } from "gatsby";
-import { useDispatch } from "react-redux";
+import { HeadFC, Link, navigate } from "gatsby";
 import SEO from "../../components/SEO";
-import { buildBreadcrumbList } from "../../utils/jsonLd";
-import BackToTopButton from "../../components/common/BackToTopButton";
-import { PhotosSection } from "../../components/index/sections";
-import { AppDispatch } from "../../redux/store";
-import { setRoute } from "../../redux/slices/routeSlice";
-import { DEFAULT_LANG, isSiteLang } from "../../i18n/site/langs";
-import { getDict } from "../../i18n/site/dict";
-import { pageDictFor } from "../../i18n/site/SiteLangContext";
-import { photosDict } from "../../i18n/site/pages/photos";
-import { localizePath } from "../../utils/i18nRoutes";
+import { seriesBySlug, seriesPath } from "../../utils/songArticles/series";
 
-type PhotosPageData = {
-  site: { siteMetadata: { title: string; description: string; siteUrl: string } };
-};
+const SERIES_SLUG = "live-to-ensei-no-kiroku";
+const TO = seriesPath(SERIES_SLUG);
+const SERIES = seriesBySlug(SERIES_SLUG);
+const TITLE = SERIES?.name ?? "ライヴと遠征の記録";
 
-const PhotosPage: FC<PageProps<PhotosPageData>> = ({ data }) => {
-  const dispatch = useDispatch<AppDispatch>();
-
+const PhotosMovedPage: FC = () => {
   useEffect(() => {
-    // PHOTO はナビから外した(写真は読みものの「記録」へ移した。plan/72)。下部タブはどれも選択中にしない
-    dispatch(setRoute({ currentRoute: "PHOTO" }));
-  }, [dispatch]);
+    // サイトの中のリンクから来た時(Head の script が動かない時)のため
+    navigate(TO, { replace: true });
+  }, []);
 
   return (
-    <>
-      <main className="relative container mx-auto px-2 w-full">
-        <PhotosSection />
-      </main>
-      <BackToTopButton />
-    </>
+    <main className="container mx-auto w-full max-w-3xl px-4 py-10 text-bx-ink" lang="ja">
+      <p className="text-sm text-bx-ink2">
+        写真は「読みもの」の記録へ移しました。
+        <br />
+        <Link to={TO} className="text-bx-blue underline underline-offset-2 hover:text-bx-blueLight">
+          {TITLE}
+        </Link>
+      </p>
+    </main>
   );
 };
 
-export default PhotosPage;
+export default PhotosMovedPage;
 
-export const query = graphql`
-  query PhotosPageQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
-  }
-`;
-
-export const Head: HeadFC<PhotosPageData, { lang?: string }> = ({ pageContext }) => {
-  const lang = isSiteLang(pageContext?.lang) ? pageContext.lang : DEFAULT_LANG;
-  return (
-    <SEO
-      title="PHOTOGRAPHY"
-      description={pageDictFor(photosDict, lang).metaDescription}
-      path="/photos/"
-      lang={lang}
-      jsonLd={buildBreadcrumbList([
-        { name: getDict(lang).site.breadcrumbHome, path: localizePath("/", lang) },
-        { name: "PHOTOGRAPHY", path: localizePath("/photos/", lang) },
-      ])}
-    />
-  );
-};
+// 正規 URL(canonical)と og:url は新しい URL。
+// script はページを読み込む途中で動くので、meta refresh より先に送る。JS が動かない時は meta refresh で送る
+export const Head: HeadFC = () => (
+  <>
+    <SEO title={TITLE} description={SERIES?.description} path={TO} lang="ja" />
+    <script dangerouslySetInnerHTML={{ __html: `location.replace(${JSON.stringify(TO)})` }} />
+    <meta httpEquiv="refresh" content={`0; url=${TO}`} />
+  </>
+);

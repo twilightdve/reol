@@ -86,7 +86,6 @@ const en: SiteDict = {
     discography: "Releases and every song",
     live: "Shows and setlists",
     place: "Filming location map",
-    photo: "Photo gallery",
   },
   otd: {
     yesterday: "Yesterday",

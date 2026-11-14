@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { LangLink, useDict } from "../../../i18n/site/SiteLangContext";
 import { LiveInfo, MergedLiveItem } from "../../../types/live";
 import { FaCalendarAlt } from "react-icons/fa";
-import { GoChevronUp, GoListUnordered, GoLinkExternal } from "react-icons/go";
+import { GoListUnordered, GoLinkExternal } from "react-icons/go";
 import { FiCopy, FiCheck } from "react-icons/fi";
 import { useColorPalette } from "../../../hooks/useColorPalette";
 import Tweets from "../../modules/tweets";
@@ -22,6 +22,21 @@ import { checkCircleClass } from "../../collection/checkCircle";
 type Props = {
   live: LiveInfo;
 };
+
+/**
+ * 開ける行の印。閉じている時は「＋」、開いている時は「−」(縦の線が縮む)。
+ * 「→」(ページへ移る)と区別するため、矢印の形は使わない(2026-11-14 ユーザー「^ をなくして別の形で」)
+ */
+const ExpandMark: React.FC<{ open: boolean }> = ({ open }) => (
+  <span aria-hidden="true" className="relative block h-3 w-3 flex-shrink-0">
+    <span className="absolute left-0 top-1/2 h-[1.5px] w-full -translate-y-1/2 bg-current" />
+    <span
+      className={`absolute left-1/2 top-0 h-full w-[1.5px] -translate-x-1/2 bg-current transition-transform duration-200 ${
+        open ? "scale-y-0" : ""
+      }`}
+    />
+  </span>
+);
 
 // live/live_itemの「youtube」列は動画IDとプレイリストIDを共存させている。
 // YouTubeの動画IDは常に11文字、プレイリストIDはPL/UU/OLAK5uy_等の
@@ -127,15 +142,9 @@ const SetCard: React.FC<SetCardProps> = ({ setlist, liveTitle, index, isSetExpan
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           {setlist.setList && setlist.setList.length > 0 && (
-            <span className="text-xs font-medium flex items-center gap-1 text-bx-ink2">
-              {isSetExpanded ? (
-                <GoChevronUp className="w-4 h-4" />
-              ) : (
-                <span className="hidden sm:inline-flex items-center gap-1">
-                  <GoListUnordered className="w-4 h-4" />
-                  {t.songCount(setlist.setList.length)}
-                </span>
-              )}
+            <span className="flex items-center gap-1.5 text-xs font-medium text-bx-ink3 transition-colors group-hover/set:text-bx-ink">
+              {!isSetExpanded && <span>{t.songCount(setlist.setList.length)}</span>}
+              <ExpandMark open={isSetExpanded} />
             </span>
           )}
           <LangLink
@@ -331,6 +340,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const handleTitleClick = useCallback(() => {
     setIsExpand((prev) => !prev);
   }, []);
+  // 印のボタン。親の行にも onClick があるので、伝えずにここで1回だけ切り替える
+  const handleToggleButton = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsExpand((prev) => !prev);
+  }, []);
 
   // ツアー全体のサムネイル/埋め込みはliveのyoutubeVideoId(専用列)を使う。
   // 各公演(SetCard)側は個別にlive_itemのyoutubeVideoIdを参照する(別値)。
@@ -500,17 +514,17 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   </div>
 
                   {/* 展開ボタンと、その下に参戦済みのチェック(1公演だけの時) */}
-                  <div className="flex flex-shrink-0 flex-col items-center gap-2">
+                  <div className="flex flex-shrink-0 flex-col items-end gap-2">
+                    {/* 行のどこを押しても開く(親の onClick)。ボタンは読み上げとキーボードのため */}
                     <button
-                      onClick={handleTitleClick}
-                      className="flex-shrink-0 p-1.5 text-bx-ink3 transition-colors hover:text-bx-ink"
+                      type="button"
+                      onClick={handleToggleButton}
+                      className="flex flex-shrink-0 items-center gap-1.5 py-1.5 pl-1.5 text-xs font-medium text-bx-ink3 transition-colors group-hover:text-bx-ink"
+                      aria-expanded={false}
                       aria-label={t.expand}
                     >
-                      <GoChevronUp
-                        className={`w-4 h-4 text-bx-ink transition-transform duration-300 ${
-                          isExpand ? "rotate-180" : ""
-                        }`}
-                      />
+                      {(live.items?.length ?? 0) > 1 && <span>{t.showCount(live.items?.length ?? 0)}</span>}
+                      <ExpandMark open={false} />
                     </button>
                     {onlyItemUuid && (
                       <button
@@ -528,8 +542,9 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 </div>
               </div>
             ) : (
-              // 展開時：従来のレイアウト
-              <>
+              // 展開時：従来のレイアウト。右上に、閉じられることを示す「−」
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0 flex-1">
                 <Timeline.Time
                   theme={{
                     time: "mb-2 text-xs sm:text-sm font-medium leading-none tracking-wider text-bx-ink2",
@@ -550,7 +565,17 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                     </h3>
                   </div>
                 </Timeline.Title>
-              </>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleToggleButton}
+                  className="flex flex-shrink-0 items-center py-1.5 pl-1.5 text-bx-ink3 transition-colors group-hover:text-bx-ink"
+                  aria-expanded={true}
+                  aria-label={t.expand}
+                >
+                  <ExpandMark open={true} />
+                </button>
+              </div>
             )}
           </div>
 

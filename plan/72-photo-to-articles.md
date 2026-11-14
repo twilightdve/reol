@@ -496,3 +496,64 @@ feature/photo-to-articles を main に取り込み(早送り)、push して、`n
 - **旧 `/photos/`(と 5 言語版)をどうするか。** 案: ページを消して、`/photos/` をシリーズ「ライヴと遠征の記録」へ転送する。日本語以外の版は転送先が日本語のページになる。
 - 題名・タグ・表紙・シリーズの名前の見直し(案のまま公開している)。
 - 上の「入口を切り替える時の判断材料(第3段)」のうち、公開と入口の取り外しは済んだ。残りは旧ページの扱いだけ。
+
+## 旧 `/photos/` を消して転送、関連するページの X の投稿を1行に(2026-11-14 追記)
+
+ユーザーから(2026-11-14)。「消して転送」「関連するページのXの投稿は文言だけ一行に収まるように表示したい」。
+同じ時に頼まれた LIVE 一覧の印と下部タブの表記は plan/73。
+
+### 旧 `/photos/` を消して転送
+
+- `/photos/` は、シリーズ「ライヴと遠征の記録」(`/articles/series/live-to-ensei-no-kiroku/`)へ送るだけのページにした(`src/pages/photos/index.tsx`)。サイトは静的配信でサーバーの側の転送ができないので、`/place/shibuya/` と同じやり方(読み込みの途中で動く `location.replace`、JS が動かない時の `meta refresh`、サイトの中のリンクから来た時の `navigate`)。正規 URL(canonical)は新しい URL。
+- 各言語版(`/en/photos/`・`/ko/photos/`・`/zh-hans/photos/`・`/zh-hant/photos/`)も URL は残し、同じく日本語のシリーズのページへ送る(記録は日本語だけ)。
+- サイトマップから `/photos/` と各言語版を外した(`gatsby-config.ts` の `excludes`)。
+- HOME の `#PHOTO`・`#PHOTOS` は今までどおり `/photos/` へ送り、そこからシリーズへ進む。
+
+消したファイル(旧 PHOTO の一覧の画面と、そこでしか使っていなかった部品・文言):
+
+| ファイル | 中身 |
+|---------|------|
+| `src/components/index/sections/PhotosSection.tsx`、`src/components/index/photography/photography.tsx` | 一覧の画面 |
+| `src/components/modules/StaticYoutube.tsx`、`LazyYoutube.tsx`、`SnapScrollComponent.tsx` | 一覧だけが使っていた部品 |
+| `src/i18n/site/pages/photos.ts` | 一覧のページの文言(5 言語) |
+| `explore.photo`(辞書 5 言語)、`photosTitle`・`photosDesc`(`features.ts`)、`SEO.tsx` の `photos` | 使わなくなった文言 |
+
+残したもの:
+
+- `src/components/index/photography/posts.ts`・`index.ts` と `src/images` の元の写真。移行の道具(`npm run articles:photo`)が台帳との照合に読む、移行元の控え。画面からは使っていない。
+- `src/components/modules/SimpleTrackingFooter.tsx`(使っていない。PHOTO の項目が残っている)と `src/pages/design-preview/*` の `/photos/` へのリンク(試作のページ。転送で進める)。
+
+### 関連するページの X の投稿
+
+- 前は「Reol の投稿(2024年8月17日 22:06)」のように、誰のいつの投稿かだけを題にしていた。同じ形の行が並び、どの投稿か分からなかった。
+- 今は **投稿の書き出しを題の位置に1行で出し**(入りきらない分は「…」)、その下に小さく「誰のいつの投稿か」(とメモ)を出す。
+- 関連リンクに `quote`(投稿の書き出し。改行なし、50 字まで+「…」)を足した(`RecordRelatedLink`、`RECORD_LINK_QUOTE_MAX`)。X の投稿 28 本(記録 10 本)に入れた。文言は X の公式の埋め込み用の応答(oEmbed)で取った本文の先頭で、ハッシュタグとメンションは残し、画像と短縮 URL は落とした。
+- `quote` は版(`contentSha256`)に数えない。記事の「更新」の日付と版の番号は動かしていない。
+- 検査(`recordCheck`)は、空・改行入り・長すぎる `quote` を止める。
+- X 以外の行(公演のページなど)は今までどおり(長い題は2行になることがある)。
+
+変えたファイル: `src/utils/songArticles/types.ts`、`recordCheck.ts`、`src/utils/__tests__/recordArticles.test.ts`、`src/components/redesign/LinkRows.tsx`(`oneLine`)、`src/templates/record-article.tsx`、`content/articles/record-*/article.json` 10 本。
+
+### 聞かずに決めたこと
+
+- 転送先はシリーズ「ライヴと遠征の記録」(前の追記の案のとおり)。言語版も日本語のページへ送る。
+- 移行元の控え(`posts.ts`・`index.ts`・元の写真)は消さない。
+- 「文言だけ一行に」は、投稿の書き出しを題にして、誰のいつの投稿かを下の小さい行に回す、と読んだ。画像で見せて、違えば直す。
+
+### 確かめたこと
+
+| 確かめたこと | 結果 |
+|-------------|------|
+| 型チェック(`tsc --noEmit`) | 通過 |
+| テスト(jest) | 27 スイート・201 件 通過 |
+| 通常のビルド | 成功 |
+| `/photos/` と 4 つの言語版(Chromium・WebKit) | どれもシリーズ「ライヴと遠征の記録」に着く |
+| サイトマップ | `/photos/` は載っていない。シリーズのページは載っている |
+| X の投稿の行(Chromium・WebKit、幅 320・390・1280) | 題も下の行も1行。入りきらない題は「…」。横のはみ出し 0、ページのエラー 0 |
+
+公開中のサイトにはまだ出していない(main へ取り込んで push まで。デプロイは頼まれた時)。iPhone の実機では見ていない。
+
+### 残っているもの
+
+- 題名・タグ・表紙・シリーズの名前の見直し(案のまま公開している)。
+- 使っていない `SimpleTrackingFooter.tsx` を消すかどうか。

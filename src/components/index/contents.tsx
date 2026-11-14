@@ -36,6 +36,7 @@ const IndexContents: React.FC<IndexContentsProps> = ({
         DISCOGRAPHY: "/discography/",
         LIVE: "/live/",
         PLACE: "/place/",
+        // 旧 PHOTO。一覧のページはやめ、/photos/ からシリーズ「ライヴと遠征の記録」へ送っている(plan/72)
         PHOTO: "/photos/",
         PHOTOS: "/photos/",
       };

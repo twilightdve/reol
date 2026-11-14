@@ -11,6 +11,7 @@ import { loadRecordArticles, loadSongArticles, PUBLISHED_DIR, STAGING_DIR } from
 import { parseRecordMarkdown, recordMediaRefs, recordTextBlocks } from "../songArticles/markdown";
 import { recordContentHash, recordProblems } from "../songArticles/recordCheck";
 import { recordCoverPaths } from "../songArticles/recordMedia";
+import { RECORD_LINK_QUOTE_MAX } from "../songArticles/types";
 import type { RecordArticleData, RecordMediaFile } from "../songArticles/types";
 
 // 記録(kind: "record"。plan/72)。実在する原稿・写真は使わず、一時ディレクトリに小さな検証用データを置く
@@ -181,6 +182,17 @@ describe("記録の検査とハッシュ", () => {
     expect(problems({ fields: { ...FIELDS, seriesSlug: "nai" } }).join("\n")).toContain("登録されていないシリーズ");
     expect(problems({ fields: { ...FIELDS, eventDate: "2025/02/16" } }).join("\n")).toContain("eventDate の形が違います");
     expect(problems({ article: { id: "Record_1" } }).join("\n")).toContain("記事IDの形が違います");
+  });
+
+  it("関連リンクの書き出し(quote)は版に数えない。改行と長すぎるものは止める", () => {
+    const withQuote = (quote: string) => ({ ...FIELDS, relatedLinks: [{ label: "Reol の投稿(2025年2月16日)", href: "https://x.com/a/status/1", quote }] });
+    const hash = (fields: typeof FIELDS) => recordContentHash({ rootDir: root, body: BODY, media: MEDIA, data: fields });
+    const plain = { ...FIELDS, relatedLinks: [{ label: "Reol の投稿(2025年2月16日)", href: "https://x.com/a/status/1" }] };
+    expect(hash(withQuote("投稿の書き出し"))).toBe(hash(plain));
+    expect(problems({ fields: withQuote("投稿の書き出し") })).toEqual([]);
+    expect(problems({ fields: withQuote("1行目\n2行目") }).join("\n")).toContain("改行のない文字");
+    expect(problems({ fields: withQuote("あ".repeat(RECORD_LINK_QUOTE_MAX)) })).toEqual([]);
+    expect(problems({ fields: withQuote("あ".repeat(RECORD_LINK_QUOTE_MAX + 1)) }).join("\n")).toContain("文字までです");
   });
 });
 

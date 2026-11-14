@@ -19,28 +19,32 @@ interface LinkRowProps {
   desc?: React.ReactNode;
   /** 題を大きく出す(主要セクションへの入口) */
   large?: boolean;
+  /** 題と説明をそれぞれ1行に収め、はみ出す分は「…」で切る(投稿の書き出しなど、長さが決まらない文を題にする時) */
+  oneLine?: boolean;
   /** 題の見出しレベル。既定は見出しにしない */
   as?: "h2" | "h3" | "span";
   onClick?: () => void;
 }
 
-export const LinkRow: React.FC<LinkRowProps> = ({ to, href, kicker, title, desc, large = false, as = "span", onClick }) => {
+export const LinkRow: React.FC<LinkRowProps> = ({ to, href, kicker, title, desc, large = false, oneLine = false, as = "span", onClick }) => {
   const localize = useLocalizePath();
   const Title = as;
   const body = (
     <>
-      <span className="min-w-0">
+      <span className={oneLine ? "min-w-0 flex-1" : "min-w-0"}>
         {kicker && (
           <span className="mb-1 block text-[11px] font-extrabold tracking-[0.2em] text-bx-ink3">{kicker}</span>
         )}
         <Title
           className={`block font-bold text-bx-ink transition-colors group-hover:text-bx-blueLight ${
             large ? "text-[17px] font-extrabold tracking-[0.08em] sm:text-[19px]" : "text-[15px]"
-          }`}
+          } ${oneLine ? "truncate" : ""}`}
         >
           {title}
         </Title>
-        {desc && <span className="mt-0.5 block text-[12px] leading-relaxed text-bx-ink3">{desc}</span>}
+        {desc && (
+          <span className={`mt-0.5 block text-[12px] leading-relaxed text-bx-ink3 ${oneLine ? "truncate" : ""}`}>{desc}</span>
+        )}
       </span>
       <span aria-hidden="true" className="flex-shrink-0 text-bx-ink3 transition-colors group-hover:text-bx-blueLight">
         →

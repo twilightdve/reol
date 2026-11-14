@@ -10,7 +10,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { ParsedRecord, YOUTUBE_ID, recordMediaRefs } from "./markdown";
 import { seriesBySlug } from "./series";
-import { RecordArticleData, RecordMediaFile } from "./types";
+import { RECORD_LINK_QUOTE_MAX, RecordArticleData, RecordMediaFile } from "./types";
 
 /** 記録の記事ID。いいねの article_id(^[a-z0-9-]{1,64}$)にそのまま使える形にする */
 export const RECORD_ID = /^record-[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -51,7 +51,9 @@ const hashedFields = (data: RecordHashedFields): RecordHashedFields => ({
   eventDate: data.eventDate,
   eventDateEnd: data.eventDateEnd ?? null,
   songRefs: data.songRefs,
-  relatedLinks: data.relatedLinks,
+  // quote(リンク先の投稿の書き出し)は表示のための引用で、本文もリンク先も変えないので、版には数えない。
+  // 足しても「更新」の日付は動かない(2026-11-14。公開済みの 11 本に後から足した)
+  relatedLinks: (data.relatedLinks ?? []).map(({ quote: _quote, ...rest }) => rest),
   legacyPublishedAt: data.legacyPublishedAt,
 });
 
@@ -162,6 +164,13 @@ export const recordProblems = (input: {
     const external = typeof l.href === "string" && /^https?:\/\//i.test(l.href);
     if (!internal && !external) problems.push(`関連リンクの行き先が違います(サイト内は / から、外部は http(s) から): ${String(l.href)}`);
     if (typeof l.href === "string" && TRACKING_PARAM.test(l.href)) problems.push(`関連リンクに計測用のパラメータが付いています: ${l.href}`);
+    if (l.quote != null) {
+      if (typeof l.quote !== "string" || !l.quote.trim() || /[\r\n]/.test(l.quote)) {
+        problems.push(`関連リンクの書き出し(quote)は改行のない文字で書きます: ${String(l.href)}`);
+      } else if ([...l.quote].length > RECORD_LINK_QUOTE_MAX) {
+        problems.push(`関連リンクの書き出し(quote)は ${RECORD_LINK_QUOTE_MAX} 文字までです(長い時は「…」で切る): ${String(l.href)}`);
+      }
+    }
   }
   const bodyText = typeof input.body === "string" ? input.body : input.body.toString("utf8");
   for (const m of bodyText.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)) {

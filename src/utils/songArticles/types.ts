@@ -111,7 +111,15 @@ export type RecordRelatedLink = {
   href: string;
   /** リンクの下に小さく添える一言(どの場所の出典か、など) */
   note?: string | null;
+  /**
+   * リンク先(X の投稿など)の本文の書き出し。あれば、これを題の位置に1行で出し、label(誰のいつの投稿か)を下に小さく出す。
+   * 表示のための短い引用で、改行なし・RECORD_LINK_QUOTE_MAX 文字まで(recordCheck)。版(contentSha256)には数えない
+   */
+  quote?: string | null;
 };
+
+/** 関連リンクの quote の長さの上限(1行に出す書き出しなので短く。長い投稿は「…」で切って入れる) */
+export const RECORD_LINK_QUOTE_MAX = 51;
 
 export type RecordPhoto = {
   /** 記事の中で変えない ID(英小文字・数字・ハイフン)。本文の media ブロックと書き出すファイル名に使う */

@@ -12,7 +12,7 @@ const LOCALIZED_EXACT = new Set<string>([
   // 第2弾
   "/place/",
   "/about/data/",
-  "/photos/",
+  "/photos/", // 2026-11-14 から、読みもののシリーズへ送るだけのページ(各言語の URL を残すために載せておく)
   "/search/",
   "/welcome/",
   "/timemachine/",

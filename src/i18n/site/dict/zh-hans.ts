@@ -84,7 +84,6 @@ const zhHans: SiteDict = {
     discography: "作品与全部歌曲信息",
     live: "演出信息、歌单",
     place: "取景地地图",
-    photo: "相册",
   },
   otd: {
     yesterday: "昨天",

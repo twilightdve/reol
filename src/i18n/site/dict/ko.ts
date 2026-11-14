@@ -85,7 +85,6 @@ const ko: SiteDict = {
     discography: "릴리스와 전곡 정보",
     live: "공연 정보·세트리스트",
     place: "촬영지 지도",
-    photo: "포토 갤러리",
   },
   otd: {
     yesterday: "어제",

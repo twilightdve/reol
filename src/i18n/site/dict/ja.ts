@@ -91,7 +91,6 @@ const ja = {
     discography: "リリースと全曲情報",
     live: "公演情報・セトリ",
     place: "ロケ地マップ",
-    photo: "フォトギャラリー",
   },
   otd: {
     yesterday: "昨日",
