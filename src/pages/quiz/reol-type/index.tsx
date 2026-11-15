@@ -6,7 +6,7 @@ import { localizePath } from "../../../utils/i18nRoutes";
 import { reolTypes, type TypeCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
 import { Kicker, LinkRow } from "../../../components/redesign";
-import { MAIN, SectionHeading, TypeList } from "../../../components/reolType/TypeParts";
+import { MAIN, SectionHeading, TypeMatrix } from "../../../components/reolType/TypeParts";
 import { trackEvent } from "../../../utils/analytics";
 
 // 辞書の題・説明は旧デザインの改行位置(\n)を持っている。1行につなぐ(日本語・中国語は空白を入れない)
@@ -190,7 +190,7 @@ const ReolTypeIntroPage = () => {
             </button>
           </p>
         )}
-        <TypeList current={prevType} distribution={distribution} total={total} />
+        <TypeMatrix current={prevType} distribution={distribution} total={total} />
       </section>
 
       {/* ログイン誘導（未ログインユーザー向け） */}

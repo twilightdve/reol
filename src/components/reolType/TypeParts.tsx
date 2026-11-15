@@ -7,7 +7,6 @@ import { LangLink } from "../../i18n/site/SiteLangContext";
 import { Kicker, LinkRow } from "../redesign";
 
 export const MAIN = "container mx-auto max-w-3xl px-3 py-4 text-bx-ink sm:px-4";
-const ARROW = "flex-shrink-0 text-bx-ink3 transition-colors group-hover:text-bx-blueLight";
 
 const typePath = (code: TypeCode) => `/quiz/reol-type/types/${code.toLowerCase()}/`;
 
@@ -141,71 +140,103 @@ export const ShareBlock: React.FC<{
   );
 };
 
-const GROUPS: { group: GroupCode; codes: TypeCode[] }[] = [
-  { group: "FG", codes: ["FGSA", "FGSI", "FGQA", "FGQI"] },
-  { group: "FE", codes: ["FESA", "FESI", "FEQA", "FEQI"] },
-  { group: "BG", codes: ["BGSA", "BGSI", "BGQA", "BGQI"] },
-  { group: "BE", codes: ["BESA", "BESI", "BEQA", "BEQI"] },
+// 16タイプの表の並び。行=ライブスタイル×楽曲の好み(4グループ)、列=ファン活動×沼り方
+const MATRIX_ROWS: { group: GroupCode; axes: [string, string]; codes: TypeCode[] }[] = [
+  { group: "FG", axes: ["axisFront", "axisIntense"], codes: ["FGSA", "FGSI", "FGQA", "FGQI"] },
+  { group: "FE", axes: ["axisFront", "axisEmotional"], codes: ["FESA", "FESI", "FEQA", "FEQI"] },
+  { group: "BG", axes: ["axisBack", "axisIntense"], codes: ["BGSA", "BGSI", "BGQA", "BGQI"] },
+  { group: "BE", axes: ["axisBack", "axisEmotional"], codes: ["BESA", "BESI", "BEQA", "BEQI"] },
 ];
+const MATRIX_COL_GROUPS = ["axisEvangelize", "axisImmerse"];
+const MATRIX_COLS = ["axisAnalyze", "axisIntuition", "axisAnalyze", "axisIntuition"];
 
 /**
- * 全16タイプの一覧。4つのグループごとに、罫線で区切った行で並べる。
- * distribution と total を渡すと、行の右に診断済みの人の中での割合を出す(診断トップ)。
+ * 全16タイプの 4×4 の表。マスはタイプ詳細へのリンク。
+ * distribution と total を渡すと、マスに診断済みの人の中での割合を出す(診断トップ)。
+ * 狭い画面では、行の見出し(グループ名)をその行の上に置く。
  */
-export const TypeList: React.FC<{
+export const TypeMatrix: React.FC<{
   /** いま見ているタイプ・自分のタイプ(黄で示す) */
   current?: TypeCode | null;
   distribution?: Record<string, number>;
   total?: number;
 }> = ({ current, distribution, total = 0 }) => {
-  const { lang } = useQuizT();
+  const { t, lang } = useQuizT();
   return (
-    <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
-      {GROUPS.map(({ group, codes }) => {
-        const g = getQuizGroup(group, lang);
-        return (
-          <div key={group} className="pt-5">
-            <h3 className="text-[13px] font-extrabold tracking-[0.08em] text-bx-ink">{g.name}</h3>
-            <p className="mt-0.5 text-[12px] leading-relaxed text-bx-ink3">{g.description}</p>
-            <ul className="mt-2 border-t border-bx-line">
-              {codes.map((code) => {
-                const typeInfo = getQuizType(code, lang);
-                const isCurrent = code === current;
-                const count = distribution?.[code] ?? 0;
-                return (
-                  <li key={code} className="border-b border-bx-line">
-                    <LangLink
-                      to={typePath(code)}
-                      aria-current={isCurrent ? "true" : undefined}
-                      className="group flex items-center gap-3 py-2.5"
-                    >
-                      <TypeSwatch color={typeInfo.color} />
-                      <span className="min-w-0 flex-1">
-                        <span
-                          className={`block text-[15px] font-bold transition-colors ${
-                            isCurrent ? "text-bx-yellow" : "text-bx-ink group-hover:text-bx-blueLight"
-                          }`}
-                        >
-                          {typeInfo.name}
-                        </span>
-                        <span className="block truncate text-[12px] text-bx-ink3">{typeInfo.songLabel}</span>
-                      </span>
-                      {total > 0 && (
-                        <span className="flex-shrink-0 text-[13px] font-bold tabular-nums text-bx-ink2">
-                          {count > 0 ? `${Math.round((count / total) * 100)}%` : "—"}
-                        </span>
-                      )}
-                      <span aria-hidden="true" className={ARROW}>
-                        →
-                      </span>
-                    </LangLink>
-                  </li>
-                );
-              })}
-            </ul>
+    <div
+      role="table"
+      aria-label={t("reolType.allTypes")}
+      className="grid grid-cols-4 gap-1 pt-4 sm:grid-cols-[auto_repeat(4,minmax(0,1fr))] sm:gap-1.5"
+    >
+      <div role="row" className="contents">
+        <span aria-hidden="true" className="hidden sm:block" />
+        {MATRIX_COL_GROUPS.map((key) => (
+          <span
+            key={key}
+            role="columnheader"
+            aria-colspan={2}
+            className="col-span-2 border-b border-bx-line pb-1 text-center text-[12px] font-bold text-bx-ink2"
+          >
+            {t(`reolType.${key}`)}
+          </span>
+        ))}
+      </div>
+      <div role="row" className="contents">
+        <span aria-hidden="true" className="hidden sm:block" />
+        {MATRIX_COLS.map((key, i) => (
+          <span key={i} role="columnheader" className="text-center text-[11px] leading-tight text-bx-ink3">
+            {t(`reolType.${key}`)}
+          </span>
+        ))}
+      </div>
+      {MATRIX_ROWS.map(({ group, axes, codes }) => (
+        <div key={group} role="row" className="contents">
+          <div
+            role="rowheader"
+            className="col-span-4 flex items-baseline gap-2 pt-3 sm:col-span-1 sm:flex-col sm:items-start sm:justify-center sm:gap-0.5 sm:pr-2 sm:pt-0"
+          >
+            <span className="text-[13px] font-extrabold tracking-[0.08em] text-bx-ink">
+              {getQuizGroup(group, lang).name}
+            </span>
+            <span className="text-[11px] leading-snug text-bx-ink3">
+              {t(`reolType.${axes[0]}`)} × {t(`reolType.${axes[1]}`)}
+            </span>
           </div>
-        );
-      })}
+          {codes.map((code) => {
+            const typeInfo = getQuizType(code, lang);
+            const isCurrent = code === current;
+            const count = distribution?.[code] ?? 0;
+            return (
+              <div key={code} role="cell" className="flex min-w-0">
+                <LangLink
+                  to={typePath(code)}
+                  aria-current={isCurrent ? "true" : undefined}
+                  className={`group flex min-w-0 flex-1 flex-col items-center gap-1.5 rounded-md border px-1 py-2.5 text-center transition-colors sm:px-2 sm:py-3 ${
+                    isCurrent ? "border-bx-yellow" : "border-bx-line hover:border-bx-ink3"
+                  }`}
+                >
+                  <TypeSwatch color={typeInfo.color} />
+                  <span
+                    className={`max-w-full hyphens-auto text-[12px] font-bold leading-tight transition-colors [overflow-wrap:anywhere] sm:text-[14px] ${
+                      isCurrent ? "text-bx-yellow" : "text-bx-ink group-hover:text-bx-blueLight"
+                    }`}
+                  >
+                    {typeInfo.name}
+                  </span>
+                  <span className="hidden max-w-full text-[11px] leading-snug text-bx-ink3 [overflow-wrap:anywhere] sm:block">
+                    {typeInfo.songLabel}
+                  </span>
+                  {total > 0 && (
+                    <span className="mt-auto text-[11px] font-bold tabular-nums text-bx-ink2">
+                      {count > 0 ? `${Math.round((count / total) * 100)}%` : "—"}
+                    </span>
+                  )}
+                </LangLink>
+              </div>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };

@@ -13,7 +13,7 @@ import {
   ShareBlock,
   TypeHeading,
   TypeIntro,
-  TypeList,
+  TypeMatrix,
 } from "../../../components/reolType/TypeParts";
 import { generateResultShareCard, saveShareImage } from "../../../components/reolType/shareCards";
 import { trackOfficialLinkClick } from "../../../utils/analytics";
@@ -361,7 +361,7 @@ const ResultPage = () => {
       {/* === 全タイプ一覧 === */}
       <section className="mt-10" aria-labelledby="reol-type-all">
         <SectionHeading id="reol-type-all">{t('reolType.allTypes')}</SectionHeading>
-        <TypeList current={typeCode} />
+        <TypeMatrix current={typeCode} />
       </section>
     </main>
   );
