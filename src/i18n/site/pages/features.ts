@@ -9,6 +9,8 @@ type FeaturesDict = {
   groups: { start: string; live: string; songs: string; more: string };
   liveArchiveTitle: string;
   liveArchiveDesc: string;
+  unheardTitle: string;
+  unheardDesc: string;
   statsTitle: string;
   statsDesc: string;
   discographyTitle: string;
@@ -31,6 +33,8 @@ const ja: FeaturesDict = {
   groups: { start: "はじめての方へ", live: "ライブを掘る", songs: "楽曲を掘る", more: "つながりと記録" },
   liveArchiveTitle: "LIVE アーカイブ",
   liveArchiveDesc: "歴代ライブの公演情報とセットリスト。",
+  unheardTitle: "まだ生で聴いていない曲",
+  unheardDesc: "参戦済みの公演のセットリストから、まだ聴いていない曲を一覧に。",
   statsTitle: "楽曲統計",
   statsDesc: "全曲の演奏回数・初披露・最終演奏。",
   discographyTitle: "DISCOGRAPHY",
@@ -52,6 +56,8 @@ const en: FeaturesDict = {
   groups: { start: "New here?", live: "Dig into live shows", songs: "Dig into songs", more: "Connections & records" },
   liveArchiveTitle: "Live Archive",
   liveArchiveDesc: "Every live show with its info and setlist.",
+  unheardTitle: "Songs Not Heard Live Yet",
+  unheardDesc: "The songs you haven't heard yet, from the setlists of the shows you attended.",
   statsTitle: "Song Stats",
   statsDesc: "Live plays, debuts and last performances for every song.",
   discographyTitle: "DISCOGRAPHY",
@@ -72,6 +78,8 @@ const zhHant: FeaturesDict = {
   groups: { start: "給初次來訪的你", live: "深入演唱會", songs: "深入歌曲", more: "連結與紀錄" },
   liveArchiveTitle: "演唱會資料庫",
   liveArchiveDesc: "歷年演唱會的資訊與歌單。",
+  unheardTitle: "還沒在現場聽過的歌曲",
+  unheardDesc: "根據已參加演出的歌單，列出還沒聽過的歌曲。",
   statsTitle: "歌曲統計",
   statsDesc: "所有歌曲的演出次數、首次演出與最後演出。",
   discographyTitle: "DISCOGRAPHY",
@@ -92,6 +100,8 @@ const zhHans: FeaturesDict = {
   groups: { start: "给初次来访的你", live: "深入演唱会", songs: "深入歌曲", more: "联系与记录" },
   liveArchiveTitle: "演唱会资料库",
   liveArchiveDesc: "历年演唱会的信息与歌单。",
+  unheardTitle: "还没在现场听过的歌曲",
+  unheardDesc: "根据已参加演出的歌单，列出还没听过的歌曲。",
   statsTitle: "歌曲统计",
   statsDesc: "所有歌曲的演出次数、首次演出与最后演出。",
   discographyTitle: "DISCOGRAPHY",
@@ -113,6 +123,8 @@ const ko: FeaturesDict = {
   groups: { start: "처음 오신 분께", live: "라이브 파고들기", songs: "곡 파고들기", more: "연결과 기록" },
   liveArchiveTitle: "LIVE 아카이브",
   liveArchiveDesc: "역대 라이브의 공연 정보와 세트리스트.",
+  unheardTitle: "아직 라이브로 못 들은 곡",
+  unheardDesc: "참전한 공연의 세트리스트를 바탕으로 아직 못 들은 곡을 목록으로.",
   statsTitle: "곡 통계",
   statsDesc: "모든 곡의 연주 횟수·첫 공개·마지막 연주.",
   discographyTitle: "DISCOGRAPHY",

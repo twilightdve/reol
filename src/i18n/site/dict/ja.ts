@@ -166,7 +166,7 @@ const ja = {
     heardLabel: "生で聴いた曲",
     heardHint: "参戦済みにした公演のセットリストから集計しています(ライブで演奏されたことのある曲が対象)",
     heardList: (n: number) => `聴いた曲 (${n})`,
-    unheardList: (n: number) => `まだ生で聴いていない曲 (${n}・演奏回数の多い順)`,
+    unheardLink: "まだ生で聴いていない曲を見る",
     ongoing: "開催中",
     upcoming: "直近の開催予定",
     helpFilter: "上部に表示されたハッシュタグを押すと一覧を簡易的にフィルタすることができます",

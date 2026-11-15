@@ -169,7 +169,7 @@ const en: SiteDict = {
     heardLabel: "Songs heard live",
     heardHint: "Counted from the setlists of the shows you marked as attended (out of all songs ever performed live)",
     heardList: (n: number) => `Heard (${n})`,
-    unheardList: (n: number) => `Not heard live yet (${n}, most played first)`,
+    unheardLink: "See the songs you haven't heard live yet",
     ongoing: "On now",
     upcoming: "Coming up",
     helpFilter: "Tap a hashtag at the top to filter the list",

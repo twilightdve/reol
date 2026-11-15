@@ -164,7 +164,7 @@ const zhHans: SiteDict = {
     heardLabel: "现场听过的歌曲",
     heardHint: "根据已标记参加的演出歌单统计(以曾在现场演出过的歌曲为对象)",
     heardList: (n: number) => `听过的歌曲 (${n})`,
-    unheardList: (n: number) => `还没在现场听过的歌曲 (${n}，按演出次数排序)`,
+    unheardLink: "查看还没在现场听过的歌曲",
     ongoing: "进行中",
     upcoming: "近期预定",
     helpFilter: "点击上方的话题标签即可简单筛选列表",

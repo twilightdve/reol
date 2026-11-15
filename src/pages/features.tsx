@@ -45,6 +45,7 @@ const FeaturesPage: React.FC = () => {
       heading: t.groups.live,
       items: [
         { to: "/live/", title: t.liveArchiveTitle, desc: t.liveArchiveDesc, label: "LIVE" },
+        { to: "/live/unheard/", title: t.unheardTitle, desc: t.unheardDesc, label: "まだ生で聴いていない曲" },
         { to: "/live/compare/", title: home.compareTitle, desc: home.compareDesc, label: "セトリ比較" },
         { to: "/live/tour-heatmap/", title: home.tourHeatmapTitle, desc: home.tourHeatmapDesc, label: "ツアーヒートマップ" },
         { to: "/live/similarity-ranking/", title: home.similarityTitle, desc: home.similarityDesc, label: "セトリ類似度ランキング" },

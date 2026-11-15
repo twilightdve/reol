@@ -165,7 +165,7 @@ const ko: SiteDict = {
     heardLabel: "라이브로 들은 곡",
     heardHint: "참전 완료로 표시한 공연의 세트리스트로 집계합니다(라이브에서 연주된 적이 있는 곡이 대상)",
     heardList: (n: number) => `들은 곡 (${n})`,
-    unheardList: (n: number) => `아직 라이브로 못 들은 곡 (${n}, 연주 횟수순)`,
+    unheardLink: "아직 라이브로 못 들은 곡 보기",
     ongoing: "개최 중",
     upcoming: "개최 예정",
     helpFilter: "위쪽의 해시태그를 누르면 목록을 간단히 필터링할 수 있습니다",
