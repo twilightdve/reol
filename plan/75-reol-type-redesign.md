@@ -57,5 +57,5 @@
 
 ## 4. 残り
 
-- `components/modules/QuizMachineTranslationNote.tsx` は使わなくなった。消してよければ消す(ファイルの削除は確認してから)。
+- `components/modules/QuizMachineTranslationNote.tsx` は使わなくなったので消した(2026-11-16、ユーザーの了解のあと。デプロイした版には、使われないまま入っている)。
 - 結果の画面の軸の名前(「エモ」)と、シェアカードの軸の名前(「エモ・バラード」)は、前から別の辞書を引いている。そろえるなら別件。
