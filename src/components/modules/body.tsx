@@ -10,7 +10,6 @@ import Layout from "./layout";
 import TopHeader from "./header";
 import GlobalPlayer from "../player/GlobalPlayer";
 import OfficialFooter from "./officialFooter";
-import QuizMachineTranslationNote from "./QuizMachineTranslationNote";
 import TrackingFooter from "./trackingFooter";
 import WashiBackgroundImage from "../../images/washi-background.png";
 import { SiteLangProvider } from "../../i18n/site/SiteLangContext";
@@ -35,17 +34,6 @@ type Props = {
 const isBijigakuNaviPath = (pathname: string): boolean => {
   if (!pathname) return false;
   return pathname === "/bijigaku-navi" || pathname.startsWith("/bijigaku-navi/");
-};
-
-/**
- * Reol ファンタイプ診断 (/quiz/reol-type 配下) も独自デザインを持つため
- * ファンサイトヘッダー / 動画を表示しない。
- */
-const isReolTypeQuizPath = (pathname: string): boolean => {
-  if (!pathname) return false;
-  return (
-    pathname === "/quiz/reol-type" || pathname.startsWith("/quiz/reol-type/")
-  );
 };
 
 /**
@@ -136,7 +124,6 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
   // 多言語ページ(/en/... 等)では言語プレフィックスを除いたパスで判定する(plan/28)
   const { lang, path: basePath } = stripLangPrefix(pathname);
   const isBijigakuNavi = isBijigakuNaviPath(basePath);
-  const isReolTypeQuiz = isReolTypeQuizPath(basePath);
   const isCGraph = isCGraphPath(basePath);
   const isLiveHeatmap = isLiveHeatmapPath(basePath);
   const isRelive = isRelivePath(basePath);
@@ -161,14 +148,14 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
     );
   }
 
-  if (isReolTypeQuiz || isRelive || isDesignPreview || isLetters) {
-    // ファンタイプ診断 / Relive Player / デザインプレビュー / 手紙企画はページ内で独自の背景・レイアウトを持つため
+  if (isRelive || isDesignPreview || isLetters) {
+    // Relive Player / デザインプレビュー / 手紙企画はページ内で独自の背景・レイアウトを持つため
     // ファンサイト側の背景・ヘッダー・動画を一切被せずそのまま表示する。
+    // (ファンタイプ診断は plan/75 でサイトの共通の枠に入れた)
     return (
       <SiteLangProvider lang={lang}>
         <GlobalPlayer pathname={pathname} />
         <Layout title={data.site.siteMetadata.title} children={children} />
-        {isReolTypeQuiz && <QuizMachineTranslationNote />}
       </SiteLangProvider>
     );
   }
@@ -215,10 +202,10 @@ const Body: FC<Props> = ({ children, initialPathname }) => {
         }
       >
         <Layout title={data.site.siteMetadata.title} children={children} />
-        {/* 公式送客フッター。フルスクリーン系ページ(quiz/cgraph/heatmap/relive)には出さない */}
+        {/* 公式送客フッター。フルスクリーン系ページ(cgraph/heatmap/relive)には出さない */}
         {!isFullscreenViz && <OfficialFooter />}
       </div>
-      {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(quiz/cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
+      {/* 下部タブ常設(バッチ7e)。フルスクリーン系ページ(cgraph/heatmap/relive/design-preview/bijigaku-navi)には出さない */}
       {/* md 以上はヘッダーにナビがあるので下部タブは隠す(plan/59) */}
       {!isFullscreenViz && <TrackingFooter pathname={pathname} />}
     </SiteLangProvider>

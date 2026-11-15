@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { navigate, type HeadFC } from "gatsby";
 import { useLocation } from "@reach/router";
-import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../../../data/reol-type/i18n";
-import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../../../i18n/site/langs";
+import { useQuizT, quizT, getQuizQuestions } from "../../../data/reol-type/i18n";
+import { DEFAULT_LANG, isSiteLang } from "../../../i18n/site/langs";
 import { localizePath } from "../../../utils/i18nRoutes";
 import { questions as baseQuestions } from "../../../data/reol-type/questions";
 import SEO from "../../../components/SEO";
+import { Kicker } from "../../../components/redesign";
 
 const TOTAL = baseQuestions.length;
 const STORAGE_KEY = "reol_type_answers";
@@ -79,81 +80,84 @@ const QuizPage = () => {
 
   if (!question) return null;
 
-  const progress = (qParam / TOTAL) * 100;
+  const options = [
+    { choice: 'A' as const, text: question.optionA.text },
+    { choice: 'B' as const, text: question.optionB.text },
+  ];
 
   return (
-    <div className="min-h-svh flex flex-col px-4 py-6 bg-gradient-to-b from-[#0a0a1a] via-[#111133] to-[#0a0a1a] text-white font-sans">
-      <div className="max-w-md w-full mx-auto flex flex-col flex-1">
-        {/* ヘッダー: 戻る + プログレス */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <button
-              onClick={handleBack}
-              className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors"
-            >
-              <span>←</span>
-              <span>{qParam > 1 ? t('reolType.prevQuestion') : t('reolType.back')}</span>
-            </button>
-            <span className="text-sm text-gray-400 tabular-nums">
-              {qParam} / {TOTAL}
-            </span>
-          </div>
-          {/* プログレスバー */}
-          <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+    <main className="container mx-auto min-h-[70svh] max-w-xl px-3 py-4 text-bx-ink sm:px-4">
+      {/* 戻る + 進み具合 */}
+      <div className="mb-8">
+        <div className="mb-2 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={handleBack}
+            className="-ml-1 flex items-center gap-1 px-1 py-2 text-xs text-bx-ink3 transition-colors hover:text-bx-ink"
+          >
+            <span aria-hidden="true">←</span>
+            <span>{qParam > 1 ? t('reolType.prevQuestion') : t('reolType.back')}</span>
+          </button>
+          <span className="text-xs tabular-nums text-bx-ink2">
+            {qParam} / {TOTAL}
+          </span>
         </div>
-
-        {/* 質問テキスト */}
         <div
-          className={`flex-1 flex flex-col justify-center transition-all duration-300 ${
-            fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-          }`}
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={TOTAL}
+          aria-valuenow={qParam}
+          className="h-[3px] w-full overflow-hidden bg-bx-line"
         >
-          <h2 className="text-lg font-bold leading-relaxed mb-8 text-center">
-            {question.text}
-          </h2>
-
-          {/* 選択肢 */}
-          <div className="space-y-4">
-            {/* 選択肢A */}
-            <button
-              onClick={() => handleSelect('A')}
-              disabled={isAnimating}
-              className={`w-full text-left p-4 rounded-xl border transition-all duration-200 ${
-                selected === 'A'
-                  ? 'border-purple-400 bg-purple-500/20 shadow-lg shadow-purple-900/20'
-                  : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0 mt-0.5">{question.optionA.icon}</span>
-                <span className="text-sm leading-relaxed">{question.optionA.text}</span>
-              </div>
-            </button>
-
-            {/* 選択肢B */}
-            <button
-              onClick={() => handleSelect('B')}
-              disabled={isAnimating}
-              className={`w-full text-left p-4 rounded-xl border transition-all duration-200 ${
-                selected === 'B'
-                  ? 'border-blue-400 bg-blue-500/20 shadow-lg shadow-blue-900/20'
-                  : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0 mt-0.5">{question.optionB.icon}</span>
-                <span className="text-sm leading-relaxed">{question.optionB.text}</span>
-              </div>
-            </button>
-          </div>
+          <div
+            className="h-full origin-left bg-bx-yellow transition-transform duration-300 ease-out"
+            style={{ transform: `scaleX(${qParam / TOTAL})` }}
+          />
         </div>
       </div>
-    </div>
+
+      {/* 質問と選択肢 */}
+      <div
+        className={`transition-[opacity,transform] duration-300 ${
+          fadeIn ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+        }`}
+      >
+        <Kicker color="text-bx-blue" className="mb-3">
+          QUESTION {String(qParam).padStart(2, '0')}
+        </Kicker>
+        <h1 className="mb-8 text-xl font-bold leading-relaxed text-bx-ink sm:text-2xl sm:leading-relaxed">
+          {question.text}
+        </h1>
+
+        <div className="space-y-3">
+          {options.map(({ choice, text }) => {
+            const isSelected = selected === choice;
+            return (
+              <button
+                key={choice}
+                type="button"
+                onClick={() => handleSelect(choice)}
+                disabled={isAnimating}
+                aria-pressed={isSelected}
+                className={`flex w-full items-baseline gap-4 rounded-lg border px-4 py-4 text-left transition-colors ${
+                  isSelected ? 'border-bx-yellow text-bx-yellow' : 'border-bx-line text-bx-ink hover:border-bx-ink3'
+                }`}
+              >
+                <span
+                  aria-hidden="true"
+                  className={`flex-shrink-0 text-[11px] font-extrabold tracking-[0.2em] ${
+                    isSelected ? 'text-bx-yellow' : 'text-bx-ink3'
+                  }`}
+                >
+                  {choice}
+                </span>
+                <span className="text-[15px] leading-relaxed">{text}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </main>
   );
 };
 

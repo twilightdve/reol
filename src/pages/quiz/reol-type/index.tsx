@@ -1,187 +1,83 @@
 import React, { useEffect, useState } from "react";
 import { navigate, type HeadFC } from "gatsby";
-import { useQuizT, quizT, getQuizType, getQuizGroup, getQuizAxisLabels, getQuizQuestions } from "../../../data/reol-type/i18n";
-import { LangLink as Link } from "../../../i18n/site/SiteLangContext";
+import { useQuizT, quizT, getQuizType } from "../../../data/reol-type/i18n";
 import { DEFAULT_LANG, isSiteLang, type SiteLang } from "../../../i18n/site/langs";
 import { localizePath } from "../../../utils/i18nRoutes";
-import { reolTypes, getLocalizedType, typeGroups, getLocalizedTypeGroup, type TypeCode, type GroupCode } from "../../../data/reol-type/types";
+import { reolTypes, type TypeCode } from "../../../data/reol-type/types";
 import SEO from "../../../components/SEO";
-import LoadingSkeleton from "../../../components/common/LoadingSkeleton";
-import ErrorRetry from "../../../components/common/ErrorRetry";
+import { Kicker, LinkRow } from "../../../components/redesign";
+import { MAIN, SectionHeading, TypeList } from "../../../components/reolType/TypeParts";
 import { trackEvent } from "../../../utils/analytics";
 
-// === タイプ分布マトリクス ===
-const TYPE_MATRIX: { group: GroupCode; codes: TypeCode[] }[] = [
-  { group: 'FG', codes: ['FGSA', 'FGSI', 'FGQA', 'FGQI'] },
-  { group: 'FE', codes: ['FESA', 'FESI', 'FEQA', 'FEQI'] },
-  { group: 'BG', codes: ['BGSA', 'BGSI', 'BGQA', 'BGQI'] },
-  { group: 'BE', codes: ['BESA', 'BESI', 'BEQA', 'BEQI'] },
-];
+// 辞書の題・説明は旧デザインの改行位置(\n)を持っている。1行につなぐ(日本語・中国語は空白を入れない)
+const joinLines = (text: string, lang: SiteLang) => text.replace(/\n/g, lang === "en" || lang === "ko" ? " " : "");
 
-const TypeDistributionMatrix = ({ lang }: { lang: SiteLang }) => {
-  const { t } = useQuizT();
-  // 並列の区切り(日本語は「・」、中国語・韓国語では「・」を使わない)
-  const sep = lang === "ja" ? "・" : " / ";
+// 診断済みの人のタイプ分布(アカウントに保存された結果)。読めた時だけ一覧の右に割合を出す
+const useTypeDistribution = () => {
   const [distribution, setDistribution] = useState<Record<string, number>>({});
   const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   // 再試行用カウンタ
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    setLoading(true);
+    if (typeof window === "undefined") return;
     setLoadError(false);
     const onError = () => {
       setLoadError(true);
-      setLoading(false);
-      trackEvent('data_load_error', { category: 'data', label: 'reol_type_distribution' });
+      trackEvent("data_load_error", { category: "data", label: "reol_type_distribution" });
     };
-    import('../../../lib/supabase').then(({ supabase }) => {
-      // supabase 未設定時はエラーではなくマトリクス自体を非表示にする
-      if (!supabase) { setLoading(false); return; }
-      return supabase
-        .from('profiles')
-        .select('reol_type')
-        .not('reol_type', 'is', null)
-        .then(({ data, error }) => {
-          if (error || !data) { onError(); return; }
-          const counts: Record<string, number> = {};
-          let count = 0;
-          for (const row of data) {
-            if (row.reol_type && reolTypes[row.reol_type as TypeCode]) {
-              counts[row.reol_type] = (counts[row.reol_type] || 0) + 1;
-              count++;
+    import("../../../lib/supabase")
+      .then(({ supabase }) => {
+        // supabase 未設定時はエラーではなく、割合を出さないだけにする
+        if (!supabase) return;
+        return supabase
+          .from("profiles")
+          .select("reol_type")
+          .not("reol_type", "is", null)
+          .then(({ data, error }) => {
+            if (error || !data) {
+              onError();
+              return;
             }
-          }
-          setDistribution(counts);
-          setTotal(count);
-          setLoading(false);
-        });
-    }).catch(onError);
+            const counts: Record<string, number> = {};
+            let count = 0;
+            for (const row of data) {
+              if (row.reol_type && reolTypes[row.reol_type as TypeCode]) {
+                counts[row.reol_type] = (counts[row.reol_type] || 0) + 1;
+                count++;
+              }
+            }
+            setDistribution(counts);
+            setTotal(count);
+          });
+      })
+      .catch(onError);
   }, [attempt]);
 
-  if (loading) {
-    return (
-      <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-        <LoadingSkeleton
-          rows={4}
-          rowHeightClassName="h-10"
-          rowClassName="border border-white/10 bg-white/5"
-          label={t('reolType.loadingDistribution')}
-        />
-      </div>
-    );
-  }
-
-  if (loadError) {
-    return (
-      <ErrorRetry
-        tone="dark"
-        title={t('venueSelector.generalError')}
-        actionLabel={t('ui.retry')}
-        onRetry={() => setAttempt((v) => v + 1)}
-      />
-    );
-  }
-
-  if (total === 0) return null;
-
-  const maxCount = Math.max(1, ...Object.values(distribution));
-
-  return (
-    <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-      <h3 className="text-sm font-bold text-gray-300 mb-1">{t('reolType.distributionTitle')}</h3>
-      <p className="text-xs text-gray-500 mb-4">{t('reolType.distributionSub', { count: total })}</p>
-
-      {/* 列ヘッダー */}
-      <div className="grid grid-cols-[56px_1fr_1fr_1fr_1fr] gap-1.5 mb-1">
-        <div />
-        <div className="text-center text-[10px] text-gray-500">📢🔍</div>
-        <div className="text-center text-[10px] text-gray-500">📢💫</div>
-        <div className="text-center text-[10px] text-gray-500">🎧🔍</div>
-        <div className="text-center text-[10px] text-gray-500">🎧💫</div>
-      </div>
-
-      {/* マトリクス本体 */}
-      <div className="space-y-1.5">
-        {TYPE_MATRIX.map(({ group, codes }) => {
-          const g = getQuizGroup(group, lang);
-          return (
-            <div key={group} className="grid grid-cols-[56px_1fr_1fr_1fr_1fr] gap-1.5">
-              {/* 行ヘッダー */}
-              <div className="flex items-center justify-center text-[10px] text-gray-400 leading-tight">
-                <span>{g.emoji}</span>
-              </div>
-              {/* 4セル */}
-              {codes.map((code) => {
-                const count = distribution[code] || 0;
-                const pct = total > 0 ? Math.round((count / total) * 100) : 0;
-                const intensity = count / maxCount;
-                const rt = reolTypes[code];
-                const localRt = getQuizType(code, lang);
-                return (
-                  <Link
-                    key={code}
-                    to={`/quiz/reol-type/types/${code.toLowerCase()}/`}
-                    className="relative rounded-lg p-1.5 text-center transition-all hover:scale-105 hover:z-10 border border-white/5 hover:border-white/20 group"
-                    style={{
-                      backgroundColor: `${rt.color}${Math.round(intensity * 40 + 8).toString(16).padStart(2, '0')}`,
-                    }}
-                  >
-                    <div className="text-base leading-none">{rt.emoji}</div>
-                    <div className="text-[9px] text-gray-400 mt-0.5 truncate">{localRt.name}</div>
-                    <div className="text-[10px] font-mono mt-0.5" style={{ color: rt.color }}>
-                      {count > 0 ? `${pct}%` : '—'}
-                    </div>
-                    {/* バー */}
-                    <div className="w-full h-1 bg-white/5 rounded-full mt-1 overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all duration-700"
-                        style={{
-                          width: `${pct}%`,
-                          backgroundColor: rt.color,
-                          opacity: 0.7,
-                        }}
-                      />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 軸ラベル説明 */}
-      <div className="mt-4 flex justify-between text-[10px] text-gray-600">
-        <div>← {t('reolType.axisEvangelize')}{sep}{t('reolType.axisAnalyze')}</div>
-        <div>{t('reolType.axisImmerse')}{sep}{t('reolType.axisIntuition')} →</div>
-      </div>
-    </div>
-  );
+  return { distribution, total, loadError, retry: () => setAttempt((v) => v + 1) };
 };
 
 const ReolTypeIntroPage = () => {
   const { t, lang } = useQuizT();
   const [prevType, setPrevType] = useState<TypeCode | null>(null);
   const [isGuest, setIsGuest] = useState(false);
+  const { distribution, total, loadError, retry } = useTypeDistribution();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     // ゲスト判定
-    setIsGuest(!localStorage.getItem('reol_user_profile'));
+    setIsGuest(!localStorage.getItem("reol_user_profile"));
     // 前回の診断結果を取得（ゲスト・ログインユーザ共通）
     try {
       // 1. 共通キーから取得
-      const savedResult = localStorage.getItem('reol_type_result');
+      const savedResult = localStorage.getItem("reol_type_result");
       if (savedResult && reolTypes[savedResult as TypeCode]) {
         setPrevType(savedResult as TypeCode);
         return;
       }
       // 2. ログインユーザのプロフィールから取得
-      const savedProfile = localStorage.getItem('reol_user_profile');
+      const savedProfile = localStorage.getItem("reol_user_profile");
       if (savedProfile) {
         const profile = JSON.parse(savedProfile);
         if (profile.reol_type && reolTypes[profile.reol_type as TypeCode]) {
@@ -190,16 +86,18 @@ const ReolTypeIntroPage = () => {
         }
       }
       // 3. 回答データから再計算
-      const stored = localStorage.getItem('reol_type_answers');
+      const stored = localStorage.getItem("reol_type_answers");
       if (stored) {
         const answers = JSON.parse(stored);
         if (Object.keys(answers).length >= 20) {
-          const { getResult } = require('../../../data/reol-type/scoring');
+          const { getResult } = require("../../../data/reol-type/scoring");
           const r = getResult(answers);
           setPrevType(r.typeCode);
         }
       }
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   const handleStart = () => {
@@ -210,131 +108,104 @@ const ReolTypeIntroPage = () => {
   };
 
   const prevTypeInfo = prevType ? getQuizType(prevType, lang) : null;
+  const axes = [
+    { name: t("reolType.axisLiveStyle"), sub: t("reolType.axisLiveStyleSub") },
+    { name: t("reolType.axisMusicTaste"), sub: t("reolType.axisMusicTasteSub") },
+    { name: t("reolType.axisFanActivity"), sub: t("reolType.axisFanActivitySub") },
+    { name: t("reolType.axisObsession"), sub: t("reolType.axisObsessionSub") },
+  ];
+  // 並列の区切り(日本語・中国語は全角コロン)
+  const colon = lang === "en" || lang === "ko" ? ": " : "：";
 
   return (
-    <div className="min-h-svh flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-b from-[#0a0a1a] via-[#111133] to-[#0a0a1a] text-white font-sans">
-      {/* 装飾パーティクル */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-purple-400 rounded-full opacity-30 animate-pulse" />
-        <div className="absolute top-40 right-16 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-32 left-20 w-1 h-1 bg-pink-400 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-60 right-8 w-1.5 h-1.5 bg-teal-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }} />
-      </div>
+    <main className={MAIN}>
+      <header className="mb-6">
+        <Kicker color="text-bx-blue" className="mb-2">
+          FAN TYPE QUIZ
+        </Kicker>
+        <h1 className="mb-2 text-2xl font-bold tracking-tight text-bx-ink sm:text-3xl">
+          {joinLines(t("reolType.title"), lang)}
+        </h1>
+        <p className="text-sm leading-relaxed text-bx-ink2">{joinLines(t("reolType.description"), lang)}</p>
+      </header>
 
-      <div className="relative z-10 max-w-md w-full text-center space-y-6">
-        {/* タイトル */}
-        <div className="space-y-2">
-          <p className="text-sm tracking-[0.3em] text-gray-400 uppercase">{t('reolType.headerSub')}</p>
-          <h1 className="text-3xl font-bold tracking-wider bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent" dangerouslySetInnerHTML={{ __html: t('reolType.title').replace(/\n/g, '<br />') }} />
-        </div>
-
-        {/* 4軸の紹介 */}
-        <div className="grid grid-cols-2 gap-3 text-sm">
-          <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
-            <div className="text-lg mb-1">🔥 ⇄ 🌊</div>
-            <div className="text-gray-300">{t('reolType.axisLiveStyle')}</div>
-            <div className="text-xs text-gray-500 mt-0.5">{t('reolType.axisLiveStyleSub')}</div>
-          </div>
-          <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
-            <div className="text-lg mb-1">🎸 ⇄ 🎹</div>
-            <div className="text-gray-300">{t('reolType.axisMusicTaste')}</div>
-            <div className="text-xs text-gray-500 mt-0.5">{t('reolType.axisMusicTasteSub')}</div>
-          </div>
-          <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
-            <div className="text-lg mb-1">📢 ⇄ 🎧</div>
-            <div className="text-gray-300">{t('reolType.axisFanActivity')}</div>
-            <div className="text-xs text-gray-500 mt-0.5">{t('reolType.axisFanActivitySub')}</div>
-          </div>
-          <div className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10">
-            <div className="text-lg mb-1">🔍 ⇄ 💫</div>
-            <div className="text-gray-300">{t('reolType.axisObsession')}</div>
-            <div className="text-xs text-gray-500 mt-0.5">{t('reolType.axisObsessionSub')}</div>
-          </div>
-        </div>
-
-        {/* 説明 */}
-        <p className="text-sm text-gray-400 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('reolType.description').replace(/\n/g, '<br />') }} />
-
-        {/* 開始ボタン */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <button
+          type="button"
           onClick={handleStart}
-          className="w-full py-4 rounded-xl font-bold text-lg tracking-wider bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 active:from-purple-700 active:to-blue-700 transition-all duration-200 shadow-lg shadow-purple-900/30"
+          className="w-full rounded-lg bg-bx-yellow px-8 py-3.5 text-[15px] font-extrabold tracking-[0.04em] text-bx-bg transition-opacity hover:opacity-90 sm:w-auto"
         >
-          {t('reolType.startButton')}
+          {t("reolType.startButton")}
         </button>
-
-        <p className="text-xs text-gray-600">
-          {t('reolType.duration')}
-        </p>
-
-        {/* ログイン誘導（未ログインユーザー向け） */}
-        {isGuest && (
-          <div className="bg-white/5 rounded-lg px-4 py-3 border border-white/10 text-left">
-            <div className="flex items-start gap-2">
-              <span className="text-sm mt-0.5">💡</span>
-              <div>
-                <p className="text-xs text-gray-400 leading-relaxed">{t('reolType.loginHint')}</p>
-                <a
-                  href="/bijigaku-navi/"
-                  className="inline-flex items-center gap-1 mt-1.5 text-xs text-purple-400 hover:text-purple-300 transition-colors"
-                >
-                  <span>→</span>
-                  <span>{t('reolType.goToNavi')}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* 前回の診断結果 */}
-        {prevTypeInfo && (
-          <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-            <p className="text-xs text-gray-500 mb-2">{t('reolType.previousResult')}</p>
-            <Link
-              to={`/quiz/reol-type/types/${prevType!.toLowerCase()}/`}
-              className="flex items-center justify-center gap-3 hover:bg-white/5 rounded-lg p-2 -m-1 transition-colors"
-            >
-              <span className="text-3xl">{prevTypeInfo.emoji}</span>
-              <div className="text-left">
-                <div className="font-bold text-white">{prevTypeInfo.name}</div>
-                <div className="text-xs" style={{ color: prevTypeInfo.color }}>♪ {prevTypeInfo.songLabel}</div>
-              </div>
-            </Link>
-            <Link
-              to="/quiz/reol-type/result/"
-              className="block mt-2 text-xs text-purple-400 hover:text-purple-300 transition-colors"
-            >
-              {t('reolType.viewDetailedResult')}
-            </Link>
-          </div>
-        )}
-
-        {/* 全タイプ一覧 */}
-        <div className="mt-6 pt-6 border-t border-white/10">
-          <p className="text-xs text-gray-500 mb-3">{t('reolType.viewAllTypes')}</p>
-          <div className="grid grid-cols-4 gap-2">
-            {Object.values(reolTypes).map((rt) => {
-              const localRt = getQuizType(rt.code, lang);
-              return (
-                <Link
-                  key={rt.code}
-                  to={`/quiz/reol-type/types/${rt.code.toLowerCase()}/`}
-                  className="text-center p-2 rounded-lg text-xs bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/20 transition-colors"
-                >
-                  <div className="text-lg">{rt.emoji}</div>
-                  <div className="text-gray-400 mt-0.5 truncate">{localRt.name}</div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* タイプ分布マトリクス */}
-        <div className="mt-6 pt-6 border-t border-white/10">
-          <TypeDistributionMatrix lang={lang} />
-        </div>
+        <p className="text-xs text-bx-ink3">{t("reolType.duration")}</p>
       </div>
-    </div>
+
+      {/* 前回の診断結果 */}
+      {prevTypeInfo && (
+        <section className="mt-10" aria-labelledby="reol-type-prev">
+          <SectionHeading id="reol-type-prev">{t("reolType.previousResult")}</SectionHeading>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8">
+            <LinkRow
+              to={`/quiz/reol-type/types/${prevType!.toLowerCase()}/`}
+              title={prevTypeInfo.name}
+              desc={prevTypeInfo.songLabel}
+            />
+            <LinkRow to="/quiz/reol-type/result/" title={t("reolType.viewDetailedResult")} />
+          </ul>
+        </section>
+      )}
+
+      {/* 4軸の紹介 */}
+      <section className="mt-10" aria-labelledby="reol-type-axes">
+        <SectionHeading id="reol-type-axes">{t("reolType.axesHeading")}</SectionHeading>
+        <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8">
+          {axes.map((axis) => (
+            <div key={axis.name} className="flex items-baseline justify-between gap-3 border-b border-bx-line py-3">
+              <dt className="text-[15px] font-bold text-bx-ink">{axis.name}</dt>
+              <dd className="text-right text-[12px] text-bx-ink3">{axis.sub}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* 全タイプ一覧(読めた時は、診断済みの人の中での割合も出す) */}
+      <section className="mt-10" aria-labelledby="reol-type-all">
+        <SectionHeading id="reol-type-all">{t("reolType.allTypes")}</SectionHeading>
+        {total > 0 && (
+          <p className="pt-2 text-[12px] leading-relaxed text-bx-ink3">
+            {t("reolType.distributionTitle")}
+            {colon}
+            {t("reolType.distributionSub", { count: total })}
+          </p>
+        )}
+        {loadError && (
+          <p role="alert" className="pt-2 text-[12px] leading-relaxed text-bx-ink3">
+            {t("reolType.distributionError")}{" "}
+            <button
+              type="button"
+              onClick={retry}
+              className="font-bold text-bx-ink2 underline underline-offset-2 transition-colors hover:text-bx-ink"
+            >
+              {t("reolType.retry")}
+            </button>
+          </p>
+        )}
+        <TypeList current={prevType} distribution={distribution} total={total} />
+      </section>
+
+      {/* ログイン誘導（未ログインユーザー向け） */}
+      {isGuest && (
+        <p className="mt-10 text-[12px] leading-relaxed text-bx-ink3">
+          {t("reolType.loginHint")}{" "}
+          <a
+            href="/bijigaku-navi/"
+            className="font-bold text-bx-ink2 underline underline-offset-2 transition-colors hover:text-bx-ink"
+          >
+            {t("reolType.goToNavi")}
+          </a>
+        </p>
+      )}
+    </main>
   );
 };
 

@@ -1,7 +1,6 @@
 // Reolファンタイプ診断 — 16タイプ別OG画像(1200x630)のビルド時生成スクリプト
 //
-// - node-canvas のカラー絵文字描画は不安定なため、絵文字グリフには依存せず
-//   タイプカラー×タイポグラフィのみで構成する
+// - 見た目はサイトの OGP 画像(generate-page-og.ts)と同じモチーフ。絵文字は描かない
 // - 日本語フォントは macOS のシステムフォント (Hiragino Sans) を前提とする
 // - gatsby-node.ts の sourceNodes から呼ばれるほか、単体実行も可能:
 //   npx ts-node --compiler-options '{"module":"commonjs"}' scripts/generate-reol-type-og.ts
@@ -19,43 +18,24 @@ const MARGIN_X = 96;
 const fontJp = (size: number, weight = "400") =>
   `${weight} ${size}px "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif`;
 
-const hexToRgb = (hex: string) => ({
-  r: parseInt(hex.slice(1, 3), 16),
-  g: parseInt(hex.slice(3, 5), 16),
-  b: parseInt(hex.slice(5, 7), 16),
-});
-
-// 暗色背景上でも読めるよう、タイプカラーを一定の輝度まで白寄りに補正する
-const lightenForText = (hex: string): string => {
-  let { r, g, b } = hexToRgb(hex);
-  for (let i = 0; i < 50; i++) {
-    // YIQ輝度 (0-255) が閾値を超えたら十分読める
-    if ((r * 299 + g * 587 + b * 114) / 1000 >= 170) break;
-    r = Math.min(255, Math.round(r + (255 - r) * 0.18));
-    g = Math.min(255, Math.round(g + (255 - g) * 0.18));
-    b = Math.min(255, Math.round(b + (255 - b) * 0.18));
-  }
-  return `rgb(${r}, ${g}, ${b})`;
-};
+// B案の bx トークンと同値(tailwind.config.js 参照)
+const BX_BG = "#0b0b10";
+const BX_YELLOW = "#e2bf57";
 
 // 1枚分のOG画像PNGバッファを描画する
 const drawOgImage = (typeInfo: ReolType): Buffer => {
   const canvas = createCanvas(WIDTH, HEIGHT);
   const ctx = canvas.getContext("2d");
-  const { r, g, b } = hexToRgb(typeInfo.color);
 
-  // === 背景: タイプカラーを基調にした暗色グラデーション ===
-  // サイト側 (getTypeBgStyle) より少し係数を強め、サムネイルでもタイプ差が出るようにする
-  const darkFrom = `rgb(${Math.round(r * 0.1 + 8)}, ${Math.round(g * 0.1 + 8)}, ${Math.round(b * 0.1 + 12)})`;
-  const darkVia = `rgb(${Math.round(r * 0.3 + 12)}, ${Math.round(g * 0.3 + 12)}, ${Math.round(b * 0.3 + 18)})`;
-  const bg = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  bg.addColorStop(0, darkFrom);
-  bg.addColorStop(0.5, darkVia);
-  bg.addColorStop(1, darkFrom);
-  ctx.fillStyle = bg;
+  // === 背景: サイト既定OG・曲OG・公演OGと同じモチーフ(bx-bg + 上部ブルーグロー + 横罫) ===
+  // タイプの色は左端の帯にだけ使う(plan/75)
+  ctx.fillStyle = BX_BG;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // 装飾の水平ライン (シェアカードと同モチーフ)
+  const glow = ctx.createRadialGradient(WIDTH / 2, -80, 0, WIDTH / 2, -80, 620);
+  glow.addColorStop(0, "rgba(39, 72, 155, 0.45)");
+  glow.addColorStop(1, "rgba(39, 72, 155, 0)");
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
   ctx.lineWidth = 1;
   for (let i = 1; i < 7; i++) {
@@ -65,18 +45,10 @@ const drawOgImage = (typeInfo: ReolType): Buffer => {
     ctx.stroke();
   }
 
-  // 右上のカラーアクセント (放射グラデーション)
-  const accent = ctx.createRadialGradient(WIDTH * 0.82, HEIGHT * 0.22, 0, WIDTH * 0.82, HEIGHT * 0.22, 460);
-  accent.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.35)`);
-  accent.addColorStop(1, "rgba(0, 0, 0, 0)");
-  ctx.fillStyle = accent;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
   // 左端のタイプカラーバー
   ctx.fillStyle = typeInfo.color;
   ctx.fillRect(0, 0, 14, HEIGHT);
 
-  const textColor = lightenForText(typeInfo.color);
   const maxWidth = WIDTH - MARGIN_X * 2;
   ctx.textAlign = "left";
 
@@ -101,9 +73,9 @@ const drawOgImage = (typeInfo: ReolType): Buffer => {
   ctx.fillText(title, MARGIN_X, 296);
 
   // === 代表曲ラベル ===
-  ctx.fillStyle = textColor;
-  ctx.font = fontJp(42, "600");
-  ctx.fillText(`♪ ${typeInfo.song}`, MARGIN_X, 376);
+  ctx.fillStyle = BX_YELLOW;
+  ctx.font = fontJp(42, "700");
+  ctx.fillText(typeInfo.song, MARGIN_X, 376);
 
   // === 歌詞引用 (1行に収まらない場合は末尾を省略) ===
   let quote = `「${typeInfo.quote}」— ${typeGroups[typeInfo.group].name}`;
