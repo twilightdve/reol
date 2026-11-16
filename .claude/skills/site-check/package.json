@@ -1,0 +1,9 @@
+{
+  "name": "site-check-tools",
+  "private": true,
+  "description": "site-check スキルが使う測定の道具。サイト本体の依存とは分けて、このフォルダの node_modules に入れる",
+  "dependencies": {
+    "axe-core": "4.14.1",
+    "lighthouse": "13.6.0"
+  }
+}

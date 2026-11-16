@@ -1,0 +1,118 @@
+{
+  "origin": "https://reol.twilightea.com",
+  "localPort": 9311,
+  "langs": [
+    "en",
+    "ko",
+    "zh-hant",
+    "zh-hans"
+  ],
+  "viewports": [
+    {
+      "name": "sp",
+      "width": 390,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true
+    },
+    {
+      "name": "pc",
+      "width": 1280,
+      "height": 800
+    }
+  ],
+  "perfPages": [
+    "/",
+    "/en/",
+    "/live/",
+    "/live/toukyou-10/",
+    "/discography/",
+    "/songs/no-title/",
+    "/articles/",
+    "/articles/no-title/",
+    "/articles/shibuya-guide/",
+    "/quiz/reol-type/",
+    "/place/",
+    "/on-this-day/01-07/"
+  ],
+  "perfRuns": {
+    "mobile": 3,
+    "desktop": 1
+  },
+  "samplePages": [
+    "/",
+    "/live/",
+    "/live/toukyou-10/",
+    "/live/unheard/",
+    "/live/guide/",
+    "/discography/",
+    "/songs/no-title/",
+    "/articles/",
+    "/articles/no-title/",
+    "/articles/heimenkyou/",
+    "/articles/shibuya-guide/",
+    "/articles/no-title-budokan-20240817/",
+    "/articles/series/kyoku-wo-yomu/",
+    "/on-this-day/01-07/",
+    "/quiz/reol-type/",
+    "/quiz/reol-type/types/bgqa/",
+    "/quiz/reol-ken/",
+    "/place/",
+    "/letters/",
+    "/letters/write/",
+    "/search/",
+    "/timemachine/",
+    "/features/",
+    "/about/data/",
+    "/privacy/",
+    "/welcome/",
+    "/card/",
+    "/bijigaku-navi/",
+    "/en/",
+    "/en/live/toukyou-10/",
+    "/ko/songs/no-title/",
+    "/zh-hant/",
+    "/zh-hans/quiz/reol-type/",
+    "/404.html",
+    "/live/spain/",
+    "/ko/on-this-day/11-07/",
+    "/zh-hans/songs/gekihaku/",
+    "/en/on-this-day/12-30/"
+  ],
+  "keyboardPages": [
+    "/",
+    "/live/",
+    "/live/toukyou-10/",
+    "/songs/no-title/",
+    "/articles/",
+    "/articles/no-title/",
+    "/quiz/reol-type/",
+    "/place/",
+    "/search/",
+    "/letters/write/"
+  ],
+  "ownBackgroundPages": [
+    "/bijigaku-navi/"
+  ],
+  "ownDesignPages": [
+    "/letters/",
+    "/letters/write/",
+    "/bijigaku-navi/",
+    "/card/"
+  ],
+  "linkCheckPrefix": "/articles/",
+  "linkSkipHosts": [
+    "x.com",
+    "twitter.com",
+    "instagram.com",
+    "open.spotify.com",
+    "t.co"
+  ],
+  "privatePages": [
+    "/quiz/reol-type/types/bgqa/",
+    "/bijigaku-navi/"
+  ],
+  "privateRequestPattern": "/rest/v1/",
+  "settleMs": 2500,
+  "ownDesignDir": "src/components/songArticles/designs"
+}

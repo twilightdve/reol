@@ -22,3 +22,7 @@ master/*.bak*
 .analytics-local/
 # 毎日の自動デプロイの記録(最後にデプロイした版など。plan/47)
 .deploy-local/
+
+# site-check スキルの道具と、測定の生の出力(まとめだけ .claude/skills/site-check/history/ に残す)
+.claude/skills/site-check/node_modules/
+.site-check/
