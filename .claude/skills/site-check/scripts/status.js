@@ -43,3 +43,5 @@ for (const t of ["playwright", "cheerio", "sharp"]) { const pj = path.join(REPO,
 const hist = fs.existsSync(path.join(SKILL, "history")) ? fs.readdirSync(path.join(SKILL, "history")).filter((f) => f.endsWith(".json")).sort() : [];
 console.log(`前回までの記録: ${hist.length ? hist.join(" ") : "無い(今回が最初)"}`);
 console.log(`今回の置き場所: ${path.relative(REPO, runDir)}/`);
+const done = fs.readdirSync(runDir).filter((f) => /^summary\..+\.json$/.test(f));
+if (done.length) console.log(`  → ここにはもう測った結果がある(${done.map((f) => f.split(".")[1]).join("、")})。続きから回すならこのまま。測り直すなら SITE_CHECK_RUN=<日付>-2 のように別の名前を付ける`);

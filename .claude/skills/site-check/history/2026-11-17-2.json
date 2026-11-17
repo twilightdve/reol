@@ -1,0 +1,1339 @@
+{
+ "run": "2026-11-17-2",
+ "meta": {
+  "head": "800528a6e2b",
+  "deployed": "68c4d25cbd6",
+  "builtAt": "2026-11-15T19:26:40.154Z",
+  "tools": {
+   "lighthouse": "13.6.0",
+   "axe-core": "4.14.1",
+   "playwright": "1.61.1"
+  }
+ },
+ "areas": {
+  "perf": {
+   "measuredAt": "2026-11-17T12:06:09.628Z",
+   "origin": "https://reol.twilightea.com",
+   "runs": {
+    "mobile": 3,
+    "desktop": 1
+   },
+   "gaCollect": 0,
+   "mobile": {
+    "/": {
+     "perf": 81,
+     "range": [
+      81,
+      94
+     ],
+     "FCP": 1860,
+     "LCP": 2612,
+     "TBT": 6,
+     "CLS": 0.29,
+     "kb": 777,
+     "req": 46,
+     "a11y": 90,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "要改善",
+      "CLS": "悪い",
+      "TBT": "良"
+     }
+    },
+    "/en/": {
+     "perf": 61,
+     "range": [
+      61,
+      93
+     ],
+     "FCP": 1861,
+     "LCP": 5198,
+     "TBT": 7,
+     "CLS": 0.405,
+     "kb": 748,
+     "req": 44,
+     "a11y": 93,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "悪い",
+      "CLS": "悪い",
+      "TBT": "良"
+     }
+    },
+    "/live/": {
+     "perf": 97,
+     "range": [
+      97,
+      100
+     ],
+     "FCP": 2036,
+     "LCP": 2036,
+     "TBT": 11,
+     "CLS": 0,
+     "kb": 1031,
+     "req": 47,
+     "a11y": 93,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "良",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/live/toukyou-10/": {
+     "perf": 80,
+     "range": [
+      80,
+      84
+     ],
+     "FCP": 1922,
+     "LCP": 4301,
+     "TBT": 2,
+     "CLS": 0.122,
+     "kb": 1247,
+     "req": 96,
+     "a11y": 96,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "悪い",
+      "CLS": "要改善",
+      "TBT": "良"
+     }
+    },
+    "/discography/": {
+     "perf": 83,
+     "range": [
+      83,
+      83
+     ],
+     "FCP": 2017,
+     "LCP": 2017,
+     "TBT": 5,
+     "CLS": 0.29,
+     "kb": 1204,
+     "req": 72,
+     "a11y": 93,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "良",
+      "CLS": "悪い",
+      "TBT": "良"
+     }
+    },
+    "/songs/no-title/": {
+     "perf": 83,
+     "range": [
+      81,
+      85
+     ],
+     "FCP": 1956,
+     "LCP": 4410,
+     "TBT": 5,
+     "CLS": 0.042,
+     "kb": 1465,
+     "req": 75,
+     "a11y": 97,
+     "bp": 58,
+     "seo": 100,
+     "grade": {
+      "LCP": "悪い",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/articles/": {
+     "perf": 87,
+     "range": [
+      82,
+      88
+     ],
+     "FCP": 1205,
+     "LCP": 3969,
+     "TBT": 6,
+     "CLS": 0,
+     "kb": 944,
+     "req": 63,
+     "a11y": 94,
+     "bp": 100,
+     "seo": 100,
+     "grade": {
+      "LCP": "要改善",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/articles/no-title/": {
+     "perf": 82,
+     "range": [
+      82,
+      85
+     ],
+     "FCP": 1244,
+     "LCP": 4926,
+     "TBT": 11,
+     "CLS": 0,
+     "kb": 741,
+     "req": 40,
+     "a11y": 97,
+     "bp": 100,
+     "seo": 100,
+     "grade": {
+      "LCP": "悪い",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/articles/shibuya-guide/": {
+     "perf": 98,
+     "range": [
+      98,
+      98
+     ],
+     "FCP": 1923,
+     "LCP": 1923,
+     "TBT": 3,
+     "CLS": 0,
+     "kb": 972,
+     "req": 42,
+     "a11y": 97,
+     "bp": 100,
+     "seo": 100,
+     "grade": {
+      "LCP": "良",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/quiz/reol-type/": {
+     "perf": 98,
+     "range": [
+      98,
+      98
+     ],
+     "FCP": 1867,
+     "LCP": 1867,
+     "TBT": 15,
+     "CLS": 0,
+     "kb": 640,
+     "req": 35,
+     "a11y": 97,
+     "bp": 100,
+     "seo": 100,
+     "grade": {
+      "LCP": "良",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/place/": {
+     "perf": 76,
+     "range": [
+      76,
+      80
+     ],
+     "FCP": 1213,
+     "LCP": 7074,
+     "TBT": 5,
+     "CLS": 0.002,
+     "kb": 1034,
+     "req": 68,
+     "a11y": 100,
+     "bp": 77,
+     "seo": 100,
+     "grade": {
+      "LCP": "悪い",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    },
+    "/on-this-day/01-07/": {
+     "perf": 98,
+     "range": [
+      98,
+      98
+     ],
+     "FCP": 1895,
+     "LCP": 1895,
+     "TBT": 3,
+     "CLS": 0,
+     "kb": 536,
+     "req": 31,
+     "a11y": 100,
+     "bp": 81,
+     "seo": 100,
+     "grade": {
+      "LCP": "良",
+      "CLS": "良",
+      "TBT": "良"
+     }
+    }
+   },
+   "desktop": {
+    "/": {
+     "perf": 91,
+     "LCP": 539,
+     "TBT": 0,
+     "CLS": 0.191
+    },
+    "/en/": {
+     "perf": 87,
+     "LCP": 822,
+     "TBT": 0,
+     "CLS": 0.242
+    },
+    "/live/": {
+     "perf": 100,
+     "LCP": 396,
+     "TBT": 0,
+     "CLS": 0
+    },
+    "/live/toukyou-10/": {
+     "perf": 99,
+     "LCP": 849,
+     "TBT": 0,
+     "CLS": 0.044
+    },
+    "/discography/": {
+     "perf": 91,
+     "LCP": 418,
+     "TBT": 0,
+     "CLS": 0.191
+    },
+    "/songs/no-title/": {
+     "perf": 99,
+     "LCP": 828,
+     "TBT": 0,
+     "CLS": 0.055
+    },
+    "/articles/": {
+     "perf": 100,
+     "LCP": 802,
+     "TBT": 0,
+     "CLS": 0
+    },
+    "/articles/no-title/": {
+     "perf": 99,
+     "LCP": 932,
+     "TBT": 0,
+     "CLS": 0
+    },
+    "/articles/shibuya-guide/": {
+     "perf": 100,
+     "LCP": 463,
+     "TBT": 0,
+     "CLS": 0
+    },
+    "/quiz/reol-type/": {
+     "perf": 100,
+     "LCP": 438,
+     "TBT": 0,
+     "CLS": 0.023
+    },
+    "/place/": {
+     "perf": 100,
+     "LCP": 299,
+     "TBT": 0,
+     "CLS": 0.001
+    },
+    "/on-this-day/01-07/": {
+     "perf": 100,
+     "LCP": 417,
+     "TBT": 0,
+     "CLS": 0
+    }
+   },
+   "totals": {
+    "pages": 12,
+    "perfMedian": 83,
+    "perfMin": 61,
+    "lcpOver2500": 7,
+    "clsOver01": 4,
+    "tbtOver200": 0,
+    "lcpLazy": 4
+   }
+  },
+  "a11y": {
+   "measuredAt": "2026-11-17T11:52:29.619Z",
+   "screens": 152,
+   "errors": [],
+   "notOk": [],
+   "themes": {
+    "dark": {
+     "screens": 76,
+     "clean": 19,
+     "rules": {
+      "aria-allowed-role": {
+       "impact": "minor",
+       "pages": [
+        "/letters/"
+       ],
+       "nodes": 236
+      },
+      "color-contrast": {
+       "impact": "serious",
+       "pages": [
+        "/bijigaku-navi/",
+        "/letters/",
+        "/letters/write/"
+       ],
+       "nodes": 442
+      },
+      "label-content-name-mismatch": {
+       "impact": "serious",
+       "pages": [
+        "/bijigaku-navi/",
+        "/letters/",
+        "/letters/write/",
+        "/live/"
+       ],
+       "nodes": 110
+      },
+      "landmark-main-is-top-level": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/en/",
+        "/zh-hant/"
+       ],
+       "nodes": 6
+      },
+      "landmark-no-duplicate-main": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/en/",
+        "/zh-hant/"
+       ],
+       "nodes": 6
+      },
+      "landmark-one-main": {
+       "impact": "moderate",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 2
+      },
+      "landmark-unique": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/404.html",
+        "/about/data/",
+        "/articles/",
+        "/articles/heimenkyou/",
+        "/articles/no-title-budokan-20240817/",
+        "/articles/no-title/",
+        "/articles/series/kyoku-wo-yomu/",
+        "/articles/shibuya-guide/",
+        "/card/",
+        "/discography/",
+        "/en/",
+        "/en/live/toukyou-10/",
+        "/en/on-this-day/12-30/",
+        "/features/",
+        "/ko/on-this-day/11-07/",
+        "/ko/songs/no-title/",
+        "/live/",
+        "/live/guide/",
+        "/live/spain/",
+        "/live/toukyou-10/",
+        "/live/unheard/",
+        "/on-this-day/01-07/",
+        "/place/",
+        "/privacy/",
+        "/quiz/reol-ken/",
+        "/quiz/reol-type/",
+        "/quiz/reol-type/types/bgqa/",
+        "/search/",
+        "/songs/no-title/",
+        "/timemachine/",
+        "/welcome/",
+        "/zh-hans/quiz/reol-type/",
+        "/zh-hans/songs/gekihaku/",
+        "/zh-hant/"
+       ],
+       "nodes": 51
+      },
+      "list": {
+       "impact": "serious",
+       "pages": [
+        "/",
+        "/discography/",
+        "/en/",
+        "/live/",
+        "/zh-hant/"
+       ],
+       "nodes": 66
+      },
+      "page-has-heading-one": {
+       "impact": "moderate",
+       "pages": [
+        "/discography/",
+        "/letters/write/",
+        "/live/",
+        "/place/"
+       ],
+       "nodes": 8
+      },
+      "region": {
+       "impact": "moderate",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 40
+      },
+      "select-name": {
+       "impact": "critical",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 4
+      },
+      "target-size": {
+       "impact": "serious",
+       "pages": [
+        "/",
+        "/articles/",
+        "/articles/heimenkyou/",
+        "/articles/no-title-budokan-20240817/",
+        "/articles/no-title/",
+        "/articles/series/kyoku-wo-yomu/",
+        "/articles/shibuya-guide/",
+        "/ko/on-this-day/11-07/",
+        "/letters/",
+        "/place/"
+       ],
+       "nodes": 77
+      }
+     },
+     "incomplete": {
+      "color-contrast": 2008,
+      "label-content-name-mismatch": 376,
+      "frame-tested": 250,
+      "aria-prohibited-attr": 20,
+      "target-size": 1,
+      "frame-title-unique": 146
+     }
+    },
+    "light": {
+     "screens": 76,
+     "clean": 19,
+     "rules": {
+      "aria-allowed-role": {
+       "impact": "minor",
+       "pages": [
+        "/letters/"
+       ],
+       "nodes": 236
+      },
+      "color-contrast": {
+       "impact": "serious",
+       "pages": [
+        "/bijigaku-navi/",
+        "/letters/",
+        "/letters/write/",
+        "/search/"
+       ],
+       "nodes": 444
+      },
+      "label-content-name-mismatch": {
+       "impact": "serious",
+       "pages": [
+        "/bijigaku-navi/",
+        "/letters/",
+        "/letters/write/",
+        "/live/"
+       ],
+       "nodes": 110
+      },
+      "landmark-main-is-top-level": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/en/",
+        "/zh-hant/"
+       ],
+       "nodes": 6
+      },
+      "landmark-no-duplicate-main": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/en/",
+        "/zh-hant/"
+       ],
+       "nodes": 6
+      },
+      "landmark-one-main": {
+       "impact": "moderate",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 2
+      },
+      "landmark-unique": {
+       "impact": "moderate",
+       "pages": [
+        "/",
+        "/404.html",
+        "/about/data/",
+        "/articles/",
+        "/articles/heimenkyou/",
+        "/articles/no-title-budokan-20240817/",
+        "/articles/no-title/",
+        "/articles/series/kyoku-wo-yomu/",
+        "/articles/shibuya-guide/",
+        "/card/",
+        "/discography/",
+        "/en/",
+        "/en/live/toukyou-10/",
+        "/en/on-this-day/12-30/",
+        "/features/",
+        "/ko/on-this-day/11-07/",
+        "/ko/songs/no-title/",
+        "/live/",
+        "/live/guide/",
+        "/live/spain/",
+        "/live/toukyou-10/",
+        "/live/unheard/",
+        "/on-this-day/01-07/",
+        "/place/",
+        "/privacy/",
+        "/quiz/reol-ken/",
+        "/quiz/reol-type/",
+        "/quiz/reol-type/types/bgqa/",
+        "/search/",
+        "/songs/no-title/",
+        "/timemachine/",
+        "/welcome/",
+        "/zh-hans/quiz/reol-type/",
+        "/zh-hans/songs/gekihaku/",
+        "/zh-hant/"
+       ],
+       "nodes": 51
+      },
+      "list": {
+       "impact": "serious",
+       "pages": [
+        "/",
+        "/discography/",
+        "/en/",
+        "/live/",
+        "/zh-hant/"
+       ],
+       "nodes": 66
+      },
+      "page-has-heading-one": {
+       "impact": "moderate",
+       "pages": [
+        "/discography/",
+        "/letters/write/",
+        "/live/",
+        "/place/"
+       ],
+       "nodes": 8
+      },
+      "region": {
+       "impact": "moderate",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 40
+      },
+      "select-name": {
+       "impact": "critical",
+       "pages": [
+        "/bijigaku-navi/"
+       ],
+       "nodes": 4
+      },
+      "target-size": {
+       "impact": "serious",
+       "pages": [
+        "/",
+        "/articles/",
+        "/articles/heimenkyou/",
+        "/articles/no-title-budokan-20240817/",
+        "/articles/no-title/",
+        "/articles/series/kyoku-wo-yomu/",
+        "/articles/shibuya-guide/",
+        "/ko/on-this-day/11-07/",
+        "/letters/",
+        "/place/"
+       ],
+       "nodes": 77
+      }
+     },
+     "incomplete": {
+      "color-contrast": 2008,
+      "label-content-name-mismatch": 376,
+      "frame-tested": 250,
+      "aria-prohibited-attr": 20,
+      "target-size": 1,
+      "frame-title-unique": 146
+     }
+    }
+   },
+   "checks": {
+    "langMismatch": [],
+    "h1Not1": [
+     "/live/(0)",
+     "/discography/(0)",
+     "/place/(0)",
+     "/letters/write/(0)"
+    ],
+    "headingSkips": [],
+    "mainNot1": [
+     "/(2)",
+     "/bijigaku-navi/(0)",
+     "/en/(2)",
+     "/zh-hant/(2)"
+    ],
+    "skipLinkPages": 0,
+    "overflowX": [],
+    "interactiveSp": 2378,
+    "targetLt24Sp": 589,
+    "targetLt44Sp": 1535,
+    "imgs": 242,
+    "imgNoAlt": 0,
+    "imgNoSize": 140,
+    "iframes": 125,
+    "iframeNoTitle": 0,
+    "pageErrors": []
+   },
+   "contrastByHand": [
+    "/bijigaku-navi/"
+   ]
+  },
+  "keyboard": {
+   "measuredAt": "2026-11-17T11:53:23.876Z",
+   "maxTabs": 60,
+   "errors": [],
+   "sp": {
+    "pages": 10,
+    "stops": 500,
+    "noIndicator": 0,
+    "fullyCovered": 18,
+    "partlyCovered": 39,
+    "overlappedByOther": 41,
+    "reachedMainMin": 1,
+    "reachedMainMax": 6,
+    "neverReachedMain": []
+   },
+   "pc": {
+    "pages": 10,
+    "stops": 508,
+    "noIndicator": 0,
+    "fullyCovered": 0,
+    "partlyCovered": 0,
+    "overlappedByOther": 37,
+    "reachedMainMin": 1,
+    "reachedMainMax": 10,
+    "neverReachedMain": []
+   }
+  },
+  "design": {
+   "measuredAt": "2026-11-17T11:56:49.035Z",
+   "theme": "dark",
+   "screens": 76,
+   "errors": [],
+   "notOk": [],
+   "totals": {
+    "sp": {
+     "pages": 33,
+     "textEls": 4894,
+     "fontSizeKinds": 26,
+     "spacingOff4Pct": 21.7,
+     "small": 430,
+     "cards": 30,
+     "nestedCards": 0,
+     "emoji": 34,
+     "symbols": 497,
+     "gradients": 35,
+     "blurs": 66,
+     "glows": 46,
+     "textShadows": 1,
+     "transAll": 171,
+     "transLayout": 0,
+     "offToken": 41
+    },
+    "pc": {
+     "pages": 33,
+     "textEls": 4972,
+     "fontSizeKinds": 22,
+     "spacingOff4Pct": 22.2,
+     "small": 310,
+     "cards": 30,
+     "nestedCards": 0,
+     "emoji": 34,
+     "symbols": 495,
+     "gradients": 35,
+     "blurs": 34,
+     "glows": 46,
+     "textShadows": 1,
+     "transAll": 14,
+     "transLayout": 0,
+     "offToken": 41
+    }
+   },
+   "yellowUse": {
+    "地:押すもの": 152,
+    "文字:押すものでない": 21,
+    "文字:押すもの": 190,
+    "地:押すものでない": 151
+   },
+   "blueUse": {
+    "文字:押すものでない": 31,
+    "文字:押すもの": 115
+   },
+   "pages": {
+    "/": {
+     "own": false,
+     "small": 16,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 26,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/live/": {
+     "own": false,
+     "small": 65,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 63,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/live/toukyou-10/": {
+     "own": false,
+     "small": 8,
+     "cards": 1,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/live/unheard/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 132,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/live/guide/": {
+     "own": false,
+     "small": 6,
+     "cards": 10,
+     "emoji": 25,
+     "symbols": 2,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/discography/": {
+     "own": false,
+     "small": 100,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 98,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/songs/no-title/": {
+     "own": false,
+     "small": 12,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/articles/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 2,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/articles/no-title/": {
+     "own": true,
+     "small": 5,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 2,
+     "glows": 1,
+     "blurs": 2,
+     "offToken": 49
+    },
+    "/articles/heimenkyou/": {
+     "own": true,
+     "small": 5,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 6,
+     "gradients": 9,
+     "glows": 9,
+     "blurs": 2,
+     "offToken": 126
+    },
+    "/articles/shibuya-guide/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 7,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/articles/no-title-budokan-20240817/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 6,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/articles/series/kyoku-wo-yomu/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 2,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/on-this-day/01-07/": {
+     "own": false,
+     "small": 13,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 4,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/quiz/reol-type/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/quiz/reol-type/types/bgqa/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 4,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/quiz/reol-ken/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 2,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/place/": {
+     "own": false,
+     "small": 22,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 18,
+     "gradients": 1,
+     "glows": 46,
+     "blurs": 2,
+     "offToken": 1
+    },
+    "/letters/": {
+     "own": true,
+     "small": 345,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 167,
+     "gradients": 3,
+     "glows": 3,
+     "blurs": 1,
+     "offToken": 698
+    },
+    "/letters/write/": {
+     "own": true,
+     "small": 2,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 31,
+     "gradients": 0,
+     "glows": 0,
+     "blurs": 0,
+     "offToken": 179
+    },
+    "/search/": {
+     "own": false,
+     "small": 5,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/timemachine/": {
+     "own": false,
+     "small": 12,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 4,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/features/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 20,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/about/data/": {
+     "own": false,
+     "small": 6,
+     "cards": 5,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/privacy/": {
+     "own": false,
+     "small": 6,
+     "cards": 9,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/welcome/": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 30,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/card/": {
+     "own": true,
+     "small": 6,
+     "cards": 2,
+     "emoji": 0,
+     "symbols": 2,
+     "gradients": 5,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/bijigaku-navi/": {
+     "own": false,
+     "small": 0,
+     "cards": 3,
+     "emoji": 9,
+     "symbols": 1,
+     "gradients": 3,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 40
+    },
+    "/en/": {
+     "own": false,
+     "small": 13,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 22,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/en/live/toukyou-10/": {
+     "own": false,
+     "small": 7,
+     "cards": 1,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/ko/songs/no-title/": {
+     "own": false,
+     "small": 11,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/zh-hant/": {
+     "own": false,
+     "small": 13,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 22,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/zh-hans/quiz/reol-type/": {
+     "own": false,
+     "small": 5,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/404.html": {
+     "own": false,
+     "small": 6,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 1,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/live/spain/": {
+     "own": false,
+     "small": 8,
+     "cards": 1,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/ko/on-this-day/11-07/": {
+     "own": false,
+     "small": 12,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 4,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/zh-hans/songs/gekihaku/": {
+     "own": false,
+     "small": 12,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 3,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    },
+    "/en/on-this-day/12-30/": {
+     "own": false,
+     "small": 12,
+     "cards": 0,
+     "emoji": 0,
+     "symbols": 4,
+     "gradients": 1,
+     "glows": 0,
+     "blurs": 2,
+     "offToken": 0
+    }
+   },
+   "ownDesignPages": [
+    "/articles/no-title/",
+    "/articles/heimenkyou/",
+    "/letters/",
+    "/letters/write/",
+    "/card/"
+   ],
+   "privatePages": [
+    "/quiz/reol-type/types/bgqa/",
+    "/bijigaku-navi/"
+   ]
+  },
+  "content": {
+   "measuredAt": "2026-11-17T11:45:09.184Z",
+   "htmlFiles": 3680,
+   "sitemapUrls": 2807,
+   "outsideSitemap": 878,
+   "sitemapDead": [
+    "/design-preview/a/",
+    "/design-preview/b-song/",
+    "/design-preview/b-stats/",
+    "/design-preview/b/",
+    "/design-preview/"
+   ],
+   "sitemapNoindex": [],
+   "sitemapRefresh": [],
+   "outsideSitemapOpen": [
+    "/offline-plugin-app-shell-fallback/"
+   ],
+   "canonicalMissing": 0,
+   "canonicalOther": 0,
+   "langPairs": {
+    "ja→ja": 646,
+    "en→en": 539,
+    "ko→ko": 539,
+    "zh-hans→zh-Hans": 539,
+    "zh-hant→zh-Hant": 539
+   },
+   "titleMissing": 0,
+   "descriptionMissing": 0,
+   "descriptionShortJa": 414,
+   "descriptionLongJa": 0,
+   "titleLongJa": 181,
+   "duplicateTitle": {
+    "groups": 0,
+    "pages": 0
+   },
+   "duplicateDescription": {
+    "groups": 15,
+    "pages": 30
+   },
+   "hreflang": {
+    "none": 107,
+    "noXDefault": 0,
+    "broken": 0,
+    "nonReciprocal": 0
+   },
+   "ogImageNone": 0,
+   "ogImageFileMissing": [],
+   "jsonLdNone": 1109,
+   "jsonLdErrors": 0,
+   "article": {
+    "pages": 70,
+    "noAuthor": 70,
+    "noImage": 70,
+    "noPublisher": 70,
+    "noDatePublished": 0,
+    "noDateModified": 66
+   },
+   "h1Not1": 19,
+   "mainNot1": 30,
+   "thinUnder200": 339,
+   "untranslated": {
+    "en": {
+     "pages": 539,
+     "kana20": 3
+    },
+    "ko": {
+     "pages": 539,
+     "kana20": 10
+    },
+    "zh-hant": {
+     "pages": 539,
+     "kana20": 11
+    },
+    "zh-hans": {
+     "pages": 539,
+     "kana20": 11
+    }
+   },
+   "brokenInternal": {
+    "targets": [
+     "/en/songs/drop-pop-candy/",
+     "/en/songs/ooedoranvu/",
+     "/ko/songs/drop-pop-candy/",
+     "/ko/songs/ooedoranvu/",
+     "/songs/drop-pop-candy/",
+     "/songs/ooedoranvu/",
+     "/zh-hans/songs/drop-pop-candy/",
+     "/zh-hans/songs/ooedoranvu/",
+     "/zh-hant/songs/drop-pop-candy/",
+     "/zh-hant/songs/ooedoranvu/"
+    ],
+    "fromPages": 50
+   },
+   "trackedLinks": 0,
+   "blankNoRel": 0,
+   "emptyLinks": 0,
+   "images": {
+    "total": 1928,
+    "noAlt": 0,
+    "noSize": 1189
+   },
+   "externalLinks": 2706
+  },
+  "extlinks": {
+   "measuredAt": "2026-11-17T11:45:21.458Z",
+   "checked": 110,
+   "skipped": 48,
+   "ok": 97,
+   "dead": [],
+   "refused": 13,
+   "otherFailed": []
+  }
+ }
+}

@@ -58,6 +58,31 @@ say(`今回測った領域: ${Object.keys(areas).map((a) => NAMES[a]).join("、"
 const notMeasured = AREAS.filter((a) => !areas[a]);
 if (notMeasured.length) say(`今回測っていない領域: ${notMeasured.map((a) => NAMES[a]).join("、")}`);
 
+// 速さは測るたびにぶれるので、項目ごとの増減は並べない。
+// スマホ: 今回の中央値が前回の幅(3 回の最小〜最大)の外に出たページと、LCP・CLS・TBT の判定(良・要改善・悪い)が変わったページだけを出す。
+// PC: 1 回だけなので、点が 5 以上動いたページを参考として出す。
+function perfDiff(P, C) {
+  const rows = [];
+  for (const p of [...new Set([...Object.keys(P.mobile || {}), ...Object.keys(C.mobile || {})])]) {
+    const x = P.mobile?.[p], y = C.mobile?.[p];
+    if (!x || !y) { rows.push(`| ${p} | ${x ? x.perf : "(無い)"} | ${y ? y.perf : "(無い)"} | 測ったページが違う |`); continue; }
+    const [lo, hi] = x.range || [x.perf, x.perf];
+    const notes = [];
+    if (y.perf < lo) notes.push(`点が前回の幅(${lo}〜${hi})より下`);
+    if (y.perf > hi) notes.push(`点が前回の幅(${lo}〜${hi})より上`);
+    for (const k of ["LCP", "CLS", "TBT"]) if (x.grade?.[k] !== y.grade?.[k]) notes.push(`${k} ${x[k]}→${y[k]}(${x.grade?.[k]}→${y.grade?.[k]})`);
+    if (notes.length) rows.push(`| ${p} | ${x.perf}(${lo}〜${hi}) | ${y.perf}(${(y.range || []).join("〜")}) | ${notes.join("、")} |`);
+  }
+  const same = Object.keys(C.mobile || {}).length - rows.length;
+  say("※ 速さは測るたびにぶれる。スマホは、点が前回の幅の外に出たページと、判定が変わったページだけを出す。");
+  say(`スマホ: 前回の幅の中で、判定も同じだったページ ${same}`);
+  if (rows.length) { say(); say("| ページ | 前回(幅) | 今回(幅) | 変わったこと |"); say("|---|---|---|---|"); rows.forEach((r) => say(r)); }
+  const pc = Object.keys(C.desktop || {}).filter((p) => P.desktop?.[p] && Math.abs(C.desktop[p].perf - P.desktop[p].perf) >= 5).map((p) => `${p} ${P.desktop[p].perf}→${C.desktop[p].perf}`);
+  say(`PC(1 回だけ。参考): 点が 5 以上動いたページ ${pc.join("、") || "なし"}`);
+  const t = Object.keys(C.totals || {}).filter((k) => P.totals?.[k] !== C.totals[k]).map((k) => `${k} ${P.totals?.[k]}→${C.totals[k]}`);
+  say(`合計: ${t.join("、") || "前回と同じ"}`);
+}
+
 for (const a of Object.keys(areas)) {
   say();
   say(`## ${NAMES[a]}`);
@@ -65,6 +90,7 @@ for (const a of Object.keys(areas)) {
   say(`比べる相手: ${prev[a].run}(HEAD ${prev[a].meta?.head ?? "?"})`);
   const toolChanged = Object.entries(current.meta.tools).filter(([k, v]) => TOOLS[a].includes(k) && prev[a].meta?.tools && prev[a].meta.tools[k] !== v).map(([k, v]) => `${k} ${prev[a].meta.tools[k]}→${v}`);
   if (toolChanged.length) say(`道具の版が違う(${toolChanged.join("、")})。数の変化は道具のせいかもしれない。`);
+  if (a === "perf") { perfDiff(prev[a].data, areas[a]); continue; }
   const A = flat(prev[a].data), B = flat(areas[a]);
   const rows = [];
   for (const k of [...new Set([...Object.keys(A), ...Object.keys(B)])].sort()) {
@@ -80,7 +106,6 @@ for (const a of Object.keys(areas)) {
     } else rows.push(`| ${k} | ${x === undefined ? "(無い)" : JSON.stringify(x)} | ${y === undefined ? "(無い)" : JSON.stringify(y)} | |`);
   }
   if (!rows.length) { say("前回と同じ。"); continue; }
-  if (a === "perf") say("※ 速さの点は測るたびに数点ぶれる。前回の幅(range)の中なら、変わったとは言えない。");
   say();
   say("| 項目 | 前回 | 今回 | 差 |");
   say("|---|---|---|---|");
