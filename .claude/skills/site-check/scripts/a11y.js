@@ -2,6 +2,7 @@
 // node a11y.js [--pages /,/live/] [--theme dark|light|both]
 // ・axe が見つけられるのは問題の一部(作者の見積もりで 6 割弱)。違反 0 でも合格ではない
 // ・incomplete は「機械では決められない」。人が見る
+// ・例に残すのはセレクタと理由だけ。セレクタの中の長い数字(投稿の番号など)は伏せる
 // ・iframe の中(YouTube・Spotify・地図)は他所のものなので見ない
 // ・背景の誤検出を避けるため、測る間だけ html に本当の地色を入れる(lib.js の BG_FIX)。
 //   自前の背景を持つページ(config.ownBackgroundPages)には入れないので、そこのコントラストは人が見る
@@ -68,7 +69,7 @@ const custom = () => {
           }));
           const slim = (list) => list.map((v) => ({
             id: v.id, impact: v.impact, tags: v.tags.filter((t) => /^wcag\d{3,}|^best/.test(t)), help: v.help, nodes: v.nodes.length,
-            examples: v.nodes.slice(0, 3).map((n) => ({ target: n.target.join(" ").slice(0, 160), summary: (n.failureSummary || "").replace(/\s+/g, " ").slice(0, 240) })),
+            examples: v.nodes.slice(0, 3).map((n) => ({ target: n.target.join(" ").replace(/\d{8,}/g, "…").slice(0, 160), summary: (n.failureSummary || "").replace(/\s+/g, " ").slice(0, 240) })),
           }));
           rec.violations = slim(r.violations);
           rec.incomplete = slim(r.incomplete).map((v) => ({ id: v.id, nodes: v.nodes }));
@@ -130,7 +131,8 @@ const custom = () => {
     targetLt44Sp: sum(sp, (r) => r.targetLt44),
     imgs: sum(sp, (r) => r.imgs), imgNoAlt: sum(sp, (r) => r.imgNoAlt), imgNoSize: sum(sp, (r) => r.imgNoSize),
     iframes: sum(sp, (r) => r.iframes), iframeNoTitle: sum(sp, (r) => r.iframeNoTitle),
-    pageErrors: [...new Set(out.filter((r) => r.pageErrors && r.pageErrors.length).map((r) => `${r.path}: ${r.pageErrors[0]}`))],
+    // エラー文に外の URL(接続先の名前など)が入ることがあるので、まとめには残さない
+    pageErrors: [...new Set(out.filter((r) => r.pageErrors && r.pageErrors.length).map((r) => `${r.path}: ${r.pageErrors[0].replace(/https?:\/\/[^\s"')]+/g, "(URL)").slice(0, 120)}`))],
   };
   console.log(`\n-- 独自チェック(スマホ幅 ${sp.length} ページ) --`);
   console.log("lang の付き方:", JSON.stringify(count(sp, (r) => `${langOf(r.p)}→${r.lang}`)), langBad.length ? `合わない: ${langBad.join(" ")}` : "");

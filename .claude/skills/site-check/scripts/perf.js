@@ -82,7 +82,9 @@ for (const [k, rs] of Object.entries(groups)) {
     for (const r of reqs) {
       const t = r.resourceType || "other"; by[t] = by[t] || { n: 0, kb: 0 }; by[t].n++; by[t].kb += (r.transferSize || 0) / 1024;
       let h = ""; try { h = new URL(r.url).host; } catch (e) {}
-      if (h && h !== new URL(origin).host) third[h] = (third[h] || 0) + (r.transferSize || 0) / 1024;
+      // 接続先の名前(プロジェクトの識別子)は残さない
+      const name = h && h.replace(/^[a-z0-9-]+\.supabase\.co$/, "(Supabase)");
+      if (h && h !== new URL(origin).host) third[name] = (third[name] || 0) + (r.transferSize || 0) / 1024;
     }
     details.push({
       page: pathOf[s] || s, perf: Math.round(rep.categories.performance.score * 100),

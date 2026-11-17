@@ -1,6 +1,8 @@
 // キーボード操作。Tab で順に進み、フォーカスの見え方・固定バーに隠れないか・本文までの回数を見る。
 // node keyboard.js [--pages /,/live/] [--tabs 60]
 // 機械で分かるのは「印が出るか」「隠れるか」まで。順番が筋の通ったものかは人が見る。
+// 「隠れる」は、固定の部品(下部タブ、上へ戻る など)の下か、画面の外にある時だけ数える(WCAG 2.4.11)。
+// それ以外の重なり(地図のピン同士 など)は別に数えて、人が見る。
 const { config, repoRequire, localOrigin, args, pagesArg, requireLocal, newContext, openPage, sum, writeJson, writeSummary } = require("./lib");
 
 const pages = pagesArg(config.keyboardPages);
@@ -37,14 +39,18 @@ const MAX_TABS = Number(args.tabs || 60);
             const changed = el.__before !== undefined && el.__before !== window.__sig(el);
             // フォーカスした要素の中心と角に、別の要素(固定バーなど)が重なっていないか
             const pts = [[r.left + r.width / 2, r.top + r.height / 2], [r.left + 2, r.top + 2], [r.right - 2, r.bottom - 2]];
-            let covered = 0, coverer = null;
+            const pinned = (n) => { for (; n && n !== document.documentElement; n = n.parentElement) { const pos = getComputedStyle(n).position; if (pos === "fixed" || pos === "sticky") return true; } return false; };
+            let covered = 0, other = 0, coverer = null;
             for (const [x, y] of pts) {
               if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) { covered++; coverer = coverer || "画面の外"; continue; }
               const top = document.elementFromPoint(x, y);
-              if (top && !(top === el || el.contains(top) || top.contains(el))) { covered++; coverer = coverer || top.tagName.toLowerCase() + (typeof top.className === "string" && top.className ? "." + top.className.split(" ").slice(0, 2).join(".") : ""); }
+              if (top && !(top === el || el.contains(top) || top.contains(el))) {
+                const name = top.tagName.toLowerCase() + (typeof top.className === "string" && top.className ? "." + top.className.split(" ").slice(0, 2).join(".") : "");
+                if (pinned(top) && !pinned(el)) { covered++; coverer = coverer || name; } else other++;
+              }
             }
             const where = el.closest("header") ? "header" : el.closest("nav") ? "nav" : el.closest("main,[role=main]") ? "main" : el.closest("footer") ? "footer" : "他";
-            return { desc: `${el.tagName.toLowerCase()}(${where})`, inMain: !!el.closest("main,[role=main]"), inIframe: el.tagName === "IFRAME", hasOutline, changed, outline: `${s.outlineStyle} ${s.outlineWidth} ${s.outlineColor}`, coveredPts: covered, coverer };
+            return { desc: `${el.tagName.toLowerCase()}(${where})`, inMain: !!el.closest("main,[role=main]"), inIframe: el.tagName === "IFRAME", hasOutline, changed, outline: `${s.outlineStyle} ${s.outlineWidth} ${s.outlineColor}`, coveredPts: covered, otherPts: other, coverer };
           });
           if (!info) continue;
           if (info.inMain && reachedMainAt === null) reachedMainAt = i;
@@ -57,6 +63,7 @@ const MAX_TABS = Number(args.tabs || 60);
           noIndicator: none.length, noIndicatorExamples: [...new Set(none.map((s) => s.desc))].slice(0, 5),
           fullyCovered: stops.filter((s) => s.coveredPts === 3).length,
           partlyCovered: stops.filter((s) => s.coveredPts > 0 && s.coveredPts < 3).length,
+          overlappedByOther: stops.filter((s) => s.coveredPts === 0 && s.otherPts > 0).length,
           coveredExamples: [...new Set(stops.filter((s) => s.coveredPts > 0).map((s) => `${s.desc} ← ${s.coverer} (${s.coveredPts}/3)`))].slice(0, 5),
           firstStops: stops.slice(0, 6).map((s) => s.desc),
           outlines: [...new Set(stops.map((s) => s.outline))].slice(0, 4),
@@ -64,14 +71,14 @@ const MAX_TABS = Number(args.tabs || 60);
         await page.close();
       } catch (e) { rec.error = String(e).slice(0, 300); }
       out.push(rec);
-      console.log(rec.error ? `${vp.name} ${p} ERR ${rec.error}` : `${vp.name} ${p}  止まった数 ${rec.tabs}  本文まで ${rec.reachedMainAt ?? "届かず"}  印なし ${rec.noIndicator}  全部隠れる ${rec.fullyCovered}  一部隠れる ${rec.partlyCovered}${rec.coveredExamples.length ? "\n    " + rec.coveredExamples.join("\n    ") : ""}`);
+      console.log(rec.error ? `${vp.name} ${p} ERR ${rec.error}` : `${vp.name} ${p}  止まった数 ${rec.tabs}  本文まで ${rec.reachedMainAt ?? "届かず"}  印なし ${rec.noIndicator}  全部隠れる ${rec.fullyCovered}  一部隠れる ${rec.partlyCovered}  ほかの重なり ${rec.overlappedByOther}${rec.coveredExamples.length ? "\n    " + rec.coveredExamples.join("\n    ") : ""}`);
     }
     await ctx.close();
   }
   await browser.close();
   writeJson("keyboard.json", out, true);
   const ok = out.filter((r) => !r.error);
-  const by = (vp) => { const d = ok.filter((r) => r.viewport === vp); const reach = d.map((r) => r.reachedMainAt).filter((n) => n !== null); return { pages: d.length, stops: sum(d, (r) => r.tabs), noIndicator: sum(d, (r) => r.noIndicator), fullyCovered: sum(d, (r) => r.fullyCovered), partlyCovered: sum(d, (r) => r.partlyCovered), reachedMainMin: reach.length ? Math.min(...reach) : null, reachedMainMax: reach.length ? Math.max(...reach) : null, neverReachedMain: d.filter((r) => r.reachedMainAt === null).map((r) => r.path) }; };
+  const by = (vp) => { const d = ok.filter((r) => r.viewport === vp); const reach = d.map((r) => r.reachedMainAt).filter((n) => n !== null); return { pages: d.length, stops: sum(d, (r) => r.tabs), noIndicator: sum(d, (r) => r.noIndicator), fullyCovered: sum(d, (r) => r.fullyCovered), partlyCovered: sum(d, (r) => r.partlyCovered), overlappedByOther: sum(d, (r) => r.overlappedByOther), reachedMainMin: reach.length ? Math.min(...reach) : null, reachedMainMax: reach.length ? Math.max(...reach) : null, neverReachedMain: d.filter((r) => r.reachedMainAt === null).map((r) => r.path) }; };
   const summary = { maxTabs: MAX_TABS, errors: out.filter((r) => r.error).map((r) => `${r.viewport}${r.path}`), ...Object.fromEntries(config.viewports.map((v) => [v.name, by(v.name)])) };
   console.log("\nまとめ:", JSON.stringify(summary, null, 1));
   writeSummary("keyboard", summary);

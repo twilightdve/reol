@@ -31,12 +31,14 @@ const scan = () => {
   const list = () => ({ n: 0, ex: [] });
   const add = (l, text, cap = 8) => { l.n++; if (l.ex.length < cap && !l.ex.includes(text)) l.ex.push(text); };
   const fontSizes = {}, textColors = {}, bgColors = {}, radii = {}, offValues = {};
-  const small = list(), gradients = list(), blurs = list(), glows = list(), textShadows = list(), transAll = list(), transLayout = list(), emoji = list(), offToken = list();
+  const small = list(), gradients = list(), blurs = list(), glows = list(), textShadows = list(), transAll = list(), transLayout = list(), emoji = list(), symbols = list(), offToken = list();
   let textEls = 0, spacingTotal = 0, spacingOff4 = 0;
   const yellowUse = {}, blueUse = {};
   const lineLens = [];
   const cards = [];
-  const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B50}\u{2B06}\u{1F000}-\u{1F2FF}]/u;
+  // 絵文字: 色つきの絵で出る字。記号: ✓ ★ ♪ のような字の形の印(アイコン代わりかどうかは人が見る)
+  const EMOJI = /\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F|[\u{1F000}-\u{1FAFF}]/u;
+  const SYMBOL = /[\u{2190}-\u{21FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/u;
   const BG = rootStyle.getPropertyValue("--bx-bg").trim().split(/\s+/).join(",");
   const YELLOW = rootStyle.getPropertyValue("--bx-yellow").trim().split(/\s+/).join(",");
   const BLUES = ["--bx-blue", "--bx-blue-deep", "--bx-blue-light"].map((v) => rootStyle.getPropertyValue(v).trim().split(/\s+/).join(","));
@@ -68,6 +70,7 @@ const scan = () => {
         if (BLUES.includes(c.key)) inc(blueUse, "文字:" + (el.closest(OPERABLE) ? "押すもの" : "押すものでない"));
       }
       if (EMOJI.test(ownText)) add(emoji, label(el), 8);
+      else if (SYMBOL.test(ownText)) add(symbols, label(el), 8);
       if (el.tagName === "P" && ownText.trim().length > 60) lineLens.push(Math.round(el.getBoundingClientRect().width / parseFloat(s.fontSize)));
     }
     const b = rgbKey(s.backgroundColor);
@@ -93,7 +96,7 @@ const scan = () => {
   }
   lineLens.sort((a, b) => a - b);
   return {
-    textEls, fontSizes, small, textColors, bgColors, offToken, radii, gradients, blurs, glows, textShadows, transAll, transLayout, emoji,
+    textEls, fontSizes, small, textColors, bgColors, offToken, radii, gradients, blurs, glows, textShadows, transAll, transLayout, emoji, symbols,
     spacingTotal, spacingOff4, offValues,
     cards: cards.length, nestedCards: cards.filter((c) => cards.some((o) => o !== c && o.contains(c))).length, cardEx: cards.slice(0, 5).map(label),
     yellowUse, blueUse,
@@ -131,7 +134,7 @@ const scan = () => {
   const ok = out.filter((r) => !r.error);
   const merge = (rows, key) => { const o = {}; for (const r of rows) for (const [k, v] of Object.entries(r[key] || {})) o[k] = (o[k] || 0) + v; return o; };
   const topOf = (o, n = 14) => Object.entries(o).sort((a, b) => b[1] - a[1]).slice(0, n).map(([k, v]) => `${k}:${v}`).join(" ");
-  const NUMS = [["small", "11px 未満の文字"], ["cards", "枠つきの箱"], ["nestedCards", "箱の中の箱"], ["emoji", "絵文字"], ["gradients", "グラデーション"], ["blurs", "ぼかし"], ["glows", "色つきの光"], ["textShadows", "文字の影"], ["transAll", "transition: all"], ["transLayout", "配置を動かす transition"], ["offToken", "トークンに無い文字色"]];
+  const NUMS = [["small", "11px 未満の文字"], ["cards", "枠つきの箱"], ["nestedCards", "箱の中の箱"], ["emoji", "絵文字"], ["symbols", "記号(✓ → など)"], ["gradients", "グラデーション"], ["blurs", "ぼかし"], ["glows", "色つきの光"], ["textShadows", "文字の影"], ["transAll", "transition: all"], ["transLayout", "配置を動かす transition"], ["offToken", "トークンに無い文字色"]];
   const val = (r, k) => (typeof r[k] === "number" ? r[k] : r[k].n);
   const totals = {};
   for (const vp of config.viewports.map((v) => v.name)) {
@@ -168,7 +171,7 @@ const scan = () => {
     notOk: out.filter((r) => r.status && r.status !== 200 && r.path !== "/404.html").map((r) => `${r.path} ${r.status}`),
     totals,
     yellowUse: merge(sp.filter((r) => !r.own), "yellowUse"), blueUse: merge(sp.filter((r) => !r.own), "blueUse"),
-    pages: Object.fromEntries(sp.map((r) => [r.path, { own: r.own, small: r.small.n, cards: r.cards, emoji: r.emoji.n, gradients: r.gradients.n, glows: r.glows.n, blurs: r.blurs.n, offToken: r.offToken.n }])),
+    pages: Object.fromEntries(sp.map((r) => [r.path, { own: r.own, small: r.small.n, cards: r.cards, emoji: r.emoji.n, symbols: r.symbols.n, gradients: r.gradients.n, glows: r.glows.n, blurs: r.blurs.n, offToken: r.offToken.n }])),
     ownDesignPages: sp.filter((r) => r.own).map((r) => r.path),
     privatePages: sp.filter((r) => r.private).map((r) => r.path),
   });
