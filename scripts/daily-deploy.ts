@@ -20,7 +20,8 @@ const PAGEVIEWS_FILE = ".analytics-local/article-pageviews.json";
 const EARLIEST_HOUR = 4; // 日本時間でこの時刻より前は動かない
 const SKIP_NOTICE_HOUR = 21; // この時刻を過ぎても出せていなければ知らせる
 const TIMEOUT_MS = 40 * 60 * 1000;
-const GENERATED_PATHS = ["static/data", "static/relive/generated", "static/og"];
+// ビルドのたびに書き直される物。check-deploy-ready.ts と揃える(ogimage.png が無いと、手でデプロイした後ずっと止まっていた)
+const GENERATED_PATHS = ["static/data", "static/relive/generated", "static/og", "static/ogimage.png"];
 
 const check = process.argv.includes("--check");
 const jst = new Date(Date.now() + 9 * 60 * 60 * 1000);
