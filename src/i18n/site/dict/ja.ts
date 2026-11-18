@@ -175,7 +175,7 @@ const ja = {
     helpDetailAfter: " 詳細」を押すとライヴレポートや開催場所、セトリ、関連ポストなどの情報が表示されます",
     tagEvent: "イベント出演",
     tagOneman: "ワンマンライヴ",
-    // LIVE 一覧の行で、ワンマンの公演を読み上げで伝える言葉(見た目は色の線だけ)
+    // LIVE 一覧の行で、ワンマンの公演を読み上げで伝える言葉(見た目は題名の色だけ)
     onemanBadge: "ワンマン",
     count: (n: number) => `${n}件`,
     unknownYear: "不明",

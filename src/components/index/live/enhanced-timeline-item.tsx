@@ -31,8 +31,8 @@ type Props = {
 const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
   !!id && id.length !== 11;
 
-// ワンマンの印の色。公演ごとの色(シートの themeColorPrimary / Secondary)を使う。
-// 淡い色・暗い色はテーマによって地色に溶けるので、線は地色に対して見えやすい方の色にする。
+// ワンマンの題名の色。公演ごとの色(シートの themeColorPrimary / Secondary)を使う。
+// 文字として読めるように、地色とのコントラストが 4.5 に届くまで黒(ライト)か白(ダーク)へ寄せる。
 const BG_RGB = { light: [250, 249, 247], dark: [11, 11, 16] } as const;
 const luminance = ([r, g, b]: readonly number[]) => {
   const c = [r, g, b].map((v) => {
@@ -51,15 +51,33 @@ const contrast = (a: readonly number[], b: readonly number[]) => {
   const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p);
   return (x + 0.05) / (y + 0.05);
 };
-/** ツアーの色。主の色が地色から見分けられればそれ、溶ける時は 2 色のうち見えやすい方。どちらも溶ける時は null(公式の青にする) */
-const tourBarColor = (live: LiveInfo, theme: "light" | "dark"): string | null => {
+const TEXT_CONTRAST = 4.5;
+const toward = (rgb: readonly number[], to: number, k: number) => rgb.map((v) => Math.round(v + (to - v) * k));
+/** 色を、地色に対して文字として読める濃さまで寄せる */
+const readable = (rgb: readonly number[], theme: "light" | "dark"): number[] => {
   const bg = BG_RGB[theme];
-  const cands = [live.themeColorPrimary, live.themeColorSecondary]
-    .filter((c): c is string => !!c && !!hexToRgb(c))
-    .map((c) => ({ c, r: contrast(hexToRgb(c)!, bg) }));
-  if (cands[0] && cands[0].r >= 1.5) return cands[0].c;
-  const best = cands.sort((a, b) => b.r - a.r)[0];
-  return best && best.r >= 1.5 ? best.c : null;
+  const to = theme === "light" ? 0 : 255;
+  for (let k = 0; k <= 1; k += 0.05) {
+    const c = toward(rgb, to, k);
+    if (contrast(c, bg) >= TEXT_CONTRAST) return c;
+  }
+  return toward(rgb, to, 1);
+};
+/** 鮮やかさ(RGB の最大と最小の差)。ふつうの題名(無彩色)と見分けられるかの目安 */
+const chroma = (rgb: readonly number[]) => Math.max(...rgb) - Math.min(...rgb);
+const MIN_CHROMA = 40;
+/**
+ * 題名の色。主の色を読める濃さに寄せ、まだ鮮やかならそれ。白・黒・灰に近くなる時は 2 色目、
+ * それも近い時は null(公式の青にする)
+ */
+const tourTitleColor = (live: LiveInfo, theme: "light" | "dark"): string | null => {
+  for (const c of [live.themeColorPrimary, live.themeColorSecondary]) {
+    const rgb = c ? hexToRgb(c) : null;
+    if (!rgb) continue;
+    const ink = readable(rgb, theme);
+    if (chroma(ink) >= MIN_CHROMA) return `rgb(${ink[0]} ${ink[1]} ${ink[2]})`;
+  }
+  return null;
 };
 
 // セットカードコンポーネント
@@ -283,11 +301,13 @@ SetCard.displayName = 'SetCard';
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const t = useDict().live;
   const { theme } = useTheme();
-  // ワンマンは左の余白に公演の色の線を引いて見分ける(種類はシートの type 列のまま)。
-  // 見た目の文字の印は付けない(2026-11-19 ユーザー判断)。読み上げにだけ「ワンマン」を伝える
+  // ワンマンは題名を公演の色にして見分ける(種類はシートの type 列のまま)。
+  // 文字の印や線は付けない(2026-11-19 ユーザー判断)。読み上げにだけ「ワンマン」を伝える
   const isOneman = live.type === "oneman";
-  // 色が無い・読めない公演は公式の青にする
-  const onemanColor = isOneman ? tourBarColor(live, theme) : null;
+  // 色が無い・地色に溶ける公演は公式の青にする
+  const onemanColor = isOneman ? tourTitleColor(live, theme) : null;
+  const titleColorClass = isOneman ? (onemanColor ? "" : "text-bx-blue") : "text-bx-ink";
+  const titleStyle = onemanColor ? { color: onemanColor } : undefined;
   const onemanBadge = isOneman && <span className="sr-only">{t.onemanBadge}</span>;
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
@@ -488,14 +508,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   }
 
   return (
-    <div id={`live-${live.slug}`} className={`scroll-mt-24 border-b border-bx-line ${isOneman ? "relative" : ""}`}>
-      {isOneman && (
-        <span
-          aria-hidden="true"
-          className={`absolute -left-3 top-4 bottom-4 w-[3px] rounded-full sm:-left-5 sm:top-5 sm:bottom-5 ${onemanColor ? "" : "bg-bx-blue"}`}
-          style={onemanColor ? { backgroundColor: onemanColor } : undefined}
-        />
-      )}
+    <div id={`live-${live.slug}`} className="scroll-mt-24 border-b border-bx-line">
       <div
         className="group relative w-full cursor-pointer py-4 sm:py-5"
           onClick={handleTitleClick}
@@ -541,7 +554,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                       )}
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-bold leading-tight text-bx-ink transition-colors group-hover:text-bx-blueLight">
+                    <h3 className={`text-sm sm:text-base font-bold leading-tight transition-colors ${titleColorClass} ${isOneman ? "group-hover:opacity-80" : "group-hover:text-bx-blueLight"}`} style={titleStyle}>
                       {live.title}
                     </h3>
                   </div>
@@ -594,7 +607,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                 >
                   <div className="flex items-center gap-1 mb-0">
                     <FaCalendarAlt className="w-4 h-4 flex-shrink-0 text-bx-ink2" />
-                    <h3 className="text-base sm:text-lg font-bold leading-tight text-bx-ink">
+                    <h3 className={`text-base sm:text-lg font-bold leading-tight ${titleColorClass}`} style={titleStyle}>
                       {live.title}
                     </h3>
                   </div>
