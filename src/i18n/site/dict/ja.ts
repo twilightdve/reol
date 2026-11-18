@@ -175,6 +175,8 @@ const ja = {
     helpDetailAfter: " 詳細」を押すとライヴレポートや開催場所、セトリ、関連ポストなどの情報が表示されます",
     tagEvent: "イベント出演",
     tagOneman: "ワンマンライヴ",
+    // LIVE 一覧の行で、ワンマンの公演に付ける短い印
+    onemanBadge: "ワンマン",
     count: (n: number) => `${n}件`,
     unknownYear: "不明",
     setlistCopyTitle: (title: string) => `${title} セットリスト`,

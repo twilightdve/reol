@@ -174,6 +174,7 @@ const zhHant: SiteDict = {
     helpDetailAfter: " 詳細」即可顯示演出報導、舉辦地點、歌單、相關貼文等資訊",
     tagEvent: "活動演出",
     tagOneman: "個人演唱會",
+    onemanBadge: "個人演唱會",
     count: (n: number) => `${n} 筆`,
     unknownYear: "不明",
     setlistCopyTitle: (title: string) => `${title} 歌單`,

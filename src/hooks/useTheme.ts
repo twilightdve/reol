@@ -3,8 +3,8 @@ import { useSyncExternalStore, useCallback } from "react";
 /**
  * サイト全体のライト/ダークテーマ切替。
  *
- * 実体は <html> の `light` クラス有無 (デフォルト = dark、`.light` 付与で明色)。
- * gatsby-ssr.tsx の inline script が初回描画前に localStorage を読んで
+ * 実体は <html> の `light` クラス有無 (`.light` 付与で明色)。既定はライト(2026-11-19 から)。
+ * gatsby-ssr.tsx の inline script が初回描画前に localStorage を読み、"dark" 以外なら `.light` を付けて
  * クラスを確定させるため (FOUC 対策)、ここでは DOM とほぼ同期するだけでよい。
  * 複数コンポーネントから同時に参照されるため、window イベントで同期する。
  */
@@ -14,13 +14,13 @@ const STORAGE_KEY = "reol-theme";
 const THEME_CHANGE_EVENT = "reol-theme-change";
 
 const getSnapshot = (): Theme => {
-  if (typeof document === "undefined") return "dark";
+  if (typeof document === "undefined") return "light";
   return document.documentElement.classList.contains("light")
     ? "light"
     : "dark";
 };
 
-const getServerSnapshot = (): Theme => "dark";
+const getServerSnapshot = (): Theme => "light";
 
 const subscribe = (callback: () => void): (() => void) => {
   window.addEventListener(THEME_CHANGE_EVENT, callback);

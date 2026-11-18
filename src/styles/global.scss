@@ -85,7 +85,7 @@
     B案リデザイン(plan/16) bx-* トークンの実体。RGB channel-triplet で持ち、
     tailwind.config.js 側で `rgb(var(--bx-*) / <alpha-value>)` として参照する
     (`bg-bx-bg/95` 等の opacity 修飾子を機能させるため)。
-    デフォルト(クラス無し)= ダークモード。ライトモードは .light 側で上書きする。
+    クラス無し = ダークモード。ライトモードは .light 側で上書きする(既定はライトで、初回描画前に .light を付ける。gatsby-ssr.tsx)。
   */
   --bx-bg: 11 11 16;
   --bx-ink: 242 240 235;

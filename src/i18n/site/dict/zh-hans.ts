@@ -173,6 +173,7 @@ const zhHans: SiteDict = {
     helpDetailAfter: " 详情」即可显示演出报道、举办地点、歌单、相关帖子等信息",
     tagEvent: "活动演出",
     tagOneman: "个人演唱会",
+    onemanBadge: "个人演唱会",
     count: (n: number) => `${n} 条`,
     unknownYear: "未知",
     setlistCopyTitle: (title: string) => `${title} 歌单`,
