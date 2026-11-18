@@ -174,6 +174,7 @@ const ko: SiteDict = {
     helpDetailAfter: " 상세」를 누르면 라이브 리포트와 개최 장소, 세트리스트, 관련 게시물 등의 정보가 표시됩니다",
     tagEvent: "이벤트 출연",
     tagOneman: "단독 라이브",
+    onemanBadge: "단독 라이브",
     count: (n: number) => `${n}건`,
     unknownYear: "알 수 없음",
     setlistCopyTitle: (title: string) => `${title} 세트리스트`,

@@ -178,6 +178,7 @@ const en: SiteDict = {
     helpDetailAfter: " Details” to see the report, venue, setlist and related posts",
     tagEvent: "Event appearances",
     tagOneman: "Solo shows",
+    onemanBadge: "Solo show",
     count: (n: number) => `${n} ${n === 1 ? "item" : "items"}`,
     unknownYear: "Unknown",
     setlistCopyTitle: (title: string) => `${title} setlist`,

@@ -71,13 +71,13 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
 }) => {
   // 多言語ページ(/en/... 等)は URL の言語を <html lang> にする(plan/28)
   setHtmlAttributes({ lang: HTML_LANG[stripLangPrefix(pathname).lang] });
-  // ライトモード設定 (localStorage) を初回描画前に <html> へ反映する (FOUC 対策)。
+  // テーマを初回描画前に <html> へ反映する (FOUC 対策)。既定はライトで、ダークを選んだ人(localStorage が "dark")だけ外す。
   // useTheme フックの STORAGE_KEY/クラス名と一致させること。
   setPreBodyComponents([
     <script
       key="theme-init"
       dangerouslySetInnerHTML={{
-        __html: `(function(){try{if(localStorage.getItem("reol-theme")==="light"){document.documentElement.classList.add("light");}}catch(e){}})();`,
+        __html: `(function(){try{var t=null;try{t=localStorage.getItem("reol-theme");}catch(e){}if(t!=="dark"){document.documentElement.classList.add("light");}}catch(e){}})();`,
       }}
     />,
   ]);

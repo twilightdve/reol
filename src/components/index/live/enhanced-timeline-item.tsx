@@ -19,6 +19,7 @@ import {
 } from "./enhanced-live";
 import { checkCircleClass } from "../../collection/checkCircle";
 import { ExpandMark } from "../../redesign";
+import { useTheme } from "../../../hooks/useTheme";
 
 type Props = {
   live: LiveInfo;
@@ -29,6 +30,43 @@ type Props = {
 // プレフィックス付きでそれより長いため、長さで判定する。
 const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
   !!id && id.length !== 11;
+
+// ワンマンの印の色。公演ごとの色(シートの themeColorPrimary / Secondary)を使う。
+// 淡い色・暗い色はテーマによって地色に溶けるので、線は地色に対して見えやすい方の色にする。
+const BG_RGB = { light: [250, 249, 247], dark: [11, 11, 16] } as const;
+const luminance = ([r, g, b]: readonly number[]) => {
+  const c = [r, g, b].map((v) => {
+    const x = v / 255;
+    return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+};
+const hexToRgb = (hex: string): number[] | null => {
+  const m = hex.trim().match(/^#?([0-9a-f]{6})$/i);
+  if (!m) return null;
+  const n = parseInt(m[1], 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+};
+const contrast = (a: readonly number[], b: readonly number[]) => {
+  const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p);
+  return (x + 0.05) / (y + 0.05);
+};
+/** ツアーの色。主の色が地色から見分けられればそれ、溶ける時は 2 色のうち見えやすい方。どちらも溶ける時は null(公式の青にする) */
+const tourBarColor = (live: LiveInfo, theme: "light" | "dark"): string | null => {
+  const bg = BG_RGB[theme];
+  const cands = [live.themeColorPrimary, live.themeColorSecondary]
+    .filter((c): c is string => !!c && !!hexToRgb(c))
+    .map((c) => ({ c, r: contrast(hexToRgb(c)!, bg) }));
+  if (cands[0] && cands[0].r >= 1.5) return cands[0].c;
+  const best = cands.sort((a, b) => b.r - a.r)[0];
+  return best && best.r >= 1.5 ? best.c : null;
+};
+/** 印(塗りつぶし)の文字色。塗りの色に対して読みやすい方 */
+const inkOn = (hex: string): string => {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return "#000";
+  return contrast(rgb, [255, 255, 255]) >= contrast(rgb, [0, 0, 0]) ? "#fff" : "#000";
+};
 
 // セットカードコンポーネント
 type SetCardProps = {
@@ -250,6 +288,19 @@ SetCard.displayName = 'SetCard';
 
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const t = useDict().live;
+  const { theme } = useTheme();
+  // ワンマンは左の線と印で目立たせる(種類はシートの type 列のまま)
+  const isOneman = live.type === "oneman";
+  // 色が無い・読めない公演は公式の青にする
+  const onemanColor = isOneman ? tourBarColor(live, theme) : null;
+  const onemanBadge = isOneman && (
+    <span
+      className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none tracking-wide ${onemanColor ? "" : "bg-bx-blue text-white"}`}
+      style={onemanColor ? { backgroundColor: onemanColor, color: inkOn(onemanColor) } : undefined}
+    >
+      {t.onemanBadge}
+    </span>
+  );
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
 
@@ -449,7 +500,14 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   }
 
   return (
-    <div id={`live-${live.slug}`} className="scroll-mt-24 border-b border-bx-line">
+    <div id={`live-${live.slug}`} className={`scroll-mt-24 border-b border-bx-line ${isOneman ? "relative pl-3" : ""}`}>
+      {isOneman && (
+        <span
+          aria-hidden="true"
+          className={`absolute left-0 top-4 bottom-4 w-1 rounded-full sm:top-5 sm:bottom-5 ${onemanColor ? "" : "bg-bx-blue"}`}
+          style={onemanColor ? { backgroundColor: onemanColor } : undefined}
+        />
+      )}
       <div
         className="group relative w-full cursor-pointer py-4 sm:py-5"
           onClick={handleTitleClick}
@@ -479,6 +537,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                       <span className="text-xs font-medium text-bx-ink2">
                         {live.date?.replaceAll("-", "/")}
                       </span>
+                      {onemanBadge}
                       {isOngoingTour && (
                         <span
                           className="text-[10px] font-bold px-1.5 py-0.5 rounded"
@@ -537,6 +596,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   }}
                 >
                   {live.date?.replaceAll("-", "/")}
+                  {onemanBadge && <span className="ml-2">{onemanBadge}</span>}
                 </Timeline.Time>
 
                 <Timeline.Title
