@@ -61,12 +61,6 @@ const tourBarColor = (live: LiveInfo, theme: "light" | "dark"): string | null =>
   const best = cands.sort((a, b) => b.r - a.r)[0];
   return best && best.r >= 1.5 ? best.c : null;
 };
-/** 印(塗りつぶし)の文字色。塗りの色に対して読みやすい方 */
-const inkOn = (hex: string): string => {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return "#000";
-  return contrast(rgb, [255, 255, 255]) >= contrast(rgb, [0, 0, 0]) ? "#fff" : "#000";
-};
 
 // セットカードコンポーネント
 type SetCardProps = {
@@ -289,18 +283,12 @@ SetCard.displayName = 'SetCard';
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const t = useDict().live;
   const { theme } = useTheme();
-  // ワンマンは左の線と印で目立たせる(種類はシートの type 列のまま)
+  // ワンマンは左の余白に公演の色の線を引いて見分ける(種類はシートの type 列のまま)。
+  // 見た目の文字の印は付けない(2026-11-19 ユーザー判断)。読み上げにだけ「ワンマン」を伝える
   const isOneman = live.type === "oneman";
   // 色が無い・読めない公演は公式の青にする
   const onemanColor = isOneman ? tourBarColor(live, theme) : null;
-  const onemanBadge = isOneman && (
-    <span
-      className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none tracking-wide ${onemanColor ? "" : "bg-bx-blue text-white"}`}
-      style={onemanColor ? { backgroundColor: onemanColor, color: inkOn(onemanColor) } : undefined}
-    >
-      {t.onemanBadge}
-    </span>
-  );
+  const onemanBadge = isOneman && <span className="sr-only">{t.onemanBadge}</span>;
   const [isExpand, setIsExpand] = useState(false);
   const [expandedSets, setExpandedSets] = useState<Set<number>>(new Set());
 
@@ -500,11 +488,11 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   }
 
   return (
-    <div id={`live-${live.slug}`} className={`scroll-mt-24 border-b border-bx-line ${isOneman ? "relative pl-3" : ""}`}>
+    <div id={`live-${live.slug}`} className={`scroll-mt-24 border-b border-bx-line ${isOneman ? "relative" : ""}`}>
       {isOneman && (
         <span
           aria-hidden="true"
-          className={`absolute left-0 top-4 bottom-4 w-1 rounded-full sm:top-5 sm:bottom-5 ${onemanColor ? "" : "bg-bx-blue"}`}
+          className={`absolute -left-3 top-4 bottom-4 w-[3px] rounded-full sm:-left-5 sm:top-5 sm:bottom-5 ${onemanColor ? "" : "bg-bx-blue"}`}
           style={onemanColor ? { backgroundColor: onemanColor } : undefined}
         />
       )}
@@ -596,7 +584,7 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
                   }}
                 >
                   {live.date?.replaceAll("-", "/")}
-                  {onemanBadge && <span className="ml-2">{onemanBadge}</span>}
+                  {onemanBadge}
                 </Timeline.Time>
 
                 <Timeline.Title
