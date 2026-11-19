@@ -278,6 +278,31 @@ const en: SiteDict = {
     metaVenue: (place: string) => ` Venue: ${place}.`,
     metaSetlist: (n: number) => ` Full setlist (${n} ${n === 1 ? "song" : "songs"}).`,
   },
+  tour: {
+    kicker: "LIVE",
+    showsCount: (n: number) => `${n} shows`,
+    official: "Official site",
+    datesKicker: "DATES",
+    songCount: (n: number) => `${n} songs`,
+    songsKicker: "SONGS PLAYED",
+    songsLead: (m: number, total: number) =>
+      m === total
+        ? `Counted from the setlists of all ${m} shows.`
+        : `Counted from the ${m} shows with a registered setlist (out of ${total}).`,
+    everyShow: (m: number, total: number) => (m === total ? `Played at all ${m} shows` : `Played at all ${m} shows with a setlist`),
+    someShows: "Played at some shows",
+    playedIn: (n: number, m: number) => `${n}/${m} shows`,
+    oneSetlist: "Only this show has a registered setlist:",
+    noSetlist: "No setlists have been registered yet.",
+    toTour: "Overview",
+    toTourTitle: "Go to the page for this tour / series",
+    metaTitle: (name: string, hasSetlist: boolean) => {
+      const kind = hasSetlist ? "All dates & setlists" : "Show info";
+      return /reol/i.test(name) ? `${name} — ${kind}` : `Reol ${kind} | ${name}`;
+    },
+    metaLead: (name: string, n: number) => `Dates and venues for all ${n} shows of Reol "${name}". `,
+    metaSongs: (m: number, k: number) => `Lists the ${k} songs played across ${m} shows with a setlist.`,
+  },
   stats: {
     title: "Song Stats",
     metaDescription:

@@ -275,6 +275,32 @@ const ja = {
     metaVenue: (place: string) => `会場: ${place}。`,
     metaSetlist: (n: number) => `セットリスト${n}曲を掲載。`,
   },
+  // ツアー・連続公演のページ(/live/tour/<slug>/)。公演が 2 つ以上ある LIVE だけ
+  tour: {
+    kicker: "LIVE",
+    showsCount: (n: number) => `全${n}公演`,
+    official: "公式サイト",
+    datesKicker: "DATES — 公演一覧",
+    songCount: (n: number) => `${n}曲`,
+    songsKicker: "SONGS — 演奏された曲",
+    songsLead: (m: number, total: number) =>
+      m === total
+        ? `${m}公演すべてのセットリストから数えています。`
+        : `セットリストが登録されている${m}公演(全${total}公演のうち)から数えています。`,
+    everyShow: (m: number, total: number) => (m === total ? `全${m}公演で演奏` : `セットリストのある${m}公演すべてで演奏`),
+    someShows: "一部の公演で演奏",
+    playedIn: (n: number, m: number) => `${n}/${m}公演`,
+    oneSetlist: "セットリストが登録されているのは、次の1公演だけです。",
+    noSetlist: "セットリストはまだ登録されていません。",
+    toTour: "まとめ",
+    toTourTitle: "このツアー・連続公演のページへ",
+    metaTitle: (name: string, hasSetlist: boolean) => {
+      const kind = hasSetlist ? "全公演の日程とセットリスト" : "公演情報";
+      return /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
+    },
+    metaLead: (name: string, n: number) => `Reol「${name}」の全${n}公演の日程と会場。`,
+    metaSongs: (m: number, k: number) => `セットリストのある${m}公演で演奏された${k}曲を掲載。`,
+  },
   stats: {
     title: "楽曲統計",
     metaDescription: "Reolの全楽曲のライブ演奏統計。通算演奏回数・初披露日・最終演奏日を一覧できます。",

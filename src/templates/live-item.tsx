@@ -185,7 +185,8 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
           <p className="mt-4 text-[13px] text-bx-ink3">
             {liveTitle !== heading && (
               <LangLink
-                to={`/live/#live-item-${slug}`}
+                // 公演が 2 つ以上ある LIVE にはツアーのページがある(plan/80)。無い時は LIVE 一覧のその公演へ
+                to={siblingItems.length > 0 ? `/live/tour/${liveSlug}/` : `/live/#live-item-${slug}`}
                 className="text-bx-blue hover:text-bx-blueLight underline underline-offset-2"
               >
                 {liveTitle}
@@ -425,7 +426,12 @@ const LiveItemPage: React.FC<PageProps<object, LiveItemPageContext>> = ({
             前に置く。逆順だと関連ポストの後がスクロールで到達されにくいため。 */}
         {siblingItems.length > 0 && (
           <section className="mb-10">
-            <Kicker className="mb-4">OTHER DATES — 『{liveTitle}』</Kicker>
+            <Kicker className="mb-4">
+              OTHER DATES —{" "}
+              <LangLink to={`/live/tour/${liveSlug}/`} className="underline underline-offset-2 transition-colors hover:text-bx-blue">
+                『{liveTitle}』
+              </LangLink>
+            </Kicker>
             <div className="relative pl-6">
               <span
                 aria-hidden

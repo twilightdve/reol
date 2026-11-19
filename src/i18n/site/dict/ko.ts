@@ -273,6 +273,31 @@ const ko: SiteDict = {
     metaVenue: (place: string) => ` 공연장: ${place}.`,
     metaSetlist: (n: number) => ` 세트리스트 ${n}곡 수록.`,
   },
+  tour: {
+    kicker: "LIVE",
+    showsCount: (n: number) => `전 ${n}공연`,
+    official: "공식 사이트",
+    datesKicker: "DATES — 공연 목록",
+    songCount: (n: number) => `${n}곡`,
+    songsKicker: "SONGS — 연주된 곡",
+    songsLead: (m: number, total: number) =>
+      m === total
+        ? `${m}공연 모두의 세트리스트로 집계했습니다.`
+        : `세트리스트가 등록된 ${m}공연(전 ${total}공연 중)으로 집계했습니다.`,
+    everyShow: (m: number, total: number) => (m === total ? `전 ${m}공연에서 연주` : `세트리스트가 있는 ${m}공연 모두에서 연주`),
+    someShows: "일부 공연에서 연주",
+    playedIn: (n: number, m: number) => `${n}/${m}공연`,
+    oneSetlist: "세트리스트가 등록된 공연은 다음 1공연뿐입니다.",
+    noSetlist: "세트리스트가 아직 등록되지 않았습니다.",
+    toTour: "정리",
+    toTourTitle: "이 투어·연속 공연 페이지로",
+    metaTitle: (name: string, hasSetlist: boolean) => {
+      const kind = hasSetlist ? "전 공연 일정과 세트리스트" : "공연 정보";
+      return /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
+    },
+    metaLead: (name: string, n: number) => `Reol 「${name}」 전 ${n}공연의 일정과 공연장. `,
+    metaSongs: (m: number, k: number) => `세트리스트가 있는 ${m}공연에서 연주된 ${k}곡을 실었습니다.`,
+  },
   stats: {
     title: "곡 통계",
     metaDescription: "Reol 전곡의 라이브 공연 통계. 누적 공연 횟수·첫 공연일·최근 공연일을 한눈에 볼 수 있습니다.",

@@ -20,6 +20,7 @@ import {
 import { checkCircleClass } from "../../collection/checkCircle";
 import { ExpandMark } from "../../redesign";
 import { useTheme } from "../../../hooks/useTheme";
+import { tourTitleColor, isOngoing, spoilerStorageKey as toSpoilerKey } from "../../../utils/liveTour";
 
 type Props = {
   live: LiveInfo;
@@ -30,55 +31,6 @@ type Props = {
 // プレフィックス付きでそれより長いため、長さで判定する。
 const isYoutubePlaylistId = (id: string | null | undefined): boolean =>
   !!id && id.length !== 11;
-
-// ワンマンの題名の色。公演ごとの色(シートの themeColorPrimary / Secondary)を使う。
-// 文字として読めるように、地色とのコントラストが 4.5 に届くまで黒(ライト)か白(ダーク)へ寄せる。
-const BG_RGB = { light: [250, 249, 247], dark: [11, 11, 16] } as const;
-const luminance = ([r, g, b]: readonly number[]) => {
-  const c = [r, g, b].map((v) => {
-    const x = v / 255;
-    return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
-  });
-  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
-};
-const hexToRgb = (hex: string): number[] | null => {
-  const m = hex.trim().match(/^#?([0-9a-f]{6})$/i);
-  if (!m) return null;
-  const n = parseInt(m[1], 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-};
-const contrast = (a: readonly number[], b: readonly number[]) => {
-  const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p);
-  return (x + 0.05) / (y + 0.05);
-};
-const TEXT_CONTRAST = 4.5;
-const toward = (rgb: readonly number[], to: number, k: number) => rgb.map((v) => Math.round(v + (to - v) * k));
-/** 色を、地色に対して文字として読める濃さまで寄せる */
-const readable = (rgb: readonly number[], theme: "light" | "dark"): number[] => {
-  const bg = BG_RGB[theme];
-  const to = theme === "light" ? 0 : 255;
-  for (let k = 0; k <= 1; k += 0.05) {
-    const c = toward(rgb, to, k);
-    if (contrast(c, bg) >= TEXT_CONTRAST) return c;
-  }
-  return toward(rgb, to, 1);
-};
-/** 鮮やかさ(RGB の最大と最小の差)。ふつうの題名(無彩色)と見分けられるかの目安 */
-const chroma = (rgb: readonly number[]) => Math.max(...rgb) - Math.min(...rgb);
-const MIN_CHROMA = 40;
-/**
- * 題名の色。主の色を読める濃さに寄せ、まだ鮮やかならそれ。白・黒・灰に近くなる時は 2 色目、
- * それも近い時は null(公式の青にする)
- */
-const tourTitleColor = (live: LiveInfo, theme: "light" | "dark"): string | null => {
-  for (const c of [live.themeColorPrimary, live.themeColorSecondary]) {
-    const rgb = c ? hexToRgb(c) : null;
-    if (!rgb) continue;
-    const ink = readable(rgb, theme);
-    if (chroma(ink) >= MIN_CHROMA) return `rgb(${ink[0]} ${ink[1]} ${ink[2]})`;
-  }
-  return null;
-};
 
 // セットカードコンポーネント
 type SetCardProps = {
@@ -300,12 +252,13 @@ SetCard.displayName = 'SetCard';
 
 const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
   const t = useDict().live;
+  const tTour = useDict().tour;
   const { theme } = useTheme();
   // ワンマンは題名を公演の色にして見分ける(種類はシートの type 列のまま)。
   // 文字の印や線は付けない(2026-11-19 ユーザー判断)。読み上げにだけ「ワンマン」を伝える
   const isOneman = live.type === "oneman";
   // 色が無い・地色に溶ける公演は公式の青にする
-  const onemanColor = isOneman ? tourTitleColor(live, theme) : null;
+  const onemanColor = isOneman ? tourTitleColor(live.themeColorPrimary, live.themeColorSecondary, theme) : null;
   const titleColorClass = isOneman ? (onemanColor ? "" : "text-bx-blue") : "text-bx-ink";
   const titleStyle = onemanColor ? { color: onemanColor } : undefined;
   const onemanBadge = isOneman && <span className="sr-only">{t.onemanBadge}</span>;
@@ -397,33 +350,12 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
 
   // 開催中ツアー判定: 既に開始済み（過去/当日に公演あり）かつ未完了（今日以降にも公演あり）の場合のみ
   // ネタバレ警告対象とする。すべての公演が未来日のみのツアーはネタバレ要素が無いので対象外。
-  const isOngoingTour = React.useMemo(() => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const dates: string[] = [];
-    if (live.date) dates.push(live.date);
-    for (const it of live.items ?? []) {
-      if (it.date) dates.push(it.date);
-    }
-    // 日付文字列は "YYYY-MM-DD" もしくは "YYYY-MM-DD-YYYY-MM-DD" など複数日にまたがる場合あり
-    const pickDates = (s: string): Date[] => {
-      const matches = s.match(/\d{4}-\d{2}-\d{2}/g) ?? [];
-      return matches
-        .map((m) => new Date(m))
-        .filter((d) => !isNaN(d.getTime()));
-    };
-    let hasPastOrToday = false;
-    let hasTodayOrFuture = false;
-    for (const d of dates) {
-      for (const dt of pickDates(d)) {
-        if (dt.getTime() <= today.getTime()) hasPastOrToday = true;
-        if (dt.getTime() >= today.getTime()) hasTodayOrFuture = true;
-      }
-    }
-    return hasPastOrToday && hasTodayOrFuture;
-  }, [live.date, live.items]);
+  const isOngoingTour = React.useMemo(
+    () => isOngoing([live.date, ...(live.items ?? []).map((it) => it.date)]),
+    [live.date, live.items]
+  );
 
-  const spoilerStorageKey = `spoiler-ack-${live.liveUuid}`;
+  const spoilerStorageKey = toSpoilerKey(live.liveUuid);
   const [spoilerAck, setSpoilerAck] = useState(false);
   // 初期マウント時に sessionStorage から同意状態を復元
   useEffect(() => {
@@ -643,6 +575,18 @@ const EnhancedLiveTimelineItem: React.FC<Props> = React.memo(({ live }) => {
               hidden={!isExpand}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* 公演が 2 つ以上ある LIVE は、ツアーのページへ(plan/80)。折りたたみ中も HTML に置く */}
+              {live.items.length >= 2 && (
+                <p className="mb-3 flex justify-end">
+                  <LangLink
+                    to={`/live/tour/${live.slug}/`}
+                    className="inline-flex items-center gap-1 rounded-full border border-bx-yellow px-2.5 py-1 text-xs font-extrabold text-bx-yellow transition-colors hover:bg-bx-yellow hover:text-bx-bg"
+                    title={tTour.toTourTitle}
+                  >
+                    {tTour.toTour}
+                  </LangLink>
+                </p>
+              )}
               {isOngoingTour && !spoilerAck && (
                 <div
                   className="rounded-lg p-4 text-center"

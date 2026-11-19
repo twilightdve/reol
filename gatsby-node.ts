@@ -2509,8 +2509,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
         slug: string;
         title: string;
         name: string;
+        date: string;
+        siteUrl: string | null;
+        themeColorPrimary: string | null;
+        themeColorSecondary: string | null;
         spotifyPlaylistId: string | null;
         youtubeVideoId: string | null;
+        posts: { livePostUuid: string; livePostId: string; livePostHTML: string }[];
         reports: {
           liveReportUuid: string;
           liveReportName: string;
@@ -2553,8 +2558,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
           slug
           title
           name
+          date
+          siteUrl
+          themeColorPrimary
+          themeColorSecondary
           spotifyPlaylistId
           youtubeVideoId
+          posts {
+            livePostUuid
+            livePostId
+            livePostHTML
+          }
           reports {
             liveReportUuid
             liveReportName
@@ -2606,9 +2620,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const statsSlugByName = new Map(
       (liveResult.data?.songStats?.songStats ?? []).map((s) => [s.songName, s.slug])
     );
+    const statsNameBySlug = new Map(
+      (liveResult.data?.songStats?.songStats ?? []).map((s) => [s.slug, s.songName])
+    );
 
     const liveItemTemplate = path.resolve("./src/templates/live-item.tsx");
+    const liveTourTemplate = path.resolve("./src/templates/live-tour.tsx");
     let liveItemPageCount = 0;
+    let liveTourPageCount = 0;
     const liveOgInputs: PageOgInput[] = [];
     liveInfos.forEach((live) => {
       // 同ツアー内の他公演一覧(回遊用)。日付昇順。
@@ -2672,8 +2691,79 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
         liveItemPageCount += 1;
       });
+
+      // ----- ツアー・連続公演のページ(/live/tour/<live.slug>/) -----
+      // 公演が 2 つ以上ある LIVE だけ作る(1 公演だけの LIVE は、公演ページが詳細ページの役をする。plan/80)。
+      // /live/<slug>/ は公演ページが使っていて、LIVE と公演で同じ slug のものがあるので、/live/tour/ の下に置く。
+      if (live.items.length >= 2) {
+        const isSong = (s: { liveItemSongName: string; type: LiveItemSong["type"] | null }) =>
+          !!s.liveItemSongName && s.type !== "segment";
+        const sortedItems = [...live.items].sort((a, b) => a.date.localeCompare(b.date));
+        const withSetlist = sortedItems.filter((it) => it.setList.some(isSong));
+        // 演奏された曲: セットリストのある公演のうち、何公演で演奏されたか(同じ公演で 2 回は 1 と数える)。
+        // 曲ページへの解決は公演ページと同じ(songUuid → 代表曲、無ければ曲名)
+        const tally = new Map<string, { name: string; slug: string | null; count: number; first: number }>();
+        let order = 0;
+        for (const it of withSetlist) {
+          const seen = new Set<string>();
+          for (const s of it.setList.filter(isSong)) {
+            const slug = s.songUuid
+              ? statsSlugByUuid.get(s.songUuid) ?? statsSlugByName.get(s.liveItemSongName) ?? null
+              : null;
+            // 曲ページがある曲は曲ページの名前にする(公演ごとの注記「(途中で中止)」などを、ツアー全体の名前にしない)
+            const name = (slug ? statsNameBySlug.get(slug) : null) ?? s.liveItemSongName.replace(/<br\s*\/?>/gi, " / ").trim();
+            const key = slug ?? name;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            const t = tally.get(key);
+            if (t) t.count += 1;
+            else tally.set(key, { name, slug, count: 1, first: order++ });
+          }
+        }
+        const songs = [...tally.values()]
+          .sort((a, b) => b.count - a.count || a.first - b.first)
+          .map(({ name, slug, count }) => ({ name, slug, count }));
+        const tourItems = sortedItems.map((it) => ({
+          slug: it.slug,
+          date: it.date,
+          liveItemName: it.liveItemName,
+          place: it.place,
+          songCount: it.setList.filter(isSong).length,
+        }));
+        liveOgInputs.push({
+          file: `live-tour/${live.slug}.jpg`,
+          kicker: "LIVE ARCHIVE",
+          title: live.title,
+          lines: [
+            (live.date ?? "").replace(/-/g, "."),
+            `全${live.items.length}公演`,
+            withSetlist.length > 0 ? `演奏された曲 ${songs.length}曲` : "",
+          ].filter(Boolean),
+        });
+        createPageWithLocales({
+          path: `/live/tour/${live.slug}/`,
+          component: liveTourTemplate,
+          context: {
+            liveUuid: live.liveUuid,
+            slug: live.slug,
+            title: live.title,
+            date: live.date,
+            siteUrl: live.siteUrl,
+            themeColorPrimary: live.themeColorPrimary,
+            themeColorSecondary: live.themeColorSecondary,
+            youtubeVideoId: live.youtubeVideoId,
+            spotifyPlaylistId: live.spotifyPlaylistId,
+            items: tourItems,
+            setlistShowCount: withSetlist.length,
+            songs,
+            reports: live.reports,
+            posts: live.posts ?? [],
+          },
+        });
+        liveTourPageCount += 1;
+      }
     });
-    console.log(`[live] generated ${liveItemPageCount} live item pages`);
+    console.log(`[live] generated ${liveItemPageCount} live item pages, ${liveTourPageCount} tour pages`);
     // 公演ごとのOGP画像(plan/27 ステップ5)。public にだけ書き出す(リポジトリには置かない)
     const liveOg = await generatePageOgImages(liveOgInputs);
     console.log(

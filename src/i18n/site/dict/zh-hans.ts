@@ -272,6 +272,31 @@ const zhHans: SiteDict = {
     metaVenue: (place: string) => `会场：${place}。`,
     metaSetlist: (n: number) => `收录 ${n} 首歌单。`,
   },
+  tour: {
+    kicker: "LIVE",
+    showsCount: (n: number) => `共${n}场`,
+    official: "官方网站",
+    datesKicker: "DATES — 场次一览",
+    songCount: (n: number) => `${n}首`,
+    songsKicker: "SONGS — 演出曲目",
+    songsLead: (m: number, total: number) =>
+      m === total
+        ? `依全部${m}场的歌单统计。`
+        : `依已登录歌单的${m}场(共${total}场)统计。`,
+    everyShow: (m: number, total: number) => (m === total ? `全部${m}场都有演出` : `有歌单的${m}场都有演出`),
+    someShows: "部分场次演出",
+    playedIn: (n: number, m: number) => `${n}/${m}场`,
+    oneSetlist: "已登录歌单的只有下列1场。",
+    noSetlist: "尚未登录歌单。",
+    toTour: "总览",
+    toTourTitle: "前往这个巡演/连续公演的页面",
+    metaTitle: (name: string, hasSetlist: boolean) => {
+      const kind = hasSetlist ? "全场次日程与歌单" : "公演信息";
+      return /reol/i.test(name) ? `${name} ${kind}` : `Reol ${kind}｜${name}`;
+    },
+    metaLead: (name: string, n: number) => `Reol「${name}」全${n}场的日程与场地。`,
+    metaSongs: (m: number, k: number) => `收录有歌单的${m}场中演出的${k}首歌。`,
+  },
   stats: {
     title: "歌曲统计",
     metaDescription: "Reol 全部歌曲的现场演出统计，可一览累计演出次数、首次演出日、最近演出日。",
