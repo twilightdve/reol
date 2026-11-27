@@ -45,7 +45,14 @@
     "xfdUrl": "https://youtu.be/Vds8Iz6ZEUc",
     "themeColorPrimary": "#B4B7BF",
     "themeColorSecondary": "#1C261D",
-    "reports": [],
+    "reports": [
+      {
+        "discographyRepoUuid": "019aca28-1234-7abc-8def-000000000001",
+        "discographyUuid": "019f545f-7df0-7f3d-9e1b-c5524f33fe6c",
+        "discographyReportName": "Reol初のラブソング「COCOON」配信リリース・本人コメント（Reol公式）",
+        "discographyReportUrl": "https://reol.jp/news/detail/565"
+      }
+    ],
     "posts": [
       {
         "discographyPostUuid": "019f545f-8324-741e-8f9f-6a0da0720522",
@@ -729,7 +736,14 @@
     "xfdUrl": "https://youtu.be/Slk45QZsn0M",
     "themeColorPrimary": "#1A1A1A",
     "themeColorSecondary": "#E6FF00",
-    "reports": [],
+    "reports": [
+      {
+        "discographyRepoUuid": "019acaaa-1234-7abc-8def-000000000001",
+        "discographyUuid": "019e8e6c-30d9-722e-859b-d287d57c417d",
+        "discographyReportName": "『NTE』リリーステーマソング「Play On! feat. Reol」初披露（ゲーム公式）",
+        "discographyReportUrl": "https://prtimes.jp/main/html/rd/p/000000026.000146166.html"
+      }
+    ],
     "posts": [],
     "songs": [
       {
@@ -2450,6 +2464,12 @@
         "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
         "discographyReportName": "Reolが新作EPリリース、「青の祓魔師 雪ノ果篇」OPテーマや「プロセカ」提供曲セルフカバー収録",
         "discographyReportUrl": "https://natalie.mu/music/news/591203"
+      },
+      {
+        "discographyRepoUuid": "01a21af8-71ec-7c18-92f7-051f29dc3bb8",
+        "discographyUuid": "019e8282-7a8e-76e3-9416-5715945dcf45",
+        "discographyReportName": "秘色録｜最新形と原点で振り返る10年史（rockin'on.com）",
+        "discographyReportUrl": "https://rockinon.com/disc/detail/211389"
       }
     ],
     "posts": [
@@ -3803,6 +3823,12 @@
         "discographyUuid": "019e8282-780c-7488-b7d0-eaaa2772bbe8",
         "discographyReportName": "Reolがアニメーションで描かれ、奇想天外な世界へ",
         "discographyReportUrl": "https://natalie.mu/music/news/567231"
+      },
+      {
+        "discographyRepoUuid": "01a21b75-5bf7-7c5d-9900-0e9ec2e9f120",
+        "discographyUuid": "019e8282-780c-7488-b7d0-eaaa2772bbe8",
+        "discographyReportName": "感情御中 -WANT U LUV IT-｜配信開始・制作コメント（Reol公式）",
+        "discographyReportUrl": "https://reol.jp/news/detail/312"
       }
     ],
     "posts": [],
@@ -4005,6 +4031,12 @@
         "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
         "discographyReportName": "Reol×小田さくら（モーニング娘。'23）が“歌い手”として語り合う",
         "discographyReportUrl": "https://natalie.mu/music/pp/reol08"
+      },
+      {
+        "discographyRepoUuid": "01a21c62-cc8b-7a8a-9227-085868091e61",
+        "discographyUuid": "019e8282-771e-709a-99ca-947827139b18",
+        "discographyReportName": "BLACK BOX｜ROCKIN'ON JAPANインタビュー抜粋",
+        "discographyReportUrl": "https://rockinon.com/news/detail/207478"
       }
     ],
     "posts": [
@@ -4804,6 +4836,12 @@
         "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
         "discographyReportName": "アニメ『るろうに剣心 －明治剣客浪漫譚－』Reolインタビュー",
         "discographyReportUrl": "https://www.animatetimes.com/news/details.php?id=1695363115"
+      },
+      {
+        "discographyRepoUuid": "01a21c98-7917-701a-9376-41a71a9ec737",
+        "discographyUuid": "019e8282-76c0-7c8d-9e1c-94feb2480fbc",
+        "discographyReportName": "切っ先｜『るろうに剣心』エンディングテーマ書き下ろし発表",
+        "discographyReportUrl": "https://reol.jp/news/detail/177"
       }
     ],
     "posts": [

@@ -170,7 +170,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "01a21896-5ca7-7eed-af1c-ae721dda7fa3",
+        "liveUuid": "019f1dd4-db23-741a-a47d-199e67da41ed",
+        "liveReportName": "Manga Barcelona 2026｜Reolのライブ、交流会、12月7日のトーク予定（主催者）",
+        "liveReportUrl": "https://www.manga-barcelona.com/es/invitados.cfm/id/mrsyq0z1vvdvm/reol.htm"
+      }
+    ]
   },
   {
     "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
@@ -224,7 +231,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "019ac9f0-1234-7abc-8def-000000000001",
+        "liveUuid": "019f545f-8666-731a-89e3-417d86337c10",
+        "liveReportName": "「極秘LEGIT #2」大阪公演の会場販売・各種施策案内（Reol公式）",
+        "liveReportUrl": "https://reol.jp/news/detail/601"
+      }
+    ]
   },
   {
     "liveUuid": "01a1afd0-12e0-7914-ad96-9c2725a2f1ec",
@@ -256,7 +270,20 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "01a21c10-1d54-70ee-991d-300340cbdee8",
+        "liveUuid": "01a1afd0-12e0-7914-ad96-9c2725a2f1ec",
+        "liveReportName": "ANIMAX MUSIX 2026 DAY1｜主催者公式イベントレポート",
+        "liveReportUrl": "https://prtimes.jp/main/html/rd/p/000000607.000003633.html"
+      },
+      {
+        "liveReportUuid": "019acab1-1234-7abc-8def-000000000003",
+        "liveUuid": "01a1afd0-12e0-7914-ad96-9c2725a2f1ec",
+        "liveReportName": "ANIMAX MUSIX 2026 Reol公式セットリスト",
+        "liveReportUrl": "https://reol.lnk.to/ANIMAXMUSIX2026"
+      }
+    ]
   },
   {
     "liveUuid": "019e8284-91ae-7ed9-b2fd-9d57a699a55c",
@@ -6573,7 +6600,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "019acab1-1234-7abc-8def-000000000001",
+        "liveUuid": "019e8284-90d7-7b4e-98f3-b4b3e0d08f21",
+        "liveReportName": "COUNTDOWN JAPAN 25/26 Reolライブ写真・公式セットリスト（rockin'on）",
+        "liveReportUrl": "https://rockinon.com/quick/cdj2526/detail/214021"
+      }
+    ]
   },
   {
     "liveUuid": "019e8284-9071-7d43-8734-eed95e90a1bc",
@@ -7664,7 +7698,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "01a21a23-60e5-7b16-a8e9-34f3c26868e7",
+        "liveUuid": "019e8284-8f1f-7d9d-85bb-a47e9600de25",
+        "liveReportName": "NEW HORIZON FEST｜Reol・icyがFZMZのステージに参加（PANORA）",
+        "liveReportUrl": "https://panora.tokyo/archives/113734"
+      }
+    ]
   },
   {
     "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
@@ -7845,6 +7886,12 @@
         "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
         "liveReportName": "須田景凪×Reol×Chevon大阪三つ巴対バン、互いの曲をカバーしラストは「シャルル」でコラボ",
         "liveReportUrl": "https://natalie.mu/music/news/634223"
+      },
+      {
+        "liveReportUuid": "01a21a23-60e6-7556-964b-a3ee24565eb5",
+        "liveUuid": "019e8284-8eb6-7fbd-99fd-83a8b1f63378",
+        "liveReportName": "須田景凪 presents “MINGLE -三面鏡-” セットリスト（公式スマートリンク）",
+        "liveReportUrl": "https://keinasuda.lnk.to/20250726_MINGLE_Chevon_Reol"
       }
     ]
   },
@@ -9589,6 +9636,12 @@
         "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
         "liveReportName": "Reol、100分の濃密パフォーマンスで見せた“新しい幕開け”",
         "liveReportUrl": "https://natalie.mu/music/news/610228"
+      },
+      {
+        "liveReportUuid": "01a21a62-28f9-7d3c-99d5-141de3073f48",
+        "liveUuid": "019e8284-88b1-79fe-846b-112b2ad73457",
+        "liveReportName": "Culture Curriculum香港公演後インタビュー（日本娛樂觀星台）",
+        "liveReportUrl": "https://jpstargazer.com/2025/06/11/reol-interview-jp/"
       }
     ]
   },
@@ -11632,7 +11685,14 @@
         "posts": []
       }
     ],
-    "reports": []
+    "reports": [
+      {
+        "liveReportUuid": "01a21bb5-cddb-71fa-af56-678597cc2847",
+        "liveUuid": "019e8284-825f-70e6-a02e-a13ba8fa9c23",
+        "liveReportName": "Reol ASIA TOUR “UNBOX” TAIPEI｜開催後レポート（RAKUZINE）",
+        "liveReportUrl": "https://rakuzine.com/news/6754"
+      }
+    ]
   },
   {
     "liveUuid": "019e8284-81fd-70ec-b1ce-109ea8bc6939",
